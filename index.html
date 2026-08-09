@@ -1,0 +1,152 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>חנות אפליקציות אופליין ל-Windows</title>
+<link rel="icon" type="image/png" href="icon.png">
+<style>
+  :root {
+    --accent: #0067C0; --accent-h: #1A7FD4;
+    --bg: #f5f7fa; --card: #ffffff; --fg: #1f252b; --sub: #6b7680;
+    --line: #e3e7ea; --ok: #1b7f3b; --chip: #eef4fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16191d; --card: #1f2429; --fg: #e8ecef; --sub: #9aa6b0;
+      --line: #2e353c; --chip: #24303c;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  header.top { display: flex; align-items: center; gap: 16px; padding: 18px 0 6px; }
+  header.top img { width: 56px; height: 56px; }
+  h1 { font-size: 1.7rem; }
+  .tagline { color: var(--sub); }
+  .editme { color: var(--sub); font-size: .9rem; margin: 10px 0 0; }
+
+  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 22px 0 6px; }
+  .filters button {
+    border: 1px solid var(--line); background: var(--card); color: var(--fg);
+    padding: 7px 18px; border-radius: 20px; font-size: .95rem; cursor: pointer;
+  }
+  .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .hint { color: var(--sub); font-size: .85rem; margin-inline-start: 6px; }
+
+  h2.group { font-size: 1.15rem; margin: 30px 0 4px; }
+  .groupnote { color: var(--sub); font-size: .9rem; margin-bottom: 12px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .card .name { font-weight: 600; }
+  .card .en { color: var(--sub); font-size: .8rem; }
+  .file { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .meta { color: var(--sub); font-size: .82rem; }
+  .btn {
+    background: var(--accent); color: #fff; border: 0; border-radius: 6px;
+    padding: 6px 14px; font-size: .88rem; cursor: pointer; text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--accent-h); }
+  .btn.soon { background: var(--chip); color: var(--sub); cursor: default; }
+  .tag {
+    display: inline-block; background: var(--chip); color: var(--sub);
+    border-radius: 4px; padding: 1px 8px; font-size: .75rem;
+  }
+
+  .tech {
+    margin-top: 40px; border-top: 1px solid var(--line); padding-top: 24px;
+  }
+  .tech .card { max-width: 480px; }
+  footer { margin-top: 48px; color: var(--sub); font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="icon.png" alt="">
+    <div>
+      <h1>חנות אפליקציות אופליין ל-Windows</h1>
+      <div class="tagline">מורידים קובץ אחד, מתקינים בלי אינטרנט ובלי הרשאות מנהל.</div>
+    </div>
+  </header>
+  <p class="editme">[ערכו אותי — פסקת הסבר קצרה: למי זה מיועד ואיך משתמשים]</p>
+
+  <div class="filters">
+    <button data-f="all" class="on">הכל</button>
+    <button data-f="10">Windows 10</button>
+    <button data-f="11">Windows 11</button>
+    <span class="hint">לא בטוחים? Win+R ואז winver</span>
+  </div>
+
+  <h2 class="group">עובדות בלי אינטרנט</h2>
+  <div class="groupnote">מתקינים ומשתמשים — גם במחשב שלא יתחבר לרשת לעולם.</div>
+  <div class="grid" id="grid-main"></div>
+
+  <h2 class="group">דורשות אינטרנט כדי לתפקד</h2>
+  <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה.</div>
+  <div class="grid" id="grid-net"></div>
+
+  <div class="tech">
+    <h2 class="group">לטכנאים</h2>
+    <div class="groupnote">כל החנות בקובץ אחד. [ערכו אותי]</div>
+    <div class="card">
+      <div class="name">החנות המלאה — ISO</div>
+      <div class="meta">קובץ מעל 4GB — נדרש התקן בפורמט NTFS או exFAT (לא FAT32)</div>
+      <div class="file"><span class="meta"></span><span class="btn soon">בקרוב</span></div>
+    </div>
+  </div>
+
+  <footer>[ערכו אותי — קרדיט, יצירת קשר, הבהרה משפטית]</footer>
+</div>
+
+<script>
+const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'ל-Windows 10', '11': 'ל-Windows 11' };
+let FILTER = 'all', DATA = null;
+
+function fileRow(f) {
+  const btn = f.live
+    ? '<a class="btn" href="files/' + f.exe + '">הורדה · ' + f.mb + 'MB</a>'
+    : '<span class="btn soon">בקרוב · ' + f.mb + 'MB</span>';
+  return '<div class="file">' +
+    '<span class="meta" title="build ‎≥ ' + f.minBuild + '">' + WIN_LABEL[f.win] + ' · ' + f.ver + '</span>' +
+    btn + '</div>';
+}
+
+function card(a) {
+  const files = a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+  if (!files.length) return '';
+  return '<div class="card">' +
+    '<div><span class="name">' + a.he + '</span> <span class="en">' + a.en + '</span></div>' +
+    files.map(fileRow).join('') + '</div>';
+}
+
+function render() {
+  if (!DATA) return;
+  document.getElementById('grid-main').innerHTML =
+    DATA.apps.filter(a => !a.net).map(card).join('');
+  document.getElementById('grid-net').innerHTML =
+    DATA.apps.filter(a => a.net).map(card).join('');
+}
+
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  FILTER = b.dataset.f;
+  render();
+});
+
+fetch('site-catalog.json').then(r => r.json()).then(d => { DATA = d; render(); });
+</script>
+</body>
+</html>

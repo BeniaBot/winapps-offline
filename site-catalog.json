@@ -1,0 +1,584 @@
+{
+    "updated":  "2026-08-09",
+    "apps":  [
+                 {
+                     "he":  "פנקס רשימות",
+                     "en":  "Notepad",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Notepad-Win11.exe",
+                                       "mb":  124,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "11.2606.15.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מחשבון",
+                     "en":  "Calculator",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Calculator.exe",
+                                       "mb":  76,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "11.2606.0.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "צייר",
+                     "en":  "Paint",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Paint-Win11.exe",
+                                       "mb":  828,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "11.2605.71.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "כלי החיתוך",
+                     "en":  "SnippingTool",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-SnippingTool-Win10.exe",
+                                       "mb":  19,
+                                       "win":  "10",
+                                       "minBuild":  17763,
+                                       "ver":  "10.2008.3001.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-SnippingTool-Win11.exe",
+                                       "mb":  823,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "11.2602.49.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "תמונות",
+                     "en":  "Photos",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Photos.exe",
+                                       "mb":  1221,
+                                       "win":  "all",
+                                       "minBuild":  19044,
+                                       "ver":  "2026.11060.2004.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "רשמקול",
+                     "en":  "SoundRecorder",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-SoundRecorder-Win10.exe",
+                                       "mb":  21,
+                                       "win":  "10",
+                                       "minBuild":  17134,
+                                       "ver":  "10.2103.28.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-SoundRecorder-Win11.exe",
+                                       "mb":  50,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "11.2606.0.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מצלמה",
+                     "en":  "Camera",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Camera.exe",
+                                       "mb":  57,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "2026.2605.7.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "שעון והתראות",
+                     "en":  "Clock",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Clock.exe",
+                                       "mb":  188,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "11.2606.11.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "פתקים דביקים",
+                     "en":  "StickyNotes",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-StickyNotes.exe",
+                                       "mb":  62,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "6.1.4.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Windows Terminal",
+                     "en":  "Terminal",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Terminal.exe",
+                                       "mb":  36,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "1.24.11911.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "נגן מדיה",
+                     "en":  "MediaPlayer",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-MediaPlayer.exe",
+                                       "mb":  48,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "10.22031.10096.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "סרטים וטלוויזיה",
+                     "en":  "MoviesTV",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-MoviesTV.exe",
+                                       "mb":  57,
+                                       "win":  "all",
+                                       "minBuild":  19042,
+                                       "ver":  "10.26061.10056.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Paint 3D",
+                     "en":  "Paint3D",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Paint3D.exe",
+                                       "mb":  70,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "6.2410.13017.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מציג תלת-ממד",
+                     "en":  "3DViewer",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-3DViewer.exe",
+                                       "mb":  166,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "7.2602.8012.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "סוליטר",
+                     "en":  "Solitaire",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Solitaire.exe",
+                                       "mb":  201,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "4.26.7290.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "סרגל המשחקים",
+                     "en":  "XboxGameBar",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxGameBar.exe",
+                                       "mb":  81,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "7.326.7271.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "שולחן עבודה מרוחק",
+                     "en":  "RemoteDesktop",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-RemoteDesktop.exe",
+                                       "mb":  87,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "10.2.4012.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "To Do",
+                     "en":  "ToDo",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-ToDo.exe",
+                                       "mb":  142,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "2.176.7601.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "אנשים",
+                     "en":  "People",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-People.exe",
+                                       "mb":  43,
+                                       "win":  "all",
+                                       "minBuild":  17134,
+                                       "ver":  "10.2202.100.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "OneNote",
+                     "en":  "OneNote",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-OneNote.exe",
+                                       "mb":  251,
+                                       "win":  "all",
+                                       "minBuild":  15063,
+                                       "ver":  "16001.14326.22594.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מציאות מעורבת",
+                     "en":  "MixedReality",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-MixedReality.exe",
+                                       "mb":  11,
+                                       "win":  "all",
+                                       "minBuild":  17688,
+                                       "ver":  "2000.21051.1282.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מפות",
+                     "en":  "Maps",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Maps.exe",
+                                       "mb":  80,
+                                       "win":  "all",
+                                       "minBuild":  18363,
+                                       "ver":  "11.2506.3.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "מזג אוויר",
+                     "en":  "Weather",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Weather.exe",
+                                       "mb":  92,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "4.54.63045.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "חדשות",
+                     "en":  "News",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-News.exe",
+                                       "mb":  36,
+                                       "win":  "all",
+                                       "minBuild":  15063,
+                                       "ver":  "4.31.12124.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "קבלת עזרה",
+                     "en":  "GetHelp",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-GetHelp-Win10.exe",
+                                       "mb":  384,
+                                       "win":  "10",
+                                       "minBuild":  17763,
+                                       "ver":  "10.2409.41132.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-GetHelp-Win11.exe",
+                                       "mb":  386,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "10.2409.42092.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "רכזת משוב",
+                     "en":  "FeedbackHub",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-FeedbackHub.exe",
+                                       "mb":  102,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "1.2603.26301.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "דואר ולוח שנה",
+                     "en":  "Mail",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Mail.exe",
+                                       "mb":  319,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "16005.14326.22342.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Office",
+                     "en":  "OfficeHub",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-OfficeHub.exe",
+                                       "mb":  286,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "19.2608.34011.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Clipchamp",
+                     "en":  "Clipchamp",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Clipchamp.exe",
+                                       "mb":  165,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "4.5.10920.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "סיוע מהיר",
+                     "en":  "QuickAssist",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-QuickAssist.exe",
+                                       "mb":  29,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "2.0.47.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "קישור לטלפון",
+                     "en":  "PhoneLink",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-PhoneLink.exe",
+                                       "mb":  249,
+                                       "win":  "all",
+                                       "minBuild":  17134,
+                                       "ver":  "1.21062.152.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Xbox",
+                     "en":  "XboxApp",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxApp.exe",
+                                       "mb":  587,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "2608.1001.17.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "חנות Microsoft",
+                     "en":  "Store",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Store.exe",
+                                       "mb":  140,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "22606.1401.13.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Copilot",
+                     "en":  "Copilot",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Copilot.exe",
+                                       "mb":  356,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "1.25121.84.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "משפחה",
+                     "en":  "Family",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Family.exe",
+                                       "mb":  60,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "0.2.40.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "חיפוש Bing",
+                     "en":  "BingSearch",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-BingSearch.exe",
+                                       "mb":  4,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.1.40.0",
+                                       "live":  false
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "ווידג\u0027טים",
+                     "en":  "Widgets",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Widgets-Win11.exe",
+                                       "mb":  192,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "526.17301.80.0",
+                                       "live":  false
+                                   }
+                               ]
+                 }
+             ]
+}
