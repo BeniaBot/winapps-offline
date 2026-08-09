@@ -7,93 +7,171 @@
 <link rel="icon" type="image/png" href="icon.png">
 <style>
   :root {
-    --accent: #0067C0; --accent-h: #1A7FD4;
-    --bg: #f5f7fa; --card: #ffffff; --fg: #1f252b; --sub: #6b7680;
-    --line: #e3e7ea; --ok: #1b7f3b; --chip: #eef4fb;
+    --accent: #0067C0; --accent-2: #008CF0; --accent-h: #1A7FD4;
+    --bg: #f3f6f9; --card: #ffffff; --fg: #16202a; --sub: #66727d;
+    --line: #e2e8ee; --chip: #eef4fb; --hero-fg: #ffffff;
+    --shadow: 0 1px 2px rgba(16,40,64,.06);
+    --shadow-h: 0 10px 24px rgba(16,40,64,.14);
+    --toolbar-bg: rgba(243,246,249,.82);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #16191d; --card: #1f2429; --fg: #e8ecef; --sub: #9aa6b0;
-      --line: #2e353c; --chip: #24303c;
+      --bg: #12161b; --card: #1b2129; --fg: #e8edf2; --sub: #93a0ac;
+      --line: #2a323c; --chip: #232d38;
+      --shadow: 0 1px 2px rgba(0,0,0,.3);
+      --shadow-h: 0 10px 24px rgba(0,0,0,.5);
+      --toolbar-bg: rgba(18,22,27,.82);
     }
   }
   * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg); color: var(--fg);
-    font-family: "Segoe UI", system-ui, sans-serif;
-    line-height: 1.5;
+    font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.55;
   }
-  .wrap { max-width: 1060px; margin: 0 auto; padding: 24px 20px 60px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
 
-  header.top { display: flex; align-items: center; gap: 16px; padding: 18px 0 6px; }
-  header.top img { width: 56px; height: 56px; }
-  h1 { font-size: 1.7rem; }
-  .tagline { color: var(--sub); }
-  .editme { color: var(--sub); font-size: .9rem; margin: 10px 0 0; }
-
-  .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 22px 0 6px; }
-  .filters button {
-    border: 1px solid var(--line); background: var(--card); color: var(--fg);
-    padding: 7px 18px; border-radius: 20px; font-size: .95rem; cursor: pointer;
+  /* ---- hero ---- */
+  .hero {
+    background: linear-gradient(135deg, #005BB8 0%, #0078D4 55%, #00A3E0 100%);
+    color: var(--hero-fg);
+    padding: 44px 0 84px;
   }
-  .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .hint { color: var(--sub); font-size: .85rem; margin-inline-start: 6px; }
+  .hero .wrap { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .hero img { width: 84px; height: 84px; filter: drop-shadow(0 6px 14px rgba(0,30,70,.35)); }
+  .hero h1 { font-size: clamp(1.5rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -.5px; }
+  .hero .tagline { font-size: 1.05rem; opacity: .92; margin-top: 4px; }
+  .stats { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .stat {
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px; padding: 3px 14px; font-size: .85rem; backdrop-filter: blur(4px);
+  }
+  .editme { color: var(--sub); font-size: .88rem; margin: 14px 0 0; }
 
-  h2.group { font-size: 1.15rem; margin: 30px 0 4px; }
-  .groupnote { color: var(--sub); font-size: .9rem; margin-bottom: 12px; }
+  /* ---- toolbar ---- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--toolbar-bg); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    margin-top: -46px;
+  }
+  .toolbar .wrap {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding-top: 12px; padding-bottom: 12px;
+  }
+  .toolbar .card-row {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow-h);
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 14px; width: 100%;
+  }
+  .search {
+    flex: 1 1 220px; display: flex; align-items: center; gap: 8px;
+    background: var(--chip); border-radius: 10px; padding: 7px 12px;
+  }
+  .search svg { width: 16px; height: 16px; opacity: .55; flex: none; }
+  .search input {
+    border: 0; outline: 0; background: transparent; color: var(--fg);
+    font: inherit; width: 100%;
+  }
+  .seg { display: flex; background: var(--chip); border-radius: 10px; padding: 3px; }
+  .seg button {
+    border: 0; background: transparent; color: var(--sub); font: inherit;
+    padding: 5px 16px; border-radius: 8px; cursor: pointer; transition: all .15s;
+  }
+  .seg button.on { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
+  .hint { color: var(--sub); font-size: .82rem; }
+  .count { color: var(--sub); font-size: .85rem; margin-inline-start: auto; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  /* ---- groups & cards ---- */
+  h2.group { font-size: 1.2rem; margin: 34px 0 2px; display: flex; align-items: center; gap: 10px; }
+  h2.group .badge {
+    background: var(--chip); color: var(--sub); font-size: .78rem; font-weight: 600;
+    border-radius: 999px; padding: 1px 11px;
+  }
+  .groupnote { color: var(--sub); font-size: .9rem; margin-bottom: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
   .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+    transition: transform .15s ease, box-shadow .15s ease;
   }
-  .card .name { font-weight: 600; }
-  .card .en { color: var(--sub); font-size: .8rem; }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-h); }
+  .card .head { display: flex; align-items: center; gap: 11px; }
+  .appicon {
+    width: 44px; height: 44px; flex: none; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--chip);
+  }
+  .appicon img { width: 32px; height: 32px; object-fit: contain; }
+  .card .name { font-weight: 600; line-height: 1.25; }
+  .card .en { color: var(--sub); font-size: .78rem; direction: ltr; }
+  .files { display: flex; flex-direction: column; gap: 7px; margin-top: auto; }
   .file { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  .meta { color: var(--sub); font-size: .82rem; }
+  .meta { color: var(--sub); font-size: .8rem; }
   .btn {
-    background: var(--accent); color: #fff; border: 0; border-radius: 6px;
-    padding: 6px 14px; font-size: .88rem; cursor: pointer; text-decoration: none;
-    white-space: nowrap;
+    background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+    padding: 6px 14px; font-size: .86rem; cursor: pointer; text-decoration: none;
+    white-space: nowrap; transition: background .15s;
   }
   .btn:hover { background: var(--accent-h); }
   .btn.soon { background: var(--chip); color: var(--sub); cursor: default; }
-  .tag {
-    display: inline-block; background: var(--chip); color: var(--sub);
-    border-radius: 4px; padding: 1px 8px; font-size: .75rem;
-  }
+  .empty { color: var(--sub); padding: 26px 4px; }
 
-  .tech {
-    margin-top: 40px; border-top: 1px solid var(--line); padding-top: 24px;
+  /* ---- tech ---- */
+  .tech { margin-top: 46px; }
+  .tech .card {
+    max-width: 560px;
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      linear-gradient(135deg, var(--accent-2), var(--accent)) border-box;
+    border: 2px solid transparent;
   }
-  .tech .card { max-width: 480px; }
-  footer { margin-top: 48px; color: var(--sub); font-size: .85rem; }
+  footer { margin: 54px 0 34px; color: var(--sub); font-size: .85rem; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="top">
+<div class="hero">
+  <div class="wrap">
     <img src="icon.png" alt="">
     <div>
       <h1>חנות אפליקציות אופליין ל-Windows</h1>
       <div class="tagline">מורידים קובץ אחד, מתקינים בלי אינטרנט ובלי הרשאות מנהל.</div>
+      <div class="stats" id="stats"></div>
     </div>
-  </header>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="card-row">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="חיפוש אפליקציה...">
+      </div>
+      <div class="seg" id="seg">
+        <button data-f="all" class="on">הכל</button>
+        <button data-f="10">Windows 10</button>
+        <button data-f="11">Windows 11</button>
+      </div>
+      <span class="hint">לא בטוחים? Win+R ואז winver</span>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
   <p class="editme">[ערכו אותי — פסקת הסבר קצרה: למי זה מיועד ואיך משתמשים]</p>
 
-  <div class="filters">
-    <button data-f="all" class="on">הכל</button>
-    <button data-f="10">Windows 10</button>
-    <button data-f="11">Windows 11</button>
-    <span class="hint">לא בטוחים? Win+R ואז winver</span>
-  </div>
-
-  <h2 class="group">עובדות בלי אינטרנט</h2>
+  <h2 class="group">עובדות בלי אינטרנט <span class="badge" id="n-main"></span></h2>
   <div class="groupnote">מתקינים ומשתמשים — גם במחשב שלא יתחבר לרשת לעולם.</div>
   <div class="grid" id="grid-main"></div>
 
-  <h2 class="group">דורשות אינטרנט כדי לתפקד</h2>
+  <h2 class="group">דורשות אינטרנט כדי לתפקד <span class="badge" id="n-net"></span></h2>
   <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה.</div>
   <div class="grid" id="grid-net"></div>
 
@@ -101,8 +179,13 @@
     <h2 class="group">לטכנאים</h2>
     <div class="groupnote">כל החנות בקובץ אחד. [ערכו אותי]</div>
     <div class="card">
-      <div class="name">החנות המלאה — ISO</div>
-      <div class="meta">קובץ מעל 4GB — נדרש התקן בפורמט NTFS או exFAT (לא FAT32)</div>
+      <div class="head">
+        <div class="appicon"><img src="icon.png" alt=""></div>
+        <div>
+          <div class="name">החנות המלאה — ISO</div>
+          <div class="meta">קובץ מעל 4GB — נדרש התקן NTFS או exFAT (לא FAT32)</div>
+        </div>
+      </div>
       <div class="file"><span class="meta"></span><span class="btn soon">בקרוב</span></div>
     </div>
   </div>
@@ -112,7 +195,7 @@
 
 <script>
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'ל-Windows 10', '11': 'ל-Windows 11' };
-let FILTER = 'all', DATA = null;
+let FILTER = 'all', QUERY = '', DATA = null;
 
 function fileRow(f) {
   const btn = f.live
@@ -126,27 +209,48 @@ function fileRow(f) {
 function card(a) {
   const files = a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
   if (!files.length) return '';
+  if (QUERY && !(a.he + ' ' + a.en).toLowerCase().includes(QUERY)) return '';
+  const chip = a.color ? ' style="background:' + a.color + '1a"' : '';
+  const img = a.icon ? '<img src="' + a.icon + '" alt="" loading="lazy">' : '';
   return '<div class="card">' +
-    '<div><span class="name">' + a.he + '</span> <span class="en">' + a.en + '</span></div>' +
-    files.map(fileRow).join('') + '</div>';
+    '<div class="head">' +
+      '<div class="appicon"' + chip + '>' + img + '</div>' +
+      '<div><div class="name">' + a.he + '</div><div class="en">' + a.en + '</div></div>' +
+    '</div>' +
+    '<div class="files">' + files.map(fileRow).join('') + '</div></div>';
 }
 
 function render() {
   if (!DATA) return;
-  document.getElementById('grid-main').innerHTML =
-    DATA.apps.filter(a => !a.net).map(card).join('');
-  document.getElementById('grid-net').innerHTML =
-    DATA.apps.filter(a => a.net).map(card).join('');
+  const main = DATA.apps.filter(a => !a.net).map(card).filter(Boolean);
+  const net  = DATA.apps.filter(a =>  a.net).map(card).filter(Boolean);
+  document.getElementById('grid-main').innerHTML = main.join('') || '<div class="empty">לא נמצא כלום.</div>';
+  document.getElementById('grid-net').innerHTML  = net.join('')  || '<div class="empty">לא נמצא כלום.</div>';
+  document.getElementById('n-main').textContent = main.length;
+  document.getElementById('n-net').textContent  = net.length;
+  document.getElementById('count').textContent  = 'מציג ' + (main.length + net.length) + ' מתוך ' + DATA.apps.length;
 }
 
-document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on'));
+document.querySelectorAll('#seg button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#seg button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
   FILTER = b.dataset.f;
   render();
 });
+document.getElementById('q').addEventListener('input', e => {
+  QUERY = e.target.value.trim().toLowerCase();
+  render();
+});
 
-fetch('site-catalog.json').then(r => r.json()).then(d => { DATA = d; render(); });
+fetch('site-catalog.json').then(r => r.json()).then(d => {
+  DATA = d;
+  const totalMb = d.apps.reduce((s, a) => s + a.files.reduce((t, f) => t + f.mb, 0), 0);
+  document.getElementById('stats').innerHTML =
+    '<span class="stat">' + d.apps.length + ' אפליקציות</span>' +
+    '<span class="stat">' + (totalMb / 1024).toFixed(1) + ' GB</span>' +
+    '<span class="stat">עודכן ' + d.updated + '</span>';
+  render();
+});
 </script>
 </body>
 </html>

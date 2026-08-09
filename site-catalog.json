@@ -14,7 +14,9 @@
                                        "ver":  "11.2606.15.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Notepad.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "מחשבון",
@@ -29,7 +31,9 @@
                                        "ver":  "11.2606.0.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Calculator.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "צייר",
@@ -44,7 +48,9 @@
                                        "ver":  "11.2605.71.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Paint.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "כלי החיתוך",
@@ -67,7 +73,9 @@
                                        "ver":  "11.2602.49.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/SnippingTool.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "תמונות",
@@ -82,7 +90,9 @@
                                        "ver":  "2026.11060.2004.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Photos.png",
+                     "color":  "#173A73"
                  },
                  {
                      "he":  "רשמקול",
@@ -105,7 +115,9 @@
                                        "ver":  "11.2606.0.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/SoundRecorder.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "מצלמה",
@@ -120,7 +132,9 @@
                                        "ver":  "2026.2605.7.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Camera.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "שעון והתראות",
@@ -135,7 +149,9 @@
                                        "ver":  "11.2606.11.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Clock.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "פתקים דביקים",
@@ -150,7 +166,9 @@
                                        "ver":  "6.1.4.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/StickyNotes.png",
+                     "color":  "#414141"
                  },
                  {
                      "he":  "Windows Terminal",
@@ -165,7 +183,8 @@
                                        "ver":  "1.24.11911.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Terminal.png"
                  },
                  {
                      "he":  "נגן מדיה",
@@ -180,7 +199,9 @@
                                        "ver":  "10.22031.10096.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/MediaPlayer.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "סרטים וטלוויזיה",
@@ -195,7 +216,9 @@
                                        "ver":  "10.26061.10056.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/MoviesTV.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "Paint 3D",
@@ -210,7 +233,9 @@
                                        "ver":  "6.2410.13017.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Paint3D.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "מציג תלת-ממד",
@@ -225,7 +250,8 @@
                                        "ver":  "7.2602.8012.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/3DViewer.png"
                  },
                  {
                      "he":  "סוליטר",
@@ -240,7 +266,9 @@
                                        "ver":  "4.26.7290.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Solitaire.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "סרגל המשחקים",
@@ -255,7 +283,8 @@
                                        "ver":  "7.326.7271.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/XboxGameBar.png"
                  },
                  {
                      "he":  "שולחן עבודה מרוחק",
@@ -270,7 +299,8 @@
                                        "ver":  "10.2.4012.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/RemoteDesktop.png"
                  },
                  {
                      "he":  "To Do",
@@ -285,7 +315,9 @@
                                        "ver":  "2.176.7601.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/ToDo.png",
+                     "color":  "#404040"
                  },
                  {
                      "he":  "אנשים",
@@ -300,7 +332,9 @@
                                        "ver":  "10.2202.100.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/People.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "OneNote",
@@ -315,7 +349,9 @@
                                        "ver":  "16001.14326.22594.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/OneNote.png",
+                     "color":  "#404040"
                  },
                  {
                      "he":  "מציאות מעורבת",
@@ -330,7 +366,9 @@
                                        "ver":  "2000.21051.1282.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/MixedReality.png",
+                     "color":  "#1F1F1F"
                  },
                  {
                      "he":  "מפות",
@@ -345,7 +383,9 @@
                                        "ver":  "11.2506.3.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Maps.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "מזג אוויר",
@@ -360,7 +400,9 @@
                                        "ver":  "4.54.63045.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Weather.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "חדשות",
@@ -375,7 +417,9 @@
                                        "ver":  "4.31.12124.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/News.png",
+                     "color":  "#EB0000"
                  },
                  {
                      "he":  "קבלת עזרה",
@@ -398,7 +442,9 @@
                                        "ver":  "10.2409.42092.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/GetHelp.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "רכזת משוב",
@@ -413,7 +459,9 @@
                                        "ver":  "1.2603.26301.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/FeedbackHub.png",
+                     "color":  "#0078D4"
                  },
                  {
                      "he":  "דואר ולוח שנה",
@@ -428,7 +476,9 @@
                                        "ver":  "16005.14326.22342.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Mail.png",
+                     "color":  "#0078D7"
                  },
                  {
                      "he":  "Office",
@@ -443,7 +493,9 @@
                                        "ver":  "19.2608.34011.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/OfficeHub.png",
+                     "color":  "#FFFFFF"
                  },
                  {
                      "he":  "Clipchamp",
@@ -458,7 +510,9 @@
                                        "ver":  "4.5.10920.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Clipchamp.png",
+                     "color":  "white"
                  },
                  {
                      "he":  "סיוע מהיר",
@@ -473,7 +527,9 @@
                                        "ver":  "2.0.47.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/QuickAssist.png",
+                     "color":  "#FFFFFF"
                  },
                  {
                      "he":  "קישור לטלפון",
@@ -488,7 +544,9 @@
                                        "ver":  "1.21062.152.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/PhoneLink.png",
+                     "color":  "#0078D7"
                  },
                  {
                      "he":  "Xbox",
@@ -503,7 +561,9 @@
                                        "ver":  "2608.1001.17.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/XboxApp.png",
+                     "color":  "#107C10"
                  },
                  {
                      "he":  "חנות Microsoft",
@@ -518,7 +578,8 @@
                                        "ver":  "22606.1401.13.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Store.png"
                  },
                  {
                      "he":  "Copilot",
@@ -533,7 +594,8 @@
                                        "ver":  "1.25121.84.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Copilot.png"
                  },
                  {
                      "he":  "משפחה",
@@ -548,7 +610,8 @@
                                        "ver":  "0.2.40.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Family.png"
                  },
                  {
                      "he":  "חיפוש Bing",
@@ -563,7 +626,8 @@
                                        "ver":  "1.1.40.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/BingSearch.png"
                  },
                  {
                      "he":  "ווידג\u0027טים",
@@ -578,7 +642,8 @@
                                        "ver":  "526.17301.80.0",
                                        "live":  false
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/Widgets.png"
                  }
              ]
 }
