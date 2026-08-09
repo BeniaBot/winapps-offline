@@ -53,6 +53,24 @@
     border-radius: 999px; padding: 3px 15px; font-size: .85rem;
   }
 
+  /* ---- hero download (the recommended path) ---- */
+  .gettool {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+    border-radius: 16px; padding: 16px 20px; margin-top: 22px;
+    backdrop-filter: blur(6px);
+  }
+  .gettool .txt { flex: 1 1 260px; }
+  .gettool .txt b { font-size: 1.05rem; }
+  .gettool .txt span { display: block; opacity: .9; font-size: .9rem; margin-top: 2px; }
+  .gettool a.dl {
+    background: #fff; color: #005BB8; font-weight: 700; font-size: 1rem;
+    border-radius: 10px; padding: 11px 26px; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(0,25,60,.25); transition: transform .15s;
+  }
+  .gettool a.dl:hover { transform: translateY(-2px); }
+  .gettool .os { opacity: .82; font-size: .8rem; }
+
   /* ---- toolbar ---- */
   .toolbar { position: sticky; top: 0; z-index: 10; margin-top: -40px; }
   .toolbar .inner {
@@ -162,6 +180,16 @@
       <div class="stats" id="stats"></div>
     </div>
   </div>
+  <div class="wrap">
+    <div class="gettool">
+      <div class="txt">
+        <b>הדרך הקלה — הכלי האורז</b>
+        <span>מריצים על מחשב מחובר, בוחרים אפליקציות, והכלי אורז לכם מתקין להעברה למחשב המנותק. אין צורך להוריד כל אחת בנפרד.</span>
+      </div>
+      <a class="dl" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">⬇ הורדת הכלי</a>
+      <span class="os">Windows 10/11 · ~1.7MB</span>
+    </div>
+  </div>
 </div>
 
 <div class="toolbar" id="toolbar">
@@ -183,7 +211,8 @@
 </div>
 
 <div class="wrap">
-  <div class="notice">⏳ ההורדות עדיין לא פעילות — האתר בהרצה. [ערכו אותי]</div>
+  <h2 class="group">או להוריד אחת-אחת <span class="badge" id="n-total"></span></h2>
+  <div class="groupnote">מי שצריך אפליקציה בודדת — כל אחת כאן היא מתקין עצמאי לחלוטין. <span id="dlnotice">⏳ ההורדות הבודדות עדיין לא פעילות — בינתיים השתמשו בכלי האורז למעלה.</span></div>
 
   <h2 class="group">עובדות בלי אינטרנט <span class="badge" id="n-main"></span></h2>
   <div class="groupnote">מתקינים ומשתמשים — גם במחשב שלא יתחבר לרשת לעולם.</div>
@@ -256,6 +285,7 @@ function render() {
   document.getElementById('grid-net').innerHTML  = net.join('')  || '<div class="empty">לא נמצא כלום.</div>';
   document.getElementById('n-main').textContent = DATA.apps.filter(a => !a.net).length;
   document.getElementById('n-net').textContent  = DATA.apps.filter(a =>  a.net).length;
+  document.getElementById('n-total').textContent = DATA.apps.length;
   document.getElementById('count').textContent  = 'מציג ' + (main.length + net.length) + ' מתוך ' + DATA.apps.length;
 }
 
