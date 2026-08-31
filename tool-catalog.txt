@@ -1,0 +1,674 @@
+app	Notepad	פנקס רשימות	Microsoft.WindowsNotepad_8wekyb3d8bbwe	Microsoft.WindowsNotepad	0	עורך טקסט פשוט
+flavor	Notepad	w11	Microsoft.WindowsNotepad_11.2606.15.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.15.0	22000	19.1
+dep	Notepad	w11	x64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Notepad	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Notepad	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Notepad	w11	arm64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Notepad	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Notepad	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	Calculator	מחשבון	Microsoft.WindowsCalculator_8wekyb3d8bbwe	Microsoft.WindowsCalculator	0	מחשבון רגיל, מדעי והמרות יחידות
+flavor	Calculator	w10	Microsoft.WindowsCalculator_2021.2606.0.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.0.0	19041	20.6
+dep	Calculator	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Calculator	w10	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Calculator	w10	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	Calculator	w11	Microsoft.WindowsCalculator_2021.2606.0.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.0.0	19041	20.6
+dep	Calculator	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Calculator	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Calculator	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Calculator	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Calculator	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Calculator	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Calculator	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	Paint	צייר	Microsoft.Paint_8wekyb3d8bbwe	Microsoft.Paint	0	עורך תמונות בסיסי
+flavor	Paint	w11	Microsoft.Paint_11.2605.71.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2605.71.0	22000	722.3
+dep	Paint	w11	x64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Paint	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Paint	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Paint	w11	arm64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Paint	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Paint	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	SnippingTool	כלי החיתוך	Microsoft.ScreenSketch_8wekyb3d8bbwe	Microsoft.ScreenSketch	0	צילום מסך וחיתוך
+flavor	SnippingTool	w10	Microsoft.ScreenSketch_2021.2008.3001.0_neutral_~_8wekyb3d8bbwe.msixbundle	10.2008.3001.0	17763	5.7
+dep	SnippingTool	w10	x64	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+dep	SnippingTool	w10	x64	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	SnippingTool	w10	x86	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+dep	SnippingTool	w10	x86	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	SnippingTool	w10	arm64	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+dep	SnippingTool	w10	arm64	Microsoft.VCLibs.140.00	14.0.30035.0
+flavor	SnippingTool	w11	Microsoft.ScreenSketch_2022.2602.49.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2602.49.0	22000	712.9
+dep	SnippingTool	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	SnippingTool	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	SnippingTool	w11	x64	Microsoft.WindowsAppRuntime.1.8	8000.675.1142.0
+dep	SnippingTool	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	SnippingTool	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	SnippingTool	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	SnippingTool	w11	arm64	Microsoft.WindowsAppRuntime.1.8	8000.675.1142.0
+dep	SnippingTool	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	Photos	תמונות	Microsoft.Windows.Photos_8wekyb3d8bbwe	Microsoft.Windows.Photos	0	צפייה בתמונות ועריכה קלה
+flavor	Photos	w10	Microsoft.Windows.Photos_2026.11060.2004.0_neutral_~_8wekyb3d8bbwe.msixbundle	2026.11060.2004.0	19044	1115.5
+dep	Photos	w10	x64	Microsoft.WindowsAppRuntime.2	2.0.1.0
+dep	Photos	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Photos	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Photos	w10	arm64	Microsoft.WindowsAppRuntime.2	2.0.1.0
+dep	Photos	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Photos	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	Photos	w11	Microsoft.Windows.Photos_2026.11060.2004.0_neutral_~_8wekyb3d8bbwe.msixbundle	2026.11060.2004.0	19044	1115.5
+dep	Photos	w11	x64	Microsoft.WindowsAppRuntime.2	2.0.1.0
+dep	Photos	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Photos	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Photos	w11	arm64	Microsoft.WindowsAppRuntime.2	2.0.1.0
+dep	Photos	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Photos	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	SoundRecorder	רשמקול	Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe	Microsoft.WindowsSoundRecorder	0	הקלטת קול
+flavor	SoundRecorder	w10	Microsoft.WindowsSoundRecorder_2021.2103.28.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2103.28.0	17134	8.7
+dep	SoundRecorder	w10	x64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
+dep	SoundRecorder	w10	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	SoundRecorder	w10	x86	Microsoft.UI.Xaml.2.3	2.32002.13001.0
+dep	SoundRecorder	w10	x86	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	SoundRecorder	w10	arm64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
+dep	SoundRecorder	w10	arm64	Microsoft.VCLibs.140.00	14.0.29231.0
+flavor	SoundRecorder	w11	Microsoft.WindowsSoundRecorder_2021.2606.0.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.0.0	22000	10
+dep	SoundRecorder	w11	x64	Microsoft.UI.Xaml.2.8	8.2212.15002.0
+dep	SoundRecorder	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	SoundRecorder	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	SoundRecorder	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	SoundRecorder	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	SoundRecorder	w11	arm64	Microsoft.UI.Xaml.2.8	8.2212.15002.0
+dep	SoundRecorder	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	SoundRecorder	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	SoundRecorder	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	SoundRecorder	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	Camera	מצלמה	Microsoft.WindowsCamera_8wekyb3d8bbwe	Microsoft.WindowsCamera	0	צילום ממצלמת המחשב
+flavor	Camera	w10	Microsoft.WindowsCamera_2022.2605.7.0_neutral_~_8wekyb3d8bbwe.msixbundle	2026.2605.7.0	19041	24.3
+dep	Camera	w10	x64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Camera	w10	x86	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Camera	w10	arm64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Camera	w11	Microsoft.WindowsCamera_2022.2605.7.0_neutral_~_8wekyb3d8bbwe.msixbundle	2026.2605.7.0	19041	24.3
+dep	Camera	w11	x64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Camera	w11	x86	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Camera	w11	arm64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
+dep	Camera	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Camera	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Camera	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	Clock	שעון והתראות	Microsoft.WindowsAlarms_8wekyb3d8bbwe	Microsoft.WindowsAlarms	0	שעון, טיימר, סטופר והתראות
+flavor	Clock	w10	Microsoft.WindowsAlarms_2021.2606.11.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.11.0	18362	31.6
+dep	Clock	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w10	x64	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+dep	Clock	w10	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w10	x86	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+dep	Clock	w10	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w10	arm64	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+flavor	Clock	w11	Microsoft.WindowsAlarms_2021.2606.11.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2606.11.0	18362	31.6
+dep	Clock	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w11	x64	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+dep	Clock	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w11	x86	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+dep	Clock	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Clock	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Clock	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Clock	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clock	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clock	w11	arm64	Microsoft.WindowsAppRuntime.1.8	8000.806.2252.0
+app	StickyNotes	פתקים דביקים	Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe	Microsoft.MicrosoftStickyNotes	0	פתקים על שולחן העבודה
+flavor	StickyNotes	w10	Microsoft.MicrosoftStickyNotes_6.1.4.0_neutral_~_8wekyb3d8bbwe.msixbundle	6.1.4.0	18362	43.2
+dep	StickyNotes	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	StickyNotes	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	StickyNotes	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+flavor	StickyNotes	w11	Microsoft.MicrosoftStickyNotes_6.1.4.0_neutral_~_8wekyb3d8bbwe.msixbundle	6.1.4.0	18362	43.2
+dep	StickyNotes	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	StickyNotes	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	StickyNotes	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	StickyNotes	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	StickyNotes	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+app	Terminal	Windows Terminal	Microsoft.WindowsTerminal_8wekyb3d8bbwe	Microsoft.WindowsTerminal	0	מסוף מודרני לשורת הפקודה
+flavor	Terminal	w10	Microsoft.WindowsTerminal_3001.24.11911.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.24.11911.0	19041	21.3
+dep	Terminal	w10	x64	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+dep	Terminal	w10	x86	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+dep	Terminal	w10	arm64	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+flavor	Terminal	w11	Microsoft.WindowsTerminal_3001.24.11911.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.24.11911.0	19041	21.3
+dep	Terminal	w11	x64	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+dep	Terminal	w11	x86	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+dep	Terminal	w11	arm64	Microsoft.UI.Xaml.2.8	8.2305.5001.0
+app	MediaPlayer	נגן מדיה	Microsoft.ZuneMusic_8wekyb3d8bbwe	Microsoft.ZuneMusic	0	נגינת מוזיקה ווידאו
+flavor	MediaPlayer	w10	Microsoft.ZuneMusic_2019.22031.10096.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.22031.10096.0	18362	39.5
+dep	MediaPlayer	w10	x86	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MediaPlayer	w10	x86	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+dep	MediaPlayer	w10	x64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MediaPlayer	w10	x64	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+flavor	MediaPlayer	w11	Microsoft.ZuneMusic_2019.22031.10096.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.22031.10096.0	18362	39.5
+dep	MediaPlayer	w11	x86	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MediaPlayer	w11	x86	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+dep	MediaPlayer	w11	x64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MediaPlayer	w11	x64	Microsoft.UI.Xaml.2.4	2.42005.18002.0
+app	MoviesTV	סרטים וטלוויזיה	Microsoft.ZuneVideo_8wekyb3d8bbwe	Microsoft.ZuneVideo	0	נגן וידאו
+flavor	MoviesTV	w10	Microsoft.ZuneVideo_2019.26061.10056.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.26061.10056.0	19042	39.7
+dep	MoviesTV	w10	x64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w10	x64	Microsoft.UI.Xaml.2.8	8.0.0.0
+dep	MoviesTV	w10	x86	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w10	x86	Microsoft.UI.Xaml.2.8	8.0.0.0
+dep	MoviesTV	w10	arm64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w10	arm64	Microsoft.UI.Xaml.2.8	8.0.0.0
+flavor	MoviesTV	w11	Microsoft.ZuneVideo_2019.26061.10056.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.26061.10056.0	19042	39.7
+dep	MoviesTV	w11	x64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w11	x64	Microsoft.UI.Xaml.2.8	8.0.0.0
+dep	MoviesTV	w11	x86	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w11	x86	Microsoft.UI.Xaml.2.8	8.0.0.0
+dep	MoviesTV	w11	arm64	Microsoft.VCLibs.140.00	14.0.0.0
+dep	MoviesTV	w11	arm64	Microsoft.UI.Xaml.2.8	8.0.0.0
+app	Paint3D	Paint 3D	Microsoft.MSPaint_8wekyb3d8bbwe	Microsoft.MSPaint	0	עריכה תלת-ממדית (המוצר הופסק אך עובד)
+flavor	Paint3D	w10	Microsoft.MSPaint_2024.2410.13017.0_neutral_~_8wekyb3d8bbwe.appxbundle	6.2410.13017.0	16299	64.4
+dep	Paint3D	w10	x86	Microsoft.UI.Xaml.2.0	2.1810.18003.0
+dep	Paint3D	w10	x86	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	Paint3D	w10	x64	Microsoft.UI.Xaml.2.0	2.1810.18003.0
+dep	Paint3D	w10	x64	Microsoft.VCLibs.140.00	14.0.30035.0
+flavor	Paint3D	w11	Microsoft.MSPaint_2024.2410.13017.0_neutral_~_8wekyb3d8bbwe.appxbundle	6.2410.13017.0	16299	64.4
+dep	Paint3D	w11	x86	Microsoft.UI.Xaml.2.0	2.1810.18003.0
+dep	Paint3D	w11	x86	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	Paint3D	w11	x64	Microsoft.UI.Xaml.2.0	2.1810.18003.0
+dep	Paint3D	w11	x64	Microsoft.VCLibs.140.00	14.0.30035.0
+app	3DViewer	מציג תלת-ממד	Microsoft.Microsoft3DViewer_8wekyb3d8bbwe	Microsoft.Microsoft3DViewer	0	צפייה במודלים תלת-ממדיים
+flavor	3DViewer	w10	Microsoft.Microsoft3DViewer_2026.2602.8012.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.2602.8012.0	16299	110.1
+dep	3DViewer	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w10	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	3DViewer	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w10	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	3DViewer	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w10	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	3DViewer	w11	Microsoft.Microsoft3DViewer_2026.2602.8012.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.2602.8012.0	16299	110.1
+dep	3DViewer	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w11	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	3DViewer	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w11	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	3DViewer	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.24217.0
+dep	3DViewer	w11	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	3DViewer	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
+dep	3DViewer	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
+dep	3DViewer	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	Solitaire	סוליטר	Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe	Microsoft.MicrosoftSolitaireCollection	0	חבילת משחקי הקלפים של מיקרוסופט
+flavor	Solitaire	w10	Microsoft.MicrosoftSolitaireCollection_4.26.7290.0_neutral_~_8wekyb3d8bbwe.msixbundle	4.26.7290.0	19041	145.1
+dep	Solitaire	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Solitaire	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w10	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Solitaire	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w10	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Solitaire	w11	Microsoft.MicrosoftSolitaireCollection_4.26.7290.0_neutral_~_8wekyb3d8bbwe.msixbundle	4.26.7290.0	19041	145.1
+dep	Solitaire	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Solitaire	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Solitaire	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Solitaire	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	Solitaire	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Solitaire	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Solitaire	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	XboxGameBar	סרגל המשחקים	Microsoft.XboxGamingOverlay_8wekyb3d8bbwe	Microsoft.XboxGamingOverlay	0	הקלטת מסך וסרגל משחקים (Win+G)
+flavor	XboxGameBar	w10	Microsoft.XboxGamingOverlay_7.326.7271.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.326.7271.0	19041	40.7
+dep	XboxGameBar	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w10	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxGameBar	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w10	x86	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxGameBar	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w10	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	XboxGameBar	w11	Microsoft.XboxGamingOverlay_7.326.7271.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.326.7271.0	19041	40.7
+dep	XboxGameBar	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w11	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxGameBar	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w11	x86	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxGameBar	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxGameBar	w11	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxGameBar	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	RemoteDesktop	שולחן עבודה מרוחק	Microsoft.RemoteDesktop_8wekyb3d8bbwe	Microsoft.RemoteDesktop	0	התחברות למחשב אחר ברשת
+flavor	RemoteDesktop	w10	Microsoft.RemoteDesktop_2025.822.1549.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2.4012.0	16299	67.7
+dep	RemoteDesktop	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	RemoteDesktop	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	RemoteDesktop	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	RemoteDesktop	w11	Microsoft.RemoteDesktop_2025.822.1549.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2.4012.0	16299	67.7
+dep	RemoteDesktop	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	RemoteDesktop	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	RemoteDesktop	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	RemoteDesktop	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	RemoteDesktop	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	Maps	מפות	Microsoft.WindowsMaps_8wekyb3d8bbwe	Microsoft.WindowsMaps	1	מפות וניווט
+flavor	Maps	w10	Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2506.3.0	18363	47.7
+dep	Maps	w10	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Maps	w10	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Maps	w10	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Maps	w11	Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2506.3.0	18363	47.7
+dep	Maps	w11	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Maps	w11	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Maps	w11	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Maps	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Maps	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	Weather	מזג אוויר	Microsoft.BingWeather_8wekyb3d8bbwe	Microsoft.BingWeather	1	תחזית מזג אוויר
+flavor	Weather	w10	Microsoft.BingWeather_4.54.63045.0_neutral_~_8wekyb3d8bbwe.appxbundle	4.54.63045.0	17763	36.1
+dep	Weather	w10	x64	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Weather	w10	x86	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Weather	w10	arm64	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	Weather	w11	Microsoft.BingWeather_4.54.63045.0_neutral_~_8wekyb3d8bbwe.appxbundle	4.54.63045.0	17763	36.1
+dep	Weather	w11	x64	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Weather	w11	x86	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Weather	w11	arm64	Microsoft.UI.Xaml.2.8	8.2207.14002.0
+dep	Weather	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	Weather	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	Weather	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Weather	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	News	חדשות	Microsoft.BingNews_8wekyb3d8bbwe	Microsoft.BingNews	1	חדשות
+flavor	News	w10	Microsoft.BingNews_4.31.12124.0_neutral_~_8wekyb3d8bbwe.appxbundle	4.31.12124.0	15063	24.4
+dep	News	w10	x86	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
+dep	News	w10	x86	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
+dep	News	w10	x86	Microsoft.Advertising.Xaml	10.1705.4.0
+dep	News	w10	x86	Microsoft.VCLibs.140.00	14.0.26706.0
+dep	News	w10	x64	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
+dep	News	w10	x64	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
+dep	News	w10	x64	Microsoft.Advertising.Xaml	10.1705.4.0
+dep	News	w10	x64	Microsoft.VCLibs.140.00	14.0.26706.0
+flavor	News	w11	Microsoft.BingNews_4.31.12124.0_neutral_~_8wekyb3d8bbwe.appxbundle	4.31.12124.0	15063	24.4
+dep	News	w11	x86	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
+dep	News	w11	x86	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
+dep	News	w11	x86	Microsoft.Advertising.Xaml	10.1705.4.0
+dep	News	w11	x86	Microsoft.VCLibs.140.00	14.0.26706.0
+dep	News	w11	x64	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
+dep	News	w11	x64	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
+dep	News	w11	x64	Microsoft.Advertising.Xaml	10.1705.4.0
+dep	News	w11	x64	Microsoft.VCLibs.140.00	14.0.26706.0
+app	GetHelp	קבלת עזרה	Microsoft.GetHelp_8wekyb3d8bbwe	Microsoft.GetHelp	1	התמיכה של מיקרוסופט
+flavor	GetHelp	w10	Microsoft.GetHelp_10.2409.41132.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2409.41132.0	17763	293.5
+dep	GetHelp	w10	x64	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	GetHelp	w10	x86	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	GetHelp	w10	arm64	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	GetHelp	w11	Microsoft.GetHelp_10.2409.42092.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2409.42092.0	22000	295.2
+dep	GetHelp	w11	x64	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	GetHelp	w11	x86	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	GetHelp	w11	arm64	Microsoft.WindowsAppRuntime.1.7	7000.425.634.0
+dep	GetHelp	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	FeedbackHub	רכזת משוב	Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe	Microsoft.WindowsFeedbackHub	1	שליחת משוב למיקרוסופט
+flavor	FeedbackHub	w10	Microsoft.WindowsFeedbackHub_2026.326.1715.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.2603.26301.0	18362	46.2
+dep	FeedbackHub	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	FeedbackHub	w10	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	FeedbackHub	w10	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	FeedbackHub	w11	Microsoft.WindowsFeedbackHub_2026.326.1715.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.2603.26301.0	18362	46.2
+dep	FeedbackHub	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	FeedbackHub	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	FeedbackHub	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	FeedbackHub	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	FeedbackHub	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	FeedbackHub	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	FeedbackHub	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	ToDo	To Do	Microsoft.Todos_8wekyb3d8bbwe	Microsoft.Todos	0	רשימות משימות
+flavor	ToDo	w10	Microsoft.Todos_2.176.7601.0_neutral_~_8wekyb3d8bbwe.msixbundle	2.176.7601.0	17763	86.8
+dep	ToDo	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w10	x64	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	ToDo	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w10	x86	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	ToDo	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w10	arm64	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	ToDo	w11	Microsoft.Todos_2.176.7601.0_neutral_~_8wekyb3d8bbwe.msixbundle	2.176.7601.0	17763	86.8
+dep	ToDo	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w11	x64	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	ToDo	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w11	x86	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	ToDo	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	ToDo	w11	arm64	Microsoft.UI.Xaml.2.8	8.2306.22001.0
+dep	ToDo	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
+dep	ToDo	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
+dep	ToDo	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	People	אנשים	Microsoft.People_8wekyb3d8bbwe	Microsoft.People	0	ספר כתובות
+flavor	People	w10	Microsoft.People_2021.2202.100.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2202.100.0	17134	24.4
+dep	People	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w10	x64	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	People	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w10	x86	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	People	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w10	arm64	Microsoft.VCLibs.140.00	14.0.30035.0
+flavor	People	w11	Microsoft.People_2021.2202.100.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2202.100.0	17134	24.4
+dep	People	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w11	x64	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	People	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w11	x86	Microsoft.VCLibs.140.00	14.0.30035.0
+dep	People	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	People	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	People	w11	arm64	Microsoft.VCLibs.140.00	14.0.30035.0
+app	Mail	דואר ולוח שנה	microsoft.windowscommunicationsapps_8wekyb3d8bbwe	microsoft.windowscommunicationsapps	1	דואר ולוח שנה (הדור הקודם)
+flavor	Mail	w10	microsoft.windowscommunicationsapps_16005.14326.22342.0_neutral_~_8wekyb3d8bbwe.appxbundle	16005.14326.22342.0	16299	301.6
+dep	Mail	w10	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w10	x64	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	Mail	w10	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w10	x86	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	Mail	w10	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w10	arm64	Microsoft.VCLibs.140.00	14.0.27810.0
+flavor	Mail	w11	microsoft.windowscommunicationsapps_16005.14326.22342.0_neutral_~_8wekyb3d8bbwe.appxbundle	16005.14326.22342.0	16299	301.6
+dep	Mail	w11	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w11	x64	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	Mail	w11	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w11	x86	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	Mail	w11	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Mail	w11	arm64	Microsoft.VCLibs.140.00	14.0.27810.0
+app	OneNote	OneNote	Microsoft.Office.OneNote_8wekyb3d8bbwe	Microsoft.Office.OneNote	0	מחברות ורשימות
+flavor	OneNote	w10	Microsoft.Office.OneNote_16001.14326.22594.0_neutral_~_8wekyb3d8bbwe.appxbundle	16001.14326.22594.0	15063	249.1
+dep	OneNote	w10	x86	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	OneNote	w10	x64	Microsoft.VCLibs.140.00	14.0.27810.0
+flavor	OneNote	w11	Microsoft.Office.OneNote_16001.14326.22594.0_neutral_~_8wekyb3d8bbwe.appxbundle	16001.14326.22594.0	15063	249.1
+dep	OneNote	w11	x86	Microsoft.VCLibs.140.00	14.0.27810.0
+dep	OneNote	w11	x64	Microsoft.VCLibs.140.00	14.0.27810.0
+app	OfficeHub	Office	Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe	Microsoft.MicrosoftOfficeHub	1	מסך הבית של Microsoft 365
+flavor	OfficeHub	w10	Microsoft.MicrosoftOfficeHub_2026.804.1438.0_neutral_~_8wekyb3d8bbwe.msixbundle	19.2608.34011.0	18362	284.9
+flavor	OfficeHub	w11	Microsoft.MicrosoftOfficeHub_2026.804.1438.0_neutral_~_8wekyb3d8bbwe.msixbundle	19.2608.34011.0	18362	284.9
+app	Clipchamp	Clipchamp	Clipchamp.Clipchamp_yxz26nhyzhsrt	Clipchamp.Clipchamp	1	עריכת וידאו
+flavor	Clipchamp	w10	Clipchamp.Clipchamp_4.5.10920.0_neutral_~_yxz26nhyzhsrt.msixbundle	4.5.10920.0	18362	60.1
+dep	Clipchamp	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clipchamp	w10	x64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Clipchamp	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clipchamp	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clipchamp	w10	arm64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Clipchamp	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Clipchamp	w11	Clipchamp.Clipchamp_4.5.10920.0_neutral_~_yxz26nhyzhsrt.msixbundle	4.5.10920.0	18362	60.1
+dep	Clipchamp	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clipchamp	w11	x64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Clipchamp	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Clipchamp	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Clipchamp	w11	arm64	Microsoft.WindowsAppRuntime.2	2.1.3.0
+dep	Clipchamp	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	QuickAssist	סיוע מהיר	MicrosoftCorporationII.QuickAssist_8wekyb3d8bbwe	MicrosoftCorporationII.QuickAssist	1	שליטה מרחוק לקבלת עזרה
+flavor	QuickAssist	w10	MicrosoftCorporationII.QuickAssist_2026.219.226.0_neutral_~_8wekyb3d8bbwe.appxbundle	2.0.47.0	19041	5.4
+dep	QuickAssist	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	QuickAssist	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	QuickAssist	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+flavor	QuickAssist	w11	MicrosoftCorporationII.QuickAssist_2026.219.226.0_neutral_~_8wekyb3d8bbwe.appxbundle	2.0.47.0	19041	5.4
+dep	QuickAssist	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	QuickAssist	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	QuickAssist	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+app	PhoneLink	קישור לטלפון	Microsoft.YourPhone_8wekyb3d8bbwe	Microsoft.YourPhone	1	חיבור הטלפון למחשב
+flavor	PhoneLink	w10	Microsoft.YourPhone_2021.809.2139.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.21062.152.0	17134	224.4
+dep	PhoneLink	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.29231.0
+dep	PhoneLink	w10	x86	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	PhoneLink	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	PhoneLink	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	PhoneLink	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.29231.0
+dep	PhoneLink	w10	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	PhoneLink	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	PhoneLink	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+flavor	PhoneLink	w11	Microsoft.YourPhone_2021.809.2139.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.21062.152.0	17134	224.4
+dep	PhoneLink	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.29231.0
+dep	PhoneLink	w11	x86	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	PhoneLink	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	PhoneLink	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	PhoneLink	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.29231.0
+dep	PhoneLink	w11	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	PhoneLink	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	PhoneLink	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+app	XboxApp	Xbox	Microsoft.GamingApp_8wekyb3d8bbwe	Microsoft.GamingApp	1	משחקי Xbox ו-Game Pass
+flavor	XboxApp	w10	Microsoft.GamingApp_2608.1001.17.0_neutral_~_8wekyb3d8bbwe.msixbundle	2608.1001.17.0	18362	472.2
+dep	XboxApp	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxApp	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxApp	w10	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxApp	w10	x64	Microsoft.WindowsAppRuntime.2	2.2.0.0
+dep	XboxApp	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxApp	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxApp	w10	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxApp	w10	arm64	Microsoft.WindowsAppRuntime.2	2.2.0.0
+flavor	XboxApp	w11	Microsoft.GamingApp_2608.1001.17.0_neutral_~_8wekyb3d8bbwe.msixbundle	2608.1001.17.0	18362	472.2
+dep	XboxApp	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxApp	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxApp	w11	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxApp	w11	x64	Microsoft.WindowsAppRuntime.2	2.2.0.0
+dep	XboxApp	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	XboxApp	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	XboxApp	w11	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
+dep	XboxApp	w11	arm64	Microsoft.WindowsAppRuntime.2	2.2.0.0
+app	Store	חנות Microsoft	Microsoft.WindowsStore_8wekyb3d8bbwe	Microsoft.WindowsStore	1	חנות האפליקציות עצמה
+flavor	Store	w10	Microsoft.WindowsStore_22606.1401.13.0_neutral_~_8wekyb3d8bbwe.msixbundle	22606.1401.13.0	18362	122.2
+dep	Store	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Store	w10	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Store	w10	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Store	w11	Microsoft.WindowsStore_22606.1401.13.0_neutral_~_8wekyb3d8bbwe.msixbundle	22606.1401.13.0	18362	122.2
+dep	Store	w11	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Store	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Store	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
+dep	Store	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	MixedReality	מציאות מעורבת	Microsoft.MixedReality.Portal_8wekyb3d8bbwe	Microsoft.MixedReality.Portal	0	פורטל למשקפי מציאות מעורבת
+flavor	MixedReality	w10	Microsoft.MixedReality.Portal_2000.21051.1282.0_neutral_~_8wekyb3d8bbwe.appxbundle	2000.21051.1282.0	17688	9.1
+dep	MixedReality	w10	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+flavor	MixedReality	w11	Microsoft.MixedReality.Portal_2000.21051.1282.0_neutral_~_8wekyb3d8bbwe.appxbundle	2000.21051.1282.0	17688	9.1
+dep	MixedReality	w11	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+app	Copilot	Copilot	Microsoft.Copilot_8wekyb3d8bbwe	Microsoft.Copilot	1	העוזר החכם של מיקרוסופט
+flavor	Copilot	w10	Microsoft.Copilot_1.25121.84.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.25121.84.0	19041	255.4
+dep	Copilot	w10	x64	Microsoft.WindowsAppRuntime.1.8	8000.642.119.0
+dep	Copilot	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Copilot	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Copilot	w10	arm64	Microsoft.WindowsAppRuntime.1.8	8000.642.119.0
+dep	Copilot	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Copilot	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	Copilot	w11	Microsoft.Copilot_1.25121.84.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.25121.84.0	19041	255.4
+dep	Copilot	w11	x64	Microsoft.WindowsAppRuntime.1.8	8000.642.119.0
+dep	Copilot	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Copilot	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Copilot	w11	arm64	Microsoft.WindowsAppRuntime.1.8	8000.642.119.0
+dep	Copilot	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
+dep	Copilot	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+app	Family	משפחה	MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe	MicrosoftCorporationII.MicrosoftFamily	1	בקרת הורים
+flavor	Family	w10	MicrosoftCorporationII.MicrosoftFamily_0.2.40.0_neutral_~_8wekyb3d8bbwe.msixbundle	0.2.40.0	17763	1.3
+dep	Family	w10	x64	Microsoft.WindowsAppRuntime.1.1	1003.565.600.0
+dep	Family	w10	x64	Microsoft.VCLibs.140.00	14.0.30704.0
+dep	Family	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.30704.0
+dep	Family	w10	arm64	Microsoft.WindowsAppRuntime.1.1	1003.565.600.0
+dep	Family	w10	arm64	Microsoft.VCLibs.140.00	14.0.30704.0
+dep	Family	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.30704.0
+flavor	Family	w11	MicrosoftCorporationII.MicrosoftFamily_0.2.40.0_neutral_~_8wekyb3d8bbwe.msixbundle	0.2.40.0	17763	1.3
+dep	Family	w11	x64	Microsoft.WindowsAppRuntime.1.1	1003.565.600.0
+dep	Family	w11	x64	Microsoft.VCLibs.140.00	14.0.30704.0
+dep	Family	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.30704.0
+dep	Family	w11	arm64	Microsoft.WindowsAppRuntime.1.1	1003.565.600.0
+dep	Family	w11	arm64	Microsoft.VCLibs.140.00	14.0.30704.0
+dep	Family	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.30704.0
+app	BingSearch	חיפוש Bing	Microsoft.BingSearch_8wekyb3d8bbwe	Microsoft.BingSearch	1	חיפוש Bing בשורת המשימות
+flavor	BingSearch	w10	Microsoft.BingSearch_2022.1.40.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.1.40.0	17763	1.2
+dep	BingSearch	w10	x64	Microsoft.VCLibs.140.00	14.0.27323.0
+dep	BingSearch	w10	arm64	Microsoft.VCLibs.140.00	14.0.27323.0
+flavor	BingSearch	w11	Microsoft.BingSearch_2022.1.40.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.1.40.0	17763	1.2
+dep	BingSearch	w11	x64	Microsoft.VCLibs.140.00	14.0.27323.0
+dep	BingSearch	w11	arm64	Microsoft.VCLibs.140.00	14.0.27323.0
+app	Widgets	ווידג'טים	MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy	MicrosoftWindows.Client.WebExperience	1	לוח הווידג'טים
+flavor	Widgets	w11	MicrosoftWindows.Client.WebExperience_526.17301.80.0_neutral_~_cw5n1h2txyewy.appxbundle	526.17301.80.0	22000	87
+dep	Widgets	w11	x64	Microsoft.VCLibs.140.00	14.0.26706.0
+dep	Widgets	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.0.0
+dep	Widgets	w11	x64	Microsoft.WindowsAppRuntime.2	2.0.1.0
+dep	Widgets	w11	arm64	Microsoft.VCLibs.140.00	14.0.26706.0
+dep	Widgets	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.0.0
+dep	Widgets	w11	arm64	Microsoft.WindowsAppRuntime.2	2.0.1.0
