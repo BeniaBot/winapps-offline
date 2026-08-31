@@ -228,6 +228,59 @@
   }
   .tile-app.na { opacity: .48; }
   .tile-app.na:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .tile-app:not(.na) { cursor: pointer; }
+  .tile-app.sel {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 28%, transparent);
+    background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  }
+  .check {
+    position: absolute; top: 10px; inset-inline-end: 10px;
+    width: 21px; height: 21px; border-radius: 7px;
+    border: 1.6px solid var(--line); background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .72rem; color: transparent; font-weight: 900;
+  }
+  .tile-app:hover .check { border-color: var(--accent); }
+  .tile-app.sel .check { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .tile-app.na .check { display: none; }
+
+  .picker { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 4px 0 18px; }
+  .picker button {
+    border: 0; background: none; padding: 0; cursor: pointer;
+    color: var(--accent); font: inherit; font-size: .93rem; font-weight: 600;
+  }
+  .picker button:hover { text-decoration: underline; }
+
+  /* selection bar - the thing that turns a catalogue into a cart */
+  .selbar {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
+    background: var(--night); color: var(--night-fg);
+    box-shadow: 0 -12px 34px -14px rgba(0,0,0,.55);
+    transform: translateY(110%); transition: transform .22s ease;
+  }
+  .selbar.show { transform: translateY(0); }
+  .selbar .wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 14px; }
+  .selbar .sum { font-weight: 700; }
+  .selbar .sum span { color: #a8b0bd; font-weight: 400; }
+  .selbar .go {
+    margin-inline-start: auto;
+    background: #fff; color: var(--night); text-decoration: none;
+    font-weight: 800; border: 0; border-radius: 11px; padding: 12px 26px;
+    cursor: pointer; font-size: 1rem;
+  }
+  .selbar .clear { background: none; border: 0; color: #a8b0bd; cursor: pointer; font: inherit; }
+  body.has-sel { padding-bottom: 88px; }
+
+  /* handoff explainer */
+  .handoff {
+    background: var(--accent-2); border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+    border-radius: var(--radius); padding: 22px 24px; margin-top: 20px;
+  }
+  .handoff h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 12px; }
+  .handoff ol { margin: 0; padding-inline-start: 20px; color: var(--ink); }
+  .handoff li { margin-bottom: 7px; }
+  .handoff .sub { color: var(--ink-soft); font-size: .9rem; margin-top: 12px; }
   .ico {
     width: 46px; height: 46px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
@@ -391,8 +444,8 @@
 <section id="catalog" style="padding-top:12px">
   <div class="wrap">
     <div class="sec-head">
-      <h2>מה יש בחנות</h2>
-      <p>הרשימה שהכלי מוריד ממנה. הגרסאות והגדלים הם מה שיירד בפועל.</p>
+      <h2>בחרו אפליקציות</h2>
+      <p>לוחצים על אפליקציה כדי לסמן אותה. בסיום מקבלים קובץ בחירה קטן — הכלי קורא אותו ובונה בדיוק את מה שסימנתם.</p>
     </div>
 
     <div class="toolbar">
@@ -410,6 +463,12 @@
       </div>
     </div>
 
+    <div class="picker">
+      <button id="pick-all">סמן הכל</button>
+      <button id="pick-offline">רק אלה שעובדות בלי אינטרנט</button>
+      <button id="pick-none">נקה בחירה</button>
+    </div>
+
     <div class="grouphead"><h3>עובדות בלי אינטרנט</h3><span id="n-main"></span></div>
     <div class="groupnote">מתקינות ופועלות במלואן גם במחשב שלא יתחבר לרשת לעולם.</div>
     <div class="grid" id="list-main"></div>
@@ -417,8 +476,26 @@
     <div class="grouphead"><h3>דורשות אינטרנט כדי לתפקד</h3><span id="n-net"></span></div>
     <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה אחרי ניקוי מערכת.</div>
     <div class="grid" id="list-net"></div>
+
+    <div class="handoff" id="handoff" hidden>
+      <h3>הבחירה נשמרה — שלושה צעדים ואתם שם</h3>
+      <ol>
+        <li>ירד אליכם הקובץ <b class="mono">winapps-selection.txt</b>. אל תפתחו אותו — הוא בשביל הכלי.</li>
+        <li><a href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">הורידו את הכלי</a> והריצו אותו על מחשב שיש בו אינטרנט. הוא יזהה את הבחירה לבד ויסמן אותה.</li>
+        <li>לוחצים "הורד וארוז" — ומעתיקים את התיקייה שנוצרה למחשב המנותק.</li>
+      </ol>
+      <p class="sub">אין הגבלת גודל: הכלי בונה תיקייה אחת, לא קובץ ענק אחד. כל אפליקציה יורדת בנפרד מהשרתים של מיקרוסופט.</p>
+    </div>
   </div>
 </section>
+
+<div class="selbar" id="selbar">
+  <div class="wrap">
+    <div class="sum" id="selsum"></div>
+    <button class="clear" id="selclear">נקה</button>
+    <button class="go" id="selgo">המשך לבנייה ←</button>
+  </div>
+</div>
 
 <section style="padding-top:0">
   <div class="wrap">
@@ -453,12 +530,21 @@
 <script>
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 let FILTER = 'all', QUERY = '', DATA = null;
+const SELECTED = new Set();
+
+function filesFor(a) {
+  return a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+}
+function mbOf(a) {
+  const f = filesFor(a);
+  return f.length ? Math.max.apply(null, f.map(x => x.mb)) : 0;
+}
 
 function esc(s) { return (s || '').replace(/"/g, '&quot;'); }
 
 function tile(a) {
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
-  const files = a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+  const files = filesFor(a);
   const img = a.icon ? '<img src="' + a.icon + '" alt="" loading="lazy">' : '';
   // tint the icon well with the app's own tile colour - that is what makes the grid read
   const chip = a.color ? ' style="background:' + a.color + '1f"' : '';
@@ -474,9 +560,63 @@ function tile(a) {
   if (files.length > 1) corner = '<span class="tag">2 גרסאות</span>';
   else if (files[0].win === '11') corner = '<span class="tag">Win 11</span>';
   const tip = (a.desc ? a.desc + ' — ' : '') + 'גרסה ' + vers;
-  return '<div class="tile-app" title="' + esc(tip) + '">' + corner + head +
+  const on = SELECTED.has(a.en);
+  return '<div class="tile-app' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(tip) + '">' +
+    '<div class="check">✓</div>' + corner + head +
     '<div class="foot"><span class="sz">' + mb + ' MB</span>' +
     '<span class="mono">' + vers.split(' · ')[0] + '</span></div></div>';
+}
+
+function updateBar() {
+  const bar = document.getElementById('selbar');
+  const n = SELECTED.size;
+  if (!n) {
+    bar.classList.remove('show');
+    document.body.classList.remove('has-sel');
+    return;
+  }
+  let mb = 0;
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
+  const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
+  document.getElementById('selsum').innerHTML =
+    'נבחרו ' + n + ' אפליקציות <span>· כ-' + size + ' יירדו ממיקרוסופט</span>';
+  bar.classList.add('show');
+  document.body.classList.add('has-sel');
+}
+
+function toggle(en) {
+  if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
+  document.querySelectorAll('.tile-app[data-en="' + en.replace(/"/g, '\\"') + '"]')
+    .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
+  updateBar();
+}
+
+function pick(mode) {
+  SELECTED.clear();
+  if (mode !== 'none') {
+    DATA.apps.forEach(a => {
+      if (mode === 'offline' && a.net) return;
+      if (filesFor(a).length) SELECTED.add(a.en);
+    });
+  }
+  render();
+}
+
+function buildSelection() {
+  const lines = ['# רשימת בחירה לחנות האופליין - נוצר באתר', '# target=' + FILTER];
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) lines.push(a.en); });
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'winapps-selection.txt';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  const h = document.getElementById('handoff');
+  h.hidden = false;
+  h.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function render() {
@@ -488,7 +628,20 @@ function render() {
   document.getElementById('n-main').textContent = DATA.apps.filter(a => !a.net).length + ' אפליקציות';
   document.getElementById('n-net').textContent  = DATA.apps.filter(a =>  a.net).length + ' אפליקציות';
   document.getElementById('count').textContent  = 'מציג ' + (main.length + net.length) + ' מתוך ' + DATA.apps.length;
+  updateBar();
 }
+
+// one delegated listener survives every re-render
+document.addEventListener('click', e => {
+  const t = e.target.closest('.tile-app');
+  if (!t || t.classList.contains('na')) return;
+  toggle(t.dataset.en);
+});
+document.getElementById('pick-all').onclick     = () => pick('all');
+document.getElementById('pick-offline').onclick = () => pick('offline');
+document.getElementById('pick-none').onclick    = () => pick('none');
+document.getElementById('selclear').onclick     = () => pick('none');
+document.getElementById('selgo').onclick        = buildSelection;
 
 document.querySelectorAll('#seg button').forEach(b => b.onclick = () => {
   document.querySelectorAll('#seg button').forEach(x => x.classList.remove('on'));
