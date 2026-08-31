@@ -826,6 +826,38 @@
                      "desc":  "דיבור לטקסט במשחקים"
                  },
                  {
+                     "he":  "PowerShell",
+                     "en":  "PowerShell",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-PowerShell.exe",
+                                       "mb":  324,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "7.6.5.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "PowerShell 7 — מעטפת מתקדמת"
+                 },
+                 {
+                     "he":  "WinDbg",
+                     "en":  "WinDbg",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-WinDbg.exe",
+                                       "mb":  1137,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.2606.22001.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מנפה שגיאות של מיקרוסופט"
+                 },
+                 {
                      "he":  "מפות",
                      "en":  "Maps",
                      "net":  true,
@@ -1300,6 +1332,38 @@
                                    }
                                ],
                      "desc":  "ניקוי ותחזוקת המחשב"
+                 },
+                 {
+                     "he":  "Dev Home (GitHub)",
+                     "en":  "DevHomeGitHub",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-DevHomeGitHub.exe",
+                                       "mb":  95,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "0.1800.625.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "הרחבת GitHub ל-Dev Home"
+                 },
+                 {
+                     "he":  "Gaming Services",
+                     "en":  "GamingServices",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-GamingServices.exe",
+                                       "mb":  190,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "38.116.6003.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "שירותי המשחקים של Xbox"
                  }
              ]
 }

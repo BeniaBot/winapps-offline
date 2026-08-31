@@ -1271,3 +1271,39 @@ flavor	PCManager	w11	Microsoft.MicrosoftPCManager_3.22.4.0_neutral_~_8wekyb3d8bb
 dep	PCManager	w11	x64	Microsoft.WindowsAppRuntime.1.5	5001.119.156.0
 dep	PCManager	w11	x86	Microsoft.WindowsAppRuntime.1.5	5001.119.156.0
 dep	PCManager	w11	arm64	Microsoft.WindowsAppRuntime.1.5	5001.119.156.0
+app	PowerShell	PowerShell	Microsoft.PowerShell_8wekyb3d8bbwe	Microsoft.PowerShell	0	PowerShell 7 — מעטפת מתקדמת
+flavor	PowerShell	w10	Microsoft.PowerShell_2026.811.2337.0_neutral_~_8wekyb3d8bbwe.msixbundle	7.6.5.0	17763	324.2
+flavor	PowerShell	w11	Microsoft.PowerShell_2026.811.2337.0_neutral_~_8wekyb3d8bbwe.msixbundle	7.6.5.0	17763	324.2
+app	WinDbg	WinDbg	Microsoft.WinDbg_8wekyb3d8bbwe	Microsoft.WinDbg	0	מנפה שגיאות של מיקרוסופט
+flavor	WinDbg	w10	Microsoft.WinDbg_1.2606.22001.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.2606.22001.0	17763	1136.6
+flavor	WinDbg	w11	Microsoft.WinDbg_1.2606.22001.0_neutral_~_8wekyb3d8bbwe.msixbundle	1.2606.22001.0	17763	1136.6
+app	DevHomeGitHub	Dev Home (GitHub)	Microsoft.Windows.DevHomeGitHubExtension_8wekyb3d8bbwe	Microsoft.Windows.DevHomeGitHubExtension	1	הרחבת GitHub ל-Dev Home
+flavor	DevHomeGitHub	w10	Microsoft.Windows.DevHomeGitHubExtension_0.1800.625.0_neutral_~_8wekyb3d8bbwe.msixbundle	0.1800.625.0	19041	95
+dep	DevHomeGitHub	w10	x64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+dep	DevHomeGitHub	w10	x86	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+dep	DevHomeGitHub	w10	arm64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+flavor	DevHomeGitHub	w11	Microsoft.Windows.DevHomeGitHubExtension_0.1800.625.0_neutral_~_8wekyb3d8bbwe.msixbundle	0.1800.625.0	19041	95
+dep	DevHomeGitHub	w11	x64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+dep	DevHomeGitHub	w11	x86	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+dep	DevHomeGitHub	w11	arm64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
+app	GamingServices	Gaming Services	Microsoft.GamingServices_8wekyb3d8bbwe	Microsoft.GamingServices	1	שירותי המשחקים של Xbox
+flavor	GamingServices	w10	Microsoft.GamingServices_38.116.6003.0_neutral_~_8wekyb3d8bbwe.appxbundle	38.116.6003.0	18362	190.1
+dep	GamingServices	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	GamingServices	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	GamingServices	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+flavor	GamingServices	w11	Microsoft.GamingServices_38.116.6003.0_neutral_~_8wekyb3d8bbwe.appxbundle	38.116.6003.0	18362	190.1
+dep	GamingServices	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
+dep	GamingServices	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
+dep	GamingServices	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	GamingServices	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	GamingServices	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
