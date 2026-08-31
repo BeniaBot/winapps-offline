@@ -479,6 +479,12 @@
     <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה אחרי ניקוי מערכת.</div>
     <div class="grid" id="list-net"></div>
 
+    <div id="custom-wrap" hidden>
+      <div class="grouphead"><h3>אפליקציות נוספות</h3><span id="n-custom"></span></div>
+      <div class="groupnote">לא של מיקרוסופט — אפליקציות שנאספו או פותחו כאן. [ערכו אותי]</div>
+      <div class="grid" id="list-custom"></div>
+    </div>
+
     <div class="handoff" id="handoff" hidden>
       <h3>הבחירה נשמרה — שלושה צעדים ואתם שם</h3>
       <ol>
@@ -625,13 +631,23 @@ function buildSelection() {
 
 function render() {
   if (!DATA) return;
-  const main = DATA.apps.filter(a => !a.net).map(tile).filter(Boolean);
-  const net  = DATA.apps.filter(a =>  a.net).map(tile).filter(Boolean);
+  const store  = DATA.apps.filter(a => !a.custom);
+  const mine   = DATA.apps.filter(a =>  a.custom);
+  const main = store.filter(a => !a.net).map(tile).filter(Boolean);
+  const net  = store.filter(a =>  a.net).map(tile).filter(Boolean);
+  const cus  = mine.map(tile).filter(Boolean);
   document.getElementById('list-main').innerHTML = main.join('') || '<div class="empty">לא נמצא כלום.</div>';
   document.getElementById('list-net').innerHTML  = net.join('')  || '<div class="empty">לא נמצא כלום.</div>';
-  document.getElementById('n-main').textContent = DATA.apps.filter(a => !a.net).length + ' אפליקציות';
-  document.getElementById('n-net').textContent  = DATA.apps.filter(a =>  a.net).length + ' אפליקציות';
-  document.getElementById('count').textContent  = 'מציג ' + (main.length + net.length) + ' מתוך ' + DATA.apps.length;
+  document.getElementById('n-main').textContent = store.filter(a => !a.net).length + ' אפליקציות';
+  document.getElementById('n-net').textContent  = store.filter(a =>  a.net).length + ' אפליקציות';
+  // the group only exists once there is something in it
+  document.getElementById('custom-wrap').hidden = mine.length === 0;
+  if (mine.length) {
+    document.getElementById('list-custom').innerHTML = cus.join('') || '<div class="empty">לא נמצא כלום.</div>';
+    document.getElementById('n-custom').textContent = mine.length + ' אפליקציות';
+  }
+  document.getElementById('count').textContent =
+    'מציג ' + (main.length + net.length + cus.length) + ' מתוך ' + DATA.apps.length;
   updateBar();
 }
 
