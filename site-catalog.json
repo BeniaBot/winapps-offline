@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-08-09",
+    "updated":  "2026-09-01",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -11,7 +11,7 @@
                                        "mb":  124,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "11.2606.15.0",
+                                       "ver":  "11.2607.14.0",
                                        "live":  false
                                    }
                                ],
@@ -30,7 +30,7 @@
                                        "mb":  76,
                                        "win":  "all",
                                        "minBuild":  19041,
-                                       "ver":  "11.2606.0.0",
+                                       "ver":  "11.2607.0.0",
                                        "live":  false
                                    }
                                ],
@@ -48,7 +48,7 @@
                                        "mb":  828,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "11.2605.71.0",
+                                       "ver":  "11.2605.81.0",
                                        "live":  false
                                    }
                                ],
@@ -75,7 +75,7 @@
                                        "mb":  823,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "11.2602.49.0",
+                                       "ver":  "11.2605.37.0",
                                        "live":  false
                                    }
                                ],
@@ -119,7 +119,7 @@
                                        "mb":  50,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "11.2606.0.0",
+                                       "ver":  "11.2607.1.0",
                                        "live":  false
                                    }
                                ],
@@ -137,7 +137,7 @@
                                        "mb":  57,
                                        "win":  "all",
                                        "minBuild":  19041,
-                                       "ver":  "2026.2605.7.0",
+                                       "ver":  "2026.2607.1.0",
                                        "live":  false
                                    }
                                ],
@@ -155,7 +155,7 @@
                                        "mb":  188,
                                        "win":  "all",
                                        "minBuild":  18362,
-                                       "ver":  "11.2606.11.0",
+                                       "ver":  "11.2607.6.0",
                                        "live":  false
                                    }
                                ],
@@ -297,7 +297,7 @@
                                        "mb":  81,
                                        "win":  "all",
                                        "minBuild":  19041,
-                                       "ver":  "7.326.7271.0",
+                                       "ver":  "7.326.8061.0",
                                        "live":  false
                                    }
                                ],
@@ -394,6 +394,438 @@
                      "desc":  "פורטל למשקפי מציאות מעורבת"
                  },
                  {
+                     "he":  "הרחבת HEIF (תמונות iPhone)",
+                     "en":  "HEIFExtension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-HEIFExtension.exe",
+                                       "mb":  20,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.2.48.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "פותח תמונות HEIC של אייפון"
+                 },
+                 {
+                     "he":  "הרחבת WebP",
+                     "en":  "WebpExtension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-WebpExtension.exe",
+                                       "mb":  2,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.2.31.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "פותח תמונות WebP"
+                 },
+                 {
+                     "he":  "הרחבת RAW (מצלמות)",
+                     "en":  "RawExtension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-RawExtension-Win10.exe",
+                                       "mb":  3,
+                                       "win":  "10",
+                                       "minBuild":  18362,
+                                       "ver":  "2.4.24.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-RawExtension-Win11.exe",
+                                       "mb":  3,
+                                       "win":  "11",
+                                       "minBuild":  22621,
+                                       "ver":  "2.5.24.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "פותח קבצי RAW ממצלמות"
+                 },
+                 {
+                     "he":  "הרחבת וידאו VP9",
+                     "en":  "VP9Extension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-VP9Extension.exe",
+                                       "mb":  7,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.2.20.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מנגן וידאו VP9"
+                 },
+                 {
+                     "he":  "הרחבת וידאו AV1",
+                     "en":  "AV1Extension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-AV1Extension.exe",
+                                       "mb":  5,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "2.0.30.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מנגן וידאו AV1"
+                 },
+                 {
+                     "he":  "הרחבת HEVC מיצרן",
+                     "en":  "HEVCExtension",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-HEVCExtension-Win10.exe",
+                                       "mb":  8,
+                                       "win":  "10",
+                                       "minBuild":  16299,
+                                       "ver":  "2.4.109.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-HEVCExtension-Win11.exe",
+                                       "mb":  11,
+                                       "win":  "11",
+                                       "minBuild":  26200,
+                                       "ver":  "2.5.33.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מנגן וידאו HEVC / H.265"
+                 },
+                 {
+                     "he":  "מתקין אפליקציות / winget",
+                     "en":  "AppInstaller",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-AppInstaller.exe",
+                                       "mb":  207,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "1.29.290.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מתקין חבילות ושורת הפקודה winget"
+                 },
+                 {
+                     "he":  "Sysinternals Suite",
+                     "en":  "Sysinternals",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Sysinternals.exe",
+                                       "mb":  287,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "2026.8.1.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "ארגז הכלים של Sysinternals"
+                 },
+                 {
+                     "he":  "Windows Terminal Preview",
+                     "en":  "TerminalPreview",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-TerminalPreview.exe",
+                                       "mb":  23,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "1.25.1912.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "גרסת התצוגה המקדימה של Terminal"
+                 },
+                 {
+                     "he":  "סורק",
+                     "en":  "Scan",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Scan.exe",
+                                       "mb":  4,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  "2014.523.326.3026",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "סריקה מסורק מחובר"
+                 },
+                 {
+                     "he":  "שחזור קבצים",
+                     "en":  "FileRecovery",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-FileRecovery.exe",
+                                       "mb":  5,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "0.1.20151.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "שחזור קבצים שנמחקו"
+                 },
+                 {
+                     "he":  "Windows Subsystem for Linux",
+                     "en":  "WSL",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-WSL.exe",
+                                       "mb":  495,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "2.7.12.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "תת-מערכת Linux ל-Windows"
+                 },
+                 {
+                     "he":  "Windows Subsystem for Android",
+                     "en":  "WSA",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-WSA-Win11.exe",
+                                       "mb":  1403,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "2407.40000.4.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "תת-מערכת אנדרואיד (הופסקה)"
+                 },
+                 {
+                     "he":  "Journal",
+                     "en":  "Journal",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Journal.exe",
+                                       "mb":  491,
+                                       "win":  "all",
+                                       "minBuild":  19042,
+                                       "ver":  "1.25336.1113.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "כתיבה בעט על מסך מגע"
+                 },
+                 {
+                     "he":  "Print 3D",
+                     "en":  "Print3D",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Print3D.exe",
+                                       "mb":  21,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "3.3.791.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "הדפסה תלת-ממדית"
+                 },
+                 {
+                     "he":  "3D Builder",
+                     "en":  "Builder3D",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Builder3D.exe",
+                                       "mb":  62,
+                                       "win":  "all",
+                                       "minBuild":  15063,
+                                       "ver":  "20.0.4.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "בניית מודלים תלת-ממדיים"
+                 },
+                 {
+                     "he":  "ספרים ורשימת קריאה",
+                     "en":  "ReadingList",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-ReadingList.exe",
+                                       "mb":  5,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  "2016.520.50.2306",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "רשימת קריאה לשמירת תוכן"
+                 },
+                 {
+                     "he":  "מיינספר",
+                     "en":  "Minesweeper",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Minesweeper.exe",
+                                       "mb":  255,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "4.7.2041.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "שולה המוקשים הקלאסי"
+                 },
+                 {
+                     "he":  "מהג׳ונג",
+                     "en":  "Mahjong",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Mahjong.exe",
+                                       "mb":  298,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "4.9.2051.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מהג׳ונג"
+                 },
+                 {
+                     "he":  "סודוקו",
+                     "en":  "Sudoku",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Sudoku.exe",
+                                       "mb":  189,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "2.13.7281.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "סודוקו"
+                 },
+                 {
+                     "he":  "ג׳יגסו",
+                     "en":  "Jigsaw",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Jigsaw.exe",
+                                       "mb":  171,
+                                       "win":  "all",
+                                       "minBuild":  19041,
+                                       "ver":  "2.9.6011.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "פאזלים"
+                 },
+                 {
+                     "he":  "ציד האוצר",
+                     "en":  "TreasureHunt",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-TreasureHunt.exe",
+                                       "mb":  66,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "2.7.6151.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "משחק ציד אוצרות"
+                 },
+                 {
+                     "he":  "Xbox Identity Provider",
+                     "en":  "XboxIdentity",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxIdentity.exe",
+                                       "mb":  29,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "12.130.16001.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "כניסה לחשבון Xbox — משחקים נשברים בלעדיו"
+                 },
+                 {
+                     "he":  "Xbox Game Overlay",
+                     "en":  "XboxGameOverlay",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxGameOverlay.exe",
+                                       "mb":  3,
+                                       "win":  "all",
+                                       "minBuild":  17134,
+                                       "ver":  "1.54.4001.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "שכבת המשחק של Xbox"
+                 },
+                 {
+                     "he":  "Xbox TCUI",
+                     "en":  "XboxTCUI",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxTCUI.exe",
+                                       "mb":  13,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "1.24.10001.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "רכיב ממשק של Xbox"
+                 },
+                 {
+                     "he":  "Xbox Speech To Text",
+                     "en":  "XboxSpeech",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-XboxSpeech.exe",
+                                       "mb":  1,
+                                       "win":  "all",
+                                       "minBuild":  15031,
+                                       "ver":  "1.21.13002.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "דיבור לטקסט במשחקים"
+                 },
+                 {
                      "he":  "מפות",
                      "en":  "Maps",
                      "net":  true,
@@ -438,8 +870,8 @@
                                        "exe":  "Setup-News.exe",
                                        "mb":  36,
                                        "win":  "all",
-                                       "minBuild":  15063,
-                                       "ver":  "4.31.12124.0",
+                                       "minBuild":  18362,
+                                       "ver":  "4.56.21872.0",
                                        "live":  false
                                    }
                                ],
@@ -465,7 +897,7 @@
                                        "mb":  386,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "10.2409.42092.0",
+                                       "ver":  "10.2409.42162.0",
                                        "live":  false
                                    }
                                ],
@@ -483,7 +915,7 @@
                                        "mb":  102,
                                        "win":  "all",
                                        "minBuild":  18362,
-                                       "ver":  "1.2603.26301.0",
+                                       "ver":  "1.2608.17301.0",
                                        "live":  false
                                    }
                                ],
@@ -519,7 +951,7 @@
                                        "mb":  286,
                                        "win":  "all",
                                        "minBuild":  18362,
-                                       "ver":  "19.2608.34011.0",
+                                       "ver":  "19.2608.54041.0",
                                        "live":  false
                                    }
                                ],
@@ -555,7 +987,7 @@
                                        "mb":  29,
                                        "win":  "all",
                                        "minBuild":  19041,
-                                       "ver":  "2.0.47.0",
+                                       "ver":  "2.0.57.0",
                                        "live":  false
                                    }
                                ],
@@ -569,11 +1001,19 @@
                      "net":  true,
                      "files":  [
                                    {
-                                       "exe":  "Setup-PhoneLink.exe",
-                                       "mb":  249,
-                                       "win":  "all",
+                                       "exe":  "Setup-PhoneLink-Win10.exe",
+                                       "mb":  224,
+                                       "win":  "10",
                                        "minBuild":  17134,
                                        "ver":  "1.21062.152.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-PhoneLink-Win11.exe",
+                                       "mb":  312,
+                                       "win":  "11",
+                                       "minBuild":  22631,
+                                       "ver":  "1.26071.164.0",
                                        "live":  false
                                    }
                                ],
@@ -609,7 +1049,7 @@
                                        "mb":  140,
                                        "win":  "all",
                                        "minBuild":  18362,
-                                       "ver":  "22606.1401.13.0",
+                                       "ver":  "22607.1401.7.0",
                                        "live":  false
                                    }
                                ],
@@ -677,13 +1117,189 @@
                                        "mb":  192,
                                        "win":  "11",
                                        "minBuild":  22000,
-                                       "ver":  "526.17301.80.0",
+                                       "ver":  "526.21100.40.0",
                                        "live":  false
                                    }
                                ],
                      "icon":  "icons/Widgets.png",
                      "desc":  "לוח הווידג\u0027טים",
                      "note":  "רכיב של Windows 11 בלבד"
+                 },
+                 {
+                     "he":  "Whiteboard",
+                     "en":  "Whiteboard",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Whiteboard.exe",
+                                       "mb":  783,
+                                       "win":  "all",
+                                       "minBuild":  15063,
+                                       "ver":  "56.20201.588.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "לוח שיתופי לכתיבה וציור"
+                 },
+                 {
+                     "he":  "Power BI",
+                     "en":  "PowerBI",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-PowerBI.exe",
+                                       "mb":  107,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "3223.30905.55001.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "דוחות וניתוח נתונים"
+                 },
+                 {
+                     "he":  "Sway",
+                     "en":  "Sway",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Sway.exe",
+                                       "mb":  11,
+                                       "win":  "all",
+                                       "minBuild":  10586,
+                                       "ver":  "18.2003.51105.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "מצגות ודפי סיפור"
+                 },
+                 {
+                     "he":  "מתרגם Bing",
+                     "en":  "Translator",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Translator.exe",
+                                       "mb":  119,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "5.6.0.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "תרגום טקסט ודיבור"
+                 },
+                 {
+                     "he":  "רכישות מהחנות",
+                     "en":  "StorePurchase",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-StorePurchase.exe",
+                                       "mb":  81,
+                                       "win":  "all",
+                                       "minBuild":  18362,
+                                       "ver":  "22607.1401.4.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "רכישות מחנות Microsoft"
+                 },
+                 {
+                     "he":  "ארנק",
+                     "en":  "Wallet",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Wallet.exe",
+                                       "mb":  5,
+                                       "win":  "all",
+                                       "minBuild":  16299,
+                                       "ver":  "2.2.18065.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "ארנק דיגיטלי"
+                 },
+                 {
+                     "he":  "חיבור בין מכשירים",
+                     "en":  "CrossDevice",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-CrossDevice-Win10.exe",
+                                       "mb":  132,
+                                       "win":  "10",
+                                       "minBuild":  19045,
+                                       "ver":  "1.25072.59.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-CrossDevice-Win11.exe",
+                                       "mb":  102,
+                                       "win":  "11",
+                                       "minBuild":  22631,
+                                       "ver":  "1.26071.84.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "חיבור בין מכשירים"
+                 },
+                 {
+                     "he":  "הודעות",
+                     "en":  "Messaging",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Messaging-Win10.exe",
+                                       "mb":  34,
+                                       "win":  "10",
+                                       "minBuild":  18985,
+                                       "ver":  "4.1901.60404.0",
+                                       "live":  false
+                                   },
+                                   {
+                                       "exe":  "Setup-Messaging-Win11.exe",
+                                       "mb":  34,
+                                       "win":  "11",
+                                       "minBuild":  22000,
+                                       "ver":  "5.1901.60431.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "הודעות"
+                 },
+                 {
+                     "he":  "תוכניות סלולר",
+                     "en":  "MobilePlans",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-MobilePlans.exe",
+                                       "mb":  15,
+                                       "win":  "all",
+                                       "minBuild":  17763,
+                                       "ver":  "5.2508.25002.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "חבילות סלולר"
+                 },
+                 {
+                     "he":  "PC Manager",
+                     "en":  "PCManager",
+                     "net":  true,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-PCManager.exe",
+                                       "mb":  188,
+                                       "win":  "all",
+                                       "minBuild":  19042,
+                                       "ver":  "3.22.4.0",
+                                       "live":  false
+                                   }
+                               ],
+                     "desc":  "ניקוי ותחזוקת המחשב"
                  }
              ]
 }
