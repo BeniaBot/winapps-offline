@@ -4,296 +4,456 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חנות אפליקציות אופליין ל-Windows</title>
+<meta name="description" content="להתקין ולעדכן את האפליקציות של Windows במחשב בלי חיבור לאינטרנט.">
 <link rel="icon" type="image/png" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --accent: #0067C0; --accent-h: #005AA8;
-    --bg: #f4f6f9; --card: #ffffff; --fg: #171f28; --sub: #5f6b76;
-    --line: #e4e9ee; --chip: #eff4f9; --soft: #f7fafc;
-    --warn-bg: #fdf6e7; --warn-fg: #8a6200;
-    --shadow: 0 1px 2px rgba(20,40,70,.05), 0 0 0 1px rgba(20,40,70,.02);
-    --shadow-h: 0 12px 28px rgba(20,40,70,.13);
-    --toolbar-bg: rgba(244,246,249,.85);
+    --ink:      #15181d;
+    --ink-soft: #5d6672;
+    --canvas:   #faf9f6;
+    --surface:  #ffffff;
+    --raise:    #f3f1ec;
+    --line:     #e5e1d8;
+    --accent:   #1043c8;
+    --accent-2: #dbe4fb;
+    --on-accent:#ffffff;
+    --amber:    #a56511;
+    --amber-bg: #fbf2e2;
+    --night:    #14171d;
+    --night-fg: #f2f1ee;
+    --radius:   14px;
+    --shadow:   0 1px 2px rgba(20,25,40,.05);
+    --shadow-lg:0 18px 40px -18px rgba(20,25,40,.35);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #11151a; --card: #1a2027; --fg: #e9edf1; --sub: #97a3ae;
-      --line: #2a323b; --chip: #232c35; --soft: #1f262e;
-      --warn-bg: #2e2717; --warn-fg: #d9b45c;
-      --shadow: 0 1px 2px rgba(0,0,0,.35);
-      --shadow-h: 0 12px 28px rgba(0,0,0,.5);
-      --toolbar-bg: rgba(17,21,26,.85);
+      --ink:      #e9ecf1;
+      --ink-soft: #96a0ad;
+      --canvas:   #0f1115;
+      --surface:  #171a20;
+      --raise:    #1d212a;
+      --line:     #282d37;
+      --accent:   #6f9bff;
+      --accent-2: #1b2740;
+      /* the accent lightens in dark mode, so white text on it would fail contrast */
+      --on-accent:#0b1220;
+      --amber:    #d9a95c;
+      --amber-bg: #2a2418;
+      --night:    #0b0d11;
+      --night-fg: #f2f1ee;
+      --shadow:   0 1px 2px rgba(0,0,0,.4);
+      --shadow-lg:0 18px 40px -18px rgba(0,0,0,.8);
     }
   }
   * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    background: var(--bg); color: var(--fg);
-    font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-    line-height: 1.55;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Assistant", "Segoe UI", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 22px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .82em; }
 
-  /* ---- hero ---- */
-  .hero {
-    background:
-      radial-gradient(700px 340px at 85% -60px, rgba(255,255,255,.18), transparent 60%),
-      radial-gradient(560px 300px at 15% 110%, rgba(0,0,0,.16), transparent 55%),
-      linear-gradient(130deg, #00529F 0%, #0072CE 58%, #0996E0 100%);
-    color: #fff;
-    padding: 46px 0 78px;
+  /* ---------- top bar ---------- */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--canvas) 86%, transparent);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 30;
   }
-  .hero .wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .hero img { width: 88px; height: 88px; filter: drop-shadow(0 8px 18px rgba(0,25,60,.4)); }
-  .hero h1 { font-size: clamp(1.55rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -.4px; }
-  .hero .tagline { font-size: 1.06rem; opacity: .95; margin-top: 5px; max-width: 560px; }
-  .stats { display: flex; gap: 9px; margin-top: 16px; flex-wrap: wrap; }
-  .stat {
-    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
-    border-radius: 999px; padding: 3px 15px; font-size: .85rem;
-  }
+  .topbar .wrap { display: flex; align-items: center; gap: 14px; height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.2px; }
+  .brand img { width: 30px; height: 30px; }
+  .topbar nav { margin-inline-start: auto; display: flex; gap: 20px; font-size: .93rem; }
+  .topbar nav a { color: var(--ink-soft); text-decoration: none; }
+  .topbar nav a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .topbar nav { display: none; } }
 
-  /* ---- hero download (the recommended path) ---- */
-  .gettool {
-    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
-    border-radius: 16px; padding: 16px 20px; margin-top: 22px;
-    backdrop-filter: blur(6px);
+  /* ---------- hero ---------- */
+  .hero { padding: 74px 0 12px; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-2); color: var(--accent);
+    font-size: .85rem; font-weight: 600;
+    border-radius: 999px; padding: 5px 15px; margin-bottom: 22px;
   }
-  .gettool .txt { flex: 1 1 260px; }
-  .gettool .txt b { font-size: 1.05rem; }
-  .gettool .txt span { display: block; opacity: .9; font-size: .9rem; margin-top: 2px; }
-  .gettool a.dl {
-    background: #fff; color: #005BB8; font-weight: 700; font-size: 1rem;
-    border-radius: 10px; padding: 11px 26px; text-decoration: none; white-space: nowrap;
-    box-shadow: 0 6px 16px rgba(0,25,60,.25); transition: transform .15s;
+  h1 {
+    font-size: clamp(2.1rem, 5.6vw, 3.5rem);
+    line-height: 1.12; font-weight: 800; letter-spacing: -1.2px;
+    max-width: 17ch;
   }
-  .gettool a.dl:hover { transform: translateY(-2px); }
-  .gettool .os { opacity: .82; font-size: .8rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    color: var(--ink-soft); margin-top: 20px; max-width: 54ch;
+  }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--on-accent); text-decoration: none;
+    font-weight: 700; font-size: 1.05rem;
+    border-radius: 12px; padding: 15px 30px;
+    box-shadow: var(--shadow-lg);
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+  .btn-ghost {
+    color: var(--ink); text-decoration: none; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px 24px;
+    background: var(--surface);
+  }
+  .btn-ghost:hover { border-color: var(--ink-soft); }
+  .cta small { color: var(--ink-soft); font-size: .88rem; }
 
-  /* ---- toolbar ---- */
-  .toolbar { position: sticky; top: 0; z-index: 10; margin-top: -40px; }
-  .toolbar .inner {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    box-shadow: var(--shadow-h);
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-    padding: 12px 16px;
+  .facts { display: flex; flex-wrap: wrap; gap: 34px; margin-top: 52px; padding-bottom: 8px; }
+  .fact strong { display: block; font-size: 1.75rem; font-weight: 800; letter-spacing: -.5px; }
+  .fact span { color: var(--ink-soft); font-size: .9rem; }
+
+  /* ---------- sections ---------- */
+  section { padding: 62px 0; }
+  .sec-head { margin-bottom: 30px; }
+  .sec-head h2 {
+    font-size: clamp(1.5rem, 3.2vw, 2rem); font-weight: 800; letter-spacing: -.6px;
   }
-  .toolbar.stuck .inner { border-radius: 0 0 16px 16px; }
+  .sec-head p { color: var(--ink-soft); margin-top: 8px; max-width: 62ch; }
+  .rule { height: 1px; background: var(--line); }
+
+  /* ---------- flow diagram ---------- */
+  .flow { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px; }
+  .flow svg { width: 100%; height: auto; display: block; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 26px; }
+  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+  .step-n {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); color: var(--on-accent); font-size: .82rem; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .step p { color: var(--ink-soft); font-size: .94rem; }
+
+  /* ---------- technicians ---------- */
+  .tech {
+    background: var(--night); color: var(--night-fg);
+    border-radius: var(--radius); padding: 40px 34px;
+    box-shadow: var(--shadow-lg);
+  }
+  .tech h2 { font-size: 1.7rem; font-weight: 800; letter-spacing: -.5px; }
+  .tech p.sub { color: #a8b0bd; margin-top: 10px; max-width: 58ch; }
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 26px; }
+  .tile {
+    background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.11);
+    border-radius: 11px; padding: 15px 17px;
+  }
+  .tile b { display: block; font-size: 1.18rem; font-weight: 800; }
+  .tile span { color: #a8b0bd; font-size: .86rem; }
+  .tech .btn-primary { margin-top: 26px; background: #fff; color: var(--night); }
+
+  /* ---------- catalog ---------- */
+  .toolbar {
+    position: sticky; top: 62px; z-index: 20;
+    background: color-mix(in srgb, var(--canvas) 90%, transparent);
+    backdrop-filter: blur(10px);
+    padding: 14px 0; margin-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .toolbar .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
   .search {
-    flex: 1 1 230px; display: flex; align-items: center; gap: 9px;
-    background: var(--chip); border-radius: 11px; padding: 8px 13px;
+    flex: 1 1 240px; display: flex; align-items: center; gap: 9px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 11px; padding: 9px 14px;
   }
-  .search svg { width: 16px; height: 16px; opacity: .5; flex: none; }
-  .search input { border: 0; outline: 0; background: transparent; color: var(--fg); font: inherit; width: 100%; }
-  .seg { display: flex; background: var(--chip); border-radius: 11px; padding: 3px; }
+  .search:focus-within { border-color: var(--accent); }
+  .search svg { width: 17px; height: 17px; opacity: .45; flex: none; }
+  .search input { border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; width: 100%; }
+  .seg { display: flex; background: var(--raise); border-radius: 11px; padding: 3px; }
   .seg button {
-    border: 0; background: transparent; color: var(--sub); font: inherit; font-weight: 600;
-    padding: 6px 17px; border-radius: 9px; cursor: pointer; transition: all .15s;
+    border: 0; background: transparent; color: var(--ink-soft);
+    font: inherit; font-size: .93rem; font-weight: 600;
+    padding: 7px 17px; border-radius: 9px; cursor: pointer;
   }
-  .seg button.on { background: var(--accent); color: #fff; }
-  .hint { color: var(--sub); font-size: .8rem; }
-  .count { color: var(--sub); font-size: .84rem; margin-inline-start: auto; }
+  .seg button.on { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }
+  .count { color: var(--ink-soft); font-size: .88rem; margin-inline-start: auto; }
 
-  .notice {
-    display: flex; align-items: center; gap: 10px;
-    background: var(--warn-bg); color: var(--warn-fg);
-    border-radius: 12px; padding: 10px 16px; margin: 18px 0 0;
-    font-size: .92rem;
+  .grouphead {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 34px 0 6px; padding-bottom: 8px;
   }
+  .grouphead h3 { font-size: 1.12rem; font-weight: 800; }
+  .grouphead span { color: var(--ink-soft); font-size: .88rem; }
+  .groupnote { color: var(--ink-soft); font-size: .92rem; margin-bottom: 14px; max-width: 66ch; }
 
-  /* ---- groups ---- */
-  h2.group { font-size: 1.28rem; margin: 38px 0 3px; display: flex; align-items: center; gap: 10px; letter-spacing: -.2px; }
-  h2.group .badge {
-    background: var(--chip); color: var(--sub); font-size: .76rem; font-weight: 700;
-    border-radius: 999px; padding: 2px 11px;
+  .list { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .row-app {
+    display: grid;
+    grid-template-columns: 40px minmax(0,1fr) auto auto;
+    align-items: center; gap: 14px;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--line);
   }
-  .groupnote { color: var(--sub); font-size: .92rem; margin-bottom: 16px; }
+  .row-app:last-child { border-bottom: 0; }
+  .row-app:hover { background: var(--raise); }
+  .row-app.na { opacity: .5; }
+  .ico { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; background: var(--raise); }
+  .ico img { width: 26px; height: 26px; object-fit: contain; }
+  .nm { font-weight: 600; line-height: 1.3; }
+  .ds { color: var(--ink-soft); font-size: .88rem; line-height: 1.35; }
+  .meta { color: var(--ink-soft); text-align: end; white-space: nowrap; }
+  .sz { font-weight: 600; color: var(--ink); }
+  .tag {
+    font-size: .76rem; font-weight: 600; border-radius: 6px;
+    padding: 3px 9px; white-space: nowrap;
+    background: var(--raise); color: var(--ink-soft);
+  }
+  .tag.win11 { background: var(--accent-2); color: var(--accent); }
+  .tag.na { background: var(--amber-bg); color: var(--amber); }
+  @media (max-width: 620px) {
+    .row-app { grid-template-columns: 34px minmax(0,1fr) auto; gap: 10px; padding: 12px 14px; }
+    .row-app .meta.ver { display: none; }
+    /* the Windows filter above already says which target you are looking at,
+       so only the "not available" tag still earns its width here */
+    .tag:not(.na) { display: none; }
+  }
+  .empty { padding: 30px 18px; color: var(--ink-soft); }
 
-  /* ---- cards ---- */
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 14px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 15px;
-    box-shadow: var(--shadow);
-    padding: 16px; display: flex; flex-direction: column; gap: 10px;
-    transition: transform .16s ease, box-shadow .16s ease;
-  }
-  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
-  .card.na { opacity: .62; }
-  .card.na:hover { transform: none; box-shadow: var(--shadow); }
-  .head { display: flex; align-items: flex-start; gap: 12px; }
-  .appicon {
-    width: 48px; height: 48px; flex: none; border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--chip);
-  }
-  .appicon img { width: 34px; height: 34px; object-fit: contain; }
-  .name { font-weight: 650; line-height: 1.25; padding-top: 2px; }
-  .desc { color: var(--sub); font-size: .84rem; line-height: 1.4; margin-top: 1px; }
+  /* ---------- notes ---------- */
+  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
   .note {
-    background: var(--soft); border-inline-start: 3px solid var(--line);
-    color: var(--sub); font-size: .8rem; border-radius: 6px; padding: 6px 10px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 22px;
   }
-  .files { display: flex; flex-direction: column; gap: 7px; margin-top: auto; }
-  .file {
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    background: var(--soft); border-radius: 9px; padding: 7px 11px;
-  }
-  .meta { color: var(--sub); font-size: .82rem; }
-  .meta b { color: var(--fg); font-weight: 600; }
-  .btn {
-    background: var(--accent); color: #fff; border: 0; border-radius: 8px;
-    padding: 6px 16px; font-size: .86rem; font-weight: 600; cursor: pointer;
-    text-decoration: none; white-space: nowrap; transition: background .15s;
-  }
-  .btn:hover { background: var(--accent-h); }
-  .pill {
-    border: 1px dashed var(--line); color: var(--sub); border-radius: 8px;
-    padding: 5px 13px; font-size: .8rem; white-space: nowrap;
-  }
-  .navtag {
-    background: var(--chip); color: var(--sub); font-size: .78rem; font-weight: 600;
-    border-radius: 6px; padding: 2px 9px; white-space: nowrap;
-  }
-  .empty { color: var(--sub); padding: 26px 4px; }
+  .note h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+  .note p { color: var(--ink-soft); font-size: .93rem; }
 
-  /* ---- tech ---- */
-  .tech { margin-top: 50px; }
-  .tech .card {
-    max-width: 580px;
-    background:
-      linear-gradient(var(--card), var(--card)) padding-box,
-      linear-gradient(135deg, #0996E0, #00529F) border-box;
-    border: 2px solid transparent;
-  }
-  footer { margin: 56px 0 36px; color: var(--sub); font-size: .85rem; }
+  footer { border-top: 1px solid var(--line); padding: 34px 0 46px; color: var(--ink-soft); font-size: .9rem; }
+  .editme { color: var(--ink-soft); font-size: .88rem; }
 </style>
 </head>
 <body>
 
-<div class="hero">
+<header class="topbar">
   <div class="wrap">
-    <img src="icon.png" alt="">
-    <div>
-      <h1>חנות אפליקציות אופליין ל-Windows</h1>
-      <div class="tagline">האפליקציות של Windows — להתקנה ולעדכון במחשב בלי אינטרנט. קובץ אחד, בלי הרשאות מנהל, הכל בפנים.</div>
-      <div class="stats" id="stats"></div>
-    </div>
+    <div class="brand"><img src="icon.png" alt=""> חנות אופליין</div>
+    <nav>
+      <a href="#how">איך זה עובד</a>
+      <a href="#catalog">מה יש בחנות</a>
+      <a href="#tech">לטכנאים</a>
+    </nav>
   </div>
-  <div class="wrap">
-    <div class="gettool">
-      <div class="txt">
-        <b>הדרך הקלה — הכלי האורז</b>
-        <span>מריצים על מחשב מחובר, בוחרים אפליקציות, והכלי אורז לכם מתקין להעברה למחשב המנותק. אין צורך להוריד כל אחת בנפרד.</span>
-      </div>
-      <a class="dl" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">⬇ הורדת הכלי</a>
-      <span class="os">Windows 10/11 · ~1.7MB</span>
-    </div>
+</header>
+
+<div class="wrap hero">
+  <div class="kicker">בלי אינטרנט · בלי הרשאות מנהל</div>
+  <h1>האפליקציות של Windows, גם למחשב <em>שאין בו אינטרנט</em>.</h1>
+  <p class="lede">
+    חלק מהאפליקציות של Windows מגיעות כקיצור דרך בלבד, ומנסות להוריד את עצמן בפתיחה הראשונה.
+    במחשב מנותק זה נכשל. כאן אורזים אותן במלואן — עם כל ספריות המערכת — לקובץ שמתקין בלי רשת.
+  </p>
+  <div class="cta">
+    <a class="btn-primary" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">
+      ⬇ הורדת הכלי
+    </a>
+    <a class="btn-ghost" href="#how">איך זה עובד</a>
+    <small>Windows 10/11 · 1.7MB</small>
   </div>
+  <div class="facts" id="facts"></div>
+  <p class="editme">[ערכו אותי — משפט פתיחה משלכם, אם תרצו]</p>
 </div>
 
-<div class="toolbar" id="toolbar">
+<section id="how">
   <div class="wrap">
-    <div class="inner">
-      <div class="search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="חיפוש אפליקציה...">
-      </div>
-      <div class="seg" id="seg">
-        <button data-f="all" class="on">הכל</button>
-        <button data-f="10">Windows 10</button>
-        <button data-f="11">Windows 11</button>
-      </div>
-      <span class="hint">איזה Windows יש לי? Win+R ואז winver</span>
-      <span class="count" id="count"></span>
+    <div class="sec-head">
+      <h2>שלושה צעדים</h2>
+      <p>הכלי רץ על מחשב שיש בו אינטרנט. התוצאה עוברת בדיסק-און-קי למחשב שאין בו.</p>
     </div>
-  </div>
-</div>
 
-<div class="wrap">
-  <h2 class="group">או להוריד אחת-אחת <span class="badge" id="n-total"></span></h2>
-  <div class="groupnote">מי שצריך אפליקציה בודדת — כל אחת כאן היא מתקין עצמאי לחלוטין. <span id="dlnotice">⏳ ההורדות הבודדות עדיין לא פעילות — בינתיים השתמשו בכלי האורז למעלה.</span></div>
+    <div class="flow">
+      <svg viewBox="0 0 900 210" role="img" aria-label="מחשב מחובר, דיסק און קי, מחשב מנותק">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="currentColor" stroke-width="2" color="var(--ink-soft)" opacity=".55">
+          <path d="M620 105 H 500" stroke-dasharray="7 7" marker-end="url(#ah)"/>
+          <path d="M400 105 H 280" stroke-dasharray="7 7" marker-end="url(#ah)"/>
+        </g>
 
-  <h2 class="group">עובדות בלי אינטרנט <span class="badge" id="n-main"></span></h2>
-  <div class="groupnote">מתקינים ומשתמשים — גם במחשב שלא יתחבר לרשת לעולם.</div>
-  <div class="grid" id="grid-main"></div>
+        <!-- 1: connected PC (right, RTL start) -->
+        <g transform="translate(660,40)">
+          <rect x="0" y="0" width="200" height="130" rx="14" fill="var(--raise)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="38" y="30" width="124" height="76" rx="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
+          <g stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round">
+            <path d="M80 78 a20 20 0 0 1 40 0"/>
+            <path d="M89 86 a11 11 0 0 1 22 0"/>
+          </g>
+          <circle cx="100" cy="94" r="3.2" fill="var(--accent)"/>
+        </g>
 
-  <h2 class="group">דורשות אינטרנט כדי לתפקד <span class="badge" id="n-net"></span></h2>
-  <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה אחרי ניקוי מערכת.</div>
-  <div class="grid" id="grid-net"></div>
+        <!-- 2: USB stick (middle) -->
+        <g transform="translate(410,55)">
+          <rect x="0" y="30" width="80" height="42" rx="8" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="76" y="42" width="26" height="18" rx="3" fill="var(--ink-soft)" opacity=".55"/>
+          <rect x="14" y="42" width="34" height="6" rx="3" fill="var(--accent)" opacity=".7"/>
+        </g>
 
-  <div class="tech">
-    <h2 class="group">לטכנאים — כל החנות בבת אחת</h2>
-    <div class="groupnote">מי שמגיע לתקן מחשב מנותק רוצה הכל, לא אפליקציה בודדת. [ערכו אותי]</div>
-    <div class="card">
-      <div class="head">
-        <div class="appicon"><img src="icon.png" alt=""></div>
-        <div>
-          <div class="name">בונים את החבילה המלאה עם הכלי האורז</div>
-          <div class="desc">בכלי יש "סמן הכל" — לוחצים, והוא מוריד את כל החנות ואורז תיקייה אחת עם מתקין משולב: רשימת סימון שמראה מה מותקן, מה יש לו עדכון, ומה דורש Windows חדש יותר.</div>
+        <!-- 3: offline PC (left) -->
+        <g transform="translate(40,40)">
+          <rect x="0" y="0" width="200" height="130" rx="14" fill="var(--raise)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="38" y="30" width="124" height="76" rx="7" fill="var(--surface)" stroke="var(--line)" stroke-width="2.5"/>
+          <g stroke="var(--ink-soft)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".65">
+            <path d="M80 78 a20 20 0 0 1 40 0"/>
+            <path d="M89 86 a11 11 0 0 1 22 0"/>
+          </g>
+          <circle cx="100" cy="94" r="3.2" fill="var(--ink-soft)" opacity=".65"/>
+          <path d="M74 62 L126 106" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round"/>
+        </g>
+      </svg>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>בוחרים אפליקציות</h3>
+          <p>מריצים את הכלי על מחשב מחובר, מסמנים מה צריך, והוא מוריד מהשרתים של מיקרוסופט — עם כל התלויות.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>מעבירים בדיסק-און-קי</h3>
+          <p>נוצרת תיקייה אחת עם מתקין גרפי. מעתיקים אותה כמו שהיא — אין התקנה ואין רישום במערכת.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>מתקינים במנותק</h3>
+          <p>לחיצה כפולה במחשב היעד. המתקין מזהה מה כבר מותקן, מה יש לו עדכון, ומה דורש Windows חדש יותר.</p>
         </div>
       </div>
-      <div class="files">
-        <div class="file"><span class="meta"><b>Windows 10</b> · 34 אפליקציות · כ-4.7GB</span></div>
-        <div class="file"><span class="meta"><b>Windows 11</b> · 37 אפליקציות · כ-6.2GB</span></div>
-        <div class="file"><span class="meta">רק מה שעובד בלי אינטרנט · כ-3.6GB</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" style="padding-top:0">
+  <div class="wrap">
+    <div class="tech">
+      <h2>לטכנאים — כל החנות בלחיצה אחת</h2>
+      <p class="sub">בכלי יש "סמן הכל". מקבלים תיקייה אחת עם כל האפליקציות ומתקין משולב שמציג רשימת סימון: מה חסר, מה מיושן, ומה לא מתאים לגרסת ה-Windows שבמחשב.</p>
+      <div class="tech-grid">
+        <div class="tile"><b>34</b><span>אפליקציות ל-Windows 10 · כ-4.7GB</span></div>
+        <div class="tile"><b>37</b><span>אפליקציות ל-Windows 11 · כ-6.2GB</span></div>
+        <div class="tile"><b>21</b><span>רק אלה שעובדות אופליין · כ-3.6GB</span></div>
       </div>
-      <div class="note">מעבירים בכונן NTFS או exFAT — קובץ מעל 4GB לא נכנס ל-FAT32. גרסת ISO מוכנה להורדה: בקרוב.</div>
-      <div class="file">
-        <span class="meta">אין צורך להוריד כל אפליקציה בנפרד</span>
-        <a class="btn" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">⬇ הורדת הכלי</a>
+      <a class="btn-primary" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">⬇ הורדת הכלי</a>
+      <p class="sub" style="margin-top:18px;font-size:.88rem">מעבירים בכונן NTFS או exFAT — קובץ מעל 4GB לא נכנס ל-FAT32. גרסת ISO מוכנה: בקרוב.</p>
+    </div>
+  </div>
+</section>
+
+<section id="catalog" style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>מה יש בחנות</h2>
+      <p>הרשימה שהכלי מוריד ממנה. הגרסאות והגדלים הם מה שיירד בפועל.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="row">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="חיפוש אפליקציה...">
+        </label>
+        <div class="seg" id="seg">
+          <button data-f="all" class="on">הכל</button>
+          <button data-f="10">Windows 10</button>
+          <button data-f="11">Windows 11</button>
+        </div>
+        <span class="count" id="count"></span>
+      </div>
+    </div>
+
+    <div class="grouphead"><h3>עובדות בלי אינטרנט</h3><span id="n-main"></span></div>
+    <div class="groupnote">מתקינות ופועלות במלואן גם במחשב שלא יתחבר לרשת לעולם.</div>
+    <div class="list" id="list-main"></div>
+
+    <div class="grouphead"><h3>דורשות אינטרנט כדי לתפקד</h3><span id="n-net"></span></div>
+    <div class="groupnote">מתקינות בלי אינטרנט, אבל התוכן שלהן חי ברשת — למחשב שיחובר בהמשך, או לעדכון גרסה אחרי ניקוי מערכת.</div>
+    <div class="list" id="list-net"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="notes">
+      <div class="note">
+        <h4>חתום על ידי מיקרוסופט</h4>
+        <p>החבילות יורדות מהשרתים של מיקרוסופט ואינן משונות. אפשר לאמת: לחיצה ימנית ← מאפיינים ← חתימות דיגיטליות.</p>
+      </div>
+      <div class="note">
+        <h4>בלי הרשאות מנהל</h4>
+        <p>ההתקנה היא למשתמש הנוכחי. משתמש אחר באותו מחשב יריץ את המתקין בעצמו.</p>
+      </div>
+      <div class="note">
+        <h4>גם עדכון, לא רק התקנה</h4>
+        <p>אפשר להתקין גרסה חדשה מעל קיימת, בלי להסיר ובלי לאבד נתונים. המתקין אומר מראש מה יקרה.</p>
+      </div>
+      <div class="note">
+        <h4>למה חלק רק ל-Windows 11?</h4>
+        <p>גרסת החנות של פנקס הרשימות והצייר דורשת Windows 11. ב-Windows 10 יש ממילא את הגרסאות הקלאסיות במערכת.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <footer>[ערכו אותי — קרדיט, יצירת קשר, הבהרה משפטית]</footer>
-</div>
+<footer>
+  <div class="wrap">
+    <div>[ערכו אותי — קרדיט, יצירת קשר, הבהרה משפטית]</div>
+    <div style="margin-top:6px" id="updated"></div>
+  </div>
+</footer>
 
 <script>
-const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'ל-Windows 10', '11': 'ל-Windows 11' };
+const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 let FILTER = 'all', QUERY = '', DATA = null;
 
-function fileRow(f) {
-  const meta = '<span class="meta" title="גרסה ' + f.ver + ' · build ‎≥ ' + f.minBuild + '"><b>' +
-    WIN_LABEL[f.win] + '</b> · ' + f.mb + 'MB</span>';
-  const btn = f.live
-    ? '<a class="btn" href="files/' + f.exe + '">הורדה</a>'
-    : '<span class="pill">בקרוב</span>';
-  return '<div class="file">' + meta + btn + '</div>';
-}
-
-function card(a) {
-  if (QUERY && !(a.he + ' ' + a.en).toLowerCase().includes(QUERY)) return '';
+function row(a) {
+  if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
   const files = a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
-  const chip = a.color ? ' style="background:' + a.color + '1a"' : '';
   const img = a.icon ? '<img src="' + a.icon + '" alt="" loading="lazy">' : '';
+  const chip = a.color ? ' style="background:' + a.color + '1a"' : '';
   const head =
-    '<div class="head">' +
-      '<div class="appicon"' + chip + '>' + img + '</div>' +
-      '<div><div class="name">' + a.he + '</div>' +
-      (a.desc ? '<div class="desc">' + a.desc + '</div>' : '') + '</div>' +
-    '</div>';
-  const note = a.note ? '<div class="note">' + a.note + '</div>' : '';
+    '<div class="ico"' + chip + '>' + img + '</div>' +
+    '<div><div class="nm">' + a.he + '</div>' +
+    (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') + '</div>';
 
   if (!files.length) {
-    // not available for the chosen Windows - explain instead of vanishing
-    return '<div class="card na">' + head + note +
-      '<div class="files"><div class="file"><span class="meta">לא זמינה ל-Windows ' + FILTER +
-      '</span><span class="navtag">דורש Windows 11</span></div></div></div>';
+    return '<div class="row-app na">' + head +
+      '<div class="meta ver mono"></div>' +
+      '<div class="meta"><span class="tag na">דורש Windows 11</span></div></div>';
   }
-  return '<div class="card">' + head + note +
-    '<div class="files">' + files.map(fileRow).join('') + '</div></div>';
+  const mb = Math.max.apply(null, files.map(f => f.mb));
+  const vers = [...new Set(files.map(f => f.ver))].join(' · ');
+  const tag = files.length > 1
+    ? '<span class="tag">שתי גרסאות</span>'
+    : (files[0].win === '11' ? '<span class="tag win11">Windows 11</span>'
+                             : '<span class="tag">' + WIN_LABEL[files[0].win] + '</span>');
+  return '<div class="row-app">' + head +
+    '<div class="meta ver mono">' + vers + '</div>' +
+    '<div class="meta"><span class="sz">' + mb + ' MB</span> &nbsp;' + tag + '</div></div>';
 }
 
 function render() {
   if (!DATA) return;
-  const main = DATA.apps.filter(a => !a.net).map(card).filter(Boolean);
-  const net  = DATA.apps.filter(a =>  a.net).map(card).filter(Boolean);
-  document.getElementById('grid-main').innerHTML = main.join('') || '<div class="empty">לא נמצא כלום.</div>';
-  document.getElementById('grid-net').innerHTML  = net.join('')  || '<div class="empty">לא נמצא כלום.</div>';
-  document.getElementById('n-main').textContent = DATA.apps.filter(a => !a.net).length;
-  document.getElementById('n-net').textContent  = DATA.apps.filter(a =>  a.net).length;
-  document.getElementById('n-total').textContent = DATA.apps.length;
+  const main = DATA.apps.filter(a => !a.net).map(row).filter(Boolean);
+  const net  = DATA.apps.filter(a =>  a.net).map(row).filter(Boolean);
+  document.getElementById('list-main').innerHTML = main.join('') || '<div class="empty">לא נמצא כלום.</div>';
+  document.getElementById('list-net').innerHTML  = net.join('')  || '<div class="empty">לא נמצא כלום.</div>';
+  document.getElementById('n-main').textContent = DATA.apps.filter(a => !a.net).length + ' אפליקציות';
+  document.getElementById('n-net').textContent  = DATA.apps.filter(a =>  a.net).length + ' אפליקציות';
   document.getElementById('count').textContent  = 'מציג ' + (main.length + net.length) + ' מתוך ' + DATA.apps.length;
 }
 
@@ -310,11 +470,12 @@ document.getElementById('q').addEventListener('input', e => {
 
 fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => {
   DATA = d;
-  const totalMb = d.apps.reduce((s, a) => s + a.files.reduce((t, f) => t + f.mb, 0), 0);
-  document.getElementById('stats').innerHTML =
-    '<span class="stat">' + d.apps.length + ' אפליקציות</span>' +
-    '<span class="stat">' + (totalMb / 1024).toFixed(1) + ' GB</span>' +
-    '<span class="stat">עודכן ' + d.updated + '</span>';
+  const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
+  document.getElementById('facts').innerHTML =
+    '<div class="fact"><strong>' + d.apps.length + '</strong><span>אפליקציות בקטלוג</span></div>' +
+    '<div class="fact"><strong>' + gb.toFixed(1) + ' GB</strong><span>אם לוקחים הכל</span></div>' +
+    '<div class="fact"><strong>0</strong><span>מגה־בייט של אינטרנט בצד השני</span></div>';
+  document.getElementById('updated').textContent = 'הקטלוג עודכן ב-' + d.updated;
   render();
 });
 </script>
