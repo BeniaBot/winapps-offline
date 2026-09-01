@@ -1412,6 +1412,425 @@
                                        "ver":  "38.116.6003.0"
                                    }
                                ]
+                 },
+                 {
+                     "he":  "Visual C++ 2015–2022 (x64)",
+                     "en":  "VCRedist64",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://aka.ms/vs/17/release/vc_redist.x64.exe",
+                     "match":  "vc_redist.x64.exe",
+                     "silent":  "/install /quiet /norestart",
+                     "color":  "#7c3aed",
+                     "desc":  "ספריות הריצה שכמעט כל תוכנה דורשת. להתקין תמיד",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "vc_redist.x64.exe",
+                                       "mb":  25,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Visual C++ 2015–2022 (x86)",
+                     "en":  "VCRedist86",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://aka.ms/vs/17/release/vc_redist.x86.exe",
+                     "match":  "vc_redist.x86.exe",
+                     "silent":  "/install /quiet /norestart",
+                     "color":  "#7c3aed",
+                     "desc":  "הגרסה ל-32 סיביות — תוכנות ישנות צריכות דווקא אותה",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "vc_redist.x86.exe",
+                                       "mb":  14,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  ".NET Framework 4.8.1",
+                     "en":  "NetFx481",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://go.microsoft.com/fwlink/?linkid=2203305",
+                     "match":  "NDP481-x86-x64-AllOS-ENU.exe",
+                     "silent":  "/q /norestart",
+                     "color":  "#512bd4",
+                     "desc":  "התשתית של רוב תוכנות Windows הוותיקות. מתקין מלא אופליין",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "NDP481-x86-x64-AllOS-ENU.exe",
+                                       "mb":  75,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  ".NET Desktop Runtime 8 (x64)",
+                     "en":  "Net8Desktop",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://aka.ms/dotnet/8.0/windowsdesktop-runtime-win-x64.exe",
+                     "match":  "windowsdesktop-runtime-*-win-x64.exe",
+                     "silent":  "/install /quiet /norestart",
+                     "color":  "#512bd4",
+                     "desc":  "לתוכנות מודרניות שנבנו על ‎.NET 8",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "windowsdesktop-runtime-*-win-x64.exe",
+                                       "mb":  56,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "WebView2 Runtime (x64)",
+                     "en":  "WebView2",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://go.microsoft.com/fwlink/?linkid=2124701",
+                     "match":  "MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+                     "silent":  "/silent /install",
+                     "color":  "#0f6cbd",
+                     "desc":  "מנוע הדפדפן שאפליקציות מודרניות מציגות בו תוכן",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
+                                       "mb":  247,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "DirectX (יוני 2010)",
+                     "en":  "DirectX",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://download.microsoft.com/download/8/4/A/84A35BF1-DAFE-4AE8-82AF-AD2AE20B6B14/directx_Jun2010_redist.exe",
+                     "match":  "directx_Jun2010_redist.exe",
+                     "silent":  "SPECIAL_DIRECTX",
+                     "color":  "#107c10",
+                     "desc":  "ספריות שמשחקים ותוכנות ותיקות דורשים",
+                     "cat":  "רכיבי מערכת",
+                     "files":  [
+                                   {
+                                       "exe":  "directx_Jun2010_redist.exe",
+                                       "mb":  96,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Chrome",
+                     "en":  "Chrome",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://dl.google.com/chrome/install/googlechromestandaloneenterprise64.msi",
+                     "match":  "googlechromestandaloneenterprise64.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "color":  "#4285f4",
+                     "desc":  "מתקין מלא (Enterprise MSI) — לא דורש רשת בהתקנה",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "googlechromestandaloneenterprise64.msi",
+                                       "mb":  158,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Firefox",
+                     "en":  "Firefox",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=he",
+                     "match":  "Firefox Setup*.exe",
+                     "silent":  "/S",
+                     "color":  "#ff7139",
+                     "desc":  "מתקין מלא בעברית",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "Firefox Setup*.exe",
+                                       "mb":  88,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Edge",
+                     "en":  "Edge",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://go.microsoft.com/fwlink/?linkid=2093437",
+                     "match":  "MicrosoftEdgeEnterpriseX64.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "color":  "#0c8790",
+                     "desc":  "מתקין מלא (Enterprise MSI) — גם למחשב שבו Edge הוסר או מיושן",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "MicrosoftEdgeEnterpriseX64.msi",
+                                       "mb":  247,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "7-Zip",
+                     "en":  "SevenZip",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://www.7-zip.org/a/7z2409-x64.exe",
+                     "match":  "7z2409-x64.exe",
+                     "silent":  "/S",
+                     "color":  "#f0a020",
+                     "desc":  "פתיחת כל סוגי הארכיונים",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "7z2409-x64.exe",
+                                       "mb":  2,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Everything",
+                     "en":  "Everything",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://www.voidtools.com/Everything-1.4.1.1028.x64-Setup.exe",
+                     "match":  "Everything-*-Setup.exe",
+                     "silent":  "/S",
+                     "color":  "#f5793b",
+                     "desc":  "חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "Everything-*-Setup.exe",
+                                       "mb":  2,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Sumatra PDF",
+                     "en":  "SumatraPDF",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe",
+                     "match":  "SumatraPDF-*-install.exe",
+                     "silent":  "-s",
+                     "color":  "#f9a825",
+                     "desc":  "קורא PDF קטן ומהיר",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "SumatraPDF-*-install.exe",
+                                       "mb":  8,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "VLC",
+                     "en":  "VLC",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe",
+                     "match":  "vlc-*-win64.exe",
+                     "silent":  "/S",
+                     "color":  "#e85e00",
+                     "desc":  "מנגן כל פורמט וידאו ואודיו",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "vlc-*-win64.exe",
+                                       "mb":  43,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "LibreOffice",
+                     "en":  "LibreOffice",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://download.documentfoundation.org/libreoffice/stable/26.2.5/win/x86_64/LibreOffice_26.2.5_Win_x86-64.msi",
+                     "match":  "LibreOffice_*_Win_x86-64.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "color":  "#18a303",
+                     "desc":  "חבילת אופיס מלאה וחינמית — Word, Excel ו-PowerPoint תואמים",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "LibreOffice_*_Win_x86-64.msi",
+                                       "mb":  356,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Python 3.12",
+                     "en":  "Python",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe",
+                     "match":  "python-*-amd64.exe",
+                     "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0",
+                     "color":  "#3776ab",
+                     "desc":  "שפת התכנות — עם pip ו-IDLE",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "python-*-amd64.exe",
+                                       "mb":  25,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "VS Code",
+                     "en":  "VSCode",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://update.code.visualstudio.com/latest/win32-x64/stable",
+                     "match":  "VSCodeSetup-x64-*.exe",
+                     "silent":  "/VERYSILENT /NORESTART /MERGETASKS=!runcode",
+                     "color":  "#0098ff",
+                     "desc":  "עורך הקוד של מיקרוסופט — מתקין מלא",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "VSCodeSetup-x64-*.exe",
+                                       "mb":  221,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Notepad++",
+                     "en":  "NotepadPP",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
+                     "match":  "npp.*.Installer.x64.exe",
+                     "silent":  "/S",
+                     "color":  "#8fbc45",
+                     "desc":  "עורך טקסט וקוד",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "npp.*.Installer.x64.exe",
+                                       "mb":  6,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Git",
+                     "en":  "Git",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe",
+                     "match":  "Git-*-64-bit.exe",
+                     "silent":  "/VERYSILENT /NORESTART",
+                     "color":  "#f05033",
+                     "desc":  "ניהול גרסאות למפתחים",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "Git-*-64-bit.exe",
+                                       "mb":  65,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Java (Temurin 21)",
+                     "en":  "Java21",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://api.adoptium.net/v3/installer/latest/21/ga/windows/x64/jre/hotspot/normal/eclipse",
+                     "match":  "OpenJDK21U-jre_*.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "color":  "#e76f00",
+                     "desc":  "סביבת הריצה של Java",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "OpenJDK21U-jre_*.msi",
+                                       "mb":  33,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Rufus",
+                     "en":  "Rufus",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15.exe",
+                     "match":  "rufus-*.exe",
+                     "color":  "#489bd6",
+                     "desc":  "צריבת ISO לדיסק-און-קי. קובץ נייד — מריצים ישירות, בלי התקנה",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "rufus-*.exe",
+                                       "mb":  2,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
                  }
              ]
 }

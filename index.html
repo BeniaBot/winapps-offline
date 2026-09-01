@@ -286,10 +286,13 @@
 const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/';
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
+const W32_CATS = ['רכיבי מערכת', 'תוכנות נפוצות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
-  'שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
+  'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף קובץ שמתקין את כולם בשקט, בלחיצה אחת.',
+  'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף קובץ התקנה-שקטה שמריץ את כולן ברצף.',
+  'בפיתוח שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
 let TARGET = '11';
@@ -302,7 +305,8 @@ const bestFile = a => {
   if (!fs.length) return null;
   return fs.find(f => f.win === TARGET) || fs[0];
 };
-const isLive = f => !!LIVE[f.exe];
+const isLive = (a, f) => a.w32 ? true : !!LIVE[f.exe];
+const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
 const mbOf = a => { const f = bestFile(a); return f ? f.mb : 0; };
 const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
 
@@ -318,8 +322,8 @@ function tile(a) {
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
   const get = twoAmbiguous
     ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
-    : (isLive(f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
-                 : '<span class="get soon">בהעלאה...</span>');
+    : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
+                    : '<span class="get soon">בהעלאה...</span>');
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
@@ -330,10 +334,13 @@ function render() {
   if (!DATA) return;
   const box = document.getElementById('cats');
   let html = '', shown = 0, total = 0;
-  const groups = CAT_ORDER.concat(['שלי']);
+  const groups = CAT_ORDER.concat(W32_CATS, ['בפיתוח שלי']);
   const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
   groups.forEach(cat => {
-    const members = DATA.apps.filter(a => cat === 'שלי' ? a.custom : (!a.custom && (a.cat || 'נוספות') === cat));
+    const members = DATA.apps.filter(a =>
+      cat === 'בפיתוח שלי' ? a.custom :
+      W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
+      (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat));
     if (!members.length) return;
     chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
     total += members.filter(a => bestFile(a)).length;
@@ -370,10 +377,73 @@ document.addEventListener('click', e => {
 });
 
 function download(exe) {
+  // w32 entries point straight at the vendor's own installer
+  const owner = DATA.apps.find(x => x.w32 && x.files.some(f => f.exe === exe));
   const a = document.createElement('a');
-  a.href = REL + encodeURIComponent(exe);
-  a.download = exe;
+  a.href = owner ? owner.url : REL + encodeURIComponent(exe);
+  if (!owner) a.download = exe;
   document.body.appendChild(a); a.click(); a.remove();
+}
+
+/* the one-click silent installer script for a picked set of w32 apps */
+function silentCmd(list) {
+  // no delayed expansion on purpose: switches like VS Code's /MERGETASKS=!runcode
+  // must reach the installer with the "!" intact
+  const L = ['@echo off', 'cd /d "%~dp0"', 'title Silent install',
+    'echo ============================================',
+    'echo  Silent install of ' + list.length + ' packages.',
+    'echo  Keep this file in the folder with the installers.',
+    'echo ============================================'];
+  list.forEach((a, i) => {
+    const tag = '[' + (i + 1) + '/' + list.length + '] ' + a.en;
+    if (a.silent === 'SPECIAL_DIRECTX') L.push('call :instdx "' + a.match + '" "' + tag + '"');
+    else if (a.silent.indexOf('MSI:') === 0) L.push('call :instmsi "' + a.match + '" "' + tag + '" ' + a.silent.slice(4));
+    else L.push('call :inst "' + a.match + '" "' + tag + '" ' + a.silent);
+  });
+  L.push('echo ============================================');
+  L.push('echo  Finished. Exit code 3010 means a restart is needed.');
+  L.push('pause');
+  L.push('exit /b');
+  L.push('');
+  L.push(':find');
+  L.push('set "F="');
+  L.push('for %%f in ("%~1") do if exist "%%~f" set "F=%%~f"');
+  L.push('if not defined F echo SKIP  %~2 - installer file not found');
+  L.push('exit /b');
+  L.push('');
+  L.push(':inst');
+  L.push('call :find "%~1" "%~2"');
+  L.push('if not defined F exit /b');
+  L.push('echo %~2 ...');
+  L.push('start /wait "" "%F%" %3 %4 %5 %6 %7 %8 %9');
+  L.push('echo       done - exit code %errorlevel%');
+  L.push('exit /b');
+  L.push('');
+  L.push(':instmsi');
+  L.push('call :find "%~1" "%~2"');
+  L.push('if not defined F exit /b');
+  L.push('echo %~2 ...');
+  L.push('start /wait "" msiexec /i "%F%" %3 %4 %5 %6 %7 %8 %9');
+  L.push('echo       done - exit code %errorlevel%');
+  L.push('exit /b');
+  L.push('');
+  L.push(':instdx');
+  L.push('call :find "%~1" "%~2"');
+  L.push('if not defined F exit /b');
+  L.push('echo %~2 ...');
+  L.push('start /wait "" "%F%" /Q /T:"%TEMP%\\dxredist"');
+  L.push('start /wait "" "%TEMP%\\dxredist\\DXSETUP.exe" /silent');
+  L.push('echo       done - exit code %errorlevel%');
+  L.push('exit /b');
+  return L.join('\r\n');
+}
+function downloadCmd(list) {
+  const blob = new Blob([silentCmd(list)], { type: 'application/octet-stream' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'התקנה-שקטה.cmd';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
 }
 
 function toggle(en) {
@@ -387,9 +457,10 @@ function updateDock() {
   const dock = document.getElementById('dock');
   const n = SELECTED.size;
   if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
-  let mb = 0;
-  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
-  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + mbFmt(mb) + '</span>';
+  let mb = 0, w32s = 0;
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) { mb += mbOf(a); if (a.w32 && a.silent) w32s++; } });
+  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + mbFmt(mb) +
+    (w32s > 1 ? ' · עם קובץ התקנה שקטה' : '') + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
@@ -409,13 +480,16 @@ document.getElementById('dock-target').addEventListener('click', e => {
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
-  const files = [];
+  const files = [], w32Silent = [];
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
     const f = bestFile(a);
-    if (f && isLive(f)) files.push(f.exe);
+    if (f && isLive(a, f)) files.push(f.exe);
+    if (a.w32 && a.silent) w32Silent.push(a);
   });
   files.forEach((exe, i) => setTimeout(() => download(exe), i * 600));
+  // more than one silent-capable pick: bundle the one-click install script too
+  if (w32Silent.length > 1) setTimeout(() => downloadCmd(w32Silent), files.length * 600 + 400);
 };
 
 /* ===== sheet ===== */
@@ -427,11 +501,15 @@ function openSheet(en) {
   const pl = a.icon
     ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt=""></div>'
     : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const rows = files.map(f =>
-    '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
+  const rows = a.w32
+    ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
+      (a.silent && a.silent !== 'SPECIAL_DIRECTX'
+        ? '<div class="row"><span>התקנה שקטה</span><span dir="ltr" class="mono">' + esc(a.silent.replace('MSI:', 'msiexec /i ‹file› ')) + '</span></div>' : '')
+    : files.map(f =>
+        '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   const btns = files.map(f => {
     const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + mbFmt(f.mb);
-    return isLive(f)
+    return isLive(a, f)
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
@@ -441,7 +519,8 @@ function openSheet(en) {
   ov.innerHTML = '<div class="sheet">' + pl +
     '<h3>' + a.he + '</h3><div class="en">' + a.en + '</div>' +
     (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
-    '<div class="net">' + (a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
+    '<div class="net">' + (a.w32 ? 'מתקין מלא מהאתר הרשמי — ההתקנה עצמה בלי אינטרנט'
+                          : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
