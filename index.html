@@ -303,7 +303,7 @@ function tile(a) {
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
-    '<div class="nm">' + a.he + '</div><div class="mb">' + mbFmt(f.mb) + '</div>' + get + '</div>';
+    '<div class="nm">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
 function render() {
@@ -408,7 +408,7 @@ function openSheet(en) {
     ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt=""></div>'
     : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
   const rows = files.map(f =>
-    '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
+    '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   const btns = files.map(f => {
     const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + mbFmt(f.mb);
     return isLive(f)

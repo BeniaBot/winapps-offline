@@ -18,5 +18,7 @@
     "Setup-Maps.exe",
     "Setup-XboxGameBar.exe",
     "Setup-RemoteDesktop.exe",
-    "Setup-Weather.exe"
+    "Setup-Weather.exe",
+    "Setup-FeedbackHub.exe",
+    "Setup-Notepad-Win11.exe"
 ]
