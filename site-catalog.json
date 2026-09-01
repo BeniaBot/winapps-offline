@@ -587,6 +587,7 @@
                      "net":  false,
                      "icon":  "icons/WSL.png",
                      "desc":  "תת-מערכת Linux ל-Windows",
+                     "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי",
                      "files":  [
                                    {
@@ -833,6 +834,7 @@
                      "net":  false,
                      "icon":  "icons/PCManager.png",
                      "desc":  "ניקוי ותחזוקת המחשב",
+                     "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי",
                      "files":  [
                                    {
@@ -1266,23 +1268,6 @@
                                ]
                  },
                  {
-                     "he":  "ארנק",
-                     "en":  "Wallet",
-                     "net":  true,
-                     "icon":  "icons/Wallet.png",
-                     "desc":  "ארנק דיגיטלי",
-                     "cat":  "חשבון ומערכת",
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Wallet.exe",
-                                       "mb":  13,
-                                       "win":  "all",
-                                       "minBuild":  16299,
-                                       "ver":  "2.2.18065.0"
-                                   }
-                               ]
-                 },
-                 {
                      "he":  "חיבור בין מכשירים",
                      "en":  "CrossDevice",
                      "net":  true,
@@ -1327,23 +1312,6 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "5.1901.60431.0"
-                                   }
-                               ]
-                 },
-                 {
-                     "he":  "תוכניות סלולר",
-                     "en":  "MobilePlans",
-                     "net":  true,
-                     "icon":  "icons/MobilePlans.png",
-                     "desc":  "חבילות סלולר",
-                     "cat":  "חשבון ומערכת",
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-MobilePlans.exe",
-                                       "mb":  71,
-                                       "win":  "all",
-                                       "minBuild":  17763,
-                                       "ver":  "5.2508.25002.0"
                                    }
                                ]
                  },

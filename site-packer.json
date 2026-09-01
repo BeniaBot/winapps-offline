@@ -1873,6 +1873,7 @@
                                ],
                      "icon":  "icons/WSL.png",
                      "desc":  "תת-מערכת Linux ל-Windows",
+                     "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -2658,6 +2659,7 @@
                                ],
                      "icon":  "icons/PCManager.png",
                      "desc":  "ניקוי ותחזוקת המחשב",
+                     "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -4022,59 +4024,6 @@
                      "cat":  "חשבון ומערכת"
                  },
                  {
-                     "he":  "ארנק",
-                     "en":  "Wallet",
-                     "pfn":  "Microsoft.Wallet_8wekyb3d8bbwe",
-                     "id":  "Microsoft.Wallet",
-                     "net":  true,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Wallet.exe",
-                                       "mb":  13,
-                                       "win":  "all",
-                                       "minBuild":  16299,
-                                       "ver":  "2.2.18065.0",
-                                       "bundle":  "Microsoft.Wallet_2.2.18065.0_neutral_~_8wekyb3d8bbwe.AppxBundle",
-                                       "deps":  [
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.1.7",
-                                                        "min":  "1.7.25531.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.1.7",
-                                                        "min":  "1.7.25531.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.22929.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.1.7",
-                                                        "min":  "1.7.25531.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.1.7",
-                                                        "min":  "1.7.25531.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.22929.0",
-                                                        "arch":  "x64"
-                                                    }
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "icon":  "icons/Wallet.png",
-                     "desc":  "ארנק דיגיטלי",
-                     "cat":  "חשבון ומערכת"
-                 },
-                 {
                      "he":  "חיבור בין מכשירים",
                      "en":  "CrossDevice",
                      "pfn":  "MicrosoftWindows.CrossDevice_cw5n1h2txyewy",
@@ -4341,104 +4290,6 @@
                      "icon":  "icons/Messaging.png",
                      "desc":  "הודעות",
                      "cat":  "תקשורת"
-                 },
-                 {
-                     "he":  "תוכניות סלולר",
-                     "en":  "MobilePlans",
-                     "pfn":  "Microsoft.OneConnect_8wekyb3d8bbwe",
-                     "id":  "Microsoft.OneConnect",
-                     "net":  true,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-MobilePlans.exe",
-                                       "mb":  71,
-                                       "win":  "all",
-                                       "minBuild":  17763,
-                                       "ver":  "5.2508.25002.0",
-                                       "bundle":  "Microsoft.OneConnect_5.2508.25002.0_neutral_~_8wekyb3d8bbwe.appxbundle",
-                                       "deps":  [
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.29512.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.2208.12001.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
-                                                        "min":  "14.0.33728.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.29512.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.2208.12001.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
-                                                        "min":  "14.0.33728.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.29512.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.2208.12001.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
-                                                        "min":  "14.0.33728.0",
-                                                        "arch":  "arm64"
-                                                    }
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "icon":  "icons/MobilePlans.png",
-                     "desc":  "חבילות סלולר",
-                     "cat":  "חשבון ומערכת"
                  },
                  {
                      "he":  "Dev Home (GitHub)",
