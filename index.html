@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="canonical" href="https://beniabot.github.io/winapps-offline/">
-<meta name="theme-color" content="#1a1a1f">
+<meta name="theme-color" content="#0f1420">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="חנות אפליקציות אופליין">
@@ -19,201 +19,191 @@
 <meta property="og:image" content="https://beniabot.github.io/winapps-offline/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  /* ===== Fluent-store look: layered neutral dark, app colors carry the color ===== */
+  /* ===== launcher look: deep navy night, big icon tiles, cyan action ===== */
   :root {
-    --base:    #1a1a1f;
-    --layer:   #232329;
-    --layer-2: #2b2b33;
-    --stroke:  #3a3a44;
-    --ink:     #ffffff;
-    --muted:   #a2a2ad;
-    --accent:  #62cdfe;
-    --accent-2:#1d3d4f;
-    --on-accent:#08202e;
+    --ink:     #e9edf6;
+    --muted:   #7d8aa5;
+    --accent:  #5fd4fe;
+    --on-accent:#0b1524;
+    --tile:    rgba(255,255,255,.055);
+    --tile-h:  rgba(255,255,255,.10);
+    --stroke:  rgba(255,255,255,.09);
+    --panel:   #1a2233;
+    --panel-2: #141b2b;
     --ok:      #6ade8d;
-    --warn:    #fdb663;
+    --warn:    #ffc46b;
     --err:     #ff8b81;
-    --r: 10px;
-    --shadow: 0 8px 26px -10px rgba(0,0,0,.6);
+    --shadow:  0 16px 38px -16px rgba(0,0,0,.7);
   }
   :root.light {
-    --base:    #f4f4f6;
-    --layer:   #ffffff;
-    --layer-2: #ebebef;
-    --stroke:  #d9d9e0;
-    --ink:     #1a1a24;
-    --muted:   #6a6a76;
+    --ink:     #17202e;
+    --muted:   #64708a;
     --accent:  #0067c0;
-    --accent-2:#dcebf8;
     --on-accent:#ffffff;
+    --tile:    #ffffff;
+    --tile-h:  #f0f4fb;
+    --stroke:  #dee4ef;
+    --panel:   #ffffff;
+    --panel-2: #eef1f7;
     --ok:      #157a3d;
     --warn:    #9a6206;
     --err:     #b3362d;
-    --shadow: 0 8px 26px -14px rgba(30,30,60,.25);
+    --shadow:  0 16px 38px -20px rgba(30,50,90,.28);
   }
   * { box-sizing: border-box; margin: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--base); color: var(--ink);
+    color: var(--ink);
+    background: linear-gradient(165deg, #0f1420, #131a2b 45%, #0f172a);
+    background-attachment: fixed;
     font-family: "Heebo", "Segoe UI", sans-serif;
     font-size: 15.5px; line-height: 1.55;
+    min-height: 100vh;
   }
+  :root.light body { background: linear-gradient(165deg, #eef1f6, #e6ebf4 45%, #eaeef6); }
   .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
   button { font: inherit; }
 
   /* ===== header ===== */
-  .top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--base) 88%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--stroke); }
-  .top .wrap { display: flex; align-items: center; gap: 14px; height: 56px; }
-  .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.02rem; }
-  .brand img { width: 26px; height: 26px; }
+  .top { position: sticky; top: 0; z-index: 40;
+         background: color-mix(in srgb, #0f1420 82%, transparent); backdrop-filter: blur(14px);
+         border-bottom: 1px solid var(--stroke); }
+  :root.light .top { background: color-mix(in srgb, #eef1f6 85%, transparent); }
+  .top .wrap { display: flex; align-items: center; gap: 14px; height: 58px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
+  .brand img { width: 28px; height: 28px; }
   .search {
-    flex: 1 1 200px; max-width: 430px; margin-inline: auto;
+    flex: 1 1 200px; max-width: 440px; margin-inline: auto;
     display: flex; align-items: center; gap: 8px;
-    background: var(--layer); border: 1px solid var(--stroke);
-    border-bottom-color: color-mix(in srgb, var(--ink) 34%, var(--stroke));
-    border-radius: 7px; padding: 7px 12px;
+    background: var(--tile); border: 1px solid var(--stroke);
+    border-radius: 99px; padding: 8px 16px;
   }
-  .search:focus-within { border-bottom-color: var(--accent); }
+  .search:focus-within { border-color: var(--accent); }
   .search svg { width: 15px; height: 15px; opacity: .55; flex: none; }
   .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; width: 100%; }
-  .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer; width: 34px; height: 34px; border-radius: 7px; }
-  .theme-btn:hover { background: var(--layer-2); }
+  .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer;
+               width: 36px; height: 36px; border-radius: 99px; }
+  .theme-btn:hover { background: var(--tile-h); }
 
-  /* ===== billboard ===== */
-  .billboard { padding: 26px 0 8px; }
-  .bb {
-    position: relative; overflow: hidden;
-    border-radius: 14px; border: 1px solid var(--stroke);
-    background:
-      radial-gradient(560px 260px at 12% -30%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 68%),
-      radial-gradient(480px 260px at 95% 130%, color-mix(in srgb, #7a5cff 20%, transparent), transparent 70%),
-      var(--layer);
-    padding: 34px 34px 30px;
-    display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
-  }
-  .bb img { width: 84px; height: 84px; filter: drop-shadow(0 10px 22px rgba(0,0,0,.45)); }
-  .bb h1 { font-size: clamp(1.4rem, 3.2vw, 2.1rem); font-weight: 800; line-height: 1.2; max-width: 24ch; }
-  .bb p { color: var(--muted); margin-top: 6px; max-width: 56ch; }
-  .bb .acts { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-  .bb .steps { display: flex; gap: 7px; align-items: center; color: var(--muted); font-size: .86rem; margin-top: 14px; flex-wrap: wrap; }
-  .bb .steps b { color: var(--ink); font-weight: 600; }
-  .bb .steps span.sep { opacity: .5; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--accent); color: var(--on-accent); text-decoration: none; border: 0;
-    font-weight: 600; font-size: .92rem; padding: 9px 20px; border-radius: 7px; cursor: pointer;
-    transition: filter .12s;
-  }
-  .btn:hover { filter: brightness(1.1); }
-  .btn.lite { background: var(--layer-2); color: var(--ink); border: 1px solid var(--stroke); }
-  .btn.lite:hover { background: var(--stroke); filter: none; }
-  .btn[disabled] { opacity: .45; cursor: default; filter: none; }
+  /* ===== hero ===== */
+  .hero { padding: 44px 0 8px; text-align: center; }
+  .hero img.logo { width: 88px; height: 88px; filter: drop-shadow(0 12px 26px rgba(0,0,0,.5)); }
+  .hero h1 { font-size: clamp(1.5rem, 3.6vw, 2.3rem); font-weight: 800; margin-top: 14px; }
+  .hero p { color: var(--muted); max-width: 58ch; margin: 8px auto 0; }
+  .hero .steps { display: flex; justify-content: center; gap: 8px; align-items: center;
+                 color: var(--muted); font-size: .88rem; margin-top: 14px; flex-wrap: wrap; }
+  .hero .steps b { color: var(--ink); font-weight: 600; background: var(--tile);
+                   border: 1px solid var(--stroke); border-radius: 99px; padding: 4px 14px; }
+  .hero .steps .sep { opacity: .6; }
 
-  /* ===== toolbar row ===== */
-  .bar2 { position: sticky; top: 56px; z-index: 30; background: color-mix(in srgb, var(--base) 92%, transparent); backdrop-filter: blur(12px); padding: 10px 0; }
+  /* ===== chips ===== */
+  .bar2 { position: sticky; top: 58px; z-index: 30; padding: 12px 0;
+          background: color-mix(in srgb, #0f1420 80%, transparent); backdrop-filter: blur(12px); }
+  :root.light .bar2 { background: color-mix(in srgb, #eef1f6 84%, transparent); }
   .bar2 .row { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
   .bar2 .row::-webkit-scrollbar { display: none; }
-  .chip {
-    white-space: nowrap; text-decoration: none; font-size: .88rem; font-weight: 500; color: var(--muted);
-    background: var(--layer); border: 1px solid var(--stroke); border-radius: 999px; padding: 6px 15px; cursor: pointer;
-  }
-  .chip:hover { color: var(--ink); }
-  .chip.on { background: var(--ink); color: var(--base); border-color: var(--ink); font-weight: 700; }
+  .chip { white-space: nowrap; font-size: .88rem; font-weight: 500; color: var(--muted);
+          background: var(--tile); border: 1px solid var(--stroke); border-radius: 999px;
+          padding: 6px 16px; cursor: pointer; }
+  .chip:hover { color: var(--ink); background: var(--tile-h); }
+  .chip.on { background: var(--accent); color: var(--on-accent); border-color: transparent; font-weight: 700; }
   .spacer { flex: 1; }
   .count { color: var(--muted); font-size: .84rem; white-space: nowrap; }
 
-  /* ===== sections & cards ===== */
-  .grouphead { display: flex; align-items: baseline; gap: 10px; margin: 30px 0 4px; }
-  .grouphead h3 { font-size: 1.25rem; font-weight: 800; }
-  .grouphead .n { color: var(--muted); font-size: .84rem; }
-  .groupnote { color: var(--muted); font-size: .87rem; margin-bottom: 12px; max-width: 70ch; }
+  /* ===== launcher grid ===== */
+  .grouphead { display: flex; align-items: baseline; gap: 10px; margin: 34px 0 6px; }
+  .grouphead h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: .01em; }
+  .grouphead .n { color: var(--muted); font-size: .82rem; }
+  .groupnote { color: var(--muted); font-size: .86rem; margin-bottom: 10px; max-width: 70ch; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
-  .card {
-    position: relative; overflow: hidden;
-    background: var(--layer); border: 1px solid var(--stroke); border-radius: var(--r);
-    padding: 16px; display: flex; gap: 13px; align-items: flex-start;
-    cursor: pointer; transition: background .12s, transform .12s, box-shadow .12s;
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 6px; }
+  .t {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    padding: 18px 8px 13px; border-radius: 16px; cursor: pointer; text-align: center;
+    transition: background .14s, transform .14s;
   }
-  .card:hover { background: var(--layer-2); transform: translateY(-2px); box-shadow: var(--shadow); }
-  .plate {
-    width: 56px; height: 56px; flex: none; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--layer-2);
-  }
-  .plate img { width: 40px; height: 40px; object-fit: contain; }
-  .plate.letter { font-weight: 800; font-size: 1.3rem; color: var(--accent); }
-  .cbody { min-width: 0; display: flex; flex-direction: column; gap: 2px; flex: 1; }
-  .cname { font-weight: 600; font-size: .95rem; line-height: 1.25; }
-  .cdesc { color: var(--muted); font-size: .8rem; line-height: 1.35;
-           display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .crow { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
-  .get {
-    border: 0; border-radius: 6px; background: var(--accent-2); color: var(--accent);
-    font-weight: 700; font-size: .82rem; padding: 5px 16px; cursor: pointer;
-  }
-  .card:hover .get { background: var(--accent); color: var(--on-accent); }
-  .get.soon { background: var(--layer-2); color: var(--muted); font-weight: 500; cursor: default; }
-  .cmeta { color: var(--muted); font-size: .78rem; }
-  .pick {
-    position: absolute; top: 10px; inset-inline-start: 10px; z-index: 2;
-    width: 20px; height: 20px; border-radius: 6px;
-    border: 1.5px solid var(--stroke); background: var(--layer);
-    display: flex; align-items: center; justify-content: center;
-    color: transparent; font-size: .66rem; font-weight: 900; cursor: pointer;
-  }
-  .card:hover .pick { border-color: var(--accent); }
-  .card.sel { border-color: var(--accent); }
-  .card.sel .pick { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-  .empty { color: var(--muted); padding: 22px 4px; grid-column: 1/-1; }
+  .t:hover { background: var(--tile-h); transform: translateY(-3px); }
+  .t.sel { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+  .pl { width: 76px; height: 76px; border-radius: 21px; flex: none;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--tile); box-shadow: 0 10px 24px -12px rgba(0,0,0,.55); }
+  :root.light .pl { box-shadow: 0 10px 22px -14px rgba(40,60,110,.35); }
+  .pl img { width: 50px; height: 50px; object-fit: contain; }
+  .pl.letter { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
+  .t.sel .pl { outline: 2.5px solid var(--accent); outline-offset: 2px; }
+  .nm { font-size: .86rem; font-weight: 500; line-height: 1.25; min-height: 2.2em;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .mb { font-size: .72rem; color: var(--muted); }
+  .t:hover .mb { display: none; }
+  .get { display: none; font-size: .76rem; font-weight: 700; color: var(--on-accent);
+         background: var(--accent); border: 0; border-radius: 99px; padding: 3px 16px; cursor: pointer; }
+  .t:hover .get { display: inline-flex; }
+  .get.soon { background: var(--tile); color: var(--muted); font-weight: 500; cursor: default; border: 1px solid var(--stroke); }
+  .pick { position: absolute; top: 10px; inset-inline-start: 12px; z-index: 2;
+          width: 21px; height: 21px; border-radius: 99px;
+          border: 1.5px solid var(--muted); background: transparent;
+          display: none; align-items: center; justify-content: center;
+          color: transparent; font-size: .66rem; font-weight: 900; cursor: pointer; }
+  .t:hover .pick, .t.sel .pick { display: flex; }
+  .pick:hover { border-color: var(--accent); }
+  .t.sel .pick { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
 
-  /* ===== ISO strip ===== */
-  .iso {
-    margin-top: 44px; border-radius: 14px; border: 1px solid var(--stroke);
-    background:
-      radial-gradient(420px 200px at 90% -40%, color-mix(in srgb, var(--warn) 16%, transparent), transparent 70%),
-      var(--layer);
-    padding: 26px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-  }
-  .iso .t { flex: 1 1 300px; }
-  .iso h3 { font-size: 1.2rem; font-weight: 800; }
-  .iso p { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+  /* ===== ISO panel ===== */
+  .iso { margin-top: 48px; border-radius: 20px; border: 1px solid var(--stroke);
+         background: var(--tile);
+         padding: 26px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .iso img { width: 58px; height: 58px; }
+  .iso .t2 { flex: 1 1 300px; }
+  .iso h3 { font-size: 1.15rem; font-weight: 800; }
+  .iso p { color: var(--muted); font-size: .89rem; margin-top: 4px; }
   .iso .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+         background: var(--accent); color: var(--on-accent); text-decoration: none; border: 0;
+         font-weight: 700; font-size: .9rem; padding: 10px 22px; border-radius: 99px; cursor: pointer; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.lite { background: var(--tile); color: var(--ink); border: 1px solid var(--stroke); }
+  .btn.lite:hover { background: var(--tile-h); filter: none; }
+  .btn[disabled] { opacity: .45; cursor: default; filter: none; }
 
   /* ===== sheet ===== */
-  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(8,8,12,.6); backdrop-filter: blur(4px);
+  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(5,8,15,.66); backdrop-filter: blur(5px);
              display: flex; align-items: center; justify-content: center; padding: 18px; }
-  .sheet { background: var(--layer); border: 1px solid var(--stroke); border-radius: 14px; box-shadow: var(--shadow);
-           width: min(430px, 94vw); padding: 24px; }
-  .sheet .hd { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
-  .sheet .plate { width: 64px; height: 64px; border-radius: 14px; }
-  .sheet .plate img { width: 46px; height: 46px; }
-  .sheet h3 { font-size: 1.3rem; font-weight: 800; }
-  .sheet .en { color: var(--muted); font-size: .78rem; direction: ltr; text-align: end; }
-  .sheet .ds { margin: 6px 0 12px; font-size: .95rem; }
-  .sheet .row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 2px;
-                border-bottom: 1px solid var(--stroke); font-size: .87rem; }
+  .sheet { background: var(--panel); border: 1px solid var(--stroke); border-radius: 20px; box-shadow: var(--shadow);
+           width: min(420px, 94vw); padding: 26px; text-align: center; }
+  .sheet .pl { width: 92px; height: 92px; border-radius: 26px; margin: 0 auto; }
+  .sheet .pl img { width: 62px; height: 62px; }
+  .sheet h3 { font-size: 1.35rem; font-weight: 800; margin-top: 12px; }
+  .sheet .en { color: var(--muted); font-size: .78rem; direction: ltr; }
+  .sheet .ds { margin: 10px 0 4px; font-size: .95rem; }
+  .sheet .net { color: var(--muted); font-size: .84rem; }
+  .sheet .rows { margin-top: 14px; border-top: 1px solid var(--stroke); }
+  .sheet .row { display: flex; justify-content: space-between; gap: 10px; padding: 8px 2px;
+                border-bottom: 1px solid var(--stroke); font-size: .86rem; }
   .sheet .row span:first-child { color: var(--muted); }
-  .sheet .acts { display: flex; gap: 10px; margin-top: 16px; }
-  .sheet .btn { flex: 1; padding: 11px; }
+  .sheet .acts { display: flex; flex-direction: column; gap: 9px; margin-top: 16px; }
+  .sheet .acts .btn { width: 100%; padding: 12px; }
 
-  /* ===== cargo dock ===== */
-  .dock { position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
-          background: var(--layer); border-top: 1px solid var(--stroke);
-          box-shadow: 0 -16px 40px -18px rgba(0,0,0,.7);
-          transform: translateY(110%); transition: transform .18s ease; }
-  .dock.show { transform: none; }
-  .dock .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 12px; }
-  .dock .sum b { font-size: 1.05rem; }
-  .dock .sum span { color: var(--muted); font-size: .86rem; }
+  /* ===== dock ===== */
+  .dock { position: fixed; inset-inline: 0; bottom: 14px; z-index: 50; pointer-events: none; }
+  .dock .inner { pointer-events: auto; max-width: 760px; margin: 0 auto;
+                 background: var(--panel); border: 1px solid var(--stroke); border-radius: 99px;
+                 box-shadow: var(--shadow);
+                 display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 20px;
+                 transform: translateY(140%); transition: transform .2s ease; }
+  .dock.show .inner { transform: none; }
+  .dock .sum b { font-size: .98rem; }
+  .dock .sum span { color: var(--muted); font-size: .85rem; }
   .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; }
   .dock .btn { margin-inline-start: auto; }
-  body.has-sel { padding-bottom: 80px; }
+  @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; margin-inline: 10px; } }
+  body.has-sel { padding-bottom: 90px; }
 
-  footer { border-top: 1px solid var(--stroke); margin-top: 56px; padding: 26px 0 40px; color: var(--muted); font-size: .85rem; }
+  footer { border-top: 1px solid var(--stroke); margin-top: 56px; padding: 26px 0 40px; color: var(--muted); font-size: .85rem; text-align: center; }
 </style>
 </head>
 <body>
@@ -229,19 +219,13 @@
   </div>
 </header>
 
-<div class="billboard">
-  <div class="wrap"><div class="bb">
-    <img src="icon.png" alt="">
-    <div style="flex:1 1 300px">
-      <h1>האפליקציות של Windows, למחשב שאין בו אינטרנט</h1>
-      <p>כל מתקין כאן הוא קובץ אחד מוכן: האפליקציה, כל התלויות, ומתקין גרפי בעברית. בלי חנות, בלי רשת, בלי הרשאות מנהל.</p>
-      <div class="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה במחשב המנותק</b></div>
-      <div class="acts">
-        <a class="btn" href="#catalog">לקטלוג ↓</a>
-        <a class="btn lite" href="#iso">כל החנות ב-ISO</a>
-      </div>
-    </div>
-  </div></div>
+<div class="hero">
+  <div class="wrap">
+    <img class="logo" src="icon.png" alt="">
+    <h1>האפליקציות של Windows, למחשב שאין בו אינטרנט</h1>
+    <p>כל אפליקציה כאן היא מתקין מוכן: קובץ אחד עם הכל בפנים, בלי צורך ברשת או בהרשאות מנהל.</p>
+    <div class="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה</b></div>
+  </div>
 </div>
 
 <div class="bar2">
@@ -252,9 +236,10 @@
   <div id="cats"></div>
 
   <div class="iso" id="iso">
-    <div class="t">
+    <img src="icon.png" alt="">
+    <div class="t2">
       <h3>לטכנאים — כל החנות בדיסק אחד</h3>
-      <p>ISO עם כל המתקינים ומעטפת שמזהה בכל מחשב מה חסר, מה מיושן ומה לא תואם — ומתקינה ישירות מהדיסק. חבילת הליבה זמינה עכשיו; המלאה בהכנה.</p>
+      <p>ISO עם כל המתקינים ומעטפת שמזהה בכל מחשב מה חסר ומה מיושן, ומתקינה ישירות מהדיסק.</p>
     </div>
     <div class="btns" id="iso-btns"></div>
   </div>
@@ -268,7 +253,7 @@
 </footer>
 
 <div class="dock" id="dock">
-  <div class="wrap">
+  <div class="inner">
     <div class="sum" id="selsum"></div>
     <span id="dock-target" style="display:flex;gap:6px;align-items:center"></span>
     <button class="clear" id="selclear">נקה</button>
@@ -287,7 +272,7 @@ const CAT_NOTE = {
   'שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
-let TARGET = '11';   // which flavour a batch download takes when an app has two
+let TARGET = '11';
 const SELECTED = new Set();
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
@@ -295,36 +280,30 @@ const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' ||
 const bestFile = a => {
   const fs = filesFor(a);
   if (!fs.length) return null;
-  // when both flavours fit, TARGET (the dock's selector) decides
   return fs.find(f => f.win === TARGET) || fs[0];
 };
 const isLive = f => !!LIVE[f.exe];
 const mbOf = a => { const f = bestFile(a); return f ? f.mb : 0; };
+const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
 
-/* ===== cards ===== */
-function card(a) {
+/* ===== tiles ===== */
+function tile(a) {
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
-  const chip = a.color ? ' style="background:' + a.color + '26"' : '';
-  const plate = a.icon
-    ? '<div class="plate"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
-    : '<div class="plate letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const live = isLive(f);
-  const on = SELECTED.has(a.en);
-  // two flavours and no explicit filter: the button opens the sheet to choose,
-  // instead of guessing which Windows the user is packing for
+  const chip = a.color ? ' style="background:' + a.color + '2e"' : '';
+  const pl = a.icon
+    ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
+    : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
   const get = twoAmbiguous
     ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
-    : (live ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
-            : '<span class="get soon">בהעלאה...</span>');
-  return '<div class="card' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '">' +
-    '<span class="pick" title="לבחירה מרובה">✓</span>' + plate +
-    '<div class="cbody"><div class="cname">' + a.he + '</div>' +
-    (a.desc ? '<div class="cdesc">' + a.desc + '</div>' : '') +
-    '<div class="crow">' + get + '<span class="cmeta">' + f.mb + ' MB</span></div>' +
-    '</div></div>';
+    : (isLive(f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
+                 : '<span class="get soon">בהעלאה...</span>');
+  const on = SELECTED.has(a.en);
+  return '<div class="t' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
+    '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
+    '<div class="nm">' + a.he + '</div><div class="mb">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
 function render() {
@@ -337,14 +316,14 @@ function render() {
     const members = DATA.apps.filter(a => cat === 'שלי' ? a.custom : (!a.custom && (a.cat || 'נוספות') === cat));
     if (!members.length) return;
     chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
-    if (CATSEL && CATSEL !== cat) { total += members.filter(a => bestFile(a)).length; return; }
-    const cards = members.map(card).filter(Boolean);
     total += members.filter(a => bestFile(a)).length;
-    if (!cards.length) return;
-    shown += cards.length;
+    if (CATSEL && CATSEL !== cat) return;
+    const tiles = members.map(tile).filter(Boolean);
+    if (!tiles.length) return;
+    shown += tiles.length;
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
-    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + cards.length + '</span></div>' +
-            note + '<div class="grid">' + cards.join('') + '</div>';
+    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span></div>' +
+            note + '<div class="grid">' + tiles.join('') + '</div>';
   });
   chipBar.push('<span class="spacer"></span>');
   chipBar.push('<span class="count">' + shown + ' / ' + total + '</span>');
@@ -358,19 +337,16 @@ const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + 
 /* ===== interactions ===== */
 document.addEventListener('click', e => {
   const chip = e.target.closest('.chip');
-  if (chip) {
-    if (chip.dataset.win !== undefined) FILTER = chip.dataset.win;
-    else CATSEL = chip.dataset.cat;
-    render(); return;
-  }
+  if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
+  if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
   const dl = e.target.closest('[data-dl]');
   if (dl) { e.stopPropagation(); download(dl.dataset.dl); return; }
   const shBtn = e.target.closest('[data-sheet]');
   if (shBtn) { e.stopPropagation(); openSheet(shBtn.dataset.sheet); return; }
-  const c = e.target.closest('.card');
-  if (!c) return;
-  if (e.target.closest('.pick')) { toggle(c.dataset.en); return; }
-  openSheet(c.dataset.en);
+  const t = e.target.closest('.t');
+  if (!t) return;
+  if (e.target.closest('.pick')) { toggle(t.dataset.en); return; }
+  openSheet(t.dataset.en);
 });
 
 function download(exe) {
@@ -382,7 +358,7 @@ function download(exe) {
 
 function toggle(en) {
   if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
-  document.querySelectorAll('.card[data-en="' + en.replace(/"/g, '\\"') + '"]')
+  document.querySelectorAll('.t[data-en="' + en.replace(/"/g, '\\"') + '"]')
     .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
   updateDock();
 }
@@ -393,17 +369,15 @@ function updateDock() {
   if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
   let mb = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
-  const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
-  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + size + '</span>';
-  // some selections carry two flavours; this decides which one the batch takes
+  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + mbFmt(mb) + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
-  if (dual > 0 && FILTER === 'all') {
-    tgt.innerHTML = '<span style="color:var(--muted);font-size:.85rem">מחשב היעד:</span>' +
+  tgt.innerHTML = (dual > 0 && FILTER === 'all')
+    ? '<span style="color:var(--muted);font-size:.84rem">היעד:</span>' +
       '<button class="chip' + (TARGET === '11' ? ' on' : '') + '" data-target="11">Win 11</button>' +
-      '<button class="chip' + (TARGET === '10' ? ' on' : '') + '" data-target="10">Win 10</button>';
-  } else tgt.innerHTML = '';
+      '<button class="chip' + (TARGET === '10' ? ' on' : '') + '" data-target="10">Win 10</button>'
+    : '';
   dock.classList.add('show');
   document.body.classList.add('has-sel');
 }
@@ -415,7 +389,6 @@ document.getElementById('dock-target').addEventListener('click', e => {
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
-  // fires the real files one after another; the browser asks once to allow multiple downloads
   const files = [];
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
@@ -430,33 +403,36 @@ function openSheet(en) {
   const a = DATA.apps.find(x => x.en === en);
   if (!a) return;
   const files = filesFor(a);
-  const chip = a.color ? ' style="background:' + a.color + '26"' : '';
-  const plate = a.icon
-    ? '<div class="plate"' + chip + '><img src="' + a.icon + '" alt=""></div>'
-    : '<div class="plate letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const rows = [];
-  rows.push(['רשת', a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט']);
-  files.forEach(f => rows.push([WIN_LABEL[f.win], '<span class="mono">' + f.ver + '</span> · ' + f.mb + ' MB']));
+  const chip = a.color ? ' style="background:' + a.color + '2e"' : '';
+  const pl = a.icon
+    ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt=""></div>'
+    : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const rows = files.map(f =>
+    '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   const btns = files.map(f => {
-    const live = isLive(f);
-    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + f.mb + ' MB';
-    return live
+    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + mbFmt(f.mb);
+    return isLive(f)
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
+  const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
-  ov.innerHTML = '<div class="sheet">' +
-    '<div class="hd">' + plate + '<div><h3>' + a.he + '</h3><div class="en">' + a.en + '</div></div></div>' +
+  ov.innerHTML = '<div class="sheet">' + pl +
+    '<h3>' + a.he + '</h3><div class="en">' + a.en + '</div>' +
     (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
-    rows.map(r => '<div class="row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>').join('') +
-    '<div class="acts">' + btns + '<button class="btn lite" id="sc">סגירה</button></div></div>';
+    '<div class="net">' + (a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
+    '<div class="rows">' + rows + '</div>' +
+    '<div class="acts">' + btns +
+    '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
+    '<button class="btn lite" id="sc">סגירה</button></div></div>';
   document.body.appendChild(ov);
   ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
   ov.querySelector('#sc').onclick = () => ov.remove();
+  ov.querySelector('#sp').onclick = () => { toggle(en); ov.remove(); };
 }
 
-/* ===== theme ===== */
+/* ===== theme, search ===== */
 const themeBtn = document.getElementById('theme-btn');
 const themeLabel = () => themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀';
 themeBtn.onclick = () => {
@@ -467,16 +443,16 @@ themeBtn.onclick = () => {
 themeLabel();
 document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim().toLowerCase(); render(); });
 
-/* ===== ISO buttons ===== */
+/* ===== ISO ===== */
 function isoButtons() {
   const b = [];
-  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Windows 11 · 647MB</a>');
-  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Windows 10 · 675MB</a>');
+  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Win 11 · 647MB</a>');
+  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Win 10 · 675MB</a>');
   b.push('<button class="btn lite" disabled>המלאה — בהכנה</button>');
   document.getElementById('iso-btns').innerHTML = b.join('');
 }
 
-/* ===== boot: catalog + which files are actually uploaded ===== */
+/* ===== boot ===== */
 Promise.all([
   fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()),
   fetch('published.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => [])

@@ -9,5 +9,14 @@
     "Setup-People.exe",
     "Setup-MediaPlayer.exe",
     "Setup-SoundRecorder-Win11.exe",
-    "Setup-Camera.exe"
+    "Setup-Camera.exe",
+    "Setup-MoviesTV.exe",
+    "Setup-Family.exe",
+    "Setup-StickyNotes.exe",
+    "Setup-Paint3D.exe",
+    "Setup-Calculator.exe",
+    "Setup-Maps.exe",
+    "Setup-XboxGameBar.exe",
+    "Setup-RemoteDesktop.exe",
+    "Setup-Weather.exe"
 ]
