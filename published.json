@@ -4,5 +4,10 @@
     "Setup-SnippingTool-Win10.exe",
     "Setup-SoundRecorder-Win10.exe",
     "Setup-QuickAssist.exe",
-    "Setup-News.exe"
+    "Setup-News.exe",
+    "Setup-Terminal.exe",
+    "Setup-People.exe",
+    "Setup-MediaPlayer.exe",
+    "Setup-SoundRecorder-Win11.exe",
+    "Setup-Camera.exe"
 ]
