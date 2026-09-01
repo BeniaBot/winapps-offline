@@ -1029,21 +1029,6 @@ dep	StorePurchase	w11	x86	Microsoft.UI.Xaml.2.8	8.2501.31001.0
 dep	StorePurchase	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
 dep	StorePurchase	w11	arm64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
 dep	StorePurchase	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-app	Wallet	ארנק	Microsoft.Wallet_8wekyb3d8bbwe	Microsoft.Wallet	1	ארנק דיגיטלי
-flavor	Wallet	w10	Microsoft.Wallet_2.2.18065.0_neutral_~_8wekyb3d8bbwe.AppxBundle	2.2.18065.0	16299	5.2
-dep	Wallet	w10	x86	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
-dep	Wallet	w10	x86	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
-dep	Wallet	w10	x86	Microsoft.VCLibs.140.00	14.0.22929.0
-dep	Wallet	w10	x64	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
-dep	Wallet	w10	x64	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
-dep	Wallet	w10	x64	Microsoft.VCLibs.140.00	14.0.22929.0
-flavor	Wallet	w11	Microsoft.Wallet_2.2.18065.0_neutral_~_8wekyb3d8bbwe.AppxBundle	2.2.18065.0	16299	5.2
-dep	Wallet	w11	x86	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
-dep	Wallet	w11	x86	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
-dep	Wallet	w11	x86	Microsoft.VCLibs.140.00	14.0.22929.0
-dep	Wallet	w11	x64	Microsoft.NET.Native.Framework.1.7	1.7.25531.0
-dep	Wallet	w11	x64	Microsoft.NET.Native.Runtime.1.7	1.7.25531.0
-dep	Wallet	w11	x64	Microsoft.VCLibs.140.00	14.0.22929.0
 app	CrossDevice	חיבור בין מכשירים	MicrosoftWindows.CrossDevice_cw5n1h2txyewy	MicrosoftWindows.CrossDevice	1	חיבור בין מכשירים
 flavor	CrossDevice	w10	MicrosoftWindows.CrossDevice_1.25072.59.0_neutral_~_cw5n1h2txyewy.appxbundle	1.25072.59.0	19045	132.3
 dep	CrossDevice	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
@@ -1090,39 +1075,6 @@ dep	Messaging	w11	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
 dep	Messaging	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
 dep	Messaging	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
 dep	Messaging	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.30035.0
-app	MobilePlans	תוכניות סלולר	Microsoft.OneConnect_8wekyb3d8bbwe	Microsoft.OneConnect	1	חבילות סלולר
-flavor	MobilePlans	w10	Microsoft.OneConnect_5.2508.25002.0_neutral_~_8wekyb3d8bbwe.appxbundle	5.2508.25002.0	17763	15.1
-dep	MobilePlans	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w10	x64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	MobilePlans	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w10	x86	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	MobilePlans	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w10	arm64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-flavor	MobilePlans	w11	Microsoft.OneConnect_5.2508.25002.0_neutral_~_8wekyb3d8bbwe.appxbundle	5.2508.25002.0	17763	15.1
-dep	MobilePlans	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w11	x64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	MobilePlans	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w11	x86	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	MobilePlans	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	MobilePlans	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	MobilePlans	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	MobilePlans	w11	arm64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	MobilePlans	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
 app	PCManager	PC Manager	Microsoft.MicrosoftPCManager_8wekyb3d8bbwe	Microsoft.MicrosoftPCManager	0	ניקוי ותחזוקת המחשב
 flavor	PCManager	w10	Microsoft.MicrosoftPCManager_3.22.4.0_neutral_~_8wekyb3d8bbwe.msixbundle	3.22.4.0	19042	188.2
 dep	PCManager	w10	x64	Microsoft.WindowsAppRuntime.1.5	5001.119.156.0

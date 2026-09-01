@@ -5355,6 +5355,159 @@
                      "icon":  "icons/w32/rufus.svg"
                  },
                  {
+                     "he":  "GIMP",
+                     "en":  "GIMP",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "עריכת תמונות מקצועית וחינמית — התחליף המוכר לפוטושופ",
+                     "color":  "#5c5543",
+                     "url":  "https://download.gimp.org/gimp/v3.0/windows/gimp-3.0.8-setup-2.exe",
+                     "match":  "gimp-*-setup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "gimp-*-setup*.exe",
+                                       "mb":  291,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/gimp.svg",
+                     "silent":  "/VERYSILENT /NORESTART"
+                 },
+                 {
+                     "he":  "Audacity",
+                     "en":  "Audacity",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "הקלטה ועריכת אודיו",
+                     "color":  "#0079c1",
+                     "url":  "https://github.com/audacity/audacity/releases/download/Audacity-3.7.9/audacity-win-3.7.9-64bit.exe",
+                     "match":  "audacity-win-*-64bit.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "audacity-win-*-64bit.exe",
+                                       "mb":  19,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/audacity.svg",
+                     "silent":  "/VERYSILENT /NORESTART"
+                 },
+                 {
+                     "he":  "K-Lite Codec Pack",
+                     "en":  "KLite",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "חבילת הקודקים המלאה — כל וידאו ואודיו ייפתחו בכל נגן",
+                     "color":  "#1d5fa0",
+                     "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Basic.exe",
+                     "match":  "K-Lite_Codec_Pack_*_Basic.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "K-Lite_Codec_Pack_*_Basic.exe",
+                                       "mb":  22,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/klite.svg",
+                     "silent":  "/verysilent /norestart"
+                 },
+                 {
+                     "he":  "AnyDesk",
+                     "en":  "AnyDesk",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "שליטה מרחוק — קובץ נייד, בלי התקנה. החיבור עצמו דורש אינטרנט",
+                     "color":  "#ef443b",
+                     "url":  "https://download.anydesk.com/AnyDesk.exe",
+                     "match":  "AnyDesk.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "AnyDesk.exe",
+                                       "mb":  8,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/anydesk.svg"
+                 },
+                 {
+                     "he":  "TeamViewer",
+                     "en":  "TeamViewer",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "שליטה מרחוק — מתקין מלא. החיבור עצמו דורש אינטרנט",
+                     "color":  "#004680",
+                     "url":  "https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe",
+                     "match":  "TeamViewer_Setup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "TeamViewer_Setup*.exe",
+                                       "mb":  80,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/teamviewer.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "Speccy",
+                     "en":  "Speccy",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "כל פרטי החומרה של המחשב במסך אחד",
+                     "color":  "#33691e",
+                     "url":  "https://download.ccleaner.com/spsetup132.exe",
+                     "match":  "spsetup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "spsetup*.exe",
+                                       "mb":  9,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/speccy.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "Revo Uninstaller",
+                     "en":  "Revo",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "הסרה יסודית של תוכנות עקשניות, כולל שאריות",
+                     "color":  "#2f6f8f",
+                     "url":  "https://download.revouninstaller.com/download/revosetup.exe",
+                     "match":  "revosetup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "revosetup*.exe",
+                                       "mb":  11,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/revo.svg",
+                     "silent":  "/VERYSILENT /NORESTART"
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,
