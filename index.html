@@ -82,10 +82,11 @@
   button { font: inherit; }
 
   /* ===== header ===== */
+  /* solid bars: backdrop-filter left smearing artifacts behind while scrolling */
   .top { position: sticky; top: 0; z-index: 40;
-         background: color-mix(in srgb, #0f1420 82%, transparent); backdrop-filter: blur(14px);
+         background: rgba(15,20,32,.96);
          border-bottom: 1px solid var(--stroke); }
-  :root.light .top { background: color-mix(in srgb, #eef1f6 85%, transparent); }
+  :root.light .top { background: rgba(238,241,246,.97); }
   .top .wrap { display: flex; align-items: center; gap: 14px; height: 58px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
   .brand img { width: 28px; height: 28px; }
@@ -124,8 +125,8 @@
 
   /* ===== chips ===== */
   .bar2 { position: sticky; top: 58px; z-index: 30; padding: 12px 0;
-          background: color-mix(in srgb, #0f1420 80%, transparent); backdrop-filter: blur(12px); }
-  :root.light .bar2 { background: color-mix(in srgb, #eef1f6 84%, transparent); }
+          background: rgba(15,20,32,.94); }
+  :root.light .bar2 { background: rgba(238,241,246,.96); }
   .bar2 .row { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
   .bar2 .row::-webkit-scrollbar { display: none; }
   .chip { white-space: nowrap; font-size: .88rem; font-weight: 500; color: var(--muted);
