@@ -12,7 +12,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Notepad-Win11.exe",
-                                       "mb":  124,
+                                       "mb":  128,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2607.14.0"
@@ -48,7 +48,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Paint-Win11.exe",
-                                       "mb":  828,
+                                       "mb":  831,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2605.81.0"
@@ -73,7 +73,7 @@
                                    },
                                    {
                                        "exe":  "Setup-SnippingTool-Win11.exe",
-                                       "mb":  823,
+                                       "mb":  932,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2605.37.0"
@@ -91,7 +91,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Photos.exe",
-                                       "mb":  1221,
+                                       "mb":  1224,
                                        "win":  "all",
                                        "minBuild":  19044,
                                        "ver":  "2026.11060.2004.0"
@@ -400,7 +400,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-HEIFExtension.exe",
-                                       "mb":  20,
+                                       "mb":  21,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2.48.0"
@@ -436,14 +436,14 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-RawExtension-Win10.exe",
-                                       "mb":  3,
+                                       "mb":  7,
                                        "win":  "10",
                                        "minBuild":  18362,
                                        "ver":  "2.4.24.0"
                                    },
                                    {
                                        "exe":  "Setup-RawExtension-Win11.exe",
-                                       "mb":  3,
+                                       "mb":  4,
                                        "win":  "11",
                                        "minBuild":  22621,
                                        "ver":  "2.5.24.0"
@@ -461,7 +461,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-VP9Extension.exe",
-                                       "mb":  7,
+                                       "mb":  8,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2.20.0"
@@ -479,7 +479,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-AV1Extension.exe",
-                                       "mb":  5,
+                                       "mb":  6,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "2.0.30.0"
@@ -497,7 +497,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-HEVCExtension-Win10.exe",
-                                       "mb":  8,
+                                       "mb":  9,
                                        "win":  "10",
                                        "minBuild":  16299,
                                        "ver":  "2.4.109.0"
@@ -522,7 +522,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-AppInstaller.exe",
-                                       "mb":  207,
+                                       "mb":  334,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.29.290.0"
@@ -539,7 +539,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Sysinternals.exe",
-                                       "mb":  287,
+                                       "mb":  288,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2026.8.1.0"
@@ -556,26 +556,10 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-TerminalPreview.exe",
-                                       "mb":  23,
+                                       "mb":  38,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "1.25.1912.0"
-                                   }
-                               ]
-                 },
-                 {
-                     "he":  "סורק",
-                     "en":  "Scan",
-                     "net":  false,
-                     "desc":  "סריקה מסורק מחובר",
-                     "cat":  "כלים",
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Scan.exe",
-                                       "mb":  4,
-                                       "win":  "all",
-                                       "minBuild":  0,
-                                       "ver":  "2014.523.326.3026"
                                    }
                                ]
                  },
@@ -590,7 +574,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-FileRecovery.exe",
-                                       "mb":  5,
+                                       "mb":  29,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "0.1.20151.0"
@@ -607,7 +591,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-WSL.exe",
-                                       "mb":  495,
+                                       "mb":  496,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.7.12.0"
@@ -624,7 +608,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-WSA-Win11.exe",
-                                       "mb":  1403,
+                                       "mb":  1433,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "2407.40000.4.0"
@@ -642,7 +626,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Journal.exe",
-                                       "mb":  491,
+                                       "mb":  532,
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "1.25336.1113.0"
@@ -659,7 +643,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Print3D.exe",
-                                       "mb":  21,
+                                       "mb":  25,
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "3.3.791.0"
@@ -676,26 +660,10 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Builder3D.exe",
-                                       "mb":  62,
+                                       "mb":  71,
                                        "win":  "all",
                                        "minBuild":  15063,
                                        "ver":  "20.0.4.0"
-                                   }
-                               ]
-                 },
-                 {
-                     "he":  "ספרים ורשימת קריאה",
-                     "en":  "ReadingList",
-                     "net":  false,
-                     "desc":  "רשימת קריאה לשמירת תוכן",
-                     "cat":  "כלים",
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-ReadingList.exe",
-                                       "mb":  5,
-                                       "win":  "all",
-                                       "minBuild":  0,
-                                       "ver":  "2016.520.50.2306"
                                    }
                                ]
                  },
@@ -709,7 +677,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Minesweeper.exe",
-                                       "mb":  255,
+                                       "mb":  288,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.7.2041.0"
@@ -727,7 +695,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Mahjong.exe",
-                                       "mb":  298,
+                                       "mb":  354,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.9.2051.0"
@@ -744,7 +712,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Sudoku.exe",
-                                       "mb":  189,
+                                       "mb":  222,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.13.7281.0"
@@ -762,7 +730,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Jigsaw.exe",
-                                       "mb":  171,
+                                       "mb":  187,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.9.6011.0"
@@ -780,7 +748,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-TreasureHunt.exe",
-                                       "mb":  66,
+                                       "mb":  82,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2.7.6151.0"
@@ -798,7 +766,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-XboxIdentity.exe",
-                                       "mb":  29,
+                                       "mb":  48,
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "12.130.16001.0"
@@ -816,7 +784,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-XboxGameOverlay.exe",
-                                       "mb":  3,
+                                       "mb":  6,
                                        "win":  "all",
                                        "minBuild":  17134,
                                        "ver":  "1.54.4001.0"
@@ -834,7 +802,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-XboxTCUI.exe",
-                                       "mb":  13,
+                                       "mb":  25,
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "1.24.10001.0"
@@ -852,7 +820,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-XboxSpeech.exe",
-                                       "mb":  1,
+                                       "mb":  3,
                                        "win":  "all",
                                        "minBuild":  15031,
                                        "ver":  "1.21.13002.0"
@@ -869,7 +837,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-PCManager.exe",
-                                       "mb":  188,
+                                       "mb":  230,
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "3.22.4.0"
@@ -886,7 +854,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-PowerShell.exe",
-                                       "mb":  324,
+                                       "mb":  325,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "7.6.5.0"
@@ -904,7 +872,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-WinDbg.exe",
-                                       "mb":  1137,
+                                       "mb":  1135,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2606.22001.0"
@@ -952,13 +920,13 @@
                      "en":  "News",
                      "net":  true,
                      "icon":  "icons/News.png",
-                     "color":  "#EB0000",
+                     "color":  "#262F38",
                      "desc":  "חדשות",
                      "cat":  "חשבון ומערכת",
                      "files":  [
                                    {
                                        "exe":  "Setup-News.exe",
-                                       "mb":  36,
+                                       "mb":  93,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "4.56.21872.0"
@@ -1001,7 +969,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-FeedbackHub.exe",
-                                       "mb":  102,
+                                       "mb":  100,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "1.2608.17301.0"
@@ -1055,7 +1023,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Clipchamp.exe",
-                                       "mb":  165,
+                                       "mb":  168,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "4.5.10920.0"
@@ -1073,7 +1041,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-QuickAssist.exe",
-                                       "mb":  29,
+                                       "mb":  28,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.0.57.0"
@@ -1091,14 +1059,14 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-PhoneLink-Win10.exe",
-                                       "mb":  224,
+                                       "mb":  249,
                                        "win":  "10",
                                        "minBuild":  17134,
                                        "ver":  "1.21062.152.0"
                                    },
                                    {
                                        "exe":  "Setup-PhoneLink-Win11.exe",
-                                       "mb":  312,
+                                       "mb":  418,
                                        "win":  "11",
                                        "minBuild":  22631,
                                        "ver":  "1.26071.164.0"
@@ -1116,7 +1084,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-XboxApp.exe",
-                                       "mb":  587,
+                                       "mb":  590,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2608.1001.17.0"
@@ -1133,7 +1101,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Store.exe",
-                                       "mb":  140,
+                                       "mb":  143,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "22607.1401.7.0"
@@ -1202,7 +1170,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Widgets-Win11.exe",
-                                       "mb":  192,
+                                       "mb":  197,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "526.21100.40.0"
@@ -1220,7 +1188,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Whiteboard.exe",
-                                       "mb":  783,
+                                       "mb":  784,
                                        "win":  "all",
                                        "minBuild":  15063,
                                        "ver":  "56.20201.588.0"
@@ -1237,7 +1205,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-PowerBI.exe",
-                                       "mb":  107,
+                                       "mb":  140,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "3223.30905.55001.0"
@@ -1255,7 +1223,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Sway.exe",
-                                       "mb":  11,
+                                       "mb":  14,
                                        "win":  "all",
                                        "minBuild":  10586,
                                        "ver":  "18.2003.51105.0"
@@ -1273,7 +1241,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Translator.exe",
-                                       "mb":  119,
+                                       "mb":  136,
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "5.6.0.0"
@@ -1290,7 +1258,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-StorePurchase.exe",
-                                       "mb":  81,
+                                       "mb":  99,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "22607.1401.4.0"
@@ -1301,12 +1269,13 @@
                      "he":  "ארנק",
                      "en":  "Wallet",
                      "net":  true,
+                     "icon":  "icons/Wallet.png",
                      "desc":  "ארנק דיגיטלי",
                      "cat":  "חשבון ומערכת",
                      "files":  [
                                    {
                                        "exe":  "Setup-Wallet.exe",
-                                       "mb":  5,
+                                       "mb":  13,
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "2.2.18065.0"
@@ -1323,14 +1292,14 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-CrossDevice-Win10.exe",
-                                       "mb":  132,
+                                       "mb":  223,
                                        "win":  "10",
                                        "minBuild":  19045,
                                        "ver":  "1.25072.59.0"
                                    },
                                    {
                                        "exe":  "Setup-CrossDevice-Win11.exe",
-                                       "mb":  102,
+                                       "mb":  208,
                                        "win":  "11",
                                        "minBuild":  22631,
                                        "ver":  "1.26071.84.0"
@@ -1347,14 +1316,14 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Messaging-Win10.exe",
-                                       "mb":  34,
+                                       "mb":  89,
                                        "win":  "10",
                                        "minBuild":  18985,
                                        "ver":  "4.1901.60404.0"
                                    },
                                    {
                                        "exe":  "Setup-Messaging-Win11.exe",
-                                       "mb":  34,
+                                       "mb":  89,
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "5.1901.60431.0"
@@ -1371,7 +1340,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-MobilePlans.exe",
-                                       "mb":  15,
+                                       "mb":  71,
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "5.2508.25002.0"
@@ -1388,7 +1357,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-DevHomeGitHub.exe",
-                                       "mb":  95,
+                                       "mb":  156,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "0.1800.625.0"
@@ -1406,7 +1375,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-GamingServices.exe",
-                                       "mb":  190,
+                                       "mb":  204,
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "38.116.6003.0"
