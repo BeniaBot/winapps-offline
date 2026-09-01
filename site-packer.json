@@ -4998,7 +4998,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "רכיבי מערכת",
-                     "desc":  "ספריות הריצה שכמעט כל תוכנה דורשת. להתקין תמיד",
+                     "desc":  "ספריות הריצה שכמעט כל תוכנה מודרנית דורשת. להתקין תמיד",
                      "color":  "#7c3aed",
                      "url":  "https://aka.ms/vs/17/release/vc_redist.x64.exe",
                      "match":  "vc_redist.x64.exe",
@@ -5011,6 +5011,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -5032,7 +5033,228 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2013 (x64)",
+                     "en":  "VC2013x64",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "תוכנות ומשחקים מדור 2013–2015 דורשים אותה",
+                     "color":  "#6d5bb8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2013-x64.exe",
+                     "match":  "VC2013-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2013-x64.exe",
+                                       "mb":  7,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2013 (x86)",
+                     "en":  "VC2013x86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות של ספריות 2013",
+                     "color":  "#6d5bb8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2013-x86.exe",
+                     "match":  "VC2013-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2013-x86.exe",
+                                       "mb":  6,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2012 (x64)",
+                     "en":  "VC2012x64",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "ספריות דור 2012",
+                     "color":  "#6d5bb8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2012-x64.exe",
+                     "match":  "VC2012-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2012-x64.exe",
+                                       "mb":  7,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2012 (x86)",
+                     "en":  "VC2012x86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות של ספריות 2012",
+                     "color":  "#6d5bb8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2012-x86.exe",
+                     "match":  "VC2012-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2012-x86.exe",
+                                       "mb":  6,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2010 (x64)",
+                     "en":  "VC2010x64",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "ספריות דור 2010",
+                     "color":  "#5d6db8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2010-x64.exe",
+                     "match":  "VC2010-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2010-x64.exe",
+                                       "mb":  10,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2010 (x86)",
+                     "en":  "VC2010x86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות של ספריות 2010",
+                     "color":  "#5d6db8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2010-x86.exe",
+                     "match":  "VC2010-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2010-x86.exe",
+                                       "mb":  9,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q /norestart"
+                 },
+                 {
+                     "he":  "Visual C++ 2008 (x64)",
+                     "en":  "VC2008x64",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "ספריות דור 2008 — משחקים ותוכנות ותיקים",
+                     "color":  "#5d6db8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2008-x64.exe",
+                     "match":  "VC2008-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2008-x64.exe",
+                                       "mb":  5,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q"
+                 },
+                 {
+                     "he":  "Visual C++ 2008 (x86)",
+                     "en":  "VC2008x86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות של ספריות 2008",
+                     "color":  "#5d6db8",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2008-x86.exe",
+                     "match":  "VC2008-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2008-x86.exe",
+                                       "mb":  4,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q"
+                 },
+                 {
+                     "he":  "Visual C++ 2005 (x64)",
+                     "en":  "VC2005x64",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "הוותיקה ביותר — לתוכנות ישנות במיוחד",
+                     "color":  "#54749e",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2005-x64.exe",
+                     "match":  "VC2005-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2005-x64.exe",
+                                       "mb":  3,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q"
+                 },
+                 {
+                     "he":  "Visual C++ 2005 (x86)",
+                     "en":  "VC2005x86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות של ספריות 2005",
+                     "color":  "#54749e",
+                     "url":  "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/VC2005-x86.exe",
+                     "match":  "VC2005-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VC2005-x86.exe",
+                                       "mb":  3,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vcpp.svg",
+                     "silent":  "/q"
                  },
                  {
                      "he":  ".NET Framework 4.8.1",
@@ -5053,6 +5275,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/q /norestart"
                  },
                  {
@@ -5064,16 +5287,61 @@
                      "desc":  "לתוכנות מודרניות שנבנו על ‎.NET 8",
                      "color":  "#512bd4",
                      "url":  "https://aka.ms/dotnet/8.0/windowsdesktop-runtime-win-x64.exe",
-                     "match":  "windowsdesktop-runtime-*-win-x64.exe",
+                     "match":  "windowsdesktop-runtime-8*-win-x64.exe",
                      "files":  [
                                    {
-                                       "exe":  "windowsdesktop-runtime-*-win-x64.exe",
+                                       "exe":  "windowsdesktop-runtime-8*-win-x64.exe",
                                        "mb":  56,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/dotnet.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  ".NET Desktop Runtime 8 (x86)",
+                     "en":  "Net8Desktop86",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "גרסת 32 סיביות — תוכנות ‎.NET רבות עדיין 32-ביט",
+                     "color":  "#512bd4",
+                     "url":  "https://aka.ms/dotnet/8.0/windowsdesktop-runtime-win-x86.exe",
+                     "match":  "windowsdesktop-runtime-8*-win-x86.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "windowsdesktop-runtime-8*-win-x86.exe",
+                                       "mb":  52,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/dotnet.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  ".NET Desktop Runtime 6 (x64)",
+                     "en":  "Net6Desktop",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "לתוכנות שנבנו על ‎.NET 6 הוותיק יותר",
+                     "color":  "#512bd4",
+                     "url":  "https://aka.ms/dotnet/6.0/windowsdesktop-runtime-win-x64.exe",
+                     "match":  "windowsdesktop-runtime-6*-win-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "windowsdesktop-runtime-6*-win-x64.exe",
+                                       "mb":  55,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -5095,6 +5363,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/webview2.svg",
                      "silent":  "/silent /install"
                  },
                  {
@@ -5116,7 +5385,118 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/directx.svg",
                      "silent":  "SPECIAL_DIRECTX"
+                 },
+                 {
+                     "he":  "XNA Framework 4.0",
+                     "en":  "XNA",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "משחקי אינדי רבים (Terraria, Stardew ועוד) דורשים אותו",
+                     "color":  "#d1495b",
+                     "url":  "https://download.microsoft.com/download/A/C/2/AC2C903B-E6E8-42C2-9FD7-BEBAC362A930/xnafx40_redist.msi",
+                     "match":  "xnafx40_redist.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "xnafx40_redist.msi",
+                                       "mb":  7,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/xna.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "NVIDIA PhysX",
+                     "en":  "PhysX",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "מנוע פיזיקה שמשחקים רבים דורשים — גם בכרטיסי מסך אחרים",
+                     "color":  "#76b900",
+                     "url":  "https://us.download.nvidia.com/Windows/9.23.1019/PhysX_9.23.1019_SystemSoftware.exe",
+                     "match":  "PhysX_*_SystemSoftware.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "PhysX_*_SystemSoftware.exe",
+                                       "mb":  28,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/nvidia.svg",
+                     "silent":  "/s"
+                 },
+                 {
+                     "he":  "Access Database Engine 2016",
+                     "en":  "ACE2016",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "חיבור לקובצי Access ו-Excel מתוכנות אחרות",
+                     "color":  "#a4373a",
+                     "url":  "https://download.microsoft.com/download/3/5/C/35C84C36-661A-44E6-9324-8786B8DBE231/accessdatabaseengine_X64.exe",
+                     "match":  "accessdatabaseengine_X64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "accessdatabaseengine_X64.exe",
+                                       "mb":  80,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/ace.svg",
+                     "silent":  "/quiet"
+                 },
+                 {
+                     "he":  "Java 8 (Temurin JRE)",
+                     "en":  "Java8",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "סביבת Java הוותיקה — תוכנות ישנות דורשות דווקא אותה",
+                     "color":  "#e76f00",
+                     "url":  "https://api.adoptium.net/v3/installer/latest/8/ga/windows/x64/jre/hotspot/normal/eclipse",
+                     "match":  "OpenJDK8U-jre_*.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "OpenJDK8U-jre_*.msi",
+                                       "mb":  31,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/java.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "PowerShell 7",
+                     "en":  "PowerShell7",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "שורת הפקודה המודרנית של מיקרוסופט",
+                     "color":  "#2671be",
+                     "url":  "https://github.com/PowerShell/PowerShell/releases/download/v7.6.5/PowerShell-7.6.5-win-x64.msi",
+                     "match":  "PowerShell-*-win-x64.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "PowerShell-*-win-x64.msi",
+                                       "mb":  108,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/powershell.svg",
+                     "silent":  "MSI:/qn /norestart"
                  },
                  {
                      "he":  "Chrome",
@@ -5137,6 +5517,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/chrome.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5158,7 +5539,12 @@
                                        "ver":  ""
                                    }
                                ],
-                     "silent":  "/S"
+                     "icon":  "icons/w32/firefox.svg",
+                     "silent":  "/S",
+                     "alt":  {
+                                 "label":  "English",
+                                 "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=en-US"
+                             }
                  },
                  {
                      "he":  "Edge",
@@ -5179,6 +5565,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/edge.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5200,6 +5587,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/sevenzip.svg",
                      "silent":  "/S"
                  },
                  {
@@ -5221,6 +5609,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/everything.svg",
                      "silent":  "/S"
                  },
                  {
@@ -5242,6 +5631,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/sumatra.svg",
                      "silent":  "-s"
                  },
                  {
@@ -5263,6 +5653,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/vlc.svg",
                      "silent":  "/S"
                  },
                  {
@@ -5271,7 +5662,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
-                     "desc":  "חבילת אופיס מלאה וחינמית — Word, Excel ו-PowerPoint תואמים",
+                     "desc":  "חבילת אופיס מלאה וחינמית — Word, Excel ו-PowerPoint תואמים, כולל עברית",
                      "color":  "#18a303",
                      "url":  "https://download.documentfoundation.org/libreoffice/stable/26.2.5/win/x86_64/LibreOffice_26.2.5_Win_x86-64.msi",
                      "match":  "LibreOffice_*_Win_x86-64.msi",
@@ -5284,6 +5675,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/libreoffice.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5305,6 +5697,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/python.svg",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0"
                  },
                  {
@@ -5326,6 +5719,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/vscode.svg",
                      "silent":  "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
                  },
                  {
@@ -5337,16 +5731,17 @@
                      "desc":  "עורך טקסט וקוד",
                      "color":  "#8fbc45",
                      "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
-                     "match":  "npp.*.Installer.x64.exe",
+                     "match":  "npp.*Installer.x64.exe",
                      "files":  [
                                    {
-                                       "exe":  "npp.*.Installer.x64.exe",
+                                       "exe":  "npp.*Installer.x64.exe",
                                        "mb":  6,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/npp.svg",
                      "silent":  "/S"
                  },
                  {
@@ -5368,15 +5763,16 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/git.svg",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
-                     "he":  "Java (Temurin 21)",
+                     "he":  "Java 21 (Temurin JRE)",
                      "en":  "Java21",
                      "net":  false,
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
-                     "desc":  "סביבת הריצה של Java",
+                     "desc":  "סביבת הריצה המודרנית של Java",
                      "color":  "#e76f00",
                      "url":  "https://api.adoptium.net/v3/installer/latest/21/ga/windows/x64/jre/hotspot/normal/eclipse",
                      "match":  "OpenJDK21U-jre_*.msi",
@@ -5389,6 +5785,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "icon":  "icons/w32/java.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5409,7 +5806,28 @@
                                        "minBuild":  0,
                                        "ver":  ""
                                    }
-                               ]
+                               ],
+                     "icon":  "icons/w32/rufus.svg"
+                 },
+                 {
+                     "he":  "Csharf",
+                     "en":  "Csharf",
+                     "net":  false,
+                     "custom":  true,
+                     "url":  "https://github.com/BeniaBot/Csharf/releases/latest/download/Csharf.bat",
+                     "match":  "Csharf.bat",
+                     "files":  [
+                                   {
+                                       "exe":  "Csharf.bat",
+                                       "mb":  1,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
+                     "color":  "#5fd4fe",
+                     "icon":  "icons/w32/csharf.svg"
                  }
              ]
 }

@@ -54,16 +54,29 @@
     --shadow:  0 16px 38px -20px rgba(30,50,90,.28);
   }
   * { box-sizing: border-box; margin: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; background: #0f1420; }
+  :root.light html { background: #eef1f6; }
   body {
     color: var(--ink);
-    background: linear-gradient(165deg, #0f1420, #131a2b 45%, #0f172a);
-    background-attachment: fixed;
+    background: #0f1420;
     font-family: "Heebo", "Segoe UI", sans-serif;
     font-size: 15.5px; line-height: 1.55;
     min-height: 100vh;
   }
-  :root.light body { background: linear-gradient(165deg, #eef1f6, #e6ebf4 45%, #eaeef6); }
+  /* the gradient lives on a fixed layer of its own: background-attachment:fixed
+     goes white on deep scroll in Chrome, this never does */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(900px 480px at 50% -80px, rgba(95,212,254,.075), transparent 70%),
+      linear-gradient(165deg, #0f1420, #131a2b 45%, #0f172a);
+  }
+  :root.light body { background: #eef1f6; }
+  :root.light body::before {
+    background:
+      radial-gradient(900px 480px at 50% -80px, rgba(0,103,192,.06), transparent 70%),
+      linear-gradient(165deg, #eef1f6, #e6ebf4 45%, #eaeef6);
+  }
   .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
   button { font: inherit; }
@@ -124,10 +137,21 @@
   .count { color: var(--muted); font-size: .84rem; white-space: nowrap; }
 
   /* ===== launcher grid ===== */
-  .grouphead { display: flex; align-items: baseline; gap: 10px; margin: 34px 0 6px; }
+  .grouphead { display: flex; align-items: center; gap: 12px; margin: 34px 0 6px; }
   .grouphead h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: .01em; }
   .grouphead .n { color: var(--muted); font-size: .82rem; }
+  .grouphead::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
   .groupnote { color: var(--muted); font-size: .86rem; margin-bottom: 10px; max-width: 70ch; }
+
+  /* the seam between the Microsoft store and everything else */
+  .world { margin: 64px 0 -12px; text-align: center; position: relative; }
+  .world::before { content: ""; position: absolute; inset-inline: 0; top: 50%; height: 1px;
+                   background: linear-gradient(90deg, transparent, var(--stroke) 18%, var(--stroke) 82%, transparent); }
+  .world span { position: relative; display: inline-block; padding: 7px 26px;
+                background: var(--panel-2); border: 1px solid var(--stroke); border-radius: 99px;
+                font-weight: 800; font-size: 1.02rem; letter-spacing: .01em; }
+  .world small { display: block; position: relative; color: var(--muted); font-size: .84rem;
+                 font-weight: 400; margin-top: 10px; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 6px; }
   .t {
@@ -140,9 +164,13 @@
   .t.sel { background: color-mix(in srgb, var(--accent) 13%, transparent); }
   .pl { width: 76px; height: 76px; border-radius: 21px; flex: none;
         display: flex; align-items: center; justify-content: center;
-        background: var(--tile); box-shadow: 0 10px 24px -12px rgba(0,0,0,.55); }
-  :root.light .pl { box-shadow: 0 10px 22px -14px rgba(40,60,110,.35); }
+        background: var(--tile); border: 1px solid rgba(255,255,255,.06);
+        box-shadow: 0 10px 24px -12px rgba(0,0,0,.55);
+        transition: box-shadow .18s; }
+  :root.light .pl { border-color: rgba(20,40,80,.08); box-shadow: 0 10px 22px -14px rgba(40,60,110,.35); }
+  .t:hover .pl { box-shadow: 0 14px 30px -12px rgba(0,0,0,.65), 0 0 0 1px rgba(95,212,254,.25); }
   .pl img { width: 50px; height: 50px; object-fit: contain; }
+  .pl img.glyph { width: 40px; height: 40px; }
   .pl.letter { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
   .t.sel .pl { outline: 2.5px solid var(--accent); outline-offset: 2px; }
   .nm { font-size: .86rem; font-weight: 500; line-height: 1.25; min-height: 2.2em;
@@ -193,6 +221,7 @@
            width: min(420px, 94vw); padding: 26px; text-align: center; }
   .sheet .pl { width: 92px; height: 92px; border-radius: 26px; margin: 0 auto; }
   .sheet .pl img { width: 62px; height: 62px; }
+  .sheet .pl img.glyph { width: 50px; height: 50px; }
   .sheet h3 { font-size: 1.35rem; font-weight: 800; margin-top: 12px; }
   .sheet .en { color: var(--muted); font-size: .78rem; direction: ltr; }
   .sheet .ds { margin: 10px 0 4px; font-size: .95rem; }
@@ -305,7 +334,7 @@ const bestFile = a => {
   if (!fs.length) return null;
   return fs.find(f => f.win === TARGET) || fs[0];
 };
-const isLive = (a, f) => a.w32 ? true : !!LIVE[f.exe];
+const isLive = (a, f) => a.url ? true : !!LIVE[f.exe];
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
 const mbOf = a => { const f = bestFile(a); return f ? f.mb : 0; };
 const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
@@ -315,10 +344,7 @@ function tile(a) {
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
-  const chip = a.color ? ' style="background:' + a.color + '2e"' : '';
-  const pl = a.icon
-    ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
-    : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const pl = plate(a, false);
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
   const get = twoAmbiguous
     ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
@@ -327,7 +353,15 @@ function tile(a) {
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
-    '<div class="nm">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
+    '<div class="nm" dir="auto">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
+}
+
+/* white glyph icons sit on a solid brand plate; store icons keep the soft tint */
+function plate(a, big) {
+  const glyph = a.icon && a.icon.indexOf('/w32/') >= 0;
+  const bg = a.color ? ' style="background:' + a.color + (glyph ? '' : '2e') + '"' : '';
+  if (a.icon) return '<div class="pl"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt=""' + (big ? '' : ' loading="lazy"') + '></div>';
+  return '<div class="pl letter"' + bg + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
 }
 
 function render() {
@@ -336,6 +370,7 @@ function render() {
   let html = '', shown = 0, total = 0;
   const groups = CAT_ORDER.concat(W32_CATS, ['בפיתוח שלי']);
   const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
+  let seamDone = false;
   groups.forEach(cat => {
     const members = DATA.apps.filter(a =>
       cat === 'בפיתוח שלי' ? a.custom :
@@ -348,12 +383,18 @@ function render() {
     const tiles = members.map(tile).filter(Boolean);
     if (!tiles.length) return;
     shown += tiles.length;
+    if (!seamDone && (W32_CATS.includes(cat) || cat === 'בפיתוח שלי')) {
+      seamDone = true;
+      if (html) html += '<div class="world"><span>מעבר לחנות מיקרוסופט</span>' +
+        '<small>רכיבים ותוכנות מהאתרים הרשמיים של היצרנים — מתקינים מלאים, מוכנים לאופליין</small></div>';
+    }
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
     html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span></div>' +
             note + '<div class="grid">' + tiles.join('') + '</div>';
   });
   chipBar.push('<span class="spacer"></span>');
   chipBar.push('<span class="count">' + shown + ' / ' + total + '</span>');
+  chipBar.push('<span class="count">מתאים ל:</span>');
   chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
   document.getElementById('chips').innerHTML = chipBar.join('');
   box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
@@ -377,8 +418,8 @@ document.addEventListener('click', e => {
 });
 
 function download(exe) {
-  // w32 entries point straight at the vendor's own installer
-  const owner = DATA.apps.find(x => x.w32 && x.files.some(f => f.exe === exe));
+  // w32 and custom entries point straight at the vendor's own file
+  const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
   const a = document.createElement('a');
   a.href = owner ? owner.url : REL + encodeURIComponent(exe);
   if (!owner) a.download = exe;
@@ -460,7 +501,7 @@ function updateDock() {
   let mb = 0, w32s = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) { mb += mbOf(a); if (a.w32 && a.silent) w32s++; } });
   document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + mbFmt(mb) +
-    (w32s > 1 ? ' · עם קובץ התקנה שקטה' : '') + '</span>';
+    (w32s >= 1 ? ' · עם קובץ התקנה שקטה' : '') + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
@@ -488,8 +529,8 @@ document.getElementById('selgo').onclick = () => {
     if (a.w32 && a.silent) w32Silent.push(a);
   });
   files.forEach((exe, i) => setTimeout(() => download(exe), i * 600));
-  // more than one silent-capable pick: bundle the one-click install script too
-  if (w32Silent.length > 1) setTimeout(() => downloadCmd(w32Silent), files.length * 600 + 400);
+  // silent install is the recommended default: any silent-capable pick bundles the script
+  if (w32Silent.length >= 1) setTimeout(() => downloadCmd(w32Silent), files.length * 600 + 400);
 };
 
 /* ===== sheet ===== */
@@ -497,29 +538,28 @@ function openSheet(en) {
   const a = DATA.apps.find(x => x.en === en);
   if (!a) return;
   const files = filesFor(a);
-  const chip = a.color ? ' style="background:' + a.color + '2e"' : '';
-  const pl = a.icon
-    ? '<div class="pl"' + chip + '><img src="' + a.icon + '" alt=""></div>'
-    : '<div class="pl letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const rows = a.w32
+  const pl = plate(a, true);
+  const rows = a.url
     ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
       (a.silent && a.silent !== 'SPECIAL_DIRECTX'
         ? '<div class="row"><span>התקנה שקטה</span><span dir="ltr" class="mono">' + esc(a.silent.replace('MSI:', 'msiexec /i ‹file› ')) + '</span></div>' : '')
     : files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
-  const btns = files.map(f => {
+  let btns = files.map(f => {
     const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + mbFmt(f.mb);
     return isLive(a, f)
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
+  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + a.alt.label + '</a>';
+  if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc">קובץ התקנה שקטה</button>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet">' + pl +
-    '<h3>' + a.he + '</h3><div class="en">' + a.en + '</div>' +
+    '<h3 dir="auto">' + a.he + '</h3><div class="en">' + a.en + '</div>' +
     (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
-    '<div class="net">' + (a.w32 ? 'מתקין מלא מהאתר הרשמי — ההתקנה עצמה בלי אינטרנט'
+    '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
@@ -529,6 +569,8 @@ function openSheet(en) {
   ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
   ov.querySelector('#sc').onclick = () => ov.remove();
   ov.querySelector('#sp').onclick = () => { toggle(en); ov.remove(); };
+  const ssc = ov.querySelector('#ssc');
+  if (ssc) ssc.onclick = () => downloadCmd([a]);
 }
 
 /* ===== theme, search ===== */
@@ -558,8 +600,8 @@ fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => 
   document.getElementById('updated').textContent = 'הקטלוג עודכן ' + d.updated;
   const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
-    '<div><b>' + d.apps.length + '</b><span>אפליקציות</span></div>' +
-    '<div><b>' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
+    '<div><b>' + d.apps.length + '</b><span>אפליקציות ותוכנות</span></div>' +
+    '<div><b dir="ltr">' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
     '<div><b>0</b><span>רשת בצד השני</span></div>';
   isoButtons();
   render();
