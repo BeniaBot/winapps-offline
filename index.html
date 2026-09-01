@@ -376,8 +376,19 @@ function plate(a, big) {
   const glyph = a.icon && a.icon.indexOf('/w32/') >= 0;
   const hex6 = a.color && /^#[0-9a-f]{6}$/i.test(a.color);
   const bg = hex6 ? ' style="background-color:' + a.color + (glyph ? '' : '2e') + '"' : '';
-  if (a.icon) return '<div class="pl' + (glyph ? ' deep' : '') + '"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt=""' + (big ? '' : ' loading="lazy"') + '></div>';
+  if (a.icon) return '<div class="pl' + (glyph ? ' deep' : '') + '"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt="" onerror="iconFail(this)"' + (big ? '' : ' loading="lazy"') + '></div>';
   return '<div class="pl letter"' + bg + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+}
+
+/* a broken icon degrades to the letter plate instead of an empty square */
+function iconFail(img) {
+  const pl = img.closest('.pl');
+  if (!pl) return;
+  const t = img.closest('.t');
+  const en = t ? t.dataset.en : '';
+  const a = DATA && DATA.apps.find(x => x.en === en);
+  pl.classList.add('letter');
+  pl.textContent = a ? (a.he || a.en).trim().charAt(0) : '•';
 }
 
 function render() {
