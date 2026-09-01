@@ -5,494 +5,314 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חנות אפליקציות אופליין ל-Windows</title>
 <script>try { if (localStorage.theme === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
-<meta name="description" content="להתקין ולעדכן את האפליקציות של Windows במחשב בלי חיבור לאינטרנט. בלי הרשאות מנהל.">
+<meta name="description" content="חנות האפליקציות של Windows למחשבים בלי אינטרנט. בוחרים, אורזים, מעבירים בדיסק-און-קי.">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="canonical" href="https://beniabot.github.io/winapps-offline/">
-<meta name="theme-color" content="#1043c8">
-<!-- shared into WhatsApp/mail a lot: give the link a readable card -->
+<meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="חנות אפליקציות אופליין">
 <meta property="og:title" content="חנות אפליקציות אופליין ל-Windows">
-<meta property="og:description" content="האפליקציות של Windows, גם למחשב שאין בו אינטרנט. מורידים כלי אחד, בוחרים אפליקציות, ומעבירים בדיסק-און-קי.">
+<meta property="og:description" content="האפליקציות של Windows, גם למחשב שאין בו אינטרנט.">
 <meta property="og:url" content="https://beniabot.github.io/winapps-offline/">
 <meta property="og:image" content="https://beniabot.github.io/winapps-offline/icon.png">
-<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* dark is the store's default look; the toggle switches to light and remembers */
+  /* ============ tokens: cargo-at-night. one bold thing: amber. ============ */
   :root {
-    --ink:      #e9ecf1;
-    --ink-soft: #96a0ad;
-    --canvas:   #0f1115;
-    --surface:  #171a20;
-    --raise:    #1d212a;
-    --line:     #282d37;
-    --accent:   #6f9bff;
-    --accent-2: #1b2740;
-    /* the accent is light here, so dark text on it keeps contrast */
-    --on-accent:#0b1220;
-    --amber:    #d9a95c;
-    --amber-bg: #2a2418;
-    --night:    #0b0d11;
-    --night-fg: #f2f1ee;
-    --radius:   14px;
-    --shadow:   0 1px 2px rgba(0,0,0,.4);
-    --shadow-lg:0 18px 40px -18px rgba(0,0,0,.8);
+    --canvas:   #0b0f17;
+    --panel:    #121926;
+    --panel-2:  #0e1420;
+    --line:     #1f2c42;
+    --ink:      #e9eef8;
+    --muted:    #8698b4;
+    --amber:    #ffb454;
+    --amber-2:  #b47017;
+    --on-amber: #1d1204;
+    --ok:       #5fd48b;
+    --err:      #ff7a70;
+    --shadow:   0 22px 50px -22px rgba(0,0,0,.75);
   }
   :root.light {
-    --ink:      #15181d;
-    --ink-soft: #5d6672;
-    --canvas:   #faf9f6;
-    --surface:  #ffffff;
-    --raise:    #f3f1ec;
-    --line:     #e5e1d8;
-    --accent:   #1043c8;
-    --accent-2: #dbe4fb;
-    --on-accent:#ffffff;
-    --amber:    #a56511;
-    --amber-bg: #fbf2e2;
-    --night:    #14171d;
-    --night-fg: #f2f1ee;
-    --shadow:   0 1px 2px rgba(20,25,40,.05);
-    --shadow-lg:0 18px 40px -18px rgba(20,25,40,.35);
-  }
-  .theme-btn {
-    border: 1px solid var(--line); background: var(--surface); color: var(--ink);
-    border-radius: 9px; padding: 5px 11px; cursor: pointer; font: inherit; font-size: .9rem;
+    --canvas:   #f7f4ec;
+    --panel:    #fffdf8;
+    --panel-2:  #efeadf;
+    --line:     #ddd5c4;
+    --ink:      #191f2b;
+    --muted:    #6b7385;
+    --amber:    #b4690e;
+    --amber-2:  #ffb454;
+    --on-amber: #fff8ec;
+    --ok:       #1e7a45;
+    --err:      #b3362d;
+    --shadow:   0 22px 50px -26px rgba(60,50,20,.35);
   }
   * { box-sizing: border-box; margin: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--canvas);
-    color: var(--ink);
-    font-family: "Assistant", "Segoe UI", system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    background: var(--canvas); color: var(--ink);
+    font-family: "Heebo", "Segoe UI", sans-serif;
+    font-size: 16.5px; line-height: 1.6;
   }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .82em; }
+  .disp { font-family: "Secular One", "Heebo", sans-serif; font-weight: 400; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-size: .82em; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+  a { color: inherit; }
 
-  /* ---------- top bar ---------- */
-  .topbar {
-    border-bottom: 1px solid var(--line);
-    background: color-mix(in srgb, var(--canvas) 86%, transparent);
-    backdrop-filter: blur(10px);
+  /* ============ top bar ============ */
+  .top {
     position: sticky; top: 0; z-index: 30;
-  }
-  .topbar .wrap { display: flex; align-items: center; gap: 14px; height: 62px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.2px; }
-  .brand img { width: 30px; height: 30px; }
-  .topbar nav { margin-inline-start: auto; display: flex; gap: 20px; font-size: .93rem; }
-  .topbar nav a { color: var(--ink-soft); text-decoration: none; }
-  .topbar nav a:hover { color: var(--ink); }
-  @media (max-width: 640px) { .topbar nav { display: none; } .theme-btn { margin-inline-start: auto; } }
-
-  /* ---------- hero ---------- */
-  .hero {
-    padding: 74px 0 12px;
-    background:
-      radial-gradient(680px 320px at 84% -40px, color-mix(in srgb, var(--accent) 13%, transparent), transparent 72%),
-      radial-gradient(520px 280px at 6% 40%, color-mix(in srgb, var(--amber) 9%, transparent), transparent 70%);
-  }
-  .kicker {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent-2); color: var(--accent);
-    font-size: .85rem; font-weight: 600;
-    border-radius: 999px; padding: 5px 15px; margin-bottom: 22px;
-  }
-  h1 {
-    font-size: clamp(2.1rem, 5.6vw, 3.5rem);
-    line-height: 1.12; font-weight: 800; letter-spacing: -1.2px;
-    max-width: 17ch;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .lede {
-    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-    color: var(--ink-soft); margin-top: 20px; max-width: 54ch;
-  }
-  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--accent); color: var(--on-accent); text-decoration: none;
-    font-weight: 700; font-size: 1.05rem;
-    border-radius: 12px; padding: 15px 30px;
-    box-shadow: var(--shadow-lg);
-    transition: transform .15s ease, filter .15s ease;
-  }
-  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
-  .btn-ghost {
-    color: var(--ink); text-decoration: none; font-weight: 600;
-    border: 1px solid var(--line); border-radius: 12px; padding: 14px 24px;
-    background: var(--surface);
-  }
-  .btn-ghost:hover { border-color: var(--ink-soft); }
-  .cta small { color: var(--ink-soft); font-size: .88rem; }
-
-  .facts { display: flex; flex-wrap: wrap; gap: 0; margin-top: 52px; padding-bottom: 8px; }
-  .fact { padding-inline: 26px; border-inline-start: 1px solid var(--line); }
-  .fact:first-child { padding-inline-start: 0; border-inline-start: 0; }
-  .fact strong { display: block; font-size: 1.75rem; font-weight: 800; letter-spacing: -.5px; }
-  .fact span { color: var(--ink-soft); font-size: .9rem; }
-
-  /* ---------- sections ---------- */
-  section { padding: 62px 0; }
-  .sec-head { margin-bottom: 30px; }
-  .sec-head h2 {
-    font-size: clamp(1.5rem, 3.2vw, 2rem); font-weight: 800; letter-spacing: -.6px;
-  }
-  .sec-head p { color: var(--ink-soft); margin-top: 8px; max-width: 62ch; }
-  .rule { height: 1px; background: var(--line); }
-
-  /* ---------- flow diagram ---------- */
-  .flow { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px; }
-  .flow svg { width: 100%; height: auto; display: block; }
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 26px; }
-  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
-  .step-n {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--accent); color: var(--on-accent); font-size: .82rem; font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-  .step p { color: var(--ink-soft); font-size: .94rem; }
-
-  /* ---------- technicians ---------- */
-  .tech {
-    background: var(--night); color: var(--night-fg);
-    border-radius: var(--radius); padding: 40px 34px;
-    box-shadow: var(--shadow-lg);
-  }
-  .tech h2 { font-size: 1.7rem; font-weight: 800; letter-spacing: -.5px; }
-  .tech p.sub { color: #a8b0bd; margin-top: 10px; max-width: 58ch; }
-  .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 26px; }
-  .tile {
-    background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.11);
-    border-radius: 11px; padding: 15px 17px;
-  }
-  .tile b { display: block; font-size: 1.18rem; font-weight: 800; }
-  .tile span { color: #a8b0bd; font-size: .86rem; }
-  .tech .btn-primary { margin-top: 26px; background: #fff; color: var(--night); }
-
-  /* ---------- catalog ---------- */
-  .toolbar {
-    position: sticky; top: 62px; z-index: 20;
-    background: color-mix(in srgb, var(--canvas) 90%, transparent);
+    background: color-mix(in srgb, var(--canvas) 88%, transparent);
     backdrop-filter: blur(10px);
-    padding: 14px 0; margin-bottom: 8px;
     border-bottom: 1px solid var(--line);
   }
-  .toolbar .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .top .wrap { display: flex; align-items: center; gap: 18px; height: 58px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { width: 26px; height: 26px; }
+  .brand span { font-size: 1.05rem; }
+  .top nav { display: flex; gap: 18px; font-size: .92rem; color: var(--muted); margin-inline-start: auto; }
+  .top nav a { text-decoration: none; }
+  .top nav a:hover { color: var(--ink); }
+  .theme-btn {
+    border: 1px solid var(--line); background: transparent; color: var(--muted);
+    border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: .95rem;
+  }
+  @media (max-width: 680px) { .top nav { display: none; } .theme-btn { margin-inline-start: auto; } }
+
+  /* ============ hero ============ */
+  .hero { position: relative; padding: 84px 0 60px; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(620px 300px at 85% 0%, color-mix(in srgb, var(--amber) 9%, transparent), transparent 70%),
+      repeating-linear-gradient(-45deg, transparent 0 26px, color-mix(in srgb, var(--line) 45%, transparent) 26px 27px);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; }
+  .flag {
+    display: inline-flex; gap: 9px; align-items: center;
+    color: var(--amber); font-size: .9rem; font-weight: 700; letter-spacing: .04em;
+    margin-bottom: 18px;
+  }
+  .flag::before { content: ''; width: 26px; height: 2px; background: var(--amber); }
+  h1.disp { font-size: clamp(2.2rem, 5.8vw, 3.9rem); line-height: 1.14; max-width: 19ch; }
+  h1 em { font-style: normal; color: var(--amber); }
+  .lede { color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 52ch; margin-top: 18px; }
+  .hero .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
+  .btn-amber {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--amber); color: var(--on-amber); text-decoration: none;
+    font-weight: 700; font-size: 1.02rem; border: 0; cursor: pointer;
+    padding: 14px 28px; border-radius: 10px; box-shadow: var(--shadow);
+    transition: transform .15s ease;
+  }
+  .btn-amber:hover { transform: translateY(-2px); }
+  .btn-line {
+    background: transparent; color: var(--ink); text-decoration: none; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 10px; padding: 13px 22px; font-weight: 500; font-size: .98rem;
+  }
+  .btn-line:hover { border-color: var(--muted); }
+  .hero .facts { display: flex; gap: 26px; margin-top: 46px; flex-wrap: wrap; }
+  .fact b { font-size: 1.5rem; font-family: "Secular One"; font-weight: 400; display: block; }
+  .fact span { color: var(--muted); font-size: .85rem; }
+
+  /* ============ journey strip ============ */
+  .journey { border-block: 1px solid var(--line); background: var(--panel-2); }
+  .journey .wrap {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; padding-block: 26px;
+  }
+  .leg { display: flex; gap: 14px; padding-inline: 18px; align-items: flex-start; position: relative; }
+  .leg + .leg { border-inline-start: 1px dashed var(--line); }
+  .leg .n {
+    font-family: "IBM Plex Mono"; color: var(--amber); font-size: .95rem; padding-top: 2px;
+  }
+  .leg h3 { font-size: 1rem; font-weight: 700; }
+  .leg p { color: var(--muted); font-size: .88rem; margin-top: 3px; }
+  @media (max-width: 780px) {
+    .journey .wrap { grid-template-columns: 1fr; }
+    .leg + .leg { border-inline-start: 0; border-top: 1px dashed var(--line); padding-top: 16px; margin-top: 16px; }
+  }
+
+  /* ============ catalog ============ */
+  section.cat { padding: 58px 0 30px; }
+  .cat-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  .cat-head h2.disp { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  .cat-head .sub { color: var(--muted); }
+
+  .toolbar { position: sticky; top: 58px; z-index: 20; padding-block: 12px; background: color-mix(in srgb, var(--canvas) 92%, transparent); backdrop-filter: blur(10px); }
+  .toolbar .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .search {
-    flex: 1 1 240px; display: flex; align-items: center; gap: 9px;
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 11px; padding: 9px 14px;
+    flex: 1 1 220px; display: flex; align-items: center; gap: 9px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 13px;
   }
-  .search:focus-within { border-color: var(--accent); }
-  .search svg { width: 17px; height: 17px; opacity: .45; flex: none; }
-  .search input { border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; width: 100%; }
-  .seg { display: flex; background: var(--raise); border-radius: 11px; padding: 3px; }
+  .search:focus-within { border-color: var(--amber); }
+  .search svg { width: 16px; height: 16px; opacity: .5; flex: none; }
+  .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; width: 100%; }
+  .seg { display: flex; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 3px; }
   .seg button {
-    border: 0; background: transparent; color: var(--ink-soft);
-    font: inherit; font-size: .93rem; font-weight: 600;
-    padding: 7px 17px; border-radius: 9px; cursor: pointer;
+    border: 0; background: none; color: var(--muted); font: inherit; font-size: .9rem; font-weight: 500;
+    padding: 6px 15px; border-radius: 8px; cursor: pointer;
   }
-  .seg button.on { background: var(--surface); color: var(--accent); box-shadow: var(--shadow); }
-  .count { color: var(--ink-soft); font-size: .88rem; margin-inline-start: auto; }
+  .seg button.on { background: var(--amber); color: var(--on-amber); font-weight: 700; }
+  .count { color: var(--muted); font-size: .85rem; margin-inline-start: auto; }
 
-  .grouphead {
-    display: flex; align-items: baseline; gap: 10px;
-    margin: 34px 0 6px; padding-bottom: 8px;
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding-block: 10px 4px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips a {
+    white-space: nowrap; text-decoration: none; font-size: .88rem; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; background: var(--panel);
   }
-  .grouphead h3 { font-size: 1.12rem; font-weight: 800; }
-  .grouphead span { color: var(--ink-soft); font-size: .88rem; }
-  .groupnote { color: var(--ink-soft); font-size: .92rem; margin-bottom: 14px; max-width: 66ch; }
+  .chips a:hover { color: var(--amber); border-color: var(--amber); }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
-    gap: 12px;
-  }
-  .tile-app {
+  .grouphead { display: flex; align-items: baseline; gap: 12px; margin: 36px 0 4px; }
+  .grouphead .idx { font-family: "IBM Plex Mono"; color: var(--amber); font-size: .9rem; }
+  .grouphead h3.disp { font-size: 1.35rem; }
+  .grouphead .n { color: var(--muted); font-size: .85rem; }
+  .groupnote { color: var(--muted); font-size: .88rem; margin-bottom: 14px; max-width: 66ch; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(156px, 1fr)); gap: 11px; }
+  .tile {
     position: relative;
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 13px; padding: 14px 14px 12px;
-    display: flex; flex-direction: column; gap: 9px; min-height: 132px;
-    transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 13px 13px 11px; min-height: 128px;
+    display: flex; flex-direction: column; gap: 8px;
+    cursor: pointer; transition: border-color .14s, transform .14s, box-shadow .14s;
   }
-  .tile-app:hover {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-    box-shadow: var(--shadow-lg);
-  }
-  .tile-app.na { opacity: .48; }
-  .tile-app.na:hover { transform: none; box-shadow: none; border-color: var(--line); }
-  .tile-app:not(.na) { cursor: pointer; }
-  .tile-app.sel {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 28%, transparent);
-    background: color-mix(in srgb, var(--accent) 5%, var(--surface));
-  }
-  .check {
-    position: absolute; top: 10px; inset-inline-end: 10px;
-    width: 21px; height: 21px; border-radius: 7px;
-    border: 1.6px solid var(--line); background: var(--surface);
-    display: flex; align-items: center; justify-content: center;
-    font-size: .72rem; color: transparent; font-weight: 900;
-  }
-  .tile-app:hover .check { border-color: var(--accent); }
-  .tile-app.sel .check { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-  .tile-app.na .check { display: none; }
-
-  .picker { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 4px 0 18px; }
-  .picker button {
-    border: 0; background: none; padding: 0; cursor: pointer;
-    color: var(--accent); font: inherit; font-size: .93rem; font-weight: 600;
-  }
-  .picker button:hover { text-decoration: underline; }
-
-  /* selection bar - the thing that turns a catalogue into a cart */
-  .selbar {
-    position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
-    background: var(--night); color: var(--night-fg);
-    box-shadow: 0 -12px 34px -14px rgba(0,0,0,.55);
-    transform: translateY(110%); transition: transform .22s ease;
-  }
-  .selbar.show { transform: translateY(0); }
-  .selbar .wrap { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 14px; }
-  .selbar .sum { font-weight: 700; }
-  .selbar .sum span { color: #a8b0bd; font-weight: 400; }
-  .selbar .go {
-    margin-inline-start: auto;
-    background: #fff; color: var(--night); text-decoration: none;
-    font-weight: 800; border: 0; border-radius: 11px; padding: 12px 26px;
-    cursor: pointer; font-size: 1rem;
-  }
-  .selbar .clear { background: none; border: 0; color: #a8b0bd; cursor: pointer; font: inherit; }
-  body.has-sel { padding-bottom: 88px; }
-
-  /* handoff explainer */
-  .handoff {
-    background: var(--accent-2); border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
-    border-radius: var(--radius); padding: 22px 24px; margin-top: 20px;
-  }
-  .handoff h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 12px; }
-  .handoff ol { margin: 0; padding-inline-start: 20px; color: var(--ink); }
-  .handoff li { margin-bottom: 7px; }
-  .handoff .sub { color: var(--ink-soft); font-size: .9rem; margin-top: 12px; }
+  .tile:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--amber) 55%, var(--line)); box-shadow: var(--shadow); }
+  .tile.na { opacity: .42; cursor: default; }
+  .tile.na:hover { transform: none; border-color: var(--line); box-shadow: none; }
+  .tile.sel { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 7%, var(--panel)); }
   .ico {
-    width: 46px; height: 46px; border-radius: 12px;
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; background: var(--panel-2);
+  }
+  .ico img { width: 30px; height: 30px; object-fit: contain; }
+  .ico.letter { font-family: "Secular One"; font-size: 1.15rem; color: var(--amber); }
+  .nm { font-weight: 500; font-size: .93rem; line-height: 1.3;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; color: var(--muted); font-size: .78rem; }
+  .foot b { color: var(--ink); font-weight: 500; }
+  .check {
+    position: absolute; top: 9px; inset-inline-end: 9px;
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 1.5px solid var(--line); background: var(--panel);
     display: flex; align-items: center; justify-content: center;
-    background: var(--raise);
+    color: transparent; font-size: .68rem; font-weight: 900; z-index: 2;
   }
-  .ico img { width: 32px; height: 32px; object-fit: contain; }
-  /* apps we have not packaged locally yet have no extracted icon - show an initial */
-  .ico.letter { font-weight: 800; font-size: 1.15rem; color: var(--accent); }
-  .nm {
-    font-weight: 600; font-size: .97rem; line-height: 1.25;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  .tile:hover .check { border-color: var(--amber); }
+  .tile.sel .check { background: var(--amber); border-color: var(--amber); color: var(--on-amber); }
+  .tile.na .check { display: none; }
+  .badge {
+    position: absolute; top: 10px; inset-inline-start: 10px;
+    font-size: .66rem; font-weight: 700; border-radius: 5px; padding: 1px 7px;
+    background: var(--panel-2); color: var(--muted); border: 1px solid var(--line);
   }
-  .foot {
-    margin-top: auto; display: flex; align-items: baseline; gap: 7px;
-    color: var(--ink-soft); font-size: .82rem;
-  }
-  .sz { font-weight: 700; color: var(--ink); }
-  .tag {
-    position: absolute; top: 12px; inset-inline-start: 12px;
-    font-size: .69rem; font-weight: 700; border-radius: 999px;
-    padding: 2px 8px; white-space: nowrap;
-    background: var(--accent-2); color: var(--accent);
-  }
-  .tag.na { background: var(--amber-bg); color: var(--amber); position: static; align-self: flex-start; }
-  @media (max-width: 480px) {
-    .grid { grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; }
-    .tile-app { min-height: 120px; padding: 12px; }
-    .ico { width: 40px; height: 40px; }
-  }
-  .empty { padding: 26px 4px; color: var(--ink-soft); grid-column: 1 / -1; }
+  .badge.na { position: static; align-self: flex-start; color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
+  .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
 
-  /* ---------- notes ---------- */
-  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
-  .note {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 20px 22px;
-  }
-  .note h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-  .note p { color: var(--ink-soft); font-size: .93rem; }
+  /* ============ detail sheet ============ */
+  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(4,7,12,.62); backdrop-filter: blur(4px);
+             display: flex; align-items: center; justify-content: center; padding: 18px; }
+  .sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+           width: min(430px, 94vw); padding: 24px; }
+  .sheet .hd { display: flex; gap: 14px; align-items: center; margin-bottom: 10px; }
+  .sheet .ico { width: 58px; height: 58px; border-radius: 13px; }
+  .sheet .ico img { width: 42px; height: 42px; }
+  .sheet h3.disp { font-size: 1.35rem; }
+  .sheet .en { color: var(--muted); font-size: .78rem; direction: ltr; text-align: end; }
+  .sheet .ds { margin: 4px 0 14px; }
+  .sheet .nt { background: color-mix(in srgb, var(--amber) 12%, var(--panel)); color: var(--amber);
+               border-radius: 8px; padding: 8px 12px; font-size: .85rem; margin-bottom: 12px; }
+  .sheet .row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 2px;
+                border-bottom: 1px solid var(--line); font-size: .88rem; }
+  .sheet .row span:first-child { color: var(--muted); }
+  .sheet .acts { display: flex; gap: 10px; margin-top: 16px; }
+  .sheet .btn-amber { flex: 1; justify-content: center; }
 
-  footer { border-top: 1px solid var(--line); padding: 34px 0 46px; color: var(--ink-soft); font-size: .9rem; }
+  /* ============ cargo dock (selection) ============ */
+  .dock {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
+    background: var(--panel);
+    border-top: 2px solid var(--amber);
+    box-shadow: 0 -18px 40px -18px rgba(0,0,0,.7);
+    transform: translateY(110%); transition: transform .2s ease;
+  }
+  .dock.show { transform: none; }
+  .dock .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 13px; }
+  .dock .sum b { font-family: "Secular One"; font-weight: 400; }
+  .dock .sum span { color: var(--muted); font-size: .88rem; }
+  .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; font: inherit; }
+  .dock .btn-amber { margin-inline-start: auto; padding: 11px 24px; }
+  body.has-sel { padding-bottom: 84px; }
 
-  /* ---- app detail sheet: opens on tile click, like a store page ---- */
-  .overlay {
-    position: fixed; inset: 0; z-index: 60;
-    background: rgba(10,14,20,.45); backdrop-filter: blur(3px);
-    display: flex; align-items: center; justify-content: center; padding: 20px;
-  }
-  .sheet {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 18px; box-shadow: var(--shadow-lg);
-    width: min(440px, 94vw); padding: 26px 26px 22px;
-  }
-  .sheet .head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-  .sheet .ico { width: 62px; height: 62px; border-radius: 15px; }
-  .sheet .ico img { width: 46px; height: 46px; }
-  .sheet .ico.letter { font-size: 1.6rem; }
-  .sheet h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.3px; }
-  .sheet .en { color: var(--ink-soft); font-size: .82rem; direction: ltr; text-align: end; }
-  .sheet .desc { color: var(--ink); margin: 6px 0 14px; }
-  .sheet .note {
-    background: var(--amber-bg); color: var(--amber);
-    border-radius: 9px; padding: 9px 13px; font-size: .88rem; margin-bottom: 14px;
-  }
-  .sheet .rows { border-top: 1px solid var(--line); }
-  .sheet .row {
-    display: flex; justify-content: space-between; gap: 12px;
-    padding: 8px 2px; border-bottom: 1px solid var(--line);
-    font-size: .9rem;
-  }
-  .sheet .row span:first-child { color: var(--ink-soft); }
-  .sheet .actions { display: flex; gap: 10px; margin-top: 18px; }
-  .sheet .actions .btn-primary { flex: 1; justify-content: center; padding: 12px 18px; font-size: .98rem; }
-  .sheet .actions .btn-ghost { padding: 11px 20px; }
-  .editme { color: var(--ink-soft); font-size: .88rem; }
+  /* ============ builder ============ */
+  .buildbox { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px; margin-top: 18px; }
+  .buildbox h3.disp { font-size: 1.3rem; margin-bottom: 6px; }
+  .buildbox p { color: var(--muted); font-size: .92rem; }
+  .prog { margin-top: 16px; }
+  .prog .file { display: flex; justify-content: space-between; color: var(--muted); font-size: .85rem; margin-bottom: 6px; }
+  .prog .bar { height: 8px; background: var(--panel-2); border-radius: 99px; overflow: hidden; }
+  .prog .bar i { display: block; height: 100%; width: 0; background: var(--amber); border-radius: 99px; transition: width .2s; }
+  .steps-alt { margin-top: 14px; padding-inline-start: 18px; color: var(--ink); }
+  .steps-alt li { margin-bottom: 6px; }
+  .buildbox .ok { color: var(--ok); font-weight: 700; }
+  .buildbox .bad { color: var(--err); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 30px 0 44px; color: var(--muted); font-size: .88rem; }
 </style>
 </head>
 <body>
 
-<header class="topbar">
+<header class="top">
   <div class="wrap">
-    <div class="brand"><img src="icon.png" alt=""> חנות אופליין</div>
+    <div class="brand"><img src="icon.png" alt=""><span class="disp">חנות אופליין</span></div>
     <nav>
       <a href="#how">איך זה עובד</a>
-      <a href="#catalog">מה יש בחנות</a>
+      <a href="#catalog">הקטלוג</a>
       <a href="#tech">לטכנאים</a>
     </nav>
     <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
 </header>
 
-<div class="wrap hero">
-  <div class="kicker">בלי אינטרנט · בלי הרשאות מנהל</div>
-  <h1>האפליקציות של Windows, גם למחשב <em>שאין בו אינטרנט</em>.</h1>
-  <p class="lede">
-    חלק מהאפליקציות של Windows מגיעות כקיצור דרך בלבד, ומנסות להוריד את עצמן בפתיחה הראשונה.
-    במחשב מנותק זה נכשל. כאן אורזים אותן במלואן — עם כל ספריות המערכת — לקובץ שמתקין בלי רשת.
-  </p>
-  <div class="cta">
-    <a class="btn-primary" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">
-      ⬇ הורדת הכלי
-    </a>
-    <a class="btn-ghost" href="#how">איך זה עובד</a>
-    <small>Windows 10/11 · 1.7MB</small>
+<div class="hero">
+  <div class="wrap">
+    <div class="flag">בלי אינטרנט · בלי הרשאות מנהל</div>
+    <h1 class="disp">חנות האפליקציות של Windows, למחשב <em>שמנותק מהעולם</em>.</h1>
+    <p class="lede">בוחרים אפליקציות כאן, אורזים מתקין אחד, ומעבירים בדיסק-און-קי. בצד השני — לחיצה כפולה, וזהו.</p>
+    <div class="cta">
+      <a class="btn-amber" href="#catalog">בחירת אפליקציות ←</a>
+      <a class="btn-line" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">הכלי למחשב · 1.8MB</a>
+    </div>
+    <div class="facts" id="facts"></div>
   </div>
-  <div class="facts" id="facts"></div>
-  <p class="editme">[ערכו אותי — משפט פתיחה משלכם, אם תרצו]</p>
 </div>
 
-<section id="how">
+<div class="journey" id="how">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>שלושה צעדים</h2>
-      <p>הכלי רץ על מחשב שיש בו אינטרנט. התוצאה עוברת בדיסק-און-קי למחשב שאין בו.</p>
-    </div>
-
-    <div class="flow">
-      <svg viewBox="0 0 900 210" role="img" aria-label="מחשב מחובר, דיסק און קי, מחשב מנותק">
-        <defs>
-          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
-          </marker>
-        </defs>
-        <g fill="none" stroke="currentColor" stroke-width="2" color="var(--ink-soft)" opacity=".55">
-          <path d="M620 105 H 500" stroke-dasharray="7 7" marker-end="url(#ah)"/>
-          <path d="M400 105 H 280" stroke-dasharray="7 7" marker-end="url(#ah)"/>
-        </g>
-
-        <!-- 1: connected PC (right, RTL start) -->
-        <g transform="translate(660,40)">
-          <rect x="0" y="0" width="200" height="130" rx="14" fill="var(--raise)" stroke="var(--line)" stroke-width="2"/>
-          <rect x="38" y="30" width="124" height="76" rx="7" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
-          <g stroke="var(--accent)" stroke-width="2.5" fill="none" stroke-linecap="round">
-            <path d="M80 78 a20 20 0 0 1 40 0"/>
-            <path d="M89 86 a11 11 0 0 1 22 0"/>
-          </g>
-          <circle cx="100" cy="94" r="3.2" fill="var(--accent)"/>
-        </g>
-
-        <!-- 2: USB stick (middle) -->
-        <g transform="translate(410,55)">
-          <rect x="0" y="30" width="80" height="42" rx="8" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
-          <rect x="76" y="42" width="26" height="18" rx="3" fill="var(--ink-soft)" opacity=".55"/>
-          <rect x="14" y="42" width="34" height="6" rx="3" fill="var(--accent)" opacity=".7"/>
-        </g>
-
-        <!-- 3: offline PC (left) -->
-        <g transform="translate(40,40)">
-          <rect x="0" y="0" width="200" height="130" rx="14" fill="var(--raise)" stroke="var(--line)" stroke-width="2"/>
-          <rect x="38" y="30" width="124" height="76" rx="7" fill="var(--surface)" stroke="var(--line)" stroke-width="2.5"/>
-          <g stroke="var(--ink-soft)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".65">
-            <path d="M80 78 a20 20 0 0 1 40 0"/>
-            <path d="M89 86 a11 11 0 0 1 22 0"/>
-          </g>
-          <circle cx="100" cy="94" r="3.2" fill="var(--ink-soft)" opacity=".65"/>
-          <path d="M74 62 L126 106" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round"/>
-        </g>
-      </svg>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-n">1</div>
-          <h3>בוחרים אפליקציות</h3>
-          <p>מריצים את הכלי על מחשב מחובר, מסמנים מה צריך, והוא מוריד מהשרתים של מיקרוסופט — עם כל התלויות.</p>
-        </div>
-        <div class="step">
-          <div class="step-n">2</div>
-          <h3>מעבירים בדיסק-און-קי</h3>
-          <p>נוצרת תיקייה אחת עם מתקין גרפי. מעתיקים אותה כמו שהיא — אין התקנה ואין רישום במערכת.</p>
-        </div>
-        <div class="step">
-          <div class="step-n">3</div>
-          <h3>מתקינים במנותק</h3>
-          <p>לחיצה כפולה במחשב היעד. המתקין מזהה מה כבר מותקן, מה יש לו עדכון, ומה דורש Windows חדש יותר.</p>
-        </div>
-      </div>
-    </div>
+    <div class="leg"><span class="n">01</span><div><h3>בוחרים</h3><p>מסמנים אפליקציות בקטלוג למטה — אחת או חמישים.</p></div></div>
+    <div class="leg"><span class="n">02</span><div><h3>אורזים</h3><p>המתקין נבנה ממחשב מחובר: כאן בדפדפן, או בכלי הקטן.</p></div></div>
+    <div class="leg"><span class="n">03</span><div><h3>מתקינים במנותק</h3><p>מעתיקים לדיסק-און-קי ומריצים. המתקין יודע מה כבר מותקן ומה יתעדכן.</p></div></div>
   </div>
-</section>
+</div>
 
-<section id="tech" style="padding-top:0">
+<section class="cat" id="catalog">
   <div class="wrap">
-    <div class="tech">
-      <h2>לטכנאים — כל החנות בלחיצה אחת</h2>
-      <p class="sub">בכלי יש "סמן הכל". מקבלים תיקייה אחת עם כל האפליקציות ומתקין משולב שמציג רשימת סימון: מה חסר, מה מיושן, ומה לא מתאים לגרסת ה-Windows שבמחשב.</p>
-      <div class="tech-grid">
-        <div class="tile"><b>34</b><span>אפליקציות ל-Windows 10 · כ-4.7GB</span></div>
-        <div class="tile"><b>37</b><span>אפליקציות ל-Windows 11 · כ-6.2GB</span></div>
-        <div class="tile"><b>21</b><span>רק אלה שעובדות אופליין · כ-3.6GB</span></div>
-      </div>
-      <a class="btn-primary" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">⬇ הורדת הכלי</a>
-      <p class="sub" style="margin-top:18px;font-size:.88rem">מעבירים בכונן NTFS או exFAT — קובץ מעל 4GB לא נכנס ל-FAT32. גרסת ISO מוכנה: בקרוב.</p>
-    </div>
-  </div>
-</section>
-
-<section id="catalog" style="padding-top:12px">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>בחרו אפליקציות</h2>
-      <p>לחיצה על אפליקציה פותחת את הפרטים שלה; ה-✓ שבפינה מסמן אותה להורדה. בסיום מקבלים קובץ בחירה קטן — הכלי קורא אותו ובונה בדיוק את מה שסימנתם.</p>
+    <div class="cat-head">
+      <h2 class="disp">הקטלוג</h2>
+      <span class="sub">לחיצה על אפליקציה — פרטים. ה-✓ בפינה — לסימון.</span>
     </div>
 
     <div class="toolbar">
       <div class="row">
         <label class="search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" type="search" placeholder="חיפוש אפליקציה...">
+          <input id="q" type="search" placeholder="חיפוש...">
         </label>
         <div class="seg" id="seg">
           <button data-f="all" class="on">הכל</button>
@@ -501,248 +321,178 @@
         </div>
         <span class="count" id="count"></span>
       </div>
-    </div>
-
-    <div class="picker">
-      <button id="pick-all">סמן הכל</button>
-      <button id="pick-offline">רק אלה שעובדות בלי אינטרנט</button>
-      <button id="pick-none">נקה בחירה</button>
+      <div class="chips" id="chips"></div>
     </div>
 
     <div id="cats"></div>
 
-    <div class="handoff" id="handoff" hidden>
-      <h3>הבחירה נשמרה — שלושה צעדים ואתם שם</h3>
-      <ol>
-        <li>ירד אליכם הקובץ <b class="mono">winapps-selection.txt</b>. אל תפתחו אותו — הוא בשביל הכלי.</li>
-        <li><a href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">הורידו את הכלי</a> והריצו אותו על מחשב שיש בו אינטרנט. הוא יזהה את הבחירה לבד ויסמן אותה.</li>
-        <li>לוחצים "הורד וארוז" — ומעתיקים את התיקייה שנוצרה למחשב המנותק.</li>
-      </ol>
-      <p class="sub">אין הגבלת גודל: הכלי בונה תיקייה אחת, לא קובץ ענק אחד. כל אפליקציה יורדת בנפרד מהשרתים של מיקרוסופט.</p>
-    </div>
+    <div class="buildbox" id="buildbox" hidden></div>
   </div>
 </section>
 
-<div class="selbar" id="selbar">
+<section class="cat" id="tech" style="padding-top:12px">
   <div class="wrap">
-    <div class="sum" id="selsum"></div>
-    <button class="clear" id="selclear">נקה</button>
-    <button class="go" id="selgo">המשך לבנייה ←</button>
-  </div>
-</div>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="notes">
-      <div class="note">
-        <h4>חתום על ידי מיקרוסופט</h4>
-        <p>החבילות יורדות מהשרתים של מיקרוסופט ואינן משונות. אפשר לאמת: לחיצה ימנית ← מאפיינים ← חתימות דיגיטליות.</p>
-      </div>
-      <div class="note">
-        <h4>בלי הרשאות מנהל</h4>
-        <p>ההתקנה היא למשתמש הנוכחי. משתמש אחר באותו מחשב יריץ את המתקין בעצמו.</p>
-      </div>
-      <div class="note">
-        <h4>גם עדכון, לא רק התקנה</h4>
-        <p>אפשר להתקין גרסה חדשה מעל קיימת, בלי להסיר ובלי לאבד נתונים. המתקין אומר מראש מה יקרה.</p>
-      </div>
-      <div class="note">
-        <h4>למה חלק רק ל-Windows 11?</h4>
-        <p>גרסת החנות של פנקס הרשימות והצייר דורשת Windows 11. ב-Windows 10 יש ממילא את הגרסאות הקלאסיות במערכת.</p>
-      </div>
+    <div class="grouphead"><span class="idx">+</span><h3 class="disp">לטכנאים — כל החנות בכיס</h3></div>
+    <div class="groupnote">
+      "סמן הכל" למעלה נותן את כל הקטלוג בבנייה אחת. ולמי שמסתובב בין מחשבים —
+      גרסת ה-ISO: כל המתקינים מקומפלים מראש, עם מעטפת שמראה מה חסר בכל מחשב
+      ומתקינה ישירות מהדיסק. בהכנה: תרד כאן ברגע שתעלה לאחסון. [ערכו אותי]
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>[ערכו אותי — קרדיט, יצירת קשר, הבהרה משפטית]</div>
-    <div style="margin-top:6px" id="updated"></div>
+    <div>החבילות מגיעות חתומות מהשרתים של מיקרוסופט ואינן משונות. הפרויקט אינו קשור למיקרוסופט.</div>
+    <div style="margin-top:6px">[ערכו אותי — קרדיט ויצירת קשר] · <span id="updated"></span></div>
   </div>
 </footer>
 
+<div class="dock" id="dock">
+  <div class="wrap">
+    <div class="sum" id="selsum"></div>
+    <button class="clear" id="selclear">נקה</button>
+    <button class="btn-amber" id="selgo">אריזת המתקין ←</button>
+  </div>
+</div>
+
 <script>
+'use strict';
+/* ================= state ================= */
+// כתובת ממסר ה-CORS (Cloudflare Worker) שהופך את הדפדפן לאורז.
+// ריק = הדפדפן חסום (אין CORS) ואז יורדים לקובץ בחירה + הכלי.
+const RELAY_URL = (function () { try { return localStorage.relay || ''; } catch (e) { return ''; } })();
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
+const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
+const CAT_NOTE = {
+  'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
+  'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו בכלל.',
+  'כלי טכנאי': 'winget, PowerShell, Sysinternals — למי שמתקן מחשבים.',
+  'שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
+};
 let FILTER = 'all', QUERY = '', DATA = null;
 const SELECTED = new Set();
 
-function filesFor(a) {
-  return a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
-}
-function mbOf(a) {
-  const f = filesFor(a);
-  return f.length ? Math.max.apply(null, f.map(x => x.mb)) : 0;
-}
+const esc = s => (s || '').replace(/"/g, '&quot;');
+const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+const mbOf = a => { const f = filesFor(a); return f.length ? Math.max.apply(null, f.map(x => x.mb)) : 0; };
 
-function esc(s) { return (s || '').replace(/"/g, '&quot;'); }
-
+/* ================= tiles ================= */
 function tile(a) {
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
   const files = filesFor(a);
-  // tint the icon well with the app's own tile colour - that is what makes the grid read
-  const chip = a.color ? ' style="background:' + a.color + '1f"' : '';
-  const head = (a.icon
-      ? '<div class="ico"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
-      : '<div class="ico letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>')
-    + '<div class="nm">' + a.he + '</div>';
-
-  if (!files.length) {
-    return '<div class="tile-app na" title="' + esc(a.desc) + '">' + head +
-      '<span class="tag na">דורש Windows 11</span></div>';
-  }
+  const chip = a.color ? ' style="background:' + a.color + '22"' : '';
+  const ico = a.icon
+    ? '<div class="ico"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
+    : '<div class="ico letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const head = ico + '<div class="nm">' + a.he + '</div>';
+  // no version for the selected Windows -> hide it, so the filter and the count are honest
+  if (!files.length) return '';
   const mb = Math.max.apply(null, files.map(f => f.mb));
-  const vers = [...new Set(files.map(f => f.ver))].join(' · ');
-  let corner = '';
-  if (files.length > 1) corner = '<span class="tag">2 גרסאות</span>';
-  else if (files[0].win === '11') corner = '<span class="tag">Win 11</span>';
-  const tip = (a.desc ? a.desc + ' — ' : '') + 'גרסה ' + vers;
+  let badge = '';
+  if (files.length > 1) badge = '<span class="badge">2 גרסאות</span>';
+  else if (files[0].win === '11') badge = '<span class="badge">Win 11</span>';
   const on = SELECTED.has(a.en);
-  return '<div class="tile-app' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(tip) + '">' +
-    '<div class="check">✓</div>' + corner + head +
-    '<div class="foot"><span class="sz">' + mb + ' MB</span>' +
-    '<span class="mono">' + vers.split(' · ')[0] + '</span></div></div>';
+  return '<div class="tile' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '">' +
+    '<div class="check">✓</div>' + badge + head +
+    '<div class="foot"><b>' + mb + ' MB</b><span class="mono">' + files[0].ver.split('.').slice(0, 2).join('.') + '</span></div></div>';
 }
 
-function updateBar() {
-  const bar = document.getElementById('selbar');
+function render() {
+  if (!DATA) return;
+  const box = document.getElementById('cats');
+  const chips = [];
+  let html = '', shown = 0, gi = 0;
+  CAT_ORDER.concat(['שלי']).forEach(cat => {
+    const members = DATA.apps.filter(a => cat === 'שלי' ? a.custom : (!a.custom && (a.cat || 'נוספות') === cat));
+    const tiles = members.map(tile).filter(Boolean);
+    if (!tiles.length) return;
+    gi++; shown += tiles.length;
+    const id = 'cat-' + gi;
+    chips.push('<a href="#' + id + '">' + cat + '</a>');
+    const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
+    html += '<div class="grouphead" id="' + id + '"><span class="idx">' + String(gi).padStart(2, '0') + '</span>' +
+            '<h3 class="disp">' + cat + '</h3><span class="n">' + tiles.length + '</span></div>' +
+            note + '<div class="grid">' + tiles.join('') + '</div>';
+  });
+  box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
+  document.getElementById('chips').innerHTML = chips.join('');
+  document.getElementById('count').textContent = shown + ' / ' + DATA.apps.length;
+  updateDock();
+}
+
+/* ================= selection ================= */
+function updateDock() {
+  const dock = document.getElementById('dock');
   const n = SELECTED.size;
-  if (!n) {
-    bar.classList.remove('show');
-    document.body.classList.remove('has-sel');
-    return;
-  }
+  if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
   let mb = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
   const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
-  // past ~3.5GB a single EXE is no longer possible (PE limits, FAT32) - the tool
-  // will produce a folder instead, so say it here rather than surprise later
-  const big = mb > 3500 ? ' <span>· מעל ~3.5GB יירד כתיקייה, לא כקובץ אחד</span>' : '';
-  document.getElementById('selsum').innerHTML =
-    'נבחרו ' + n + ' אפליקציות <span>· כ-' + size + ' יירדו ממיקרוסופט</span>' + big;
-  bar.classList.add('show');
+  const big = mb > 3500 ? ' · גדול מדי לקובץ אחד — תרד תיקייה' : '';
+  document.getElementById('selsum').innerHTML = '<b>' + n + '</b> במטען <span>· כ-' + size + big + '</span>';
+  dock.classList.add('show');
   document.body.classList.add('has-sel');
 }
 
 function toggle(en) {
   if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
-  document.querySelectorAll('.tile-app[data-en="' + en.replace(/"/g, '\\"') + '"]')
+  document.querySelectorAll('.tile[data-en="' + en.replace(/"/g, '\\"') + '"]')
     .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
-  updateBar();
+  updateDock();
 }
 
-function pick(mode) {
-  SELECTED.clear();
-  if (mode !== 'none') {
-    DATA.apps.forEach(a => {
-      if (mode === 'offline' && a.net) return;
-      if (filesFor(a).length) SELECTED.add(a.en);
-    });
-  }
-  render();
-}
-
-function buildSelection() {
-  const lines = ['# רשימת בחירה לחנות האופליין - נוצר באתר', '# target=' + FILTER];
-  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) lines.push(a.en); });
-  const blob = new Blob([lines.join('\r\n')], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'winapps-selection.txt';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
-  const h = document.getElementById('handoff');
-  h.hidden = false;
-  h.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
-const CAT_NOTE = {
-  'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים',
-  'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו בכלל',
-  'כלי טכנאי': 'winget, PowerShell, Sysinternals ועוד — למי שמתקן מחשבים',
-  'שלי': 'לא של מיקרוסופט — אפליקציות שנאספו או פותחו כאן. [ערכו אותי]'
-};
-
-function render() {
-  if (!DATA) return;
-  const box = document.getElementById('cats');
-  let html = '', shown = 0;
-  const groups = CAT_ORDER.concat(['שלי']);
-  groups.forEach(cat => {
-    const members = DATA.apps.filter(a =>
-      cat === 'שלי' ? a.custom : (!a.custom && (a.cat || 'נוספות') === cat));
-    const tiles = members.map(tile).filter(Boolean);
-    if (!tiles.length) return;
-    shown += tiles.length;
-    const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
-    html += '<div class="grouphead"><h3>' + cat + '</h3><span>' + tiles.length + '</span></div>' +
-            note + '<div class="grid">' + tiles.join('') + '</div>';
-  });
-  box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
-  document.getElementById('count').textContent = 'מציג ' + shown + ' מתוך ' + DATA.apps.length;
-  updateBar();
-}
-
-// one delegated listener survives every re-render:
-// the checkbox corner toggles; anywhere else on the tile opens the detail sheet
 document.addEventListener('click', e => {
-  const t = e.target.closest('.tile-app');
+  const t = e.target.closest('.tile');
   if (!t || t.classList.contains('na')) return;
   if (e.target.closest('.check')) { toggle(t.dataset.en); return; }
   openSheet(t.dataset.en);
 });
+document.getElementById('selclear').onclick = () => {
+  SELECTED.clear(); render();
+};
 
+/* ================= detail sheet ================= */
 function openSheet(en) {
   const a = DATA.apps.find(x => x.en === en);
   if (!a) return;
   const files = filesFor(a);
-  const chip = a.color ? ' style="background:' + a.color + '1f"' : '';
+  const chip = a.color ? ' style="background:' + a.color + '22"' : '';
   const ico = a.icon
     ? '<div class="ico"' + chip + '><img src="' + a.icon + '" alt=""></div>'
     : '<div class="ico letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const on = SELECTED.has(en);
   const rows = [];
   if (files.length) {
-    rows.push(['גודל להורדה', Math.max.apply(null, files.map(f => f.mb)) + ' MB']);
+    rows.push(['גודל', Math.max.apply(null, files.map(f => f.mb)) + ' MB']);
     rows.push(['גרסה', '<span class="mono">' + [...new Set(files.map(f => f.ver))].join(' · ') + '</span>']);
-    rows.push(['מערכת', files.length > 1 ? 'Windows 10 ו-11 (גרסה לכל אחת)' : WIN_LABEL[files[0].win]]);
+    rows.push(['מערכת', files.length > 1 ? 'Windows 10 ו-11 — גרסה מותאמת לכל אחת' : WIN_LABEL[files[0].win]]);
   }
-  rows.push(['קטגוריה', a.custom ? 'שלי' : (a.cat || 'נוספות')]);
-  rows.push(['אינטרנט', a.net ? 'התוכן שלה חי ברשת' : 'עובדת לגמרי בלי רשת']);
-
+  rows.push(['רשת', a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט']);
+  const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet">' +
-    '<div class="head">' + ico +
-      '<div><h3>' + a.he + '</h3><div class="en">' + a.en + '</div></div></div>' +
-    (a.desc ? '<div class="desc">' + a.desc + '</div>' : '') +
-    (a.note ? '<div class="note">' + a.note + '</div>' : '') +
-    '<div class="rows">' + rows.map(r => '<div class="row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>').join('') + '</div>' +
-    '<div class="actions">' +
-      '<button class="btn-primary" id="sheet-pick">' + (on ? '✓ הסר מהבחירה' : 'סמן להורדה') + '</button>' +
-      '<button class="btn-ghost" id="sheet-close">סגור</button></div></div>';
+    '<div class="hd">' + ico + '<div><h3 class="disp">' + a.he + '</h3><div class="en">' + a.en + '</div></div></div>' +
+    (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
+    (a.note ? '<div class="nt">' + a.note + '</div>' : '') +
+    rows.map(r => '<div class="row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>').join('') +
+    '<div class="acts"><button class="btn-amber" id="sp">' + (on ? '✓ במטען — הסרה' : 'הוספה למטען') + '</button>' +
+    '<button class="btn-line" id="sc">סגירה</button></div></div>';
   document.body.appendChild(ov);
-  ov.addEventListener('click', ev => { if (ev.target === ov) ov.remove(); });
-  ov.querySelector('#sheet-close').onclick = () => ov.remove();
-  ov.querySelector('#sheet-pick').onclick = () => { toggle(en); ov.remove(); };
+  ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
+  ov.querySelector('#sc').onclick = () => ov.remove();
+  ov.querySelector('#sp').onclick = () => { toggle(en); ov.remove(); };
 }
-document.getElementById('pick-all').onclick     = () => pick('all');
-document.getElementById('pick-offline').onclick = () => pick('offline');
-document.getElementById('pick-none').onclick    = () => pick('none');
-document.getElementById('selclear').onclick     = () => pick('none');
-document.getElementById('selgo').onclick        = buildSelection;
 
+/* ================= controls ================= */
 document.querySelectorAll('#seg button').forEach(b => b.onclick = () => {
   document.querySelectorAll('#seg button').forEach(x => x.classList.remove('on'));
-  b.classList.add('on');
-  FILTER = b.dataset.f;
-  render();
+  b.classList.add('on'); FILTER = b.dataset.f; render();
 });
+document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim().toLowerCase(); render(); });
+
 const themeBtn = document.getElementById('theme-btn');
-function themeLabel() { themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀'; }
+const themeLabel = () => themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀';
 themeBtn.onclick = () => {
   const light = document.documentElement.classList.toggle('light');
   try { localStorage.theme = light ? 'light' : 'dark'; } catch (e) {}
@@ -750,19 +500,181 @@ themeBtn.onclick = () => {
 };
 themeLabel();
 
-document.getElementById('q').addEventListener('input', e => {
-  QUERY = e.target.value.trim().toLowerCase();
-  render();
-});
+/* ================= the packer =================
+   עם ממסר: הדפדפן עצמו מוריד ממיקרוסופט ואורז ZIP עם המפעיל.
+   בלי ממסר: קובץ בחירה + הכלי. */
+document.getElementById('selgo').onclick = () => RELAY_URL ? buildInBrowser() : fallbackFlow();
 
+function fallbackFlow() {
+  const lines = ['# רשימת בחירה לחנות האופליין - נוצר באתר', '# target=' + FILTER];
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) lines.push(a.en); });
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url; link.download = 'winapps-selection.txt';
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  const b = document.getElementById('buildbox');
+  b.hidden = false;
+  b.innerHTML = '<h3 class="disp">הבחירה ירדה — עוד שני צעדים</h3>' +
+    '<p>הדפדפן לא מורשה למשוך קבצים משרתי מיקרוסופט (חסימת אבטחה שלו), אז את ההורדה עושה הכלי:</p>' +
+    '<ol class="steps-alt">' +
+    '<li><a href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">מורידים את הכלי</a> ומריצים — הוא יזהה את הקובץ <span class="mono">winapps-selection.txt</span> לבד ויסמן את הבחירה שלכם.</li>' +
+    '<li>לוחצים "הורד וארוז" — ומעבירים את התוצאה למחשב המנותק.</li></ol>';
+  b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ---- in-browser packer (needs RELAY_URL) ---- */
+const relay = u => RELAY_URL + '?u=' + encodeURIComponent(u);
+
+async function queryPfn(pfn) {
+  const r = await fetch(relay('https://store.rg-adguard.net/api/GetFiles'), {
+    method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'type=PackageFamilyName&url=' + encodeURIComponent(pfn) + '&ring=Retail&lang=he-IL'
+  });
+  const html = await r.text();
+  const rows = [];
+  const re = /<a\s+href="([^"]+)"[^>]*>([^<]+)<\/a>/gs;
+  let m;
+  while ((m = re.exec(html))) rows.push({ url: m[1], name: m[2].trim() });
+  return rows;
+}
+
+/* store-only ZIP writer with streaming CRC32 */
+const CRC_T = (() => { const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c; }
+  return t; })();
+function crcUpdate(crc, buf) { for (let i = 0; i < buf.length; i++) crc = CRC_T[(crc ^ buf[i]) & 0xFF] ^ (crc >>> 8); return crc; }
+const enc8 = s => new TextEncoder().encode(s);
+function u16(v) { return new Uint8Array([v & 255, (v >> 8) & 255]); }
+function u32(v) { return new Uint8Array([v & 255, (v >> 8) & 255, (v >> 16) & 255, (v >>> 24) & 255]); }
+function cat(arrs) { let n = 0; arrs.forEach(a => n += a.length); const o = new Uint8Array(n); let p = 0; arrs.forEach(a => { o.set(a, p); p += a.length; }); return o; }
+
+function zipWriter(sink) {
+  const central = []; let offset = 0;
+  return {
+    async add(name, streamFn) {
+      const nm = enc8(name);
+      // sink is forward-only, so sizes and CRC travel in a data descriptor (flag bit 3)
+      const withDD = cat([u32(0x04034b50), u16(20), u16(0x0808), u16(0), u16(0), u16(0x5021), u32(0), u32(0), u32(0), u16(nm.length), u16(0), nm]);
+      const lfhOffset = offset;
+      await sink.write(withDD); offset += withDD.length;
+      let crc = 0xFFFFFFFF, size = 0;
+      await streamFn(async chunk => { crc = crcUpdate(crc, chunk); size += chunk.length; await sink.write(chunk); offset += chunk.length; });
+      crc = (crc ^ 0xFFFFFFFF) >>> 0;
+      const dd = cat([u32(0x08074b50), u32(crc), u32(size), u32(size)]);
+      await sink.write(dd); offset += dd.length;
+      central.push({ nm, crc, size, lfhOffset });
+    },
+    async close() {
+      const cdStart = offset;
+      for (const e of central) {
+        const c = cat([u32(0x02014b50), u16(20), u16(20), u16(0x0808), u16(0), u16(0), u16(0x5021),
+          u32(e.crc), u32(e.size), u32(e.size), u16(e.nm.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(e.lfhOffset), e.nm]);
+        await sink.write(c); offset += c.length;
+      }
+      const eocd = cat([u32(0x06054b50), u16(0), u16(0), u16(central.length), u16(central.length),
+        u32(offset - cdStart), u32(cdStart), u16(0)]);
+      await sink.write(eocd);
+    }
+  };
+}
+
+async function buildInBrowser() {
+  const chosen = DATA.apps.filter(a => SELECTED.has(a.en) && filesFor(a).length);
+  if (!chosen.length) return;
+  const box = document.getElementById('buildbox');
+  box.hidden = false;
+  box.innerHTML = '<h3 class="disp">אורז...</h3>' +
+    '<div class="prog"><div class="file"><span id="p-name">מתחיל</span><span id="p-pct"></span></div>' +
+    '<div class="bar"><i id="p-bar"></i></div></div><p id="p-note" style="margin-top:10px"></p>';
+  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const setP = (name, frac) => {
+    document.getElementById('p-name').textContent = name;
+    document.getElementById('p-pct').textContent = Math.round(frac * 100) + '%';
+    document.getElementById('p-bar').style.width = (frac * 100) + '%';
+  };
+  try {
+    let handle = null, parts = null;
+    if ('showSaveFilePicker' in window) {
+      handle = await showSaveFilePicker({ suggestedName: 'חנות-אופליין.zip', types: [{ description: 'ZIP', accept: { 'application/zip': ['.zip'] } }] });
+    } else { parts = []; }
+    const writable = handle ? await handle.createWritable() : null;
+    const sink = { write: async b => { if (writable) await writable.write(b); else parts.push(b); } };
+    const zip = zipWriter(sink);
+
+    // 1. the launcher, from this very site
+    setP('המתקין', 0);
+    const lr = await fetch('launcher.exe', { cache: 'no-cache' });
+    const lb = new Uint8Array(await lr.arrayBuffer());
+    await zip.add('התקנת-אפליקציות.exe', async put => put(lb));
+
+    // 2. every chosen package + its frameworks, straight from Microsoft through the relay
+    const w10 = FILTER === '10';
+    const fwHave = {}; const indexLines = [];
+    let step = 0;
+    for (const a of chosen) {
+      step++;
+      const flav = a.files.length > 1 ? a.files.find(f => f.win === (w10 ? '10' : '11')) || a.files[0] : a.files[0];
+      const rows = await queryPfn(a.pfn || '');
+      const bundle = rows.find(r => r.name === flav.bundle);
+      if (!bundle) throw new Error(a.he + ': הגרסה לא נמצאה בשרת');
+      const label = '(' + step + '/' + chosen.length + ') ' + a.he;
+      let size = 0;
+      await zip.add('packages/' + bundle.name, async put => {
+        const resp = await fetch(relay(bundle.url));
+        if (!resp.ok) throw new Error(a.he + ': ' + resp.status);
+        const total = +resp.headers.get('Content-Length') || flav.mb * 1048576;
+        const rd = resp.body.getReader();
+        for (;;) { const { done, value } = await rd.read(); if (done) break; size += value.length; await put(value); setP(label, Math.min(size / total, 1)); }
+      });
+      indexLines.push(['app', a.en, a.id || a.en, a.he, bundle.name, flav.minBuild, size, flav.ver].join('\t'));
+      for (const dep of (flav.deps || [])) {
+        const key = dep.name + '|' + dep.arch;
+        if (!(key in fwHave)) {
+          const hit = rows.filter(r => {
+            if (!/\.(appx|msix)$/i.test(r.name) || /BlockMap/i.test(r.name)) return false;
+            const p = r.name.split('_');
+            return p.length > 3 && p[0].toLowerCase() === dep.name.toLowerCase() && p[2] === dep.arch;
+          }).sort((x, y) => y.name.localeCompare(x.name))[0];
+          if (!hit) throw new Error('מסגרת חסרה: ' + dep.name);
+          setP(label + ' · ' + dep.name, 0);
+          await zip.add('packages/' + hit.name, async put => {
+            const resp = await fetch(relay(hit.url)); const rd = resp.body.getReader();
+            for (;;) { const { done, value } = await rd.read(); if (done) break; await put(value); }
+          });
+          fwHave[key] = hit.name;
+        }
+        indexLines.push(['dep', a.en, dep.arch, fwHave[key], dep.name, dep.min].join('\t'));
+      }
+    }
+    await zip.add('packages/index.txt', async put => put(enc8(indexLines.join('\r\n'))));
+    await zip.close();
+    if (writable) await writable.close();
+    else {
+      const blob = new Blob(parts, { type: 'application/zip' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a'); link.href = url; link.download = 'חנות-אופליין.zip';
+      document.body.appendChild(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 8000);
+    }
+    box.innerHTML = '<h3 class="disp ok">המטען ארוז ✓</h3>' +
+      '<p>מחלצים את ה-ZIP לדיסק-און-קי, ובמחשב המנותק מריצים את <b>התקנת-אפליקציות.exe</b>.</p>';
+  } catch (err) {
+    box.innerHTML = '<h3 class="disp bad">האריזה נעצרה</h3><p>' + esc(String(err.message || err)) +
+      '</p><p style="margin-top:8px">אפשר לנסות שוב, או לרדת ל<button class="btn-line" style="padding:4px 12px" onclick="fallbackFlow()">מסלול הכלי</button>.</p>';
+  }
+}
+
+/* ================= boot ================= */
 fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => {
   DATA = d;
   const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
-    '<div class="fact"><strong>' + d.apps.length + '</strong><span>אפליקציות בקטלוג</span></div>' +
-    '<div class="fact"><strong>' + gb.toFixed(1) + ' GB</strong><span>אם לוקחים הכל</span></div>' +
-    '<div class="fact"><strong>0</strong><span>מגה־בייט של אינטרנט בצד השני</span></div>';
-  document.getElementById('updated').textContent = 'הקטלוג עודכן ב-' + d.updated;
+    '<div class="fact"><b>' + d.apps.length + '</b><span>אפליקציות</span></div>' +
+    '<div class="fact"><b>' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
+    '<div class="fact"><b>0</b><span>בייטים של רשת בצד השני</span></div>';
+  document.getElementById('updated').textContent = 'הקטלוג עודכן ' + d.updated;
   render();
 });
 </script>

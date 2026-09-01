@@ -4,6 +4,8 @@
                  {
                      "he":  "פנקס רשימות",
                      "en":  "Notepad",
+                     "pfn":  "Microsoft.WindowsNotepad_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsNotepad",
                      "net":  false,
                      "files":  [
                                    {
@@ -12,18 +14,31 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2607.14.0",
+                                       "bundle":  "Microsoft.WindowsNotepad_11.2607.14.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
                      "icon":  "icons/Notepad.png",
                      "color":  "#0078D4",
                      "desc":  "עורך טקסט פשוט",
-                     "note":  "ב-Windows 10 מובנה פנקס הרשימות הקלאסי — גרסת החנות דורשת Windows 11",
                      "cat":  "כלים"
                  },
                  {
                      "he":  "מחשבון",
                      "en":  "Calculator",
+                     "pfn":  "Microsoft.WindowsCalculator_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsCalculator",
                      "net":  false,
                      "files":  [
                                    {
@@ -32,6 +47,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "11.2607.0.0",
+                                       "bundle":  "Microsoft.WindowsCalculator_2021.2607.0.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -43,6 +76,8 @@
                  {
                      "he":  "צייר",
                      "en":  "Paint",
+                     "pfn":  "Microsoft.Paint_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Paint",
                      "net":  false,
                      "files":  [
                                    {
@@ -51,18 +86,31 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2605.81.0",
+                                       "bundle":  "Microsoft.Paint_11.2605.81.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
                      "icon":  "icons/Paint.png",
                      "color":  "#0078D4",
                      "desc":  "עורך תמונות בסיסי",
-                     "note":  "ב-Windows 10 מובנה צייר הקלאסי — גרסת החנות דורשת Windows 11",
                      "cat":  "כלים"
                  },
                  {
                      "he":  "כלי החיתוך",
                      "en":  "SnippingTool",
+                     "pfn":  "Microsoft.ScreenSketch_8wekyb3d8bbwe",
+                     "id":  "Microsoft.ScreenSketch",
                      "net":  false,
                      "files":  [
                                    {
@@ -71,6 +119,15 @@
                                        "win":  "10",
                                        "minBuild":  17763,
                                        "ver":  "10.2008.3001.0",
+                                       "bundle":  "Microsoft.ScreenSketch_2021.2008.3001.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -79,6 +136,21 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2605.37.0",
+                                       "bundle":  "Microsoft.ScreenSketch_2022.2605.37.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -90,6 +162,8 @@
                  {
                      "he":  "תמונות",
                      "en":  "Photos",
+                     "pfn":  "Microsoft.Windows.Photos_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Windows.Photos",
                      "net":  false,
                      "files":  [
                                    {
@@ -98,6 +172,15 @@
                                        "win":  "all",
                                        "minBuild":  19044,
                                        "ver":  "2026.11060.2004.0",
+                                       "bundle":  "Microsoft.Windows.Photos_2026.11060.2004.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -109,6 +192,8 @@
                  {
                      "he":  "רשמקול",
                      "en":  "SoundRecorder",
+                     "pfn":  "Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsSoundRecorder",
                      "net":  false,
                      "files":  [
                                    {
@@ -117,6 +202,15 @@
                                        "win":  "10",
                                        "minBuild":  17134,
                                        "ver":  "10.2103.28.0",
+                                       "bundle":  "Microsoft.WindowsSoundRecorder_2021.2103.28.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -125,6 +219,24 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "11.2607.1.0",
+                                       "bundle":  "Microsoft.WindowsSoundRecorder_2021.2607.1.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -136,6 +248,8 @@
                  {
                      "he":  "מצלמה",
                      "en":  "Camera",
+                     "pfn":  "Microsoft.WindowsCamera_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsCamera",
                      "net":  false,
                      "files":  [
                                    {
@@ -144,6 +258,21 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2026.2607.1.0",
+                                       "bundle":  "Microsoft.WindowsCamera_2022.2607.1.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -155,6 +284,8 @@
                  {
                      "he":  "שעון והתראות",
                      "en":  "Clock",
+                     "pfn":  "Microsoft.WindowsAlarms_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsAlarms",
                      "net":  false,
                      "files":  [
                                    {
@@ -163,6 +294,27 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "11.2607.6.0",
+                                       "bundle":  "Microsoft.WindowsAlarms_2021.2607.6.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -174,6 +326,8 @@
                  {
                      "he":  "פתקים דביקים",
                      "en":  "StickyNotes",
+                     "pfn":  "Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftStickyNotes",
                      "net":  false,
                      "files":  [
                                    {
@@ -182,6 +336,18 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "6.1.4.0",
+                                       "bundle":  "Microsoft.MicrosoftStickyNotes_6.1.4.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -193,6 +359,8 @@
                  {
                      "he":  "Windows Terminal",
                      "en":  "Terminal",
+                     "pfn":  "Microsoft.WindowsTerminal_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsTerminal",
                      "net":  false,
                      "files":  [
                                    {
@@ -201,6 +369,12 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "1.24.11911.0",
+                                       "bundle":  "Microsoft.WindowsTerminal_3001.24.11911.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -211,6 +385,8 @@
                  {
                      "he":  "נגן מדיה",
                      "en":  "MediaPlayer",
+                     "pfn":  "Microsoft.ZuneMusic_8wekyb3d8bbwe",
+                     "id":  "Microsoft.ZuneMusic",
                      "net":  false,
                      "files":  [
                                    {
@@ -219,6 +395,13 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "10.22031.10096.0",
+                                       "bundle":  "Microsoft.ZuneMusic_2019.22031.10096.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -230,6 +413,8 @@
                  {
                      "he":  "סרטים וטלוויזיה",
                      "en":  "MoviesTV",
+                     "pfn":  "Microsoft.ZuneVideo_8wekyb3d8bbwe",
+                     "id":  "Microsoft.ZuneVideo",
                      "net":  false,
                      "files":  [
                                    {
@@ -238,6 +423,15 @@
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "10.26061.10056.0",
+                                       "bundle":  "Microsoft.ZuneVideo_2019.26061.10056.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -249,6 +443,8 @@
                  {
                      "he":  "Paint 3D",
                      "en":  "Paint3D",
+                     "pfn":  "Microsoft.MSPaint_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MSPaint",
                      "net":  false,
                      "files":  [
                                    {
@@ -257,6 +453,13 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "6.2410.13017.0",
+                                       "bundle":  "Microsoft.MSPaint_2024.2410.13017.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -268,6 +471,8 @@
                  {
                      "he":  "מציג תלת-ממד",
                      "en":  "3DViewer",
+                     "pfn":  "Microsoft.Microsoft3DViewer_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Microsoft3DViewer",
                      "net":  false,
                      "files":  [
                                    {
@@ -276,6 +481,24 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "7.2602.8012.0",
+                                       "bundle":  "Microsoft.Microsoft3DViewer_2026.2602.8012.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -286,6 +509,8 @@
                  {
                      "he":  "סוליטר",
                      "en":  "Solitaire",
+                     "pfn":  "Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftSolitaireCollection",
                      "net":  false,
                      "files":  [
                                    {
@@ -294,6 +519,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.26.7290.0",
+                                       "bundle":  "Microsoft.MicrosoftSolitaireCollection_4.26.7290.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -305,6 +548,8 @@
                  {
                      "he":  "סרגל המשחקים",
                      "en":  "XboxGameBar",
+                     "pfn":  "Microsoft.XboxGamingOverlay_8wekyb3d8bbwe",
+                     "id":  "Microsoft.XboxGamingOverlay",
                      "net":  false,
                      "files":  [
                                    {
@@ -313,6 +558,18 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "7.326.8061.0",
+                                       "bundle":  "Microsoft.XboxGamingOverlay_7.326.8061.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -323,6 +580,8 @@
                  {
                      "he":  "שולחן עבודה מרוחק",
                      "en":  "RemoteDesktop",
+                     "pfn":  "Microsoft.RemoteDesktop_8wekyb3d8bbwe",
+                     "id":  "Microsoft.RemoteDesktop",
                      "net":  false,
                      "files":  [
                                    {
@@ -331,6 +590,18 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "10.2.4012.0",
+                                       "bundle":  "Microsoft.RemoteDesktop_2025.822.1549.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -341,6 +612,8 @@
                  {
                      "he":  "To Do",
                      "en":  "ToDo",
+                     "pfn":  "Microsoft.Todos_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Todos",
                      "net":  false,
                      "files":  [
                                    {
@@ -349,6 +622,24 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "2.176.7601.0",
+                                       "bundle":  "Microsoft.Todos_2.176.7601.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -360,6 +651,8 @@
                  {
                      "he":  "אנשים",
                      "en":  "People",
+                     "pfn":  "Microsoft.People_8wekyb3d8bbwe",
+                     "id":  "Microsoft.People",
                      "net":  false,
                      "files":  [
                                    {
@@ -368,6 +661,18 @@
                                        "win":  "all",
                                        "minBuild":  17134,
                                        "ver":  "10.2202.100.0",
+                                       "bundle":  "Microsoft.People_2021.2202.100.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -379,6 +684,8 @@
                  {
                      "he":  "OneNote",
                      "en":  "OneNote",
+                     "pfn":  "Microsoft.Office.OneNote_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Office.OneNote",
                      "net":  false,
                      "files":  [
                                    {
@@ -387,6 +694,11 @@
                                        "win":  "all",
                                        "minBuild":  15063,
                                        "ver":  "16001.14326.22594.0",
+                                       "bundle":  "Microsoft.Office.OneNote_16001.14326.22594.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -398,6 +710,8 @@
                  {
                      "he":  "מציאות מעורבת",
                      "en":  "MixedReality",
+                     "pfn":  "Microsoft.MixedReality.Portal_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MixedReality.Portal",
                      "net":  false,
                      "files":  [
                                    {
@@ -406,6 +720,10 @@
                                        "win":  "all",
                                        "minBuild":  17688,
                                        "ver":  "2000.21051.1282.0",
+                                       "bundle":  "Microsoft.MixedReality.Portal_2000.21051.1282.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -417,6 +735,8 @@
                  {
                      "he":  "הרחבת HEIF (תמונות iPhone)",
                      "en":  "HEIFExtension",
+                     "pfn":  "Microsoft.HEIFImageExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.HEIFImageExtension",
                      "net":  false,
                      "files":  [
                                    {
@@ -425,6 +745,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2.48.0",
+                                       "bundle":  "Microsoft.HEIFImageExtension_1.2.48.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -436,6 +760,8 @@
                  {
                      "he":  "הרחבת WebP",
                      "en":  "WebpExtension",
+                     "pfn":  "Microsoft.WebpImageExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WebpImageExtension",
                      "net":  false,
                      "files":  [
                                    {
@@ -444,6 +770,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2.31.0",
+                                       "bundle":  "Microsoft.WebpImageExtension_1.2.31.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -455,6 +785,8 @@
                  {
                      "he":  "הרחבת RAW (מצלמות)",
                      "en":  "RawExtension",
+                     "pfn":  "Microsoft.RawImageExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.RawImageExtension",
                      "net":  false,
                      "files":  [
                                    {
@@ -463,6 +795,12 @@
                                        "win":  "10",
                                        "minBuild":  18362,
                                        "ver":  "2.4.24.0",
+                                       "bundle":  "Microsoft.RawImageExtension_2.4.24.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -471,6 +809,10 @@
                                        "win":  "11",
                                        "minBuild":  22621,
                                        "ver":  "2.5.24.0",
+                                       "bundle":  "Microsoft.RawImageExtension_2.5.24.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -482,6 +824,8 @@
                  {
                      "he":  "הרחבת וידאו VP9",
                      "en":  "VP9Extension",
+                     "pfn":  "Microsoft.VP9VideoExtensions_8wekyb3d8bbwe",
+                     "id":  "Microsoft.VP9VideoExtensions",
                      "net":  false,
                      "files":  [
                                    {
@@ -490,6 +834,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2.20.0",
+                                       "bundle":  "Microsoft.VP9VideoExtensions_1.2.20.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -501,6 +849,8 @@
                  {
                      "he":  "הרחבת וידאו AV1",
                      "en":  "AV1Extension",
+                     "pfn":  "Microsoft.AV1VideoExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.AV1VideoExtension",
                      "net":  false,
                      "files":  [
                                    {
@@ -509,6 +859,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "2.0.30.0",
+                                       "bundle":  "Microsoft.AV1VideoExtension_2.0.30.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -520,6 +874,8 @@
                  {
                      "he":  "הרחבת HEVC מיצרן",
                      "en":  "HEVCExtension",
+                     "pfn":  "Microsoft.HEVCVideoExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.HEVCVideoExtension",
                      "net":  false,
                      "files":  [
                                    {
@@ -528,6 +884,10 @@
                                        "win":  "10",
                                        "minBuild":  16299,
                                        "ver":  "2.4.109.0",
+                                       "bundle":  "Microsoft.HEVCVideoExtension_2.4.109.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -536,6 +896,10 @@
                                        "win":  "11",
                                        "minBuild":  26200,
                                        "ver":  "2.5.33.0",
+                                       "bundle":  "Microsoft.HEVCVideoExtension_2.5.33.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -547,6 +911,8 @@
                  {
                      "he":  "מתקין אפליקציות / winget",
                      "en":  "AppInstaller",
+                     "pfn":  "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe",
+                     "id":  "Microsoft.DesktopAppInstaller",
                      "net":  false,
                      "files":  [
                                    {
@@ -555,6 +921,18 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.29.290.0",
+                                       "bundle":  "Microsoft.DesktopAppInstaller_2026.728.1707.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -566,6 +944,8 @@
                  {
                      "he":  "Sysinternals Suite",
                      "en":  "Sysinternals",
+                     "pfn":  "Microsoft.SysinternalsSuite_8wekyb3d8bbwe",
+                     "id":  "Microsoft.SysinternalsSuite",
                      "net":  false,
                      "files":  [
                                    {
@@ -574,6 +954,10 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2026.8.1.0",
+                                       "bundle":  "Microsoft.SysinternalsSuite_2026.8.1.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -584,6 +968,8 @@
                  {
                      "he":  "Windows Terminal Preview",
                      "en":  "TerminalPreview",
+                     "pfn":  "Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsTerminalPreview",
                      "net":  false,
                      "files":  [
                                    {
@@ -592,6 +978,12 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "1.25.1912.0",
+                                       "bundle":  "Microsoft.WindowsTerminalPreview_3001.25.1912.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -602,6 +994,8 @@
                  {
                      "he":  "סורק",
                      "en":  "Scan",
+                     "pfn":  "Microsoft.WindowsScan_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsScan",
                      "net":  false,
                      "files":  [
                                    {
@@ -610,6 +1004,10 @@
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  "2014.523.326.3026",
+                                       "bundle":  "Microsoft.WindowsScan_2014.523.326.3026_neutral_~_8wekyb3d8bbwe.AppxBundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -619,6 +1017,8 @@
                  {
                      "he":  "שחזור קבצים",
                      "en":  "FileRecovery",
+                     "pfn":  "Microsoft.WindowsFileRecovery_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsFileRecovery",
                      "net":  false,
                      "files":  [
                                    {
@@ -627,6 +1027,12 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "0.1.20151.0",
+                                       "bundle":  "Microsoft.WindowsFileRecovery_0.1.20151.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -638,6 +1044,8 @@
                  {
                      "he":  "Windows Subsystem for Linux",
                      "en":  "WSL",
+                     "pfn":  "MicrosoftCorporationII.WindowsSubsystemForLinux_8wekyb3d8bbwe",
+                     "id":  "MicrosoftCorporationII.WindowsSubsystemForLinux",
                      "net":  false,
                      "files":  [
                                    {
@@ -646,6 +1054,10 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.7.12.0",
+                                       "bundle":  "MicrosoftCorporationII.WindowsSubsystemForLinux_2.7.12.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -656,6 +1068,8 @@
                  {
                      "he":  "Windows Subsystem for Android",
                      "en":  "WSA",
+                     "pfn":  "MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe",
+                     "id":  "MicrosoftCorporationII.WindowsSubsystemForAndroid",
                      "net":  false,
                      "files":  [
                                    {
@@ -664,6 +1078,18 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "2407.40000.4.0",
+                                       "bundle":  "MicrosoftCorporationII.WindowsSubsystemForAndroid_2407.40000.4.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -674,6 +1100,8 @@
                  {
                      "he":  "Journal",
                      "en":  "Journal",
+                     "pfn":  "Microsoft.MicrosoftJournal_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftJournal",
                      "net":  false,
                      "files":  [
                                    {
@@ -682,6 +1110,24 @@
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "1.25336.1113.0",
+                                       "bundle":  "Microsoft.MicrosoftJournal_1.25336.1113.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -693,6 +1139,8 @@
                  {
                      "he":  "Print 3D",
                      "en":  "Print3D",
+                     "pfn":  "Microsoft.Print3D_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Print3D",
                      "net":  false,
                      "files":  [
                                    {
@@ -701,6 +1149,12 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "3.3.791.0",
+                                       "bundle":  "Microsoft.Print3D_3.3.791.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -711,6 +1165,8 @@
                  {
                      "he":  "3D Builder",
                      "en":  "Builder3D",
+                     "pfn":  "Microsoft.3DBuilder_8wekyb3d8bbwe",
+                     "id":  "Microsoft.3DBuilder",
                      "net":  false,
                      "files":  [
                                    {
@@ -719,6 +1175,15 @@
                                        "win":  "all",
                                        "minBuild":  15063,
                                        "ver":  "20.0.4.0",
+                                       "bundle":  "Microsoft.3DBuilder_20.0.4.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -729,6 +1194,8 @@
                  {
                      "he":  "ספרים ורשימת קריאה",
                      "en":  "ReadingList",
+                     "pfn":  "Microsoft.WindowsReadingList_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsReadingList",
                      "net":  false,
                      "files":  [
                                    {
@@ -737,6 +1204,10 @@
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  "2016.520.50.2306",
+                                       "bundle":  "Microsoft.WindowsReadingList_2016.520.50.2306_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -746,6 +1217,8 @@
                  {
                      "he":  "מיינספר",
                      "en":  "Minesweeper",
+                     "pfn":  "Microsoft.MicrosoftMinesweeper_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftMinesweeper",
                      "net":  false,
                      "files":  [
                                    {
@@ -754,6 +1227,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.7.2041.0",
+                                       "bundle":  "Microsoft.MicrosoftMinesweeper_2026.204.2255.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -764,6 +1255,8 @@
                  {
                      "he":  "מהג׳ונג",
                      "en":  "Mahjong",
+                     "pfn":  "Microsoft.MicrosoftMahjong_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftMahjong",
                      "net":  false,
                      "files":  [
                                    {
@@ -772,6 +1265,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.9.2051.0",
+                                       "bundle":  "Microsoft.MicrosoftMahjong_4.9.2051.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -783,6 +1294,8 @@
                  {
                      "he":  "סודוקו",
                      "en":  "Sudoku",
+                     "pfn":  "Microsoft.MicrosoftSudoku_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftSudoku",
                      "net":  false,
                      "files":  [
                                    {
@@ -791,6 +1304,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.13.7281.0",
+                                       "bundle":  "Microsoft.MicrosoftSudoku_2026.728.2332.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -801,6 +1332,8 @@
                  {
                      "he":  "ג׳יגסו",
                      "en":  "Jigsaw",
+                     "pfn":  "Microsoft.MicrosoftJigsaw_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftJigsaw",
                      "net":  false,
                      "files":  [
                                    {
@@ -809,6 +1342,24 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.9.6011.0",
+                                       "bundle":  "Microsoft.MicrosoftJigsaw_2026.601.2322.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -820,6 +1371,8 @@
                  {
                      "he":  "ציד האוצר",
                      "en":  "TreasureHunt",
+                     "pfn":  "Microsoft.MicrosoftTreasureHunt_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftTreasureHunt",
                      "net":  false,
                      "files":  [
                                    {
@@ -828,6 +1381,24 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2.7.6151.0",
+                                       "bundle":  "Microsoft.MicrosoftTreasureHunt_2026.615.2250.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -839,6 +1410,8 @@
                  {
                      "he":  "Xbox Identity Provider",
                      "en":  "XboxIdentity",
+                     "pfn":  "Microsoft.XboxIdentityProvider_8wekyb3d8bbwe",
+                     "id":  "Microsoft.XboxIdentityProvider",
                      "net":  false,
                      "files":  [
                                    {
@@ -847,6 +1420,18 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "12.130.16001.0",
+                                       "bundle":  "Microsoft.XboxIdentityProvider_12.130.16001.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -858,6 +1443,8 @@
                  {
                      "he":  "Xbox Game Overlay",
                      "en":  "XboxGameOverlay",
+                     "pfn":  "Microsoft.XboxGameOverlay_8wekyb3d8bbwe",
+                     "id":  "Microsoft.XboxGameOverlay",
                      "net":  false,
                      "files":  [
                                    {
@@ -866,6 +1453,12 @@
                                        "win":  "all",
                                        "minBuild":  17134,
                                        "ver":  "1.54.4001.0",
+                                       "bundle":  "Microsoft.XboxGameOverlay_1.54.4001.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -877,6 +1470,8 @@
                  {
                      "he":  "Xbox TCUI",
                      "en":  "XboxTCUI",
+                     "pfn":  "Microsoft.Xbox.TCUI_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Xbox.TCUI",
                      "net":  false,
                      "files":  [
                                    {
@@ -885,6 +1480,18 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "1.24.10001.0",
+                                       "bundle":  "Microsoft.Xbox.TCUI_1.24.10001.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -896,6 +1503,8 @@
                  {
                      "he":  "Xbox Speech To Text",
                      "en":  "XboxSpeech",
+                     "pfn":  "Microsoft.XboxSpeechToTextOverlay_8wekyb3d8bbwe",
+                     "id":  "Microsoft.XboxSpeechToTextOverlay",
                      "net":  false,
                      "files":  [
                                    {
@@ -904,6 +1513,12 @@
                                        "win":  "all",
                                        "minBuild":  15031,
                                        "ver":  "1.21.13002.0",
+                                       "bundle":  "Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -913,8 +1528,36 @@
                      "cat":  "משחקים"
                  },
                  {
+                     "he":  "PC Manager",
+                     "en":  "PCManager",
+                     "pfn":  "Microsoft.MicrosoftPCManager_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftPCManager",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-PCManager.exe",
+                                       "mb":  188,
+                                       "win":  "all",
+                                       "minBuild":  19042,
+                                       "ver":  "3.22.4.0",
+                                       "bundle":  "Microsoft.MicrosoftPCManager_3.22.4.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
+                                       "live":  false
+                                   }
+                               ],
+                     "icon":  "icons/PCManager.png",
+                     "desc":  "ניקוי ותחזוקת המחשב",
+                     "cat":  "כלי טכנאי"
+                 },
+                 {
                      "he":  "PowerShell",
                      "en":  "PowerShell",
+                     "pfn":  "Microsoft.PowerShell_8wekyb3d8bbwe",
+                     "id":  "Microsoft.PowerShell",
                      "net":  false,
                      "files":  [
                                    {
@@ -923,6 +1566,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "7.6.5.0",
+                                       "bundle":  "Microsoft.PowerShell_2026.811.2337.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -933,6 +1580,8 @@
                  {
                      "he":  "WinDbg",
                      "en":  "WinDbg",
+                     "pfn":  "Microsoft.WinDbg_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WinDbg",
                      "net":  false,
                      "files":  [
                                    {
@@ -941,6 +1590,10 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2606.22001.0",
+                                       "bundle":  "Microsoft.WinDbg_1.2606.22001.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -952,6 +1605,8 @@
                  {
                      "he":  "מפות",
                      "en":  "Maps",
+                     "pfn":  "Microsoft.WindowsMaps_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsMaps",
                      "net":  true,
                      "files":  [
                                    {
@@ -960,6 +1615,21 @@
                                        "win":  "all",
                                        "minBuild":  18363,
                                        "ver":  "11.2506.3.0",
+                                       "bundle":  "Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -971,6 +1641,8 @@
                  {
                      "he":  "מזג אוויר",
                      "en":  "Weather",
+                     "pfn":  "Microsoft.BingWeather_8wekyb3d8bbwe",
+                     "id":  "Microsoft.BingWeather",
                      "net":  true,
                      "files":  [
                                    {
@@ -979,6 +1651,24 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "4.54.63045.0",
+                                       "bundle":  "Microsoft.BingWeather_4.54.63045.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -990,6 +1680,8 @@
                  {
                      "he":  "חדשות",
                      "en":  "News",
+                     "pfn":  "Microsoft.BingNews_8wekyb3d8bbwe",
+                     "id":  "Microsoft.BingNews",
                      "net":  true,
                      "files":  [
                                    {
@@ -998,6 +1690,24 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "4.56.21872.0",
+                                       "bundle":  "Microsoft.BingNews_4.7.6002.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1009,6 +1719,8 @@
                  {
                      "he":  "קבלת עזרה",
                      "en":  "GetHelp",
+                     "pfn":  "Microsoft.GetHelp_8wekyb3d8bbwe",
+                     "id":  "Microsoft.GetHelp",
                      "net":  true,
                      "files":  [
                                    {
@@ -1017,6 +1729,15 @@
                                        "win":  "10",
                                        "minBuild":  17763,
                                        "ver":  "10.2409.41132.0",
+                                       "bundle":  "Microsoft.GetHelp_10.2409.41132.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -1025,6 +1746,15 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "10.2409.42162.0",
+                                       "bundle":  "Microsoft.GetHelp_10.2409.42162.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1036,6 +1766,8 @@
                  {
                      "he":  "רכזת משוב",
                      "en":  "FeedbackHub",
+                     "pfn":  "Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsFeedbackHub",
                      "net":  true,
                      "files":  [
                                    {
@@ -1044,6 +1776,24 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "1.2608.17301.0",
+                                       "bundle":  "Microsoft.WindowsFeedbackHub_2026.818.113.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1055,6 +1805,8 @@
                  {
                      "he":  "דואר ולוח שנה",
                      "en":  "Mail",
+                     "pfn":  "microsoft.windowscommunicationsapps_8wekyb3d8bbwe",
+                     "id":  "microsoft.windowscommunicationsapps",
                      "net":  true,
                      "files":  [
                                    {
@@ -1063,6 +1815,15 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "16005.14326.22342.0",
+                                       "bundle":  "microsoft.windowscommunicationsapps_16005.14326.22342.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1074,6 +1835,8 @@
                  {
                      "he":  "Office",
                      "en":  "OfficeHub",
+                     "pfn":  "Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftOfficeHub",
                      "net":  true,
                      "files":  [
                                    {
@@ -1082,6 +1845,10 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "19.2608.54041.0",
+                                       "bundle":  "Microsoft.MicrosoftOfficeHub_2026.824.1736.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1093,6 +1860,8 @@
                  {
                      "he":  "Clipchamp",
                      "en":  "Clipchamp",
+                     "pfn":  "Clipchamp.Clipchamp_yxz26nhyzhsrt",
+                     "id":  "Clipchamp.Clipchamp",
                      "net":  true,
                      "files":  [
                                    {
@@ -1101,6 +1870,15 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "4.5.10920.0",
+                                       "bundle":  "Clipchamp.Clipchamp_4.5.10920.0_neutral_~_yxz26nhyzhsrt.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1112,6 +1890,8 @@
                  {
                      "he":  "סיוע מהיר",
                      "en":  "QuickAssist",
+                     "pfn":  "MicrosoftCorporationII.QuickAssist_8wekyb3d8bbwe",
+                     "id":  "MicrosoftCorporationII.QuickAssist",
                      "net":  true,
                      "files":  [
                                    {
@@ -1120,6 +1900,12 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "2.0.57.0",
+                                       "bundle":  "MicrosoftCorporationII.QuickAssist_2.0.57.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1131,6 +1917,8 @@
                  {
                      "he":  "קישור לטלפון",
                      "en":  "PhoneLink",
+                     "pfn":  "Microsoft.YourPhone_8wekyb3d8bbwe",
+                     "id":  "Microsoft.YourPhone",
                      "net":  true,
                      "files":  [
                                    {
@@ -1139,6 +1927,17 @@
                                        "win":  "10",
                                        "minBuild":  17134,
                                        "ver":  "1.21062.152.0",
+                                       "bundle":  "Microsoft.YourPhone_2021.809.2139.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -1147,6 +1946,15 @@
                                        "win":  "11",
                                        "minBuild":  22631,
                                        "ver":  "1.26071.164.0",
+                                       "bundle":  "Microsoft.YourPhone_1.26071.164.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1158,6 +1966,8 @@
                  {
                      "he":  "Xbox",
                      "en":  "XboxApp",
+                     "pfn":  "Microsoft.GamingApp_8wekyb3d8bbwe",
+                     "id":  "Microsoft.GamingApp",
                      "net":  true,
                      "files":  [
                                    {
@@ -1166,6 +1976,17 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "2608.1001.17.0",
+                                       "bundle":  "Microsoft.GamingApp_2608.1001.17.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1177,6 +1998,8 @@
                  {
                      "he":  "חנות Microsoft",
                      "en":  "Store",
+                     "pfn":  "Microsoft.WindowsStore_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsStore",
                      "net":  true,
                      "files":  [
                                    {
@@ -1185,6 +2008,15 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "22607.1401.7.0",
+                                       "bundle":  "Microsoft.WindowsStore_22607.1401.7.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1195,6 +2027,8 @@
                  {
                      "he":  "Copilot",
                      "en":  "Copilot",
+                     "pfn":  "Microsoft.Copilot_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Copilot",
                      "net":  true,
                      "files":  [
                                    {
@@ -1203,6 +2037,15 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "1.25121.84.0",
+                                       "bundle":  "Microsoft.Copilot_1.25121.84.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1213,6 +2056,8 @@
                  {
                      "he":  "משפחה",
                      "en":  "Family",
+                     "pfn":  "MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe",
+                     "id":  "MicrosoftCorporationII.MicrosoftFamily",
                      "net":  true,
                      "files":  [
                                    {
@@ -1221,6 +2066,15 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "0.2.40.0",
+                                       "bundle":  "MicrosoftCorporationII.MicrosoftFamily_0.2.40.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1231,6 +2085,8 @@
                  {
                      "he":  "חיפוש Bing",
                      "en":  "BingSearch",
+                     "pfn":  "Microsoft.BingSearch_8wekyb3d8bbwe",
+                     "id":  "Microsoft.BingSearch",
                      "net":  true,
                      "files":  [
                                    {
@@ -1239,6 +2095,11 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.1.40.0",
+                                       "bundle":  "Microsoft.BingSearch_2022.1.40.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1249,6 +2110,8 @@
                  {
                      "he":  "ווידג\u0027טים",
                      "en":  "Widgets",
+                     "pfn":  "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
+                     "id":  "MicrosoftWindows.Client.WebExperience",
                      "net":  true,
                      "files":  [
                                    {
@@ -1257,6 +2120,18 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "526.21100.40.0",
+                                       "bundle":  "MicrosoftWindows.Client.WebExperience_526.21100.40.0_neutral_~_cw5n1h2txyewy.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1268,6 +2143,8 @@
                  {
                      "he":  "Whiteboard",
                      "en":  "Whiteboard",
+                     "pfn":  "Microsoft.Whiteboard_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Whiteboard",
                      "net":  true,
                      "files":  [
                                    {
@@ -1276,6 +2153,10 @@
                                        "win":  "all",
                                        "minBuild":  15063,
                                        "ver":  "56.20201.588.0",
+                                       "bundle":  "Microsoft.Whiteboard_56.20201.588.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1287,6 +2168,8 @@
                  {
                      "he":  "Power BI",
                      "en":  "PowerBI",
+                     "pfn":  "Microsoft.MicrosoftPowerBIForWindows_8wekyb3d8bbwe",
+                     "id":  "Microsoft.MicrosoftPowerBIForWindows",
                      "net":  true,
                      "files":  [
                                    {
@@ -1295,6 +2178,24 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "3223.30905.55001.0",
+                                       "bundle":  "Microsoft.MicrosoftPowerBIForWindows_3223.30905.55001.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1305,6 +2206,8 @@
                  {
                      "he":  "Sway",
                      "en":  "Sway",
+                     "pfn":  "Microsoft.Office.Sway_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Office.Sway",
                      "net":  true,
                      "files":  [
                                    {
@@ -1313,6 +2216,15 @@
                                        "win":  "all",
                                        "minBuild":  10586,
                                        "ver":  "18.2003.51105.0",
+                                       "bundle":  "Microsoft.Office.Sway_18.2003.51105.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1324,6 +2236,8 @@
                  {
                      "he":  "מתרגם Bing",
                      "en":  "Translator",
+                     "pfn":  "Microsoft.BingTranslator_8wekyb3d8bbwe",
+                     "id":  "Microsoft.BingTranslator",
                      "net":  true,
                      "files":  [
                                    {
@@ -1332,6 +2246,21 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "5.6.0.0",
+                                       "bundle":  "Microsoft.BingTranslator_5.6.0.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1343,6 +2272,8 @@
                  {
                      "he":  "רכישות מהחנות",
                      "en":  "StorePurchase",
+                     "pfn":  "Microsoft.StorePurchaseApp_8wekyb3d8bbwe",
+                     "id":  "Microsoft.StorePurchaseApp",
                      "net":  true,
                      "files":  [
                                    {
@@ -1351,6 +2282,15 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "22607.1401.4.0",
+                                       "bundle":  "Microsoft.StorePurchaseApp_22607.1401.4.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1361,6 +2301,8 @@
                  {
                      "he":  "ארנק",
                      "en":  "Wallet",
+                     "pfn":  "Microsoft.Wallet_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Wallet",
                      "net":  true,
                      "files":  [
                                    {
@@ -1369,6 +2311,18 @@
                                        "win":  "all",
                                        "minBuild":  16299,
                                        "ver":  "2.2.18065.0",
+                                       "bundle":  "Microsoft.Wallet_2.2.18065.0_neutral_~_8wekyb3d8bbwe.AppxBundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1378,6 +2332,8 @@
                  {
                      "he":  "חיבור בין מכשירים",
                      "en":  "CrossDevice",
+                     "pfn":  "MicrosoftWindows.CrossDevice_cw5n1h2txyewy",
+                     "id":  "MicrosoftWindows.CrossDevice",
                      "net":  true,
                      "files":  [
                                    {
@@ -1386,6 +2342,15 @@
                                        "win":  "10",
                                        "minBuild":  19045,
                                        "ver":  "1.25072.59.0",
+                                       "bundle":  "MicrosoftWindows.CrossDevice_1.25072.59.0_neutral_~_cw5n1h2txyewy.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -1394,6 +2359,15 @@
                                        "win":  "11",
                                        "minBuild":  22631,
                                        "ver":  "1.26071.84.0",
+                                       "bundle":  "MicrosoftWindows.CrossDevice_1.26071.84.0_neutral_~_cw5n1h2txyewy.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1404,6 +2378,8 @@
                  {
                      "he":  "הודעות",
                      "en":  "Messaging",
+                     "pfn":  "Microsoft.Messaging_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Messaging",
                      "net":  true,
                      "files":  [
                                    {
@@ -1412,6 +2388,24 @@
                                        "win":  "10",
                                        "minBuild":  18985,
                                        "ver":  "4.1901.60404.0",
+                                       "bundle":  "Microsoft.Messaging_2024.210.351.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    },
                                    {
@@ -1420,6 +2414,24 @@
                                        "win":  "11",
                                        "minBuild":  22000,
                                        "ver":  "5.1901.60431.0",
+                                       "bundle":  "Microsoft.Messaging_2024.213.220.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1430,6 +2442,8 @@
                  {
                      "he":  "תוכניות סלולר",
                      "en":  "MobilePlans",
+                     "pfn":  "Microsoft.OneConnect_8wekyb3d8bbwe",
+                     "id":  "Microsoft.OneConnect",
                      "net":  true,
                      "files":  [
                                    {
@@ -1438,6 +2452,24 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "5.2508.25002.0",
+                                       "bundle":  "Microsoft.OneConnect_5.2508.25002.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1446,26 +2478,10 @@
                      "cat":  "חשבון ומערכת"
                  },
                  {
-                     "he":  "PC Manager",
-                     "en":  "PCManager",
-                     "net":  true,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-PCManager.exe",
-                                       "mb":  188,
-                                       "win":  "all",
-                                       "minBuild":  19042,
-                                       "ver":  "3.22.4.0",
-                                       "live":  false
-                                   }
-                               ],
-                     "icon":  "icons/PCManager.png",
-                     "desc":  "ניקוי ותחזוקת המחשב",
-                     "cat":  "כלי טכנאי"
-                 },
-                 {
                      "he":  "Dev Home (GitHub)",
                      "en":  "DevHomeGitHub",
+                     "pfn":  "Microsoft.Windows.DevHomeGitHubExtension_8wekyb3d8bbwe",
+                     "id":  "Microsoft.Windows.DevHomeGitHubExtension",
                      "net":  true,
                      "files":  [
                                    {
@@ -1474,6 +2490,12 @@
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "0.1800.625.0",
+                                       "bundle":  "Microsoft.Windows.DevHomeGitHubExtension_0.1800.625.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
@@ -1484,6 +2506,8 @@
                  {
                      "he":  "Gaming Services",
                      "en":  "GamingServices",
+                     "pfn":  "Microsoft.GamingServices_8wekyb3d8bbwe",
+                     "id":  "Microsoft.GamingServices",
                      "net":  true,
                      "files":  [
                                    {
@@ -1492,6 +2516,18 @@
                                        "win":  "all",
                                        "minBuild":  18362,
                                        "ver":  "38.116.6003.0",
+                                       "bundle":  "Microsoft.GamingServices_38.116.6003.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "deps":  [
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary",
+                                                    "System.Collections.Specialized.OrderedDictionary"
+                                                ],
                                        "live":  false
                                    }
                                ],
