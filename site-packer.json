@@ -4384,7 +4384,7 @@
                      "cat":  "משחקים"
                  },
                  {
-                     "he":  "Visual C++ 2015–2022 (x64)",
+                     "he":  "VC++ 2015–2022 (x64)",
                      "en":  "VCRedist64",
                      "net":  false,
                      "w32":  true,
@@ -4406,7 +4406,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2015–2022 (x86)",
+                     "he":  "VC++ 2015–2022 (x86)",
                      "en":  "VCRedist86",
                      "net":  false,
                      "w32":  true,
@@ -4428,7 +4428,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2013 (x64)",
+                     "he":  "VC++ 2013 (x64)",
                      "en":  "VC2013x64",
                      "net":  false,
                      "w32":  true,
@@ -4450,7 +4450,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2013 (x86)",
+                     "he":  "VC++ 2013 (x86)",
                      "en":  "VC2013x86",
                      "net":  false,
                      "w32":  true,
@@ -4472,7 +4472,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2012 (x64)",
+                     "he":  "VC++ 2012 (x64)",
                      "en":  "VC2012x64",
                      "net":  false,
                      "w32":  true,
@@ -4494,7 +4494,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2012 (x86)",
+                     "he":  "VC++ 2012 (x86)",
                      "en":  "VC2012x86",
                      "net":  false,
                      "w32":  true,
@@ -4516,7 +4516,7 @@
                      "silent":  "/install /quiet /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2010 (x64)",
+                     "he":  "VC++ 2010 (x64)",
                      "en":  "VC2010x64",
                      "net":  false,
                      "w32":  true,
@@ -4538,7 +4538,7 @@
                      "silent":  "/q /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2010 (x86)",
+                     "he":  "VC++ 2010 (x86)",
                      "en":  "VC2010x86",
                      "net":  false,
                      "w32":  true,
@@ -4560,7 +4560,7 @@
                      "silent":  "/q /norestart"
                  },
                  {
-                     "he":  "Visual C++ 2008 (x64)",
+                     "he":  "VC++ 2008 (x64)",
                      "en":  "VC2008x64",
                      "net":  false,
                      "w32":  true,
@@ -4582,7 +4582,7 @@
                      "silent":  "/q"
                  },
                  {
-                     "he":  "Visual C++ 2008 (x86)",
+                     "he":  "VC++ 2008 (x86)",
                      "en":  "VC2008x86",
                      "net":  false,
                      "w32":  true,
@@ -4604,7 +4604,7 @@
                      "silent":  "/q"
                  },
                  {
-                     "he":  "Visual C++ 2005 (x64)",
+                     "he":  "VC++ 2005 (x64)",
                      "en":  "VC2005x64",
                      "net":  false,
                      "w32":  true,
@@ -4626,7 +4626,7 @@
                      "silent":  "/q"
                  },
                  {
-                     "he":  "Visual C++ 2005 (x86)",
+                     "he":  "VC++ 2005 (x86)",
                      "en":  "VC2005x86",
                      "net":  false,
                      "w32":  true,

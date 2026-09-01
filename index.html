@@ -155,6 +155,12 @@
                  font-weight: 400; margin-top: 10px; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 6px; }
+  @media (max-width: 480px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    .pl { width: 68px; height: 68px; border-radius: 19px; }
+    .pl img { width: 44px; height: 44px; }
+    .pl img.glyph { width: 36px; height: 36px; }
+  }
   .t {
     position: relative;
     display: flex; flex-direction: column; align-items: center; gap: 9px;
@@ -219,7 +225,9 @@
   .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(5,8,15,.66); backdrop-filter: blur(5px);
              display: flex; align-items: center; justify-content: center; padding: 18px; }
   .sheet { background: var(--panel); border: 1px solid var(--stroke); border-radius: 20px; box-shadow: var(--shadow);
-           width: min(420px, 94vw); padding: 26px; text-align: center; }
+           width: min(420px, 94vw); padding: 26px; text-align: center;
+           max-height: 92vh; overflow-y: auto; }
+  .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
   .sheet .pl { width: 92px; height: 92px; border-radius: 26px; margin: 0 auto; }
   .sheet .pl img { width: 62px; height: 62px; }
   .sheet .pl img.glyph { width: 50px; height: 50px; }
@@ -560,6 +568,7 @@ function openSheet(en) {
   ov.innerHTML = '<div class="sheet">' + pl +
     '<h3 dir="auto">' + a.he + '</h3><div class="en">' + a.en + '</div>' +
     (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
+    (a.note ? '<div class="warn">' + a.note + '</div>' : '') +
     '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="rows">' + rows + '</div>' +
