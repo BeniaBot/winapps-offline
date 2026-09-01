@@ -1,0 +1,126 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שלושה כיוונים — בחרו אחד</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@500;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #101014; color: #eee; font-family: Heebo, sans-serif; padding-bottom: 80px; }
+  .intro { max-width: 900px; margin: 0 auto; padding: 40px 20px 10px; }
+  .intro h1 { font-size: 1.6rem; }
+  .intro p { color: #999; margin-top: 6px; }
+  .label {
+    max-width: 1100px; margin: 46px auto 0; padding: 0 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .label b { font-size: 2rem; background: #fff; color: #000; width: 46px; height: 46px;
+             display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+  .label span { color: #aaa; }
+  .frame { max-width: 1100px; margin: 14px auto 0; padding: 0 20px; }
+
+  /* ============ A: dense utility (SamDrivers style) ============ */
+  .va { background: #e8e6e0; color: #1c1c1c; border-radius: 6px; padding: 14px; font-size: 14px; }
+  .va .hd { background: linear-gradient(#3a6ea5, #28517c); color: #fff; padding: 10px 14px; border-radius: 4px 4px 0 0;
+            display: flex; justify-content: space-between; align-items: center; font-weight: 700; }
+  .va .hd small { font-weight: 400; opacity: .85; }
+  .va table { width: 100%; border-collapse: collapse; background: #fff; }
+  .va th { background: #d5d2c8; text-align: right; padding: 6px 10px; font-size: 12.5px; border: 1px solid #c0bdb2; }
+  .va td { padding: 5px 10px; border: 1px solid #dedbd2; vertical-align: middle; }
+  .va tr:nth-child(even) td { background: #f4f3ee; }
+  .va tr:hover td { background: #e7f0fa; }
+  .va img { width: 20px; height: 20px; vertical-align: middle; }
+  .va .nm { font-weight: 600; }
+  .va .ds { color: #666; font-size: 12px; }
+  .va .st-ok { color: #1a7a33; font-weight: 700; font-size: 12px; }
+  .va .st-up { color: #b06000; font-weight: 700; font-size: 12px; }
+  .va .dl { background: #3a6ea5; color: #fff; border: 0; border-radius: 3px; padding: 3px 14px; cursor: pointer; font-size: 12.5px; }
+  .va .mono { font-family: "IBM Plex Mono"; font-size: 11.5px; color: #555; }
+
+  /* ============ B: launcher grid (big icons) ============ */
+  .vb { background: linear-gradient(160deg, #0f1420, #141a2b 60%, #10182a); border-radius: 14px; padding: 26px; }
+  .vb .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; }
+  .vb .t {
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    padding: 16px 8px 12px; border-radius: 14px; cursor: pointer; text-align: center;
+    transition: background .15s, transform .15s;
+  }
+  .vb .t:hover { background: rgba(255,255,255,.07); transform: translateY(-3px); }
+  .vb .pl { width: 74px; height: 74px; border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 24px -10px rgba(0,0,0,.6); }
+  .vb .pl img { width: 48px; height: 48px; }
+  .vb .nm { font-size: .86rem; font-weight: 500; color: #e8ecf5; line-height: 1.25; }
+  .vb .mb { font-size: .72rem; color: #7d8aa5; }
+  .vb .t:hover .mb { display: none; }
+  .vb .get { display: none; font-size: .74rem; font-weight: 700; color: #0b1524; background: #5fd4fe;
+             border-radius: 99px; padding: 2px 14px; }
+  .vb .t:hover .get { display: inline-block; }
+
+  /* ============ C: editorial paper ============ */
+  .vc { background: #faf6ee; color: #22201b; border-radius: 14px; padding: 34px; }
+  .vc h2 { font-family: "Frank Ruhl Libre", serif; font-weight: 800; font-size: 1.9rem; }
+  .vc .sub { color: #8a8478; margin: 4px 0 22px; }
+  .vc .list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .vc .row { display: flex; gap: 14px; align-items: center; padding: 13px 4px; border-bottom: 1px solid #e5ded0; }
+  .vc img { width: 38px; height: 38px; }
+  .vc .b { flex: 1; min-width: 0; }
+  .vc .nm { font-weight: 700; }
+  .vc .ds { color: #8a8478; font-size: .84rem; }
+  .vc .dl { font-family: "Frank Ruhl Libre", serif; font-weight: 800; background: none; color: #22201b;
+            border: 1.5px solid #22201b; border-radius: 999px; padding: 5px 18px; cursor: pointer; }
+  .vc .dl:hover { background: #22201b; color: #faf6ee; }
+  .vc .mb { color: #8a8478; font-size: .8rem; }
+  @media (max-width: 720px) { .vc .list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>שלושה כיוונים — אותם נתונים, שפה אחרת</h1>
+  <p>תבחרו אות. הכיוון הנבחר ייבנה במלואו על כל האתר.</p>
+</div>
+
+<div class="label"><b>א</b><span>שירותי וצפוף — בסגנון SamDrivers: הכל על המסך, אפס קישוט</span></div>
+<div class="frame"><div class="va">
+  <div class="hd"><span>חנות אפליקציות אופליין</span><small>77 אפליקציות · עודכן 2026-09-01</small></div>
+  <table>
+    <tr><th style="width:26px"></th><th>אפליקציה</th><th>גרסה</th><th>גודל</th><th>Windows</th><th>מצב</th><th style="width:90px"></th></tr>
+    <tr><td><img src="icons/Calculator.png"></td><td><span class="nm">מחשבון</span><div class="ds">מחשבון רגיל, מדעי והמרות</div></td><td class="mono">11.2607.0.0</td><td>76 MB</td><td>10 ומעלה</td><td class="st-ok">✓ מותקן</td><td><button class="dl">הורדה</button></td></tr>
+    <tr><td><img src="icons/SnippingTool.png"></td><td><span class="nm">כלי החיתוך</span><div class="ds">צילום מסך וחיתוך</div></td><td class="mono">11.2605.37.0</td><td>823 MB</td><td>10 / 11</td><td class="st-up">↑ עדכון</td><td><button class="dl">הורדה</button></td></tr>
+    <tr><td><img src="icons/Photos.png"></td><td><span class="nm">תמונות</span><div class="ds">צפייה ועריכה קלה</div></td><td class="mono">2026.11060</td><td>1221 MB</td><td>10 ומעלה</td><td></td><td><button class="dl">הורדה</button></td></tr>
+    <tr><td><img src="icons/HEIFExtension.png"></td><td><span class="nm">הרחבת HEIF</span><div class="ds">תמונות מאייפון</div></td><td class="mono">1.2.48.0</td><td>20 MB</td><td>10 ומעלה</td><td></td><td><button class="dl">הורדה</button></td></tr>
+    <tr><td><img src="icons/Terminal.png"></td><td><span class="nm">Windows Terminal</span><div class="ds">מסוף לשורת הפקודה</div></td><td class="mono">1.24.11911</td><td>36 MB</td><td>10 ומעלה</td><td></td><td><button class="dl">הורדה</button></td></tr>
+    <tr><td><img src="icons/Solitaire.png"></td><td><span class="nm">סוליטר</span><div class="ds">משחקי הקלפים</div></td><td class="mono">4.26.7290</td><td>201 MB</td><td>10 ומעלה</td><td></td><td><button class="dl">הורדה</button></td></tr>
+  </table>
+</div></div>
+
+<div class="label"><b>ב</b><span>מסך פתיחה — אייקונים גדולים במרכז, כמו מגירת אפליקציות</span></div>
+<div class="frame"><div class="vb">
+  <div class="grid">
+    <div class="t"><div class="pl" style="background:#0078d422"><img src="icons/Calculator.png"></div><div class="nm">מחשבון</div><div class="mb">76 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#0078d422"><img src="icons/SnippingTool.png"></div><div class="nm">כלי החיתוך</div><div class="mb">823 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#173a7322"><img src="icons/Photos.png"></div><div class="nm">תמונות</div><div class="mb">1.2 GB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#0078d422"><img src="icons/HEIFExtension.png"></div><div class="nm">הרחבת HEIF</div><div class="mb">20 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#33333322"><img src="icons/Terminal.png"></div><div class="nm">Terminal</div><div class="mb">36 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#0078d422"><img src="icons/Solitaire.png"></div><div class="nm">סוליטר</div><div class="mb">201 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#40404022"><img src="icons/OneNote.png"></div><div class="nm">OneNote</div><div class="mb">252 MB</div><span class="get">הורדה</span></div>
+    <div class="t"><div class="pl" style="background:#107c1022"><img src="icons/XboxApp.png"></div><div class="nm">Xbox</div><div class="mb">587 MB</div><span class="get">הורדה</span></div>
+  </div>
+</div></div>
+
+<div class="label"><b>ג</b><span>קטלוג מודפס — נייר חם, ספריפי, שקט</span></div>
+<div class="frame"><div class="vc">
+  <h2>הקטלוג</h2>
+  <div class="sub">שבעים ושבע אפליקציות, ארוזות ומוכנות למחשב המנותק.</div>
+  <div class="list">
+    <div class="row"><img src="icons/Calculator.png"><div class="b"><div class="nm">מחשבון</div><div class="ds">מחשבון רגיל, מדעי והמרות יחידות</div></div><span class="mb">76 MB</span><button class="dl">הורדה</button></div>
+    <div class="row"><img src="icons/SnippingTool.png"><div class="b"><div class="nm">כלי החיתוך</div><div class="ds">צילום מסך וחיתוך</div></div><span class="mb">823 MB</span><button class="dl">הורדה</button></div>
+    <div class="row"><img src="icons/Photos.png"><div class="b"><div class="nm">תמונות</div><div class="ds">צפייה בתמונות ועריכה קלה</div></div><span class="mb">1.2 GB</span><button class="dl">הורדה</button></div>
+    <div class="row"><img src="icons/HEIFExtension.png"><div class="b"><div class="nm">הרחבת HEIF</div><div class="ds">פותח תמונות מאייפון</div></div><span class="mb">20 MB</span><button class="dl">הורדה</button></div>
+    <div class="row"><img src="icons/Terminal.png"><div class="b"><div class="nm">Windows Terminal</div><div class="ds">מסוף מודרני לשורת הפקודה</div></div><span class="mb">36 MB</span><button class="dl">הורדה</button></div>
+    <div class="row"><img src="icons/Solitaire.png"><div class="b"><div class="nm">סוליטר</div><div class="ds">חבילת משחקי הקלפים</div></div><span class="mb">201 MB</span><button class="dl">הורדה</button></div>
+  </div>
+</div></div>
+</body>
+</html>

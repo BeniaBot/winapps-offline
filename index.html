@@ -270,6 +270,7 @@
 <div class="dock" id="dock">
   <div class="wrap">
     <div class="sum" id="selsum"></div>
+    <span id="dock-target" style="display:flex;gap:6px;align-items:center"></span>
     <button class="clear" id="selclear">נקה</button>
     <button class="btn" id="selgo">הורדת הנבחרות</button>
   </div>
@@ -286,6 +287,7 @@ const CAT_NOTE = {
   'שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
+let TARGET = '11';   // which flavour a batch download takes when an app has two
 const SELECTED = new Set();
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
@@ -293,8 +295,8 @@ const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' ||
 const bestFile = a => {
   const fs = filesFor(a);
   if (!fs.length) return null;
-  // when both flavours fit, prefer the newer (Win11) build
-  return fs.find(f => f.win === '11') || fs[0];
+  // when both flavours fit, TARGET (the dock's selector) decides
+  return fs.find(f => f.win === TARGET) || fs[0];
 };
 const isLive = f => !!LIVE[f.exe];
 const mbOf = a => { const f = bestFile(a); return f ? f.mb : 0; };
@@ -310,9 +312,13 @@ function card(a) {
     : '<div class="plate letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
   const live = isLive(f);
   const on = SELECTED.has(a.en);
-  const get = live
-    ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
-    : '<span class="get soon">בהעלאה...</span>';
+  // two flavours and no explicit filter: the button opens the sheet to choose,
+  // instead of guessing which Windows the user is packing for
+  const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
+  const get = twoAmbiguous
+    ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
+    : (live ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
+            : '<span class="get soon">בהעלאה...</span>');
   return '<div class="card' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' + plate +
     '<div class="cbody"><div class="cname">' + a.he + '</div>' +
@@ -359,6 +365,8 @@ document.addEventListener('click', e => {
   }
   const dl = e.target.closest('[data-dl]');
   if (dl) { e.stopPropagation(); download(dl.dataset.dl); return; }
+  const shBtn = e.target.closest('[data-sheet]');
+  if (shBtn) { e.stopPropagation(); openSheet(shBtn.dataset.sheet); return; }
   const c = e.target.closest('.card');
   if (!c) return;
   if (e.target.closest('.pick')) { toggle(c.dataset.en); return; }
@@ -387,9 +395,24 @@ function updateDock() {
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
   const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
   document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + size + '</span>';
+  // some selections carry two flavours; this decides which one the batch takes
+  let dual = 0;
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
+  const tgt = document.getElementById('dock-target');
+  if (dual > 0 && FILTER === 'all') {
+    tgt.innerHTML = '<span style="color:var(--muted);font-size:.85rem">מחשב היעד:</span>' +
+      '<button class="chip' + (TARGET === '11' ? ' on' : '') + '" data-target="11">Win 11</button>' +
+      '<button class="chip' + (TARGET === '10' ? ' on' : '') + '" data-target="10">Win 10</button>';
+  } else tgt.innerHTML = '';
   dock.classList.add('show');
   document.body.classList.add('has-sel');
 }
+document.getElementById('dock-target').addEventListener('click', e => {
+  const b = e.target.closest('[data-target]');
+  if (!b) return;
+  TARGET = b.dataset.target;
+  updateDock();
+});
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
   // fires the real files one after another; the browser asks once to allow multiple downloads
