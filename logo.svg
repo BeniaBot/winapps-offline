@@ -1,0 +1,32 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2740"/>
+      <stop offset="1" stop-color="#0d1524"/>
+    </linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ee0ff"/>
+      <stop offset="1" stop-color="#2ea8e0"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="url(#bg)"/>
+  <rect x="8" y="8" width="496" height="496" rx="118" fill="none" stroke="url(#rim)" stroke-width="3"/>
+
+  <!-- three quiet app tiles -->
+  <rect x="102" y="102" width="140" height="140" rx="38" fill="#ffffff" fill-opacity=".13"/>
+  <rect x="270" y="102" width="140" height="140" rx="38" fill="#ffffff" fill-opacity=".13"/>
+  <rect x="102" y="270" width="140" height="140" rx="38" fill="#ffffff" fill-opacity=".13"/>
+
+  <!-- the statement tile: this store's apps come DOWN, to go anywhere -->
+  <rect x="270" y="270" width="140" height="140" rx="38" fill="url(#ac)"/>
+  <g stroke="#0b1524" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M340 302v52"/>
+    <path d="M316 332l24 26 24-26"/>
+    <path d="M310 382h60"/>
+  </g>
+</svg>

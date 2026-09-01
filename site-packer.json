@@ -4890,6 +4890,160 @@
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
+                     "he":  ".NET Framework 3.5 (מלא)",
+                     "en":  "NetFx35",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "לתוכנות ותיקות מאוד. ב-Windows 10/11 לרוב עדיף להפעיל דרך \u0027תכונות Windows\u0027",
+                     "color":  "#512bd4",
+                     "url":  "https://download.microsoft.com/download/2/0/E/20E90413-712F-438C-988E-FDAA79A8AC3D/dotnetfx35.exe",
+                     "match":  "dotnetfx35.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "dotnetfx35.exe",
+                                       "mb":  232,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/dotnet.svg",
+                     "silent":  "/q /norestart"
+                 },
+                 {
+                     "he":  ".NET Desktop Runtime 9 (x64)",
+                     "en":  "Net9Desktop",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "לתוכנות החדשות ביותר שנבנו על ‎.NET 9",
+                     "color":  "#512bd4",
+                     "url":  "https://aka.ms/dotnet/9.0/windowsdesktop-runtime-win-x64.exe",
+                     "match":  "windowsdesktop-runtime-9*-win-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "windowsdesktop-runtime-9*-win-x64.exe",
+                                       "mb":  58,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/dotnet.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  ".NET Desktop Runtime 7 (x64)",
+                     "en":  "Net7Desktop",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "לתוכנות שנבנו על ‎.NET 7",
+                     "color":  "#512bd4",
+                     "url":  "https://aka.ms/dotnet/7.0/windowsdesktop-runtime-win-x64.exe",
+                     "match":  "windowsdesktop-runtime-7*-win-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "windowsdesktop-runtime-7*-win-x64.exe",
+                                       "mb":  55,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/dotnet.svg",
+                     "silent":  "/install /quiet /norestart"
+                 },
+                 {
+                     "he":  "Vulkan Runtime",
+                     "en":  "Vulkan",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "ממשק הגרפיקה המודרני — משחקים ואמולטורים דורשים אותו",
+                     "color":  "#a41e22",
+                     "url":  "https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-runtime.exe",
+                     "match":  "VulkanRT-*-Installer.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VulkanRT-*-Installer.exe",
+                                       "mb":  25,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/vulkan.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "PhysX Legacy",
+                     "en":  "PhysXLegacy",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "לגרסאות ישנות של משחקים שדורשים PhysX היסטורי",
+                     "color":  "#5d9100",
+                     "url":  "https://us.download.nvidia.com/Windows/9.13.0604/PhysX-9.13.0604-SystemSoftware-Legacy.msi",
+                     "match":  "PhysX-*-Legacy.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "PhysX-*-Legacy.msi",
+                                       "mb":  19,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/nvidia.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "Java 11 (Temurin JRE)",
+                     "en":  "Java11",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "סביבת Java דור ביניים — תוכנות מסוימות דורשות דווקא אותה",
+                     "color":  "#e76f00",
+                     "url":  "https://api.adoptium.net/v3/installer/latest/11/ga/windows/x64/jre/hotspot/normal/eclipse",
+                     "match":  "OpenJDK11U-jre_*.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "OpenJDK11U-jre_*.msi",
+                                       "mb":  30,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/java.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "Java 17 (Temurin JRE)",
+                     "en":  "Java17",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "רכיבי מערכת",
+                     "desc":  "‏Java LTS נפוצה — מיינקראפט ותוכנות רבות",
+                     "color":  "#e76f00",
+                     "url":  "https://api.adoptium.net/v3/installer/latest/17/ga/windows/x64/jre/hotspot/normal/eclipse",
+                     "match":  "OpenJDK17U-jre_*.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "OpenJDK17U-jre_*.msi",
+                                       "mb":  30,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/java.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
                      "he":  "Chrome",
                      "en":  "Chrome",
                      "net":  false,
