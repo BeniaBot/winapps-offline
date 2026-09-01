@@ -547,7 +547,7 @@ function openSheet(en) {
     : files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   let btns = files.map(f => {
-    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + mbFmt(f.mb);
+    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
     return isLive(a, f)
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
