@@ -23,5 +23,15 @@
     "Setup-Notepad-Win11.exe",
     "Setup-Store.exe",
     "Setup-ToDo.exe",
-    "Setup-Clipchamp.exe"
+    "Setup-Clipchamp.exe",
+    "Setup-3DViewer.exe",
+    "Setup-Clock.exe",
+    "Setup-Widgets-Win11.exe",
+    "Setup-Solitaire.exe",
+    "Setup-PhoneLink.exe",
+    "Setup-OneNote.exe",
+    "Setup-OfficeHub.exe",
+    "Setup-Mail.exe",
+    "Setup-Copilot.exe",
+    "Setup-GetHelp-Win10.exe"
 ]
