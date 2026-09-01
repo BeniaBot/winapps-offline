@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חנות אפליקציות אופליין ל-Windows</title>
+<script>try { if (localStorage.theme === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
 <meta name="description" content="להתקין ולעדכן את האפליקציות של Windows במחשב בלי חיבור לאינטרנט. בלי הרשאות מנהל.">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
@@ -22,7 +23,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* dark is the store's default look; the toggle switches to light and remembers */
   :root {
+    --ink:      #e9ecf1;
+    --ink-soft: #96a0ad;
+    --canvas:   #0f1115;
+    --surface:  #171a20;
+    --raise:    #1d212a;
+    --line:     #282d37;
+    --accent:   #6f9bff;
+    --accent-2: #1b2740;
+    /* the accent is light here, so dark text on it keeps contrast */
+    --on-accent:#0b1220;
+    --amber:    #d9a95c;
+    --amber-bg: #2a2418;
+    --night:    #0b0d11;
+    --night-fg: #f2f1ee;
+    --radius:   14px;
+    --shadow:   0 1px 2px rgba(0,0,0,.4);
+    --shadow-lg:0 18px 40px -18px rgba(0,0,0,.8);
+  }
+  :root.light {
     --ink:      #15181d;
     --ink-soft: #5d6672;
     --canvas:   #faf9f6;
@@ -36,29 +57,12 @@
     --amber-bg: #fbf2e2;
     --night:    #14171d;
     --night-fg: #f2f1ee;
-    --radius:   14px;
     --shadow:   0 1px 2px rgba(20,25,40,.05);
     --shadow-lg:0 18px 40px -18px rgba(20,25,40,.35);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink:      #e9ecf1;
-      --ink-soft: #96a0ad;
-      --canvas:   #0f1115;
-      --surface:  #171a20;
-      --raise:    #1d212a;
-      --line:     #282d37;
-      --accent:   #6f9bff;
-      --accent-2: #1b2740;
-      /* the accent lightens in dark mode, so white text on it would fail contrast */
-      --on-accent:#0b1220;
-      --amber:    #d9a95c;
-      --amber-bg: #2a2418;
-      --night:    #0b0d11;
-      --night-fg: #f2f1ee;
-      --shadow:   0 1px 2px rgba(0,0,0,.4);
-      --shadow-lg:0 18px 40px -18px rgba(0,0,0,.8);
-    }
+  .theme-btn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 9px; padding: 5px 11px; cursor: pointer; font: inherit; font-size: .9rem;
   }
   * { box-sizing: border-box; margin: 0; }
   html { scroll-behavior: smooth; }
@@ -86,7 +90,7 @@
   .topbar nav { margin-inline-start: auto; display: flex; gap: 20px; font-size: .93rem; }
   .topbar nav a { color: var(--ink-soft); text-decoration: none; }
   .topbar nav a:hover { color: var(--ink); }
-  @media (max-width: 640px) { .topbar nav { display: none; } }
+  @media (max-width: 640px) { .topbar nav { display: none; } .theme-btn { margin-inline-start: auto; } }
 
   /* ---------- hero ---------- */
   .hero {
@@ -368,6 +372,7 @@
       <a href="#catalog">מה יש בחנות</a>
       <a href="#tech">לטכנאים</a>
     </nav>
+    <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
 </header>
 
@@ -609,8 +614,11 @@ function updateBar() {
   let mb = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
   const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
+  // past ~3.5GB a single EXE is no longer possible (PE limits, FAT32) - the tool
+  // will produce a folder instead, so say it here rather than surprise later
+  const big = mb > 3500 ? ' <span>· מעל ~3.5GB יירד כתיקייה, לא כקובץ אחד</span>' : '';
   document.getElementById('selsum').innerHTML =
-    'נבחרו ' + n + ' אפליקציות <span>· כ-' + size + ' יירדו ממיקרוסופט</span>';
+    'נבחרו ' + n + ' אפליקציות <span>· כ-' + size + ' יירדו ממיקרוסופט</span>' + big;
   bar.classList.add('show');
   document.body.classList.add('has-sel');
 }
@@ -733,6 +741,15 @@ document.querySelectorAll('#seg button').forEach(b => b.onclick = () => {
   FILTER = b.dataset.f;
   render();
 });
+const themeBtn = document.getElementById('theme-btn');
+function themeLabel() { themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀'; }
+themeBtn.onclick = () => {
+  const light = document.documentElement.classList.toggle('light');
+  try { localStorage.theme = light ? 'light' : 'dark'; } catch (e) {}
+  themeLabel();
+};
+themeLabel();
+
 document.getElementById('q').addEventListener('input', e => {
   QUERY = e.target.value.trim().toLowerCase();
   render();
