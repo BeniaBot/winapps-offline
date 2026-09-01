@@ -407,6 +407,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/HEIFExtension.png",
+                     "color":  "#0078D7",
                      "desc":  "פותח תמונות HEIC של אייפון"
                  },
                  {
@@ -423,6 +425,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/WebpExtension.png",
+                     "color":  "#0078D7",
                      "desc":  "פותח תמונות WebP"
                  },
                  {
@@ -447,6 +451,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/RawExtension.png",
+                     "color":  "#0078D7",
                      "desc":  "פותח קבצי RAW ממצלמות"
                  },
                  {
@@ -463,6 +469,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/VP9Extension.png",
+                     "color":  "#0078D7",
                      "desc":  "מנגן וידאו VP9"
                  },
                  {
@@ -479,6 +487,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/AV1Extension.png",
+                     "color":  "#0078D7",
                      "desc":  "מנגן וידאו AV1"
                  },
                  {
@@ -503,6 +513,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/HEVCExtension.png",
+                     "color":  "#0078D7",
                      "desc":  "מנגן וידאו HEVC / H.265"
                  },
                  {
@@ -519,6 +531,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/AppInstaller.png",
+                     "color":  "#0078d7",
                      "desc":  "מתקין חבילות ושורת הפקודה winget"
                  },
                  {
@@ -535,6 +549,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Sysinternals.png",
                      "desc":  "ארגז הכלים של Sysinternals"
                  },
                  {
@@ -551,6 +566,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/TerminalPreview.png",
                      "desc":  "גרסת התצוגה המקדימה של Terminal"
                  },
                  {
@@ -583,6 +599,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/FileRecovery.png",
+                     "color":  "#0078D4",
                      "desc":  "שחזור קבצים שנמחקו"
                  },
                  {
@@ -599,6 +617,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/WSL.png",
                      "desc":  "תת-מערכת Linux ל-Windows"
                  },
                  {
@@ -615,6 +634,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/WSA.png",
                      "desc":  "תת-מערכת אנדרואיד (הופסקה)"
                  },
                  {
@@ -631,6 +651,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Journal.png",
+                     "color":  "#dddddd",
                      "desc":  "כתיבה בעט על מסך מגע"
                  },
                  {
@@ -647,6 +669,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Print3D.png",
                      "desc":  "הדפסה תלת-ממדית"
                  },
                  {
@@ -663,6 +686,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Builder3D.png",
                      "desc":  "בניית מודלים תלת-ממדיים"
                  },
                  {
@@ -695,6 +719,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Minesweeper.png",
                      "desc":  "שולה המוקשים הקלאסי"
                  },
                  {
@@ -711,6 +736,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Mahjong.png",
+                     "color":  "#06706e",
                      "desc":  "מהג׳ונג"
                  },
                  {
@@ -727,6 +754,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Sudoku.png",
                      "desc":  "סודוקו"
                  },
                  {
@@ -743,6 +771,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Jigsaw.png",
+                     "color":  "#522430",
                      "desc":  "פאזלים"
                  },
                  {
@@ -759,6 +789,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/TreasureHunt.png",
+                     "color":  "#243F5D",
                      "desc":  "משחק ציד אוצרות"
                  },
                  {
@@ -775,6 +807,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/XboxIdentity.png",
+                     "color":  "#1a1a1a",
                      "desc":  "כניסה לחשבון Xbox — משחקים נשברים בלעדיו"
                  },
                  {
@@ -791,6 +825,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/XboxGameOverlay.png",
+                     "color":  "#107C10",
                      "desc":  "שכבת המשחק של Xbox"
                  },
                  {
@@ -807,6 +843,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/XboxTCUI.png",
+                     "color":  "#464646",
                      "desc":  "רכיב ממשק של Xbox"
                  },
                  {
@@ -823,6 +861,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/XboxSpeech.png",
+                     "color":  "#107C10",
                      "desc":  "דיבור לטקסט במשחקים"
                  },
                  {
@@ -839,6 +879,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/PowerShell.png",
                      "desc":  "PowerShell 7 — מעטפת מתקדמת"
                  },
                  {
@@ -855,6 +896,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/WinDbg.png",
+                     "color":  "#777777",
                      "desc":  "מנפה שגיאות של מיקרוסופט"
                  },
                  {
@@ -1171,6 +1214,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Whiteboard.png",
+                     "color":  "#0C34FA",
                      "desc":  "לוח שיתופי לכתיבה וציור"
                  },
                  {
@@ -1187,6 +1232,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/PowerBI.png",
                      "desc":  "דוחות וניתוח נתונים"
                  },
                  {
@@ -1203,6 +1249,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Sway.png",
+                     "color":  "#404040",
                      "desc":  "מצגות ודפי סיפור"
                  },
                  {
@@ -1219,6 +1267,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Translator.png",
+                     "color":  "#107C10",
                      "desc":  "תרגום טקסט ודיבור"
                  },
                  {
@@ -1235,6 +1285,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/StorePurchase.png",
                      "desc":  "רכישות מחנות Microsoft"
                  },
                  {
@@ -1275,6 +1326,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/CrossDevice.png",
                      "desc":  "חיבור בין מכשירים"
                  },
                  {
@@ -1299,6 +1351,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/Messaging.png",
                      "desc":  "הודעות"
                  },
                  {
@@ -1315,6 +1368,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/MobilePlans.png",
                      "desc":  "חבילות סלולר"
                  },
                  {
@@ -1331,6 +1385,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/PCManager.png",
                      "desc":  "ניקוי ותחזוקת המחשב"
                  },
                  {
@@ -1347,6 +1402,7 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/DevHomeGitHub.png",
                      "desc":  "הרחבת GitHub ל-Dev Home"
                  },
                  {
@@ -1363,6 +1419,8 @@
                                        "live":  false
                                    }
                                ],
+                     "icon":  "icons/GamingServices.png",
+                     "color":  "#464646",
                      "desc":  "שירותי המשחקים של Xbox"
                  }
              ]
