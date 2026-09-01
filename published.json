@@ -33,5 +33,8 @@
     "Setup-OfficeHub.exe",
     "Setup-Mail.exe",
     "Setup-Copilot.exe",
-    "Setup-GetHelp-Win10.exe"
+    "Setup-GetHelp-Win10.exe",
+    "Setup-GetHelp-Win11.exe",
+    "Setup-XboxApp.exe",
+    "Setup-SnippingTool-Win11.exe"
 ]
