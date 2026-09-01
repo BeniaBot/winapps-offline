@@ -20,5 +20,8 @@
     "Setup-RemoteDesktop.exe",
     "Setup-Weather.exe",
     "Setup-FeedbackHub.exe",
-    "Setup-Notepad-Win11.exe"
+    "Setup-Notepad-Win11.exe",
+    "Setup-Store.exe",
+    "Setup-ToDo.exe",
+    "Setup-Clipchamp.exe"
 ]
