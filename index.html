@@ -5,345 +5,264 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חנות אפליקציות אופליין ל-Windows</title>
 <script>try { if (localStorage.theme === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
-<meta name="description" content="חנות האפליקציות של Windows למחשבים בלי אינטרנט. בוחרים, אורזים, מעבירים בדיסק-און-קי.">
+<meta name="description" content="חנות האפליקציות של Windows למחשבים בלי אינטרנט: מורידים מתקין מוכן, מעבירים בדיסק-און-קי, מתקינים.">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="canonical" href="https://beniabot.github.io/winapps-offline/">
-<meta name="theme-color" content="#0b0f17">
+<meta name="theme-color" content="#1a1a1f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
 <meta property="og:site_name" content="חנות אפליקציות אופליין">
 <meta property="og:title" content="חנות אפליקציות אופליין ל-Windows">
-<meta property="og:description" content="האפליקציות של Windows, גם למחשב שאין בו אינטרנט.">
+<meta property="og:description" content="מורידים מתקין מוכן, מעבירים בדיסק-און-קי, מתקינים בלי אינטרנט.">
 <meta property="og:url" content="https://beniabot.github.io/winapps-offline/">
 <meta property="og:image" content="https://beniabot.github.io/winapps-offline/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  /* ============ tokens: cargo-at-night. one bold thing: amber. ============ */
+  /* ===== Fluent-store look: layered neutral dark, app colors carry the color ===== */
   :root {
-    --canvas:   #0b0f17;
-    --panel:    #121926;
-    --panel-2:  #0e1420;
-    --line:     #1f2c42;
-    --ink:      #e9eef8;
-    --muted:    #8698b4;
-    --amber:    #ffb454;
-    --amber-2:  #b47017;
-    --on-amber: #1d1204;
-    --ok:       #5fd48b;
-    --err:      #ff7a70;
-    --shadow:   0 22px 50px -22px rgba(0,0,0,.75);
+    --base:    #1a1a1f;
+    --layer:   #232329;
+    --layer-2: #2b2b33;
+    --stroke:  #3a3a44;
+    --ink:     #ffffff;
+    --muted:   #a2a2ad;
+    --accent:  #62cdfe;
+    --accent-2:#1d3d4f;
+    --on-accent:#08202e;
+    --ok:      #6ade8d;
+    --warn:    #fdb663;
+    --err:     #ff8b81;
+    --r: 10px;
+    --shadow: 0 8px 26px -10px rgba(0,0,0,.6);
   }
   :root.light {
-    --canvas:   #f7f4ec;
-    --panel:    #fffdf8;
-    --panel-2:  #efeadf;
-    --line:     #ddd5c4;
-    --ink:      #191f2b;
-    --muted:    #6b7385;
-    --amber:    #b4690e;
-    --amber-2:  #ffb454;
-    --on-amber: #fff8ec;
-    --ok:       #1e7a45;
-    --err:      #b3362d;
-    --shadow:   0 22px 50px -26px rgba(60,50,20,.35);
+    --base:    #f4f4f6;
+    --layer:   #ffffff;
+    --layer-2: #ebebef;
+    --stroke:  #d9d9e0;
+    --ink:     #1a1a24;
+    --muted:   #6a6a76;
+    --accent:  #0067c0;
+    --accent-2:#dcebf8;
+    --on-accent:#ffffff;
+    --ok:      #157a3d;
+    --warn:    #9a6206;
+    --err:     #b3362d;
+    --shadow: 0 8px 26px -14px rgba(30,30,60,.25);
   }
   * { box-sizing: border-box; margin: 0; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--canvas); color: var(--ink);
+    background: var(--base); color: var(--ink);
     font-family: "Heebo", "Segoe UI", sans-serif;
-    font-size: 16.5px; line-height: 1.6;
+    font-size: 15.5px; line-height: 1.55;
   }
-  .disp { font-family: "Secular One", "Heebo", sans-serif; font-weight: 400; }
-  .mono { font-family: "IBM Plex Mono", monospace; font-size: .82em; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 22px; }
-  a { color: inherit; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+  button { font: inherit; }
 
-  /* ============ top bar ============ */
-  .top {
-    position: sticky; top: 0; z-index: 30;
-    background: color-mix(in srgb, var(--canvas) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .top .wrap { display: flex; align-items: center; gap: 18px; height: 58px; }
-  .brand { display: flex; align-items: center; gap: 10px; }
+  /* ===== header ===== */
+  .top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--base) 88%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--stroke); }
+  .top .wrap { display: flex; align-items: center; gap: 14px; height: 56px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.02rem; }
   .brand img { width: 26px; height: 26px; }
-  .brand span { font-size: 1.05rem; }
-  .top nav { display: flex; gap: 18px; font-size: .92rem; color: var(--muted); margin-inline-start: auto; }
-  .top nav a { text-decoration: none; }
-  .top nav a:hover { color: var(--ink); }
-  .theme-btn {
-    border: 1px solid var(--line); background: transparent; color: var(--muted);
-    border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: .95rem;
-  }
-  @media (max-width: 680px) { .top nav { display: none; } .theme-btn { margin-inline-start: auto; } }
-
-  /* ============ hero ============ */
-  .hero { position: relative; padding: 84px 0 60px; overflow: hidden; }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(620px 300px at 85% 0%, color-mix(in srgb, var(--amber) 9%, transparent), transparent 70%),
-      repeating-linear-gradient(-45deg, transparent 0 26px, color-mix(in srgb, var(--line) 45%, transparent) 26px 27px);
-    mask-image: linear-gradient(to bottom, #000 55%, transparent);
-    pointer-events: none;
-  }
-  .hero .wrap { position: relative; }
-  .flag {
-    display: inline-flex; gap: 9px; align-items: center;
-    color: var(--amber); font-size: .9rem; font-weight: 700; letter-spacing: .04em;
-    margin-bottom: 18px;
-  }
-  .flag::before { content: ''; width: 26px; height: 2px; background: var(--amber); }
-  h1.disp { font-size: clamp(2.2rem, 5.8vw, 3.9rem); line-height: 1.14; max-width: 19ch; }
-  h1 em { font-style: normal; color: var(--amber); }
-  .lede { color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 52ch; margin-top: 18px; }
-  .hero .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 34px; }
-  .btn-amber {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--amber); color: var(--on-amber); text-decoration: none;
-    font-weight: 700; font-size: 1.02rem; border: 0; cursor: pointer;
-    padding: 14px 28px; border-radius: 10px; box-shadow: var(--shadow);
-    transition: transform .15s ease;
-  }
-  .btn-amber:hover { transform: translateY(-2px); }
-  .btn-line {
-    background: transparent; color: var(--ink); text-decoration: none; cursor: pointer;
-    border: 1px solid var(--line); border-radius: 10px; padding: 13px 22px; font-weight: 500; font-size: .98rem;
-  }
-  .btn-line:hover { border-color: var(--muted); }
-  .hero .facts { display: flex; gap: 26px; margin-top: 46px; flex-wrap: wrap; }
-  .fact b { font-size: 1.5rem; font-family: "Secular One"; font-weight: 400; display: block; }
-  .fact span { color: var(--muted); font-size: .85rem; }
-
-  /* ============ journey strip ============ */
-  .journey { border-block: 1px solid var(--line); background: var(--panel-2); }
-  .journey .wrap {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0; padding-block: 26px;
-  }
-  .leg { display: flex; gap: 14px; padding-inline: 18px; align-items: flex-start; position: relative; }
-  .leg + .leg { border-inline-start: 1px dashed var(--line); }
-  .leg .n {
-    font-family: "IBM Plex Mono"; color: var(--amber); font-size: .95rem; padding-top: 2px;
-  }
-  .leg h3 { font-size: 1rem; font-weight: 700; }
-  .leg p { color: var(--muted); font-size: .88rem; margin-top: 3px; }
-  @media (max-width: 780px) {
-    .journey .wrap { grid-template-columns: 1fr; }
-    .leg + .leg { border-inline-start: 0; border-top: 1px dashed var(--line); padding-top: 16px; margin-top: 16px; }
-  }
-
-  /* ============ catalog ============ */
-  section.cat { padding: 58px 0 30px; }
-  .cat-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
-  .cat-head h2.disp { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
-  .cat-head .sub { color: var(--muted); }
-
-  .toolbar { position: sticky; top: 58px; z-index: 20; padding-block: 12px; background: color-mix(in srgb, var(--canvas) 92%, transparent); backdrop-filter: blur(10px); }
-  .toolbar .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .search {
-    flex: 1 1 220px; display: flex; align-items: center; gap: 9px;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 13px;
+    flex: 1 1 200px; max-width: 430px; margin-inline: auto;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--layer); border: 1px solid var(--stroke);
+    border-bottom-color: color-mix(in srgb, var(--ink) 34%, var(--stroke));
+    border-radius: 7px; padding: 7px 12px;
   }
-  .search:focus-within { border-color: var(--amber); }
-  .search svg { width: 16px; height: 16px; opacity: .5; flex: none; }
+  .search:focus-within { border-bottom-color: var(--accent); }
+  .search svg { width: 15px; height: 15px; opacity: .55; flex: none; }
   .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; width: 100%; }
-  .seg { display: flex; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 3px; }
-  .seg button {
-    border: 0; background: none; color: var(--muted); font: inherit; font-size: .9rem; font-weight: 500;
-    padding: 6px 15px; border-radius: 8px; cursor: pointer;
-  }
-  .seg button.on { background: var(--amber); color: var(--on-amber); font-weight: 700; }
-  .count { color: var(--muted); font-size: .85rem; margin-inline-start: auto; }
+  .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer; width: 34px; height: 34px; border-radius: 7px; }
+  .theme-btn:hover { background: var(--layer-2); }
 
-  .chips { display: flex; gap: 8px; overflow-x: auto; padding-block: 10px 4px; scrollbar-width: none; }
-  .chips::-webkit-scrollbar { display: none; }
-  .chips a {
-    white-space: nowrap; text-decoration: none; font-size: .88rem; color: var(--muted);
-    border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; background: var(--panel);
+  /* ===== billboard ===== */
+  .billboard { padding: 26px 0 8px; }
+  .bb {
+    position: relative; overflow: hidden;
+    border-radius: 14px; border: 1px solid var(--stroke);
+    background:
+      radial-gradient(560px 260px at 12% -30%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 68%),
+      radial-gradient(480px 260px at 95% 130%, color-mix(in srgb, #7a5cff 20%, transparent), transparent 70%),
+      var(--layer);
+    padding: 34px 34px 30px;
+    display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
   }
-  .chips a:hover { color: var(--amber); border-color: var(--amber); }
+  .bb img { width: 84px; height: 84px; filter: drop-shadow(0 10px 22px rgba(0,0,0,.45)); }
+  .bb h1 { font-size: clamp(1.4rem, 3.2vw, 2.1rem); font-weight: 800; line-height: 1.2; max-width: 24ch; }
+  .bb p { color: var(--muted); margin-top: 6px; max-width: 56ch; }
+  .bb .acts { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .bb .steps { display: flex; gap: 7px; align-items: center; color: var(--muted); font-size: .86rem; margin-top: 14px; flex-wrap: wrap; }
+  .bb .steps b { color: var(--ink); font-weight: 600; }
+  .bb .steps span.sep { opacity: .5; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--accent); color: var(--on-accent); text-decoration: none; border: 0;
+    font-weight: 600; font-size: .92rem; padding: 9px 20px; border-radius: 7px; cursor: pointer;
+    transition: filter .12s;
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.lite { background: var(--layer-2); color: var(--ink); border: 1px solid var(--stroke); }
+  .btn.lite:hover { background: var(--stroke); filter: none; }
+  .btn[disabled] { opacity: .45; cursor: default; filter: none; }
 
-  .grouphead { display: flex; align-items: baseline; gap: 12px; margin: 36px 0 4px; }
-  .grouphead .idx { font-family: "IBM Plex Mono"; color: var(--amber); font-size: .9rem; }
-  .grouphead h3.disp { font-size: 1.35rem; }
-  .grouphead .n { color: var(--muted); font-size: .85rem; }
-  .groupnote { color: var(--muted); font-size: .88rem; margin-bottom: 14px; max-width: 66ch; }
+  /* ===== toolbar row ===== */
+  .bar2 { position: sticky; top: 56px; z-index: 30; background: color-mix(in srgb, var(--base) 92%, transparent); backdrop-filter: blur(12px); padding: 10px 0; }
+  .bar2 .row { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
+  .bar2 .row::-webkit-scrollbar { display: none; }
+  .chip {
+    white-space: nowrap; text-decoration: none; font-size: .88rem; font-weight: 500; color: var(--muted);
+    background: var(--layer); border: 1px solid var(--stroke); border-radius: 999px; padding: 6px 15px; cursor: pointer;
+  }
+  .chip:hover { color: var(--ink); }
+  .chip.on { background: var(--ink); color: var(--base); border-color: var(--ink); font-weight: 700; }
+  .spacer { flex: 1; }
+  .count { color: var(--muted); font-size: .84rem; white-space: nowrap; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(156px, 1fr)); gap: 11px; }
-  .tile {
-    position: relative;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-    padding: 13px 13px 11px; min-height: 128px;
-    display: flex; flex-direction: column; gap: 8px;
-    cursor: pointer; transition: border-color .14s, transform .14s, box-shadow .14s;
+  /* ===== sections & cards ===== */
+  .grouphead { display: flex; align-items: baseline; gap: 10px; margin: 30px 0 4px; }
+  .grouphead h3 { font-size: 1.25rem; font-weight: 800; }
+  .grouphead .n { color: var(--muted); font-size: .84rem; }
+  .groupnote { color: var(--muted); font-size: .87rem; margin-bottom: 12px; max-width: 70ch; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+  .card {
+    position: relative; overflow: hidden;
+    background: var(--layer); border: 1px solid var(--stroke); border-radius: var(--r);
+    padding: 16px; display: flex; gap: 13px; align-items: flex-start;
+    cursor: pointer; transition: background .12s, transform .12s, box-shadow .12s;
   }
-  .tile:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--amber) 55%, var(--line)); box-shadow: var(--shadow); }
-  .tile.na { opacity: .42; cursor: default; }
-  .tile.na:hover { transform: none; border-color: var(--line); box-shadow: none; }
-  .tile.sel { border-color: var(--amber); background: color-mix(in srgb, var(--amber) 7%, var(--panel)); }
-  .ico {
-    width: 44px; height: 44px; border-radius: 10px;
-    display: flex; align-items: center; justify-content: center; background: var(--panel-2);
-  }
-  .ico img { width: 30px; height: 30px; object-fit: contain; }
-  .ico.letter { font-family: "Secular One"; font-size: 1.15rem; color: var(--amber); }
-  .nm { font-weight: 500; font-size: .93rem; line-height: 1.3;
-        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .foot { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; color: var(--muted); font-size: .78rem; }
-  .foot b { color: var(--ink); font-weight: 500; }
-  .check {
-    position: absolute; top: 9px; inset-inline-end: 9px;
-    width: 20px; height: 20px; border-radius: 6px;
-    border: 1.5px solid var(--line); background: var(--panel);
+  .card:hover { background: var(--layer-2); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .plate {
+    width: 56px; height: 56px; flex: none; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    color: transparent; font-size: .68rem; font-weight: 900; z-index: 2;
+    background: var(--layer-2);
   }
-  .tile:hover .check { border-color: var(--amber); }
-  .tile.sel .check { background: var(--amber); border-color: var(--amber); color: var(--on-amber); }
-  .tile.na .check { display: none; }
-  .badge {
-    position: absolute; top: 10px; inset-inline-start: 10px;
-    font-size: .66rem; font-weight: 700; border-radius: 5px; padding: 1px 7px;
-    background: var(--panel-2); color: var(--muted); border: 1px solid var(--line);
+  .plate img { width: 40px; height: 40px; object-fit: contain; }
+  .plate.letter { font-weight: 800; font-size: 1.3rem; color: var(--accent); }
+  .cbody { min-width: 0; display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .cname { font-weight: 600; font-size: .95rem; line-height: 1.25; }
+  .cdesc { color: var(--muted); font-size: .8rem; line-height: 1.35;
+           display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .crow { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .get {
+    border: 0; border-radius: 6px; background: var(--accent-2); color: var(--accent);
+    font-weight: 700; font-size: .82rem; padding: 5px 16px; cursor: pointer;
   }
-  .badge.na { position: static; align-self: flex-start; color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
-  .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
+  .card:hover .get { background: var(--accent); color: var(--on-accent); }
+  .get.soon { background: var(--layer-2); color: var(--muted); font-weight: 500; cursor: default; }
+  .cmeta { color: var(--muted); font-size: .78rem; }
+  .pick {
+    position: absolute; top: 10px; inset-inline-start: 10px; z-index: 2;
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 1.5px solid var(--stroke); background: var(--layer);
+    display: flex; align-items: center; justify-content: center;
+    color: transparent; font-size: .66rem; font-weight: 900; cursor: pointer;
+  }
+  .card:hover .pick { border-color: var(--accent); }
+  .card.sel { border-color: var(--accent); }
+  .card.sel .pick { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .empty { color: var(--muted); padding: 22px 4px; grid-column: 1/-1; }
 
-  /* ============ detail sheet ============ */
-  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(4,7,12,.62); backdrop-filter: blur(4px);
+  /* ===== ISO strip ===== */
+  .iso {
+    margin-top: 44px; border-radius: 14px; border: 1px solid var(--stroke);
+    background:
+      radial-gradient(420px 200px at 90% -40%, color-mix(in srgb, var(--warn) 16%, transparent), transparent 70%),
+      var(--layer);
+    padding: 26px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .iso .t { flex: 1 1 300px; }
+  .iso h3 { font-size: 1.2rem; font-weight: 800; }
+  .iso p { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+  .iso .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* ===== sheet ===== */
+  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(8,8,12,.6); backdrop-filter: blur(4px);
              display: flex; align-items: center; justify-content: center; padding: 18px; }
-  .sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+  .sheet { background: var(--layer); border: 1px solid var(--stroke); border-radius: 14px; box-shadow: var(--shadow);
            width: min(430px, 94vw); padding: 24px; }
-  .sheet .hd { display: flex; gap: 14px; align-items: center; margin-bottom: 10px; }
-  .sheet .ico { width: 58px; height: 58px; border-radius: 13px; }
-  .sheet .ico img { width: 42px; height: 42px; }
-  .sheet h3.disp { font-size: 1.35rem; }
+  .sheet .hd { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
+  .sheet .plate { width: 64px; height: 64px; border-radius: 14px; }
+  .sheet .plate img { width: 46px; height: 46px; }
+  .sheet h3 { font-size: 1.3rem; font-weight: 800; }
   .sheet .en { color: var(--muted); font-size: .78rem; direction: ltr; text-align: end; }
-  .sheet .ds { margin: 4px 0 14px; }
-  .sheet .nt { background: color-mix(in srgb, var(--amber) 12%, var(--panel)); color: var(--amber);
-               border-radius: 8px; padding: 8px 12px; font-size: .85rem; margin-bottom: 12px; }
+  .sheet .ds { margin: 6px 0 12px; font-size: .95rem; }
   .sheet .row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 2px;
-                border-bottom: 1px solid var(--line); font-size: .88rem; }
+                border-bottom: 1px solid var(--stroke); font-size: .87rem; }
   .sheet .row span:first-child { color: var(--muted); }
   .sheet .acts { display: flex; gap: 10px; margin-top: 16px; }
-  .sheet .btn-amber { flex: 1; justify-content: center; }
+  .sheet .btn { flex: 1; padding: 11px; }
 
-  /* ============ cargo dock (selection) ============ */
-  .dock {
-    position: fixed; inset-inline: 0; bottom: 0; z-index: 40;
-    background: var(--panel);
-    border-top: 2px solid var(--amber);
-    box-shadow: 0 -18px 40px -18px rgba(0,0,0,.7);
-    transform: translateY(110%); transition: transform .2s ease;
-  }
+  /* ===== cargo dock ===== */
+  .dock { position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
+          background: var(--layer); border-top: 1px solid var(--stroke);
+          box-shadow: 0 -16px 40px -18px rgba(0,0,0,.7);
+          transform: translateY(110%); transition: transform .18s ease; }
   .dock.show { transform: none; }
-  .dock .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 13px; }
-  .dock .sum b { font-family: "Secular One"; font-weight: 400; }
-  .dock .sum span { color: var(--muted); font-size: .88rem; }
-  .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; font: inherit; }
-  .dock .btn-amber { margin-inline-start: auto; padding: 11px 24px; }
-  body.has-sel { padding-bottom: 84px; }
+  .dock .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 12px; }
+  .dock .sum b { font-size: 1.05rem; }
+  .dock .sum span { color: var(--muted); font-size: .86rem; }
+  .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; }
+  .dock .btn { margin-inline-start: auto; }
+  body.has-sel { padding-bottom: 80px; }
 
-  /* ============ builder ============ */
-  .buildbox { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px; margin-top: 18px; }
-  .buildbox h3.disp { font-size: 1.3rem; margin-bottom: 6px; }
-  .buildbox p { color: var(--muted); font-size: .92rem; }
-  .prog { margin-top: 16px; }
-  .prog .file { display: flex; justify-content: space-between; color: var(--muted); font-size: .85rem; margin-bottom: 6px; }
-  .prog .bar { height: 8px; background: var(--panel-2); border-radius: 99px; overflow: hidden; }
-  .prog .bar i { display: block; height: 100%; width: 0; background: var(--amber); border-radius: 99px; transition: width .2s; }
-  .steps-alt { margin-top: 14px; padding-inline-start: 18px; color: var(--ink); }
-  .steps-alt li { margin-bottom: 6px; }
-  .buildbox .ok { color: var(--ok); font-weight: 700; }
-  .buildbox .bad { color: var(--err); }
-
-  footer { border-top: 1px solid var(--line); margin-top: 60px; padding: 30px 0 44px; color: var(--muted); font-size: .88rem; }
+  footer { border-top: 1px solid var(--stroke); margin-top: 56px; padding: 26px 0 40px; color: var(--muted); font-size: .85rem; }
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <div class="brand"><img src="icon.png" alt=""><span class="disp">חנות אופליין</span></div>
-    <nav>
-      <a href="#how">איך זה עובד</a>
-      <a href="#catalog">הקטלוג</a>
-      <a href="#tech">לטכנאים</a>
-    </nav>
+    <div class="brand"><img src="icon.png" alt=""><span>חנות אופליין</span></div>
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="חיפוש בחנות">
+    </label>
     <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
 </header>
 
-<div class="hero">
-  <div class="wrap">
-    <div class="flag">בלי אינטרנט · בלי הרשאות מנהל</div>
-    <h1 class="disp">חנות האפליקציות של Windows, למחשב <em>שמנותק מהעולם</em>.</h1>
-    <p class="lede">בוחרים אפליקציות כאן, אורזים מתקין אחד, ומעבירים בדיסק-און-קי. בצד השני — לחיצה כפולה, וזהו.</p>
-    <div class="cta">
-      <a class="btn-amber" href="#catalog">בחירת אפליקציות ←</a>
-      <a class="btn-line" href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">הכלי למחשב · 1.8MB</a>
-    </div>
-    <div class="facts" id="facts"></div>
-  </div>
-</div>
-
-<div class="journey" id="how">
-  <div class="wrap">
-    <div class="leg"><span class="n">01</span><div><h3>בוחרים</h3><p>מסמנים אפליקציות בקטלוג למטה — אחת או חמישים.</p></div></div>
-    <div class="leg"><span class="n">02</span><div><h3>אורזים</h3><p>המתקין נבנה ממחשב מחובר: כאן בדפדפן, או בכלי הקטן.</p></div></div>
-    <div class="leg"><span class="n">03</span><div><h3>מתקינים במנותק</h3><p>מעתיקים לדיסק-און-קי ומריצים. המתקין יודע מה כבר מותקן ומה יתעדכן.</p></div></div>
-  </div>
-</div>
-
-<section class="cat" id="catalog">
-  <div class="wrap">
-    <div class="cat-head">
-      <h2 class="disp">הקטלוג</h2>
-      <span class="sub">לחיצה על אפליקציה — פרטים. ה-✓ בפינה — לסימון.</span>
-    </div>
-
-    <div class="toolbar">
-      <div class="row">
-        <label class="search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" type="search" placeholder="חיפוש...">
-        </label>
-        <div class="seg" id="seg">
-          <button data-f="all" class="on">הכל</button>
-          <button data-f="10">Windows 10</button>
-          <button data-f="11">Windows 11</button>
-        </div>
-        <span class="count" id="count"></span>
+<div class="billboard">
+  <div class="wrap"><div class="bb">
+    <img src="icon.png" alt="">
+    <div style="flex:1 1 300px">
+      <h1>האפליקציות של Windows, למחשב שאין בו אינטרנט</h1>
+      <p>כל מתקין כאן הוא קובץ אחד מוכן: האפליקציה, כל התלויות, ומתקין גרפי בעברית. בלי חנות, בלי רשת, בלי הרשאות מנהל.</p>
+      <div class="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה במחשב המנותק</b></div>
+      <div class="acts">
+        <a class="btn" href="#catalog">לקטלוג ↓</a>
+        <a class="btn lite" href="#iso">כל החנות ב-ISO</a>
       </div>
-      <div class="chips" id="chips"></div>
     </div>
+  </div></div>
+</div>
 
-    <div id="cats"></div>
+<div class="bar2">
+  <div class="wrap"><div class="row" id="chips"></div></div>
+</div>
 
-    <div class="buildbox" id="buildbox" hidden></div>
-  </div>
-</section>
+<main class="wrap" id="catalog">
+  <div id="cats"></div>
 
-<section class="cat" id="tech" style="padding-top:12px">
-  <div class="wrap">
-    <div class="grouphead"><span class="idx">+</span><h3 class="disp">לטכנאים — כל החנות בכיס</h3></div>
-    <div class="groupnote">
-      "סמן הכל" למעלה נותן את כל הקטלוג בבנייה אחת. ולמי שמסתובב בין מחשבים —
-      גרסת ה-ISO: כל המתקינים מקומפלים מראש, עם מעטפת שמראה מה חסר בכל מחשב
-      ומתקינה ישירות מהדיסק. בהכנה: תרד כאן ברגע שתעלה לאחסון. [ערכו אותי]
+  <div class="iso" id="iso">
+    <div class="t">
+      <h3>לטכנאים — כל החנות בדיסק אחד</h3>
+      <p>ISO עם כל המתקינים ומעטפת שמזהה בכל מחשב מה חסר, מה מיושן ומה לא תואם — ומתקינה ישירות מהדיסק. חבילת הליבה זמינה עכשיו; המלאה בהכנה.</p>
     </div>
+    <div class="btns" id="iso-btns"></div>
   </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
-    <div>החבילות מגיעות חתומות מהשרתים של מיקרוסופט ואינן משונות. הפרויקט אינו קשור למיקרוסופט.</div>
+    <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי. הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
     <div style="margin-top:6px">[ערכו אותי — קרדיט ויצירת קשר] · <span id="updated"></span></div>
   </div>
 </footer>
@@ -352,76 +271,114 @@
   <div class="wrap">
     <div class="sum" id="selsum"></div>
     <button class="clear" id="selclear">נקה</button>
-    <button class="btn-amber" id="selgo">אריזת המתקין ←</button>
+    <button class="btn" id="selgo">הורדת הנבחרות</button>
   </div>
 </div>
 
 <script>
 'use strict';
-/* ================= state ================= */
-// כתובת ממסר ה-CORS (Cloudflare Worker) שהופך את הדפדפן לאורז.
-// ריק = הדפדפן חסום (אין CORS) ואז יורדים לקובץ בחירה + הכלי.
-const RELAY_URL = (function () { try { return localStorage.relay || ''; } catch (e) { return ''; } })();
+const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/';
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
-  'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו בכלל.',
-  'כלי טכנאי': 'winget, PowerShell, Sysinternals — למי שמתקן מחשבים.',
+  'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
   'שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
-let FILTER = 'all', QUERY = '', DATA = null;
+let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
 const SELECTED = new Set();
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
 const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
-const mbOf = a => { const f = filesFor(a); return f.length ? Math.max.apply(null, f.map(x => x.mb)) : 0; };
+const bestFile = a => {
+  const fs = filesFor(a);
+  if (!fs.length) return null;
+  // when both flavours fit, prefer the newer (Win11) build
+  return fs.find(f => f.win === '11') || fs[0];
+};
+const isLive = f => !!LIVE[f.exe];
+const mbOf = a => { const f = bestFile(a); return f ? f.mb : 0; };
 
-/* ================= tiles ================= */
-function tile(a) {
+/* ===== cards ===== */
+function card(a) {
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
-  const files = filesFor(a);
-  const chip = a.color ? ' style="background:' + a.color + '22"' : '';
-  const ico = a.icon
-    ? '<div class="ico"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
-    : '<div class="ico letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
-  const head = ico + '<div class="nm">' + a.he + '</div>';
-  // no version for the selected Windows -> hide it, so the filter and the count are honest
-  if (!files.length) return '';
-  const mb = Math.max.apply(null, files.map(f => f.mb));
-  let badge = '';
-  if (files.length > 1) badge = '<span class="badge">2 גרסאות</span>';
-  else if (files[0].win === '11') badge = '<span class="badge">Win 11</span>';
+  const f = bestFile(a);
+  if (!f) return '';
+  const chip = a.color ? ' style="background:' + a.color + '26"' : '';
+  const plate = a.icon
+    ? '<div class="plate"' + chip + '><img src="' + a.icon + '" alt="" loading="lazy"></div>'
+    : '<div class="plate letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const live = isLive(f);
   const on = SELECTED.has(a.en);
-  return '<div class="tile' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '">' +
-    '<div class="check">✓</div>' + badge + head +
-    '<div class="foot"><b>' + mb + ' MB</b><span class="mono">' + files[0].ver.split('.').slice(0, 2).join('.') + '</span></div></div>';
+  const get = live
+    ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
+    : '<span class="get soon">בהעלאה...</span>';
+  return '<div class="card' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '">' +
+    '<span class="pick" title="לבחירה מרובה">✓</span>' + plate +
+    '<div class="cbody"><div class="cname">' + a.he + '</div>' +
+    (a.desc ? '<div class="cdesc">' + a.desc + '</div>' : '') +
+    '<div class="crow">' + get + '<span class="cmeta">' + f.mb + ' MB</span></div>' +
+    '</div></div>';
 }
 
 function render() {
   if (!DATA) return;
   const box = document.getElementById('cats');
-  const chips = [];
-  let html = '', shown = 0, gi = 0;
-  CAT_ORDER.concat(['שלי']).forEach(cat => {
+  let html = '', shown = 0, total = 0;
+  const groups = CAT_ORDER.concat(['שלי']);
+  const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
+  groups.forEach(cat => {
     const members = DATA.apps.filter(a => cat === 'שלי' ? a.custom : (!a.custom && (a.cat || 'נוספות') === cat));
-    const tiles = members.map(tile).filter(Boolean);
-    if (!tiles.length) return;
-    gi++; shown += tiles.length;
-    const id = 'cat-' + gi;
-    chips.push('<a href="#' + id + '">' + cat + '</a>');
+    if (!members.length) return;
+    chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
+    if (CATSEL && CATSEL !== cat) { total += members.filter(a => bestFile(a)).length; return; }
+    const cards = members.map(card).filter(Boolean);
+    total += members.filter(a => bestFile(a)).length;
+    if (!cards.length) return;
+    shown += cards.length;
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
-    html += '<div class="grouphead" id="' + id + '"><span class="idx">' + String(gi).padStart(2, '0') + '</span>' +
-            '<h3 class="disp">' + cat + '</h3><span class="n">' + tiles.length + '</span></div>' +
-            note + '<div class="grid">' + tiles.join('') + '</div>';
+    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + cards.length + '</span></div>' +
+            note + '<div class="grid">' + cards.join('') + '</div>';
   });
+  chipBar.push('<span class="spacer"></span>');
+  chipBar.push('<span class="count">' + shown + ' / ' + total + '</span>');
+  chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
+  document.getElementById('chips').innerHTML = chipBar.join('');
   box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
-  document.getElementById('chips').innerHTML = chips.join('');
-  document.getElementById('count').textContent = shown + ' / ' + DATA.apps.length;
+  updateDock();
+}
+const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + '" data-win="' + v + '">' + t + '</button>';
+
+/* ===== interactions ===== */
+document.addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (chip) {
+    if (chip.dataset.win !== undefined) FILTER = chip.dataset.win;
+    else CATSEL = chip.dataset.cat;
+    render(); return;
+  }
+  const dl = e.target.closest('[data-dl]');
+  if (dl) { e.stopPropagation(); download(dl.dataset.dl); return; }
+  const c = e.target.closest('.card');
+  if (!c) return;
+  if (e.target.closest('.pick')) { toggle(c.dataset.en); return; }
+  openSheet(c.dataset.en);
+});
+
+function download(exe) {
+  const a = document.createElement('a');
+  a.href = REL + encodeURIComponent(exe);
+  a.download = exe;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+function toggle(en) {
+  if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
+  document.querySelectorAll('.card[data-en="' + en.replace(/"/g, '\\"') + '"]')
+    .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
   updateDock();
 }
 
-/* ================= selection ================= */
 function updateDock() {
   const dock = document.getElementById('dock');
   const n = SELECTED.size;
@@ -429,68 +386,54 @@ function updateDock() {
   let mb = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en)) mb += mbOf(a); });
   const size = mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB';
-  const big = mb > 3500 ? ' · גדול מדי לקובץ אחד — תרד תיקייה' : '';
-  document.getElementById('selsum').innerHTML = '<b>' + n + '</b> במטען <span>· כ-' + size + big + '</span>';
+  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + size + '</span>';
   dock.classList.add('show');
   document.body.classList.add('has-sel');
 }
-
-function toggle(en) {
-  if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
-  document.querySelectorAll('.tile[data-en="' + en.replace(/"/g, '\\"') + '"]')
-    .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
-  updateDock();
-}
-
-document.addEventListener('click', e => {
-  const t = e.target.closest('.tile');
-  if (!t || t.classList.contains('na')) return;
-  if (e.target.closest('.check')) { toggle(t.dataset.en); return; }
-  openSheet(t.dataset.en);
-});
-document.getElementById('selclear').onclick = () => {
-  SELECTED.clear(); render();
+document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
+document.getElementById('selgo').onclick = () => {
+  // fires the real files one after another; the browser asks once to allow multiple downloads
+  const files = [];
+  DATA.apps.forEach(a => {
+    if (!SELECTED.has(a.en)) return;
+    const f = bestFile(a);
+    if (f && isLive(f)) files.push(f.exe);
+  });
+  files.forEach((exe, i) => setTimeout(() => download(exe), i * 600));
 };
 
-/* ================= detail sheet ================= */
+/* ===== sheet ===== */
 function openSheet(en) {
   const a = DATA.apps.find(x => x.en === en);
   if (!a) return;
   const files = filesFor(a);
-  const chip = a.color ? ' style="background:' + a.color + '22"' : '';
-  const ico = a.icon
-    ? '<div class="ico"' + chip + '><img src="' + a.icon + '" alt=""></div>'
-    : '<div class="ico letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const chip = a.color ? ' style="background:' + a.color + '26"' : '';
+  const plate = a.icon
+    ? '<div class="plate"' + chip + '><img src="' + a.icon + '" alt=""></div>'
+    : '<div class="plate letter"' + chip + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
   const rows = [];
-  if (files.length) {
-    rows.push(['גודל', Math.max.apply(null, files.map(f => f.mb)) + ' MB']);
-    rows.push(['גרסה', '<span class="mono">' + [...new Set(files.map(f => f.ver))].join(' · ') + '</span>']);
-    rows.push(['מערכת', files.length > 1 ? 'Windows 10 ו-11 — גרסה מותאמת לכל אחת' : WIN_LABEL[files[0].win]]);
-  }
   rows.push(['רשת', a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט']);
-  const on = SELECTED.has(en);
+  files.forEach(f => rows.push([WIN_LABEL[f.win], '<span class="mono">' + f.ver + '</span> · ' + f.mb + ' MB']));
+  const btns = files.map(f => {
+    const live = isLive(f);
+    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · ' + f.mb + ' MB';
+    return live
+      ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
+      : '<button class="btn" disabled>בהעלאה לשרת...</button>';
+  }).join('');
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet">' +
-    '<div class="hd">' + ico + '<div><h3 class="disp">' + a.he + '</h3><div class="en">' + a.en + '</div></div></div>' +
+    '<div class="hd">' + plate + '<div><h3>' + a.he + '</h3><div class="en">' + a.en + '</div></div></div>' +
     (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
-    (a.note ? '<div class="nt">' + a.note + '</div>' : '') +
     rows.map(r => '<div class="row"><span>' + r[0] + '</span><span>' + r[1] + '</span></div>').join('') +
-    '<div class="acts"><button class="btn-amber" id="sp">' + (on ? '✓ במטען — הסרה' : 'הוספה למטען') + '</button>' +
-    '<button class="btn-line" id="sc">סגירה</button></div></div>';
+    '<div class="acts">' + btns + '<button class="btn lite" id="sc">סגירה</button></div></div>';
   document.body.appendChild(ov);
   ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
   ov.querySelector('#sc').onclick = () => ov.remove();
-  ov.querySelector('#sp').onclick = () => { toggle(en); ov.remove(); };
 }
 
-/* ================= controls ================= */
-document.querySelectorAll('#seg button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('#seg button').forEach(x => x.classList.remove('on'));
-  b.classList.add('on'); FILTER = b.dataset.f; render();
-});
-document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim().toLowerCase(); render(); });
-
+/* ===== theme ===== */
 const themeBtn = document.getElementById('theme-btn');
 const themeLabel = () => themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀';
 themeBtn.onclick = () => {
@@ -499,182 +442,26 @@ themeBtn.onclick = () => {
   themeLabel();
 };
 themeLabel();
+document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim().toLowerCase(); render(); });
 
-/* ================= the packer =================
-   עם ממסר: הדפדפן עצמו מוריד ממיקרוסופט ואורז ZIP עם המפעיל.
-   בלי ממסר: קובץ בחירה + הכלי. */
-document.getElementById('selgo').onclick = () => RELAY_URL ? buildInBrowser() : fallbackFlow();
-
-function fallbackFlow() {
-  const lines = ['# רשימת בחירה לחנות האופליין - נוצר באתר', '# target=' + FILTER];
-  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) lines.push(a.en); });
-  const blob = new Blob([lines.join('\r\n')], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url; link.download = 'winapps-selection.txt';
-  document.body.appendChild(link); link.click(); link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
-  const b = document.getElementById('buildbox');
-  b.hidden = false;
-  b.innerHTML = '<h3 class="disp">הבחירה ירדה — עוד שני צעדים</h3>' +
-    '<p>הדפדפן לא מורשה למשוך קבצים משרתי מיקרוסופט (חסימת אבטחה שלו), אז את ההורדה עושה הכלי:</p>' +
-    '<ol class="steps-alt">' +
-    '<li><a href="https://github.com/BeniaBot/winapps-offline/releases/latest/download/winapps-packer.exe">מורידים את הכלי</a> ומריצים — הוא יזהה את הקובץ <span class="mono">winapps-selection.txt</span> לבד ויסמן את הבחירה שלכם.</li>' +
-    '<li>לוחצים "הורד וארוז" — ומעבירים את התוצאה למחשב המנותק.</li></ol>';
-  b.scrollIntoView({ behavior: 'smooth', block: 'center' });
+/* ===== ISO buttons ===== */
+function isoButtons() {
+  const b = [];
+  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Windows 11 · 647MB</a>');
+  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Windows 10 · 675MB</a>');
+  b.push('<button class="btn lite" disabled>המלאה — בהכנה</button>');
+  document.getElementById('iso-btns').innerHTML = b.join('');
 }
 
-/* ---- in-browser packer (needs RELAY_URL) ---- */
-const relay = u => RELAY_URL + '?u=' + encodeURIComponent(u);
-
-async function queryPfn(pfn) {
-  const r = await fetch(relay('https://store.rg-adguard.net/api/GetFiles'), {
-    method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: 'type=PackageFamilyName&url=' + encodeURIComponent(pfn) + '&ring=Retail&lang=he-IL'
-  });
-  const html = await r.text();
-  const rows = [];
-  const re = /<a\s+href="([^"]+)"[^>]*>([^<]+)<\/a>/gs;
-  let m;
-  while ((m = re.exec(html))) rows.push({ url: m[1], name: m[2].trim() });
-  return rows;
-}
-
-/* store-only ZIP writer with streaming CRC32 */
-const CRC_T = (() => { const t = new Uint32Array(256);
-  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c; }
-  return t; })();
-function crcUpdate(crc, buf) { for (let i = 0; i < buf.length; i++) crc = CRC_T[(crc ^ buf[i]) & 0xFF] ^ (crc >>> 8); return crc; }
-const enc8 = s => new TextEncoder().encode(s);
-function u16(v) { return new Uint8Array([v & 255, (v >> 8) & 255]); }
-function u32(v) { return new Uint8Array([v & 255, (v >> 8) & 255, (v >> 16) & 255, (v >>> 24) & 255]); }
-function cat(arrs) { let n = 0; arrs.forEach(a => n += a.length); const o = new Uint8Array(n); let p = 0; arrs.forEach(a => { o.set(a, p); p += a.length; }); return o; }
-
-function zipWriter(sink) {
-  const central = []; let offset = 0;
-  return {
-    async add(name, streamFn) {
-      const nm = enc8(name);
-      // sink is forward-only, so sizes and CRC travel in a data descriptor (flag bit 3)
-      const withDD = cat([u32(0x04034b50), u16(20), u16(0x0808), u16(0), u16(0), u16(0x5021), u32(0), u32(0), u32(0), u16(nm.length), u16(0), nm]);
-      const lfhOffset = offset;
-      await sink.write(withDD); offset += withDD.length;
-      let crc = 0xFFFFFFFF, size = 0;
-      await streamFn(async chunk => { crc = crcUpdate(crc, chunk); size += chunk.length; await sink.write(chunk); offset += chunk.length; });
-      crc = (crc ^ 0xFFFFFFFF) >>> 0;
-      const dd = cat([u32(0x08074b50), u32(crc), u32(size), u32(size)]);
-      await sink.write(dd); offset += dd.length;
-      central.push({ nm, crc, size, lfhOffset });
-    },
-    async close() {
-      const cdStart = offset;
-      for (const e of central) {
-        const c = cat([u32(0x02014b50), u16(20), u16(20), u16(0x0808), u16(0), u16(0), u16(0x5021),
-          u32(e.crc), u32(e.size), u32(e.size), u16(e.nm.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(e.lfhOffset), e.nm]);
-        await sink.write(c); offset += c.length;
-      }
-      const eocd = cat([u32(0x06054b50), u16(0), u16(0), u16(central.length), u16(central.length),
-        u32(offset - cdStart), u32(cdStart), u16(0)]);
-      await sink.write(eocd);
-    }
-  };
-}
-
-async function buildInBrowser() {
-  const chosen = DATA.apps.filter(a => SELECTED.has(a.en) && filesFor(a).length);
-  if (!chosen.length) return;
-  const box = document.getElementById('buildbox');
-  box.hidden = false;
-  box.innerHTML = '<h3 class="disp">אורז...</h3>' +
-    '<div class="prog"><div class="file"><span id="p-name">מתחיל</span><span id="p-pct"></span></div>' +
-    '<div class="bar"><i id="p-bar"></i></div></div><p id="p-note" style="margin-top:10px"></p>';
-  box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  const setP = (name, frac) => {
-    document.getElementById('p-name').textContent = name;
-    document.getElementById('p-pct').textContent = Math.round(frac * 100) + '%';
-    document.getElementById('p-bar').style.width = (frac * 100) + '%';
-  };
-  try {
-    let handle = null, parts = null;
-    if ('showSaveFilePicker' in window) {
-      handle = await showSaveFilePicker({ suggestedName: 'חנות-אופליין.zip', types: [{ description: 'ZIP', accept: { 'application/zip': ['.zip'] } }] });
-    } else { parts = []; }
-    const writable = handle ? await handle.createWritable() : null;
-    const sink = { write: async b => { if (writable) await writable.write(b); else parts.push(b); } };
-    const zip = zipWriter(sink);
-
-    // 1. the launcher, from this very site
-    setP('המתקין', 0);
-    const lr = await fetch('launcher.exe', { cache: 'no-cache' });
-    const lb = new Uint8Array(await lr.arrayBuffer());
-    await zip.add('התקנת-אפליקציות.exe', async put => put(lb));
-
-    // 2. every chosen package + its frameworks, straight from Microsoft through the relay
-    const w10 = FILTER === '10';
-    const fwHave = {}; const indexLines = [];
-    let step = 0;
-    for (const a of chosen) {
-      step++;
-      const flav = a.files.length > 1 ? a.files.find(f => f.win === (w10 ? '10' : '11')) || a.files[0] : a.files[0];
-      const rows = await queryPfn(a.pfn || '');
-      const bundle = rows.find(r => r.name === flav.bundle);
-      if (!bundle) throw new Error(a.he + ': הגרסה לא נמצאה בשרת');
-      const label = '(' + step + '/' + chosen.length + ') ' + a.he;
-      let size = 0;
-      await zip.add('packages/' + bundle.name, async put => {
-        const resp = await fetch(relay(bundle.url));
-        if (!resp.ok) throw new Error(a.he + ': ' + resp.status);
-        const total = +resp.headers.get('Content-Length') || flav.mb * 1048576;
-        const rd = resp.body.getReader();
-        for (;;) { const { done, value } = await rd.read(); if (done) break; size += value.length; await put(value); setP(label, Math.min(size / total, 1)); }
-      });
-      indexLines.push(['app', a.en, a.id || a.en, a.he, bundle.name, flav.minBuild, size, flav.ver].join('\t'));
-      for (const dep of (flav.deps || [])) {
-        const key = dep.name + '|' + dep.arch;
-        if (!(key in fwHave)) {
-          const hit = rows.filter(r => {
-            if (!/\.(appx|msix)$/i.test(r.name) || /BlockMap/i.test(r.name)) return false;
-            const p = r.name.split('_');
-            return p.length > 3 && p[0].toLowerCase() === dep.name.toLowerCase() && p[2] === dep.arch;
-          }).sort((x, y) => y.name.localeCompare(x.name))[0];
-          if (!hit) throw new Error('מסגרת חסרה: ' + dep.name);
-          setP(label + ' · ' + dep.name, 0);
-          await zip.add('packages/' + hit.name, async put => {
-            const resp = await fetch(relay(hit.url)); const rd = resp.body.getReader();
-            for (;;) { const { done, value } = await rd.read(); if (done) break; await put(value); }
-          });
-          fwHave[key] = hit.name;
-        }
-        indexLines.push(['dep', a.en, dep.arch, fwHave[key], dep.name, dep.min].join('\t'));
-      }
-    }
-    await zip.add('packages/index.txt', async put => put(enc8(indexLines.join('\r\n'))));
-    await zip.close();
-    if (writable) await writable.close();
-    else {
-      const blob = new Blob(parts, { type: 'application/zip' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a'); link.href = url; link.download = 'חנות-אופליין.zip';
-      document.body.appendChild(link); link.click(); link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 8000);
-    }
-    box.innerHTML = '<h3 class="disp ok">המטען ארוז ✓</h3>' +
-      '<p>מחלצים את ה-ZIP לדיסק-און-קי, ובמחשב המנותק מריצים את <b>התקנת-אפליקציות.exe</b>.</p>';
-  } catch (err) {
-    box.innerHTML = '<h3 class="disp bad">האריזה נעצרה</h3><p>' + esc(String(err.message || err)) +
-      '</p><p style="margin-top:8px">אפשר לנסות שוב, או לרדת ל<button class="btn-line" style="padding:4px 12px" onclick="fallbackFlow()">מסלול הכלי</button>.</p>';
-  }
-}
-
-/* ================= boot ================= */
-fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => {
+/* ===== boot: catalog + which files are actually uploaded ===== */
+Promise.all([
+  fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()),
+  fetch('published.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => [])
+]).then(([d, pub]) => {
   DATA = d;
-  const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
-  document.getElementById('facts').innerHTML =
-    '<div class="fact"><b>' + d.apps.length + '</b><span>אפליקציות</span></div>' +
-    '<div class="fact"><b>' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
-    '<div class="fact"><b>0</b><span>בייטים של רשת בצד השני</span></div>';
+  (pub || []).forEach(n => LIVE[n] = true);
   document.getElementById('updated').textContent = 'הקטלוג עודכן ' + d.updated;
+  isoButtons();
   render();
 });
 </script>
