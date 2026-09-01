@@ -1777,7 +1777,7 @@
                      "match":  "PhysX_*_SystemSoftware.exe",
                      "silent":  "/s",
                      "icon":  "icons/w32/nvidia.svg",
-                     "color":  "#76b900",
+                     "color":  "#5d9100",
                      "desc":  "מנוע פיזיקה שמשחקים רבים דורשים — גם בכרטיסי מסך אחרים",
                      "cat":  "רכיבי מערכת",
                      "files":  [
@@ -1935,7 +1935,7 @@
                      "match":  "7z2409-x64.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32/sevenzip.svg",
-                     "color":  "#f0a020",
+                     "color":  "#b97a10",
                      "desc":  "פתיחת כל סוגי הארכיונים",
                      "cat":  "תוכנות נפוצות",
                      "files":  [
@@ -1957,7 +1957,7 @@
                      "match":  "Everything-*-Setup.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32/everything.svg",
-                     "color":  "#f5793b",
+                     "color":  "#d8551b",
                      "desc":  "חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה",
                      "cat":  "תוכנות נפוצות",
                      "files":  [
@@ -1979,7 +1979,7 @@
                      "match":  "SumatraPDF-*-install.exe",
                      "silent":  "-s",
                      "icon":  "icons/w32/sumatra.svg",
-                     "color":  "#f9a825",
+                     "color":  "#c08312",
                      "desc":  "קורא PDF קטן ומהיר",
                      "cat":  "תוכנות נפוצות",
                      "files":  [
@@ -2089,7 +2089,7 @@
                      "match":  "npp.*Installer.x64.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32/npp.svg",
-                     "color":  "#8fbc45",
+                     "color":  "#6f9b2b",
                      "desc":  "עורך טקסט וקוד",
                      "cat":  "תוכנות נפוצות",
                      "files":  [

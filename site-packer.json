@@ -4808,7 +4808,7 @@
                      "w32":  true,
                      "cat":  "רכיבי מערכת",
                      "desc":  "מנוע פיזיקה שמשחקים רבים דורשים — גם בכרטיסי מסך אחרים",
-                     "color":  "#76b900",
+                     "color":  "#5d9100",
                      "url":  "https://us.download.nvidia.com/Windows/9.23.1019/PhysX_9.23.1019_SystemSoftware.exe",
                      "match":  "PhysX_*_SystemSoftware.exe",
                      "files":  [
@@ -4966,7 +4966,7 @@
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
                      "desc":  "פתיחת כל סוגי הארכיונים",
-                     "color":  "#f0a020",
+                     "color":  "#b97a10",
                      "url":  "https://www.7-zip.org/a/7z2409-x64.exe",
                      "match":  "7z2409-x64.exe",
                      "files":  [
@@ -4988,7 +4988,7 @@
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
                      "desc":  "חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה",
-                     "color":  "#f5793b",
+                     "color":  "#d8551b",
                      "url":  "https://www.voidtools.com/Everything-1.4.1.1028.x64-Setup.exe",
                      "match":  "Everything-*-Setup.exe",
                      "files":  [
@@ -5010,7 +5010,7 @@
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
                      "desc":  "קורא PDF קטן ומהיר",
-                     "color":  "#f9a825",
+                     "color":  "#c08312",
                      "url":  "https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe",
                      "match":  "SumatraPDF-*-install.exe",
                      "files":  [
@@ -5120,7 +5120,7 @@
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
                      "desc":  "עורך טקסט וקוד",
-                     "color":  "#8fbc45",
+                     "color":  "#6f9b2b",
                      "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
                      "match":  "npp.*Installer.x64.exe",
                      "files":  [

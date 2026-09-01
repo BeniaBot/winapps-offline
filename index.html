@@ -55,7 +55,7 @@
   }
   * { box-sizing: border-box; margin: 0; }
   html { scroll-behavior: smooth; background: #0f1420; }
-  :root.light html { background: #eef1f6; }
+  :root.light { background: #eef1f6; }
   body {
     color: var(--ink);
     background: #0f1420;
@@ -98,7 +98,7 @@
   }
   .search:focus-within { border-color: var(--accent); }
   .search svg { width: 15px; height: 15px; opacity: .55; flex: none; }
-  .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; width: 100%; }
+  .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; font-size: 16px; width: 100%; }
   .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer;
                width: 36px; height: 36px; border-radius: 99px; }
   .theme-btn:hover { background: var(--tile-h); }
@@ -178,6 +178,12 @@
   .t:hover .pl { box-shadow: 0 14px 30px -12px rgba(0,0,0,.65), 0 0 0 1px rgba(95,212,254,.25); }
   .pl img { width: 50px; height: 50px; object-fit: contain; }
   .pl img.glyph { width: 40px; height: 40px; }
+  /* white glyphs need a deeper plate than some bright brand colors provide */
+  .pl.deep { background-image: linear-gradient(rgba(0,0,0,.16), rgba(0,0,0,.16)); }
+  .t:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; background: var(--tile-h); }
+  .t:focus-within .get { display: inline-flex; }
+  .t:focus-within .mb { display: none; }
+  .t:focus-within .pick { display: flex; }
   .pl.letter { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
   .t.sel .pl { outline: 2.5px solid var(--accent); outline-offset: 2px; }
   .nm { font-size: .86rem; font-weight: 500; line-height: 1.25; min-height: 2.2em;
@@ -222,7 +228,7 @@
   .btn[disabled] { opacity: .45; cursor: default; filter: none; }
 
   /* ===== sheet ===== */
-  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(5,8,15,.66); backdrop-filter: blur(5px);
+  .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(5,8,15,.72);
              display: flex; align-items: center; justify-content: center; padding: 18px; }
   .sheet { background: var(--panel); border: 1px solid var(--stroke); border-radius: 20px; box-shadow: var(--shadow);
            width: min(420px, 94vw); padding: 26px; text-align: center;
@@ -244,7 +250,7 @@
 
   /* ===== dock ===== */
   .dock { position: fixed; inset-inline: 0; bottom: 14px; z-index: 50; pointer-events: none; }
-  .dock .inner { pointer-events: auto; max-width: 760px; margin: 0 auto;
+  .dock .inner { pointer-events: auto; width: min(760px, calc(100% - 28px)); margin: 0 auto;
                  background: var(--panel); border: 1px solid var(--stroke); border-radius: 99px;
                  box-shadow: var(--shadow);
                  display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 20px;
@@ -254,8 +260,8 @@
   .dock .sum span { color: var(--muted); font-size: .85rem; }
   .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; }
   .dock .btn { margin-inline-start: auto; }
-  @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; margin-inline: 10px; } }
   body.has-sel { padding-bottom: 90px; }
+  @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; } body.has-sel { padding-bottom: 150px; } }
 
   footer { border-top: 1px solid var(--stroke); margin-top: 56px; padding: 26px 0 40px; color: var(--muted); font-size: .85rem; text-align: center; }
 </style>
@@ -267,7 +273,7 @@
     <div class="brand"><img src="icon.png" alt=""><span>חנות אופליין</span></div>
     <label class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="חיפוש בחנות">
+      <input id="q" type="search" dir="auto" placeholder="חיפוש בחנות">
     </label>
     <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
@@ -360,16 +366,17 @@ function tile(a) {
     : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
                     : '<span class="get soon">בהעלאה...</span>');
   const on = SELECTED.has(a.en);
-  return '<div class="t' + (on ? ' sel' : '') + '" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
+  return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
     '<div class="nm" dir="auto">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
-/* white glyph icons sit on a solid brand plate; store icons keep the soft tint */
+/* white glyph icons sit on a solid, slightly deepened brand plate; store icons keep the soft tint */
 function plate(a, big) {
   const glyph = a.icon && a.icon.indexOf('/w32/') >= 0;
-  const bg = a.color ? ' style="background:' + a.color + (glyph ? '' : '2e') + '"' : '';
-  if (a.icon) return '<div class="pl"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt=""' + (big ? '' : ' loading="lazy"') + '></div>';
+  const hex6 = a.color && /^#[0-9a-f]{6}$/i.test(a.color);
+  const bg = hex6 ? ' style="background-color:' + a.color + (glyph ? '' : '2e') + '"' : '';
+  if (a.icon) return '<div class="pl' + (glyph ? ' deep' : '') + '"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt=""' + (big ? '' : ' loading="lazy"') + '></div>';
   return '<div class="pl letter"' + bg + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
 }
 
@@ -402,7 +409,7 @@ function render() {
             note + '<div class="grid">' + tiles.join('') + '</div>';
   });
   chipBar.push('<span class="spacer"></span>');
-  chipBar.push('<span class="count">' + shown + ' / ' + total + '</span>');
+  chipBar.push('<span class="count" dir="ltr">' + shown + ' / ' + total + '</span>');
   chipBar.push('<span class="count">מתאים ל:</span>');
   chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
   document.getElementById('chips').innerHTML = chipBar.join('');
@@ -425,6 +432,13 @@ document.addEventListener('click', e => {
   if (e.target.closest('.pick')) { toggle(t.dataset.en); return; }
   openSheet(t.dataset.en);
 });
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const t = e.target.closest && e.target.closest('.t');
+  if (!t) return;
+  e.preventDefault();
+  openSheet(t.dataset.en);
+});
 
 function download(exe) {
   // w32 and custom entries point straight at the vendor's own file
@@ -437,54 +451,59 @@ function download(exe) {
 
 /* the one-click silent installer script for a picked set of w32 apps */
 function silentCmd(list) {
-  // no delayed expansion on purpose: switches like VS Code's /MERGETASKS=!runcode
-  // must reach the installer with the "!" intact
-  const L = ['@echo off', 'cd /d "%~dp0"', 'title Silent install',
+  // Two cmd.exe traps shape this generator: "=" is an argument DELIMITER in `call`
+  // (so switches like InstallAllUsers=1 must never travel as call arguments), and
+  // delayed expansion would eat the "!" in /MERGETASKS=!runcode. So every app gets
+  // its own tiny subroutine with the switches inlined as literals.
+  const L = ['@echo off', 'title Silent install',
+    'rem elevate once - most of these installers are machine-wide',
+    'net session >nul 2>&1 || (',
+    '  echo Requesting administrator rights...',
+    '  powershell -nop -c "Start-Process -FilePath \'%~f0\' -Verb RunAs"',
+    '  exit /b',
+    ')',
+    'pushd "%~dp0"',
     'echo ============================================',
     'echo  Silent install of ' + list.length + ' packages.',
     'echo  Keep this file in the folder with the installers.',
     'echo ============================================'];
   list.forEach((a, i) => {
-    const tag = '[' + (i + 1) + '/' + list.length + '] ' + a.en;
-    if (a.silent === 'SPECIAL_DIRECTX') L.push('call :instdx "' + a.match + '" "' + tag + '"');
-    else if (a.silent.indexOf('MSI:') === 0) L.push('call :instmsi "' + a.match + '" "' + tag + '" ' + a.silent.slice(4));
-    else L.push('call :inst "' + a.match + '" "' + tag + '" ' + a.silent);
+    L.push('call :find "' + a.match + '" "' + a.en + '"');
+    L.push('if defined F call :i' + (i + 1));
   });
   L.push('echo ============================================');
   L.push('echo  Finished. Exit code 3010 means a restart is needed.');
+  L.push('popd');
   L.push('pause');
   L.push('exit /b');
   L.push('');
   L.push(':find');
   L.push('set "F="');
-  L.push('for %%f in ("%~1") do if exist "%%~f" set "F=%%~f"');
+  L.push('set /a FN=0');
+  L.push('for /f "delims=" %%f in (\'dir /b /o:d "%~1" 2^>nul\') do (set "F=%%~f"& set /a FN+=1)');
   L.push('if not defined F echo SKIP  %~2 - installer file not found');
+  L.push('if %FN% GTR 1 echo NOTE  %~2 - several files match, using newest: %F%');
   L.push('exit /b');
-  L.push('');
-  L.push(':inst');
-  L.push('call :find "%~1" "%~2"');
-  L.push('if not defined F exit /b');
-  L.push('echo %~2 ...');
-  L.push('start /wait "" "%F%" %3 %4 %5 %6 %7 %8 %9');
-  L.push('echo       done - exit code %errorlevel%');
-  L.push('exit /b');
-  L.push('');
-  L.push(':instmsi');
-  L.push('call :find "%~1" "%~2"');
-  L.push('if not defined F exit /b');
-  L.push('echo %~2 ...');
-  L.push('start /wait "" msiexec /i "%F%" %3 %4 %5 %6 %7 %8 %9');
-  L.push('echo       done - exit code %errorlevel%');
-  L.push('exit /b');
-  L.push('');
-  L.push(':instdx');
-  L.push('call :find "%~1" "%~2"');
-  L.push('if not defined F exit /b');
-  L.push('echo %~2 ...');
-  L.push('start /wait "" "%F%" /Q /T:"%TEMP%\\dxredist"');
-  L.push('start /wait "" "%TEMP%\\dxredist\\DXSETUP.exe" /silent');
-  L.push('echo       done - exit code %errorlevel%');
-  L.push('exit /b');
+  list.forEach((a, i) => {
+    const n = '[' + (i + 1) + '/' + list.length + '] ' + a.en;
+    L.push('');
+    L.push(':i' + (i + 1));
+    L.push('echo ' + n + ' ...');
+    if (a.silent === 'SPECIAL_DIRECTX') {
+      L.push('start /wait "" "%F%" /Q /T:"%TEMP%\\dxredist"');
+      L.push('if not exist "%TEMP%\\dxredist\\DXSETUP.exe" (echo       FAILED - could not extract DirectX & exit /b 1)');
+      L.push('start /wait "" "%TEMP%\\dxredist\\DXSETUP.exe" /silent');
+      L.push('echo       done - exit code %errorlevel%');
+      L.push('rd /s /q "%TEMP%\\dxredist" 2>nul');
+    } else if (a.silent.indexOf('MSI:') === 0) {
+      L.push('start /wait "" msiexec /i "%F%" ' + a.silent.slice(4));
+      L.push('echo       done - exit code %errorlevel%');
+    } else {
+      L.push('start /wait "" "%F%" ' + a.silent);
+      L.push('echo       done - exit code %errorlevel%');
+    }
+    L.push('exit /b');
+  });
   return L.join('\r\n');
 }
 function downloadCmd(list) {
@@ -507,10 +526,17 @@ function updateDock() {
   const dock = document.getElementById('dock');
   const n = SELECTED.size;
   if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
-  let mb = 0, w32s = 0;
-  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) { mb += mbOf(a); if (a.w32 && a.silent) w32s++; } });
-  document.getElementById('selsum').innerHTML = '<b>' + n + ' נבחרו</b> <span>· ' + mbFmt(mb) +
-    (w32s >= 1 ? ' · עם קובץ התקנה שקטה' : '') + '</span>';
+  // count only what the button will actually download - the honest number
+  let mb = 0, w32s = 0, ready = 0, waiting = 0;
+  DATA.apps.forEach(a => {
+    if (!SELECTED.has(a.en)) return;
+    const f = bestFile(a);
+    if (f && isLive(a, f)) { ready++; mb += f.mb; if (a.w32 && a.silent) w32s++; }
+    else waiting++;
+  });
+  document.getElementById('selsum').innerHTML = '<b>' + ready + ' נבחרו</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
+    (w32s >= 1 ? ' · עם קובץ התקנה שקטה' : '') +
+    (waiting > 0 ? ' · ' + waiting + ' לא זמינות כרגע' : '') + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
@@ -526,7 +552,7 @@ document.getElementById('dock-target').addEventListener('click', e => {
   const b = e.target.closest('[data-target]');
   if (!b) return;
   TARGET = b.dataset.target;
-  updateDock();
+  render();   // tile sizes depend on TARGET too - keep both displays in agreement
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
@@ -576,16 +602,23 @@ function openSheet(en) {
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
     '<button class="btn lite" id="sc">סגירה</button></div></div>';
   document.body.appendChild(ov);
-  ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
-  ov.querySelector('#sc').onclick = () => ov.remove();
-  ov.querySelector('#sp').onclick = () => { toggle(en); ov.remove(); };
+  document.body.style.overflow = 'hidden';   // the page must not scroll behind the sheet
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; };
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  ov.querySelector('#sc').onclick = shut;
+  ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
   const ssc = ov.querySelector('#ssc');
   if (ssc) ssc.onclick = () => downloadCmd([a]);
 }
 
 /* ===== theme, search ===== */
 const themeBtn = document.getElementById('theme-btn');
-const themeLabel = () => themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀';
+const themeLabel = () => {
+  const light = document.documentElement.classList.contains('light');
+  themeBtn.textContent = light ? '🌙' : '☀';
+  const m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.content = light ? '#eef1f6' : '#0f1420';
+};
 themeBtn.onclick = () => {
   const light = document.documentElement.classList.toggle('light');
   try { localStorage.theme = light ? 'light' : 'dark'; } catch (e) {}
@@ -604,7 +637,10 @@ function isoButtons() {
 }
 
 /* ===== boot: paint as soon as the slim catalog is here; buttons light up after ===== */
-fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => {
+fetch('site-catalog.json', { cache: 'no-cache' }).then(r => {
+  if (!r.ok) throw new Error('catalog HTTP ' + r.status);
+  return r.json();
+}).then(d => {
   DATA = d;
   document.getElementById('cats').classList.remove('sk');
   document.getElementById('updated').textContent = 'הקטלוג עודכן ' + d.updated;
@@ -620,6 +656,12 @@ fetch('site-catalog.json', { cache: 'no-cache' }).then(r => r.json()).then(d => 
   (pub || []).forEach(n => LIVE[n] = true);
   isoButtons();
   render();
+}).catch(() => {
+  // never strand the visitor on an eternal skeleton
+  const box = document.getElementById('cats');
+  box.classList.remove('sk');
+  box.innerHTML = '<div class="empty">הקטלוג לא הצליח להיטען. כדאי לבדוק את החיבור ולנסות שוב.<br><br>' +
+    '<button class="btn" onclick="location.reload()">טעינה מחדש</button></div>';
 });
 </script>
 </body>
