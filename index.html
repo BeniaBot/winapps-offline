@@ -166,6 +166,23 @@
   .chip.catall { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent);
                  background: color-mix(in srgb, var(--accent) 10%, transparent); font-weight: 600; }
   .chip.catall:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+  .chip.catpick { font-size: .8rem; padding: 4px 12px; }
+
+  /* gentle entrance - once, and never for people who asked for less motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .grid .t { animation: rise .35s ease-out backwards; }
+    .grid .t:nth-child(-n+9) { animation-delay: calc(var(--i, 0) * 0s); }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  }
+
+  /* back to top */
+  .top-btn { position: fixed; bottom: 20px; inset-inline-start: 20px; z-index: 45;
+             width: 44px; height: 44px; border-radius: 99px; border: 1px solid var(--stroke);
+             background: var(--panel); color: var(--ink); font-size: 1.1rem; cursor: pointer;
+             box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .top-btn.show { opacity: 1; pointer-events: auto; }
+  .top-btn:hover { border-color: var(--accent); color: var(--accent); }
+  body.has-sel .top-btn { bottom: 100px; }
   .groupnote { color: var(--muted); font-size: .86rem; margin-bottom: 10px; max-width: 70ch; }
 
   /* the seam between the Microsoft store and everything else */
@@ -356,6 +373,8 @@
   </div>
 </footer>
 
+<button class="top-btn" id="top-btn" title="חזרה למעלה">↑</button>
+
 <div class="dock" id="dock">
   <div class="inner">
     <div class="sum" id="selsum"></div>
@@ -457,7 +476,8 @@ function render() {
     const catAll = cat === 'רכיבי מערכת'
       ? '<button class="chip catall" data-catall="' + cat + '">⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה</button>'
       : '';
-    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + '</div>' +
+    const catPick = '<button class="chip catpick" data-catpick="' + cat + '">לסמן הכל</button>';
+    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + catPick + '</div>' +
             note + '<div class="grid">' + tiles.join('') + '</div>';
   });
   chipBar.push('<span class="spacer"></span>');
@@ -471,7 +491,23 @@ function render() {
 const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + '" data-win="' + v + '">' + t + '</button>';
 
 /* ===== interactions ===== */
+function membersOf(cat) {
+  return DATA.apps.filter(a =>
+    cat === 'בפיתוח שלי' ? a.custom :
+    W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
+    (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat));
+}
+
 document.addEventListener('click', e => {
+  const pick = e.target.closest('[data-catpick]');
+  if (pick) {
+    // toggle: if the whole section is already selected, a second click clears it
+    const members = membersOf(pick.dataset.catpick).filter(a => bestFile(a));
+    const allOn = members.every(a => SELECTED.has(a.en));
+    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.add(a.en); });
+    render();
+    return;
+  }
   const all = e.target.closest('[data-catall]');
   if (all) {
     if (all.disabled) return;
@@ -497,12 +533,21 @@ document.addEventListener('click', e => {
   openSheet(t.dataset.en);
 });
 document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const ov = document.querySelector('.overlay');
+    if (ov) { ov.remove(); document.body.style.overflow = ''; }
+    return;
+  }
   if (e.key !== 'Enter' && e.key !== ' ') return;
   const t = e.target.closest && e.target.closest('.t');
   if (!t || e.target !== t) return;   // buttons inside the tile keep their native Enter
   e.preventDefault();
   openSheet(t.dataset.en);
 });
+
+const topBtn = document.getElementById('top-btn');
+topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+addEventListener('scroll', () => topBtn.classList.toggle('show', scrollY > 900), { passive: true });
 
 function download(exe) {
   // w32 and custom entries point straight at the vendor's own file
@@ -662,6 +707,8 @@ function openSheet(en) {
   }).join('');
   if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + a.alt.label + '</a>';
   if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc">קובץ התקנה שקטה</button>';
+  const shareUrl = a.url || (files[0] && isLive(a, files[0]) ? REL + encodeURIComponent(files[0].exe) : '');
+  if (shareUrl) btns += '<button class="btn lite" id="scp" data-url="' + esc(shareUrl) + '">העתקת קישור ישיר</button>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
@@ -683,6 +730,12 @@ function openSheet(en) {
   ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
   const ssc = ov.querySelector('#ssc');
   if (ssc) ssc.onclick = () => downloadCmd([a]);
+  const scp = ov.querySelector('#scp');
+  if (scp) scp.onclick = () => {
+    navigator.clipboard.writeText(scp.dataset.url)
+      .then(() => { scp.textContent = '✓ הקישור הועתק'; })
+      .catch(() => { prompt('הקישור:', scp.dataset.url); });
+  };
 }
 
 /* ===== theme, search ===== */
@@ -706,7 +759,7 @@ function isoButtons() {
   const b = [];
   if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Win 11 · 647MB</a>');
   if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Win 10 · 675MB</a>');
-  b.push('<button class="btn lite" disabled>המלאה — בהכנה</button>');
+  b.push('<button class="btn lite" disabled title="מוכנה, מחפשת בית — גדולה מדי ל-GitHub">המלאה · 17GB · 82 מתקינים — בקרוב</button>');
   document.getElementById('iso-btns').innerHTML = b.join('');
 }
 
