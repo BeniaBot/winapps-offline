@@ -50,6 +50,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Notepad.png",
                      "color":  "#0078D4",
                      "desc":  "עורך טקסט פשוט",
@@ -149,6 +150,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Calculator.png",
                      "color":  "#0078D4",
                      "desc":  "מחשבון רגיל, מדעי והמרות יחידות",
@@ -203,6 +205,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Paint.png",
                      "color":  "#0078D4",
                      "desc":  "עורך תמונות בסיסי",
@@ -308,6 +311,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/SnippingTool.png",
                      "color":  "#0078D4",
                      "desc":  "צילום מסך וחיתוך",
@@ -362,6 +366,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Photos.png",
                      "color":  "#173A73",
                      "desc":  "צפייה בתמונות ועריכה קלה",
@@ -477,6 +482,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/SoundRecorder.png",
                      "color":  "#0078D4",
                      "desc":  "הקלטת קול",
@@ -561,6 +567,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Camera.png",
                      "color":  "#0078D4",
                      "desc":  "צילום ממצלמת המחשב",
@@ -675,6 +682,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Clock.png",
                      "color":  "#0078D4",
                      "desc":  "שעון, טיימר, סטופר והתראות",
@@ -744,6 +752,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/StickyNotes.png",
                      "color":  "#414141",
                      "desc":  "פתקים על שולחן העבודה",
@@ -783,6 +792,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Terminal.png",
                      "desc":  "מסוף מודרני לשורת הפקודה",
                      "cat":  "כלי טכנאי"
@@ -826,6 +836,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/MediaPlayer.png",
                      "color":  "#0078D4",
                      "desc":  "נגינת מוזיקה ווידאו",
@@ -880,6 +891,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/MoviesTV.png",
                      "color":  "#0078D4",
                      "desc":  "נגן וידאו",
@@ -924,6 +936,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Paint3D.png",
                      "color":  "#0078D4",
                      "desc":  "עריכה תלת-ממדית (המוצר הופסק אך עובד)",
@@ -1023,6 +1036,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/3DViewer.png",
                      "desc":  "צפייה במודלים תלת-ממדיים",
                      "cat":  "יצירה ועבודה"
@@ -1121,6 +1135,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Solitaire.png",
                      "color":  "#0078D4",
                      "desc":  "חבילת משחקי הקלפים של מיקרוסופט",
@@ -1190,6 +1205,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/XboxGameBar.png",
                      "desc":  "הקלטת מסך וסרגל משחקים (Win+G)",
                      "cat":  "משחקים"
@@ -1356,6 +1372,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/ToDo.png",
                      "color":  "#404040",
                      "desc":  "רשימות משימות",
@@ -1425,6 +1442,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/People.png",
                      "color":  "#0078D4",
                      "desc":  "ספר כתובות",
@@ -1459,6 +1477,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/OneNote.png",
                      "color":  "#404040",
                      "desc":  "מחברות ורשימות",
@@ -1513,6 +1532,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/HEIFExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות HEIC של אייפון",
@@ -1538,6 +1558,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/WebpExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות WebP",
@@ -1589,6 +1610,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/RawExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח קבצי RAW ממצלמות",
@@ -1614,6 +1636,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/VP9Extension.png",
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו VP9",
@@ -1676,6 +1699,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/HEVCExtension.png",
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו HEVC / H.265",
@@ -1745,6 +1769,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/AppInstaller.png",
                      "color":  "#0078d7",
                      "desc":  "מתקין חבילות ושורת הפקודה winget",
@@ -1808,6 +1833,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/TerminalPreview.png",
                      "desc":  "גרסת התצוגה המקדימה של Terminal",
                      "cat":  "כלי טכנאי"
@@ -1925,6 +1951,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/WSA.png",
                      "desc":  "תת-מערכת אנדרואיד (הופסקה)",
                      "cat":  "כלי טכנאי"
@@ -2037,6 +2064,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Print3D.png",
                      "desc":  "הדפסה תלת-ממדית",
                      "cat":  "יצירה ועבודה"
@@ -2090,6 +2118,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Builder3D.png",
                      "desc":  "בניית מודלים תלת-ממדיים",
                      "cat":  "יצירה ועבודה"
@@ -2501,6 +2530,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/XboxIdentity.png",
                      "color":  "#1a1a1a",
                      "desc":  "כניסה לחשבון Xbox — משחקים נשברים בלעדיו",
@@ -2589,6 +2619,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/XboxTCUI.png",
                      "color":  "#464646",
                      "desc":  "רכיב ממשק של Xbox",
@@ -2790,6 +2821,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Maps.png",
                      "color":  "#0078D4",
                      "desc":  "מפות וניווט",
@@ -2889,6 +2921,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Weather.png",
                      "color":  "#0078D4",
                      "desc":  "תחזית מזג אוויר",
@@ -2988,6 +3021,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/News.png",
                      "color":  "#262F38",
                      "desc":  "חדשות",
@@ -3083,6 +3117,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/GetHelp.png",
                      "color":  "#0078D4",
                      "desc":  "התמיכה של מיקרוסופט",
@@ -3182,6 +3217,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/FeedbackHub.png",
                      "color":  "#0078D4",
                      "desc":  "שליחת משוב למיקרוסופט",
@@ -3236,6 +3272,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Mail.png",
                      "color":  "#0078D7",
                      "desc":  "דואר ולוח שנה (הדור הקודם)",
@@ -3261,6 +3298,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/OfficeHub.png",
                      "color":  "#FFFFFF",
                      "desc":  "מסך הבית של Microsoft 365",
@@ -3315,6 +3353,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Clipchamp.png",
                      "color":  "white",
                      "desc":  "עריכת וידאו",
@@ -3354,6 +3393,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/QuickAssist.png",
                      "color":  "#FFFFFF",
                      "desc":  "שליטה מרחוק לקבלת עזרה",
@@ -3449,6 +3489,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/PhoneLink.png",
                      "color":  "#0078D7",
                      "desc":  "חיבור הטלפון למחשב",
@@ -3513,6 +3554,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/XboxApp.png",
                      "color":  "#107C10",
                      "desc":  "משחקי Xbox ו-Game Pass",
@@ -3567,6 +3609,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Store.png",
                      "desc":  "חנות האפליקציות עצמה",
                      "cat":  "חשבון ומערכת"
@@ -3620,6 +3663,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Copilot.png",
                      "desc":  "העוזר החכם של מיקרוסופט",
                      "cat":  "חשבון ומערכת"
@@ -3673,6 +3717,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Family.png",
                      "desc":  "בקרת הורים",
                      "cat":  "תקשורת"
@@ -3706,6 +3751,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/BingSearch.png",
                      "desc":  "חיפוש Bing בשורת המשימות",
                      "cat":  "חשבון ומערכת"
@@ -3759,6 +3805,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Widgets.png",
                      "desc":  "לוח הווידג\u0027טים",
                      "note":  "רכיב של Windows 11 בלבד",
@@ -3901,6 +3948,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Sway.png",
                      "color":  "#404040",
                      "desc":  "מצגות ודפי סיפור",
@@ -4019,6 +4067,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/StorePurchase.png",
                      "desc":  "רכישות מחנות Microsoft",
                      "cat":  "חשבון ומערכת"
@@ -4103,6 +4152,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/CrossDevice.png",
                      "desc":  "חיבור בין מכשירים",
                      "cat":  "תקשורת"
@@ -4287,6 +4337,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/Messaging.png",
                      "desc":  "הודעות",
                      "cat":  "תקשורת"
@@ -4378,6 +4429,7 @@
                                        "live":  false
                                    }
                                ],
+                     "heb":  true,
                      "icon":  "icons/GamingServices.png",
                      "color":  "#464646",
                      "desc":  "שירותי המשחקים של Xbox",
@@ -5063,6 +5115,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/chrome.svg",
+                     "heb":  true,
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5085,6 +5138,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/firefox.svg",
+                     "heb":  true,
                      "silent":  "/S",
                      "alt":  {
                                  "label":  "English",
@@ -5111,6 +5165,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/edge.svg",
+                     "heb":  true,
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5133,6 +5188,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/sevenzip.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
@@ -5177,6 +5233,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/sumatra.svg",
+                     "heb":  true,
                      "silent":  "-s"
                  },
                  {
@@ -5199,6 +5256,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/vlc.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
@@ -5287,6 +5345,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/npp.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
@@ -5374,6 +5433,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/gimp.svg",
+                     "heb":  true,
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5396,6 +5456,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/audacity.svg",
+                     "heb":  true,
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5527,6 +5588,7 @@
                                    }
                                ],
                      "icon":  "icons/w32/thunderbird.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {

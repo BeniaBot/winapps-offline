@@ -246,6 +246,12 @@
     .pick { display: flex; }
   }
   .get.soon { background: var(--tile); color: var(--muted); font-weight: 500; cursor: default; border: 1px solid var(--stroke); }
+  /* an app that speaks Hebrew says so, quietly, on the plate corner */
+  .heb { position: absolute; top: 12px; inset-inline-end: 14px; z-index: 2;
+         font-size: .62rem; font-weight: 800; letter-spacing: .02em;
+         color: var(--ok); background: color-mix(in srgb, var(--ok) 16%, transparent);
+         border: 1px solid color-mix(in srgb, var(--ok) 35%, transparent);
+         border-radius: 99px; padding: 1px 7px; pointer-events: none; }
   .pick { position: absolute; top: 10px; inset-inline-start: 12px; z-index: 2;
           width: 21px; height: 21px; border-radius: 99px;
           border: 1.5px solid var(--muted); background: transparent;
@@ -398,7 +404,7 @@ const CAT_NOTE = {
   'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
-let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
+let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
 let TARGET = '11';
 const SELECTED = new Set();
 
@@ -416,6 +422,7 @@ const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) 
 
 /* ===== tiles ===== */
 function tile(a) {
+  if (HEBONLY && !a.heb) return '';
   if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
@@ -427,7 +434,8 @@ function tile(a) {
                     : '<span class="get soon">בהעלאה...</span>');
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
-    '<span class="pick" title="לבחירה מרובה">✓</span>' + pl +
+    '<span class="pick" title="לבחירה מרובה">✓</span>' +
+    (a.heb ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') + pl +
     '<div class="nm" dir="auto">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
@@ -483,6 +491,7 @@ function render() {
   });
   chipBar.push('<span class="spacer"></span>');
   chipBar.push('<span class="count" dir="ltr">' + shown + ' / ' + total + '</span>');
+  chipBar.push('<button class="chip' + (HEBONLY ? ' on' : '') + '" data-heb="1" title="רק אפליקציות עם ממשק בעברית">עברית</button>');
   chipBar.push('<span class="count">מתאים ל:</span>');
   chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
   document.getElementById('chips').innerHTML = chipBar.join('');
@@ -521,6 +530,7 @@ document.addEventListener('click', e => {
     return;
   }
   const chip = e.target.closest('.chip');
+  if (chip && chip.dataset.heb !== undefined) { HEBONLY = !HEBONLY; render(); return; }
   if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
   if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
   const dl = e.target.closest('[data-dl]');
@@ -673,6 +683,8 @@ function openSheet(en) {
     (a.note ? '<div class="warn">' + a.note + '</div>' : '') +
     '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
+    '<div class="net" style="color:' + (a.heb ? 'var(--ok)' : 'var(--muted)') + '">' +
+      (a.heb ? '✓ ממשק בעברית — נפתחת בעברית במחשב עברי' : 'ממשק באנגלית בלבד') + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
