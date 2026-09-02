@@ -80,6 +80,7 @@
     "Setup-XboxIdentity.exe",
     "Setup-XboxSpeech.exe",
     "Setup-XboxTCUI.exe",
+    "SilentInstall.exe",
     "VC2005-x64.exe",
     "VC2005-x86.exe",
     "VC2008-x64.exe",

@@ -393,8 +393,8 @@ const W32_CATS = ['רכיבי מערכת', 'תוכנות נפוצות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
-  'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף קובץ שמתקין את כולם בשקט, בלחיצה אחת.',
-  'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף קובץ התקנה-שקטה שמריץ את כולן ברצף.',
+  'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף SilentInstall.exe — מריצים אותו ליד הקבצים והכל מותקן בשקט.',
+  'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'לא של מיקרוסופט — נאסף או פותח כאן. [ערכו אותי]'
 };
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {};
@@ -515,9 +515,8 @@ document.addEventListener('click', e => {
     // the whole section in one click: every file, then the script that installs them silently
     const members = DATA.apps.filter(x => x.w32 && x.cat === all.dataset.catall);
     members.forEach((x, i) => setTimeout(() => download(x.files[0].exe), i * 700));
-    const silent = members.filter(x => x.silent);
-    if (silent.length) setTimeout(() => downloadCmd(silent), members.length * 700 + 500);
-    all.textContent = '⬇ ' + members.length + ' קבצים בהורדה + התקנה-שקטה.cmd — לשים הכל בתיקייה אחת ולהריץ את הסקריפט';
+    if (members.some(x => x.silent)) setTimeout(downloadRunner, members.length * 700 + 500);
+    all.textContent = '⬇ ' + members.length + ' קבצים בהורדה + SilentInstall.exe — לשים הכל בתיקייה אחת ולהריץ אותו';
     return;
   }
   const chip = e.target.closest('.chip');
@@ -559,78 +558,6 @@ function download(exe) {
 }
 
 /* the one-click silent installer script for a picked set of w32 apps */
-function silentCmd(list) {
-  // Two cmd.exe traps shape this generator: "=" is an argument DELIMITER in `call`
-  // (so switches like InstallAllUsers=1 must never travel as call arguments), and
-  // delayed expansion would eat the "!" in /MERGETASKS=!runcode. So every app gets
-  // its own tiny subroutine with the switches inlined as literals.
-  const L = ['@echo off', 'title Silent install',
-    'rem elevate once - most of these installers are machine-wide',
-    'net session >nul 2>&1 || (',
-    '  echo Requesting administrator rights...',
-    '  powershell -nop -c "Start-Process -FilePath \'%~f0\' -Verb RunAs"',
-    '  exit /b',
-    ')',
-    'pushd "%~dp0"',
-    'rem the support log lives NEXT TO the script: under UAC the elevated process may be',
-    'rem a different account, whose %LOCALAPPDATA% the real user would never find',
-    'set "WAOLOG=%~dp0install-log.txt"',
-    'echo %date% %time%  cmd  silent batch of ' + list.length + ' packages >> "%WAOLOG%"',
-    'echo ============================================',
-    'echo  Silent install of ' + list.length + ' packages.',
-    'echo  Keep this file in the folder with the installers.',
-    'echo ============================================'];
-  list.forEach((a, i) => {
-    L.push('call :find "' + a.match + '" "' + a.en + '"');
-    L.push('if defined F call :i' + (i + 1));
-  });
-  L.push('echo ============================================');
-  L.push('echo  Finished. Exit code 3010 means a restart is needed.');
-  L.push('popd');
-  L.push('pause');
-  L.push('exit /b');
-  L.push('');
-  L.push(':find');
-  L.push('set "F="');
-  L.push('set /a FN=0');
-  L.push('for /f "delims=" %%f in (\'dir /b /o:d "%~1" 2^>nul\') do (set "F=%%~f"& set /a FN+=1)');
-  L.push('if not defined F echo SKIP  %~2 - installer file not found');
-  L.push('if %FN% GTR 1 echo NOTE  %~2 - several files match, using newest: %F%');
-  L.push('exit /b');
-  list.forEach((a, i) => {
-    const n = '[' + (i + 1) + '/' + list.length + '] ' + a.en;
-    L.push('');
-    L.push(':i' + (i + 1));
-    L.push('echo ' + n + ' ...');
-    if (a.silent === 'SPECIAL_DIRECTX') {
-      L.push('start /wait "" "%F%" /Q /T:"%TEMP%\\dxredist"');
-      L.push('if not exist "%TEMP%\\dxredist\\DXSETUP.exe" (echo       FAILED - could not extract DirectX & exit /b 1)');
-      L.push('start /wait "" "%TEMP%\\dxredist\\DXSETUP.exe" /silent');
-      L.push('echo       done - exit code %errorlevel%');
-      L.push('echo %date% %time%  cmd  DirectX exit %errorlevel% >> "%WAOLOG%"');
-      L.push('rd /s /q "%TEMP%\\dxredist" 2>nul');
-    } else if (a.silent.indexOf('MSI:') === 0) {
-      L.push('start /wait "" msiexec /i "%F%" ' + a.silent.slice(4));
-      L.push('echo       done - exit code %errorlevel%');
-      L.push('echo %date% %time%  cmd  ' + a.en + ' exit %errorlevel% >> "%WAOLOG%"');
-    } else {
-      L.push('start /wait "" "%F%" ' + a.silent);
-      L.push('echo       done - exit code %errorlevel%');
-      L.push('echo %date% %time%  cmd  ' + a.en + ' exit %errorlevel% >> "%WAOLOG%"');
-    }
-    L.push('exit /b');
-  });
-  return L.join('\r\n');
-}
-function downloadCmd(list) {
-  const blob = new Blob([silentCmd(list)], { type: 'application/octet-stream' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'התקנה-שקטה.cmd';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-}
-
 function toggle(en) {
   if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
   document.querySelectorAll('.t[data-en="' + en.replace(/"/g, '\\"') + '"]')
@@ -653,7 +580,7 @@ function updateDock() {
     else uploading++;
   });
   document.getElementById('selsum').innerHTML = '<b>' + ready + ' נבחרו</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
-    (w32s >= 1 ? ' · עם קובץ התקנה שקטה' : '') +
+    (w32s >= 1 ? ' · עם מתקין שקט' : '') +
     (uploading > 0 ? ' · ' + uploading + ' עדיין בהעלאה' : '') +
     (filtered > 0 ? ' · ' + filtered + ' מוסתרות בסינון שבחרת' : '') + '</span>';
   let dual = 0;
@@ -683,9 +610,13 @@ document.getElementById('selgo').onclick = () => {
     if (a.w32 && a.silent) w32Silent.push(a);
   });
   files.forEach((exe, i) => setTimeout(() => download(exe), i * 600));
-  // silent install is the recommended default: any silent-capable pick bundles the script
-  if (w32Silent.length >= 1) setTimeout(() => downloadCmd(w32Silent), files.length * 600 + 400);
+  // silent install is the recommended default: any silent-capable pick bundles the runner
+  if (w32Silent.length >= 1) setTimeout(downloadRunner, files.length * 600 + 400);
 };
+
+/* the compiled silent installer: drop it in the folder with the downloads and run it -
+   it recognises every file from this store and installs them all, silently, in order */
+function downloadRunner() { download('SilentInstall.exe'); }
 
 /* ===== sheet ===== */
 function openSheet(en) {
@@ -706,7 +637,7 @@ function openSheet(en) {
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
   if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + a.alt.label + '</a>';
-  if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc">קובץ התקנה שקטה</button>';
+  if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc" title="שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט">המתקין השקט (EXE)</button>';
   const shareUrl = a.url || (files[0] && isLive(a, files[0]) ? REL + encodeURIComponent(files[0].exe) : '');
   if (shareUrl) btns += '<button class="btn lite" id="scp" data-url="' + esc(shareUrl) + '">העתקת קישור ישיר</button>';
   const on = SELECTED.has(en);
@@ -729,7 +660,7 @@ function openSheet(en) {
   ov.querySelector('#sc').onclick = shut;
   ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
   const ssc = ov.querySelector('#ssc');
-  if (ssc) ssc.onclick = () => downloadCmd([a]);
+  if (ssc) ssc.onclick = downloadRunner;
   const scp = ov.querySelector('#scp');
   if (scp) scp.onclick = () => {
     navigator.clipboard.writeText(scp.dataset.url)
