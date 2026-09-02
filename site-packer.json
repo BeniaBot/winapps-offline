@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-01",
+    "updated":  "2026-09-02",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -4895,7 +4895,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "רכיבי מערכת",
-                     "desc":  "לתוכנות ותיקות מאוד. ב-Windows 10/11 לרוב עדיף להפעיל דרך \u0027תכונות Windows\u0027",
+                     "desc":  "לתוכנות ותיקות מאוד. שימו לב: ב-Windows 10/11 ההתקנה עלולה לדרוש רשת — עדיף דרך תכונות Windows",
                      "color":  "#512bd4",
                      "url":  "https://download.microsoft.com/download/2/0/E/20E90413-712F-438C-988E-FDAA79A8AC3D/dotnetfx35.exe",
                      "match":  "dotnetfx35.exe",
@@ -5506,6 +5506,116 @@
                                ],
                      "icon":  "icons/w32/revo.svg",
                      "silent":  "/VERYSILENT /NORESTART"
+                 },
+                 {
+                     "he":  "Thunderbird",
+                     "en":  "Thunderbird",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "תוכנת דואר מלאה בעברית — קוראים וכותבים גם בלי חיבור קבוע",
+                     "color":  "#0f6191",
+                     "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=he",
+                     "match":  "Thunderbird Setup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "Thunderbird Setup*.exe",
+                                       "mb":  80,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/thunderbird.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "OBS Studio",
+                     "en":  "OBS",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "הקלטת מסך ושידור — הסטנדרט החינמי",
+                     "color":  "#1f1f23",
+                     "url":  "https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-Studio-32.2.2-Windows-x64-Installer.exe",
+                     "match":  "OBS-Studio-*-Installer.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "OBS-Studio-*-Installer.exe",
+                                       "mb":  155,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/obsstudio.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "KeePassXC",
+                     "en":  "KeePassXC",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "מנהל סיסמאות שהכול נשמר אצלך במחשב — בלי ענן",
+                     "color":  "#6cac4d",
+                     "url":  "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.msi",
+                     "match":  "KeePassXC-*-Win64.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "KeePassXC-*-Win64.msi",
+                                       "mb":  40,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/keepassxc.svg",
+                     "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "VeraCrypt",
+                     "en":  "VeraCrypt",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "הצפנת כוננים ותיקיות",
+                     "color":  "#3a5e8c",
+                     "url":  "https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.29/VeraCrypt.Setup.1.26.29.exe",
+                     "match":  "VeraCrypt*Setup*.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "VeraCrypt*Setup*.exe",
+                                       "mb":  40,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/veracrypt.svg",
+                     "silent":  "/S"
+                 },
+                 {
+                     "he":  "WinDirStat",
+                     "en":  "WinDirStat",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "מה תופס את המקום בדיסק — מפה חזותית של כל הקבצים",
+                     "color":  "#2e6da4",
+                     "url":  "https://github.com/windirstat/windirstat/releases/download/release/v2.8.0/WinDirStat-x64.msi",
+                     "match":  "WinDirStat-x64.msi",
+                     "files":  [
+                                   {
+                                       "exe":  "WinDirStat-x64.msi",
+                                       "mb":  4,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "icon":  "icons/w32/windirstat.svg",
+                     "silent":  "MSI:/qn /norestart"
                  },
                  {
                      "he":  "Csharf",

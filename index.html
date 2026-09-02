@@ -474,6 +474,11 @@ function silentCmd(list) {
     '  exit /b',
     ')',
     'pushd "%~dp0"',
+    'rem every line also lands in the support log the site owner can ask for',
+    'set "WAOLOG=%LOCALAPPDATA%\\WinAppsOffline"',
+    'if not exist "%WAOLOG%" md "%WAOLOG%"',
+    'set "WAOLOG=%WAOLOG%\\install.log"',
+    'echo %date% %time%  cmd  silent batch of ' + list.length + ' packages >> "%WAOLOG%"',
     'echo ============================================',
     'echo  Silent install of ' + list.length + ' packages.',
     'echo  Keep this file in the folder with the installers.',
@@ -505,13 +510,16 @@ function silentCmd(list) {
       L.push('if not exist "%TEMP%\\dxredist\\DXSETUP.exe" (echo       FAILED - could not extract DirectX & exit /b 1)');
       L.push('start /wait "" "%TEMP%\\dxredist\\DXSETUP.exe" /silent');
       L.push('echo       done - exit code %errorlevel%');
+      L.push('echo %date% %time%  cmd  DirectX exit %errorlevel% >> "%WAOLOG%"');
       L.push('rd /s /q "%TEMP%\\dxredist" 2>nul');
     } else if (a.silent.indexOf('MSI:') === 0) {
       L.push('start /wait "" msiexec /i "%F%" ' + a.silent.slice(4));
       L.push('echo       done - exit code %errorlevel%');
+      L.push('echo %date% %time%  cmd  ' + a.en + ' exit %errorlevel% >> "%WAOLOG%"');
     } else {
       L.push('start /wait "" "%F%" ' + a.silent);
       L.push('echo       done - exit code %errorlevel%');
+      L.push('echo %date% %time%  cmd  ' + a.en + ' exit %errorlevel% >> "%WAOLOG%"');
     }
     L.push('exit /b');
   });

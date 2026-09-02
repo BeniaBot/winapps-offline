@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-01",
+    "updated":  "2026-09-02",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -1866,7 +1866,7 @@
                      "silent":  "/q /norestart",
                      "icon":  "icons/w32/dotnet.svg",
                      "color":  "#512bd4",
-                     "desc":  "לתוכנות ותיקות מאוד. ב-Windows 10/11 לרוב עדיף להפעיל דרך \u0027תכונות Windows\u0027",
+                     "desc":  "לתוכנות ותיקות מאוד. שימו לב: ב-Windows 10/11 ההתקנה עלולה לדרוש רשת — עדיף דרך תכונות Windows",
                      "cat":  "רכיבי מערכת",
                      "files":  [
                                    {
@@ -2468,6 +2468,116 @@
                                    {
                                        "exe":  "revosetup*.exe",
                                        "mb":  11,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Thunderbird",
+                     "en":  "Thunderbird",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=he",
+                     "match":  "Thunderbird Setup*.exe",
+                     "silent":  "/S",
+                     "icon":  "icons/w32/thunderbird.svg",
+                     "color":  "#0f6191",
+                     "desc":  "תוכנת דואר מלאה בעברית — קוראים וכותבים גם בלי חיבור קבוע",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "Thunderbird Setup*.exe",
+                                       "mb":  80,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "OBS Studio",
+                     "en":  "OBS",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-Studio-32.2.2-Windows-x64-Installer.exe",
+                     "match":  "OBS-Studio-*-Installer.exe",
+                     "silent":  "/S",
+                     "icon":  "icons/w32/obsstudio.svg",
+                     "color":  "#1f1f23",
+                     "desc":  "הקלטת מסך ושידור — הסטנדרט החינמי",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "OBS-Studio-*-Installer.exe",
+                                       "mb":  155,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "KeePassXC",
+                     "en":  "KeePassXC",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.msi",
+                     "match":  "KeePassXC-*-Win64.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "icon":  "icons/w32/keepassxc.svg",
+                     "color":  "#6cac4d",
+                     "desc":  "מנהל סיסמאות שהכול נשמר אצלך במחשב — בלי ענן",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "KeePassXC-*-Win64.msi",
+                                       "mb":  40,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "VeraCrypt",
+                     "en":  "VeraCrypt",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.29/VeraCrypt.Setup.1.26.29.exe",
+                     "match":  "VeraCrypt*Setup*.exe",
+                     "silent":  "/S",
+                     "icon":  "icons/w32/veracrypt.svg",
+                     "color":  "#3a5e8c",
+                     "desc":  "הצפנת כוננים ותיקיות",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "VeraCrypt*Setup*.exe",
+                                       "mb":  40,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "WinDirStat",
+                     "en":  "WinDirStat",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/windirstat/windirstat/releases/download/release/v2.8.0/WinDirStat-x64.msi",
+                     "match":  "WinDirStat-x64.msi",
+                     "silent":  "MSI:/qn /norestart",
+                     "icon":  "icons/w32/windirstat.svg",
+                     "color":  "#2e6da4",
+                     "desc":  "מה תופס את המקום בדיסק — מפה חזותית של כל הקבצים",
+                     "cat":  "תוכנות נפוצות",
+                     "files":  [
+                                   {
+                                       "exe":  "WinDirStat-x64.msi",
+                                       "mb":  4,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
