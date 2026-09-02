@@ -142,6 +142,9 @@
   .grouphead h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: .01em; }
   .grouphead .n { color: var(--muted); font-size: .82rem; }
   .grouphead::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
+  .chip.catall { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+                 background: color-mix(in srgb, var(--accent) 10%, transparent); font-weight: 600; }
+  .chip.catall:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
   .groupnote { color: var(--muted); font-size: .86rem; margin-bottom: 10px; max-width: 70ch; }
 
   /* the seam between the Microsoft store and everything else */
@@ -416,7 +419,10 @@ function render() {
         '<small>רכיבים ותוכנות מהאתרים הרשמיים של היצרנים — מתקינים מלאים, מוכנים לאופליין</small></div>';
     }
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
-    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span></div>' +
+    const catAll = cat === 'רכיבי מערכת'
+      ? '<button class="chip catall" data-catall="' + cat + '">⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה</button>'
+      : '';
+    html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + '</div>' +
             note + '<div class="grid">' + tiles.join('') + '</div>';
   });
   chipBar.push('<span class="spacer"></span>');
@@ -431,6 +437,16 @@ const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + 
 
 /* ===== interactions ===== */
 document.addEventListener('click', e => {
+  const all = e.target.closest('[data-catall]');
+  if (all) {
+    // the whole section in one click: every file, then the script that installs them silently
+    const members = DATA.apps.filter(x => x.w32 && x.cat === all.dataset.catall);
+    members.forEach((x, i) => setTimeout(() => download(x.files[0].exe), i * 700));
+    const silent = members.filter(x => x.silent);
+    if (silent.length) setTimeout(() => downloadCmd(silent), members.length * 700 + 500);
+    all.textContent = '⬇ ' + members.length + ' קבצים בהורדה + התקנה-שקטה.cmd — לשים הכל בתיקייה אחת ולהריץ את הסקריפט';
+    return;
+  }
   const chip = e.target.closest('.chip');
   if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
   if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
