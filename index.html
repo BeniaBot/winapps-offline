@@ -402,7 +402,7 @@
       <input id="ask-from" type="text" dir="auto" placeholder="איך לחזור אליכם? (לא חובה)">
       <button class="btn" id="ask-send">שליחת הבקשה</button>
     </div>
-    <div class="hint" id="ask-hint">הכפתור פותח את תוכנת הדואר שלכם עם הבקשה מוכנה. אין לכם? <a href="#" id="ask-copy">להעתיק את הבקשה</a> ולשלוח ל-<span dir="ltr">b0554003794@gmail.com</span></div>
+    <div class="hint" id="ask-hint">לחיצה אחת ונשלח. לא צריך תוכנת דואר ולא צריך להירשם.</div>
   </section>
 </main>
 
@@ -590,42 +590,64 @@ document.addEventListener('keydown', e => {
   openSheet(t.dataset.en);
 });
 
-/* ===== request form: composes the mail, the visitor's own client sends it ===== */
+/* ===== request form: posted straight to the inbox, the visitor stays on the page.
+   FormSubmit relays it; mailto is only the emergency fallback if the relay is down. ===== */
 const ASK_TO = 'b0554003794@gmail.com';
-function askText() {
-  const kind = document.getElementById('ask-kind').value;
-  const app  = document.getElementById('ask-app').value.trim();
-  const note = document.getElementById('ask-note').value.trim();
-  const from = document.getElementById('ask-from').value.trim();
-  const lines = [kind + ': ' + (app || '(לא צוין שם)'), ''];
-  if (note) lines.push(note, '');
-  if (from) lines.push('ליצירת קשר: ' + from, '');
-  lines.push('— נשלח מהחנות: ' + location.href);
-  return { subject: '[חנות אופליין] ' + kind + (app ? ' — ' + app : ''), body: lines.join('\n') };
-}
-document.getElementById('ask-send').onclick = () => {
-  const app = document.getElementById('ask-app');
-  if (!app.value.trim()) { app.focus(); app.style.borderColor = 'var(--err)'; return; }
-  app.style.borderColor = '';
-  const m = askText();
-  location.href = 'mailto:' + ASK_TO + '?subject=' + encodeURIComponent(m.subject) +
-                  '&body=' + encodeURIComponent(m.body);
-  document.getElementById('ask-hint').innerHTML = 'תוכנת הדואר אמורה להיפתח עם הבקשה. לא נפתחה? ' +
-    '<a href="#" id="ask-copy">להעתיק את הבקשה</a> ולשלוח ל-<span dir="ltr">' + ASK_TO + '</span>';
-  wireAskCopy();
-};
-function wireAskCopy() {
-  const c = document.getElementById('ask-copy');
-  if (!c) return;
-  c.onclick = e => {
-    e.preventDefault();
-    const m = askText();
-    navigator.clipboard.writeText(m.subject + '\n\n' + m.body)
-      .then(() => { c.textContent = '✓ הועתק'; })
-      .catch(() => { prompt('להעתיק ולשלוח אליי:', m.subject + ' — ' + m.body); });
+const ASK_ENDPOINT = 'https://formsubmit.co/ajax/' + ASK_TO;
+function askFields() {
+  return {
+    kind: document.getElementById('ask-kind').value,
+    app:  document.getElementById('ask-app').value.trim(),
+    note: document.getElementById('ask-note').value.trim(),
+    from: document.getElementById('ask-from').value.trim()
   };
 }
-wireAskCopy();
+function askText() {
+  const f = askFields();
+  const lines = [f.kind + ': ' + (f.app || '(לא צוין שם)'), ''];
+  if (f.note) lines.push(f.note, '');
+  if (f.from) lines.push('ליצירת קשר: ' + f.from, '');
+  lines.push('— נשלח מהחנות: ' + location.href);
+  return { subject: '[חנות אופליין] ' + f.kind + (f.app ? ' — ' + f.app : ''), body: lines.join('\n') };
+}
+const askHint = document.getElementById('ask-hint');
+const askBtn  = document.getElementById('ask-send');
+askBtn.onclick = () => {
+  const appEl = document.getElementById('ask-app');
+  if (!appEl.value.trim()) { appEl.focus(); appEl.style.borderColor = 'var(--err)'; return; }
+  appEl.style.borderColor = '';
+  const f = askFields(), m = askText();
+  askBtn.disabled = true;
+  askBtn.textContent = 'שולח…';
+  askHint.textContent = '';
+  fetch(ASK_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: m.subject,
+      'סוג הבקשה': f.kind,
+      'האפליקציה': f.app,
+      'פרטים': f.note || '—',
+      'ליצירת קשר': f.from || '—',
+      'נשלח מ': location.href
+    })
+  }).then(r => r.json().catch(() => ({}))).then(j => {
+    if (j && (j.success === 'true' || j.success === true)) {
+      askBtn.textContent = '✓ הבקשה נשלחה';
+      askHint.style.color = 'var(--ok)';
+      askHint.textContent = 'תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.';
+      ['ask-app', 'ask-note', 'ask-from'].forEach(id => document.getElementById(id).value = '');
+      setTimeout(() => { askBtn.disabled = false; askBtn.textContent = 'שליחת בקשה נוספת'; }, 2500);
+    } else { throw new Error('relay refused'); }
+  }).catch(() => {
+    // the relay did not take it - hand the visitor their mail client instead
+    askBtn.disabled = false;
+    askBtn.textContent = 'שליחת הבקשה';
+    askHint.style.color = 'var(--warn)';
+    askHint.innerHTML = 'השליחה הישירה לא עבדה כרגע. <a href="mailto:' + ASK_TO + '?subject=' +
+      encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body) + '">לשלוח בדואר</a>';
+  });
+};
 
 const topBtn = document.getElementById('top-btn');
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -732,6 +754,7 @@ function openSheet(en) {
   const pl = plate(a, true);
   const rows = a.url
     ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
+      (a.repo ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono" id="livever">בודק…</span></div>' : '') +
       (a.silent && a.silent !== 'SPECIAL_DIRECTX'
         ? '<div class="row"><span>התקנה שקטה</span><span dir="ltr" class="mono">' + esc(a.silent.replace('MSI:', 'msiexec /i ‹file› ')) + '</span></div>' : '')
     : files.map(f =>
@@ -742,7 +765,10 @@ function openSheet(en) {
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
-  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + a.alt.label + '</a>';
+  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + esc(a.alt.label) + '</a>';
+  if (a.xlat) btns += '<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
+    esc(a.xlat.exe) + '">הורדה בעברית · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>' +
+    '<div class="warn" style="margin:2px 0 4px">התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.</div>';
   if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc" title="שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט">המתקין השקט (EXE)</button>';
   const shareUrl = a.url || (files[0] && isLive(a, files[0]) ? REL + encodeURIComponent(files[0].exe) : '');
   if (shareUrl) btns += '<button class="btn lite" id="scp" data-url="' + esc(shareUrl) + '">העתקת קישור ישיר</button>';
@@ -755,8 +781,10 @@ function openSheet(en) {
     (a.note ? '<div class="warn">' + a.note + '</div>' : '') +
     '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
-    '<div class="net" style="color:' + (a.heb ? 'var(--ok)' : 'var(--muted)') + '">' +
-      (a.heb ? '✓ ממשק בעברית — נפתחת בעברית במחשב עברי' : 'ממשק באנגלית בלבד') + '</div>' +
+    '<div class="net" style="color:' + (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)')) + '">' +
+      (a.heb ? '✓ ממשק בעברית — נפתחת בעברית במחשב עברי'
+             : a.xlat ? '★ קיים תרגום לעברית — לא רשמי, נעשה כאן'
+                      : 'ממשק באנגלית בלבד') + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
@@ -769,6 +797,15 @@ function openSheet(en) {
   ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
   const ssc = ov.querySelector('#ssc');
   if (ssc) ssc.onclick = downloadRunner;
+  // our own projects: the download link always resolves to the newest release,
+  // so show which version that actually is right now
+  if (a.repo) {
+    const cell = ov.querySelector('#livever');
+    fetch('https://api.github.com/repos/' + a.repo + '/releases/latest')
+      .then(r => r.ok ? r.json() : null)
+      .then(j => { if (cell) cell.textContent = j && j.tag_name ? j.tag_name + ' (העדכנית)' : 'העדכנית ביותר'; })
+      .catch(() => { if (cell) cell.textContent = 'העדכנית ביותר'; });
+  }
   const scp = ov.querySelector('#scp');
   if (scp) scp.onclick = () => {
     navigator.clipboard.writeText(scp.dataset.url)

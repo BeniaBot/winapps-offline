@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-02",
+    "updated":  "2026-09-03",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -2724,8 +2724,10 @@
                      "en":  "Csharf",
                      "net":  false,
                      "custom":  true,
+                     "heb":  true,
                      "url":  "https://github.com/BeniaBot/Csharf/releases/latest/download/Csharf.bat",
                      "match":  "Csharf.bat",
+                     "repo":  "BeniaBot/Csharf",
                      "icon":  "icons/w32/csharf.svg",
                      "color":  "#5fd4fe",
                      "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
@@ -2733,6 +2735,60 @@
                                    {
                                        "exe":  "Csharf.bat",
                                        "mb":  1,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "Tik-Nick",
+                     "en":  "TikNick",
+                     "net":  false,
+                     "custom":  true,
+                     "heb":  true,
+                     "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick-Setup.exe",
+                     "match":  "TikNick-Setup.exe",
+                     "silent":  "/VERYSILENT /NORESTART",
+                     "alt":  {
+                                 "label":  "גרסה ניידת",
+                                 "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick.exe"
+                             },
+                     "repo":  "BeniaBot/tiknick",
+                     "icon":  "icons/w32/tiknick.svg",
+                     "color":  "#f59e0b",
+                     "desc":  "ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן",
+                     "files":  [
+                                   {
+                                       "exe":  "TikNick-Setup.exe",
+                                       "mb":  17,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "2049",
+                     "en":  "Game2049",
+                     "net":  false,
+                     "custom":  true,
+                     "heb":  true,
+                     "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049_Setup.exe",
+                     "match":  "2049_Setup.exe",
+                     "silent":  "/VERYSILENT /NORESTART",
+                     "alt":  {
+                                 "label":  "גרסה ניידת",
+                                 "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049.exe"
+                             },
+                     "repo":  "BeniaBot/2049",
+                     "icon":  "icons/w32/g2049.svg",
+                     "color":  "#edc22e",
+                     "desc":  "‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן",
+                     "files":  [
+                                   {
+                                       "exe":  "2049_Setup.exe",
+                                       "mb":  30,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
