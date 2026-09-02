@@ -6,8 +6,9 @@
 <title>חנות אפליקציות אופליין ל-Windows</title>
 <script>try { if (localStorage.theme === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
 <meta name="description" content="חנות האפליקציות של Windows למחשבים בלי אינטרנט: מורידים מתקין מוכן, מעבירים בדיסק-און-קי, מתקינים.">
-<link rel="icon" type="image/png" href="icon.png">
-<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" type="image/svg+xml" href="logo.svg?v=2">
+<link rel="icon" type="image/png" href="icon.png?v=2">
+<link rel="apple-touch-icon" href="icon.png?v=2">
 <link rel="canonical" href="https://beniabot.github.io/winapps-offline/">
 <meta name="theme-color" content="#0f1420">
 <meta property="og:type" content="website">
@@ -68,13 +69,15 @@
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
-      radial-gradient(900px 480px at 50% -80px, rgba(95,212,254,.075), transparent 70%),
+      radial-gradient(1000px 520px at 50% -120px, rgba(95,212,254,.10), transparent 70%),
+      radial-gradient(800px 600px at -10% 110%, rgba(138,123,255,.06), transparent 65%),
       linear-gradient(165deg, #0f1420, #131a2b 45%, #0f172a);
   }
   :root.light body { background: #eef1f6; }
   :root.light body::before {
     background:
-      radial-gradient(900px 480px at 50% -80px, rgba(0,103,192,.06), transparent 70%),
+      radial-gradient(1000px 520px at 50% -120px, rgba(0,103,192,.07), transparent 70%),
+      radial-gradient(800px 600px at -10% 110%, rgba(90,70,220,.05), transparent 65%),
       linear-gradient(165deg, #eef1f6, #e6ebf4 45%, #eaeef6);
   }
   .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
@@ -104,17 +107,31 @@
   .theme-btn:hover { background: var(--tile-h); }
 
   /* ===== hero ===== */
-  .hero { padding: 44px 0 8px; text-align: center; }
-  .hero img.logo { width: 88px; height: 88px; filter: drop-shadow(0 12px 26px rgba(0,0,0,.5)); }
-  .hero h1 { font-size: clamp(1.5rem, 3.6vw, 2.3rem); font-weight: 800; margin-top: 14px; }
-  .hero p { color: var(--muted); max-width: 58ch; margin: 8px auto 0; }
+  .hero { padding: 56px 0 14px; text-align: center; position: relative; }
+  .hero .halo { position: absolute; left: 50%; top: 8px; transform: translateX(-50%);
+                width: 340px; height: 220px; pointer-events: none; filter: blur(46px);
+                background: radial-gradient(closest-side, rgba(95,212,254,.28), transparent 72%); }
+  :root.light .hero .halo { background: radial-gradient(closest-side, rgba(0,103,192,.16), transparent 72%); }
+  .hero img.logo { width: 96px; height: 96px; position: relative;
+                   filter: drop-shadow(0 16px 30px rgba(0,0,0,.55)); }
+  :root.light .hero img.logo { filter: drop-shadow(0 14px 26px rgba(20,40,90,.3)); }
+  .hero h1 { font-size: clamp(1.7rem, 4.2vw, 2.7rem); font-weight: 800; margin-top: 18px;
+             letter-spacing: -.01em; line-height: 1.2; position: relative; }
+  .hero h1 .grad { background: linear-gradient(100deg, #5fd4fe, #8a7bff);
+                   -webkit-background-clip: text; background-clip: text; color: transparent; }
+  :root.light .hero h1 .grad { background: linear-gradient(100deg, #0067c0, #6a4fd8);
+                               -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { color: var(--muted); max-width: 58ch; margin: 12px auto 0; font-size: 1.02rem; }
   .hero .steps { display: flex; justify-content: center; gap: 8px; align-items: center;
-                 color: var(--muted); font-size: .88rem; margin-top: 14px; flex-wrap: wrap; }
+                 color: var(--muted); font-size: .88rem; margin-top: 20px; flex-wrap: wrap; }
   .hero .steps b { color: var(--ink); font-weight: 600; background: var(--tile);
-                   border: 1px solid var(--stroke); border-radius: 99px; padding: 4px 14px; }
+                   border: 1px solid var(--stroke); border-radius: 99px; padding: 5px 16px; }
   .hero .steps .sep { opacity: .6; }
-  .hero .facts { display: flex; justify-content: center; gap: 26px; margin-top: 20px; flex-wrap: wrap; }
-  .hero .facts b { font-size: 1.3rem; font-weight: 800; display: block; }
+  .hero .facts { display: flex; justify-content: center; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
+  .hero .facts div { background: var(--tile); border: 1px solid var(--stroke); border-radius: 18px;
+                     padding: 14px 30px; min-width: 128px; }
+  .hero .facts b { font-size: 1.55rem; font-weight: 800; display: block; line-height: 1.15;
+                   color: var(--accent); }
   .hero .facts span { color: var(--muted); font-size: .8rem; }
 
   /* instant skeleton while the catalog arrives */
@@ -127,7 +144,9 @@
   .bar2 { position: sticky; top: 58px; z-index: 30; padding: 12px 0;
           background: rgba(15,20,32,.94); }
   :root.light .bar2 { background: rgba(238,241,246,.96); }
-  .bar2 .row { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
+  .bar2 .row { display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none;
+               mask-image: linear-gradient(90deg, transparent, #000 22px, #000 calc(100% - 22px), transparent);
+               -webkit-mask-image: linear-gradient(90deg, transparent, #000 22px, #000 calc(100% - 22px), transparent); }
   .bar2 .row::-webkit-scrollbar { display: none; }
   .chip { white-space: nowrap; font-size: .88rem; font-weight: 500; color: var(--muted);
           background: var(--tile); border: 1px solid var(--stroke); border-radius: 999px;
@@ -138,9 +157,12 @@
   .count { color: var(--muted); font-size: .84rem; white-space: nowrap; }
 
   /* ===== launcher grid ===== */
-  .grouphead { display: flex; align-items: center; gap: 12px; margin: 34px 0 6px; }
-  .grouphead h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: .01em; }
-  .grouphead .n { color: var(--muted); font-size: .82rem; }
+  .grouphead { display: flex; align-items: center; gap: 12px; margin: 46px 0 8px; }
+  .grouphead::before { content: ""; width: 4px; height: 22px; border-radius: 4px; flex: none;
+                       background: linear-gradient(180deg, #5fd4fe, #8a7bff); }
+  .grouphead h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: .01em; }
+  .grouphead .n { color: var(--muted); font-size: .82rem; background: var(--tile);
+                  border: 1px solid var(--stroke); border-radius: 99px; padding: 1px 10px; }
   .grouphead::after { content: ""; flex: 1; height: 1px; background: var(--stroke); }
   .chip.catall { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent);
                  background: color-mix(in srgb, var(--accent) 10%, transparent); font-weight: 600; }
@@ -157,7 +179,7 @@
   .world small { display: block; position: relative; color: var(--muted); font-size: .84rem;
                  font-weight: 400; margin-top: 10px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 6px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 10px; }
   @media (max-width: 480px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
     .pl { width: 68px; height: 68px; border-radius: 19px; }
@@ -189,7 +211,7 @@
   .t:focus-within .pick { display: flex; }
   .pl.letter { font-weight: 800; font-size: 1.5rem; color: var(--accent); }
   .t.sel .pl { outline: 2.5px solid var(--accent); outline-offset: 2px; }
-  .nm { font-size: .86rem; font-weight: 500; line-height: 1.25; min-height: 2.2em;
+  .nm { font-size: .87rem; font-weight: 600; line-height: 1.25; min-height: 2.2em;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .mb { font-size: .72rem; color: var(--muted); }
   .t:hover .mb { display: none; }
@@ -214,10 +236,15 @@
   .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
 
   /* ===== ISO panel ===== */
-  .iso { margin-top: 48px; border-radius: 20px; border: 1px solid var(--stroke);
-         background: var(--tile);
-         padding: 26px 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .iso img { width: 58px; height: 58px; }
+  .iso { margin-top: 56px; border-radius: 22px; border: 1px solid transparent;
+         background: linear-gradient(var(--panel-2), var(--panel-2)) padding-box,
+                     linear-gradient(135deg, rgba(95,212,254,.55), rgba(138,123,255,.18) 55%, rgba(95,212,254,.12)) border-box;
+         box-shadow: 0 24px 60px -30px rgba(0,0,0,.6);
+         padding: 28px 30px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  :root.light .iso { box-shadow: 0 24px 50px -32px rgba(30,50,90,.35);
+         background: linear-gradient(#ffffff, #ffffff) padding-box,
+                     linear-gradient(135deg, rgba(0,103,192,.5), rgba(106,79,216,.2) 55%, rgba(0,103,192,.12)) border-box; }
+  .iso img { width: 62px; height: 62px; }
   .iso .t2 { flex: 1 1 300px; }
   .iso h3 { font-size: 1.15rem; font-weight: 800; }
   .iso p { color: var(--muted); font-size: .89rem; margin-top: 4px; }
@@ -284,8 +311,9 @@
 
 <div class="hero">
   <div class="wrap">
+    <div class="halo"></div>
     <img class="logo" src="logo.svg" alt="">
-    <h1>האפליקציות של Windows, למחשב שאין בו אינטרנט</h1>
+    <h1>האפליקציות של Windows,<br>למחשב <span class="grad">שאין בו אינטרנט</span></h1>
     <p>כל אפליקציה כאן היא מתקין מוכן: קובץ אחד עם הכל בפנים, בלי צורך ברשת או בהרשאות מנהל.</p>
     <div class="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה</b></div>
     <div class="facts" id="facts"></div>
