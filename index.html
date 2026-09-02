@@ -99,7 +99,8 @@
     background: var(--tile); border: 1px solid var(--stroke);
     border-radius: 99px; padding: 8px 16px;
   }
-  .search:focus-within { border-color: var(--accent); }
+  .search:focus-within { border-color: var(--accent);
+                         box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
   .search svg { width: 15px; height: 15px; opacity: .55; flex: none; }
   .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; font-size: 16px; width: 100%; }
   .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer;
@@ -173,9 +174,14 @@
   .world { margin: 64px 0 -12px; text-align: center; position: relative; }
   .world::before { content: ""; position: absolute; inset-inline: 0; top: 50%; height: 1px;
                    background: linear-gradient(90deg, transparent, var(--stroke) 18%, var(--stroke) 82%, transparent); }
-  .world span { position: relative; display: inline-block; padding: 7px 26px;
-                background: var(--panel-2); border: 1px solid var(--stroke); border-radius: 99px;
+  .world span { position: relative; display: inline-block; padding: 8px 28px;
+                border-radius: 99px; border: 1px solid transparent;
+                background: linear-gradient(var(--panel-2), var(--panel-2)) padding-box,
+                            linear-gradient(120deg, rgba(95,212,254,.5), rgba(138,123,255,.3)) border-box;
                 font-weight: 800; font-size: 1.02rem; letter-spacing: .01em; }
+  :root.light .world span {
+                background: linear-gradient(#ffffff, #ffffff) padding-box,
+                            linear-gradient(120deg, rgba(0,103,192,.45), rgba(106,79,216,.3)) border-box; }
   .world small { display: block; position: relative; color: var(--muted); font-size: .84rem;
                  font-weight: 400; margin-top: 10px; }
 
@@ -250,9 +256,12 @@
   .iso p { color: var(--muted); font-size: .89rem; margin-top: 4px; }
   .iso .btns { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-         background: var(--accent); color: var(--on-accent); text-decoration: none; border: 0;
-         font-weight: 700; font-size: .9rem; padding: 10px 22px; border-radius: 99px; cursor: pointer; }
-  .btn:hover { filter: brightness(1.1); }
+         background: linear-gradient(135deg, #7ee0ff, #38b0ec); color: var(--on-accent); text-decoration: none; border: 0;
+         font-weight: 700; font-size: .9rem; padding: 10px 22px; border-radius: 99px; cursor: pointer;
+         box-shadow: 0 8px 20px -10px rgba(95,212,254,.55); }
+  :root.light .btn { background: linear-gradient(135deg, #1d84e0, #0059a8); color: #fff;
+                     box-shadow: 0 8px 20px -12px rgba(0,103,192,.6); }
+  .btn:hover { filter: brightness(1.08); }
   .btn.lite { background: var(--tile); color: var(--ink); border: 1px solid var(--stroke); }
   .btn.lite:hover { background: var(--tile-h); filter: none; }
   .btn[disabled] { opacity: .45; cursor: default; filter: none; }
@@ -281,8 +290,8 @@
   /* ===== dock ===== */
   .dock { position: fixed; inset-inline: 0; bottom: 14px; z-index: 50; pointer-events: none; }
   .dock .inner { pointer-events: auto; width: min(760px, calc(100% - 28px)); margin: 0 auto;
-                 background: var(--panel); border: 1px solid var(--stroke); border-radius: 99px;
-                 box-shadow: var(--shadow);
+                 background: var(--panel); border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--stroke)); border-radius: 99px;
+                 box-shadow: var(--shadow), 0 0 26px -12px color-mix(in srgb, var(--accent) 45%, transparent);
                  display: flex; align-items: center; gap: 12px; padding: 10px 12px 10px 20px;
                  transform: translateY(140%); transition: transform .2s ease; }
   .dock.show .inner { transform: none; }
@@ -293,7 +302,8 @@
   body.has-sel { padding-bottom: 90px; }
   @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; } body.has-sel { padding-bottom: 150px; } }
 
-  footer { border-top: 1px solid var(--stroke); margin-top: 56px; padding: 26px 0 40px; color: var(--muted); font-size: .85rem; text-align: center; }
+  footer { border-top: 1px solid var(--stroke); margin-top: 64px; padding: 30px 0 44px; color: var(--muted); font-size: .85rem; text-align: center; }
+  footer img { width: 30px; height: 30px; opacity: .85; margin-bottom: 10px; }
 </style>
 </head>
 <body>
@@ -342,6 +352,7 @@
 
 <footer>
   <div class="wrap">
+    <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי. הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
     <div style="margin-top:6px">[ערכו אותי — קרדיט ויצירת קשר] · <span id="updated"></span></div>
   </div>
