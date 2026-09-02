@@ -416,19 +416,17 @@ function plate(a, big) {
   const glyph = a.icon && a.icon.indexOf('/w32/') >= 0;
   const hex6 = a.color && /^#[0-9a-f]{6}$/i.test(a.color);
   const bg = hex6 ? ' style="background-color:' + a.color + (glyph ? '' : '2e') + '"' : '';
-  if (a.icon) return '<div class="pl' + (glyph ? ' deep' : '') + '"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt="" onerror="iconFail(this)"' + (big ? '' : ' loading="lazy"') + '></div>';
-  return '<div class="pl letter"' + bg + '>' + (a.he || a.en).trim().charAt(0) + '</div>';
+  const letter = esc((a.he || a.en).trim().charAt(0));
+  if (a.icon) return '<div class="pl' + (glyph ? ' deep' : '') + '"' + bg + '><img class="' + (glyph ? 'glyph' : '') + '" src="' + a.icon + '" alt="" data-letter="' + letter + '" onerror="iconFail(this)"' + (big ? '' : ' loading="lazy"') + '></div>';
+  return '<div class="pl letter"' + bg + '>' + letter + '</div>';
 }
 
 /* a broken icon degrades to the letter plate instead of an empty square */
 function iconFail(img) {
   const pl = img.closest('.pl');
   if (!pl) return;
-  const t = img.closest('.t');
-  const en = t ? t.dataset.en : '';
-  const a = DATA && DATA.apps.find(x => x.en === en);
   pl.classList.add('letter');
-  pl.textContent = a ? (a.he || a.en).trim().charAt(0) : '•';
+  pl.textContent = img.dataset.letter || '•';
 }
 
 function render() {
@@ -476,6 +474,8 @@ const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + 
 document.addEventListener('click', e => {
   const all = e.target.closest('[data-catall]');
   if (all) {
+    if (all.disabled) return;
+    all.disabled = true;   // a double-click must not fire the whole cascade twice
     // the whole section in one click: every file, then the script that installs them silently
     const members = DATA.apps.filter(x => x.w32 && x.cat === all.dataset.catall);
     members.forEach((x, i) => setTimeout(() => download(x.files[0].exe), i * 700));
@@ -499,7 +499,7 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key !== 'Enter' && e.key !== ' ') return;
   const t = e.target.closest && e.target.closest('.t');
-  if (!t) return;
+  if (!t || e.target !== t) return;   // buttons inside the tile keep their native Enter
   e.preventDefault();
   openSheet(t.dataset.en);
 });
@@ -527,10 +527,9 @@ function silentCmd(list) {
     '  exit /b',
     ')',
     'pushd "%~dp0"',
-    'rem every line also lands in the support log the site owner can ask for',
-    'set "WAOLOG=%LOCALAPPDATA%\\WinAppsOffline"',
-    'if not exist "%WAOLOG%" md "%WAOLOG%"',
-    'set "WAOLOG=%WAOLOG%\\install.log"',
+    'rem the support log lives NEXT TO the script: under UAC the elevated process may be',
+    'rem a different account, whose %LOCALAPPDATA% the real user would never find',
+    'set "WAOLOG=%~dp0install-log.txt"',
     'echo %date% %time%  cmd  silent batch of ' + list.length + ' packages >> "%WAOLOG%"',
     'echo ============================================',
     'echo  Silent install of ' + list.length + ' packages.',
@@ -598,17 +597,20 @@ function updateDock() {
   const dock = document.getElementById('dock');
   const n = SELECTED.size;
   if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
-  // count only what the button will actually download - the honest number
-  let mb = 0, w32s = 0, ready = 0, waiting = 0;
+  // count only what the button will actually download - the honest number,
+  // and say WHY the rest are excluded (hidden by the Win filter vs still uploading)
+  let mb = 0, w32s = 0, ready = 0, uploading = 0, filtered = 0;
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
     const f = bestFile(a);
     if (f && isLive(a, f)) { ready++; mb += f.mb; if (a.w32 && a.silent) w32s++; }
-    else waiting++;
+    else if (!f) filtered++;
+    else uploading++;
   });
   document.getElementById('selsum').innerHTML = '<b>' + ready + ' נבחרו</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
     (w32s >= 1 ? ' · עם קובץ התקנה שקטה' : '') +
-    (waiting > 0 ? ' · ' + waiting + ' לא זמינות כרגע' : '') + '</span>';
+    (uploading > 0 ? ' · ' + uploading + ' עדיין בהעלאה' : '') +
+    (filtered > 0 ? ' · ' + filtered + ' מוסתרות בסינון שבחרת' : '') + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
@@ -721,14 +723,15 @@ fetch('site-catalog.json', { cache: 'no-cache' }).then(r => {
     '<div><b>' + d.apps.length + '</b><span>אפליקציות ותוכנות</span></div>' +
     '<div><b dir="ltr">' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
     '<div><b>0</b><span>רשת בצד השני</span></div>';
-  isoButtons();
-  render();
+  // a rendering bug must never masquerade as a network problem
+  try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
   return fetch('published.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
 }).then(pub => {
   (pub || []).forEach(n => LIVE[n] = true);
-  isoButtons();
-  render();
-}).catch(() => {
+  try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
+}).catch(err => {
+  console.error('boot:', err);
+  if (DATA) return;   // the catalog is already painted - do not wipe it
   // never strand the visitor on an eternal skeleton
   const box = document.getElementById('cats');
   box.classList.remove('sk');
