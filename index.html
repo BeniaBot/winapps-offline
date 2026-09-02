@@ -358,8 +358,8 @@
   <div class="iso" id="iso">
     <img src="logo.svg" alt="">
     <div class="t2">
-      <h3>לטכנאים — כל החנות בדיסק אחד</h3>
-      <p>ISO עם כל המתקינים ומעטפת שמזהה בכל מחשב מה חסר ומה מיושן, ומתקינה ישירות מהדיסק.</p>
+      <h3>החנות בדיסק — לוקחים ומתקינים בכל מקום</h3>
+      <p>הליבה = היום הראשון של מחשב נקי: כלי היומיום וכל הקודקים, עם החנות שמזהה מה חסר ומתקינה מהדיסק. המלאה — כל 82 המתקינים.</p>
     </div>
     <div class="btns" id="iso-btns"></div>
   </div>
@@ -688,8 +688,8 @@ document.getElementById('q').addEventListener('input', e => { QUERY = e.target.v
 /* ===== ISO ===== */
 function isoButtons() {
   const b = [];
-  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Win 11 · 647MB</a>');
-  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Win 10 · 675MB</a>');
+  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Win 11 · <span dir="ltr">582MB</span></a>');
+  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Win 10 · <span dir="ltr">445MB</span></a>');
   b.push('<button class="btn lite" disabled title="מוכנה, מחפשת בית — גדולה מדי ל-GitHub">המלאה · 17GB · 82 מתקינים — בקרוב</button>');
   document.getElementById('iso-btns').innerHTML = b.join('');
 }
