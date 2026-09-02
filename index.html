@@ -380,6 +380,7 @@
     <div class="sum" id="selsum"></div>
     <span id="dock-target" style="display:flex;gap:6px;align-items:center"></span>
     <button class="clear" id="selclear">נקה</button>
+    <button class="btn lite" id="seliso" title="הופך את הבחירה לדיסק אישי עם החנות בפנים">💿 ISO אישי</button>
     <button class="btn" id="selgo">הורדת הנבחרות</button>
   </div>
 </div>
@@ -617,6 +618,29 @@ document.getElementById('selgo').onclick = () => {
 /* the compiled silent installer: drop it in the folder with the downloads and run it -
    it recognises every file from this store and installs them all, silently, in order */
 function downloadRunner() { download('SilentInstall.exe'); }
+
+/* custom ISO: export the selection as the builder's input file + the builder itself.
+   (the browser cannot build the ISO alone - GitHub sends no CORS on release binaries) */
+document.getElementById('seliso').onclick = () => {
+  const rows = [];
+  DATA.apps.forEach(a => {
+    if (!SELECTED.has(a.en) || a.w32 || a.custom || !a.id) return;
+    const f = bestFile(a);
+    if (!f || !isLive(a, f)) return;
+    rows.push([f.exe, a.he, a.id, f.ver || '', f.minBuild || 0, a.net ? 1 : 0, a.cat || 'נוספות', f.mb].join('\t'));
+  });
+  if (!rows.length) {
+    alert('ל-ISO אישי בוחרים אפליקציות מהחנות של מיקרוסופט (רכיבים ותוכנות צד-שלישי יורדים בנפרד).');
+    return;
+  }
+  const blob = new Blob([rows.join('\r\n')], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'בחירת-חנות.txt';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => { URL.revokeObjectURL(a.href); download('IsoBuilder.exe'); }, 500);
+  alert('ירדו שני קבצים: בחירת-חנות.txt ו-IsoBuilder.exe.\nשמים אותם באותה תיקייה, מריצים את IsoBuilder — ומקבלים WINAPPS-CUSTOM.iso עם החנות והנבחרות.');
+};
 
 /* ===== sheet ===== */
 function openSheet(en) {
