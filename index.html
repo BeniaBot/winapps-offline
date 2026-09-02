@@ -272,6 +272,22 @@
          background: linear-gradient(#ffffff, #ffffff) padding-box,
                      linear-gradient(135deg, rgba(0,103,192,.5), rgba(106,79,216,.2) 55%, rgba(0,103,192,.12)) border-box; }
   .iso img { width: 62px; height: 62px; }
+
+  /* ===== request form ===== */
+  .ask { margin-top: 28px; border-radius: 22px; border: 1px solid var(--stroke);
+         background: var(--tile); padding: 26px 30px; }
+  .ask h3 { font-size: 1.15rem; font-weight: 800; }
+  .ask p { color: var(--muted); font-size: .89rem; margin-top: 4px; max-width: 70ch; }
+  .ask .row2 { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; align-items: center; }
+  .ask input, .ask select, .ask textarea {
+    background: var(--panel-2); color: var(--ink); border: 1px solid var(--stroke);
+    border-radius: 12px; padding: 10px 14px; font: inherit; font-size: 15px; outline: 0; }
+  .ask input:focus, .ask select:focus, .ask textarea:focus { border-color: var(--accent); }
+  .ask input { flex: 1 1 220px; min-width: 0; }
+  .ask select { flex: 0 0 auto; }
+  .ask textarea { width: 100%; min-height: 74px; resize: vertical; margin-top: 10px; }
+  .ask .hint { color: var(--muted); font-size: .8rem; margin-top: 10px; }
+  .ask .hint a { color: var(--accent); }
   .iso .t2 { flex: 1 1 300px; }
   .iso h3 { font-size: 1.15rem; font-weight: 800; }
   .iso p { color: var(--muted); font-size: .89rem; margin-top: 4px; }
@@ -369,6 +385,25 @@
     </div>
     <div class="btns" id="iso-btns"></div>
   </div>
+
+  <section class="ask">
+    <h3>חסרה לכם אפליקציה? רוצים אותה בעברית?</h3>
+    <p>כתבו מה חסר — אפליקציה שאינה בחנות, או אפליקציה קיימת שתשמח אתכם בעברית. הבקשה נשלחת ישירות אליי.</p>
+    <div class="row2">
+      <select id="ask-kind">
+        <option value="בקשת אפליקציה">אפליקציה שחסרה בחנות</option>
+        <option value="בקשת תרגום">תרגום לעברית לאפליקציה קיימת</option>
+        <option value="דיווח על תקלה">דיווח על תקלה</option>
+      </select>
+      <input id="ask-app" type="text" dir="auto" placeholder="שם האפליקציה או התוכנה">
+    </div>
+    <textarea id="ask-note" dir="auto" placeholder="פרטים נוספים (לא חובה): לינק, למה זה חשוב, מה בדיוק לא עבד..."></textarea>
+    <div class="row2">
+      <input id="ask-from" type="text" dir="auto" placeholder="איך לחזור אליכם? (לא חובה)">
+      <button class="btn" id="ask-send">שליחת הבקשה</button>
+    </div>
+    <div class="hint" id="ask-hint">הכפתור פותח את תוכנת הדואר שלכם עם הבקשה מוכנה. אין לכם? <a href="#" id="ask-copy">להעתיק את הבקשה</a> ולשלוח ל-<span dir="ltr">b0554003794@gmail.com</span></div>
+  </section>
 </main>
 
 <footer>
@@ -554,6 +589,43 @@ document.addEventListener('keydown', e => {
   e.preventDefault();
   openSheet(t.dataset.en);
 });
+
+/* ===== request form: composes the mail, the visitor's own client sends it ===== */
+const ASK_TO = 'b0554003794@gmail.com';
+function askText() {
+  const kind = document.getElementById('ask-kind').value;
+  const app  = document.getElementById('ask-app').value.trim();
+  const note = document.getElementById('ask-note').value.trim();
+  const from = document.getElementById('ask-from').value.trim();
+  const lines = [kind + ': ' + (app || '(לא צוין שם)'), ''];
+  if (note) lines.push(note, '');
+  if (from) lines.push('ליצירת קשר: ' + from, '');
+  lines.push('— נשלח מהחנות: ' + location.href);
+  return { subject: '[חנות אופליין] ' + kind + (app ? ' — ' + app : ''), body: lines.join('\n') };
+}
+document.getElementById('ask-send').onclick = () => {
+  const app = document.getElementById('ask-app');
+  if (!app.value.trim()) { app.focus(); app.style.borderColor = 'var(--err)'; return; }
+  app.style.borderColor = '';
+  const m = askText();
+  location.href = 'mailto:' + ASK_TO + '?subject=' + encodeURIComponent(m.subject) +
+                  '&body=' + encodeURIComponent(m.body);
+  document.getElementById('ask-hint').innerHTML = 'תוכנת הדואר אמורה להיפתח עם הבקשה. לא נפתחה? ' +
+    '<a href="#" id="ask-copy">להעתיק את הבקשה</a> ולשלוח ל-<span dir="ltr">' + ASK_TO + '</span>';
+  wireAskCopy();
+};
+function wireAskCopy() {
+  const c = document.getElementById('ask-copy');
+  if (!c) return;
+  c.onclick = e => {
+    e.preventDefault();
+    const m = askText();
+    navigator.clipboard.writeText(m.subject + '\n\n' + m.body)
+      .then(() => { c.textContent = '✓ הועתק'; })
+      .catch(() => { prompt('להעתיק ולשלוח אליי:', m.subject + ' — ' + m.body); });
+  };
+}
+wireAskCopy();
 
 const topBtn = document.getElementById('top-btn');
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
