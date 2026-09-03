@@ -2046,63 +2046,6 @@
                      "cat":  "כלי טכנאי"
                  },
                  {
-                     "he":  "Windows Subsystem for Android",
-                     "en":  "WSA",
-                     "pfn":  "MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe",
-                     "id":  "MicrosoftCorporationII.WindowsSubsystemForAndroid",
-                     "net":  false,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-WSA-Win11.exe",
-                                       "mb":  1433,
-                                       "win":  "11",
-                                       "minBuild":  22000,
-                                       "ver":  "2407.40000.4.0",
-                                       "bundle":  "MicrosoftCorporationII.WindowsSubsystemForAndroid_2407.40000.4.0_neutral_~_8wekyb3d8bbwe.msixbundle",
-                                       "deps":  [
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.2208.12001.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
-                                                        "min":  "14.0.33728.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.2208.12001.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
-                                                        "min":  "14.0.33728.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "arm64"
-                                                    }
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "heb":  true,
-                     "icon":  "icons/WSA.png",
-                     "desc":  "תת-מערכת אנדרואיד (הופסקה)",
-                     "descEn":  "Android subsystem (discontinued)",
-                     "enName":  "Windows Subsystem for Android",
-                     "noui":  true,
-                     "cat":  "כלי טכנאי"
-                 },
-                 {
                      "he":  "Journal",
                      "en":  "Journal",
                      "pfn":  "Microsoft.MicrosoftJournal_8wekyb3d8bbwe",
@@ -5919,6 +5862,29 @@
                      "descEn":  "What is eating your disk — a visual map of every file",
                      "icon":  "icons/w32/windirstat.svg",
                      "silent":  "MSI:/qn /norestart"
+                 },
+                 {
+                     "he":  "Windows Subsystem for Android",
+                     "en":  "WSAGitHub",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "כלי טכנאי",
+                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. בלי חנות אפליקציות מובנית",
+                     "color":  "#3ddc84",
+                     "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
+                     "match":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
+                     "files":  [
+                                   {
+                                       "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
+                                       "mb":  528,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. No app store bundled",
+                     "enName":  "Windows Subsystem for Android",
+                     "icon":  "icons/w32/wsa.svg"
                  },
                  {
                      "he":  "Csharf",

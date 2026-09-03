@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Windows Subsystem for Android">
+  <rect width="64" height="64" rx="14" fill="#12331f"/>
+  <g fill="#3ddc84">
+    <path d="M20 28h24v14a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4z"/>
+    <rect x="13" y="28" width="5" height="13" rx="2.5"/>
+    <rect x="46" y="28" width="5" height="13" rx="2.5"/>
+    <rect x="24" y="47" width="5" height="10" rx="2.5"/>
+    <rect x="35" y="47" width="5" height="10" rx="2.5"/>
+    <path d="M32 14c5.6 0 10.3 3.6 11.7 8.4H20.3C21.7 17.6 26.4 14 32 14z"/>
+  </g>
+  <circle cx="26" cy="19.5" r="1.6" fill="#12331f"/>
+  <circle cx="38" cy="19.5" r="1.6" fill="#12331f"/>
+  <path d="M23 12.5l2.6 3.4M41 12.5l-2.6 3.4" stroke="#3ddc84" stroke-width="2" stroke-linecap="round" fill="none"/>
+</svg>
