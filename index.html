@@ -643,8 +643,8 @@ const EN = {
   'הורדה בשפה אחרת': 'Download in another language',
   'בחנות מיקרוסופט': 'In the Microsoft Store',
   'בחנות': 'Store',
-  '✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows, ואין לה הורדה נפרדת לאנגלית':
-    '✓ Hebrew interface — the app follows the Windows display language, so there is no separate English download',
+  '✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית':
+    '✓ Hebrew interface — the app follows the Windows display language: if that language is English, it installs in English',
   'פתיחת הדף של האפליקציה בחנות מיקרוסופט': 'Open this app\u2019s page in the Microsoft Store',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
@@ -1020,7 +1020,9 @@ function render() {
   const claims = (cat, a) =>
     cat === 'בפיתוח שלי' ? !!a.custom :
     W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
-    (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat);
+    // a vendor download can belong to a subject category too - WSA sits with WSL, not off
+    // in "common software" - so this branch no longer excludes w32
+    (!a.custom && (a.cat || 'נוספות') === cat);
   /* An app whose category matches no group used to be dropped in silence: present in the
      catalog, absent from the shop. Give the strays a home rather than lose them. */
   const orphans = DATA.apps.filter(a => !groups.some(cat => claims(cat, a)));
@@ -1406,15 +1408,19 @@ function openSheet(en) {
   const ov = document.createElement('div');
   ov.className = 'overlay';
   /* Microsoft's own page for the same app - only for the ones that really have one */
-  /* the Store's shopping bag with the four-pane Windows mark on it */
-  const STORE_ICON = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
-    '<path d="M5.2 7.5h13.6l-1 11.1a2.2 2.2 0 0 1-2.2 2H8.4a2.2 2.2 0 0 1-2.2-2z" ' +
-    'stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>' +
-    '<path d="M9.1 7.5V5.9a2.9 2.9 0 0 1 5.8 0v1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
-    '<g fill="currentColor"><rect x="9.5" y="11.4" width="2.1" height="2.1" rx=".35"/>' +
-    '<rect x="12.4" y="11.4" width="2.1" height="2.1" rx=".35"/>' +
-    '<rect x="9.5" y="14.3" width="2.1" height="2.1" rx=".35"/>' +
-    '<rect x="12.4" y="14.3" width="2.1" height="2.1" rx=".35"/></g></svg>';
+  /* The Store's mark: a SOLID bag with the four-pane window knocked out of it. Drawn as a
+     silhouette rather than an outline with detail inside - at 17px an outlined bag with four
+     dots in it reads as a rubbish bin. evenodd punches the panes and the handle through. */
+  const STORE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="' +
+    'M8.05 7.2V6.3a3.95 3.95 0 0 1 7.9 0v.9h2.6a1 1 0 0 1 1 1.09l-.93 10.4A2.6 2.6 0 0 1 16.03 21H7.97' +
+    'a2.6 2.6 0 0 1-2.59-2.32L4.45 8.29A1 1 0 0 1 5.45 7.2h2.6z' +
+    'M9.95 7.2h4.1v-.9a2.05 2.05 0 0 0-4.1 0v.9z' +
+    'M8.6 11.15h2.55v2.55H8.6v-2.55z' +
+    'M12.85 11.15h2.55v2.55h-2.55v-2.55z' +
+    'M8.6 15.4h2.55v2.55H8.6V15.4z' +
+    'M12.85 15.4h2.55v2.55h-2.55V15.4z' +
+    '"/></svg>';
   const storeLink = (!a.w32 && !a.custom && a.pfn)
     ? '<a class="msstore" href="ms-windows-store://pdp/?PFN=' + esc(a.pfn) + '" title="' +
       esc(T('פתיחת הדף של האפליקציה בחנות מיקרוסופט')) + '">' + STORE_ICON +
@@ -1430,7 +1436,7 @@ function openSheet(en) {
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       (a.noui ? T('אין לו ממשק — רכיב שעובד ברקע')
               : (!a.w32 && !a.custom && a.heb)
-                ? T('✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows, ואין לה הורדה נפרדת לאנגלית')
+                ? T('✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית')
               : a.heb ? T(a.hebScope === 'chrome'
                           ? '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם'
                           : '✓ ממשק בעברית — נפתחת בעברית במחשב עברי')

@@ -3014,6 +3014,7 @@
                      "he":  "Windows Subsystem for Android",
                      "en":  "WSAGitHub",
                      "net":  false,
+                     "heb":  true,
                      "w32":  true,
                      "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
                      "match":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
@@ -3027,7 +3028,7 @@
                      "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",
                      "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
-                     "cat":  "תוכנות נפוצות",
+                     "cat":  "כלי טכנאי",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
