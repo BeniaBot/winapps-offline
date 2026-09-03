@@ -380,6 +380,17 @@
   .sheet .row span:first-child { color: var(--muted); }
   .sheet .acts { display: flex; flex-direction: column; gap: 9px; margin-top: 16px; }
   .sheet .acts .btn { width: 100%; padding: 12px; }
+  /* the direct link used to be a button as loud as the download itself. It is a power-user
+     affordance, so it sits beside its own button as an icon - and every button gets one,
+     which is how the Hebrew build's link became copyable at all. */
+  .dlrow { display: flex; gap: 8px; align-items: stretch; }
+  .dlrow .btn { flex: 1 1 auto; }
+  .cpy { flex: 0 0 auto; width: 46px; border-radius: 12px; cursor: pointer;
+         background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
+         display: inline-flex; align-items: center; justify-content: center; }
+  .cpy:hover { background: var(--tile-h); color: var(--ink); }
+  .cpy.done { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+  .cpy svg { width: 16px; height: 16px; }
 
   /* ===== dock ===== */
   .dock { position: fixed; inset-inline: 0; bottom: 14px; z-index: 50; pointer-events: none; }
@@ -582,8 +593,8 @@ const EN = {
   'גרסה': 'Version',
   'בודק…': 'checking…',
   'התקנה שקטה': 'Silent switches',
-  'המתקין השקט (EXE)': 'The silent installer (EXE)',
   'העתקת קישור ישיר': 'Copy direct link',
+  'הקישור:': 'The link:',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
   '✓ הסרה מהבחירה': '✓ Remove from selection',
@@ -1117,6 +1128,14 @@ const topBtn = document.getElementById('top-btn');
 topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 addEventListener('scroll', () => topBtn.classList.toggle('show', scrollY > 900), { passive: true });
 
+/* the URL a given download button really points at - the one place that decides it,
+   so the copy icon beside a button can never hand out a different link */
+function linkFor(a, exe) {
+  if (a && a.url) return urlFor(a);
+  const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
+  return owner ? urlFor(owner) : REL + encodeURIComponent(exe);
+}
+
 function download(exe) {
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
@@ -1223,23 +1242,30 @@ function openSheet(en) {
         ? '<div class="row"><span>התקנה שקטה</span><span dir="ltr" class="mono">' + esc(a.silent.replace('MSI:', 'msiexec /i ‹file› ')) + '</span></div>' : '')
     : files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
+  /* one row = the download, plus the copy icon for THAT file's own link */
+  const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+    'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/>' +
+    '<path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  const dlRow = (inner, url) => '<div class="dlrow">' + inner +
+    (url ? '<button class="cpy" data-url="' + esc(url) + '" title="' + esc(T('העתקת קישור ישיר')) + '" aria-label="' + esc(T('העתקת קישור ישיר')) + '">' + COPY_ICON + '</button>' : '') +
+    '</div>';
+
   let btns = files.map(f => {
     const label = files.length > 1
       ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
       : T('הורדה') + ' · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
-    return isLive(a, f)
-      ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
-      : '<button class="btn" disabled>בהעלאה לשרת...</button>';
+    if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
+    return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>', linkFor(a, f.exe));
   }).join('');
-  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' + esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>';
+  if (a.alt) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
+    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>', a.alt.url);
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
-  if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns += '<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
-    esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>' +
-    '<div class="warn" style="margin:2px 0 4px">התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.</div>';
-  if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc" title="שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט">המתקין השקט (EXE)</button>';
-  const shareUrl = urlFor(a) || (files[0] && isLive(a, files[0]) ? REL + encodeURIComponent(files[0].exe) : '');
-  if (shareUrl) btns += '<button class="btn lite" id="scp" data-url="' + esc(shareUrl) + '">העתקת קישור ישיר</button>';
+  if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
+    dlRow('<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
+      esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>',
+      a.xlat.url || (REL + encodeURIComponent(a.xlat.exe))) +
+    '<div class="warn" style="margin:2px 0 4px">' + T('התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') + '</div>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
@@ -1260,17 +1286,16 @@ function openSheet(en) {
                        : T('ממשק באנגלית בלבד')) + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
-    '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
-    '<button class="btn lite" id="sc">סגירה</button></div></div>';
+    '<button class="btn lite" id="sp">' + (on ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה')) + '</button>' +
+    '</div></div>';
   document.body.appendChild(ov);
   translateDom(ov);
   document.body.style.overflow = 'hidden';   // the page must not scroll behind the sheet
-  const shut = () => { ov.remove(); document.body.style.overflow = ''; };
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
+  const onEsc = e => { if (e.key === 'Escape') shut(); };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
-  ov.querySelector('#sc').onclick = shut;
+  document.addEventListener('keydown', onEsc);
   ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
-  const ssc = ov.querySelector('#ssc');
-  if (ssc) ssc.onclick = downloadRunner;
   // our own projects: the download link always resolves to the newest release,
   // so show which version that actually is right now
   if (a.repo) {
@@ -1280,12 +1305,13 @@ function openSheet(en) {
       .then(j => { if (cell) cell.textContent = j && j.tag_name ? j.tag_name + ' ' + T('(העדכנית)') : T('העדכנית ביותר'); })
       .catch(() => { if (cell) cell.textContent = T('העדכנית ביותר'); });
   }
-  const scp = ov.querySelector('#scp');
-  if (scp) scp.onclick = () => {
-    navigator.clipboard.writeText(scp.dataset.url)
-      .then(() => { scp.textContent = '✓ הקישור הועתק'; })
-      .catch(() => { prompt('הקישור:', scp.dataset.url); });
-  };
+  ov.querySelectorAll('.cpy').forEach(b => {
+    b.onclick = () => {
+      navigator.clipboard.writeText(b.dataset.url)
+        .then(() => { b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1600); })
+        .catch(() => { prompt(T('הקישור:'), b.dataset.url); });
+    };
+  });
 }
 
 /* ===== maintenance panel =====

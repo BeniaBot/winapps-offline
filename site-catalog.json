@@ -387,10 +387,10 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Maps.exe",
-                                       "mb":  224,
+                                       "mb":  214,
                                        "win":  "all",
-                                       "minBuild":  18363,
-                                       "ver":  "11.2506.3.0"
+                                       "minBuild":  17134,
+                                       "ver":  "10.2104.2.0"
                                    }
                                ]
                  },
@@ -1011,7 +1011,7 @@
                      "id":  "Microsoft.MicrosoftPCManager",
                      "xlat":  {
                                   "exe":  "Setup-PCManager-Hebrew.exe",
-                                  "mb":  94,
+                                  "mb":  116,
                                   "source":  "unofficial",
                                   "note":  "התרגום נעשה כאן ואינו של מיקרוסופט. קובצי התוכנה עצמם שלה, ללא שינוי, פרט למחרוזות הממשק. מותקן בתיקיית המשתמש, בלי הרשאות מנהל.",
                                   "noteEn":  "The translation was made here and is not Microsoft\u0027s. The program files are theirs, unchanged, except for the interface strings. Installs in your user folder, with no administrator rights."

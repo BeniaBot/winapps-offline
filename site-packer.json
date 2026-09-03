@@ -1308,15 +1308,15 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Maps.exe",
-                                       "mb":  224,
+                                       "mb":  214,
                                        "win":  "all",
-                                       "minBuild":  18363,
-                                       "ver":  "11.2506.3.0",
-                                       "bundle":  "Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "minBuild":  17134,
+                                       "ver":  "10.2104.2.0",
+                                       "bundle":  "Microsoft.WindowsMaps_2021.2104.2.0_neutral_~_8wekyb3d8bbwe.appxbundle",
                                        "deps":  [
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
+                                                        "name":  "Microsoft.UI.Xaml.2.3",
+                                                        "min":  "2.32002.13001.0",
                                                         "arch":  "x64"
                                                     },
                                                     {
@@ -1331,12 +1331,12 @@
                                                     },
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
+                                                        "min":  "14.0.29231.0",
                                                         "arch":  "x64"
                                                     },
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
+                                                        "name":  "Microsoft.UI.Xaml.2.3",
+                                                        "min":  "2.32002.13001.0",
                                                         "arch":  "x86"
                                                     },
                                                     {
@@ -1351,12 +1351,12 @@
                                                     },
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
+                                                        "min":  "14.0.29231.0",
                                                         "arch":  "x86"
                                                     },
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
+                                                        "name":  "Microsoft.UI.Xaml.2.3",
+                                                        "min":  "2.32002.13001.0",
                                                         "arch":  "arm64"
                                                     },
                                                     {
@@ -1371,7 +1371,7 @@
                                                     },
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
+                                                        "min":  "14.0.29231.0",
                                                         "arch":  "arm64"
                                                     }
                                                 ],
@@ -2855,7 +2855,7 @@
                                ],
                      "xlat":  {
                                   "exe":  "Setup-PCManager-Hebrew.exe",
-                                  "mb":  94,
+                                  "mb":  116,
                                   "source":  "unofficial",
                                   "note":  "התרגום נעשה כאן ואינו של מיקרוסופט. קובצי התוכנה עצמם שלה, ללא שינוי, פרט למחרוזות הממשק. מותקן בתיקיית המשתמש, בלי הרשאות מנהל.",
                                   "noteEn":  "The translation was made here and is not Microsoft\u0027s. The program files are theirs, unchanged, except for the interface strings. Installs in your user folder, with no administrator rights."
