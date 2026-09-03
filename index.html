@@ -1186,7 +1186,9 @@ function openSheet(en) {
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
   if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' + esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>';
-  if (a.xlat) btns += '<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
+  /* only once the build is really published - an orange button that 404s is worse
+     than no button */
+  if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns += '<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
     esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>' +
     '<div class="warn" style="margin:2px 0 4px">התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.</div>';
   if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc" title="שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט">המתקין השקט (EXE)</button>';

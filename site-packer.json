@@ -5399,6 +5399,13 @@
                                    }
                                ],
                      "descEn":  "Instant file search across the whole disk — finds as you type",
+                     "xlat":  {
+                                  "exe":  "Setup-Everything-Hebrew.exe",
+                                  "mb":  3,
+                                  "source":  "official",
+                                  "note":  "קובץ השפה הוא הקובץ הרשמי של voidtools — הם מפרסמים אותו בנפרד מהמתקין, ולכן התקנה רגילה יוצאת באנגלית.",
+                                  "noteEn":  "The language file is voidtools\u0027 own official pack - they publish it separately from the installer, which is why a normal install comes out in English."
+                              },
                      "icon":  "icons/w32/everything.svg",
                      "silent":  "/S"
                  },
@@ -5610,7 +5617,8 @@
                                    }
                                ],
                      "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
-                     "icon":  "icons/w32/rufus.svg"
+                     "icon":  "icons/w32/rufus.svg",
+                     "heb":  true
                  },
                  {
                      "he":  "GIMP",
@@ -5829,6 +5837,7 @@
                                ],
                      "descEn":  "Screen recording and streaming — the free standard",
                      "icon":  "icons/w32/obsstudio.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
@@ -5852,6 +5861,7 @@
                                ],
                      "descEn":  "A password manager that keeps everything on your own PC — no cloud",
                      "icon":  "icons/w32/keepassxc.svg",
+                     "heb":  true,
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5875,6 +5885,7 @@
                                ],
                      "descEn":  "Encrypt drives and folders",
                      "icon":  "icons/w32/veracrypt.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
