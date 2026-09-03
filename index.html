@@ -702,6 +702,8 @@ const EN = {
   'פתיחת הדף של האפליקציה בחנות מיקרוסופט': 'Open this app\u2019s page in the Microsoft Store',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
+  'הוספת הגרסה הזאת לבחירה מרובה': 'Add this version to the selection',
+  'הוספת הגרסה הראשית לבחירה מרובה': 'Add the main version to the selection',
   '✓ הסרה מהבחירה': '✓ Remove from selection',
   'סגירה': 'Close',
   'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט': 'Full file from the official source — works offline',
@@ -1439,9 +1441,12 @@ function openSheet(en) {
     : null;
   const langBtn = '';
 
+  /* Rendered next to every download, then dropped below if it turns out there was only
+     one - see the cleanup after the sheet is built. Its label says "this version" because
+     that is the whole difference between it and the wide button underneath. */
   const addBtn = (kind) => '<button class="addsel' + (SELECTED.get(en) === kind ? ' on' : '') +
-    '" data-add="' + kind + '" title="' + esc(T('הוספה לבחירה מרובה')) + '" aria-label="' +
-    esc(T('הוספה לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
+    '" data-add="' + kind + '" title="' + esc(T('הוספת הגרסה הזאת לבחירה מרובה')) + '" aria-label="' +
+    esc(T('הוספת הגרסה הזאת לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
 
   const dlRow = (inner, url, withLang, kind) => '<div class="dlrow">' +
     (kind ? addBtn(kind) : '') + (withLang ? langBtn : '') + inner +
@@ -1520,6 +1525,17 @@ function openSheet(en) {
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה')) + '</button>' +
     '</div></div>';
+  /* One download means the "+" and the wide button below are the same click with two
+     different looks. Keep the wide one - it says what it does in words. When there ARE
+     several downloads the "+" is the only way to say WHICH, so it stays, and the wide
+     button says out loud that it takes the main one. */
+  const adds = ov.querySelectorAll('.addsel');
+  if (adds.length < 2) adds.forEach(b => b.remove());
+  else {
+    const sp = ov.querySelector('#sp');
+    if (sp && !on) sp.textContent = T('הוספת הגרסה הראשית לבחירה מרובה');
+  }
+
   document.body.appendChild(ov);
   translateDom(ov);
   document.body.style.overflow = 'hidden';   // the page must not scroll behind the sheet
