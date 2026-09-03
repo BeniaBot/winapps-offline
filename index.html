@@ -444,6 +444,151 @@ let TARGET = '11';
 const SELECTED = new Set();
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
+
+/* ===== smart search =====
+   One query word should find the app whatever language the visitor thinks in,
+   and a category word ("דפדפן") should bring the whole family. */
+/* what each app answers to, beyond its own name - the search's real knowledge */
+const TAGS = {
+  Chrome: 'דפדפן browser כרום גוגל google גלישה',
+  Firefox: 'דפדפן browser פיירפוקס מוזילה mozilla גלישה',
+  Edge: 'דפדפן browser אדג מיקרוסופט גלישה',
+  Thunderbird: 'דואר מייל mail email תיבת דואר',
+  VLC: 'נגן player וידאו סרטים מוזיקה שמע media',
+  MediaPlayer: 'נגן player מוזיקה שמע media',
+  MoviesTV: 'נגן player סרטים וידאו media',
+  GIMP: 'ציור עריכת תמונות photoshop פוטושופ גרפיקה image editor',
+  Audacity: 'הקלטה עריכת שמע audio recorder',
+  OBS: 'הקלטת מסך שידור streaming screen record',
+  SevenZip: 'ארכיון zip rar חילוץ דחיסה archive extract',
+  SumatraPDF: 'pdf מסמכים קורא reader',
+  LibreOffice: 'אופיס office word excel powerpoint מסמכים גיליון מצגת',
+  Everything: 'חיפוש קבצים search find',
+  WinDirStat: 'דיסק מקום storage space ניתוח',
+  Speccy: 'חומרה hardware מפרט מידע מערכת',
+  Revo: 'הסרה uninstall שאריות ניקוי',
+  KeePassXC: 'סיסמאות password מנהל כספת',
+  VeraCrypt: 'הצפנה encrypt כספת אבטחה',
+  AnyDesk: 'שליטה מרחוק remote תמיכה',
+  TeamViewer: 'שליטה מרחוק remote תמיכה',
+  RemoteDesktop: 'שליטה מרחוק remote rdp',
+  Rufus: 'צריבה usb דיסק און קי iso bootable',
+  KLite: 'קודקים codec וידאו נגן',
+  Python: 'תכנות programming קוד פיתוח',
+  Git: 'תכנות גרסאות version control פיתוח',
+  VSCode: 'תכנות עורך קוד editor פיתוח',
+  Java: 'תכנות ריצה runtime',
+  Java8: 'תכנות ריצה runtime',
+  Java11: 'תכנות ריצה runtime',
+  Java17: 'תכנות ריצה runtime',
+  Java21: 'תכנות ריצה runtime',
+  NotepadPP: 'עורך טקסט editor קוד תכנות',
+  Notepad: 'עורך טקסט editor פנקס',
+  PowerShell7: 'טרמינל שורת פקודה terminal console תכנות',
+  Terminal: 'טרמינל שורת פקודה console cmd תכנות',
+  PCManager: 'ניקוי תחזוקה אופטימיזציה clean optimize',
+  Csharf: 'ניקוי תחזוקה טוויקים tweaks אופטימיזציה',
+  Calculator: 'מחשבון calculator חישוב',
+  StickyNotes: 'פתקים notes תזכורות',
+  OneNote: 'פתקים notes מחברת',
+  SnippingTool: 'צילום מסך screenshot חיתוך גזירה',
+  SoundRecorder: 'הקלטה רשמקול recorder שמע',
+  Camera: 'מצלמה camera צילום',
+  Photos: 'תמונות photos גלריה תצוגה',
+  Paint: 'ציור paint גרפיקה',
+  Paint3D: 'ציור paint תלת ממד 3d',
+  Maps: 'מפות maps ניווט navigation',
+  Weather: 'מזג אוויר weather תחזית',
+  News: 'חדשות news',
+  Translator: 'תרגום translate מתרגם',
+  People: 'אנשי קשר contacts',
+  Clock: 'שעון alarm התראות טיימר שעונים',
+  PhoneLink: 'טלפון phone נייד android',
+  WSL: 'לינוקס linux וירטואלי subsystem',
+  TikNick: 'ניקים פורומים ניהול מעקב',
+  Game2049: 'משחק game 2048 פאזל',
+  Store: 'חנות store microsoft',
+  DesktopAppInstaller: 'winget התקנה package manager'
+};
+const SYN = [
+  ['דפדפן', 'דפדפנים', 'browser', 'browsers'],
+  ['chrome', 'כרום', 'גוגל', 'google'],
+  ['firefox', 'פיירפוקס', 'מוזילה', 'mozilla'],
+  ['edge', 'אדג', 'אדג׳'],
+  ['נגן', 'נגנים', 'player', 'media', 'מדיה', 'וידאו', 'video', 'סרטים', 'movies', 'מוזיקה', 'music', 'שמע', 'audio'],
+  ['vlc'], ['קודק', 'קודקים', 'codec', 'codecs', 'hevc', 'heif', 'webp', 'av1', 'vp9', 'raw', 'הרחבה', 'הרחבות'],
+  ['תמונה', 'תמונות', 'photo', 'photos', 'image', 'images', 'צילום', 'picture'],
+  ['עריכה', 'editor', 'עורך', 'edit'],
+  ['ציור', 'paint', 'צייר', 'draw', 'גרפיקה', 'graphics', 'gimp'],
+  ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'extract', 'archive', 'דחיסה', 'compress'],
+  ['pdf', 'מסמך', 'מסמכים', 'document', 'documents'],
+  ['אופיס', 'office', 'word', 'excel', 'powerpoint', 'libreoffice', 'מסמכים'],
+  ['דואר', 'מייל', 'mail', 'email', 'thunderbird', 'outlook'],
+  ['משחק', 'משחקים', 'game', 'games', 'xbox', 'gaming'],
+  ['מחשבון', 'calculator', 'calc'],
+  ['פתקים', 'notes', 'note', 'פתק', 'sticky', 'onenote'],
+  ['מצלמה', 'camera', 'webcam'],
+  ['הקלטה', 'record', 'recorder', 'רשמקול', 'obs', 'audacity'],
+  ['צילום מסך', 'screenshot', 'snip', 'חיתוך', 'גזירה'],
+  ['שליטה מרחוק', 'remote', 'anydesk', 'teamviewer', 'rdp', 'שלט'],
+  ['אבטחה', 'security', 'antivirus', 'הצפנה', 'encrypt', 'veracrypt', 'סיסמה', 'סיסמאות', 'password', 'keepass'],
+  ['ניקוי', 'clean', 'cleanup', 'תחזוקה', 'maintenance', 'pcmanager', 'טוויק', 'csharf'],
+  ['דיסק', 'disk', 'storage', 'אחסון', 'מקום', 'space', 'windirstat'],
+  ['חיפוש', 'search', 'everything', 'למצוא', 'find'],
+  ['תכנות', 'code', 'coding', 'developer', 'מפתחים', 'python', 'git', 'vscode', 'java', 'terminal', 'powershell'],
+  ['רכיב', 'רכיבים', 'runtime', 'redistributable', 'ספריות', 'library', 'framework', 'net', 'vc++', 'directx'],
+  ['מפות', 'maps', 'ניווט', 'navigation'],
+  ['מזג אוויר', 'weather', 'מזג'],
+  ['חדשות', 'news'],
+  ['תרגום', 'translate', 'translator', 'מתרגם'],
+  ['אנשי קשר', 'people', 'contacts', 'קשר'],
+  ['שעון', 'clock', 'alarm', 'שעונים', 'התראות', 'טיימר'],
+  ['טלפון', 'phone', 'נייד', 'mobile', 'android'],
+  ['usb', 'דיסק און קי', 'און קי', 'צריבה', 'burn', 'rufus', 'iso'],
+  ['וירטואלי', 'wsl', 'linux', 'לינוקס']
+];
+const norm = s => (s || '').toLowerCase()
+  .replace(/["'`׳״]/g, '')
+  .replace(/[֑-ׇ]/g, '')      // niqqud
+  .replace(/\s+/g, ' ')
+  .trim();
+/* every word that should also count as a hit for this query word */
+function expand(word) {
+  const out = new Set([word]);
+  SYN.forEach(group => {
+    // a group joins in when the typed word IS one of its terms, or is a prefix of one
+    // (prefix only - a loose "contains" made "web" match WebP and WebView2)
+    if (group.some(g => g === word || (word.length >= 3 && g.startsWith(word)))) {
+      group.forEach(g => out.add(g));
+    }
+  });
+  return [...out];
+}
+function haystack(a) {
+  if (!a._hay) {
+    a._hay = norm([a.he, a.en, a.desc, a.cat, a.note, TAGS[a.en] || '',
+                   a.heb ? 'עברית hebrew' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
+                   a.custom ? 'שלי' : ''].join(' '));
+  }
+  return a._hay;
+}
+/* a short latin term must land on a whole word: plain "includes" made "rar"
+   match Terraria. Hebrew has no \b in JS, and its words rarely collide, so it
+   keeps the substring behaviour that lets prefixes work. */
+const hitCache = {};
+function hits(hay, term) {
+  if (!/^[a-z0-9+.]+$/.test(term)) return hay.includes(term);
+  const re = hitCache[term] || (hitCache[term] =
+    new RegExp('(^|[^a-z0-9])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)'));
+  return re.test(hay);
+}
+function matches(a, query) {
+  const words = norm(query).split(' ').filter(Boolean);
+  if (!words.length) return true;
+  const hay = haystack(a);
+  // every word the visitor typed must hit something - each via its own synonyms
+  return words.every(w => expand(w).some(v => hits(hay, v)));
+}
 const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
 const bestFile = a => {
   const fs = filesFor(a);
@@ -458,7 +603,7 @@ const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) 
 /* ===== tiles ===== */
 function tile(a) {
   if (HEBONLY && !a.heb) return '';
-  if (QUERY && !(a.he + ' ' + a.en + ' ' + (a.desc || '')).toLowerCase().includes(QUERY)) return '';
+  if (QUERY && !matches(a, QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
   const pl = plate(a, false);
@@ -632,6 +777,7 @@ askBtn.onclick = () => {
       'נשלח מ': location.href
     })
   }).then(r => r.json().catch(() => ({}))).then(j => {
+    if (j && /activation/i.test(j.message || '')) throw new Error('pending activation');
     if (j && (j.success === 'true' || j.success === true)) {
       askBtn.textContent = '✓ הבקשה נשלחה';
       askHint.style.color = 'var(--ok)';
@@ -644,8 +790,9 @@ askBtn.onclick = () => {
     askBtn.disabled = false;
     askBtn.textContent = 'שליחת הבקשה';
     askHint.style.color = 'var(--warn)';
-    askHint.innerHTML = 'השליחה הישירה לא עבדה כרגע. <a href="mailto:' + ASK_TO + '?subject=' +
-      encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(m.body) + '">לשלוח בדואר</a>';
+    askHint.innerHTML = 'השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ' +
+      '<a href="mailto:' + ASK_TO + '?subject=' + encodeURIComponent(m.subject) +
+      '&body=' + encodeURIComponent(m.body) + '">בדואר בלחיצה אחת</a>, והכל כבר ממולא.';
   });
 };
 
@@ -828,7 +975,7 @@ themeBtn.onclick = () => {
   themeLabel();
 };
 themeLabel();
-document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim().toLowerCase(); render(); });
+document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim(); render(); });
 
 /* ===== ISO ===== */
 function isoButtons() {
