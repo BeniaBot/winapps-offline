@@ -5301,9 +5301,14 @@
                      "heb":  true,
                      "silent":  "/S",
                      "alt":  {
-                                 "label":  "English",
-                                 "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=en-US"
-                             }
+                                 "label":  "עברית",
+                                 "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=he",
+                                 "labelEn":  "Hebrew"
+                             },
+                     "altEn":  {
+                                   "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=en-US",
+                                   "label":  "English"
+                               }
                  },
                  {
                      "he":  "Edge",
@@ -5771,7 +5776,16 @@
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
                      "icon":  "icons/w32/thunderbird.svg",
                      "heb":  true,
-                     "silent":  "/S"
+                     "silent":  "/S",
+                     "alt":  {
+                                 "label":  "עברית",
+                                 "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=he",
+                                 "labelEn":  "Hebrew"
+                             },
+                     "altEn":  {
+                                   "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=en-US",
+                                   "label":  "English"
+                               }
                  },
                  {
                      "he":  "OBS Studio",

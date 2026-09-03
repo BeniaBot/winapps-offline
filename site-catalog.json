@@ -2327,9 +2327,14 @@
                      "match":  "Firefox Setup*.exe",
                      "silent":  "/S",
                      "alt":  {
-                                 "label":  "English",
-                                 "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=en-US"
+                                 "label":  "עברית",
+                                 "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=he",
+                                 "labelEn":  "Hebrew"
                              },
+                     "altEn":  {
+                                   "url":  "https://download.mozilla.org/?product=firefox-latest-ssl\u0026os=win64\u0026lang=en-US",
+                                   "label":  "English"
+                               },
                      "icon":  "icons/w32/firefox.svg",
                      "color":  "#ff7139",
                      "desc":  "מתקין מלא בעברית",
@@ -2798,6 +2803,15 @@
                      "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=he",
                      "match":  "Thunderbird Setup*.exe",
                      "silent":  "/S",
+                     "alt":  {
+                                 "label":  "עברית",
+                                 "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=he",
+                                 "labelEn":  "Hebrew"
+                             },
+                     "altEn":  {
+                                   "url":  "https://download.mozilla.org/?product=thunderbird-latest-SSL\u0026os=win64\u0026lang=en-US",
+                                   "label":  "English"
+                               },
                      "icon":  "icons/w32/thunderbird.svg",
                      "color":  "#0f6191",
                      "desc":  "תוכנת דואר מלאה בעברית — קוראים וכותבים גם בלי חיבור קבוע",
