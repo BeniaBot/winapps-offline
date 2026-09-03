@@ -18,7 +18,7 @@
 <meta property="og:description" content="מורידים מתקין מוכן, מעבירים בדיסק-און-קי, מתקינים בלי אינטרנט.">
 <meta property="og:url" content="https://beniabot.github.io/winapps-offline/">
 <meta property="og:image" content="https://beniabot.github.io/winapps-offline/icon.png">
-<link rel="preload" href="site-catalog.json" as="fetch" crossorigin>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -996,7 +996,7 @@ function isoButtons() {
 }
 
 /* ===== boot: paint as soon as the slim catalog is here; buttons light up after ===== */
-fetch('site-catalog.json', { cache: 'no-cache' }).then(r => {
+fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => {
   if (!r.ok) throw new Error('catalog HTTP ' + r.status);
   return r.json();
 }).then(d => {
@@ -1010,7 +1010,7 @@ fetch('site-catalog.json', { cache: 'no-cache' }).then(r => {
     '<div><b>0</b><span>רשת בצד השני</span></div>';
   // a rendering bug must never masquerade as a network problem
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
-  return fetch('published.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
+  return fetch('published.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
 }).then(pub => {
   (pub || []).forEach(n => LIVE[n] = true);
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
