@@ -351,6 +351,27 @@
                                ]
                  },
                  {
+                     "he":  "מפות",
+                     "en":  "Maps",
+                     "net":  false,
+                     "id":  "Microsoft.WindowsMaps",
+                     "heb":  true,
+                     "icon":  "icons/Maps.png",
+                     "color":  "#0078D4",
+                     "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
+                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
+                     "cat":  "כלים",
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Maps.exe",
+                                       "mb":  224,
+                                       "win":  "all",
+                                       "minBuild":  18363,
+                                       "ver":  "11.2506.3.0"
+                                   }
+                               ]
+                 },
+                 {
                      "he":  "To Do",
                      "en":  "ToDo",
                      "net":  false,
@@ -957,27 +978,6 @@
                                        "win":  "all",
                                        "minBuild":  17763,
                                        "ver":  "1.2606.22001.0"
-                                   }
-                               ]
-                 },
-                 {
-                     "he":  "מפות",
-                     "en":  "Maps",
-                     "net":  true,
-                     "id":  "Microsoft.WindowsMaps",
-                     "heb":  true,
-                     "icon":  "icons/Maps.png",
-                     "color":  "#0078D4",
-                     "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
-                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
-                     "cat":  "כלים",
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Maps.exe",
-                                       "mb":  224,
-                                       "win":  "all",
-                                       "minBuild":  18363,
-                                       "ver":  "11.2506.3.0"
                                    }
                                ]
                  },

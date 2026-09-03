@@ -1279,6 +1279,92 @@
                      "cat":  "תקשורת"
                  },
                  {
+                     "he":  "מפות",
+                     "en":  "Maps",
+                     "pfn":  "Microsoft.WindowsMaps_8wekyb3d8bbwe",
+                     "id":  "Microsoft.WindowsMaps",
+                     "net":  false,
+                     "files":  [
+                                   {
+                                       "exe":  "Setup-Maps.exe",
+                                       "mb":  224,
+                                       "win":  "all",
+                                       "minBuild":  18363,
+                                       "ver":  "11.2506.3.0",
+                                       "bundle":  "Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle",
+                                       "deps":  [
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.7",
+                                                        "min":  "7.2109.13004.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
+                                                        "min":  "2.2.27912.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
+                                                        "min":  "2.2.28604.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.VCLibs.140.00",
+                                                        "min":  "14.0.33519.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.7",
+                                                        "min":  "7.2109.13004.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
+                                                        "min":  "2.2.27912.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
+                                                        "min":  "2.2.28604.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.VCLibs.140.00",
+                                                        "min":  "14.0.33519.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.7",
+                                                        "min":  "7.2109.13004.0",
+                                                        "arch":  "arm64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
+                                                        "min":  "2.2.27912.0",
+                                                        "arch":  "arm64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
+                                                        "min":  "2.2.28604.0",
+                                                        "arch":  "arm64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.VCLibs.140.00",
+                                                        "min":  "14.0.33519.0",
+                                                        "arch":  "arm64"
+                                                    }
+                                                ],
+                                       "live":  false
+                                   }
+                               ],
+                     "heb":  true,
+                     "icon":  "icons/Maps.png",
+                     "color":  "#0078D4",
+                     "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
+                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
+                     "cat":  "כלים"
+                 },
+                 {
                      "he":  "To Do",
                      "en":  "ToDo",
                      "pfn":  "Microsoft.Todos_8wekyb3d8bbwe",
@@ -2741,92 +2827,6 @@
                      "color":  "#777777",
                      "desc":  "מנפה שגיאות של מיקרוסופט",
                      "cat":  "כלי טכנאי"
-                 },
-                 {
-                     "he":  "מפות",
-                     "en":  "Maps",
-                     "pfn":  "Microsoft.WindowsMaps_8wekyb3d8bbwe",
-                     "id":  "Microsoft.WindowsMaps",
-                     "net":  true,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Maps.exe",
-                                       "mb":  224,
-                                       "win":  "all",
-                                       "minBuild":  18363,
-                                       "ver":  "11.2506.3.0",
-                                       "bundle":  "Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle",
-                                       "deps":  [
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.27912.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.27912.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.7",
-                                                        "min":  "7.2109.13004.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Framework.2.2",
-                                                        "min":  "2.2.27912.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.NET.Native.Runtime.2.2",
-                                                        "min":  "2.2.28604.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.33519.0",
-                                                        "arch":  "arm64"
-                                                    }
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "heb":  true,
-                     "icon":  "icons/Maps.png",
-                     "color":  "#0078D4",
-                     "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
-                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
-                     "cat":  "כלים"
                  },
                  {
                      "he":  "מזג אוויר",

@@ -410,7 +410,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בנימין</b> · <a href="mailto:b0554003794@gmail.com" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <span id="updated"></span></div>
+    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בנימין</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <span id="updated"></span></div>
   </div>
 </footer>
 
@@ -755,6 +755,33 @@ function askText() {
   lines.push('— נשלח מהחנות: ' + location.href);
   return { subject: '[חנות אופליין] ' + f.kind + (f.app ? ' — ' + f.app : ''), body: lines.join('\n') };
 }
+
+/* ===== opening mail =====
+   A phone has a mail app and mailto: is the right thing. A desktop often has no
+   mail client at all, and a bare mailto: there looks like a dead link - so it gets
+   a compose window in the browser instead. */
+const isMobile = () => /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(navigator.userAgent)
+  || (matchMedia('(hover: none)').matches && matchMedia('(pointer: coarse)').matches);
+function openMail(subject, body) {
+  const to = ASK_TO;
+  if (isMobile()) {
+    location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
+                    '&body=' + encodeURIComponent(body);
+    return;
+  }
+  const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) +
+                '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  const w = window.open(gmail, '_blank', 'noopener');
+  // popup blocked, or no browser mail: fall back to whatever the machine has
+  if (!w) location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
+                          '&body=' + encodeURIComponent(body);
+}
+const contactLink = document.getElementById('contact-link');
+if (contactLink) contactLink.onclick = e => {
+  e.preventDefault();
+  openMail('חנות אפליקציות אופליין — יצירת קשר', '');
+};
+
 const askHint = document.getElementById('ask-hint');
 const askBtn  = document.getElementById('ask-send');
 askBtn.onclick = () => {
@@ -791,8 +818,9 @@ askBtn.onclick = () => {
     askBtn.textContent = 'שליחת הבקשה';
     askHint.style.color = 'var(--warn)';
     askHint.innerHTML = 'השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ' +
-      '<a href="mailto:' + ASK_TO + '?subject=' + encodeURIComponent(m.subject) +
-      '&body=' + encodeURIComponent(m.body) + '">בדואר בלחיצה אחת</a>, והכל כבר ממולא.';
+      '<a href="#" id="ask-mail">בדואר בלחיצה אחת</a>, והכל כבר ממולא.';
+    const am = document.getElementById('ask-mail');
+    if (am) am.onclick = ev => { ev.preventDefault(); openMail(m.subject, m.body); };
   });
 };
 
