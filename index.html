@@ -80,6 +80,16 @@
       radial-gradient(800px 600px at -10% 110%, rgba(90,70,220,.05), transparent 65%),
       linear-gradient(165deg, #eef1f6, #e6ebf4 45%, #eaeef6);
   }
+  /* dir="auto" fields decide their direction from what was typed - which is what
+     we want once there IS something typed. While empty it resolves to LTR, so on
+     a Hebrew page every placeholder sat on the wrong side of its own field.
+     :placeholder-shown stops matching the moment the user types, so the auto
+     behaviour comes back untouched. */
+  html[dir="rtl"] input:placeholder-shown,
+  html[dir="rtl"] textarea:placeholder-shown { direction: rtl; }
+  html[dir="ltr"] input:placeholder-shown,
+  html[dir="ltr"] textarea:placeholder-shown { direction: ltr; }
+
   .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
   button { font: inherit; }
@@ -281,7 +291,9 @@
   .ask .grid2 { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(240px, 1.4fr);
                 gap: 12px; margin-top: 18px; }
   @media (max-width: 620px) { .ask .grid2 { grid-template-columns: 1fr; } }
-  .ask .row2 { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+  /* end, not center: the field carries a label above it, so a centred button
+     floats half a line off the input it belongs to */
+  .ask .row2 { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; align-items: flex-end; }
   .ask label { display: block; font-size: .8rem; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
   .ask .field { min-width: 0; }
   .ask input, .ask select, .ask textarea {
@@ -291,6 +303,23 @@
   .ask input:focus, .ask select:focus, .ask textarea:focus {
     border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
   .ask textarea { min-height: 84px; resize: vertical; }
+  /* the native select ignores the dark palette and puts its arrow on the wrong
+     side in RTL - draw our own */
+  .ask select {
+    appearance: none; -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                      linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-inline-end: 34px;
+  }
+  html[dir="rtl"] .ask select {
+    background-position: 16px calc(50% - 1px), 20px calc(50% - 1px);
+  }
+  html[dir="ltr"] .ask select {
+    background-position: calc(100% - 20px) calc(50% - 1px), calc(100% - 16px) calc(50% - 1px);
+  }
+  .ask select option { background: var(--panel); color: var(--ink); }
   .ask .row2 .btn { flex: 0 0 auto; padding: 12px 30px; }
   .ask .row2 .field { flex: 1 1 260px; }
   .ask .hint { color: var(--muted); font-size: .8rem; margin-top: 10px; }
