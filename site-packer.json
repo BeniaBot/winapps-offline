@@ -54,6 +54,7 @@
                      "icon":  "icons/Notepad.png",
                      "color":  "#0078D4",
                      "desc":  "עורך טקסט פשוט",
+                     "descEn":  "A plain text editor",
                      "cat":  "כלים"
                  },
                  {
@@ -154,6 +155,7 @@
                      "icon":  "icons/Calculator.png",
                      "color":  "#0078D4",
                      "desc":  "מחשבון רגיל, מדעי והמרות יחידות",
+                     "descEn":  "Standard, scientific and unit conversion",
                      "cat":  "כלים"
                  },
                  {
@@ -209,6 +211,7 @@
                      "icon":  "icons/Paint.png",
                      "color":  "#0078D4",
                      "desc":  "עורך תמונות בסיסי",
+                     "descEn":  "Basic image editing",
                      "cat":  "כלים"
                  },
                  {
@@ -315,6 +318,7 @@
                      "icon":  "icons/SnippingTool.png",
                      "color":  "#0078D4",
                      "desc":  "צילום מסך וחיתוך",
+                     "descEn":  "Screenshots and cropping",
                      "cat":  "כלים"
                  },
                  {
@@ -370,6 +374,7 @@
                      "icon":  "icons/Photos.png",
                      "color":  "#173A73",
                      "desc":  "צפייה בתמונות ועריכה קלה",
+                     "descEn":  "View photos and edit lightly",
                      "cat":  "מדיה"
                  },
                  {
@@ -486,6 +491,7 @@
                      "icon":  "icons/SoundRecorder.png",
                      "color":  "#0078D4",
                      "desc":  "הקלטת קול",
+                     "descEn":  "Voice recording",
                      "cat":  "מדיה"
                  },
                  {
@@ -571,6 +577,7 @@
                      "icon":  "icons/Camera.png",
                      "color":  "#0078D4",
                      "desc":  "צילום ממצלמת המחשב",
+                     "descEn":  "Shoot from the PC camera",
                      "cat":  "מדיה"
                  },
                  {
@@ -686,6 +693,7 @@
                      "icon":  "icons/Clock.png",
                      "color":  "#0078D4",
                      "desc":  "שעון, טיימר, סטופר והתראות",
+                     "descEn":  "Clock, timer, stopwatch and alarms",
                      "cat":  "כלים"
                  },
                  {
@@ -756,6 +764,7 @@
                      "icon":  "icons/StickyNotes.png",
                      "color":  "#414141",
                      "desc":  "פתקים על שולחן העבודה",
+                     "descEn":  "Notes on the desktop",
                      "cat":  "כלים"
                  },
                  {
@@ -795,6 +804,7 @@
                      "heb":  true,
                      "icon":  "icons/Terminal.png",
                      "desc":  "מסוף מודרני לשורת הפקודה",
+                     "descEn":  "A modern console for the command line",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -840,6 +850,7 @@
                      "icon":  "icons/MediaPlayer.png",
                      "color":  "#0078D4",
                      "desc":  "נגינת מוזיקה ווידאו",
+                     "descEn":  "Play music and video",
                      "cat":  "מדיה"
                  },
                  {
@@ -895,6 +906,7 @@
                      "icon":  "icons/MoviesTV.png",
                      "color":  "#0078D4",
                      "desc":  "נגן וידאו",
+                     "descEn":  "Video player",
                      "cat":  "מדיה"
                  },
                  {
@@ -940,6 +952,7 @@
                      "icon":  "icons/Paint3D.png",
                      "color":  "#0078D4",
                      "desc":  "עריכה תלת-ממדית (המוצר הופסק אך עובד)",
+                     "descEn":  "3D editing (discontinued, still works)",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1039,6 +1052,7 @@
                      "heb":  true,
                      "icon":  "icons/3DViewer.png",
                      "desc":  "צפייה במודלים תלת-ממדיים",
+                     "descEn":  "View 3D models",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1139,6 +1153,7 @@
                      "icon":  "icons/Solitaire.png",
                      "color":  "#0078D4",
                      "desc":  "חבילת משחקי הקלפים של מיקרוסופט",
+                     "descEn":  "Microsoft\u0027s card game collection",
                      "cat":  "משחקים"
                  },
                  {
@@ -1208,6 +1223,7 @@
                      "heb":  true,
                      "icon":  "icons/XboxGameBar.png",
                      "desc":  "הקלטת מסך וסרגל משחקים (Win+G)",
+                     "descEn":  "Screen recording and the game bar (Win+G)",
                      "cat":  "משחקים"
                  },
                  {
@@ -1276,6 +1292,7 @@
                                ],
                      "icon":  "icons/RemoteDesktop.png",
                      "desc":  "התחברות למחשב אחר ברשת",
+                     "descEn":  "Connect to another PC on the network",
                      "cat":  "תקשורת"
                  },
                  {
@@ -1361,6 +1378,8 @@
                      "icon":  "icons/Maps.png",
                      "color":  "#0078D4",
                      "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
+                     "descEn":  "Windows Maps with the map of Israel built in — works fully offline",
+                     "noteEn":  "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself",
                      "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
                      "cat":  "כלים"
                  },
@@ -1462,6 +1481,7 @@
                      "icon":  "icons/ToDo.png",
                      "color":  "#404040",
                      "desc":  "רשימות משימות",
+                     "descEn":  "Task lists",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1532,6 +1552,7 @@
                      "icon":  "icons/People.png",
                      "color":  "#0078D4",
                      "desc":  "ספר כתובות",
+                     "descEn":  "Address book",
                      "cat":  "תקשורת"
                  },
                  {
@@ -1567,6 +1588,7 @@
                      "icon":  "icons/OneNote.png",
                      "color":  "#404040",
                      "desc":  "מחברות ורשימות",
+                     "descEn":  "Notebooks and notes",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1596,6 +1618,7 @@
                      "icon":  "icons/MixedReality.png",
                      "color":  "#1F1F1F",
                      "desc":  "פורטל למשקפי מציאות מעורבת",
+                     "descEn":  "Portal for mixed reality headsets",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -1622,6 +1645,8 @@
                      "icon":  "icons/HEIFExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות HEIC של אייפון",
+                     "descEn":  "Opens iPhone HEIC photos",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1648,6 +1673,8 @@
                      "icon":  "icons/WebpExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות WebP",
+                     "descEn":  "Opens WebP images",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1700,6 +1727,8 @@
                      "icon":  "icons/RawExtension.png",
                      "color":  "#0078D7",
                      "desc":  "פותח קבצי RAW ממצלמות",
+                     "descEn":  "Opens camera RAW files",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1726,6 +1755,8 @@
                      "icon":  "icons/VP9Extension.png",
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו VP9",
+                     "descEn":  "Plays VP9 video",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1751,6 +1782,8 @@
                      "icon":  "icons/AV1Extension.png",
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו AV1",
+                     "descEn":  "Plays AV1 video",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1789,6 +1822,8 @@
                      "icon":  "icons/HEVCExtension.png",
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו HEVC / H.265",
+                     "descEn":  "Plays HEVC / H.265 video",
+                     "noui":  true,
                      "cat":  "מדיה"
                  },
                  {
@@ -1859,6 +1894,8 @@
                      "icon":  "icons/AppInstaller.png",
                      "color":  "#0078d7",
                      "desc":  "מתקין חבילות ושורת הפקודה winget",
+                     "descEn":  "Package installer and the winget command line",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -1883,6 +1920,8 @@
                                ],
                      "icon":  "icons/Sysinternals.png",
                      "desc":  "ארגז הכלים של Sysinternals",
+                     "descEn":  "The Sysinternals toolbox",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -1922,6 +1961,7 @@
                      "heb":  true,
                      "icon":  "icons/TerminalPreview.png",
                      "desc":  "גרסת התצוגה המקדימה של Terminal",
+                     "descEn":  "The preview build of Terminal",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -1961,6 +2001,8 @@
                      "icon":  "icons/FileRecovery.png",
                      "color":  "#0078D4",
                      "desc":  "שחזור קבצים שנמחקו",
+                     "descEn":  "Recover deleted files",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -1985,6 +2027,9 @@
                                ],
                      "icon":  "icons/WSL.png",
                      "desc":  "תת-מערכת Linux ל-Windows",
+                     "descEn":  "Windows Subsystem for Linux",
+                     "noui":  true,
+                     "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"
                  },
@@ -2040,6 +2085,8 @@
                      "heb":  true,
                      "icon":  "icons/WSA.png",
                      "desc":  "תת-מערכת אנדרואיד (הופסקה)",
+                     "descEn":  "Android subsystem (discontinued)",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -2114,6 +2161,7 @@
                      "icon":  "icons/Journal.png",
                      "color":  "#dddddd",
                      "desc":  "כתיבה בעט על מסך מגע",
+                     "descEn":  "Pen writing on a touch screen",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -2153,6 +2201,7 @@
                      "heb":  true,
                      "icon":  "icons/Print3D.png",
                      "desc":  "הדפסה תלת-ממדית",
+                     "descEn":  "3D printing",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -2207,6 +2256,7 @@
                      "heb":  true,
                      "icon":  "icons/Builder3D.png",
                      "desc":  "בניית מודלים תלת-ממדיים",
+                     "descEn":  "Build 3D models",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -2280,6 +2330,7 @@
                                ],
                      "icon":  "icons/Minesweeper.png",
                      "desc":  "שולה המוקשים הקלאסי",
+                     "descEn":  "The classic Minesweeper",
                      "cat":  "משחקים"
                  },
                  {
@@ -2379,6 +2430,7 @@
                      "icon":  "icons/Mahjong.png",
                      "color":  "#06706e",
                      "desc":  "מהג׳ונג",
+                     "descEn":  "Mahjong",
                      "cat":  "משחקים"
                  },
                  {
@@ -2452,6 +2504,7 @@
                                ],
                      "icon":  "icons/Sudoku.png",
                      "desc":  "סודוקו",
+                     "descEn":  "Sudoku",
                      "cat":  "משחקים"
                  },
                  {
@@ -2501,6 +2554,7 @@
                      "icon":  "icons/Jigsaw.png",
                      "color":  "#522430",
                      "desc":  "פאזלים",
+                     "descEn":  "Jigsaw puzzles",
                      "cat":  "משחקים"
                  },
                  {
@@ -2550,6 +2604,7 @@
                      "icon":  "icons/TreasureHunt.png",
                      "color":  "#243F5D",
                      "desc":  "משחק ציד אוצרות",
+                     "descEn":  "A treasure hunting game",
                      "cat":  "משחקים"
                  },
                  {
@@ -2620,6 +2675,8 @@
                      "icon":  "icons/XboxIdentity.png",
                      "color":  "#1a1a1a",
                      "desc":  "כניסה לחשבון Xbox — משחקים נשברים בלעדיו",
+                     "descEn":  "Xbox account sign-in — games break without it",
+                     "noui":  true,
                      "cat":  "משחקים"
                  },
                  {
@@ -2654,6 +2711,8 @@
                      "icon":  "icons/XboxGameOverlay.png",
                      "color":  "#107C10",
                      "desc":  "שכבת המשחק של Xbox",
+                     "descEn":  "Xbox\u0027s in-game overlay",
+                     "noui":  true,
                      "cat":  "משחקים"
                  },
                  {
@@ -2709,6 +2768,8 @@
                      "icon":  "icons/XboxTCUI.png",
                      "color":  "#464646",
                      "desc":  "רכיב ממשק של Xbox",
+                     "descEn":  "An Xbox interface component",
+                     "noui":  true,
                      "cat":  "משחקים"
                  },
                  {
@@ -2743,6 +2804,8 @@
                      "icon":  "icons/XboxSpeech.png",
                      "color":  "#107C10",
                      "desc":  "דיבור לטקסט במשחקים",
+                     "descEn":  "Speech to text in games",
+                     "noui":  true,
                      "cat":  "משחקים"
                  },
                  {
@@ -2776,6 +2839,8 @@
                                ],
                      "icon":  "icons/PCManager.png",
                      "desc":  "ניקוי ותחזוקת המחשב",
+                     "descEn":  "Clean up and maintain the PC",
+                     "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"
                  },
@@ -2801,6 +2866,7 @@
                                ],
                      "icon":  "icons/PowerShell.png",
                      "desc":  "PowerShell 7 — מעטפת מתקדמת",
+                     "descEn":  "PowerShell 7 — the advanced shell",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -2826,6 +2892,8 @@
                      "icon":  "icons/WinDbg.png",
                      "color":  "#777777",
                      "desc":  "מנפה שגיאות של מיקרוסופט",
+                     "descEn":  "Microsoft\u0027s debugger",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -2926,6 +2994,7 @@
                      "icon":  "icons/Weather.png",
                      "color":  "#0078D4",
                      "desc":  "תחזית מזג אוויר",
+                     "descEn":  "Weather forecast",
                      "cat":  "כלים"
                  },
                  {
@@ -3026,6 +3095,7 @@
                      "icon":  "icons/News.png",
                      "color":  "#262F38",
                      "desc":  "חדשות",
+                     "descEn":  "News",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3122,6 +3192,7 @@
                      "icon":  "icons/GetHelp.png",
                      "color":  "#0078D4",
                      "desc":  "התמיכה של מיקרוסופט",
+                     "descEn":  "Microsoft\u0027s support app",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3222,6 +3293,7 @@
                      "icon":  "icons/FeedbackHub.png",
                      "color":  "#0078D4",
                      "desc":  "שליחת משוב למיקרוסופט",
+                     "descEn":  "Send feedback to Microsoft",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3277,6 +3349,7 @@
                      "icon":  "icons/Mail.png",
                      "color":  "#0078D7",
                      "desc":  "דואר ולוח שנה (הדור הקודם)",
+                     "descEn":  "Mail and calendar (previous generation)",
                      "cat":  "תקשורת"
                  },
                  {
@@ -3303,6 +3376,7 @@
                      "icon":  "icons/OfficeHub.png",
                      "color":  "#FFFFFF",
                      "desc":  "מסך הבית של Microsoft 365",
+                     "descEn":  "The Microsoft 365 home screen",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -3358,6 +3432,7 @@
                      "icon":  "icons/Clipchamp.png",
                      "color":  "white",
                      "desc":  "עריכת וידאו",
+                     "descEn":  "Video editing",
                      "cat":  "מדיה"
                  },
                  {
@@ -3398,6 +3473,7 @@
                      "icon":  "icons/QuickAssist.png",
                      "color":  "#FFFFFF",
                      "desc":  "שליטה מרחוק לקבלת עזרה",
+                     "descEn":  "Remote control for getting help",
                      "cat":  "תקשורת"
                  },
                  {
@@ -3494,6 +3570,7 @@
                      "icon":  "icons/PhoneLink.png",
                      "color":  "#0078D7",
                      "desc":  "חיבור הטלפון למחשב",
+                     "descEn":  "Link your phone to the PC",
                      "cat":  "תקשורת"
                  },
                  {
@@ -3559,6 +3636,7 @@
                      "icon":  "icons/XboxApp.png",
                      "color":  "#107C10",
                      "desc":  "משחקי Xbox ו-Game Pass",
+                     "descEn":  "Xbox games and Game Pass",
                      "cat":  "משחקים"
                  },
                  {
@@ -3613,6 +3691,7 @@
                      "heb":  true,
                      "icon":  "icons/Store.png",
                      "desc":  "חנות האפליקציות עצמה",
+                     "descEn":  "The app store itself",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3667,6 +3746,7 @@
                      "heb":  true,
                      "icon":  "icons/Copilot.png",
                      "desc":  "העוזר החכם של מיקרוסופט",
+                     "descEn":  "Microsoft\u0027s AI assistant",
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3721,6 +3801,7 @@
                      "heb":  true,
                      "icon":  "icons/Family.png",
                      "desc":  "בקרת הורים",
+                     "descEn":  "Parental controls",
                      "cat":  "תקשורת"
                  },
                  {
@@ -3755,6 +3836,8 @@
                      "heb":  true,
                      "icon":  "icons/BingSearch.png",
                      "desc":  "חיפוש Bing בשורת המשימות",
+                     "descEn":  "Bing search in the taskbar",
+                     "noui":  true,
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -3809,6 +3892,8 @@
                      "heb":  true,
                      "icon":  "icons/Widgets.png",
                      "desc":  "לוח הווידג\u0027טים",
+                     "descEn":  "The widgets board",
+                     "noui":  true,
                      "note":  "רכיב של Windows 11 בלבד",
                      "cat":  "חשבון ומערכת"
                  },
@@ -3835,6 +3920,7 @@
                      "icon":  "icons/Whiteboard.png",
                      "color":  "#0C34FA",
                      "desc":  "לוח שיתופי לכתיבה וציור",
+                     "descEn":  "A shared board for writing and drawing",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -3908,6 +3994,7 @@
                                ],
                      "icon":  "icons/PowerBI.png",
                      "desc":  "דוחות וניתוח נתונים",
+                     "descEn":  "Reports and data analysis",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -3953,6 +4040,7 @@
                      "icon":  "icons/Sway.png",
                      "color":  "#404040",
                      "desc":  "מצגות ודפי סיפור",
+                     "descEn":  "Presentations and story pages",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -4017,6 +4105,7 @@
                      "icon":  "icons/Translator.png",
                      "color":  "#107C10",
                      "desc":  "תרגום טקסט ודיבור",
+                     "descEn":  "Text and speech translation",
                      "cat":  "כלים"
                  },
                  {
@@ -4071,6 +4160,8 @@
                      "heb":  true,
                      "icon":  "icons/StorePurchase.png",
                      "desc":  "רכישות מחנות Microsoft",
+                     "descEn":  "Microsoft Store purchases",
+                     "noui":  true,
                      "cat":  "חשבון ומערכת"
                  },
                  {
@@ -4156,6 +4247,8 @@
                      "heb":  true,
                      "icon":  "icons/CrossDevice.png",
                      "desc":  "חיבור בין מכשירים",
+                     "descEn":  "Linking between devices",
+                     "noui":  true,
                      "cat":  "תקשורת"
                  },
                  {
@@ -4341,6 +4434,7 @@
                      "heb":  true,
                      "icon":  "icons/Messaging.png",
                      "desc":  "הודעות",
+                     "descEn":  "Messages",
                      "cat":  "תקשורת"
                  },
                  {
@@ -4379,6 +4473,8 @@
                                ],
                      "icon":  "icons/DevHomeGitHub.png",
                      "desc":  "הרחבת GitHub ל-Dev Home",
+                     "descEn":  "The GitHub extension for Dev Home",
+                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -4434,6 +4530,8 @@
                      "icon":  "icons/GamingServices.png",
                      "color":  "#464646",
                      "desc":  "שירותי המשחקים של Xbox",
+                     "descEn":  "Xbox gaming services",
+                     "noui":  true,
                      "cat":  "משחקים"
                  },
                  {
@@ -4455,6 +4553,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The runtime libraries almost every modern program needs. Always install",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4477,6 +4577,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The 32-bit build — older programs need exactly this one",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4499,6 +4601,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Programs and games from the 2013-2015 era need it",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4521,6 +4625,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build of the 2013 libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4543,6 +4649,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The 2012 generation of libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4565,6 +4673,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build of the 2012 libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4587,6 +4697,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The 2010 generation of libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q /norestart"
                  },
@@ -4609,6 +4721,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build of the 2010 libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q /norestart"
                  },
@@ -4631,6 +4745,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The 2008 generation — older games and programs",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q"
                  },
@@ -4653,6 +4769,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build of the 2008 libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q"
                  },
@@ -4675,6 +4793,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The oldest one — for very old programs",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q"
                  },
@@ -4697,6 +4817,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build of the 2005 libraries",
+                     "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
                      "silent":  "/q"
                  },
@@ -4719,6 +4841,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The foundation of most older Windows programs. Full offline installer",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/q /norestart"
                  },
@@ -4741,6 +4865,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For modern programs built on .NET 8",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4763,6 +4889,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "32-bit build — many .NET programs still are",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4785,6 +4913,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For programs built on the older .NET 6",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4807,6 +4937,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The browser engine modern apps display content in",
+                     "noui":  true,
                      "icon":  "icons/w32/webview2.svg",
                      "silent":  "/silent /install"
                  },
@@ -4829,6 +4961,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Libraries that games and older programs require",
+                     "noui":  true,
                      "icon":  "icons/w32/directx.svg",
                      "silent":  "SPECIAL_DIRECTX"
                  },
@@ -4851,6 +4985,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Many indie games (Terraria, Stardew and more) need it",
+                     "noui":  true,
                      "icon":  "icons/w32/xna.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -4873,6 +5009,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A physics engine many games require — on any graphics card",
+                     "noui":  true,
                      "icon":  "icons/w32/nvidia.svg",
                      "silent":  "/s"
                  },
@@ -4895,6 +5033,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Connect to Access and Excel files from other programs",
+                     "noui":  true,
                      "icon":  "icons/w32/ace.svg",
                      "silent":  "/quiet"
                  },
@@ -4917,6 +5057,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The older Java runtime — some programs need exactly this one",
+                     "noui":  true,
                      "icon":  "icons/w32/java.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -4939,6 +5081,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Microsoft\u0027s modern command line",
                      "icon":  "icons/w32/powershell.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -4961,6 +5104,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For very old programs. Note: on Windows 10/11 this may need the network — Windows Features is the better route",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/q /norestart"
                  },
@@ -4983,6 +5128,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For the newest programs, built on .NET 9",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -5005,6 +5152,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For programs built on .NET 7",
+                     "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -5027,6 +5176,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The modern graphics interface — games and emulators need it",
+                     "noui":  true,
                      "icon":  "icons/w32/vulkan.svg",
                      "silent":  "/S"
                  },
@@ -5049,6 +5200,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "For older game builds that need the historic PhysX",
+                     "noui":  true,
                      "icon":  "icons/w32/nvidia.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5071,6 +5224,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A mid-generation Java runtime",
+                     "noui":  true,
                      "icon":  "icons/w32/java.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5093,6 +5248,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A widely used Java LTS — Minecraft and many programs",
+                     "noui":  true,
                      "icon":  "icons/w32/java.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5115,6 +5272,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Full installer (Enterprise MSI) — needs no network while installing",
                      "icon":  "icons/w32/chrome.svg",
                      "heb":  true,
                      "silent":  "MSI:/qn /norestart"
@@ -5138,6 +5296,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Full installer in Hebrew",
                      "icon":  "icons/w32/firefox.svg",
                      "heb":  true,
                      "silent":  "/S",
@@ -5165,6 +5324,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Full installer (Enterprise MSI) — also for a PC where Edge was removed or is stale",
                      "icon":  "icons/w32/edge.svg",
                      "heb":  true,
                      "silent":  "MSI:/qn /norestart"
@@ -5188,6 +5348,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Opens every kind of archive",
                      "icon":  "icons/w32/sevenzip.svg",
                      "heb":  true,
                      "silent":  "/S"
@@ -5211,6 +5372,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Instant file search across the whole disk — finds as you type",
                      "icon":  "icons/w32/everything.svg",
                      "silent":  "/S"
                  },
@@ -5233,6 +5395,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A small, fast PDF reader",
                      "icon":  "icons/w32/sumatra.svg",
                      "heb":  true,
                      "silent":  "-s"
@@ -5256,6 +5419,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Plays every video and audio format",
                      "icon":  "icons/w32/vlc.svg",
                      "heb":  true,
                      "silent":  "/S"
@@ -5279,6 +5443,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A full free office suite — Word, Excel and PowerPoint compatible, Hebrew included",
                      "icon":  "icons/w32/libreoffice.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5301,6 +5466,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The programming language — with pip and IDLE",
                      "icon":  "icons/w32/python.svg",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0"
                  },
@@ -5323,6 +5489,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Microsoft\u0027s code editor — full installer",
                      "icon":  "icons/w32/vscode.svg",
                      "silent":  "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
                  },
@@ -5345,6 +5512,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A text and code editor",
                      "icon":  "icons/w32/npp.svg",
                      "heb":  true,
                      "silent":  "/S"
@@ -5368,6 +5536,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Version control for developers",
                      "icon":  "icons/w32/git.svg",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -5390,6 +5559,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The modern Java runtime",
+                     "noui":  true,
                      "icon":  "icons/w32/java.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5412,6 +5583,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
                      "icon":  "icons/w32/rufus.svg"
                  },
                  {
@@ -5433,6 +5605,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Professional free image editing — the well-known Photoshop alternative",
                      "icon":  "icons/w32/gimp.svg",
                      "heb":  true,
                      "silent":  "/VERYSILENT /NORESTART"
@@ -5456,6 +5629,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Audio recording and editing",
                      "icon":  "icons/w32/audacity.svg",
                      "heb":  true,
                      "silent":  "/VERYSILENT /NORESTART"
@@ -5479,6 +5653,8 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "The complete codec pack — any video or audio will open in any player",
+                     "noui":  true,
                      "icon":  "icons/w32/klite.svg",
                      "silent":  "/verysilent /norestart"
                  },
@@ -5501,6 +5677,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Remote control — portable, no install. The connection itself needs internet",
                      "icon":  "icons/w32/anydesk.svg"
                  },
                  {
@@ -5522,6 +5699,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Remote control — full installer. The connection itself needs internet",
                      "icon":  "icons/w32/teamviewer.svg",
                      "silent":  "/S"
                  },
@@ -5544,6 +5722,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Every hardware detail of the PC on one screen",
                      "icon":  "icons/w32/speccy.svg",
                      "silent":  "/S"
                  },
@@ -5566,6 +5745,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Thorough removal of stubborn programs, leftovers included",
                      "icon":  "icons/w32/revo.svg",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -5588,6 +5768,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
                      "icon":  "icons/w32/thunderbird.svg",
                      "heb":  true,
                      "silent":  "/S"
@@ -5611,6 +5792,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Screen recording and streaming — the free standard",
                      "icon":  "icons/w32/obsstudio.svg",
                      "silent":  "/S"
                  },
@@ -5633,6 +5815,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "A password manager that keeps everything on your own PC — no cloud",
                      "icon":  "icons/w32/keepassxc.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5655,6 +5838,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "Encrypt drives and folders",
                      "icon":  "icons/w32/veracrypt.svg",
                      "silent":  "/S"
                  },
@@ -5677,6 +5861,7 @@
                                        "ver":  ""
                                    }
                                ],
+                     "descEn":  "What is eating your disk — a visual map of every file",
                      "icon":  "icons/w32/windirstat.svg",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5697,6 +5882,7 @@
                                    }
                                ],
                      "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
+                     "descEn":  "A tweaks and maintenance tool for Windows — one file, no install, in Hebrew. Built here",
                      "color":  "#5fd4fe",
                      "icon":  "icons/w32/csharf.svg",
                      "heb":  true,
@@ -5719,6 +5905,7 @@
                                    }
                                ],
                      "desc":  "ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן",
+                     "descEn":  "Track and manage forum nicknames, in Hebrew. Everything stays on your PC — full privacy. Built here",
                      "color":  "#f59e0b",
                      "icon":  "icons/w32/tiknick.svg",
                      "heb":  true,
@@ -5746,6 +5933,7 @@
                                    }
                                ],
                      "desc":  "‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן",
+                     "descEn":  "2048 upgraded, with hidden helper keys nobody can spot from the outside. Built here",
                      "color":  "#edc22e",
                      "icon":  "icons/w32/g2049.svg",
                      "heb":  true,

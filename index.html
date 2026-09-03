@@ -352,6 +352,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" dir="auto" placeholder="חיפוש בחנות">
     </label>
+    <button class="theme-btn" id="lang-btn" title="Language / שפה" style="width:auto;padding:0 10px;font-weight:700;font-size:.85rem">EN</button>
     <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
 </header>
@@ -442,6 +443,147 @@ const CAT_NOTE = {
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
 let TARGET = '11';
 const SELECTED = new Set();
+
+
+/* ===== language =====
+   Everything the visitor reads flips: the chrome through this dictionary, app names
+   through the catalog's English field, descriptions through descEn. One pass over the
+   DOM after each render keeps generated markup honest too. */
+let LANG = 'he';
+try { if (localStorage.lang === 'en') LANG = 'en'; } catch (e) {}
+const EN = {
+  'חנות אופליין': 'Offline Store',
+  'חיפוש בחנות': 'Search the store',
+  'מצב תצוגה': 'Theme',
+  'האפליקציות של Windows,': 'The Windows apps,',
+  'למחשב': 'for a PC',
+  'שאין בו אינטרנט': 'with no internet',
+  'כל אפליקציה כאן היא מתקין מוכן: קובץ אחד עם הכל בפנים, בלי צורך ברשת או בהרשאות מנהל.': 'Every app here is a ready installer: one file with everything inside, no network and no admin rights needed.',
+  'מורידים': 'Download',
+  'מעבירים בדיסק-און-קי': 'Copy to a USB stick',
+  'לחיצה כפולה': 'Double-click',
+  'אפליקציות ותוכנות': 'apps and programs',
+  'אם לוקחים הכל': 'if you take everything',
+  'רשת בצד השני': 'network needed',
+  'הכל': 'All',
+  'Windows 10 ומעלה': 'Windows 10 and up',
+  'ליבה': 'Core',
+  'הורדה בעברית': 'Download in Hebrew',
+  'גרסה ניידת': 'Portable version',
+  'עברית': 'Hebrew',
+  'מתאים ל:': 'For:',
+  'לסמן הכל': 'Select all',
+  'הורדה': 'Download',
+  'הורדה ▾': 'Download ▾',
+  'בהעלאה...': 'uploading…',
+  'בהעלאה לשרת...': 'uploading to the server…',
+  'לבחירה מרובה': 'add to selection',
+  'ממשק בעברית': 'Hebrew interface',
+  'נבחרו': 'selected',
+  'עם מתקין שקט': 'with the silent installer',
+  'עדיין בהעלאה': 'still uploading',
+  'מוסתרות בסינון שבחרת': 'hidden by your filter',
+  'נקה': 'Clear',
+  'הורדת הנבחרות': 'Download selected',
+  'היעד:': 'Target:',
+  'מקור': 'Source',
+  'גרסה': 'Version',
+  'בודק…': 'checking…',
+  'התקנה שקטה': 'Silent switches',
+  'המתקין השקט (EXE)': 'The silent installer (EXE)',
+  'העתקת קישור ישיר': 'Copy direct link',
+  '✓ הקישור הועתק': '✓ Link copied',
+  'הוספה לבחירה מרובה': 'Add to selection',
+  '✓ הסרה מהבחירה': '✓ Remove from selection',
+  'סגירה': 'Close',
+  'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט': 'Full file from the official source — works offline',
+  'התוכן שלה באינטרנט — למחשב שיחובר בהמשך': 'Its content lives online — for a PC that will connect later',
+  'עובדת לגמרי בלי אינטרנט': 'Works entirely offline',
+  '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
+  '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
+  'ממשק באנגלית בלבד': 'English interface only',
+  'אין לו ממשק — רכיב שעובד ברקע': 'No interface of its own — a component that works in the background',
+  'החנות בדיסק — לוקחים ומתקינים בכל מקום': 'The store on a disc — take it and install anywhere',
+  'הליבה = היום הראשון של מחשב נקי: כלי היומיום וכל הקודקים, עם החנות שמזהה מה חסר ומתקינה מהדיסק. המלאה — כל 82 המתקינים.': 'Core = day one of a clean PC: the everyday tools and every codec, with the store that spots what is missing and installs from the disc. Full — all 82 installers.',
+  'המלאה · 17GB · 82 מתקינים — בקרוב': 'Full · 17GB · 82 installers — coming soon',
+  'חסרה לכם אפליקציה? רוצים אותה בעברית?': 'Missing an app? Want it in Hebrew?',
+  'כתבו מה חסר — אפליקציה שאינה בחנות, או אפליקציה קיימת שתשמח אתכם בעברית. הבקשה נשלחת ישירות אליי.': 'Tell me what is missing — an app that is not here, or one you would love in Hebrew. It reaches me directly.',
+  'אפליקציה שחסרה בחנות': 'An app missing from the store',
+  'תרגום לעברית לאפליקציה קיימת': 'A Hebrew translation for an existing app',
+  'דיווח על תקלה': 'Report a problem',
+  'שם האפליקציה או התוכנה': 'App or program name',
+  'פרטים נוספים (לא חובה): לינק, למה זה חשוב, מה בדיוק לא עבד...': 'More details (optional): a link, why it matters, what exactly failed…',
+  'איך לחזור אליכם? (לא חובה)': 'How can I reach you? (optional)',
+  'שליחת הבקשה': 'Send request',
+  'שליחת בקשה נוספת': 'Send another request',
+  'שולח…': 'sending…',
+  '✓ הבקשה נשלחה': '✓ Request sent',
+  'לחיצה אחת ונשלח. לא צריך תוכנת דואר ולא צריך להירשם.': 'One click and it is sent. No mail client, no sign-up.',
+  'תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.': 'Thank you! It arrived. I will let you know when it lands in the store.',
+  'נבנה ומתוחזק בידי': 'Built and maintained by',
+  'בנימין': 'Benjamin',
+  'יצירת קשר': 'Contact',
+  'קוד המקור': 'Source code',
+  'הקטלוג עודכן': 'Catalog updated',
+  'לא נמצא כלום.': 'Nothing found.',
+  'טעינה מחדש': 'Reload',
+  'הקטלוג לא הצליח להיטען. כדאי לבדוק את החיבור ולנסות שוב.': 'The catalog failed to load. Check your connection and try again.',
+  'חזרה למעלה': 'Back to top',
+  'כלים': 'Tools',
+  'מדיה': 'Media',
+  'יצירה ועבודה': 'Create & work',
+  'משחקים': 'Games',
+  'תקשורת': 'Communication',
+  'כלי טכנאי': 'Technician tools',
+  'חשבון ומערכת': 'Account & system',
+  'נוספות': 'Other',
+  'רכיבי מערכת': 'System components',
+  'תוכנות נפוצות': 'Common software',
+  'בפיתוח שלי': 'Built by me',
+  'מעבר לחנות מיקרוסופט': 'Beyond the Microsoft store',
+  'רכיבים ותוכנות מהאתרים הרשמיים של היצרנים — מתקינים מלאים, מוכנים לאופליין': 'Components and programs from the vendors own sites — full installers, ready for offline',
+  'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.': 'Includes the codec extensions — without them iPhone photos and modern video will not open.',
+  'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.': 'The small Xbox components are what let games run.',
+  'כלים שפיתחתי בעצמי — תמיד בגרסה העדכנית ביותר מגיטהאב': 'Tools I built myself — always the newest release from GitHub',
+  'רק אפליקציות עם ממשק בעברית': 'Only apps with a Hebrew interface',
+  'שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט': 'Put it next to the files you downloaded and run it — installs everything silently',
+  'מוכנה, מחפשת בית — גדולה מדי ל-GitHub': 'Ready, looking for a home — too large for GitHub',
+  'התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.': 'This translation was made here and is unofficial. The package was unpacked and translated, so it no longer carries Microsoft signature — if you want the official source only, use the regular download.',
+  'החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.': 'The packages inside these installers come signed from Microsoft servers, unmodified — except where explicitly stated otherwise (translated builds, which are unsigned). This project is independent and not affiliated with Microsoft.'
+};
+const T = h => (LANG === 'en' && EN[h]) ? EN[h] : h;
+/* "SnippingTool" -> "Snipping Tool" for the English display name */
+const pretty = s => (s || '').replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim();
+const nameOf = a => LANG === 'he' ? a.he : (a.enName || pretty(a.en));
+const descOf = a => LANG === 'he' ? (a.desc || '') : (a.descEn || a.desc || '');
+
+/* one sweep replaces every dictionary phrase the generated markup produced */
+function translateDom(root) {
+  if (LANG === 'he') return;
+  const scope = root || document.body;
+  const walk = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+  const hits = [];
+  while (walk.nextNode()) {
+    const raw = walk.currentNode.nodeValue;
+    const t = raw.trim();
+    if (t && EN[t]) hits.push(walk.currentNode);
+  }
+  hits.forEach(n => { n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), EN[n.nodeValue.trim()]); });
+  scope.querySelectorAll('[placeholder],[title]').forEach(el => {
+    ['placeholder', 'title'].forEach(at => {
+      const v = el.getAttribute(at);
+      if (v && EN[v.trim()]) el.setAttribute(at, EN[v.trim()]);
+    });
+  });
+}
+function applyLang() {
+  document.documentElement.lang = LANG;
+  document.documentElement.dir = LANG === 'he' ? 'rtl' : 'ltr';
+  document.title = LANG === 'he' ? 'חנות אפליקציות אופליין ל-Windows' : 'Offline App Store for Windows';
+  const b = document.getElementById('lang-btn');
+  if (b) b.textContent = LANG === 'he' ? 'EN' : 'עב';
+  try { localStorage.lang = LANG; } catch (e) {}
+}
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
 
@@ -566,7 +708,7 @@ function expand(word) {
 }
 function haystack(a) {
   if (!a._hay) {
-    a._hay = norm([a.he, a.en, a.desc, a.cat, a.note, TAGS[a.en] || '',
+    a._hay = norm([a.he, a.en, a.desc, a.descEn, a.cat, a.note, TAGS[a.en] || '',
                    a.heb ? 'עברית hebrew' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
                    a.custom ? 'שלי' : ''].join(' '));
   }
@@ -602,7 +744,7 @@ const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) 
 
 /* ===== tiles ===== */
 function tile(a) {
-  if (HEBONLY && !a.heb) return '';
+  if (HEBONLY && !a.heb && !a.noui) return '';
   if (QUERY && !matches(a, QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
@@ -613,10 +755,10 @@ function tile(a) {
     : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
                     : '<span class="get soon">בהעלאה...</span>');
   const on = SELECTED.has(a.en);
-  return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(a.desc || a.he) + '">' +
+  return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(descOf(a) || nameOf(a)) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' +
-    (a.heb ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') + pl +
-    '<div class="nm" dir="auto">' + a.he + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
+    (a.heb && !a.noui ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') + pl +
+    '<div class="nm" dir="auto">' + nameOf(a) + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
 /* white glyph icons sit on a solid, slightly deepened brand plate; store icons keep the soft tint */
@@ -677,6 +819,7 @@ function render() {
   document.getElementById('chips').innerHTML = chipBar.join('');
   box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
   updateDock();
+  translateDom();
 }
 const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + '" data-win="' + v + '">' + t + '</button>';
 
@@ -706,7 +849,9 @@ document.addEventListener('click', e => {
     const members = DATA.apps.filter(x => x.w32 && x.cat === all.dataset.catall);
     members.forEach((x, i) => setTimeout(() => download(x.files[0].exe), i * 700));
     if (members.some(x => x.silent)) setTimeout(downloadRunner, members.length * 700 + 500);
-    all.textContent = '⬇ ' + members.length + ' קבצים בהורדה + SilentInstall.exe — לשים הכל בתיקייה אחת ולהריץ אותו';
+    all.textContent = LANG === 'he'
+      ? '⬇ ' + members.length + ' קבצים בהורדה + SilentInstall.exe — לשים הכל בתיקייה אחת ולהריץ אותו'
+      : '⬇ ' + members.length + ' files downloading + SilentInstall.exe — put them all in one folder and run it';
     return;
   }
   const chip = e.target.closest('.chip');
@@ -860,10 +1005,10 @@ function updateDock() {
     else if (!f) filtered++;
     else uploading++;
   });
-  document.getElementById('selsum').innerHTML = '<b>' + ready + ' נבחרו</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
-    (w32s >= 1 ? ' · עם מתקין שקט' : '') +
-    (uploading > 0 ? ' · ' + uploading + ' עדיין בהעלאה' : '') +
-    (filtered > 0 ? ' · ' + filtered + ' מוסתרות בסינון שבחרת' : '') + '</span>';
+  document.getElementById('selsum').innerHTML = '<b>' + ready + ' ' + T('נבחרו') + '</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
+    (w32s >= 1 ? ' · ' + T('עם מתקין שקט') : '') +
+    (uploading > 0 ? ' · ' + uploading + ' ' + T('עדיין בהעלאה') : '') +
+    (filtered > 0 ? ' · ' + filtered + ' ' + T('מוסתרות בסינון שבחרת') : '') + '</span>';
   let dual = 0;
   DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
@@ -936,14 +1081,16 @@ function openSheet(en) {
     : files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   let btns = files.map(f => {
-    const label = files.length > 1 ? 'הורדה ל-' + WIN_LABEL[f.win] : 'הורדה · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
+    const label = files.length > 1
+      ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
+      : T('הורדה') + ' · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
     return isLive(a, f)
       ? '<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>'
       : '<button class="btn" disabled>בהעלאה לשרת...</button>';
   }).join('');
-  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">הורדה · ' + esc(a.alt.label) + '</a>';
+  if (a.alt) btns += '<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' + esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>';
   if (a.xlat) btns += '<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
-    esc(a.xlat.exe) + '">הורדה בעברית · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>' +
+    esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>' +
     '<div class="warn" style="margin:2px 0 4px">התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.</div>';
   if (a.silent && a.silent !== '') btns += '<button class="btn lite" id="ssc" title="שמים אותו ליד הקבצים שהורדתם ומריצים — מתקין הכל בשקט">המתקין השקט (EXE)</button>';
   const shareUrl = a.url || (files[0] && isLive(a, files[0]) ? REL + encodeURIComponent(files[0].exe) : '');
@@ -952,20 +1099,22 @@ function openSheet(en) {
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet">' + pl +
-    '<h3 dir="auto">' + a.he + '</h3><div class="en">' + a.en + '</div>' +
-    (a.desc ? '<div class="ds">' + a.desc + '</div>' : '') +
-    (a.note ? '<div class="warn">' + a.note + '</div>' : '') +
+    '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
+    (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
+    (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
     '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
-    '<div class="net" style="color:' + (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)')) + '">' +
-      (a.heb ? '✓ ממשק בעברית — נפתחת בעברית במחשב עברי'
-             : a.xlat ? '★ קיים תרגום לעברית — לא רשמי, נעשה כאן'
-                      : 'ממשק באנגלית בלבד') + '</div>' +
+    '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
+      (a.noui ? T('אין לו ממשק — רכיב שעובד ברקע')
+              : a.heb ? T('✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
+              : a.xlat ? T('★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
+                       : T('ממשק באנגלית בלבד')) + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
     '<button class="btn lite" id="sc">סגירה</button></div></div>';
   document.body.appendChild(ov);
+  translateDom(ov);
   document.body.style.overflow = 'hidden';   // the page must not scroll behind the sheet
   const shut = () => { ov.remove(); document.body.style.overflow = ''; };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
@@ -991,6 +1140,10 @@ function openSheet(en) {
 }
 
 /* ===== theme, search ===== */
+const langBtn = document.getElementById('lang-btn');
+langBtn.onclick = () => { LANG = LANG === 'he' ? 'en' : 'he'; applyLang(); render(); };
+applyLang();
+
 const themeBtn = document.getElementById('theme-btn');
 const themeLabel = () => {
   const light = document.documentElement.classList.contains('light');
@@ -1018,8 +1171,8 @@ document.getElementById('q').addEventListener('input', e => {
 /* ===== ISO ===== */
 function isoButtons() {
   const b = [];
-  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">ליבה · Win 11 · <span dir="ltr">582MB</span></a>');
-  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">ליבה · Win 10 · <span dir="ltr">445MB</span></a>');
+  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">' + T('ליבה') + ' · Win 11 · <span dir="ltr">582MB</span></a>');
+  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">' + T('ליבה') + ' · Win 10 · <span dir="ltr">445MB</span></a>');
   b.push('<button class="btn lite" disabled title="מוכנה, מחפשת בית — גדולה מדי ל-GitHub">המלאה · 17GB · 82 מתקינים — בקרוב</button>');
   document.getElementById('iso-btns').innerHTML = b.join('');
 }
@@ -1031,12 +1184,12 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
 }).then(d => {
   DATA = d;
   document.getElementById('cats').classList.remove('sk');
-  document.getElementById('updated').textContent = 'הקטלוג עודכן ' + d.updated;
+  document.getElementById('updated').textContent = T('הקטלוג עודכן') + ' ' + d.updated;
   const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
-    '<div><b>' + d.apps.length + '</b><span>אפליקציות ותוכנות</span></div>' +
-    '<div><b dir="ltr">' + gb.toFixed(1) + ' GB</b><span>אם לוקחים הכל</span></div>' +
-    '<div><b>0</b><span>רשת בצד השני</span></div>';
+    '<div><b>' + d.apps.length + '</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
+    '<div><b dir="ltr">' + gb.toFixed(1) + ' GB</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
+    '<div><b>0</b><span>' + T('רשת בצד השני') + '</span></div>';
   // a rendering bug must never masquerade as a network problem
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
   return fetch('published.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
