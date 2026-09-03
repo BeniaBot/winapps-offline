@@ -975,7 +975,16 @@ themeBtn.onclick = () => {
   themeLabel();
 };
 themeLabel();
-document.getElementById('q').addEventListener('input', e => { QUERY = e.target.value.trim(); render(); });
+document.getElementById('q').addEventListener('input', e => {
+  QUERY = e.target.value.trim();
+  render();
+  // the results live below the hero: bring them up so typing shows something
+  if (QUERY) {
+    const bar = document.querySelector('.bar2');
+    const top = bar.getBoundingClientRect().top + scrollY - 58;   // just under the header
+    if (scrollY < top - 4) window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+});
 
 /* ===== ISO ===== */
 function isoButtons() {
