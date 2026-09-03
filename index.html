@@ -1466,8 +1466,11 @@ function openSheet(en) {
      copied and counted like any other download */
   if (otherLang) btns += dlRow('<a class="btn lite" href="' + esc(otherLang.url) + '">' +
     T('הורדה') + ' · <span dir="ltr">' + esc(otherLang.name) + '</span></a>', otherLang.url, false, 'lang');
+  /* the size goes on the button, like every other download - the two editions are being
+     compared, and the difference between them is mostly size */
   if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
-    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>', a.alt.url, false, 'alt');
+    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) +
+    (a.alt.mb ? ' · <span dir="ltr">' + mbFmt(a.alt.mb) + '</span>' : '') + '</a>', a.alt.url, false, 'alt');
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
   if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
