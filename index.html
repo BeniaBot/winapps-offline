@@ -573,6 +573,18 @@ const EN = {
   'English': 'English',
   'שליחת בקשה נוספת': 'Send another request',
   'שולח…': 'sending…',
+  'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף SilentInstall.exe — מריצים אותו ליד הקבצים והכל מותקן בשקט.':
+    'The libraries programs and games ask for. The files come straight from the vendors\u2019 own servers \u2014 pick several and SilentInstall.exe rides along: run it next to the downloads and everything installs silently.',
+  'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.':
+    'The programs every PC needs \u2014 full installers that work with no internet. Pick several and SilentInstall.exe comes along to install them all in one run.',
+  '⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה': '⬇ Everything in one click — every component, installed silently',
+  'השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ': 'Direct sending is unavailable right now — you can send the same request ',
+  'בדואר בלחיצה אחת': 'by email in one click',
+  ', והכל כבר ממולא.': ', already filled in.',
+  '(העדכנית)': '(newest)',
+  '💿 ISO אישי': '💿 Personal ISO',
+  'הופך את הבחירה לדיסק אישי עם החנות בפנים': 'Turns your selection into a personal disc with the store inside',
+  'העדכנית ביותר': 'newest release',
   '✓ הבקשה נשלחה': '✓ Request sent',
   'לחיצה אחת ונשלח. לא צריך תוכנת דואר ולא צריך להירשם.': 'One click and it is sent. No mail client, no sign-up.',
   'תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.': 'Thank you! It arrived. I will let you know when it lands in the store.',
@@ -610,7 +622,11 @@ const EN = {
 const T = h => (LANG === 'en' && EN[h]) ? EN[h] : h;
 /* "SnippingTool" -> "Snipping Tool" for the English display name */
 const pretty = s => (s || '').replace(/([a-z0-9])([A-Z])/g, '$1 $2').replace(/\s+/g, ' ').trim();
-const nameOf = a => LANG === 'he' ? a.he : (a.enName || pretty(a.en));
+/* The he field of every win32 and self-built entry is already the Latin brand name
+   ("7-Zip", "KeePassXC"), so running pretty() on the slug there actively made it worse
+   - "Seven Zip", "Kee Pass XC". Use the real name; pretty() is only a last resort. */
+const nameOf = a => LANG === 'he' ? a.he
+  : (a.enName || ((a.w32 || a.custom) ? a.he : pretty(a.en)));
 const descOf = a => LANG === 'he' ? (a.desc || '') : (a.descEn || a.desc || '');
 
 /* One sweep replaces every dictionary phrase the generated markup produced.
@@ -781,20 +797,26 @@ function expand(word) {
 }
 function haystack(a) {
   if (!a._hay) {
-    a._hay = norm([a.he, a.en, a.desc, a.descEn, a.cat, a.note, TAGS[a.en] || '',
+    /* pretty(a.en) and the English category go in too: the tile says "Snipping Tool"
+       and "Tools", and neither string existed in the index, so typing what you can see
+       returned nothing for 43 apps. */
+    a._hay = norm([a.he, a.en, pretty(a.en), nameOf(a), a.desc, a.descEn,
+                   a.cat, EN[a.cat] || '', a.note, TAGS[a.en] || '',
                    a.heb ? 'עברית hebrew' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
                    a.custom ? 'שלי' : ''].join(' '));
   }
   return a._hay;
 }
-/* a short latin term must land on a whole word: plain "includes" made "rar"
-   match Terraria. Hebrew has no \b in JS, and its words rarely collide, so it
-   keeps the substring behaviour that lets prefixes work. */
+/* A latin term must land on a word START. Demanding a whole word kept "rar" out of
+   Terraria, but it also meant 45 apps could not be found until their full name was
+   typed - "sumat" and "spec" returned nothing at all. A word-start match keeps the
+   Terraria guard (there "rar" sits mid-word) and restores as-you-type search.
+   Hebrew has no \b in JS and its words rarely collide, so it stays a substring. */
 const hitCache = {};
 function hits(hay, term) {
   if (!/^[a-z0-9+.]+$/.test(term)) return hay.includes(term);
   const re = hitCache[term] || (hitCache[term] =
-    new RegExp('(^|[^a-z0-9])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)'));
+    new RegExp('(^|[^a-z0-9])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   return re.test(hay);
 }
 function matches(a, query) {
@@ -880,7 +902,7 @@ function render() {
     }
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
     const catAll = cat === 'רכיבי מערכת'
-      ? '<button class="chip catall" data-catall="' + cat + '">⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה</button>'
+      ? '<button class="chip catall" data-catall="' + cat + '">' + T('⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה') + '</button>'
       : '';
     const catPick = '<button class="chip catpick" data-catpick="' + cat + '">לסמן הכל</button>';
     html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + catPick + '</div>' +
@@ -1011,7 +1033,7 @@ askBtn.onclick = () => {
   appEl.style.borderColor = '';
   const f = askFields(), m = askText();
   askBtn.disabled = true;
-  askBtn.textContent = 'שולח…';
+  askBtn.textContent = T('שולח…');
   askHint.textContent = '';
   fetch(ASK_ENDPOINT, {
     method: 'POST',
@@ -1027,19 +1049,19 @@ askBtn.onclick = () => {
   }).then(r => r.json().catch(() => ({}))).then(j => {
     if (j && /activation/i.test(j.message || '')) throw new Error('pending activation');
     if (j && (j.success === 'true' || j.success === true)) {
-      askBtn.textContent = '✓ הבקשה נשלחה';
+      askBtn.textContent = '✓ ' + T('הבקשה נשלחה');
       askHint.style.color = 'var(--ok)';
-      askHint.textContent = 'תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.';
+      askHint.textContent = T('תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.');
       ['ask-app', 'ask-note', 'ask-from'].forEach(id => document.getElementById(id).value = '');
-      setTimeout(() => { askBtn.disabled = false; askBtn.textContent = 'שליחת בקשה נוספת'; }, 2500);
+      setTimeout(() => { askBtn.disabled = false; askBtn.textContent = T('שליחת בקשה נוספת'); }, 2500);
     } else { throw new Error('relay refused'); }
   }).catch(() => {
     // the relay did not take it - hand the visitor their mail client instead
     askBtn.disabled = false;
-    askBtn.textContent = 'שליחת הבקשה';
+    askBtn.textContent = T('שליחת הבקשה');
     askHint.style.color = 'var(--warn)';
-    askHint.innerHTML = 'השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ' +
-      '<a href="#" id="ask-mail">בדואר בלחיצה אחת</a>, והכל כבר ממולא.';
+    askHint.innerHTML = T('השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ') +
+      '<a href="#" id="ask-mail">' + T('בדואר בלחיצה אחת') + '</a>' + T(', והכל כבר ממולא.');
     const am = document.getElementById('ask-mail');
     if (am) am.onclick = ev => { ev.preventDefault(); openMail(m.subject, m.body); };
   });
@@ -1203,8 +1225,8 @@ function openSheet(en) {
     const cell = ov.querySelector('#livever');
     fetch('https://api.github.com/repos/' + a.repo + '/releases/latest')
       .then(r => r.ok ? r.json() : null)
-      .then(j => { if (cell) cell.textContent = j && j.tag_name ? j.tag_name + ' (העדכנית)' : 'העדכנית ביותר'; })
-      .catch(() => { if (cell) cell.textContent = 'העדכנית ביותר'; });
+      .then(j => { if (cell) cell.textContent = j && j.tag_name ? j.tag_name + ' ' + T('(העדכנית)') : T('העדכנית ביותר'); })
+      .catch(() => { if (cell) cell.textContent = T('העדכנית ביותר'); });
   }
   const scp = ov.querySelector('#scp');
   if (scp) scp.onclick = () => {
@@ -1220,6 +1242,9 @@ langBtn.onclick = () => {
   LANG = LANG === 'he' ? 'en' : 'he';
   if (LANG === 'he') restoreDom();
   applyLang();
+  // the ISO anchors are one composite text node ("ליבה · Win 11 · 582MB"), which is not a
+  // dictionary key - rebuilding them is the only thing that switches their language
+  try { isoButtons(); } catch (e) { }
   render();
 };
 applyLang();
@@ -1264,7 +1289,10 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
 }).then(d => {
   DATA = d;
   document.getElementById('cats').classList.remove('sk');
-  document.getElementById('updated').textContent = T('הקטלוג עודכן') + ' ' + d.updated;
+  // one text node "הקטלוג עודכן 2026-09-03" matched no dictionary key, so the footer
+  // stayed in the previous language forever. Split the label from the date.
+  document.getElementById('updated').innerHTML =
+    '<span>' + T('הקטלוג עודכן') + '</span> <span dir="ltr">' + esc(d.updated) + '</span>';
   const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
     '<div><b>' + d.apps.length + '</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +

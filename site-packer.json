@@ -907,6 +907,7 @@
                      "color":  "#0078D4",
                      "desc":  "נגן וידאו",
                      "descEn":  "Video player",
+                     "enName":  "Movies \u0026 TV",
                      "cat":  "מדיה"
                  },
                  {
@@ -953,6 +954,7 @@
                      "color":  "#0078D4",
                      "desc":  "עריכה תלת-ממדית (המוצר הופסק אך עובד)",
                      "descEn":  "3D editing (discontinued, still works)",
+                     "enName":  "Paint 3D",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1053,6 +1055,7 @@
                      "icon":  "icons/3DViewer.png",
                      "desc":  "צפייה במודלים תלת-ממדיים",
                      "descEn":  "View 3D models",
+                     "enName":  "3D Viewer",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -1646,6 +1649,7 @@
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות HEIC של אייפון",
                      "descEn":  "Opens iPhone HEIC photos",
+                     "enName":  "HEIF Image Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -1674,6 +1678,7 @@
                      "color":  "#0078D7",
                      "desc":  "פותח תמונות WebP",
                      "descEn":  "Opens WebP images",
+                     "enName":  "WebP Image Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -1728,6 +1733,7 @@
                      "color":  "#0078D7",
                      "desc":  "פותח קבצי RAW ממצלמות",
                      "descEn":  "Opens camera RAW files",
+                     "enName":  "Raw Image Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -1756,6 +1762,7 @@
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו VP9",
                      "descEn":  "Plays VP9 video",
+                     "enName":  "VP9 Video Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -1783,6 +1790,7 @@
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו AV1",
                      "descEn":  "Plays AV1 video",
+                     "enName":  "AV1 Video Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -1823,6 +1831,7 @@
                      "color":  "#0078D7",
                      "desc":  "מנגן וידאו HEVC / H.265",
                      "descEn":  "Plays HEVC / H.265 video",
+                     "enName":  "HEVC Video Extension",
                      "noui":  true,
                      "cat":  "מדיה"
                  },
@@ -2028,6 +2037,7 @@
                      "icon":  "icons/WSL.png",
                      "desc":  "תת-מערכת Linux ל-Windows",
                      "descEn":  "Windows Subsystem for Linux",
+                     "enName":  "Windows Subsystem for Linux",
                      "noui":  true,
                      "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
@@ -2086,6 +2096,7 @@
                      "icon":  "icons/WSA.png",
                      "desc":  "תת-מערכת אנדרואיד (הופסקה)",
                      "descEn":  "Android subsystem (discontinued)",
+                     "enName":  "Windows Subsystem for Android",
                      "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
@@ -2202,6 +2213,7 @@
                      "icon":  "icons/Print3D.png",
                      "desc":  "הדפסה תלת-ממדית",
                      "descEn":  "3D printing",
+                     "enName":  "Print 3D",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -2257,6 +2269,7 @@
                      "icon":  "icons/Builder3D.png",
                      "desc":  "בניית מודלים תלת-ממדיים",
                      "descEn":  "Build 3D models",
+                     "enName":  "3D Builder",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -2769,6 +2782,7 @@
                      "color":  "#464646",
                      "desc":  "רכיב ממשק של Xbox",
                      "descEn":  "An Xbox interface component",
+                     "enName":  "Xbox TCUI",
                      "noui":  true,
                      "cat":  "משחקים"
                  },
@@ -2840,6 +2854,7 @@
                      "icon":  "icons/PCManager.png",
                      "desc":  "ניקוי ותחזוקת המחשב",
                      "descEn":  "Clean up and maintain the PC",
+                     "enName":  "PC Manager",
                      "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"
@@ -2893,6 +2908,7 @@
                      "color":  "#777777",
                      "desc":  "מנפה שגיאות של מיקרוסופט",
                      "descEn":  "Microsoft\u0027s debugger",
+                     "enName":  "WinDbg",
                      "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
@@ -3894,6 +3910,7 @@
                      "desc":  "לוח הווידג\u0027טים",
                      "descEn":  "The widgets board",
                      "noui":  true,
+                     "noteEn":  "A Windows 11 component only",
                      "note":  "רכיב של Windows 11 בלבד",
                      "cat":  "חשבון ומערכת"
                  },
@@ -3995,6 +4012,7 @@
                      "icon":  "icons/PowerBI.png",
                      "desc":  "דוחות וניתוח נתונים",
                      "descEn":  "Reports and data analysis",
+                     "enName":  "Power BI",
                      "cat":  "יצירה ועבודה"
                  },
                  {
@@ -4474,6 +4492,7 @@
                      "icon":  "icons/DevHomeGitHub.png",
                      "desc":  "הרחבת GitHub ל-Dev Home",
                      "descEn":  "The GitHub extension for Dev Home",
+                     "enName":  "Dev Home GitHub Extension",
                      "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
@@ -4962,6 +4981,7 @@
                                    }
                                ],
                      "descEn":  "Libraries that games and older programs require",
+                     "enName":  "DirectX (June 2010)",
                      "noui":  true,
                      "icon":  "icons/w32/directx.svg",
                      "silent":  "SPECIAL_DIRECTX"
@@ -5105,6 +5125,7 @@
                                    }
                                ],
                      "descEn":  "For very old programs. Note: on Windows 10/11 this may need the network — Windows Features is the better route",
+                     "enName":  ".NET Framework 3.5 (full)",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
                      "silent":  "/q /norestart"
@@ -5925,7 +5946,8 @@
                      "heb":  true,
                      "alt":  {
                                  "label":  "גרסה ניידת",
-                                 "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick.exe"
+                                 "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick.exe",
+                                 "labelEn":  "Portable version"
                              },
                      "repo":  "BeniaBot/tiknick",
                      "silent":  "/VERYSILENT /NORESTART"
@@ -5953,7 +5975,8 @@
                      "heb":  true,
                      "alt":  {
                                  "label":  "גרסה ניידת",
-                                 "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049.exe"
+                                 "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049.exe",
+                                 "labelEn":  "Portable version"
                              },
                      "repo":  "BeniaBot/2049",
                      "silent":  "/VERYSILENT /NORESTART"
