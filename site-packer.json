@@ -5415,7 +5415,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
-                     "desc":  "חבילת אופיס מלאה וחינמית — Word, Excel ו-PowerPoint תואמים, כולל עברית",
+                     "desc":  "חבילת אופיס מלאה וחינמית — קוראת וכותבת קובצי Word, Excel ו-PowerPoint",
                      "color":  "#18a303",
                      "url":  "https://download.documentfoundation.org/libreoffice/stable/26.2.5/win/x86_64/LibreOffice_26.2.5_Win_x86-64.msi",
                      "match":  "LibreOffice_*_Win_x86-64.msi",
@@ -5428,9 +5428,10 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "A full free office suite — Word, Excel and PowerPoint compatible, Hebrew included",
+                     "descEn":  "A full free office suite - reads and writes Word, Excel and PowerPoint files",
                      "icon":  "icons/w32/libreoffice.svg",
-                     "silent":  "MSI:/qn /norestart"
+                     "heb":  true,
+                     "silent":  "MSI:/qn /norestart UI_LANGS=he,en_US"
                  },
                  {
                      "he":  "Python 3.12",
@@ -5710,6 +5711,7 @@
                                ],
                      "descEn":  "Every hardware detail of the PC on one screen",
                      "icon":  "icons/w32/speccy.svg",
+                     "heb":  true,
                      "silent":  "/S"
                  },
                  {
@@ -5733,6 +5735,7 @@
                                ],
                      "descEn":  "Thorough removal of stubborn programs, leftovers included",
                      "icon":  "icons/w32/revo.svg",
+                     "heb":  true,
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {

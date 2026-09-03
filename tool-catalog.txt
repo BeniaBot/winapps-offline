@@ -339,33 +339,33 @@ dep	RemoteDesktop	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
 dep	RemoteDesktop	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	RemoteDesktop	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
 dep	RemoteDesktop	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-app	Maps	מפות	Microsoft.WindowsMaps_8wekyb3d8bbwe	Microsoft.WindowsMaps	1	מפות וניווט
-flavor	Maps	w10	Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2506.3.0	18363	47.7
-dep	Maps	w10	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+app	Maps	מפות	Microsoft.WindowsMaps_8wekyb3d8bbwe	Microsoft.WindowsMaps	0	מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט
+flavor	Maps	w10	Microsoft.WindowsMaps_2021.2104.2.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2104.2.0	17134	42.6
+dep	Maps	w10	x64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	Maps	w10	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	Maps	w10	x86	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	Maps	w10	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	x86	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	Maps	w10	arm64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-flavor	Maps	w11	Microsoft.WindowsMaps_2022.2506.3.0_neutral_~_8wekyb3d8bbwe.msixbundle	11.2506.3.0	18363	47.7
-dep	Maps	w11	x64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w10	arm64	Microsoft.VCLibs.140.00	14.0.29231.0
+flavor	Maps	w11	Microsoft.WindowsMaps_2021.2104.2.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2104.2.0	17134	42.6
+dep	Maps	w11	x64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	Maps	w11	x86	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w11	x64	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	Maps	w11	x86	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	Maps	w11	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
+dep	Maps	w11	x86	Microsoft.VCLibs.140.00	14.0.29231.0
+dep	Maps	w11	arm64	Microsoft.UI.Xaml.2.3	2.32002.13001.0
 dep	Maps	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
 dep	Maps	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	Maps	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
+dep	Maps	w11	arm64	Microsoft.VCLibs.140.00	14.0.29231.0
 app	Weather	מזג אוויר	Microsoft.BingWeather_8wekyb3d8bbwe	Microsoft.BingWeather	1	תחזית מזג אוויר
 flavor	Weather	w10	Microsoft.BingWeather_4.54.63045.0_neutral_~_8wekyb3d8bbwe.appxbundle	4.54.63045.0	17763	36.1
 dep	Weather	w10	x64	Microsoft.UI.Xaml.2.8	8.2207.14002.0
@@ -748,14 +748,6 @@ dep	FileRecovery	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.29016.0
 app	WSL	Windows Subsystem for Linux	MicrosoftCorporationII.WindowsSubsystemForLinux_8wekyb3d8bbwe	MicrosoftCorporationII.WindowsSubsystemForLinux	0	תת-מערכת Linux ל-Windows
 flavor	WSL	w10	MicrosoftCorporationII.WindowsSubsystemForLinux_2.7.12.0_neutral_~_8wekyb3d8bbwe.msixbundle	2.7.12.0	19041	495
 flavor	WSL	w11	MicrosoftCorporationII.WindowsSubsystemForLinux_2.7.12.0_neutral_~_8wekyb3d8bbwe.msixbundle	2.7.12.0	19041	495
-app	WSA	Windows Subsystem for Android	MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe	MicrosoftCorporationII.WindowsSubsystemForAndroid	0	תת-מערכת אנדרואיד (הופסקה)
-flavor	WSA	w11	MicrosoftCorporationII.WindowsSubsystemForAndroid_2407.40000.4.0_neutral_~_8wekyb3d8bbwe.msixbundle	2407.40000.4.0	22000	1403
-dep	WSA	w11	x64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	WSA	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	WSA	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	WSA	w11	arm64	Microsoft.UI.Xaml.2.8	8.2208.12001.0
-dep	WSA	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	WSA	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
 app	Whiteboard	Whiteboard	Microsoft.Whiteboard_8wekyb3d8bbwe	Microsoft.Whiteboard	1	לוח שיתופי לכתיבה וציור
 flavor	Whiteboard	w10	Microsoft.Whiteboard_56.20201.588.0_neutral_~_8wekyb3d8bbwe.appxbundle	56.20201.588.0	15063	783.4
 flavor	Whiteboard	w11	Microsoft.Whiteboard_56.20201.588.0_neutral_~_8wekyb3d8bbwe.appxbundle	56.20201.588.0	15063	783.4
@@ -1113,3 +1105,5 @@ dep	GamingServices	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
 dep	GamingServices	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
 dep	GamingServices	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
 custom	Csharf	Csharf	0	כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן	https://github.com/BeniaBot/Csharf/releases/latest/download/Csharf.bat	appx	1	0		
+custom	TikNick	Tik-Nick	0	ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן	https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick-Setup.exe	appx	17	0		
+custom	Game2049	2049	0	‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן	https://github.com/BeniaBot/2049/releases/latest/download/2049_Setup.exe	appx	30	0		
