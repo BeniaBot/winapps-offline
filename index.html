@@ -550,6 +550,7 @@ const EN = {
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
   '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
+  '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן': '★ Can be downloaded with the vendor’s own official language pack',
   'ממשק באנגלית בלבד': 'English interface only',
   'אין לו ממשק — רכיב שעובד ברקע': 'No interface of its own — a component that works in the background',
   'החנות בדיסק — לוקחים ומתקינים בכל מקום': 'The store on a disc — take it and install anywhere',
@@ -1209,7 +1210,9 @@ function openSheet(en) {
               : a.heb ? T(a.hebScope === 'chrome'
                           ? '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם'
                           : '✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
-              : a.xlat ? T('★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
+              : a.xlat ? T(a.xlat.source === 'official'
+                          ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
+                          : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
                        : T('ממשק באנגלית בלבד')) + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
