@@ -771,10 +771,11 @@ function openMail(subject, body) {
   }
   const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) +
                 '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  const w = window.open(gmail, '_blank', 'noopener');
-  // popup blocked, or no browser mail: fall back to whatever the machine has
-  if (!w) location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) +
-                          '&body=' + encodeURIComponent(body);
+  // NOT window.open(url,'_blank','noopener'): with a features string it returns null
+  // by spec, which read as "blocked" and dropped everyone back to a dead mailto.
+  const a = document.createElement('a');
+  a.href = gmail; a.target = '_blank'; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); a.remove();
 }
 const contactLink = document.getElementById('contact-link');
 if (contactLink) contactLink.onclick = e => {
