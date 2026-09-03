@@ -213,6 +213,7 @@
                      "icon":  "icons/Terminal.png",
                      "desc":  "מסוף מודרני לשורת הפקודה",
                      "descEn":  "A modern console for the command line",
+                     "hebScope":  "chrome",
                      "cat":  "כלי טכנאי",
                      "files":  [
                                    {
@@ -678,6 +679,7 @@
                      "icon":  "icons/TerminalPreview.png",
                      "desc":  "גרסת התצוגה המקדימה של Terminal",
                      "descEn":  "The preview build of Terminal",
+                     "hebScope":  "chrome",
                      "cat":  "כלי טכנאי",
                      "files":  [
                                    {

@@ -548,6 +548,7 @@ const EN = {
   'התוכן שלה באינטרנט — למחשב שיחובר בהמשך': 'Its content lives online — for a PC that will connect later',
   'עובדת לגמרי בלי אינטרנט': 'Works entirely offline',
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
+  '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
   'ממשק באנגלית בלבד': 'English interface only',
   'אין לו ממשק — רכיב שעובד ברקע': 'No interface of its own — a component that works in the background',
@@ -751,7 +752,7 @@ const SYN = [
   ['תמונה', 'תמונות', 'photo', 'photos', 'image', 'images', 'צילום', 'picture'],
   ['עריכה', 'editor', 'עורך', 'edit'],
   ['ציור', 'paint', 'צייר', 'draw', 'גרפיקה', 'graphics', 'gimp'],
-  ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'extract', 'archive', 'דחיסה', 'compress'],
+  ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'לחלץ', 'extract', 'archive', 'דחיסה', 'לדחוס', 'כיווץ', 'לכווץ', 'compress', 'unzip', 'לפתוח קובץ'],
   ['pdf', 'מסמך', 'מסמכים', 'document', 'documents'],
   ['אופיס', 'office', 'word', 'excel', 'powerpoint', 'libreoffice', 'מסמכים'],
   ['דואר', 'מייל', 'mail', 'email', 'thunderbird', 'outlook'],
@@ -759,11 +760,11 @@ const SYN = [
   ['מחשבון', 'calculator', 'calc'],
   ['פתקים', 'notes', 'note', 'פתק', 'sticky', 'onenote'],
   ['מצלמה', 'camera', 'webcam'],
-  ['הקלטה', 'record', 'recorder', 'רשמקול', 'obs', 'audacity'],
-  ['צילום מסך', 'screenshot', 'snip', 'חיתוך', 'גזירה'],
+  ['הקלטה', 'להקליט', 'מקליט', 'הקלטת קול', 'קול', 'קולי', 'דיקטפון', 'record', 'recorder', 'sound', 'voice', 'רשמקול', 'obs', 'audacity'],
+  ['צילום מסך', 'לצלם', 'צלם', 'צילום', 'תמונת מסך', 'screenshot', 'snip', 'snipping', 'חיתוך', 'לחתוך', 'גזירה', 'לגזור'],
   ['שליטה מרחוק', 'remote', 'anydesk', 'teamviewer', 'rdp', 'שלט'],
-  ['אבטחה', 'security', 'antivirus', 'הצפנה', 'encrypt', 'veracrypt', 'סיסמה', 'סיסמאות', 'password', 'keepass'],
-  ['ניקוי', 'clean', 'cleanup', 'תחזוקה', 'maintenance', 'pcmanager', 'טוויק', 'csharf'],
+  ['אבטחה', 'security', 'antivirus', 'אנטי וירוס', 'וירוס', 'הצפנה', 'להצפין', 'encrypt', 'veracrypt', 'סיסמה', 'סיסמאות', 'password', 'keepass'],
+  ['ניקוי', 'לנקות', 'מנקה', 'clean', 'cleanup', 'תחזוקה', 'maintenance', 'pcmanager', 'טוויק', 'csharf', 'לזרז', 'האצה'],
   ['דיסק', 'disk', 'storage', 'אחסון', 'מקום', 'space', 'windirstat'],
   ['חיפוש', 'search', 'everything', 'למצוא', 'find'],
   ['תכנות', 'code', 'coding', 'developer', 'מפתחים', 'python', 'git', 'vscode', 'java', 'terminal', 'powershell'],
@@ -775,7 +776,7 @@ const SYN = [
   ['אנשי קשר', 'people', 'contacts', 'קשר'],
   ['שעון', 'clock', 'alarm', 'שעונים', 'התראות', 'טיימר'],
   ['טלפון', 'phone', 'נייד', 'mobile', 'android'],
-  ['usb', 'דיסק און קי', 'און קי', 'צריבה', 'burn', 'rufus', 'iso'],
+  ['usb', 'דיסק און קי', 'און קי', 'צריבה', 'לצרוב', 'צורב', 'burn', 'rufus', 'iso', 'התקן נשלף'],
   ['וירטואלי', 'wsl', 'linux', 'לינוקס']
 ];
 const norm = s => (s || '').toLowerCase()
@@ -1205,7 +1206,9 @@ function openSheet(en) {
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       (a.noui ? T('אין לו ממשק — רכיב שעובד ברקע')
-              : a.heb ? T('✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
+              : a.heb ? T(a.hebScope === 'chrome'
+                          ? '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם'
+                          : '✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
               : a.xlat ? T('★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
                        : T('ממשק באנגלית בלבד')) + '</div>' +
     '<div class="rows">' + rows + '</div>' +
