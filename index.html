@@ -413,8 +413,34 @@
   .msstore:hover { background: color-mix(in srgb, #0f7bc4 30%, transparent);
                    border-color: color-mix(in srgb, #0f7bc4 62%, transparent); color: #cfe9fb; }
   .msstore svg { width: 17px; height: 17px; flex: none; }
+
+  /* the opposite corner from the Store link, and deliberately plainer than it - this is a
+     question, not a destination */
+  .qmark { position: absolute; inset-inline-end: 14px; top: 14px; z-index: 2;
+           width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+           display: inline-flex; align-items: center; justify-content: center;
+           background: var(--tile); border: 1px solid var(--stroke); color: var(--muted);
+           font: 700 .95rem/1 inherit; padding: 0;
+           transition: background .15s, color .15s, border-color .15s; }
+  .qmark:hover, .qmark.on { background: var(--tile-h); color: var(--ink); border-color: var(--accent); }
+  /* the explainer reads as prose, so it is the one left-aligned block in a centred sheet */
+  .qbody { display: none; margin: 12px 0 2px; padding: 12px 14px; border-radius: 14px;
+           background: var(--tile); border: 1px solid var(--stroke);
+           text-align: start; font-size: .84rem; line-height: 1.72; color: var(--ink2); }
+  .qbody.open { display: block; }
   :root.light .msstore { background: color-mix(in srgb, #0f7bc4 12%, transparent); color: #0a5c95;
                          border-color: color-mix(in srgb, #0f7bc4 34%, transparent); }
+
+  /* the same question mark as on an app, at the scale of the whole shop */
+  /* .sheet sets an explicit width, so this has to set one too - a max-width only caps it */
+  .about { width: min(560px, 94vw); text-align: start; }
+  .about h3 { margin: 0 0 4px; font-size: 1.15rem; }
+  .about h4 { margin: 18px 0 5px; font-size: .93rem; color: var(--ink); }
+  .about p { margin: 0; font-size: .87rem; line-height: 1.78; color: var(--ink2); }
+  .about ol { margin: 6px 0 0; padding-inline-start: 20px; font-size: .87rem;
+              line-height: 1.78; color: var(--ink2); }
+  .about li { margin-bottom: 3px; }
+  .about .close { margin-top: 20px; width: 100%; }
 
   /* a labelled EN / עב pill, not a globe - it says which language it gets you */
   .lang { flex: 0 0 auto; min-width: 52px; padding: 0 12px; border-radius: 12px; cursor: pointer;
@@ -459,6 +485,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" dir="auto" placeholder="חיפוש בחנות">
     </label>
+    <button class="theme-btn" id="about-btn" title="מה זה האתר הזה">?</button>
     <button class="theme-btn" id="lang-btn" title="Language / שפה" style="width:auto;padding:0 10px;font-weight:700;font-size:.85rem">EN</button>
     <button class="theme-btn" id="theme-btn" title="מצב תצוגה">☀</button>
   </div>
@@ -601,6 +628,33 @@ const EN = {
   'חנות אופליין': 'Offline Store',
   'חיפוש בחנות': 'Search the store',
   'מצב תצוגה': 'Theme',
+  'מה זה האתר הזה': 'What is this site',
+  'מידע נוסף על האפליקציה': 'More about this app',
+  'מה זה האתר הזה?': 'What is this site?',
+  'האתר הזה נותן לכם להתקין אפליקציות ותוכנות במחשב שאין בו חיבור לאינטרנט.':
+    'This site lets you install apps and programs on a computer that has no internet connection.',
+  'למה זה בכלל צריך אתר': 'Why this needs a site at all',
+  'הרבה מהאפליקציות של Windows כבר לא מגיעות מותקנות. הן מגיעות כקיצור דרך שמושך את עצמו מהחנות בפעם הראשונה שפותחים אותו — ובמחשב בלי אינטרנט, המשיכה הזאת נכשלת. גם תוכנה רגילה בדרך כלל מגיעה כמתקין קטן שרק מוריד את השאר, וגם הוא נתקע.':
+    'Many Windows apps no longer arrive installed. They arrive as a shortcut that pulls itself down from the Store the first time you open it - and on a computer with no internet, that pull fails. Ordinary programs usually arrive the same way, as a small installer that only downloads the rest, and it gets stuck too.',
+  'מה יש כאן במקום': 'What is here instead',
+  'כל פריט באתר הוא קובץ אחד גמור. כל מה שהאפליקציה צריכה כבר בתוכו, כולל ספריות המערכת שהיא נשענת עליהן. אין מה להוריד תוך כדי ההתקנה.':
+    'Every item here is one finished file. Everything the app needs is already inside it, including the system libraries it leans on. There is nothing left to download while it installs.',
+  'איך משתמשים': 'How to use it',
+  'במחשב שיש בו אינטרנט — לוחצים על אפליקציה ואז על כפתור ההורדה.':
+    'On a computer that has internet, click an app and then the download button.',
+  'מעתיקים את הקובץ שירד לדיסק-און-קי.': 'Copy the downloaded file onto a USB stick.',
+  'מכניסים את הדיסק-און-קי למחשב המנותק, ולוחצים על הקובץ לחיצה כפולה.':
+    'Put the USB stick into the offline computer and double-click the file.',
+  'זהו. רוב ההתקנות אינן מבקשות סיסמת מנהל.': 'That is all. Most of these installations do not ask for an administrator password.',
+  'מה עם הרבה מחשבים': 'What about a lot of computers',
+  'מי שמתקין על מחשב אחרי מחשב יכול להוריד דיסק שלם במקום קובץ־קובץ. בדיסק יש חנות שרואה מה כבר מותקן במחשב, מה חסר ומה מיושן — מסמנים ולוחצים התקנה.':
+    'Anyone installing on one computer after another can download a whole disc instead of file by file. The disc carries a store that sees what is already installed on the machine, what is missing and what is out of date - you tick and press install.',
+  'האם זה בטוח': 'Is it safe',
+  'הקבצים של מיקרוסופט יורדים מהשרתים שלה וחתומים בחתימה הדיגיטלית שלה, ללא שינוי. תוכנות של יצרנים אחרים מקושרות ישירות לאתרים שלהם. היוצא מן הכלל היחיד הוא אפליקציה שכתוב עליה במפורש שהיא תורגמה כאן — שם החבילה כן נפתחה, וזה כתוב בגלוי בכפתור.':
+    'The Microsoft files come from Microsoft\'s own servers, carrying its digital signature, unmodified. Programs from other makers link straight to their own sites. The one exception is an app that says on it that it was translated here - there the package really was opened, and the button says so plainly.',
+  'האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This site is not connected to Microsoft and is not supported by it.',
+  'סגירה': 'Close',
+  'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
   'האפליקציות של Windows,': 'The Windows apps,',
   'למחשב': 'for a PC',
   'שאין בו אינטרנט': 'with no internet',
@@ -784,6 +838,18 @@ function applyLang() {
 }
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
+
+/* The explainers are two paragraphs per app in two languages - too much to put in front of
+   the first paint for a panel most visitors never open. Fetched once, on the first ask. */
+let INFO = null, INFO_P = null;
+function loadInfo() {
+  if (INFO) return Promise.resolve(INFO);
+  if (!INFO_P) INFO_P = fetch('app-info.json')
+    .then(r => r.ok ? r.json() : {})
+    .then(j => (INFO = j))
+    .catch(() => (INFO = {}));
+  return INFO_P;
+}
 
 /* ===== smart search =====
    One query word should find the app whatever language the visitor thinks in,
@@ -1427,7 +1493,12 @@ function openSheet(en) {
       '<span>' + T('בחנות') + '</span></a>'
     : '';
 
-  ov.innerHTML = '<div class="sheet">' + storeLink + pl +
+  /* Opposite corner from the Store link. Hidden rather than shown empty when an app has
+     no explainer, so the corner is never a button that does nothing. */
+  const qBtn = '<button class="qmark" id="qm" title="' + esc(T('מידע נוסף על האפליקציה')) +
+               '" aria-expanded="false">?</button>';
+
+  ov.innerHTML = '<div class="sheet">' + storeLink + qBtn + pl +
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
@@ -1444,6 +1515,7 @@ function openSheet(en) {
                           ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
                           : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
                        : T('ממשק באנגלית בלבד')) + '</div>' +
+    '<div class="qbody" id="qb"></div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה')) + '</button>' +
@@ -1455,6 +1527,28 @@ function openSheet(en) {
   const onEsc = e => { if (e.key === 'Escape') shut(); };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   document.addEventListener('keydown', onEsc);
+  const qm = ov.querySelector('#qm'), qb = ov.querySelector('#qb');
+  qm.onclick = () => {
+    if (qb.classList.contains('open')) {
+      qb.classList.remove('open'); qm.classList.remove('on');
+      qm.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    qm.classList.add('on'); qm.setAttribute('aria-expanded', 'true');
+    qb.classList.add('open');
+    if (!qb.dataset.done) {
+      qb.textContent = '…';
+      loadInfo().then(j => {
+        const rec = j[a.en];
+        /* the explainer is written per language rather than run through the dictionary -
+           it is prose, not a label */
+        const txt = rec && (LANG === 'en' ? (rec.infoEn || rec.info) : rec.info);
+        qb.textContent = txt || T('לא הצלחנו לטעון את ההסבר.');
+        qb.setAttribute('dir', 'auto');
+        qb.dataset.done = '1';
+      });
+    }
+  };
   ov.querySelector('#sp').onclick = () => { toggle(en, 'main'); shut(); };
   ov.querySelectorAll('[data-add]').forEach(b => {
     b.onclick = () => {
@@ -1553,6 +1647,40 @@ async function adminInit() {
 }
 
 /* ===== theme, search ===== */
+/* The heading assumes the visitor already knows why a Windows app would refuse to install.
+   Someone who does not know has nowhere to find out, so: plain words, no jargon, and the
+   order a person actually asks them in - what is this, why, what do I do. */
+document.getElementById('about-btn').onclick = () => {
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.innerHTML = '<div class="sheet about">' +
+    '<h3>' + T('מה זה האתר הזה?') + '</h3>' +
+    '<p>' + T('האתר הזה נותן לכם להתקין אפליקציות ותוכנות במחשב שאין בו חיבור לאינטרנט.') + '</p>' +
+    '<h4>' + T('למה זה בכלל צריך אתר') + '</h4>' +
+    '<p>' + T('הרבה מהאפליקציות של Windows כבר לא מגיעות מותקנות. הן מגיעות כקיצור דרך שמושך את עצמו מהחנות בפעם הראשונה שפותחים אותו — ובמחשב בלי אינטרנט, המשיכה הזאת נכשלת. גם תוכנה רגילה בדרך כלל מגיעה כמתקין קטן שרק מוריד את השאר, וגם הוא נתקע.') + '</p>' +
+    '<h4>' + T('מה יש כאן במקום') + '</h4>' +
+    '<p>' + T('כל פריט באתר הוא קובץ אחד גמור. כל מה שהאפליקציה צריכה כבר בתוכו, כולל ספריות המערכת שהיא נשענת עליהן. אין מה להוריד תוך כדי ההתקנה.') + '</p>' +
+    '<h4>' + T('איך משתמשים') + '</h4>' +
+    '<ol><li>' + T('במחשב שיש בו אינטרנט — לוחצים על אפליקציה ואז על כפתור ההורדה.') + '</li>' +
+    '<li>' + T('מעתיקים את הקובץ שירד לדיסק-און-קי.') + '</li>' +
+    '<li>' + T('מכניסים את הדיסק-און-קי למחשב המנותק, ולוחצים על הקובץ לחיצה כפולה.') + '</li></ol>' +
+    '<p style="margin-top:6px">' + T('זהו. רוב ההתקנות אינן מבקשות סיסמת מנהל.') + '</p>' +
+    '<h4>' + T('מה עם הרבה מחשבים') + '</h4>' +
+    '<p>' + T('מי שמתקין על מחשב אחרי מחשב יכול להוריד דיסק שלם במקום קובץ־קובץ. בדיסק יש חנות שרואה מה כבר מותקן במחשב, מה חסר ומה מיושן — מסמנים ולוחצים התקנה.') + '</p>' +
+    '<h4>' + T('האם זה בטוח') + '</h4>' +
+    '<p>' + T('הקבצים של מיקרוסופט יורדים מהשרתים שלה וחתומים בחתימה הדיגיטלית שלה, ללא שינוי. תוכנות של יצרנים אחרים מקושרות ישירות לאתרים שלהם. היוצא מן הכלל היחיד הוא אפליקציה שכתוב עליה במפורש שהיא תורגמה כאן — שם החבילה כן נפתחה, וזה כתוב בגלוי בכפתור.') + '</p>' +
+    '<p style="margin-top:10px;color:var(--muted);font-size:.8rem">' + T('האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.') + '</p>' +
+    '<button class="btn lite close" id="ab-x">' + T('סגירה') + '</button>' +
+    '</div>';
+  document.body.appendChild(ov);
+  document.body.style.overflow = 'hidden';
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
+  const onEsc = e => { if (e.key === 'Escape') shut(); };
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  document.addEventListener('keydown', onEsc);
+  ov.querySelector('#ab-x').onclick = shut;
+};
+
 const langBtn = document.getElementById('lang-btn');
 langBtn.onclick = () => {
   LANG = LANG === 'he' ? 'en' : 'he';

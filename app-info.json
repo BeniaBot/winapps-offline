@@ -1,0 +1,530 @@
+{
+    "Notepad":  {
+                    "info":  "פותח קבצי טקסט פשוטים, בלי שום עיצוב — בלי גופנים, צבעים או תמונות. שימושי כדי לרשום משהו מהר, לפתוח קובץ הגדרות של תוכנה, או להדביק טקסט שהעתקתם ולנקות ממנו את העיצוב לפני שמעבירים אותו הלאה. פנקס הרשימות מגיע בדרך כלל יחד עם ווינדוס, וההתקנה כאן נועדה למקרה שהוא נמחק מהמחשב.",
+                    "infoEn":  "Opens plain text files with no formatting at all — no fonts, no colours, no pictures. Useful for jotting something down, opening a program\u0027s settings file, or pasting in text you copied and stripping the formatting out of it. Notepad normally comes with Windows, so installing it here is mainly for a PC where it is missing."
+                },
+    "Calculator":  {
+                       "info":  "מעבר לחישוב רגיל יש בו גם מצב מדעי, המרות בין יחידות — מטרים ואינצ\u0027ים, קילו וליברות, טמפרטורה — וחישוב ההפרש בין שני תאריכים. שימושי כשצריך תשובה מהירה בלי לחפש נייר ועט. גם הוא מגיע עם ווינדוס, וההתקנה כאן היא למקרה שהוא חסר.",
+                       "infoEn":  "Beyond ordinary sums it has a scientific mode, conversions between units — metres and inches, kilos and pounds, temperature — and a date calculator for the gap between two dates. Handy when you want a quick answer without looking for pen and paper. It normally comes with Windows, so install it here if it is missing."
+                   },
+    "Paint":  {
+                  "info":  "מאפשר לחתוך תמונה, לסובב אותה, לשנות את הגודל שלה, לצייר עליה קו או חץ ולהוסיף טקסט, ואז לשמור אותה כקובץ JPG או PNG. הכי שימושי כדי לסמן משהו על צילום מסך לפני ששולחים אותו למישהו. זו תוכנה בסיסית ולא כלי עריכה מקצועי, אבל למשימות הקטנות היא מספיקה בהחלט.",
+                  "infoEn":  "Lets you crop a picture, rotate it, change its size, draw a line or an arrow on it and add text, then save the result as a JPG or PNG. Most often it is used to mark something on a screenshot before sending it to someone. It is a basic program rather than a professional editor, but for small jobs it is enough."
+              },
+    "SnippingTool":  {
+                         "info":  "מצלמים איתו חלק מהמסך או את המסך כולו, ואז אפשר לסמן על התמונה, לשמור אותה כקובץ או להעתיק אותה ולהדביק ישר בהודעה. שימושי כשמישהו מבקש לראות הודעת שגיאה או מסך שקשה לכם להסביר במילים. בווינדוס 11 מקש Print Screen במקלדת פותח אותו בדרך כלל ישירות.",
+                         "infoEn":  "Take a picture of part of the screen or all of it, then mark on it and either save it as a file or copy it straight into a message. Useful when someone asks to see an error message, or a screen you cannot easily describe in words. On Windows 11 the Print Screen key on the keyboard usually opens it directly."
+                     },
+    "Photos":  {
+                   "info":  "פותח את תיקיות התמונות שבמחשב ומאפשר לדפדף ביניהן, להגדיל, לסובב ולחתוך — בלי להתקין תוכנת עריכה. שימושי כשמעתיקים תמונות מהטלפון או ממצלמה ורוצים לעבור עליהן בנוחות. חלק מהאפשרויות באפליקציה מחוברות לשירותים באינטרנט ולא יעבדו במחשב מנותק, אבל הצפייה בתמונות שבמחשב עצמו עובדת.",
+                   "infoEn":  "Opens the picture folders on the PC so you can browse through them, zoom in, rotate and crop, without installing an editing program. Useful after copying photos off a phone or a camera and wanting to look through them. Some parts of the app connect to online services and will not work on a PC with no internet, but viewing the pictures stored on the machine itself works fine."
+               },
+    "SoundRecorder":  {
+                          "info":  "מקליט קול דרך המיקרופון של המחשב ושומר את ההקלטה כקובץ, כך שאפשר להאזין לה שוב או להעביר אותה הלאה. שימושי להקלטת שיעור, פגישה או תזכורת קולית. צריך מיקרופון: במחשב נייד הוא בדרך כלל מובנה, ובמחשב שולחני צריך מיקרופון מחובר או אוזניות עם מיקרופון.",
+                          "infoEn":  "Records sound through the PC\u0027s microphone and saves it as a file you can listen to later or pass on to someone. Useful for recording a lesson, a meeting, or a spoken reminder to yourself. It needs a microphone: laptops usually have one built in, while a desktop normally needs a microphone or a headset plugged in."
+                      },
+    "Camera":  {
+                   "info":  "מפעיל את המצלמה של המחשב ומאפשר לצלם תמונה או לצלם וידאו, והקובץ נשמר במחשב. חשוב לדעת שזו לא תוכנה לשיחות וידאו — היא רק מצלמת ושומרת. אם למחשב אין מצלמה מובנית ואין מצלמה מחוברת בחיבור USB, האפליקציה תיפתח אבל לא יהיה מה לראות בה.",
+                   "infoEn":  "Turns on the PC\u0027s camera so you can take a photo or record a video, and saves the file on the machine. Worth knowing that this is not a program for video calls — it only takes pictures and stores them. If the PC has no built-in camera and none plugged into a USB port, the app will open but show nothing."
+               },
+    "Clock":  {
+                  "info":  "כולל טיימר לספירה לאחור, סטופר, שעון מעורר ושעונים של ערים בעולם. שימושי בבישול, בלימוד לפי זמן קצוב, או כתזכורת לקום מהכיסא כל כמה זמן. שימו לב: התראה תישמע רק אם המחשב דולק ולא כבוי לגמרי, וכדאי לוודא שהרמקולים לא מושתקים.",
+                  "infoEn":  "Includes a countdown timer, a stopwatch, an alarm and clocks showing the time in cities around the world. Useful for cooking, for studying in fixed blocks of time, or as a reminder to get up from the chair every so often. Note that an alarm only sounds if the PC is switched on rather than shut down, and the speakers are not muted."
+              },
+    "StickyNotes":  {
+                        "info":  "פתקים צהובים שנשארים על המסך, כמו פתק נייר על המקרר. כותבים בהם מספר טלפון, רשימת קניות או משימה, והם נשארים שם עד שמוחקים אותם. הפתקים נשמרים במחשב ועובדים גם בלי אינטרנט; סנכרון בין מכשירים דורש חשבון מיקרוסופט וחיבור לרשת, וזה לא חובה.",
+                        "infoEn":  "Yellow notes that stay on the screen, much like a paper note on the fridge. Write a phone number, a shopping list or a task on one and it stays there until you delete it. The notes are kept on the PC and work with no internet at all; syncing them to other devices needs a Microsoft account and a connection, and is optional."
+                    },
+    "Terminal":  {
+                     "info":  "חלון שבו מקלידים פקודות במקום ללחוץ על כפתורים, ואפשר להריץ בו את שורת הפקודה ואת PowerShell בלשוניות נפרדות. זה כלי לטכנאים ולמי שעובד עם פקודות; אם אתם לא כותבים פקודות, אין סיבה להתקין אותו. חלק מהפקודות שמריצים בו דורשות הרשאות מנהל.",
+                     "infoEn":  "A window where you type commands instead of clicking buttons, and where Command Prompt and PowerShell can run side by side in tabs. This is a tool for technicians and for people who work with commands; if you do not type commands, there is no reason to install it. Some of the commands you run in it need administrator rights."
+                 },
+    "MediaPlayer":  {
+                        "info":  "מנגן קובצי מוזיקה וסרטונים ששמורים במחשב, ומסדר את המוזיקה לספרייה לפי אמן ואלבום עם רשימות השמעה. שימושי אם העברתם שירים או סרטונים למחשב ואתם רוצים תוכנה שתפעיל אותם בנוחות. זה נגן המדיה של ווינדוס 11, והוא בא במקום הנגנים הישנים יותר של ווינדוס.",
+                        "infoEn":  "Plays music and video files stored on the PC, and organises the music into a library by artist and album, with playlists. Useful if you have copied songs or clips onto the machine and want something to play them properly. This is the Windows 11 media player, and it came in place of the older Windows players."
+                    },
+    "MoviesTV":  {
+                     "info":  "נגן וידאו פשוט לקובצי סרטים ששמורים במחשב: פותחים קובץ, והוא מתנגן. זו אפליקציה ותיקה יותר, ורוב מה שהיא עושה קיים היום גם ב-Media Player. חלק מהמסכים שלה מיועדים לקניית סרטים ודורשים אינטרנט וחשבון, אבל ניגון קבצים מהמחשב עצמו עובד בלי כלום מזה.",
+                     "infoEn":  "A simple video player for film files kept on the PC: you open a file and it plays. It is the older of the two video apps, and most of what it does is now also in Media Player. Some of its screens are there for buying films and need internet and an account, but playing files from the PC itself needs neither."
+                 },
+    "Paint3D":  {
+                    "info":  "מעבר לציור ולעריכת תמונות רגילה, אפשר להוסיף כאן צורות תלת-ממדיות פשוטות ולסובב אותן. שימושי אם רוצים לשחק קצת עם עיצוב בלי ללמוד תוכנה מקצועית. מיקרוסופט הפסיקה לפתח אותה והיא כבר לא מגיעה עם Windows, אבל היא עדיין נפתחת ופועלת. ה-Paint הרגיל נשאר במחשב ולא מוחלף.",
+                    "infoEn":  "Beyond ordinary drawing and photo editing, it lets you add simple 3D shapes and turn them around. Useful if you want to try a little design work without learning a professional program. Microsoft stopped developing it and it no longer comes with Windows, but it still opens and works. The regular Paint stays on the PC and is not replaced."
+                },
+    "3DViewer":  {
+                     "info":  "פותח קובצי מודל תלת-ממדי ומאפשר לסובב, לקרב ולראות אותם מכל צד. שימושי אם קיבלתם קובץ כזה — למשל דגם להדפסה בתלת-ממד — ואתם רק רוצים להסתכל עליו, בלי תוכנת עריכה כבדה. זו תוכנת צפייה בלבד, אי אפשר לערוך בה. בגרסאות Windows החדשות היא כבר לא מותקנת מראש.",
+                     "infoEn":  "Opens 3D model files and lets you spin, zoom and look at them from every side. Useful when someone sends you such a file, a 3D printing model for example, and you only want to look at it without a heavy editing program. It is a viewer only, nothing can be changed in it. Newer Windows versions no longer include it."
+                 },
+    "Solitaire":  {
+                      "info":  "אוסף משחקי הקלפים הקלאסיים — קלונדייק, ספיידר, פריסל ועוד — בממשק אחד. מתאים למי שרוצה משחק שקט לכמה דקות מול המחשב. המשחקים עצמם פועלים בלי חיבור לאינטרנט, אבל תוספות כמו אתגרים יומיים והתחברות לחשבון דורשות חיבור. בגרסה החינמית מוצגות פרסומות.",
+                      "infoEn":  "A set of the classic card games — Klondike, Spider, FreeCell and others — in one place. Good for a quiet few minutes at the computer. The games themselves play without an internet connection, but extras such as daily challenges and signing in to an account do need one. The free version shows ads."
+                  },
+    "XboxGameBar":  {
+                        "info":  "שכבה שנפתחת מעל כל תוכנה בלחיצת Win+G, ודרכה אפשר להקליט את המסך, לצלם תמונת מסך ולראות כמה המחשב עמוס. שימושי אם רוצים להקליט הסבר קצר על מה שקורה במסך בלי להתקין תוכנת הקלטה נפרדת. ההקלטה נשענת על כרטיס המסך, ובמחשבים ישנים היא עלולה לא לעבוד.",
+                        "infoEn":  "A layer that opens over any program when you press Win+G, letting you record the screen, take a screenshot and see how hard the computer is working. Useful for recording a short explanation of what is happening on screen without installing separate recording software. Recording leans on the graphics card, and on older PCs it may not work."
+                    },
+    "RemoteDesktop":  {
+                          "info":  "מציג את שולחן העבודה של מחשב אחר בחלון אצלכם, כך שאפשר לעבוד עליו כאילו אתם יושבים מולו. שימושי כשיש מחשב נוסף בבית או במשרד ולא רוצים לקום אליו בכל פעם. המחשב המרוחק צריך להיות דלוק, מחובר לאותה רשת, ומוגדר לאפשר חיבור מרחוק — הגדרה שקיימת בגרסאות Pro של Windows.",
+                          "infoEn":  "Shows another computer\u0027s desktop in a window on yours, so you can work on it as if you were sitting in front of it. Useful when there is a second PC in the house or the office and you would rather not walk over to it. The other computer must be switched on, on the same network, and set to allow remote connections — a setting found in Pro editions of Windows."
+                      },
+    "Maps":  {
+                 "info":  "מאפשר לחפש כתובת, לראות את הרחובות מסביב ולקבל מסלול נסיעה, הכול מתוך המחשב עצמו. שימושי במחשב מנותק שבכל זאת צריך מפה זמינה. המתקין מכניס את מפת ישראל פנימה מראש, וגם חוסם לאפליקציה גישה לאינטרנט — אחרת היא מזהה שאין חיבור ומשביתה את עצמה.",
+                 "infoEn":  "Lets you search an address, look at the streets around it and get driving directions, all from the computer itself. Useful on a disconnected PC that still needs a map at hand. The installer puts the map of Israel in place and also blocks the app from the internet — otherwise it notices there is no connection and shuts itself down."
+             },
+    "ToDo":  {
+                 "info":  "רשימות של דברים לעשות: מוסיפים משימה, קובעים לה תאריך ותזכורת, ומסמנים אותה כשסיימתם. שימושי לרשימת קניות, למטלות בעבודה או לסדר יום פשוט. האפליקציה בנויה סביב חשבון Microsoft וסנכרון בין מכשירים, ולכן במחשב בלי אינטרנט התועלת שלה מוגבלת.",
+                 "infoEn":  "Lists of things to do: add a task, give it a date and a reminder, and tick it off when it is done. Useful for a shopping list, work chores or a simple daily plan. The app is built around a Microsoft account and syncing between devices, so on a PC with no internet it is of limited use."
+             },
+    "People":  {
+                   "info":  "מרכז את אנשי הקשר במקום אחד — שם, טלפון, כתובת ודואר אלקטרוני — ומאפשר לחפש ביניהם. אפליקציות אחרות של Windows, כמו הדואר, שולפות ממנו את הפרטים. אנשי הקשר מגיעים בדרך כלל מחשבון מקוון שמחברים אליו, ולכן במחשב מנותק תצטרכו להקליד אותם בעצמכם.",
+                   "infoEn":  "Keeps contacts in one place — name, phone, address and email — and lets you search through them. Other Windows apps, such as mail, pull their details from it. Contacts usually arrive from an online account you connect, so on a disconnected PC you would type them in yourself."
+               },
+    "OneNote":  {
+                    "info":  "מחברת דיגיטלית: כותבים בכל מקום בדף, מוסיפים תמונות, טבלאות ורשימות, ומחלקים את החומר לפרקים ולדפים. שימושי לסיכומים, לרעיונות ולחומר לימודי שנוח לחפש בו אחר כך. הגרסה הזו בנויה לשמור את המחברות בענן דרך חשבון Microsoft, ולכן במחשב בלי אינטרנט השימוש בה מוגבל.",
+                    "infoEn":  "A digital notebook: write anywhere on the page, add pictures, tables and lists, and split the material into sections and pages. Useful for summaries, ideas and study material you will want to search later. This version is built to keep notebooks in the cloud through a Microsoft account, so on a PC with no internet its use is limited."
+                },
+    "MixedReality":  {
+                         "info":  "התוכנה שמפעילה את משקפי המציאות המעורבת של Windows — בלי משקפיים כאלה אין לה מה להציג. שווה להתקין רק אם יש לכם ערכה כזו מחוברת למחשב. מיקרוסופט הפסיקה את התמיכה בטכנולוגיה הזו, ובמחשב רגיל אין שום סיבה להתקין את התוכנה הזאת.",
+                         "infoEn":  "The program that runs Windows Mixed Reality headsets — without such a headset it has nothing to show. Worth installing only if you actually have one of these sets connected to the PC. Microsoft has ended support for this technology, and on an ordinary computer there is no reason to install it at all."
+                     },
+    "HEIFExtension":  {
+                          "info":  "תוסף שמלמד את Windows לפתוח תמונות בסיומת HEIC, הפורמט שאייפון מצלם בו כברירת מחדל. אחרי ההתקנה התמונות האלה ייפתחו באפליקציית התמונות וייראו בסייר הקבצים כמו כל תמונה רגילה. אין כאן תוכנה שנפתחת — התוסף מותקן ויושב ברקע, ואין על מה ללחוץ.",
+                          "infoEn":  "An add-on that teaches Windows to open pictures with the HEIC extension, the format an iPhone photographs in by default. After installing, those pictures open in the Photos app and look like any other image in File Explorer. There is no program to open here — it installs and sits quietly in the background."
+                      },
+    "WebpExtension":  {
+                          "info":  "תוסף שמלמד את Windows להציג תמונות בסיומת WebP, פורמט נפוץ בתמונות שנשמרות מאתרי אינטרנט. אחרי ההתקנה תוכלו לפתוח אותן באפליקציית התמונות ובסייר הקבצים בלי להמיר אותן קודם. אין ממשק ואין חלון — ההתקנה פשוט מוסיפה את התמיכה ברקע, ואין מה לפתוח.",
+                          "infoEn":  "An add-on that teaches Windows to show images with the WebP extension, a format common in pictures saved from websites. After installing you can open them in the Photos app and File Explorer without converting them first. There is no window and nothing to open — the install simply adds the support in the background."
+                      },
+    "RawExtension":  {
+                         "info":  "מצלמות מתקדמות שומרות תמונות בפורמט RAW, ו-Windows לא יודעת להציג אותן בלי התוספת הזו. אחרי ההתקנה תוכלו לראות תמונות ממוזערות של קבצים כאלה בסייר הקבצים ולפתוח אותם באפליקציית התמונות. שווה להתקין רק אם אתם מצלמים במצלמה שמייצרת קבצי RAW. אין לזה חלון משלו — מתקינים, וזה יושב ברקע.",
+                         "infoEn":  "Advanced cameras save photos in RAW format, and Windows cannot show those files without this addition. Once it is installed, RAW files get thumbnails in File Explorer and open in the Photos app. Worth installing only if you shoot with a camera that produces RAW files. It has no window of its own — you install it and it sits in the background."
+                     },
+    "VP9Extension":  {
+                         "info":  "VP9 הוא פורמט וידאו שנפוץ בסרטונים באינטרנט. בלי התוספת הזו קובץ כזה עלול להיפתח בלי תמונה, או לא להיפתח בכלל. אם נתקלתם בסרטון שהמחשב מסרב לנגן, זו אחת התוספות שעוזרות. אין חלון לפתוח — הרכיב מותקן ופועל ברקע מאחורי נגן הווידאו.",
+                         "infoEn":  "VP9 is a video format common in clips found on the internet. Without this addition such a file may open with no picture, or not open at all. If you have run into a video the PC refuses to play, this is one of the additions that helps. There is nothing to open — it installs and works in the background behind your video player."
+                     },
+    "AV1Extension":  {
+                         "info":  "AV1 הוא פורמט וידאו חדש יחסית, ומחשבים ישנים לרוב לא מנגנים אותו בלי תוספת. ההרחבה הזו מאפשרת לסרטונים כאלה להיפתח בנגן הרגיל של Windows. התקינו אותה אם קיבלתם קובץ וידאו שלא מתנגן. אין לה חלון — מתקינים, והיא פועלת ברקע.",
+                         "infoEn":  "AV1 is a relatively new video format, and older PCs usually cannot play it without an addition like this one. It lets such videos open in the regular Windows player. Install it if you were given a video file that will not play. It has no window — you install it and it works in the background."
+                     },
+    "HEVCExtension":  {
+                          "info":  "הרבה טלפונים ומצלמות מצלמים וידאו בפורמט HEVC, שנקרא גם H.265. בלי התוספת הזו Windows לא תמיד יודעת לנגן את הקבצים האלה. אם העברתם סרטונים מהטלפון והם לא נפתחים, זה בדרך כלל מה שחסר. אין חלון לפתוח — הרכיב מותקן ופועל ברקע.",
+                          "infoEn":  "Many phones and cameras record video in HEVC, also called H.265. Without this addition Windows cannot always play those files. If you copied videos off a phone and they will not open, this is usually what is missing. There is nothing to open — it installs and runs in the background."
+                      },
+    "AppInstaller":  {
+                         "info":  "זה הרכיב שמאפשר להתקין קובצי אפליקציה של Windows בלחיצה כפולה, במקום דרך החנות. הוא גם מוסיף את הפקודה winget לשורת הפקודה, שמשמשת טכנאים להתקנת תוכנות. שימו לב: winget מוריד תוכנות מהאינטרנט, ולכן במחשב מנותק הוא יעזור רק עם קבצים ששמורים כבר על המחשב. אין לו חלון משלו.",
+                         "infoEn":  "This is the component that lets you install Windows app packages by double-clicking them, instead of going through the Store. It also adds the winget command to the command line, which technicians use to install software. Note that winget downloads software from the internet, so on a disconnected PC it only helps with files already saved on the machine. It has no window of its own."
+                     },
+    "Sysinternals":  {
+                         "info":  "אוסף של כלים קטנים לבדיקה מעמיקה של המחשב — לראות מה באמת רץ, מה נטען בהפעלה ומה תופס משאבים. זה נועד לטכנאים ולמי שמרגיש בבית עם Windows; אם אתם לא כאלה, כנראה לא תצטרכו את זה. החבילה עצמה לא נפתחת בחלון: היא מתקינה את הכלים, וכל כלי מופעל בנפרד. חלק מהם דורשים הרשאות מנהל.",
+                         "infoEn":  "A collection of small tools for looking deep inside the PC — what is really running, what loads at startup, what is using resources. It is aimed at technicians and people who are comfortable inside Windows; if that is not you, you probably do not need it. The package does not open in a window: it installs the tools, and each one is run separately. Some of them require administrator rights."
+                     },
+    "TerminalPreview":  {
+                            "info":  "חלון שורת פקודה מודרני ל-Windows, עם לשוניות והגדרות תצוגה. שימושי בעיקר למי שמקליד פקודות — טכנאים, מפתחים, או מי שמעתיק פקודה מתוך הוראות. זו גרסת התצוגה המקדימה: היא מקבלת חידושים מוקדם יותר, אבל עלולה להיות פחות יציבה. אם אתם רק רוצים שורת פקודה שעובדת, עדיפה הגרסה הרגילה.",
+                            "infoEn":  "A modern command line window for Windows, with tabs and display settings. Mostly useful if you type commands — technicians, developers, or anyone copying a command out of instructions. This is the preview version: it gets new features earlier, but can be less stable than the regular one. If you just want a command line that works, prefer the regular version."
+                        },
+    "FileRecovery":  {
+                         "info":  "כלי של Microsoft שמנסה לשחזר קבצים שנמחקו מדיסק או מכרטיס זיכרון. הוא עובד רק בהקלדת פקודות — אין לו חלון ואין כפתורים, ותצטרכו הרשאות מנהל. הסיכוי לשחזור טוב יותר ככל שממעטים להשתמש בכונן אחרי המחיקה, וכדאי לשמור את הקבצים המשוחזרים לכונן אחר. אין הבטחה שהקבצים יחזרו.",
+                         "infoEn":  "A Microsoft tool that tries to recover files deleted from a disk or memory card. It works only by typing commands — there is no window and no buttons, and you will need administrator rights. Chances are better the less the drive is used after the deletion, and recovered files should be saved to a different drive. There is no guarantee the files come back."
+                     },
+    "WSL":  {
+                "info":  "מאפשר להריץ Linux בתוך Windows, בלי לחלק את הדיסק ובלי להתקין מערכת שנייה. זה מיועד למפתחים ולאנשי מחשבים; משתמש רגיל לא ירוויח מזה כלום. ההתקנה דורשת הרשאות מנהל ויופיע חלון אישור של Windows. חשוב לדעת: אחרי ההתקנה צריך עוד להוסיף גרסת Linux, וזה בדרך כלל מצריך חיבור לאינטרנט.",
+                "infoEn":  "Lets you run Linux inside Windows, without splitting the disk or installing a second system. It is meant for developers and computer people; a regular user gains nothing from it. Installing it requires administrator rights and will show a Windows confirmation window. Worth knowing: afterwards you still need to add a Linux version, and that usually requires an internet connection."
+            },
+    "Journal":  {
+                    "info":  "אפליקציה לכתיבת הערות ביד, כמו על דף נייר. היא נועדה למחשב עם מסך מגע ועט — לרשום בישיבה, לסמן על מסמך, לשרטט סקיצה. במחשב רגיל עם עכבר בלבד היא כמעט חסרת טעם, כי כתיבה בעכבר יוצאת מגושמת. אם אין לכם מסך מגע, אין סיבה להתקין.",
+                    "infoEn":  "An app for writing notes by hand, like on a sheet of paper. It is built for a PC with a touch screen and a pen — taking notes in a meeting, marking up a document, sketching. On a regular PC with only a mouse it is nearly pointless, since writing with a mouse comes out clumsy. If you have no touch screen, there is no reason to install it."
+                },
+    "Print3D":  {
+                    "info":  "אפליקציה שמכינה מודל תלת-ממדי להדפסה ושולחת אותו למדפסת תלת-ממד. שימושית רק אם יש לכם מדפסת כזו בפועל. זו אפליקציה ותיקה של Microsoft שכבר לא מפותחת ולא מגיעה מותקנת מראש בגרסאות Windows חדשות, אז כדאי לצפות לתמיכה מוגבלת. בלי מדפסת תלת-ממד אין בה שימוש.",
+                    "infoEn":  "An app that prepares a 3D model for printing and sends it to a 3D printer. Useful only if you actually own such a printer. It is an older Microsoft app that is no longer developed and no longer ships with newer Windows versions, so expect limited support. With no 3D printer, there is nothing here for you."
+                },
+    "Builder3D":  {
+                      "info":  "מאפשר לפתוח מודלים תלת-ממדיים, לסובב אותם, לשנות גודל ולבצע עריכות פשוטות — למשל לתקן מודל לפני הדפסה. מתאים למי שמתעסק בהדפסת תלת-ממד, או למי שרק רוצה להסתכל על קובץ כזה. גם זו אפליקציה ותיקה של Microsoft שכבר לא מפותחת, אבל היא עדיין עובדת. לעבודות עיצוב רציניות היא לא מספיקה.",
+                      "infoEn":  "Lets you open 3D models, rotate them, change their size and make simple edits — for example fixing a model before printing it. Suited to people who dabble in 3D printing, or who just want to look at such a file. This too is an older Microsoft app that is no longer developed, though it still works. It is not enough for serious design work."
+                  },
+    "Minesweeper":  {
+                        "info":  "משחק לוח קלאסי: מתחת לחלק מהמשבצות מוסתרים מוקשים. לוחצים על משבצת, והמספר שמתגלה אומר כמה מוקשים נוגעים בה — ומכאן מסיקים איפה בטוח ללחוץ ואיפה לסמן דגל. מתאים למי שרוצה משחק שקט לכמה דקות בלי ללמוד כללים מסובכים. אפשר לבחור לוח קטן וקל או לוח גדול שדורש יותר מחשבה.",
+                        "infoEn":  "A classic board game: mines are hidden under some of the squares. You click a square, and the number that appears tells you how many mines touch it, so you can work out where it is safe to click and where to place a flag. Good for a quiet few minutes without learning complicated rules. You can pick a small easy board or a large one that takes more thought."
+                    },
+    "Mahjong":  {
+                    "info":  "משחק התאמה ליחיד: ערימת אריחים מסודרת בשכבות, ואתם מסלקים אותה בזוגות של אריחים זהים שאינם חסומים, עד שהלוח מתרוקן. זה לא המהג׳ונג של ארבעה שחקנים סביב שולחן אלא גרסה שקטה לשחקן אחד, שדורשת סבלנות וקצת תכנון קדימה. אפשר לשחק בקצב שלכם, בלי לחץ זמן.",
+                    "infoEn":  "A single-player matching game: tiles are stacked in layers, and you clear them by pairing identical tiles that are not blocked, until the board is empty. This is not the four-player table game but a quiet solo version that rewards patience and a little planning ahead. You can play at your own pace, with no time pressure."
+                },
+    "Sudoku":  {
+                   "info":  "חידת מספרים על לוח בן תשע על תשע משבצות: משלימים ספרות כך שבכל שורה, בכל עמודה ובכל ריבוע קטן תופיע כל ספרה מ-1 עד 9 פעם אחת בלבד. אין כאן חשבון, רק היגיון ותשומת לב. מתאים למי שאוהב חידה שאפשר לעצור באמצע ולחזור אליה. אפשר לבחור את רמת הקושי, מהקלה ועד הקשה.",
+                   "infoEn":  "A number puzzle on a nine-by-nine grid: you fill in digits so that every row, every column and every small square contains each digit from 1 to 9 exactly once. There is no arithmetic involved, only logic and attention. Good for anyone who likes a puzzle they can stop in the middle and come back to. You can choose the difficulty level, from easy to hard."
+               },
+    "Jigsaw":  {
+                   "info":  "פאזל על המסך: בוחרים תמונה, היא נחתכת לחלקים, וגוררים אותם עם העכבר עד שהתמונה שלמה. אפשר לבחור כמה חלקים יהיו, כך שאותה תמונה יכולה להיות קלה מאוד או ארוכה ומאתגרת. מתאים למי שנהנה מפאזל אמיתי אבל לא רוצה שולחן תפוס בבית. אין לחץ זמן ואפשר לעצור ולחזור.",
+                   "infoEn":  "A jigsaw puzzle on screen: you pick a picture, it is cut into pieces, and you drag them with the mouse until the picture is whole again. You choose how many pieces to use, so the same picture can be very easy or a long challenge. Good for anyone who enjoys a real jigsaw but does not want a table taken over at home. There is no time pressure and you can stop and return later."
+               },
+    "TreasureHunt":  {
+                         "info":  "משחק חידה קליל של מיקרוסופט: חופרים דרך שדה משבצות, אוספים אוצרות ומנסים לא ליפול במלכודות שמסתתרות בדרך. ההתקדמות היא בשלבים. מתאים למי שמחפש משהו קל לכמה דקות, בסגנון שמזכיר את שולה המוקשים אבל בעטיפה צבעונית יותר. אין צורך בידע מוקדם, ואפשר לעצור ולחזור מתי שרוצים.",
+                         "infoEn":  "A light puzzle game from Microsoft: you dig through a field of squares, collect treasure and try not to walk into the traps hidden along the way. It moves forward in levels. Good for someone who wants something easy for a few minutes, in a style that recalls Minesweeper but with a more colourful look. No prior knowledge needed, and you can stop and come back whenever you like."
+                     },
+    "XboxIdentity":  {
+                         "info":  "רכיב רקע שמטפל בכניסה לחשבון Xbox עבור משחקים. אין לו חלון ואין מה לפתוח — הוא פשוט מותקן ויושב ברקע, והמשחקים פונים אליו כשהם צריכים חשבון. אם משחק נסגר מיד עם הפתיחה או מתלונן שאי אפשר להיכנס, לרוב זה הרכיב החסר. הכניסה עצמה דורשת חיבור לאינטרנט; ההתקנה לא.",
+                         "infoEn":  "A background component that handles Xbox account sign-in for games. It has no window and nothing to open — it installs and sits in the background, and games call on it when they need an account. If a game closes the moment it opens, or complains that it cannot sign in, this is usually the missing piece. Signing in itself needs an internet connection; installing it does not."
+                     },
+    "XboxGameOverlay":  {
+                            "info":  "רכיב רקע ששייך לסרגל המשחק של Windows — השכבה שנפתחת מעל משחק ומאפשרת פעולות מהירות בלי לצאת ממנו. אין לו חלון משלו ואין מה לפתוח מתפריט התחל; הוא מותקן ויושב ברקע. שווה להתקין אם משחקים מתלוננים על רכיב חסר או אם חלק מתכונות המשחק לא מופיעות.",
+                            "infoEn":  "A background component belonging to the Windows game bar — the layer that opens on top of a game so you can do a few things without leaving it. It has no window of its own and nothing to open from the Start menu; it installs and sits in the background. Worth installing if games complain about a missing component, or if some in-game features do not appear."
+                        },
+    "XboxTCUI":  {
+                     "info":  "רכיב רקע שמשחקי Xbox משתמשים בו כדי להציג חלוניות של המערכת בתוך המשחק, כמו מסכי חברים והזמנות. אין לו ממשק משלו ואין מה לפתוח — הוא מותקן ויושב ברקע ומשרת משחקים אחרים. מתקינים אותו כשמשחק דורש אותו או מציג שגיאה על רכיב חסר, לא לשימוש ישיר.",
+                     "infoEn":  "A background component that Xbox games use to show system panels inside the game, such as friends and invitation screens. It has no interface of its own and nothing to open — it installs and sits in the background, serving other games. You install it when a game asks for it or reports a missing component, not to use it directly."
+                 },
+    "XboxSpeech":  {
+                       "info":  "רכיב רקע שמציג במשחקים כתוביות למה שנאמר בצ׳אט הקולי, ומאפשר להשיב בהקלדה. אין לו חלון ואין מה לפתוח — הוא מותקן ויושב ברקע ופועל רק בתוך משחקים שתומכים בכך. שימושי בעיקר למי שמתקשה לשמוע או שמשחק בסביבה רועשת. שאר המשתמשים יכולים לדלג עליו.",
+                       "infoEn":  "A background component that shows text of what is said in a game\u0027s voice chat, and lets you answer by typing. It has no window and nothing to open — it installs and sits in the background, and works only inside games that support it. Mainly useful for someone who has trouble hearing or plays in a noisy room. Everyone else can skip it."
+                   },
+    "PCManager":  {
+                      "info":  "כלי התחזוקה של מיקרוסופט: פינוי קבצים מיותרים ששוכבים על הדיסק, בדיקת מקום פנוי, ניהול התוכניות שנפתחות יחד עם המחשב ומצב המערכת — הכול במסך אחד, בלי לחפש בהגדרות. שימושי במחשב שהאט או שהדיסק שלו מתמלא. דורש הרשאות מנהל, ויופיע חלון אישור של Windows.",
+                      "infoEn":  "Microsoft\u0027s maintenance tool: clearing out files that pile up on the disk, checking free space, managing which programs start together with the computer, and seeing the general state of the system — all in one screen, without digging through Settings. Useful on a PC that has slowed down or whose disk is filling up. It needs administrator rights, so a Windows confirmation window will appear."
+                  },
+    "PowerShell":  {
+                       "info":  "חלון פקודות: במקום ללחוץ בעכבר, כותבים שורות שמבצעות פעולות על קבצים, על הגדרות ועל המחשב עצמו — בעיקר להרצת סקריפטים ולפעולות חוזרות. זו גרסה 7, שמותקנת לצד ה-PowerShell שכבר מובנה ב-Windows ולא מחליפה אותו. אם אינכם כותבים סקריפטים, כנראה לא תזדקקו לה.",
+                       "infoEn":  "A command window: instead of clicking with the mouse, you type lines that act on files, settings and the computer itself — mostly for running scripts and repeating the same job many times. This is version 7, which installs alongside the PowerShell already built into Windows rather than replacing it. If you do not write scripts, you probably do not need it."
+                   },
+    "WinDbg":  {
+                   "info":  "כלי של מיקרוסופט לבדיקת תקלות: פותחים בו קובץ קריסה (dump) של תוכנה או של המערכת ובוחנים מה קרה ברגע הנפילה. מיועד למפתחים ולטכנאים שיודעים מה הם מחפשים — הוא אינו מתקן דבר בעצמו ואינו כלי לשימוש יומיומי. אם לא ביקשו מכם להתקין אותו, אפשר לדלג עליו.",
+                   "infoEn":  "Microsoft\u0027s fault-analysis tool: you open a crash file (a dump) from a program or from Windows itself and examine what happened at the moment things fell over. It is meant for developers and technicians who know what they are looking for — it fixes nothing on its own and is not an everyday tool. If nobody asked you to install it, you can skip it."
+               },
+    "Weather":  {
+                    "info":  "מציגה את התחזית למקום שתבחרו: הטמפרטורה עכשיו, מה צפוי בשעות הקרובות ובימים הבאים. שימושי אם אתם רוצים הצצה מהירה לתחזית בלי לפתוח דפדפן ולחפש אתר. חשוב לדעת: הנתונים נמשכים מהאינטרנט, ולכן במחשב בלי חיבור האפליקציה תיפתח אבל לא תציג תחזית מעודכנת.",
+                    "infoEn":  "Shows the forecast for a place you pick: the temperature right now, what to expect in the coming hours, and the days ahead. Handy when you want a quick look at the weather without opening a browser and hunting for a site. Worth knowing: the data comes from the internet, so on a PC with no connection it opens but shows nothing current."
+                },
+    "News":  {
+                 "info":  "אוספת כתבות מאתרי חדשות ומסדרת אותן לפי נושאים שתבחרו, כדי לקרוא הכול במקום אחד. מתאימה למי שאוהב לעבור על הכותרות בבוקר בלי לנדוד בין אתרים. הכתבות נטענות מהאינטרנט, ולכן במחשב מנותק לא יהיה בה מה לקרוא.",
+                 "infoEn":  "Collects articles from news sites and arranges them by topics you choose, so you can read them all in one place. Suits anyone who likes to skim the headlines in the morning without moving between sites. The articles are loaded from the internet, so on a PC with no connection there is nothing to read in it."
+             },
+    "GetHelp":  {
+                    "info":  "אפליקציית התמיכה של מיקרוסופט: מתארים בה בעיה בווינדוס, מקבלים הדרכה שלב אחר שלב, ואם צריך גם דרך לפנות לנציג. שימושי כשמשהו במחשב הפסיק לעבוד ואתם לא יודעים לאן לפנות. היא עובדת מול השרתים של מיקרוסופט, כך שבלי חיבור לאינטרנט אין ממנה תועלת.",
+                    "infoEn":  "Microsoft\u0027s own support app. You describe a problem with Windows, get step-by-step guidance, and if that is not enough it can put you through to a support agent. Useful when something stops working and you don\u0027t know who to ask. It talks to Microsoft\u0027s servers, so without an internet connection it is of no use."
+                },
+    "FeedbackHub":  {
+                        "info":  "דרך לשלוח למיקרוסופט הערות על ווינדוס: תקלה שנתקלתם בה או בקשה לשינוי, ולראות אם משתמשים אחרים דיווחו על אותו דבר. רלוונטי בעיקר למי שרוצה שההערה שלו תגיע לאנשי הפיתוח. דורשת חיבור לאינטרנט וכניסה עם חשבון Microsoft, ואינה כלי שמתקן בעיות במחשב.",
+                        "infoEn":  "A way to send Microsoft your comments about Windows: a fault you ran into or a change you would like, and to see whether other people reported the same thing. Mainly relevant if you want your remark to reach the developers. It needs an internet connection and a Microsoft account sign-in, and it does not fix anything on your PC."
+                    },
+    "Mail":  {
+                 "info":  "אפליקציית הדואר והלוח שנה הוותיקה של ווינדוס: מחברים אליה חשבונות דואר וקוראים את הכול במקום אחד, בלי לפתוח דפדפן. מיקרוסופט הפסיקה לתמוך בה ועברה לאפליקציית Outlook החדשה, ולכן שווה להתקין אותה בעיקר אם התרגלתם אליה. קבלת דואר חדש דורשת חיבור לאינטרנט.",
+                 "infoEn":  "The older Windows mail and calendar app. You connect your email accounts to it and read everything in one place instead of opening a browser. Microsoft has stopped supporting it and moved to the newer Outlook app, so it is mostly worth installing if this is the one you are used to. Receiving new mail needs an internet connection."
+             },
+    "OfficeHub":  {
+                      "info":  "מסך פתיחה שמרכז במקום אחד את הקבצים והתוכנות של Microsoft 365: מסמכים שפתחתם לאחרונה ותבניות. חשוב לדעת שהיא עצמה אינה Word או Excel ואינה מתקינה אותם, אלא רק שער אליהם. רוב התוכן שבה נטען מהאינטרנט ודורש כניסה עם חשבון.",
+                      "infoEn":  "A starting screen that gathers your Microsoft 365 files and programs in one place: documents you opened recently, and templates. Worth knowing that it is not Word or Excel itself and does not install them, it only points to them. Most of what it shows is loaded from the internet and needs an account sign-in."
+                  },
+    "Clipchamp":  {
+                      "info":  "עורך וידאו פשוט: חותכים קטעים, מחברים אותם לסרטון אחד, מוסיפים כותרות ומוזיקה ושומרים קובץ מוכן. מתאים לסרטון משפחתי או לקליפ קצר בלי ללמוד תוכנה מקצועית. דורשת כניסה עם חשבון וחיבור לאינטרנט, ולכן במחשב מנותק לא תוכלו לעבוד בה.",
+                      "infoEn":  "A simple video editor: trim clips, join them into one video, add titles and music, and save a finished file. Good for a family video or a short clip without learning a professional program. It requires signing in with an account and an internet connection, so on a PC with no connection you cannot work in it."
+                  },
+    "QuickAssist":  {
+                        "info":  "מאפשרת למישהו שאתם סומכים עליו לראות את המסך שלכם ולתפעל את המחשב מרחוק כדי לעזור. שימושי כשקשה להסביר בטלפון מה קורה. שני הצדדים צריכים אינטרנט, והעוזר מוסר לכם קוד שאתם מקלידים. אל תאשרו חיבור למי שפנה אליכם מיוזמתו וטוען שהוא איש תמיכה.",
+                        "infoEn":  "Lets someone you trust see your screen and operate your PC from a distance in order to help. Useful when it is hard to explain over the phone what you are seeing. Both sides need internet, and the helper gives you a code that you type in. Never approve a connection for someone who contacted you first and claims to be from support."
+                    },
+    "PhoneLink":  {
+                      "info":  "מחברת את הטלפון למחשב: לראות הודעות, תמונות והתראות על המסך הגדול, ולענות לשיחות מהמחשב. נוח אם הטלפון מונח בצד ואתם עובדים מול המחשב. צריך להתקין אפליקציה מתאימה גם בטלפון, ושני המכשירים צריכים להיות מחוברים לאינטרנט או לאותה רשת.",
+                      "infoEn":  "Connects your phone to the PC: see messages, photos and notifications on the big screen, and answer calls from the computer. Convenient when the phone is sitting aside while you work at the PC. You also need to install the matching app on the phone, and both devices need to be connected to the internet or the same network."
+                  },
+    "XboxApp":  {
+                    "info":  "מרכז המשחקים של ווינדוס: משם מתקינים ומריצים משחקים, ומי שמנוי על Game Pass מגיע דרכה לספרייה שלו. אפשר גם לראות מי מהחברים מחובר. דורשת כניסה עם חשבון Microsoft וחיבור לאינטרנט, ובמחשב מנותק אין בה שימוש ממשי.",
+                    "infoEn":  "The games hub for Windows: from here you install and launch games, and if you subscribe to Game Pass you reach its library. You can also see which friends are online. It requires signing in with a Microsoft account and an internet connection, so on a disconnected PC there is little use for it."
+                },
+    "Store":  {
+                  "info":  "החנות עצמה, המקום שממנו ווינדוס מתקין ומעדכן אפליקציות. שווה להתקין אותה אם היא נמחקה מהמחשב, או אם המחשב יחובר לאינטרנט בהמשך ותרצו להתקין דרכה תוכנות. כל עוד אין חיבור, החנות תיפתח אבל לא תוכל להוריד או לעדכן דבר.",
+                  "infoEn":  "The store itself, the place Windows uses to install and update apps. Worth installing if it was removed from the PC, or if the PC will be connected to the internet later and you want to install things through it. As long as there is no connection it will open but cannot download or update anything."
+              },
+    "Copilot":  {
+                    "info":  "עוזר מבוסס בינה מלאכותית: כותבים לו שאלה או בקשה בשפה רגילה, והוא עונה, מסכם או מנסח עבורכם טקסט. מתאים למי שרוצה לנסות את זה בלי לפתוח דפדפן. כל התשובות מגיעות מהשרתים של מיקרוסופט, ולכן דרושים חיבור לאינטרנט וכניסה עם חשבון.",
+                    "infoEn":  "An assistant based on artificial intelligence: you type a question or request in ordinary language, and it answers, summarises, or drafts text for you. Suits anyone who wants to try it without opening a browser. All the answers come from Microsoft\u0027s servers, so an internet connection and an account sign-in are required."
+                },
+    "Family":  {
+                   "info":  "מאפשר להגדיר לילדים מגבלת זמן מסך, סינון אתרים ומעקב אחרי מה שהם מפעילים במחשב. שימושי אם המחשב משותף עם ילדים ואתם רוצים כללים קבועים במקום ויכוח כל ערב. צריך חשבון Microsoft לכל בן משפחה, וההגדרות מתעדכנות רק כשהמחשב מחובר לאינטרנט.",
+                   "infoEn":  "Lets you set screen time limits for children, filter websites, and see what they use on the PC. Useful when a computer is shared with kids and you want fixed rules instead of an argument every evening. Each family member needs a Microsoft account, and the settings only update while the PC is online."
+               },
+    "BingSearch":  {
+                       "info":  "הרכיב שמפעיל את תיבת החיפוש בשורת המשימות ומביא לתוכה גם תוצאות מהאינטרנט. אין לו חלון משלו — הוא מותקן ויושב ברקע, ואין מה לפתוח. התקינו אותו רק אם החיפוש בשורת המשימות התקלקל או נמחק. בלי חיבור לאינטרנט הוא לא יוסיף כלום מעבר לחיפוש הרגיל בקבצים.",
+                       "infoEn":  "This is the part that runs the search box in the taskbar and brings web results into it. It has no window of its own: it installs and sits in the background, there is nothing to open. Install it only if taskbar search broke or was removed. With no internet it adds nothing beyond the ordinary file search."
+                   },
+    "Widgets":  {
+                    "info":  "הרכיב שמאחורי לוח הווידג\u0027טים של Windows 11 — הפאנל עם מזג אוויר, חדשות וכותרות שנפתח מצד שורת המשימות. אין לו חלון משלו והוא יושב ברקע, אז אחרי ההתקנה אין מה לפתוח מהתפריט. עובד רק ב-Windows 11, ורוב התוכן שמוצג בו מגיע מהאינטרנט.",
+                    "infoEn":  "The component behind the Windows 11 widgets board, the panel with weather, news and headlines that opens from the taskbar. It has no window of its own and sits in the background, so there is nothing to open after installing. It works only on Windows 11, and most of what it shows comes from the internet."
+                },
+    "Whiteboard":  {
+                       "info":  "לוח ריק שאפשר לכתוב ולצייר עליו בעכבר, באצבע או בעט. מתאים לשרטוט רעיון, להסבר מהיר או לשיעור מול מסך מגע, וגם לעבודה משותפת עם אנשים אחרים על אותו לוח. האפליקציה נשענת על השירות המקוון של Microsoft: נדרשת כניסה עם חשבון, והלוחות נשמרים ברשת. במחשב בלי אינטרנט לא תוכלו לעבוד בה.",
+                       "infoEn":  "A blank board you can write and draw on with a mouse, a finger or a pen. Good for sketching an idea, explaining something quickly, teaching on a touch screen, or working on the same board together with other people. It leans on Microsoft\u0027s online service: you sign in with an account and the boards are kept online. On a PC with no internet you will not be able to use it."
+                   },
+    "PowerBI":  {
+                    "info":  "מיועד לצפייה בדוחות ובגרפים שנבנו במערכת Power BI של Microsoft, בעיקר בארגונים. שימושי אם במקום העבודה שלכם מפיצים דוחות כאלה ואתם מעדיפים לפתוח אותם בחלון נפרד ולא בדפדפן. דורש חשבון Power BI, בדרך כלל חשבון של מקום העבודה, וחיבור לאינטרנט כדי למשוך את הדוחות — במחשב מנותק לא יהיה לו מה להציג.",
+                    "infoEn":  "Used for viewing reports and charts that were built in Microsoft\u0027s Power BI system, mostly inside organisations. Useful if your workplace shares such reports and you would rather open them in their own window than in a browser. It needs a Power BI account, usually a work one, and an internet connection to pull the reports in, so on an offline PC there is nothing for it to show."
+                },
+    "Sway":  {
+                 "info":  "כלי להרכבת מצגת או דף מעוצב מטקסט, תמונות וסרטונים, בלי לסדר כל שקופית ביד. מתאים למי שרוצה להציג משהו בצורה נעימה ולא זקוק לכל האפשרויות של PowerPoint. העבודה נשמרת בשירות המקוון של Microsoft, ולכן נדרשים חשבון וחיבור לאינטרנט; במחשב מנותק לא תוכלו לעבוד בו.",
+                 "infoEn":  "A tool for putting together a presentation or a designed page out of text, pictures and video, without arranging every slide by hand. Suits someone who wants it to look decent and does not need everything PowerPoint offers. The work is kept in Microsoft\u0027s online service, so it needs an account and an internet connection; on an offline PC you will not be able to use it."
+             },
+    "Translator":  {
+                       "info":  "מתרגם בין שפות טקסט שאתם מקלידים או מדביקים, וגם דיבור וכתוביות בתמונות. שימושי כשמגיעה הודעה או מכתב בשפה שאתם לא קוראים ואתם רוצים להבין מה כתוב שם. רוב התרגום נעשה מול השרתים של Microsoft ולכן נדרש אינטרנט; אפשר להוריד חבילות שפה לשימוש ללא חיבור, אבל ההורדה עצמה דורשת חיבור.",
+                       "infoEn":  "Translates text you type or paste between languages, and can also handle speech and words inside pictures. Useful when a message or a letter arrives in a language you do not read and you want to know what it says. Most of the translation happens on Microsoft\u0027s servers, so it needs internet; language packs can be downloaded for offline use, but downloading them requires a connection."
+                   },
+    "StorePurchase":  {
+                          "info":  "רכיב עזר שמטפל בצד של הרכישות והתשלומים בחנות Microsoft. אין לו חלון משלו — הוא מותקן ויושב ברקע, ואין מה לפתוח. שווה להתקין רק אם החנות מסרבת להשלים הורדה או רכישה. בלי חשבון Microsoft ובלי חיבור לאינטרנט אין לו במה לעסוק.",
+                          "infoEn":  "A helper component that handles the purchase and payment side of the Microsoft Store. It has no window of its own: it installs and sits in the background, there is nothing to open. Worth installing only if the Store refuses to finish a download or a purchase. With no Microsoft account and no internet it has nothing to do."
+                      },
+    "CrossDevice":  {
+                        "info":  "רכיב רקע שמאפשר למחשב לדבר עם מכשירים אחרים שלכם, למשל טלפון — כדי להעביר תמונות וקבצים או להמשיך במחשב פעולה שהתחלתם בטלפון. אין לו חלון משלו ואין מה לפתוח אחרי ההתקנה; אפליקציות אחרות משתמשות בו. כדי שיהיה בו טעם דרוש חיבור לרשת או לאינטרנט.",
+                        "infoEn":  "A background component that lets the PC talk to your other devices, such as a phone, to move photos and files across or carry on something you started on the phone. It has no window of its own and there is nothing to open after installing; other apps use it. It needs a network or internet connection to be of any use."
+                    },
+    "Messaging":  {
+                      "info":  "אפליקציית הודעות ותיקה של Windows, שנועדה בזמנה לשלוח ולקרוא הודעות SMS מהמחשב. היום כמעט אין בה שימוש ורוב האנשים לא יזדקקו לה. התקינו רק אם יש לכם סיבה מפורשת, למשל תוכנה ישנה שמצפה למצוא אותה במחשב.",
+                      "infoEn":  "An older Windows messaging app, originally meant for sending and reading text messages from the PC. It is barely used today and most people will not need it. Install it only if you have a specific reason, such as an old program that expects to find it on the machine."
+                  },
+    "DevHomeGitHub":  {
+                          "info":  "תוסף שמחבר את היישום Dev Home לחשבון GitHub ומציג בתוכו מידע על מאגרי קוד ומשימות. רלוונטי רק למי שכותב תוכנה ומשתמש ב-Dev Home. אין לו חלון משלו — הוא מותקן ברקע ומופיע בתוך Dev Home. צריך שגם Dev Home יהיה מותקן, ובנוסף חשבון GitHub וחיבור לאינטרנט.",
+                          "infoEn":  "An add-on that connects the Dev Home app to a GitHub account and shows information about code repositories and tasks inside it. Only relevant to people who write software and use Dev Home. It has no window of its own: it installs in the background and appears inside Dev Home. It also needs Dev Home installed, plus a GitHub account and an internet connection."
+                      },
+    "GamingServices":  {
+                           "info":  "רכיב רקע שמשחקי Xbox ומשחקים שהותקנו מהחנות נשענים עליו כדי להתקין ולהיפתח. אין לו חלון משלו ואין מה לפתוח אחרי ההתקנה. שווה להתקין אם משחק מסרב לרוץ ומופיעה הודעה על שירותי משחקים חסרים; אם אינכם משחקים במחשב הזה, אין בו צורך.",
+                           "infoEn":  "A background component that Xbox games, and games installed from the Store, rely on in order to install and start. It has no window of its own and there is nothing to open after installing. Worth adding if a game refuses to run and complains about missing gaming services; if you do not play games on this PC, you do not need it."
+                       },
+    "VCRedist64":  {
+                       "info":  "תוכנות רבות אינן כוללות בתוכן חלקים בסיסיים של קוד, ומצפות למצוא אותם מוכנים במחשב. זו החבילה שמספקת אותם לתוכנות 64 סיביות מהשנים האחרונות. אם תוכנה מסרבת להיפתח ומופיעה הודעה על קובץ DLL חסר, זה בדרך כלל מה שחסר. אין כאן מה לפתוח — ההתקנה מוסיפה קבצים ברקע ודורשת הרשאות מנהל.",
+                       "infoEn":  "Many programs do not carry some basic pieces of code inside themselves; they expect to find them already on the PC. This package supplies them for 64-bit programs from recent years. If a program refuses to open and shows an error about a missing DLL file, this is usually what is missing. There is nothing to open afterwards — it installs files in the background and needs administrator rights."
+                   },
+    "VCRedist86":  {
+                       "info":  "אותו רכיב בדיוק, בגרסה שמשרתת תוכנות 32 סיביות. גם במחשב 64 סיביות חלק גדול מהתוכנות עדיין 32 סיביות, ולכן נהוג להתקין את שתי הגרסאות זו לצד זו — הן אינן מתנגשות ואינן מחליפות זו את זו. אם התקנתם את גרסת 64 הסיביות ותוכנה עדיין מתלוננת על קובץ חסר, זו הגרסה שחסרה. אין ממשק, וההתקנה דורשת הרשאות מנהל.",
+                       "infoEn":  "The same component, in the version that serves 32-bit programs. Even on a 64-bit PC many programs are still 32-bit, so people usually install both versions side by side — they do not clash and neither replaces the other. If you installed the 64-bit one and a program still complains about a missing file, this is the one you are missing. No window, and it needs administrator rights."
+                   },
+    "VC2013x64":  {
+                      "info":  "כל שנה של הספריות האלה עומדת בפני עצמה. תוכנה שנבנתה באותן שנים מחפשת דווקא את קבצי 2013, וחבילה חדשה יותר שכבר מותקנת אצלכם לא תספיק לה. התקינו אם תוכנה או משחק מאותה תקופה מסרבים לעלות ומדווחים על קובץ חסר. אין מה לפתוח אחרי ההתקנה, ונדרשות הרשאות מנהל.",
+                      "infoEn":  "Each year of these libraries stands on its own. A program built in that era looks specifically for the 2013 files, and a newer package already on the PC will not cover it. Install this if a program or game from those years refuses to start and reports a missing file. Nothing opens after the install, and it needs administrator rights."
+                  },
+    "VC2013x86":  {
+                      "info":  "הגרסה של אותה חבילה לתוכנות 32 סיביות. בפועל היא נדרשת לא מעט, כי תוכנות רבות מאותה תקופה נכתבו ל-32 סיביות גם כשהמחשב עצמו 64 סיביות. אפשר להחזיק אותה יחד עם גרסת 64 הסיביות ויחד עם חבילות של שנים אחרות. ההתקנה קצרה, אין ממשק, ונדרשות הרשאות מנהל.",
+                      "infoEn":  "The 32-bit version of the same package. It is needed fairly often, because many programs from that era were written as 32-bit even when the PC itself is 64-bit. It can live alongside the 64-bit version and alongside packages from other years. The install is short, there is no window to open, and it needs administrator rights."
+                  },
+    "VC2012x64":  {
+                      "info":  "החבילה הזו שייכת לתוכנות שנבנו סביב 2012. חבילות מאוחרות יותר אינן מחליפות אותה, ולכן תוכנה מאותה תקופה עלולה להיכשל גם במחשב שכבר יש בו את הגרסאות החדשות. רוב האנשים מתקינים אותה רק כשתוכנה מתלוננת, אך היא קטנה ואינה מזיקה. אין חלון ואין מה להפעיל, וההתקנה דורשת הרשאות מנהל.",
+                      "infoEn":  "This package belongs to programs built around 2012. Later packages do not replace it, so a program from that era can still fail on a PC that already has the newer ones. Most people install it only when a program complains, but it is small and does no harm. There is no window and nothing to run afterwards, and it needs administrator rights."
+                  },
+    "VC2012x86":  {
+                      "info":  "אותה חבילה, בגרסה לתוכנות 32 סיביות. אם תוכנה ותיקה מציגה שגיאה על קובץ חסר גם אחרי שהתקנתם את גרסת 64 הסיביות, זו הגרסה שהיא מחפשת. אפשר להתקין את שתיהן באותו מחשב בלי בעיה. אין ממשק — הרכיב פשוט יושב ברקע ומחכה לתוכנה שתזדקק לו. נדרשות הרשאות מנהל.",
+                      "infoEn":  "The same package in its 32-bit version. If an older program shows a missing file error even after you installed the 64-bit one, this is the version it is looking for. Both can be installed on the same PC without trouble. There is no interface — the component just sits in the background waiting for a program that needs it. Needs administrator rights."
+                  },
+    "VC2010x64":  {
+                      "info":  "שייכת לתוכנות שנבנו סביב 2010. זו כבר חבילה ותיקה, והיא נחוצה בעיקר למי שמריץ תוכנות ישנות שהמשיכו ללוות אותו לאורך השנים. אם אין לכם תוכנה כזו, אין סיבה מיוחדת להתקין, אך זה גם לא יזיק. ההתקנה מוסיפה קבצים ברקע, אין מה לפתוח אחריה, ונדרשות הרשאות מנהל.",
+                      "infoEn":  "This one belongs to programs built around 2010. It is an old package by now, so it is mainly needed by people who still run older programs they have carried along for years. If you have nothing that old, there is no particular reason to install it, though it does no harm either. It adds files in the background, opens nothing, and needs administrator rights."
+                  },
+    "VC2010x86":  {
+                      "info":  "הגרסה ל-32 סיביות של אותה שנה, ולרוב היא זו שנדרשת בפועל, כי תוכנות רבות מאותם ימים נכתבו ל-32 סיביות. היא מותקנת בנפרד מגרסת 64 הסיביות ואפשר להחזיק את שתיהן. אין ממשק ואין מה להפעיל אחרי ההתקנה, שדורשת הרשאות מנהל.",
+                      "infoEn":  "The 32-bit version of the same year, and usually it is the one actually needed, because many programs of that time were written as 32-bit. It installs separately from the 64-bit version and you can keep both. There is no interface and nothing to run once it finishes, and the install needs administrator rights."
+                  },
+    "VC2008x64":  {
+                      "info":  "החבילה הזו מכסה תוכנות ומשחקים מהשנים ההן. אם משחק ישן או כלי עזר ותיק נסגר מיד עם ההפעלה או מציג שגיאה על קובץ חסר, יש סיכוי טוב שזה מה שהוא מבקש. אפשר להתקין אותה גם אם כבר מותקנות אצלכם חבילות של שנים מאוחרות יותר. אין ממשק, ונדרשות הרשאות מנהל.",
+                      "infoEn":  "This package covers programs and games from those years. If an old game or an old utility closes the moment you start it, or shows an error about a missing file, there is a good chance this is what it is asking for. You can install it even if packages from later years are already on the PC. No interface, and it needs administrator rights."
+                  },
+    "VC2008x86":  {
+                      "info":  "הגרסה ל-32 סיביות של אותה חבילה. תוכנות בנות אותן שנים היו כמעט תמיד 32 סיביות, ולכן זו הגרסה שסביר יותר שתידרש. השתיים נפרדות זו מזו — התקנה של אחת אינה מכסה את השנייה. ההתקנה שקטה, אין חלון שנפתח אחריה, והיא דורשת הרשאות מנהל.",
+                      "infoEn":  "The 32-bit version of the same package. Programs of those years were almost always 32-bit, so this is the version more likely to be needed. The two are separate — installing one does not cover the other. The install is quiet, no window opens when it is done, and it needs administrator rights."
+                  },
+    "VC2005x64":  {
+                      "info":  "הוותיקה שבחבילות. היא נחוצה רק אם אתם מריצים תוכנה או משחק ישנים מאוד שמסרבים לעלות בלעדיה. אם אין לכם תוכנה כזו, אפשר לדלג עליה בלב שלם. היא אינה מתנגשת עם החבילות החדשות ואפשר להתקין אותה לצידן. אין ממשק ואין מה לפתוח, וההתקנה דורשת הרשאות מנהל.",
+                      "infoEn":  "The oldest of these packages. You need it only if you run a very old program or game that refuses to start without it. If you have nothing that old, you can safely skip it. It does not clash with the newer packages and can be installed beside them. No interface, nothing to open, and it needs administrator rights."
+                  },
+    "VC2005x86":  {
+                      "info":  "הגרסה ל-32 סיביות של החבילה הוותיקה ביותר. בתקופה ההיא כמעט הכול היה 32 סיביות, ולכן אם בכלל תזדקקו למשהו מ-2005, סביר שזו הגרסה. שווה להתקין רק אם יש בידיכם תוכנה ישנה שדורשת זאת. אין ממשק, ההתקנה מסתיימת בשקט ואין מה להפעיל אחריה. נדרשות הרשאות מנהל.",
+                      "infoEn":  "The 32-bit version of the oldest package. In that period almost everything was 32-bit, so if you need anything from 2005 at all, this is probably the version. Worth installing only if you have an old program that asks for it. No interface, the install finishes quietly and there is nothing to run afterwards. Needs administrator rights."
+                  },
+    "NetFx481":  {
+                     "info":  "הרבה תוכנות ותיקות פשוט לא נפתחות בלי הרכיב הזה, ובדרך כלל הן מציגות הודעת שגיאה שמבקשת אותו בשמו. ההתקנה מוסיפה אותו ל‑Windows וזהו — אין חלון להפעיל, הוא יושב ברקע והתוכנות משתמשות בו מעצמן. נדרשות הרשאות מנהל ולעיתים הפעלה מחדש של המחשב. אם הוא כבר קיים במחשב, המתקין יודיע על כך ויסיים.",
+                     "infoEn":  "Many older programs will not start without this, and usually show an error naming it. Installing it adds the piece to Windows and that is all — there is no window to open, it sits in the background and programs use it on their own. It needs administrator rights and sometimes a restart. If it is already on the computer, the installer will say so and finish."
+                 },
+    "Net8Desktop":  {
+                        "info":  "תוכנות חדשות יחסית נבנות על ‎.NET 8, ובלי הרכיב הזה הן מסרבות להיפתח ומציגות הודעה שמפנה להורדה. זו הגרסה ל‑64 סיביות, המתאימה לרוב המחשבים מהשנים האחרונות. אין כאן תוכנה לפתוח — הרכיב מותקן ויושב ברקע, והתוכנות שצריכות אותו משתמשות בו לבד. ההתקנה דורשת הרשאות מנהל.",
+                        "infoEn":  "Fairly recent programs are built on .NET 8, and without this they refuse to start and show a message pointing to a download. This is the 64-bit build, which suits most computers from the last several years. There is nothing to open — it installs and sits in the background, and the programs that need it use it by themselves. It needs administrator rights."
+                    },
+    "Net8Desktop86":  {
+                          "info":  "אותו רכיב בגרסת 32 סיביות. תוכנה שנבנתה כ‑32 ביט מחפשת דווקא אותה, וגם במחשב חדש הגרסה השנייה לא תעזור לה. אפשר להתקין את שתי הגרסאות זו לצד זו, ואם אינכם יודעים מה התוכנה צריכה — התקנת שתיהן פותרת את הספק. אין חלון להפעיל, וההתקנה דורשת הרשאות מנהל.",
+                          "infoEn":  "The same piece in a 32-bit build. A program compiled as 32-bit looks for exactly this one, and the other build will not satisfy it even on a modern computer. Both can be installed side by side, so if you do not know which a program needs, installing both settles it. There is no window to open, and it needs administrator rights."
+                      },
+    "Net6Desktop":  {
+                        "info":  "תוכנות שנכתבו על הגרסה הקודמת, ‎.NET 6, ולא עודכנו מאז — עדיין מבקשות דווקא אותה. התקנה של גרסה 8 לא תמיד מספיקה להן, ואפשר להחזיק את שתי הגרסאות זו לצד זו. כדאי להתקין אם תוכנה מציגה הודעה שמזכירה ‎.NET 6 בשמו. אין חלון להפעיל, וההתקנה דורשת הרשאות מנהל.",
+                        "infoEn":  "Programs written for the earlier .NET 6 and never updated still ask for that exact version. Installing version 8 does not always satisfy them, and both can sit on the same computer side by side. Worth installing if a program shows a message naming .NET 6. There is no window to open, and it needs administrator rights."
+                    },
+    "WebView2":  {
+                     "info":  "אפליקציות רבות בונות את המסכים שלהן מדפי אינטרנט פנימיים, והרכיב הזה הוא שמציג אותם. בלעדיו הן עלולות להיפתח ריקות או לא להיפתח בכלל. ב‑Windows 11 ובחלק ממחשבי Windows 10 הוא כבר מותקן מראש, ואז אין בו צורך. אין לו חלון משלו — הוא מותקן ויושב ברקע. ההתקנה דורשת הרשאות מנהל.",
+                     "infoEn":  "Many apps build their screens out of internal web pages, and this is the part that displays them. Without it such apps may open blank or not open at all. On Windows 11, and on some Windows 10 machines, it is already there and you do not need this. It has no window of its own — it installs and sits in the background. It needs administrator rights."
+                 },
+    "DirectX":  {
+                    "info":  "המתקין מוסיף ספריות ישנות של DirectX שמשחקים ותוכנות מלפני שנים מחפשים. הוא נוסף ל‑DirectX שכבר קיים ב‑Windows ולא מחליף אותו. השתמשו בו כשמשחק נופל בהפעלה עם הודעה על קובץ חסר, למשל d3dx9_43.dll. אין ממשק ואין מה לפתוח — הרכיב מותקן ונשאר ברקע. ההתקנה דורשת הרשאות מנהל.",
+                    "infoEn":  "This adds older DirectX libraries that games and programs from years back still look for. It sits alongside the DirectX already in Windows rather than replacing it. Use it when a game fails on startup with a missing-file message such as d3dx9_43.dll. There is no interface and nothing to open, and it needs administrator rights."
+                },
+    "XNA":  {
+                "info":  "רכיב ותיק של מיקרוסופט שמשחקים מסוימים בנויים עליו ולא ירוצו בלעדיו. אם משחק נסגר מיד בהפעלה או מציג הודעה שמזכירה XNA — זה מה שחסר לו. לשום שימוש אחר במחשב הוא לא נדרש, ואין טעם להתקין אותו סתם. אין חלון להפעיל: הרכיב מותקן ונשאר ברקע. ההתקנה דורשת הרשאות מנהל.",
+                "infoEn":  "An older Microsoft component that certain games are built on and will not run without. If a game closes the moment you start it, or shows a message mentioning XNA, this is what it is missing. Nothing else on the computer needs it, so there is no reason to install it otherwise. There is no window to open — it installs and stays in the background, and it needs administrator rights."
+            },
+    "PhysX":  {
+                  "info":  "ספריות פיזיקה שחלק מהמשחקים דורשים כדי לעלות. הן עובדות בכל מחשב, גם בלי כרטיס מסך של NVIDIA. כדאי להתקין כשמשחק מתלונן על PhysX או לא נפתח בכלל. במחשבים שבהם מותקן מנהל התקן של NVIDIA הרכיב לרוב כבר קיים. אין חלון להפעיל — הוא יושב ברקע, וההתקנה דורשת הרשאות מנהל.",
+                  "infoEn":  "Physics libraries that some games require in order to start. They work on any computer, including ones without an NVIDIA graphics card. Install it when a game complains about PhysX or will not open at all. On machines with an NVIDIA driver it is usually present already. There is no window to open — it sits in the background, and it needs administrator rights."
+              },
+    "ACE2016":  {
+                    "info":  "מאפשר לתוכנות אחרות לקרוא ולכתוב קובצי Access ו‑Excel — למשל תוכנת ניהול שמושכת נתונים מקובץ ישן. כדאי להתקין כשתוכנה כזו מודיעה שאינה מצליחה לפתוח את הקובץ. אם מותקן Office במחשב, ההתקנה עלולה לסרב בגלל אי‑התאמה בין 32 ל‑64 סיביות. אין חלון להפעיל — הרכיב יושב ברקע.",
+                    "infoEn":  "Lets other programs read and write Access and Excel files — a management program pulling data out of an old file, for example. Worth installing when such a program reports that it cannot open the file. If Office is installed, setup may refuse because of a 32-bit versus 64-bit mismatch. There is no window to open — it sits in the background."
+                },
+    "Java8":  {
+                  "info":  "מאפשר להריץ תוכנות שנכתבו ב‑Java. חלק מהתוכנות הוותיקות דורשות דווקא את גרסה 8 ולא יעבדו עם חדשה יותר, ולכן היא כאן. זו חבילת Temurin, מימוש חופשי של אותה סביבה. אין כאן תוכנה לפתוח — היא מותקנת ברקע, והתוכנות שצריכות אותה משתמשות בה לבד. ההתקנה דורשת הרשאות מנהל.",
+                  "infoEn":  "This lets programs written in Java run. Some older programs need version 8 specifically and will not work with a newer one, which is why it is here. This is the Temurin build, a free version of the same runtime. There is nothing to open — it installs in the background and the programs that need it use it by themselves. It needs administrator rights."
+              },
+    "PowerShell7":  {
+                        "info":  "חלון לכתיבה והרצה של פקודות וסקריפטים, חדש יותר מזה שמגיע עם Windows. הוא מותקן לצד הקיים ולא מחליף אותו, כך שאפשר להשתמש בשניהם. שימושי בעיקר למי שמריץ סקריפטים או פעולות תחזוקה; במחשב רגיל אין בו צורך. ההתקנה דורשת הרשאות מנהל, ואחריה הוא מופיע בתפריט ההתחלה.",
+                        "infoEn":  "A window for typing and running commands and scripts, newer than the one that comes with Windows. It installs alongside the built-in one rather than replacing it, so both remain available. Mainly useful if you run scripts or maintenance tasks; on an ordinary computer there is no need for it. It needs administrator rights, and afterwards it appears in the Start menu."
+                    },
+    "NetFx35":  {
+                    "info":  "רכיב ותיק מאוד שתוכנות מלפני שנים רבות דורשות, ובלעדיו הן פשוט לא נפתחות. הוא כבר נמצא בתוך Windows אבל כבוי, וההדלקה שלו עלולה לבקש חיבור לרשת או את קובצי ההתקנה של Windows — ולכן במחשב מנותק זה לא תמיד עובד. אין חלון להפעיל, ונדרשות הרשאות מנהל ולעיתים הפעלה מחדש.",
+                    "infoEn":  "A very old component that programs from many years back require and will not start without. It is already inside Windows but switched off, and turning it on may ask for the network or for the Windows installation files — so on a disconnected computer that route does not always work. There is no window to open, and it needs administrator rights and sometimes a restart."
+                },
+    "Net9Desktop":  {
+                        "info":  "חבילת קבצים שתוכנות מסוימות זקוקות לה כדי לעבוד. אם ניסיתם לפתוח תוכנה והיא הודיעה שחסר לה ‎.NET 9, זה בדיוק החלק החסר. אין כאן חלון להפעיל — ההתקנה מוסיפה את הקבצים למערכת וזהו. מיועד לווינדוס 64 ביט. אם שום תוכנה לא ביקשה את זה, אין צורך להתקין.",
+                        "infoEn":  "A set of files that certain programs need in order to work. If a program refused to start and said something about .NET 9 being missing, this is the missing piece. There is nothing to open after installing — the files go into the system and stay there. For 64-bit Windows. If no program has asked for it, you do not need it."
+                    },
+    "Net7Desktop":  {
+                        "info":  "אותו דבר כמו ‎.NET 9, רק בגרסה מוקדמת יותר. תוכנות שנכתבו על ‎.NET 7 מחפשות בדיוק אותה, וגרסה חדשה יותר לא מחליפה אותה. כדאי להתקין רק אם תוכנה מסוימת ביקשה זאת במפורש. אין ממשק ואין מה לפתוח — הקבצים נכנסים למערכת ונשארים ברקע.",
+                        "infoEn":  "The same thing as .NET 9, in an earlier version. Programs written for .NET 7 look for this exact one, and a newer version does not stand in for it. Install it only if a program asked for it by name. There is no window to open — the files install and stay in the background."
+                    },
+    "Vulkan":  {
+                   "info":  "רכיב שמאפשר למשחקים ולאמולטורים לדבר עם כרטיס המסך. בדרך כלל הוא מגיע יחד עם מנהל ההתקן (הדרייבר) של הכרטיס, ולכן צריך אותו בעיקר כשמשחק מודיע שחסר לו Vulkan. אין חלון ואין מה לפתוח — ההתקנה רק מוסיפה את הרכיב למערכת. זה לא תחליף לדרייבר מעודכן.",
+                   "infoEn":  "A component that lets games and emulators talk to the graphics card. It usually arrives together with the graphics driver, so you mainly need it when a game says Vulkan is missing. There is no window to open — installing just adds the component to the system. It is not a substitute for an up-to-date graphics driver."
+               },
+    "PhysXLegacy":  {
+                        "info":  "רכיב לחישוב פיזיקה שמשחקים ישנים מסוימים מצפים למצוא במחשב. אם משחק ותיק לא עולה ומתלונן על PhysX, זה מה שחסר לו. אין מה לפתוח אחרי ההתקנה — הרכיב יושב ברקע ומשרת את המשחק כשצריך. משחקים חדשים לא זקוקים לו, אז אין טעם להתקין סתם.",
+                        "infoEn":  "A physics component that some older games expect to find on the PC. If an old game will not start and complains about PhysX, this is what it is missing. There is nothing to open after installing — it sits in the background and serves the game when needed. Newer games do not need it, so there is no point installing it just in case."
+                    },
+    "Java11":  {
+                   "info":  "מה שמריץ תוכנות שנכתבו ב-Java, בגרסה 11. יש תוכנות ותיקות שרצות דווקא על הגרסה הזאת ולא על חדשה יותר, ובשבילן היא כאן. אין תוכנה להפעיל אחרי ההתקנה — היא פועלת ברקע כשתוכנת Java מבקשת אותה. אם אינכם יודעים איזו גרסה נדרשת, Java 17 היא הבחירה הנפוצה.",
+                   "infoEn":  "What runs programs written in Java, version 11. Some older programs run on this version specifically and not on a newer one, which is why it is here. There is nothing to open after installing — it works in the background when a Java program calls for it. If you do not know which version you need, Java 17 is the more common choice."
+               },
+    "Java17":  {
+                   "info":  "מה שמריץ תוכנות Java, בגרסה 17 — הנפוצה ביותר כיום. אם אתם צריכים Java ולא יודעים איזו גרסה, זו הבחירה הסבירה, ומיינקראפט ותוכנות רבות משתמשות בה. אין חלון להפעיל: ההתקנה מוסיפה את הרכיב למערכת, והוא נכנס לפעולה כשתוכנת Java מבקשת אותו.",
+                   "infoEn":  "What runs Java programs, version 17 — the most common one in use today. If you need Java and do not know which version, this is the sensible pick, and Minecraft and many programs use it. There is no window to open: installing adds it to the system, and it starts working when a Java program calls for it."
+               },
+    "Chrome":  {
+                   "info":  "דפדפן אינטרנט של Google, לגלישה באתרים. קובץ ההתקנה הזה מכיל בתוכו את כל מה שצריך, כך שאפשר להתקין גם במחשב מנותק — אבל כדי לגלוש בפועל יידרש כמובן חיבור לרשת. ההתקנה דורשת הרשאות מנהל. שימושי גם אם רוצים דפדפן נוסף לצד זה שכבר מותקן במחשב.",
+                   "infoEn":  "Google\u0027s web browser, for visiting websites. This installer holds everything it needs inside, so it installs fine on a disconnected PC — but to actually browse you will of course need a connection. Installing requires administrator rights. Useful also if you want a second browser alongside the one already on the PC."
+               },
+    "Firefox":  {
+                    "info":  "דפדפן אינטרנט של Mozilla, חלופה ל-Chrome ול-Edge. הקובץ כאן הוא הגרסה העברית, כך שהתפריטים יופיעו בעברית מהרגע הראשון. אפשר להתקין גם במחשב מנותק, אבל לגלישה עצמה נדרש חיבור לרשת. ההתקנה בדרך כלל מבקשת הרשאות מנהל.",
+                    "infoEn":  "Mozilla\u0027s web browser, an alternative to Chrome and Edge. The file here is the Hebrew version, so its menus appear in Hebrew from the first moment. It installs on a disconnected PC as well, though browsing itself needs a connection. Installing normally asks for administrator rights."
+                },
+    "Edge":  {
+                 "info":  "הדפדפן של Microsoft, זה שמגיע יחד עם ווינדוס. הקובץ כאן שימושי בעיקר בשני מצבים: מחשב שבו Edge הוסר או נשבר, ומחשב מנותק שבו הדפדפן ישן ואינו יכול לעדכן את עצמו. ההתקנה דורשת הרשאות מנהל, וכמו בכל דפדפן — לגלישה עצמה נדרש חיבור לרשת.",
+                 "infoEn":  "Microsoft\u0027s browser, the one that comes with Windows. This file is mainly useful in two situations: a PC where Edge was removed or broke, and a disconnected PC whose copy is old and cannot update itself. Installing requires administrator rights, and as with any browser, browsing itself needs a connection."
+             },
+    "SevenZip":  {
+                     "info":  "תוכנה לפתיחת קבצים דחוסים — ZIP, RAR, 7z ורבים אחרים. אם קיבלתם קובץ שווינדוס לא יודע לפתוח, בדרך כלל זה הפתרון. אחרי ההתקנה היא מתווספת לתפריט של לחיצה ימנית בסייר הקבצים, כך שאפשר לחלץ ולדחוס משם. אפשר גם ליצור קבצים דחוסים משלכם, עם סיסמה או בלי.",
+                     "infoEn":  "A program for opening compressed files — ZIP, RAR, 7z and many others. If someone sent you a file Windows cannot open, this is usually the answer. After installing it appears in the right-click menu in File Explorer, so you can extract or compress from there. It also makes compressed files of your own, with or without a password."
+                 },
+    "Everything":  {
+                       "info":  "כלי לחיפוש קבצים במחשב. מקלידים חלק משם הקובץ והרשימה מצטמצמת מיד, גם בדיסק עם מאות אלפי קבצים. שימושי כשאתם יודעים איך קראתם לקובץ אבל לא זוכרים לאן הוא נשמר. החיפוש הוא לפי שמות של קבצים ותיקיות, לא לפי הטקסט שבתוכם. ההפעלה הראשונה בונה רשימה וזה לוקח רגע.",
+                       "infoEn":  "A tool for finding files on the PC. You type part of a name and the list narrows immediately, even on a disk with hundreds of thousands of files. Useful when you know what you called a file but not where you saved it. It searches names of files and folders, not the text inside them. The first run builds its list, which takes a moment."
+                   },
+    "SumatraPDF":  {
+                       "info":  "תוכנה לפתיחת מסמכי PDF — לקריאה, לדפדוף ולהדפסה. היא קלה מאוד ונפתחת מהר, ולכן מתאימה במיוחד למחשבים ותיקים שמתקשים עם קוראי PDF כבדים. פותחת גם פורמטים נוספים של ספרים דיגיטליים. היא נועדה לקריאה בלבד ולא לעריכת מסמכים.",
+                       "infoEn":  "Opens PDF documents so you can read, page through and print them. It is very light and starts quickly, which makes it a good fit for older PCs that struggle with heavier PDF readers. It also opens some e-book formats. It is a reader only — it does not edit documents."
+                   },
+    "VLC":  {
+                "info":  "פותח כמעט כל סרט או קובץ שמע, גם פורמטים שהנגן המובנה של ווינדוס לא מזהה, ובלי להתקין תוספים. שימושי כשקובץ וידאו מסרב להיפתח או נפתח בלי קול. יודע גם לנגן דיסקים ולהציג כתוביות. חינמי לגמרי, בלי פרסומות ובלי הרשמה.",
+                "infoEn":  "Opens almost any movie or sound file, including formats the built-in Windows player does not recognise, with nothing extra to add. Useful when a video refuses to open, or opens with no sound. It also plays discs and shows subtitles. Free, with no ads and no sign-up."
+            },
+    "LibreOffice":  {
+                        "info":  "מאפשר לפתוח, לערוך ולשמור מסמכי Word, גיליונות Excel ומצגות PowerPoint בלי לשלם על מנוי. מתאים למחשב שצריך לעבוד עם מסמכים אבל אין עליו אופיס. אפשר לשמור בפורמטים של אופיס כדי לשלוח לאחרים, וגם לייצא ל-PDF. ההתקנה גדולה יחסית ולוקחת כמה דקות.",
+                        "infoEn":  "Lets you open, edit and save Word documents, Excel sheets and PowerPoint presentations without paying for a subscription. Good for a PC that has to handle documents but has no Office on it. You can save in the Office formats to send files to other people, and export to PDF. The installer is fairly large and takes a few minutes."
+                    },
+    "Python":  {
+                   "info":  "מתקין את שפת התכנות פייתון, כדי שתוכלו להריץ סקריפטים או ללמוד לתכנת. IDLE הוא חלון פשוט לכתיבת קוד והרצה שלו. שימו לב: pip, הכלי שמוריד ספריות נוספות, זקוק לאינטרנט — במחשב מנותק תעבדו רק עם מה שכבר מותקן. בזמן ההתקנה כדאי לסמן את האפשרות להוסיף את Python ל-PATH.",
+                   "infoEn":  "Installs the Python programming language so you can run scripts or learn to code. IDLE is a simple window for writing code and running it. Note that pip, the tool that downloads extra libraries, needs internet — on a disconnected PC you work only with what is already installed. During setup it helps to tick the option that adds Python to PATH."
+               },
+    "VSCode":  {
+                   "info":  "תוכנה לכתיבת קוד: פותחת תיקיית פרויקט שלמה, צובעת את הקוד לפי שפה ומסמנת שגיאות תוך כדי כתיבה. מתאימה למי שמפתח או לומד לתכנת. חלק גדול מהיכולות מגיע מהרחבות שמורידים מתוך התוכנה, וזה דורש אינטרנט — בלי חיבור העורך עצמו עובד, אבל בלי התוספות.",
+                   "infoEn":  "A program for writing code: it opens a whole project folder, colours the code by language and marks mistakes as you type. Meant for people who develop software or are learning to. A lot of what it can do comes from extensions downloaded inside it, and that needs internet — with no connection the editor still works, just without add-ons."
+               },
+    "NotepadPP":  {
+                      "info":  "עורך טקסט קליל שמחליף את פנקס הרשימות: פותח קבצים גדולים במהירות, מציג מספרי שורות, מאפשר חיפוש והחלפה בכמה קבצים בבת אחת וצובע קוד לפי שפה. מתאים לעריכת קבצי הגדרות, רשימות ארוכות או קוד. פותח כמה קבצים זה לצד זה בלשוניות.",
+                      "infoEn":  "A light text editor that replaces Notepad: it opens big files quickly, shows line numbers, can search and replace across several files at once, and colours code by language. Handy for editing configuration files, long lists or code. It keeps several files open side by side in tabs."
+                  },
+    "Git":  {
+                "info":  "כלי שעוקב אחרי שינויים בקבצים של פרויקט ומאפשר לחזור לגרסה קודמת. נחוץ בעיקר למי שמפתח תוכנה או עובד עם קוד ממאגרים. רוב העבודה נעשית בשורת פקודה, ומי שלא עוסק בתכנות כנראה לא זקוק לו. שליחה או משיכה של קוד ממאגר מרוחק דורשת אינטרנט.",
+                "infoEn":  "A tool that tracks changes to the files of a project and lets you go back to an earlier version. Mainly needed by people who develop software or work with code from repositories. Most of the work is done from a command line, so if you do not write code you probably do not need it. Sending or pulling code from a remote repository needs internet."
+            },
+    "Java21":  {
+                   "info":  "רכיב רקע שתוכנות מסוימות זקוקות לו כדי לרוץ — בעיקר תוכנות ארגוניות או כלים מקצועיים שנכתבו ב-Java. אין מה לפתוח: הוא מותקן ויושב ברקע, בלי חלון ובלי אייקון. התקינו אותו רק אם תוכנה שאתם צריכים מבקשת Java במפורש, לא סתם ליתר ביטחון.",
+                   "infoEn":  "A background piece that some programs need in order to run — mostly business software or professional tools written in Java. There is nothing to open: it installs and sits in the background, with no window and no icon. Install it only if a program you need actually asks for Java, not just in case."
+               },
+    "Rufus":  {
+                  "info":  "מכין דיסק-און-קי שאפשר לאתחל ממנו מחשב — למשל להתקנת ווינדוס מתוך קובץ ISO. שימושי כשצריך להתקין מערכת מחדש או להריץ כלי אבחון. בוחרים את הכונן ואת הקובץ, והשאר אוטומטי. שימו לב: כל התוכן שעל הדיסק-און-קי נמחק, והתוכנה מבקשת הרשאות מנהל.",
+                  "infoEn":  "Prepares a USB stick a computer can start from — for example to install Windows from an ISO file. Useful when a system has to be reinstalled or a repair tool has to be run. You pick the drive and the file and it does the rest. Note that everything on the USB stick is erased, and the program asks for administrator rights."
+              },
+    "GIMP":  {
+                 "info":  "תוכנה לעריכת תמונות: חיתוך, תיקון צבעים, הסרת פרטים מיותרים, עבודה בשכבות והוספת טקסט. מתאימה כשצריך יותר ממה שאפליקציית התמונות של ווינדוס יודעת לעשות. הממשק שונה מזה של פוטושופ ולוקח זמן להתרגל אליו, אז לעריכה פשוטה זו אולי תוכנה גדולה מדי.",
+                 "infoEn":  "An image editor: cropping, colour correction, removing unwanted details, working in layers and adding text. Worth having when you need more than the Windows photo app can do. The way it works is different from Photoshop and takes some getting used to, so for a quick simple edit it may be more than you need."
+             },
+    "Audacity":  {
+                     "info":  "מקליטה קול מהמיקרופון ומאפשרת לערוך אותו: לחתוך קטעים, להגביר, להחליש רעשי רקע ולחבר הקלטות זו לזו. מתאימה להקלטת שיעור או שיחה, לניקוי הקלטה ישנה או להכנת קובץ שמע. שומרת לפורמטים הנפוצים. חינמית ולא דורשת חשבון.",
+                     "infoEn":  "Records sound from a microphone and lets you edit it: cut pieces out, raise the volume, reduce background noise and join recordings together. Good for recording a lesson or a conversation, cleaning up an old recording, or preparing an audio file. It saves to the common audio formats. Free, and no account is needed."
+                 },
+    "KLite":  {
+                  "info":  "אוסף רכיבים שמאפשר לנגנים שכבר קיימים במחשב לפתוח קבצים שהם לא הכירו קודם. שימושי כשסרט נפתח בלי תמונה או בלי קול. אין מה לפתוח אחרי ההתקנה — הרכיבים יושבים ברקע ומשרתים תוכנות אחרות. אם התקנתם VLC, שמנגן הכול בעצמו, בדרך כלל אין בזה צורך.",
+                  "infoEn":  "A set of parts that let players already on the computer open files they could not handle before. Useful when a movie opens with no picture or no sound. There is nothing to open after installing — the parts sit in the background and serve other programs. If you installed VLC, which plays everything on its own, you usually do not need this."
+              },
+    "AnyDesk":  {
+                    "info":  "מאפשרת למישהו אחר לראות את המסך שלכם ולתפעל את המחשב מרחוק, או לכם להתחבר למחשב אחר. שימושי כשבן משפחה או טכנאי צריך לעזור בלי להגיע. מריצים את הקובץ, מוסרים לצד השני את המספר שמופיע על המסך ומאשרים את הבקשה. מסרו את המספר רק למי שאתם סומכים עליו — מי שמתחבר רואה הכול.",
+                    "infoEn":  "Lets someone else see your screen and work on your computer from far away, or lets you connect to another computer. Useful when a relative or a technician needs to help without coming over. You run the file, read out the number it shows, and approve the request that appears. Only give that number to someone you trust — whoever connects sees everything."
+                },
+    "TeamViewer":  {
+                       "info":  "מאפשר לאדם אחר לראות את המסך שלכם ולהפעיל את המחשב מרחוק, או לכם להתחבר למחשב אחר. שימושי כשמישהו מנוסה יותר עוזר לכם בבעיה בלי להגיע פיזית. שני המחשבים צריכים חיבור לאינטרנט ואת התוכנה פתוחה, ומקלידים מספר וסיסמה שמופיעים על המסך. במחשב בלי אינטרנט ההתקנה תעבור, אבל לא יהיה אפשר להתחבר לאף אחד.",
+                       "infoEn":  "Lets another person see your screen and operate your PC from a distance, or lets you connect to someone else\u0027s. Useful when a more experienced person helps you with a problem without coming over. Both computers need internet and the program open, and you type in the number and password shown on screen. On a computer with no internet it will install, but it will not be able to reach anyone."
+                   },
+    "Speccy":  {
+                   "info":  "מציג מה בדיוק יש במחשב: המעבד, כמות הזיכרון, הדיסקים, כרטיס המסך וגם הטמפרטורות. שימושי כשרוצים לדעת אם כדאי להוסיף זיכרון, כששואלים אתכם איזה מחשב יש לכם, או כשבודקים אם משהו מתחמם יותר מדי. התוכנה רק מציגה מידע ולא משנה שום דבר במחשב.",
+                   "infoEn":  "Shows exactly what is inside the computer: the processor, how much memory, the drives, the graphics card and the temperatures. Useful when you want to know whether adding memory is worth it, when someone asks what machine you have, or when you suspect something is running hot. It only displays information and changes nothing."
+               },
+    "Revo":  {
+                 "info":  "מסיר תוכנה, ואחר כך סורק את המחשב ומציע למחוק גם קבצים והגדרות שנשארו אחריה. שימושי כשההסרה הרגילה של Windows נכשלת, או כשתוכנה ממשיכה להופיע גם אחרי שהוסרה. מציג גם רשימה מסודרת של כל מה שמותקן. דורש הרשאות מנהל, וכדאי למחוק רק את מה שהוא מסמן כשייך לתוכנה שהסרתם.",
+                 "infoEn":  "Removes a program, then scans the PC and offers to delete the files and settings it left behind. Useful when the normal Windows uninstall fails, or when a program keeps showing up after you removed it. It also gives you a clear list of everything installed. Needs administrator rights, and it is safest to delete only what it marks as belonging to the program you removed."
+             },
+    "Thunderbird":  {
+                        "info":  "תוכנת דואר שמורידה את ההודעות למחשב, כך שאפשר לקרוא ולחפש בדואר ישן גם כשאין חיבור. אפשר לנהל בה כמה כתובות דואר יחד, מספקים שונים, במקום להיכנס לכל אתר בנפרד. חיבור החשבון בפעם הראשונה דורש אינטרנט, וגם קבלה ושליחה של הודעות חדשות.",
+                        "infoEn":  "A mail program that downloads your messages onto the PC, so you can read and search old mail even with no connection. You can keep several mail addresses from different providers in one place instead of opening each website separately. Connecting an account the first time needs internet, and so does sending and receiving new mail."
+                    },
+    "OBS":  {
+                "info":  "מקליט את מה שקורה על המסך, יחד עם הקול והמצלמה, ושומר לקובץ וידאו. שימושי להקלטת שיעור, הדרכה או משחק, וגם לשידור חי כשיש אינטרנט. יש בו הרבה הגדרות ולוקח קצת זמן להתרגל, אבל להקלטת מסך פשוטה מספיק ללחוץ על כפתור התחלת ההקלטה. ההקלטה עצמה עובדת גם בלי אינטרנט.",
+                "infoEn":  "Records what happens on your screen, together with sound and a webcam, and saves it as a video file. Useful for recording a lesson, a walkthrough or a game, and for live streaming when there is internet. It has a lot of settings and takes some getting used to, but for a simple screen recording you just press the start button. Recording itself works with no internet."
+            },
+    "KeePassXC":  {
+                      "info":  "שומר את כל הסיסמאות שלכם בקובץ אחד מוצפן במחשב, שנפתח בסיסמה ראשית אחת. במקום לזכור עשרות סיסמאות, זוכרים אחת ומעתיקים את השאר מהתוכנה. אפשר גם להעתיק את הקובץ לגיבוי או לדיסק און קי. חשוב לדעת: אם שוכחים את הסיסמה הראשית אין דרך לשחזר את מה שבפנים, אז כדאי לשמור אותה במקום בטוח.",
+                      "infoEn":  "Keeps all your passwords in one encrypted file on your PC, opened with a single master password. Instead of remembering dozens of passwords you remember one and copy the rest out of the program. You can copy that file to a backup or a USB stick. Worth knowing: if you forget the master password there is no way to recover what is inside, so keep it somewhere safe."
+                  },
+    "VeraCrypt":  {
+                      "info":  "יוצר קובץ או כונן שכל מה שנכנס אליו מוצפן, ונפתח רק עם סיסמה. שימושי כשמחזיקים מסמכים אישיים במחשב משותף, או בדיסק נייד שעלול ללכת לאיבוד. השימוש דורש קצת למידה, והצפנה של כונן שלם לוקחת זמן. אם הסיסמה נשכחת אין שום דרך להגיע לקבצים, ולכן חשוב לגבות מראש.",
+                      "infoEn":  "Creates a file or a drive where everything you put in is encrypted and opens only with a password. Useful when you keep personal documents on a shared computer, or on a portable drive that could get lost. It takes a little learning, and encrypting a whole drive takes time. If the password is forgotten there is no way back to the files, so back them up first."
+                  },
+    "WinDirStat":  {
+                       "info":  "סורק כונן ומצייר אותו כמלבנים צבעוניים — כל קובץ הוא מלבן, וככל שהקובץ גדול יותר המלבן גדול יותר. כך רואים בבת אחת מה תופס את המקום, במקום לחפש תיקייה אחרי תיקייה. שימושי כשהדיסק מתמלא ולא ברור ממה. הסריקה הראשונה של כונן גדול יכולה לקחת כמה דקות. אפשר למחוק מתוך התוכנה, וכדאי למחוק רק קבצים שאתם מזהים.",
+                       "infoEn":  "Scans a drive and draws it as coloured rectangles — one per file, the bigger the file the bigger the rectangle. You see at a glance what is taking the space instead of opening folder after folder. Useful when the disk is filling up and you cannot tell why. The first scan of a large drive can take a few minutes. You can delete from inside it, so delete only files you recognise."
+                   },
+    "WSAGitHub":  {
+                      "info":  "מאפשר להריץ אפליקציות אנדרואיד על Windows 11, בחלון רגיל לצד שאר התוכנות. דורש Windows 11 ומחשב חדש יחסית, וצורך לא מעט זיכרון — במחשב ישן זה כנראה לא יעבוד. מיקרוסופט הפסיקה לתמוך, כך שאין עדכונים רשמיים. ההתקנה והוספת האפליקציות דורשות היכרות בסיסית עם המחשב.",
+                      "infoEn":  "Lets you run Android apps on Windows 11, in an ordinary window alongside your other programs. It needs Windows 11 on a fairly recent PC and uses a good deal of memory — on an older machine it probably will not run. Microsoft has stopped supporting it, so there are no official updates. Installing it and adding apps takes some comfort with the PC."
+                  },
+    "Csharf":  {
+                   "info":  "מרכז פעולות תחזוקה והגדרות של Windows במקום אחד, בעברית: ניקוי, כיבוי דברים מיותרים ושינויים קטנים במערכת. רץ מקובץ אחד בלי התקנה, אז אפשר להפעיל אותו גם מדיסק און קי. חלק מהפעולות משנות הגדרות מערכת ודורשות הרשאות מנהל, וכדאי להפעיל רק את מה שאתם מבינים. פותח בפרויקט הזה.",
+                   "infoEn":  "Gathers Windows maintenance jobs and settings in one place, in Hebrew: cleanup, turning off things you do not need, and small system changes. It runs from a single file with no installation, so it also works from a USB stick. Some of the actions change system settings and need administrator rights, so run only what you understand. Built as part of this project."
+               },
+    "TikNick":  {
+                    "info":  "עוזר לעקוב אחרי שמות המשתמש שלכם בפורומים: איפה נרשמתם, באיזה שם, ומה קשור למה. שימושי למי שפעיל בכמה פורומים ומתבלבל בין הניקים. כל המידע נשמר בקובץ אצלכם במחשב ולא נשלח לשום מקום. התוכנה עצמה עובדת גם בלי אינטרנט, אבל לכניסה לפורומים עצמם כמובן צריך חיבור. פותח בפרויקט הזה.",
+                    "infoEn":  "Helps you keep track of your forum usernames: where you registered, under which name, and what belongs to what. Useful if you are active on several forums and lose track of which nickname is which. Everything is saved in a file on your own PC and sent nowhere. The program itself works offline, though reaching the forums of course needs a connection. Built as part of this project."
+                },
+    "Game2049":  {
+                     "info":  "משחק לוח פשוט: מזיזים אריחים עם מספרים, שני מספרים זהים שנפגשים מתאחדים למספר גדול יותר, והמטרה להגיע רחוק ככל האפשר. מתאים להפסקה קצרה, ואפשר לשחק גם בלי אינטרנט. יש בו גם מקשי עזרה נסתרים, כך שמי שמסתכל מהצד לא רואה שהשתמשתם בהם. פותח בפרויקט הזה.",
+                     "infoEn":  "A simple board game: you slide numbered tiles, two equal numbers that meet merge into a bigger one, and the aim is to get as far as you can. Good for a short break, and it plays with no internet. It also has hidden helper keys, so anyone watching from the side cannot tell you used them. Built as part of this project."
+                 }
+}
