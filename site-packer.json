@@ -2857,6 +2857,7 @@
                      "desc":  "ניקוי ותחזוקת המחשב",
                      "descEn":  "Clean up and maintain the PC",
                      "enName":  "PC Manager",
+                     "altHeb":  "Csharf",
                      "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי"

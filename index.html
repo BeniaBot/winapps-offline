@@ -437,7 +437,7 @@
       </div>
       <div class="field">
         <label for="ask-app">שם האפליקציה</label>
-        <input id="ask-app" type="text" dir="auto" placeholder="למשל: Photoshop, וואטסאפ, נגן DVD">
+        <input id="ask-app" type="text" dir="auto" placeholder="למשל: Zoom, טלגרם, Blender, קורא ספרים">
       </div>
     </div>
     <div style="margin-top:12px">
@@ -552,6 +552,7 @@ const EN = {
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
   '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן': '★ Can be downloaded with the vendor’s own official language pack',
   'ממשק באנגלית בלבד': 'English interface only',
+  'ממשק באנגלית בלבד. חלופה בעברית שיש כאן: ': 'English interface only. A Hebrew alternative we carry: ',
   'אין לו ממשק — רכיב שעובד ברקע': 'No interface of its own — a component that works in the background',
   'החנות בדיסק — לוקחים ומתקינים בכל מקום': 'The store on a disc — take it and install anywhere',
   'הליבה = היום הראשון של מחשב נקי: כלי היומיום וכל הקודקים, עם החנות שמזהה מה חסר ומתקינה מהדיסק. המלאה — כל 82 המתקינים.': 'Core = day one of a clean PC: the everyday tools and every codec, with the store that spots what is missing and installs from the disc. Full — all 82 installers.',
@@ -567,7 +568,7 @@ const EN = {
   'שליחת הבקשה': 'Send request',
   'מה הבקשה': 'What is this about',
   'שם האפליקציה': 'App name',
-  'למשל: Photoshop, וואטסאפ, נגן DVD': 'e.g. Photoshop, WhatsApp, a DVD player',
+  'למשל: Zoom, טלגרם, Blender, קורא ספרים': 'e.g. Zoom, Telegram, Blender, an e-book reader',
   'פרטים נוספים (לא חובה)': 'More details (optional)',
   'לינק, למה זה חשוב, מה בדיוק לא עבד...': 'a link, why it matters, what exactly failed…',
   'איך לחזור אליכם (לא חובה)': 'How can I reach you (optional)',
@@ -1213,7 +1214,11 @@ function openSheet(en) {
               : a.xlat ? T(a.xlat.source === 'official'
                           ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
                           : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
-                       : T('ממשק באנגלית בלבד')) + '</div>' +
+                       : (a.altHeb && DATA.apps.some(x => x.en === a.altHeb)
+                            ? T('ממשק באנגלית בלבד. חלופה בעברית שיש כאן: ') +
+                              '<a href="#" class="goheb" data-goto="' + esc(a.altHeb) + '">' +
+                              esc(nameOf(DATA.apps.find(x => x.en === a.altHeb))) + '</a>'
+                            : T('ממשק באנגלית בלבד'))) + '</div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns +
     '<button class="btn lite" id="sp">' + (on ? '✓ הסרה מהבחירה' : 'הוספה לבחירה מרובה') + '</button>' +
@@ -1224,6 +1229,9 @@ function openSheet(en) {
   const shut = () => { ov.remove(); document.body.style.overflow = ''; };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   ov.querySelector('#sc').onclick = shut;
+  // jump straight to the Hebrew alternative instead of making the reader hunt for it
+  const goheb = ov.querySelector('.goheb');
+  if (goheb) goheb.onclick = e => { e.preventDefault(); shut(); openSheet(goheb.dataset.goto); };
   ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
   const ssc = ov.querySelector('#ssc');
   if (ssc) ssc.onclick = downloadRunner;
