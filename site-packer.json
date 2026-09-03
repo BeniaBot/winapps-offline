@@ -5248,6 +5248,9 @@
                      "descEn":  "Full installer (Enterprise MSI) — needs no network while installing",
                      "icon":  "icons/w32/chrome.svg",
                      "heb":  true,
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: הגדרות ← שפות, מוסיפים English ולוחצים \"הצג את Google Chrome בשפה זו\", ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: Settings \u003e Languages, add English, click \"Display Google Chrome in this language\", then restart it.",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5272,6 +5275,7 @@
                      "descEn":  "Full installer in Hebrew",
                      "icon":  "icons/w32/firefox.svg",
                      "heb":  true,
+                     "langMode":  "per-language-download",
                      "silent":  "/S",
                      "alt":  {
                                  "label":  "עברית",
@@ -5305,6 +5309,9 @@
                      "descEn":  "Full installer (Enterprise MSI) — also for a PC where Edge was removed or is stale",
                      "icon":  "icons/w32/edge.svg",
                      "heb":  true,
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: go to edge://settings/languages, add English, choose \"Display Microsoft Edge in this language\", then restart it.",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5329,6 +5336,9 @@
                      "descEn":  "Opens every kind of archive",
                      "icon":  "icons/w32/sevenzip.svg",
                      "heb":  true,
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: בתוך התוכנה Tools ← Options ← לשונית Language, ולבחור English.",
+                     "langHowEn":  "The same file includes English: inside the program, Tools \u003e Options \u003e Language tab, pick English.",
                      "silent":  "/S"
                  },
                  {
@@ -5359,6 +5369,10 @@
                                   "noteEn":  "The language file is voidtools\u0027 own official pack - they publish it separately from the installer, which is why a normal install comes out in English."
                               },
                      "icon":  "icons/w32/everything.svg",
+                     "heb":  true,
+                     "langMode":  "chosen-at-install",
+                     "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
+                     "langHowEn":  "The installer asks which language; it can also be changed later under Tools \u003e Options \u003e General \u003e Language.",
                      "silent":  "/S"
                  },
                  {
@@ -5383,6 +5397,9 @@
                      "descEn":  "A small, fast PDF reader",
                      "icon":  "icons/w32/sumatra.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: בתפריט Settings ← Change Language ולבחור English.",
+                     "langHowEn":  "The same file includes English: Settings \u003e Change Language, pick English.",
                      "silent":  "-s"
                  },
                  {
@@ -5407,6 +5424,9 @@
                      "descEn":  "Plays every video and audio format",
                      "icon":  "icons/w32/vlc.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: Tools ← Preferences ← Interface, לבחור English ברשימת השפות, לשמור ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes English: Tools \u003e Preferences \u003e Interface, pick English in the language list, save and reopen.",
                      "silent":  "/S"
                  },
                  {
@@ -5431,6 +5451,9 @@
                      "descEn":  "A full free office suite - reads and writes Word, Excel and PowerPoint files",
                      "icon":  "icons/w32/libreoffice.svg",
                      "heb":  true,
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: כלים ← אפשרויות ← שפות ← ממשק משתמש, ולבחור English (USA).",
+                     "langHowEn":  "The same file includes English: Tools \u003e Options \u003e Languages \u003e User Interface, pick English (USA).",
                      "silent":  "MSI:/qn /norestart UI_LANGS=he,en_US"
                  },
                  {
@@ -5454,6 +5477,7 @@
                                ],
                      "descEn":  "The programming language — with pip and IDLE",
                      "icon":  "icons/w32/python.svg",
+                     "langMode":  "single-language",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0"
                  },
                  {
@@ -5477,6 +5501,9 @@
                                ],
                      "descEn":  "Microsoft\u0027s code editor — full installer",
                      "icon":  "icons/w32/vscode.svg",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "התוכנה מותקנת באנגלית ממילא; שפה אחרת נבחרת מתוכה בפקודה Configure Display Language.",
+                     "langHowEn":  "It installs in English anyway; another language is chosen from inside it with Configure Display Language.",
                      "silent":  "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
                  },
                  {
@@ -5501,6 +5528,9 @@
                      "descEn":  "A text and code editor",
                      "icon":  "icons/w32/npp.svg",
                      "heb":  true,
+                     "langMode":  "chosen-at-install",
+                     "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
+                     "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "silent":  "/S"
                  },
                  {
@@ -5524,6 +5554,7 @@
                                ],
                      "descEn":  "Version control for developers",
                      "icon":  "icons/w32/git.svg",
+                     "langMode":  "single-language",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5548,6 +5579,7 @@
                      "descEn":  "The modern Java runtime",
                      "noui":  true,
                      "icon":  "icons/w32/java.svg",
+                     "langMode":  "no-ui",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5571,7 +5603,10 @@
                                ],
                      "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
                      "icon":  "icons/w32/rufus.svg",
-                     "heb":  true
+                     "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
+                     "langHowEn":  "The same file includes English: click the globe icon at the top of the Rufus window and pick English."
                  },
                  {
                      "he":  "GIMP",
@@ -5595,6 +5630,9 @@
                      "descEn":  "Professional free image editing — the well-known Photoshop alternative",
                      "icon":  "icons/w32/gimp.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: Edit ← Preferences ← Interface ← Language, לבחור English ולהפעיל מחדש.",
+                     "langHowEn":  "The same file includes every language: Edit \u003e Preferences \u003e Interface \u003e Language, pick English and restart it.",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5619,6 +5657,9 @@
                      "descEn":  "Audio recording and editing",
                      "icon":  "icons/w32/audacity.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5641,8 +5682,11 @@
                                    }
                                ],
                      "descEn":  "The complete codec pack — any video or audio will open in any player",
-                     "noui":  true,
                      "icon":  "icons/w32/klite.svg",
+                     "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
+                     "langHowEn":  "The same file includes English: in the MPC-HC player press O, go to Player \u003e Language and pick English.",
                      "silent":  "/verysilent /norestart"
                  },
                  {
@@ -5665,7 +5709,10 @@
                                    }
                                ],
                      "descEn":  "Remote control — portable, no install. The connection itself needs internet",
-                     "icon":  "icons/w32/anydesk.svg"
+                     "icon":  "icons/w32/anydesk.svg",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
+                     "langHowEn":  "The same file includes every language: the program menu \u003e Settings \u003e Application \u003e General, pick English under Language."
                  },
                  {
                      "he":  "TeamViewer",
@@ -5688,6 +5735,9 @@
                                ],
                      "descEn":  "Remote control — full installer. The connection itself needs internet",
                      "icon":  "icons/w32/teamviewer.svg",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: גלגל השיניים בפינה ← Advanced ← Display language ← English, ואז לסגור ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes English: the gear icon in the corner \u003e Advanced \u003e Display language \u003e English, then close and reopen it.",
                      "silent":  "/S"
                  },
                  {
@@ -5712,6 +5762,9 @@
                      "descEn":  "Every hardware detail of the PC on one screen",
                      "icon":  "icons/w32/speccy.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית ועברית: View ← Options ← לשונית General ← Language.",
+                     "langHowEn":  "The same file includes English and Hebrew: View \u003e Options \u003e General tab \u003e Language.",
                      "silent":  "/S"
                  },
                  {
@@ -5736,6 +5789,9 @@
                      "descEn":  "Thorough removal of stubborn programs, leftovers included",
                      "icon":  "icons/w32/revo.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית ועברית: Options ← General ← Current Language.",
+                     "langHowEn":  "The same file includes English and Hebrew: Options \u003e General \u003e Current Language.",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5760,6 +5816,7 @@
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
                      "icon":  "icons/w32/thunderbird.svg",
                      "heb":  true,
+                     "langMode":  "per-language-download",
                      "silent":  "/S",
                      "alt":  {
                                  "label":  "עברית",
@@ -5793,6 +5850,9 @@
                      "descEn":  "Screen recording and streaming — the free standard",
                      "icon":  "icons/w32/obsstudio.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
+                     "langHowEn":  "The same file includes English: Settings \u003e General \u003e Language, pick English and restart it.",
                      "silent":  "/S"
                  },
                  {
@@ -5817,6 +5877,9 @@
                      "descEn":  "A password manager that keeps everything on your own PC — no cloud",
                      "icon":  "icons/w32/keepassxc.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes every language: Tools \u003e Settings \u003e General, pick English under Language, then reopen it.",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5841,6 +5904,9 @@
                      "descEn":  "Encrypt drives and folders",
                      "icon":  "icons/w32/veracrypt.svg",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
+                     "langHowEn":  "The same file includes every language, and English is the default; switch it under Settings \u003e Language.",
                      "silent":  "/S"
                  },
                  {
@@ -5864,6 +5930,9 @@
                                ],
                      "descEn":  "What is eating your disk — a visual map of every file",
                      "icon":  "icons/w32/windirstat.svg",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5890,6 +5959,7 @@
                      "icon":  "icons/w32/wsa.svg",
                      "heb":  true,
                      "near":  "WSL",
+                     "langMode":  "follows-windows",
                      "alt":  {
                                  "label":  "עם Google Play",
                                  "labelEn":  "with Google Play",

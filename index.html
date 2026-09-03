@@ -367,6 +367,10 @@
            width: min(420px, 94vw); padding: 26px; text-align: center;
            max-height: 92vh; overflow-y: auto; }
   .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
+  /* the practical half of the language claim - quieter than the claim itself, because it
+     matters only to the reader who wants the other language */
+  .langhow { color: var(--muted); font-size: .78rem; line-height: 1.65; margin-top: 3px;
+             text-align: start; }
   .sheet .pl { width: 92px; height: 92px; border-radius: 26px; margin: 0 auto; }
   .sheet .pl img { width: 62px; height: 62px; }
   .sheet .pl img.glyph { width: 50px; height: 50px; }
@@ -628,6 +632,15 @@ const EN = {
   'חנות אופליין': 'Offline Store',
   'חיפוש בחנות': 'Search the store',
   'מצב תצוגה': 'Theme',
+  '✓ ממשק בעברית — ואותו קובץ כולל גם אנגלית, לבחירה בתוך התוכנה':
+    '✓ Hebrew interface — and the same file also contains English, chosen inside the program',
+  '✓ ממשק בעברית — ההתקנה עצמה שואלת באיזו שפה':
+    '✓ Hebrew interface — the installer itself asks which language',
+  '✓ ממשק בעברית — לאנגלית יש קובץ הורדה נפרד, כאן למטה':
+    '✓ Hebrew interface — English is a separate download, below',
+  '✓ ממשק בעברית — עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית':
+    '✓ Hebrew interface — it follows the Windows display language: if that is English, it installs in English',
+  'ממשק באנגלית בלבד — אין לה שפה אחרת': 'English interface only — it has no other language',
   'מה זה האתר הזה': 'What is this site',
   'מידע נוסף על האפליקציה': 'More about this app',
   'מה זה האתר הזה?': 'What is this site?',
@@ -1308,6 +1321,37 @@ function linkFor(a, exe) {
 /* A short label above the control that was just clicked. Started life as the copy-link
    confirmation; the "+" borrows it, because a control that does something invisible has to
    say so somewhere the eye already is. */
+/* What is true about THIS program's interface language. Vendor programs used to share one
+   sentence - "opens in Hebrew on a Hebrew PC" - which, with no English download beside it,
+   read as "Hebrew only". Each one was checked against its vendor; langMode says which of the
+   four cases it is, so the line can say something that is actually true of it. */
+function langClaim(a) {
+  if (a.noui) return T('אין לו ממשק — רכיב שעובד ברקע');
+  if (a.heb) {
+    if (a.hebScope === 'chrome') return T('✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם');
+    switch (a.langMode) {
+      case 'in-app-picker':        return T('✓ ממשק בעברית — ואותו קובץ כולל גם אנגלית, לבחירה בתוך התוכנה');
+      case 'chosen-at-install':    return T('✓ ממשק בעברית — ההתקנה עצמה שואלת באיזו שפה');
+      case 'per-language-download':return T('✓ ממשק בעברית — לאנגלית יש קובץ הורדה נפרד, כאן למטה');
+      /* a store app has always followed the Windows language; it turns out most of the
+         vendor programs do too, so both share the sentence now */
+      default:                     return T('✓ ממשק בעברית — עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית');
+    }
+  }
+  if (a.xlat) return T(a.xlat.source === 'official'
+    ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
+    : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן');
+  if (a.langMode === 'single-language') return T('ממשק באנגלית בלבד — אין לה שפה אחרת');
+  return T('ממשק באנגלית בלבד');
+}
+
+/* The one instruction that gets this reader to English. Written per program from the vendor's
+   own menus rather than a generic "change it in the settings", which is not an instruction. */
+function langHow(a) {
+  if (!a.heb || a.noui) return '';   // never explain an interface we just said does not exist
+  return (LANG === 'en' ? a.langHowEn : a.langHow) || '';
+}
+
 function copiedToast(el, msg) {
   const old = document.querySelector('.copied');
   if (old) old.remove();
@@ -1531,16 +1575,8 @@ function openSheet(en) {
     '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
-      (a.noui ? T('אין לו ממשק — רכיב שעובד ברקע')
-              : (!a.w32 && !a.custom && a.heb)
-                ? T('✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית')
-              : a.heb ? T(a.hebScope === 'chrome'
-                          ? '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם'
-                          : '✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
-              : a.xlat ? T(a.xlat.source === 'official'
-                          ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
-                          : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן')
-                       : T('ממשק באנגלית בלבד')) + '</div>' +
+      langClaim(a) + '</div>' +
+    (langHow(a) ? '<div class="langhow">' + langHow(a) + '</div>' : '') +
     '<div class="qbody" id="qb"></div>' +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns + '</div></div>';

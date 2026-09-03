@@ -2387,6 +2387,9 @@
                      "desc":  "מתקין מלא (Enterprise MSI) — לא דורש רשת בהתקנה",
                      "descEn":  "Full installer (Enterprise MSI) — needs no network while installing",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: הגדרות ← שפות, מוסיפים English ולוחצים \"הצג את Google Chrome בשפה זו\", ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: Settings \u003e Languages, add English, click \"Display Google Chrome in this language\", then restart it.",
                      "files":  [
                                    {
                                        "exe":  "googlechromestandaloneenterprise64.msi",
@@ -2420,6 +2423,7 @@
                      "desc":  "מתקין מלא בעברית",
                      "descEn":  "Full installer in Hebrew",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "per-language-download",
                      "files":  [
                                    {
                                        "exe":  "Firefox Setup*.exe",
@@ -2444,6 +2448,9 @@
                      "desc":  "מתקין מלא (Enterprise MSI) — גם למחשב שבו Edge הוסר או מיושן",
                      "descEn":  "Full installer (Enterprise MSI) — also for a PC where Edge was removed or is stale",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: go to edge://settings/languages, add English, choose \"Display Microsoft Edge in this language\", then restart it.",
                      "files":  [
                                    {
                                        "exe":  "MicrosoftEdgeEnterpriseX64.msi",
@@ -2468,6 +2475,9 @@
                      "desc":  "פתיחת כל סוגי הארכיונים",
                      "descEn":  "Opens every kind of archive",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: בתוך התוכנה Tools ← Options ← לשונית Language, ולבחור English.",
+                     "langHowEn":  "The same file includes English: inside the program, Tools \u003e Options \u003e Language tab, pick English.",
                      "files":  [
                                    {
                                        "exe":  "7z2409-x64.exe",
@@ -2482,6 +2492,7 @@
                      "he":  "Everything",
                      "en":  "Everything",
                      "net":  false,
+                     "heb":  true,
                      "w32":  true,
                      "url":  "https://www.voidtools.com/Everything-1.4.1.1028.x64-Setup.exe",
                      "match":  "Everything-*-Setup.exe",
@@ -2498,6 +2509,9 @@
                      "desc":  "חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה",
                      "descEn":  "Instant file search across the whole disk — finds as you type",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "chosen-at-install",
+                     "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
+                     "langHowEn":  "The installer asks which language; it can also be changed later under Tools \u003e Options \u003e General \u003e Language.",
                      "files":  [
                                    {
                                        "exe":  "Everything-*-Setup.exe",
@@ -2522,6 +2536,9 @@
                      "desc":  "קורא PDF קטן ומהיר",
                      "descEn":  "A small, fast PDF reader",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: בתפריט Settings ← Change Language ולבחור English.",
+                     "langHowEn":  "The same file includes English: Settings \u003e Change Language, pick English.",
                      "files":  [
                                    {
                                        "exe":  "SumatraPDF-*-install.exe",
@@ -2546,6 +2563,9 @@
                      "desc":  "מנגן כל פורמט וידאו ואודיו",
                      "descEn":  "Plays every video and audio format",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: Tools ← Preferences ← Interface, לבחור English ברשימת השפות, לשמור ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes English: Tools \u003e Preferences \u003e Interface, pick English in the language list, save and reopen.",
                      "files":  [
                                    {
                                        "exe":  "vlc-*-win64.exe",
@@ -2570,6 +2590,9 @@
                      "desc":  "חבילת אופיס מלאה וחינמית — קוראת וכותבת קובצי Word, Excel ו-PowerPoint",
                      "descEn":  "A full free office suite - reads and writes Word, Excel and PowerPoint files",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "follows-windows",
+                     "langHow":  "אותו קובץ כולל אנגלית: כלים ← אפשרויות ← שפות ← ממשק משתמש, ולבחור English (USA).",
+                     "langHowEn":  "The same file includes English: Tools \u003e Options \u003e Languages \u003e User Interface, pick English (USA).",
                      "files":  [
                                    {
                                        "exe":  "LibreOffice_*_Win_x86-64.msi",
@@ -2593,6 +2616,7 @@
                      "desc":  "שפת התכנות — עם pip ו-IDLE",
                      "descEn":  "The programming language — with pip and IDLE",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "single-language",
                      "files":  [
                                    {
                                        "exe":  "python-*-amd64.exe",
@@ -2616,6 +2640,9 @@
                      "desc":  "עורך הקוד של מיקרוסופט — מתקין מלא",
                      "descEn":  "Microsoft\u0027s code editor — full installer",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "התוכנה מותקנת באנגלית ממילא; שפה אחרת נבחרת מתוכה בפקודה Configure Display Language.",
+                     "langHowEn":  "It installs in English anyway; another language is chosen from inside it with Configure Display Language.",
                      "files":  [
                                    {
                                        "exe":  "VSCodeSetup-x64-*.exe",
@@ -2640,6 +2667,9 @@
                      "desc":  "עורך טקסט וקוד",
                      "descEn":  "A text and code editor",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "chosen-at-install",
+                     "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
+                     "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "files":  [
                                    {
                                        "exe":  "npp.*Installer.x64.exe",
@@ -2663,6 +2693,7 @@
                      "desc":  "ניהול גרסאות למפתחים",
                      "descEn":  "Version control for developers",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "single-language",
                      "files":  [
                                    {
                                        "exe":  "Git-*-64-bit.exe",
@@ -2687,6 +2718,7 @@
                      "descEn":  "The modern Java runtime",
                      "noui":  true,
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "no-ui",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK21U-jre_*.msi",
@@ -2710,6 +2742,9 @@
                      "desc":  "צריבת ISO לדיסק-און-קי. קובץ נייד — מריצים ישירות, בלי התקנה",
                      "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
+                     "langHowEn":  "The same file includes English: click the globe icon at the top of the Rufus window and pick English.",
                      "files":  [
                                    {
                                        "exe":  "rufus-*.exe",
@@ -2734,6 +2769,9 @@
                      "desc":  "עריכת תמונות מקצועית וחינמית — התחליף המוכר לפוטושופ",
                      "descEn":  "Professional free image editing — the well-known Photoshop alternative",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: Edit ← Preferences ← Interface ← Language, לבחור English ולהפעיל מחדש.",
+                     "langHowEn":  "The same file includes every language: Edit \u003e Preferences \u003e Interface \u003e Language, pick English and restart it.",
                      "files":  [
                                    {
                                        "exe":  "gimp-*-setup*.exe",
@@ -2758,6 +2796,9 @@
                      "desc":  "הקלטה ועריכת אודיו",
                      "descEn":  "Audio recording and editing",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "files":  [
                                    {
                                        "exe":  "audacity-win-*-64bit.exe",
@@ -2772,6 +2813,7 @@
                      "he":  "K-Lite Codec Pack",
                      "en":  "KLite",
                      "net":  false,
+                     "heb":  true,
                      "w32":  true,
                      "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Basic.exe",
                      "match":  "K-Lite_Codec_Pack_*_Basic.exe",
@@ -2780,8 +2822,10 @@
                      "color":  "#1d5fa0",
                      "desc":  "חבילת הקודקים המלאה — כל וידאו ואודיו ייפתחו בכל נגן",
                      "descEn":  "The complete codec pack — any video or audio will open in any player",
-                     "noui":  true,
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
+                     "langHowEn":  "The same file includes English: in the MPC-HC player press O, go to Player \u003e Language and pick English.",
                      "files":  [
                                    {
                                        "exe":  "K-Lite_Codec_Pack_*_Basic.exe",
@@ -2804,6 +2848,9 @@
                      "desc":  "שליטה מרחוק — קובץ נייד, בלי התקנה. החיבור עצמו דורש אינטרנט",
                      "descEn":  "Remote control — portable, no install. The connection itself needs internet",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
+                     "langHowEn":  "The same file includes every language: the program menu \u003e Settings \u003e Application \u003e General, pick English under Language.",
                      "files":  [
                                    {
                                        "exe":  "AnyDesk.exe",
@@ -2827,6 +2874,9 @@
                      "desc":  "שליטה מרחוק — מתקין מלא. החיבור עצמו דורש אינטרנט",
                      "descEn":  "Remote control — full installer. The connection itself needs internet",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: גלגל השיניים בפינה ← Advanced ← Display language ← English, ואז לסגור ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes English: the gear icon in the corner \u003e Advanced \u003e Display language \u003e English, then close and reopen it.",
                      "files":  [
                                    {
                                        "exe":  "TeamViewer_Setup*.exe",
@@ -2851,6 +2901,9 @@
                      "desc":  "כל פרטי החומרה של המחשב במסך אחד",
                      "descEn":  "Every hardware detail of the PC on one screen",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית ועברית: View ← Options ← לשונית General ← Language.",
+                     "langHowEn":  "The same file includes English and Hebrew: View \u003e Options \u003e General tab \u003e Language.",
                      "files":  [
                                    {
                                        "exe":  "spsetup*.exe",
@@ -2875,6 +2928,9 @@
                      "desc":  "הסרה יסודית של תוכנות עקשניות, כולל שאריות",
                      "descEn":  "Thorough removal of stubborn programs, leftovers included",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית ועברית: Options ← General ← Current Language.",
+                     "langHowEn":  "The same file includes English and Hebrew: Options \u003e General \u003e Current Language.",
                      "files":  [
                                    {
                                        "exe":  "revosetup*.exe",
@@ -2908,6 +2964,7 @@
                      "desc":  "תוכנת דואר מלאה בעברית — קוראים וכותבים גם בלי חיבור קבוע",
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "per-language-download",
                      "files":  [
                                    {
                                        "exe":  "Thunderbird Setup*.exe",
@@ -2932,6 +2989,9 @@
                      "desc":  "הקלטת מסך ושידור — הסטנדרט החינמי",
                      "descEn":  "Screen recording and streaming — the free standard",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
+                     "langHowEn":  "The same file includes English: Settings \u003e General \u003e Language, pick English and restart it.",
                      "files":  [
                                    {
                                        "exe":  "OBS-Studio-*-Installer.exe",
@@ -2956,6 +3016,9 @@
                      "desc":  "מנהל סיסמאות שהכול נשמר אצלך במחשב — בלי ענן",
                      "descEn":  "A password manager that keeps everything on your own PC — no cloud",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
+                     "langHowEn":  "The same file includes every language: Tools \u003e Settings \u003e General, pick English under Language, then reopen it.",
                      "files":  [
                                    {
                                        "exe":  "KeePassXC-*-Win64.msi",
@@ -2980,6 +3043,9 @@
                      "desc":  "הצפנת כוננים ותיקיות",
                      "descEn":  "Encrypt drives and folders",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
+                     "langHowEn":  "The same file includes every language, and English is the default; switch it under Settings \u003e Language.",
                      "files":  [
                                    {
                                        "exe":  "VeraCrypt*Setup*.exe",
@@ -3003,6 +3069,9 @@
                      "desc":  "מה תופס את המקום בדיסק — מפה חזותית של כל הקבצים",
                      "descEn":  "What is eating your disk — a visual map of every file",
                      "cat":  "תוכנות נפוצות",
+                     "langMode":  "in-app-picker",
+                     "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
+                     "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
                      "files":  [
                                    {
                                        "exe":  "WinDirStat-x64.msi",
@@ -3034,6 +3103,7 @@
                      "enName":  "Windows Subsystem for Android",
                      "cat":  "כלי טכנאי",
                      "near":  "WSL",
+                     "langMode":  "follows-windows",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
