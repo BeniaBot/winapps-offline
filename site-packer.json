@@ -5868,8 +5868,8 @@
                      "en":  "WSAGitHub",
                      "net":  false,
                      "w32":  true,
-                     "cat":  "כלי טכנאי",
-                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. בלי חנות אפליקציות מובנית",
+                     "cat":  "תוכנות נפוצות",
+                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",
                      "color":  "#3ddc84",
                      "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
                      "match":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
@@ -5882,9 +5882,14 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. No app store bundled",
+                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
-                     "icon":  "icons/w32/wsa.svg"
+                     "icon":  "icons/w32/wsa.svg",
+                     "alt":  {
+                                 "label":  "עם Google Play",
+                                 "labelEn":  "with Google Play",
+                                 "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-GApps-13.0-NoAmazon.7z"
+                             }
                  },
                  {
                      "he":  "Csharf",

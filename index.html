@@ -390,20 +390,38 @@
          display: inline-flex; align-items: center; justify-content: center; }
   .cpy:hover { background: var(--tile-h); color: var(--ink); }
   .cpy.done { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+  /* add THIS build to the multi-select, rather than "add this app" and hope */
+  .addsel { flex: 0 0 auto; width: 46px; border-radius: 12px; cursor: pointer;
+            background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; line-height: 1; font-weight: 700; }
+  .addsel:hover { background: var(--tile-h); color: var(--ink); border-color: var(--accent); }
+  .addsel.on { background: color-mix(in srgb, var(--accent) 22%, transparent);
+               color: var(--accent); border-color: var(--accent); }
   /* the store link sits in the sheet's corner, quiet until you look for it */
   .sheet { position: relative; }
-  .msstore { position: absolute; inset-inline-start: 16px; top: 16px; z-index: 2;
-             display: inline-flex; align-items: center; gap: 6px;
-             padding: 6px 10px; border-radius: 99px; cursor: pointer; text-decoration: none;
-             background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
-             font-size: .74rem; font-weight: 600; }
-  .msstore:hover { background: var(--tile-h); color: var(--ink); }
-  .msstore svg { width: 14px; height: 14px; flex: none; }
-  .lang { flex: 0 0 auto; width: 46px; border-radius: 12px; cursor: pointer;
+  /* the Store's own mark, in its own blue - small and quiet in the corner */
+  .msstore { position: absolute; inset-inline-start: 14px; top: 14px; z-index: 2;
+             display: inline-flex; align-items: center; gap: 7px;
+             height: 32px; padding: 0 12px 0 9px; border-radius: 99px;
+             cursor: pointer; text-decoration: none;
+             background: color-mix(in srgb, #0f7bc4 16%, transparent);
+             color: #7cc4f2; border: 1px solid color-mix(in srgb, #0f7bc4 38%, transparent);
+             font-size: .74rem; font-weight: 600; letter-spacing: .01em;
+             transition: background .15s, color .15s, border-color .15s; }
+  html[dir="ltr"] .msstore { padding: 0 9px 0 12px; }
+  .msstore:hover { background: color-mix(in srgb, #0f7bc4 30%, transparent);
+                   border-color: color-mix(in srgb, #0f7bc4 62%, transparent); color: #cfe9fb; }
+  .msstore svg { width: 17px; height: 17px; flex: none; }
+  :root.light .msstore { background: color-mix(in srgb, #0f7bc4 12%, transparent); color: #0a5c95;
+                         border-color: color-mix(in srgb, #0f7bc4 34%, transparent); }
+
+  /* a labelled EN / עב pill, not a globe - it says which language it gets you */
+  .lang { flex: 0 0 auto; min-width: 52px; padding: 0 12px; border-radius: 12px; cursor: pointer;
           background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
-          display: inline-flex; align-items: center; justify-content: center; }
-  .lang:hover { background: var(--tile-h); color: var(--ink); }
-  .lang svg { width: 17px; height: 17px; }
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: .82rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; }
+  .lang:hover { background: var(--tile-h); color: var(--ink); border-color: var(--accent); }
 
   .copied { position: fixed; z-index: 90; pointer-events: none;
             background: var(--ok); color: #06210f; font-size: .78rem; font-weight: 600;
@@ -566,7 +584,11 @@ const CAT_NOTE = {
 };
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
 let TARGET = '11';
-const SELECTED = new Set();
+/* app -> which build of it was picked: 'main' | 'xlat' (the Hebrew build) |
+   'lang' (the vendor's other-language build) | 'alt' (a portable build).
+   A Set of names could not answer "which one", which is why picking PC Manager used to
+   fetch the English build even when the visitor had just been offered the Hebrew one. */
+const SELECTED = new Map();
 
 
 /* ===== language =====
@@ -607,6 +629,7 @@ const EN = {
   'עם מתקין שקט': 'with the silent installer',
   'עדיין בהעלאה': 'still uploading',
   'מוסתרות בסינון שבחרת': 'hidden by your filter',
+  'בגרסה שבחרת': 'in the build you chose',
   'נקה': 'Clear',
   'הורדת הנבחרות': 'Download selected',
   'היעד:': 'Target:',
@@ -619,6 +642,9 @@ const EN = {
   'הועתק קישור להורדה ישירה': 'Direct download link copied',
   'הורדה בשפה אחרת': 'Download in another language',
   'בחנות מיקרוסופט': 'In the Microsoft Store',
+  'בחנות': 'Store',
+  '✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows, ואין לה הורדה נפרדת לאנגלית':
+    '✓ Hebrew interface — the app follows the Windows display language, so there is no separate English download',
   'פתיחת הדף של האפליקציה בחנות מיקרוסופט': 'Open this app\u2019s page in the Microsoft Store',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
@@ -916,6 +942,31 @@ const bestFile = a => {
   return fs.find(f => f.win === TARGET) || fs[0];
 };
 const isLive = (a, f) => a.url ? true : !!LIVE[f.exe];
+
+/* What a pick actually downloads. 'main' stays unresolved until download time, because the
+   Win 10 / Win 11 target can still change after it was picked. */
+function variantOf(a, kind) {
+  if (kind === 'xlat' && a.xlat && (a.xlat.url || LIVE[a.xlat.exe]))
+    return { kind: 'xlat', exe: a.xlat.exe, url: a.xlat.url || null, mb: a.xlat.mb, tag: T('עברית') };
+  if (kind === 'lang' && a.alt && a.altEn)
+    return { kind: 'lang', url: (LANG === 'en' ? a.url : a.altEn.url),
+             mb: (a.files[0] || {}).mb || 0, tag: (LANG === 'en' ? 'עב' : 'EN') };
+  if (kind === 'alt' && a.alt)
+    return { kind: 'alt', url: a.alt.url, mb: (a.files[0] || {}).mb || 0,
+             tag: (LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) };
+  // 'file:<exe>' pins one specific build - used when an app ships both a Win 10 and a
+  // Win 11 flavour, so the row that was clicked is the one that gets downloaded
+  if (kind && kind.indexOf('file:') === 0) {
+    const want = kind.slice(5);
+    const ff = a.files.find(x => x.exe === want);
+    if (ff && isLive(a, ff))
+      return { kind: kind, exe: ff.exe, url: a.url ? urlFor(a) : null, mb: ff.mb, tag: WIN_LABEL[ff.win] };
+  }
+  const f = bestFile(a);
+  if (!f || !isLive(a, f)) return null;
+  return { kind: 'main', exe: f.exe, url: a.url ? urlFor(a) : null, mb: f.mb, tag: null };
+}
+function pickOf(a) { return variantOf(a, SELECTED.get(a.en) || 'main'); }
 /* in English mode an app that ships a separate English build downloads that one */
 const urlFor = a => (LANG === 'en' && a.altEn && a.altEn.url) ? a.altEn.url : a.url;
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
@@ -964,13 +1015,22 @@ function render() {
   const box = document.getElementById('cats');
   let html = '', shown = 0, total = 0;
   const groups = CAT_ORDER.concat(W32_CATS, ['בפיתוח שלי']);
+  /* Which app each group claims. Kept in one place so the "did anything fall through"
+     check below asks exactly the same question the rendering does. */
+  const claims = (cat, a) =>
+    cat === 'בפיתוח שלי' ? !!a.custom :
+    W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
+    (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat);
+  /* An app whose category matches no group used to be dropped in silence: present in the
+     catalog, absent from the shop. Give the strays a home rather than lose them. */
+  const orphans = DATA.apps.filter(a => !groups.some(cat => claims(cat, a)));
+  if (orphans.length) console.warn('apps with no matching group:', orphans.map(a => a.en));
   const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
   let seamDone = false;
   groups.forEach(cat => {
-    const members = DATA.apps.filter(a =>
-      cat === 'בפיתוח שלי' ? a.custom :
-      W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
-      (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat));
+    const members = DATA.apps.filter(a => claims(cat, a))
+      // the strays ride along in the last vendor group rather than disappearing
+      .concat(cat === 'תוכנות נפוצות' ? orphans : []);
     if (!members.length) return;
     chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
     total += members.filter(a => bestFile(a)).length;
@@ -1019,7 +1079,7 @@ document.addEventListener('click', e => {
     // toggle: if the whole section is already selected, a second click clears it
     const members = membersOf(pick.dataset.catpick).filter(a => bestFile(a));
     const allOn = members.every(a => SELECTED.has(a.en));
-    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.add(a.en); });
+    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.set(a.en, 'main'); });
     render();
     return;
   }
@@ -1197,8 +1257,10 @@ function download(exe) {
 }
 
 /* the one-click silent installer script for a picked set of w32 apps */
-function toggle(en) {
-  if (SELECTED.has(en)) SELECTED.delete(en); else SELECTED.add(en);
+function toggle(en, kind) {
+  // picking the same build again clears it; picking a different build switches to it
+  if (SELECTED.has(en) && (!kind || SELECTED.get(en) === kind)) SELECTED.delete(en);
+  else SELECTED.set(en, kind || 'main');
   document.querySelectorAll('.t[data-en="' + en.replace(/"/g, '\\"') + '"]')
     .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
   updateDock();
@@ -1210,20 +1272,21 @@ function updateDock() {
   if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
   // count only what the button will actually download - the honest number,
   // and say WHY the rest are excluded (hidden by the Win filter vs still uploading)
-  let mb = 0, w32s = 0, ready = 0, uploading = 0, filtered = 0;
+  let mb = 0, w32s = 0, ready = 0, uploading = 0, filtered = 0, special = 0;
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
-    const f = bestFile(a);
-    if (f && isLive(a, f)) { ready++; mb += f.mb; if (a.w32 && a.silent) w32s++; }
-    else if (!f) filtered++;
+    const v = pickOf(a);
+    if (v) { ready++; mb += v.mb || 0; if (a.w32 && a.silent) w32s++; if (v.kind !== 'main') special++; }
+    else if (!bestFile(a)) filtered++;
     else uploading++;
   });
   document.getElementById('selsum').innerHTML = '<b>' + ready + ' ' + T('נבחרו') + '</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
     (w32s >= 1 ? ' · ' + T('עם מתקין שקט') : '') +
     (uploading > 0 ? ' · ' + uploading + ' ' + T('עדיין בהעלאה') : '') +
-    (filtered > 0 ? ' · ' + filtered + ' ' + T('מוסתרות בסינון שבחרת') : '') + '</span>';
+    (filtered > 0 ? ' · ' + filtered + ' ' + T('מוסתרות בסינון שבחרת') : '') +
+    (special > 0 ? ' · ' + special + ' ' + T('בגרסה שבחרת') : '') + '</span>';
   let dual = 0;
-  DATA.apps.forEach(a => { if (SELECTED.has(a.en) && filesFor(a).length > 1) dual++; });
+  DATA.apps.forEach(a => { if (SELECTED.get(a.en) === 'main' && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
   tgt.innerHTML = (dual > 0 && FILTER === 'all')
     ? '<span style="color:var(--muted);font-size:.84rem">היעד:</span>' +
@@ -1241,14 +1304,18 @@ document.getElementById('dock-target').addEventListener('click', e => {
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
-  const files = [], w32Silent = [];
+  const picks = [], w32Silent = [];
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
-    const f = bestFile(a);
-    if (f && isLive(a, f)) files.push(f.exe);
+    const v = pickOf(a);
+    if (v) picks.push(v);
     if (a.w32 && a.silent) w32Silent.push(a);
   });
-  files.forEach((exe, i) => setTimeout(() => download(exe), i * 600));
+  picks.forEach((v, i) => setTimeout(() => {
+    if (v.url) { const el = document.createElement('a'); el.href = v.url; document.body.appendChild(el); el.click(); el.remove(); }
+    else download(v.exe);
+  }, i * 600));
+  const files = picks;
   // silent install is the recommended default: any silent-capable pick bundles the runner
   if (w32Silent.length >= 1) setTimeout(downloadRunner, files.length * 600 + 400);
 };
@@ -1297,21 +1364,19 @@ function openSheet(en) {
   const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
     'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/>' +
     '<path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
-  /* the vendor publishes this app in another language: offer it as an icon rather than a
-     second full-width button that says almost the same thing as the first */
-  const LANG_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
-    'stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/>' +
-    '<path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>';
+  /* the vendor publishes a separate build in the other language: offer it as a pill that
+     names the language, beside the download it is an alternative to */
   const otherLang = (a.alt && a.altEn)
-    ? (LANG === 'en' ? { url: a.url, name: 'עברית' } : { url: a.altEn.url, name: 'English' })
+    ? (LANG === 'en' ? { url: a.url, tag: 'עב', name: 'עברית' } : { url: a.altEn.url, tag: 'EN', name: 'English' })
     : null;
-  const langBtn = otherLang
-    ? '<a class="lang" href="' + esc(otherLang.url) + '" title="' +
-      esc(T('הורדה בשפה אחרת') + ' — ' + otherLang.name) + '" aria-label="' +
-      esc(T('הורדה בשפה אחרת') + ' — ' + otherLang.name) + '">' + LANG_ICON + '</a>'
-    : '';
+  const langBtn = '';
 
-  const dlRow = (inner, url, withLang) => '<div class="dlrow">' + (withLang ? langBtn : '') + inner +
+  const addBtn = (kind) => '<button class="addsel' + (SELECTED.get(en) === kind ? ' on' : '') +
+    '" data-add="' + kind + '" title="' + esc(T('הוספה לבחירה מרובה')) + '" aria-label="' +
+    esc(T('הוספה לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
+
+  const dlRow = (inner, url, withLang, kind) => '<div class="dlrow">' +
+    (kind ? addBtn(kind) : '') + (withLang ? langBtn : '') + inner +
     (url ? '<button class="cpy" data-url="' + esc(url) + '" title="' + esc(T('העתקת קישור ישיר')) + '" aria-label="' + esc(T('העתקת קישור ישיר')) + '">' + COPY_ICON + '</button>' : '') +
     '</div>';
 
@@ -1320,28 +1385,40 @@ function openSheet(en) {
       ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
       : T('הורדה') + ' · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
-    return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>', linkFor(a, f.exe), true);
+    // one build: 'main' follows the dock's Win target. Several: pin the exact file.
+    return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>',
+      linkFor(a, f.exe), false, files.length > 1 ? 'file:' + f.exe : 'main');
   }).join('');
+  /* the vendor's own build in the other language, as a row of its own so it can be picked,
+     copied and counted like any other download */
+  if (otherLang) btns += dlRow('<a class="btn lite" href="' + esc(otherLang.url) + '">' +
+    T('הורדה') + ' · <span dir="ltr">' + esc(otherLang.name) + '</span></a>', otherLang.url, false, 'lang');
   if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
-    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>', a.alt.url);
+    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>', a.alt.url, false, 'alt');
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
   if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
     dlRow('<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
       esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>',
-      a.xlat.url || (REL + encodeURIComponent(a.xlat.exe))) +
+      a.xlat.url || (REL + encodeURIComponent(a.xlat.exe)), false, 'xlat') +
     '<div class="warn" style="margin:2px 0 4px">' + T('התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') + '</div>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
   /* Microsoft's own page for the same app - only for the ones that really have one */
-  const STORE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
-    'stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"/>' +
-    '<path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M10 12.5h4M12 10.5v4"/></svg>';
+  /* the Store's shopping bag with the four-pane Windows mark on it */
+  const STORE_ICON = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+    '<path d="M5.2 7.5h13.6l-1 11.1a2.2 2.2 0 0 1-2.2 2H8.4a2.2 2.2 0 0 1-2.2-2z" ' +
+    'stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>' +
+    '<path d="M9.1 7.5V5.9a2.9 2.9 0 0 1 5.8 0v1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
+    '<g fill="currentColor"><rect x="9.5" y="11.4" width="2.1" height="2.1" rx=".35"/>' +
+    '<rect x="12.4" y="11.4" width="2.1" height="2.1" rx=".35"/>' +
+    '<rect x="9.5" y="14.3" width="2.1" height="2.1" rx=".35"/>' +
+    '<rect x="12.4" y="14.3" width="2.1" height="2.1" rx=".35"/></g></svg>';
   const storeLink = (!a.w32 && !a.custom && a.pfn)
     ? '<a class="msstore" href="ms-windows-store://pdp/?PFN=' + esc(a.pfn) + '" title="' +
       esc(T('פתיחת הדף של האפליקציה בחנות מיקרוסופט')) + '">' + STORE_ICON +
-      '<span>' + T('בחנות מיקרוסופט') + '</span></a>'
+      '<span>' + T('בחנות') + '</span></a>'
     : '';
 
   ov.innerHTML = '<div class="sheet">' + storeLink + pl +
@@ -1352,6 +1429,8 @@ function openSheet(en) {
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       (a.noui ? T('אין לו ממשק — רכיב שעובד ברקע')
+              : (!a.w32 && !a.custom && a.heb)
+                ? T('✓ ממשק בעברית — האפליקציה עוקבת אחרי שפת Windows, ואין לה הורדה נפרדת לאנגלית')
               : a.heb ? T(a.hebScope === 'chrome'
                           ? '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם'
                           : '✓ ממשק בעברית — נפתחת בעברית במחשב עברי')
@@ -1370,7 +1449,19 @@ function openSheet(en) {
   const onEsc = e => { if (e.key === 'Escape') shut(); };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   document.addEventListener('keydown', onEsc);
-  ov.querySelector('#sp').onclick = () => { toggle(en); shut(); };
+  ov.querySelector('#sp').onclick = () => { toggle(en, 'main'); shut(); };
+  ov.querySelectorAll('[data-add]').forEach(b => {
+    b.onclick = () => {
+      toggle(en, b.dataset.add);
+      ov.querySelectorAll('[data-add]').forEach(x => {
+        const on = SELECTED.get(en) === x.dataset.add;
+        x.classList.toggle('on', on);
+        x.textContent = on ? '✓' : '+';
+      });
+      const sp = ov.querySelector('#sp');
+      if (sp) sp.textContent = SELECTED.has(en) ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה');
+    };
+  });
   // our own projects: the download link always resolves to the newest release,
   // so show which version that actually is right now
   if (a.repo) {

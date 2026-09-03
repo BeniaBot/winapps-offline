@@ -3017,12 +3017,17 @@
                      "w32":  true,
                      "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
                      "match":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
+                     "alt":  {
+                                 "label":  "עם Google Play",
+                                 "labelEn":  "with Google Play",
+                                 "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-GApps-13.0-NoAmazon.7z"
+                             },
                      "icon":  "icons/w32/wsa.svg",
                      "color":  "#3ddc84",
-                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. בלי חנות אפליקציות מובנית",
-                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. No app store bundled",
+                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",
+                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
-                     "cat":  "כלי טכנאי",
+                     "cat":  "תוכנות נפוצות",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
