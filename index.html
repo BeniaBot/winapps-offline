@@ -390,6 +390,27 @@
          display: inline-flex; align-items: center; justify-content: center; }
   .cpy:hover { background: var(--tile-h); color: var(--ink); }
   .cpy.done { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+  /* the store link sits in the sheet's corner, quiet until you look for it */
+  .sheet { position: relative; }
+  .msstore { position: absolute; inset-inline-end: 16px; top: 16px; z-index: 2;
+             display: inline-flex; align-items: center; gap: 6px;
+             padding: 6px 10px; border-radius: 99px; cursor: pointer; text-decoration: none;
+             background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
+             font-size: .74rem; font-weight: 600; }
+  .msstore:hover { background: var(--tile-h); color: var(--ink); }
+  .msstore svg { width: 14px; height: 14px; flex: none; }
+  .lang { flex: 0 0 auto; width: 46px; border-radius: 12px; cursor: pointer;
+          background: var(--tile); color: var(--muted); border: 1px solid var(--stroke);
+          display: inline-flex; align-items: center; justify-content: center; }
+  .lang:hover { background: var(--tile-h); color: var(--ink); }
+  .lang svg { width: 17px; height: 17px; }
+
+  .copied { position: fixed; z-index: 90; pointer-events: none;
+            background: var(--ok); color: #06210f; font-size: .78rem; font-weight: 600;
+            padding: 6px 12px; border-radius: 99px; white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(0,0,0,.4);
+            opacity: 0; transform: translateY(4px); transition: opacity .16s, transform .16s; }
+  .copied.show { opacity: 1; transform: translateY(0); }
   .cpy svg { width: 16px; height: 16px; }
 
   /* ===== dock ===== */
@@ -539,7 +560,7 @@ const W32_CATS = ['רכיבי מערכת', 'תוכנות נפוצות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
-  'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף SilentInstall.exe — מריצים אותו ליד הקבצים והכל מותקן בשקט.',
+  'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. אפשר להוריד כל אחת בנפרד מהשרת של היצרן, או לקחת קובץ אחד שכולל את כולן ומתקין הכל בלחיצה.',
   'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'כלים שפיתחתי בעצמי — תמיד בגרסה העדכנית ביותר מגיטהאב'
 };
@@ -595,6 +616,10 @@ const EN = {
   'התקנה שקטה': 'Silent switches',
   'העתקת קישור ישיר': 'Copy direct link',
   'הקישור:': 'The link:',
+  'הועתק קישור להורדה ישירה': 'Direct download link copied',
+  'הורדה בשפה אחרת': 'Download in another language',
+  'בחנות מיקרוסופט': 'In the Microsoft Store',
+  'פתיחת הדף של האפליקציה בחנות מיקרוסופט': 'Open this app\u2019s page in the Microsoft Store',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
   '✓ הסרה מהבחירה': '✓ Remove from selection',
@@ -630,11 +655,12 @@ const EN = {
   'English': 'English',
   'שליחת בקשה נוספת': 'Send another request',
   'שולח…': 'sending…',
-  'ספריות שתוכנות ומשחקים דורשים. הקבצים יורדים ישירות מהשרתים של היצרנים — ובבחירה מרובה מצורף SilentInstall.exe — מריצים אותו ליד הקבצים והכל מותקן בשקט.':
-    'The libraries programs and games ask for. The files come straight from the vendors\u2019 own servers \u2014 pick several and SilentInstall.exe rides along: run it next to the downloads and everything installs silently.',
+  'ספריות שתוכנות ומשחקים דורשים. אפשר להוריד כל אחת בנפרד מהשרת של היצרן, או לקחת קובץ אחד שכולל את כולן ומתקין הכל בלחיצה.':
+    'The libraries programs and games ask for. Take them one at a time from the vendor\u2019s own server, or take the single file that carries all of them and installs everything in one click.',
   'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.':
     'The programs every PC needs \u2014 full installers that work with no internet. Pick several and SilentInstall.exe comes along to install them all in one run.',
-  '⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה': '⬇ Everything in one click — every component, installed silently',
+  '⬇ הכל בקובץ אחד — כל הרכיבים, התקנה בלחיצה': '⬇ Everything in one file — every component, one click to install',
+  '⬇ הקובץ בהורדה — להריץ אותו, וזהו': '⬇ Downloading — just run it, that is all',
   'השליחה הישירה לא זמינה כרגע — אפשר לשלוח את אותה בקשה ': 'Direct sending is unavailable right now — you can send the same request ',
   'בדואר בלחיצה אחת': 'by email in one click',
   ', והכל כבר ממולא.': ', already filled in.',
@@ -958,8 +984,10 @@ function render() {
         '<small>רכיבים ותוכנות מהאתרים הרשמיים של היצרנים — מתקינים מלאים, מוכנים לאופליין</small></div>';
     }
     const note = CAT_NOTE[cat] ? '<div class="groupnote">' + CAT_NOTE[cat] + '</div>' : '';
-    const catAll = cat === 'רכיבי מערכת'
-      ? '<button class="chip catall" data-catall="' + cat + '">' + T('⬇ הכל בקליק אחד — כל הרכיבים + התקנה שקטה') + '</button>'
+    /* one compiled file with every component inside and the silent install already in it -
+       instead of thirty separate downloads the visitor then has to gather into a folder */
+    const catAll = (cat === 'רכיבי מערכת' && LIVE['System-Components-All.exe'])
+      ? '<button class="chip catall" data-catall="' + cat + '">' + T('⬇ הכל בקובץ אחד — כל הרכיבים, התקנה בלחיצה') + '</button>'
       : '';
     const catPick = '<button class="chip catpick" data-catpick="' + cat + '">לסמן הכל</button>';
     html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + catPick + '</div>' +
@@ -998,14 +1026,9 @@ document.addEventListener('click', e => {
   const all = e.target.closest('[data-catall]');
   if (all) {
     if (all.disabled) return;
-    all.disabled = true;   // a double-click must not fire the whole cascade twice
-    // the whole section in one click: every file, then the script that installs them silently
-    const members = DATA.apps.filter(x => x.w32 && x.cat === all.dataset.catall);
-    members.forEach((x, i) => setTimeout(() => download(x.files[0].exe), i * 700));
-    if (members.some(x => x.silent)) setTimeout(downloadRunner, members.length * 700 + 500);
-    all.textContent = LANG === 'he'
-      ? '⬇ ' + members.length + ' קבצים בהורדה + SilentInstall.exe — לשים הכל בתיקייה אחת ולהריץ אותו'
-      : '⬇ ' + members.length + ' files downloading + SilentInstall.exe — put them all in one folder and run it';
+    all.disabled = true;   // a double-click must not fire it twice
+    download('System-Components-All.exe');
+    all.textContent = T('⬇ הקובץ בהורדה — להריץ אותו, וזהו');
     return;
   }
   const chip = e.target.closest('.chip');
@@ -1136,6 +1159,34 @@ function linkFor(a, exe) {
   return owner ? urlFor(owner) : REL + encodeURIComponent(exe);
 }
 
+/* the little "copied" label, floated beside the icon that was clicked */
+function copiedToast(el) {
+  const old = document.querySelector('.copied');
+  if (old) old.remove();
+  const tip = document.createElement('div');
+  tip.className = 'copied';
+  tip.textContent = T('הועתק קישור להורדה ישירה');
+  document.body.appendChild(tip);
+  const r = el.getBoundingClientRect();
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  const vw = innerWidth || document.documentElement.clientWidth || 0;
+  // centred above the icon, nudged back inside the window if it would hang off an edge.
+  // A viewport of 0 means the view is not painted yet - place it and skip the clamp, since
+  // clamping against 0 would fling the label into the corner.
+  let left = r.left + r.width / 2 - w / 2;
+  if (vw > w + 16) left = Math.max(8, Math.min(left, vw - w - 8));
+  let top = r.top - h - 10;
+  if (top < 8) top = r.bottom + 10;
+  tip.style.left = left + 'px';
+  tip.style.top = top + 'px';
+  void tip.offsetHeight;          // commit the start state, then transition to visible
+  tip.classList.add('show');
+  setTimeout(() => {
+    tip.classList.remove('show');
+    setTimeout(() => tip.remove(), 220);
+  }, 1500);
+}
+
 function download(exe) {
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
@@ -1239,14 +1290,28 @@ function openSheet(en) {
     ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
       (a.repo ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono" id="livever">בודק…</span></div>' : '') +
       (a.silent && a.silent !== 'SPECIAL_DIRECTX'
-        ? '<div class="row"><span>התקנה שקטה</span><span dir="ltr" class="mono">' + esc(a.silent.replace('MSI:', 'msiexec /i ‹file› ')) + '</span></div>' : '')
+        ? '' : '')
     : files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
   const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
     'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/>' +
     '<path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
-  const dlRow = (inner, url) => '<div class="dlrow">' + inner +
+  /* the vendor publishes this app in another language: offer it as an icon rather than a
+     second full-width button that says almost the same thing as the first */
+  const LANG_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+    'stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/>' +
+    '<path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>';
+  const otherLang = (a.alt && a.altEn)
+    ? (LANG === 'en' ? { url: a.url, name: 'עברית' } : { url: a.altEn.url, name: 'English' })
+    : null;
+  const langBtn = otherLang
+    ? '<a class="lang" href="' + esc(otherLang.url) + '" title="' +
+      esc(T('הורדה בשפה אחרת') + ' — ' + otherLang.name) + '" aria-label="' +
+      esc(T('הורדה בשפה אחרת') + ' — ' + otherLang.name) + '">' + LANG_ICON + '</a>'
+    : '';
+
+  const dlRow = (inner, url, withLang) => '<div class="dlrow">' + (withLang ? langBtn : '') + inner +
     (url ? '<button class="cpy" data-url="' + esc(url) + '" title="' + esc(T('העתקת קישור ישיר')) + '" aria-label="' + esc(T('העתקת קישור ישיר')) + '">' + COPY_ICON + '</button>' : '') +
     '</div>';
 
@@ -1255,9 +1320,9 @@ function openSheet(en) {
       ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
       : T('הורדה') + ' · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
-    return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>', linkFor(a, f.exe));
+    return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>', linkFor(a, f.exe), true);
   }).join('');
-  if (a.alt) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
+  if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
     esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) + '</a>', a.alt.url);
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
@@ -1269,7 +1334,17 @@ function openSheet(en) {
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
-  ov.innerHTML = '<div class="sheet">' + pl +
+  /* Microsoft's own page for the same app - only for the ones that really have one */
+  const STORE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+    'stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"/>' +
+    '<path d="M9 8V6a3 3 0 0 1 6 0v2"/><path d="M10 12.5h4M12 10.5v4"/></svg>';
+  const storeLink = (!a.w32 && !a.custom && a.pfn)
+    ? '<a class="msstore" href="ms-windows-store://pdp/?PFN=' + esc(a.pfn) + '" title="' +
+      esc(T('פתיחת הדף של האפליקציה בחנות מיקרוסופט')) + '">' + STORE_ICON +
+      '<span>' + T('בחנות מיקרוסופט') + '</span></a>'
+    : '';
+
+  ov.innerHTML = '<div class="sheet">' + storeLink + pl +
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
@@ -1308,7 +1383,7 @@ function openSheet(en) {
   ov.querySelectorAll('.cpy').forEach(b => {
     b.onclick = () => {
       navigator.clipboard.writeText(b.dataset.url)
-        .then(() => { b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1600); })
+        .then(() => { b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1800); copiedToast(b); })
         .catch(() => { prompt(T('הקישור:'), b.dataset.url); });
     };
   });
