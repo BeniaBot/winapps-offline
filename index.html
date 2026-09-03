@@ -90,6 +90,27 @@
   html[dir="ltr"] input:placeholder-shown,
   html[dir="ltr"] textarea:placeholder-shown { direction: ltr; }
 
+/* ===== maintenance panel (owner only) ===== */
+  #adm { display: none; margin: 28px 0 0; padding: 20px 22px; border-radius: 16px;
+         background: linear-gradient(180deg, rgba(255,196,107,.07), transparent 70%);
+         border: 1px solid color-mix(in srgb, var(--warn) 32%, transparent); }
+  #adm.on { display: block; }
+  #adm h3 { margin: 0 0 4px; font-size: 1rem; color: var(--warn); }
+  #adm .sub { color: var(--muted); font-size: .82rem; margin-bottom: 14px; }
+  #adm .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  #adm .card { background: var(--tile); border: 1px solid var(--stroke); border-radius: 12px; padding: 12px 14px; }
+  #adm .card b { display: block; font-size: 1.35rem; line-height: 1.2; }
+  #adm .card span { color: var(--muted); font-size: .76rem; }
+  #adm .card.warn b { color: var(--warn); }
+  #adm .card.ok b { color: var(--ok); }
+  #adm .cmd { display: flex; gap: 10px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+  #adm code { flex: 1 1 320px; min-width: 0; background: #0b1220; border: 1px solid var(--stroke);
+              border-radius: 10px; padding: 10px 12px; font-family: "IBM Plex Mono", monospace;
+              font-size: .78rem; color: var(--ink); overflow-x: auto; white-space: nowrap; direction: ltr; text-align: left; }
+  #adm .lbl { color: var(--muted); font-size: .8rem; margin: 14px 0 2px; font-weight: 600; }
+  #adm ul { margin: 6px 0 0; padding-inline-start: 18px; color: var(--muted); font-size: .82rem; }
+  #adm li { margin: 2px 0; }
+
   .mono { font-family: "IBM Plex Mono", monospace; font-size: .8em; }
   .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
   button { font: inherit; }
@@ -423,6 +444,29 @@
     <div class="btns" id="iso-btns"></div>
   </div>
 
+
+  <section id="adm" class="wrap">
+    <h3>תחזוקה</h3>
+    <div class="sub">גלוי רק לך. האתר עצמו סטטי ולא יכול לבנות — מה שהוא כן יודע זה להגיד לך מה מיושן, ולתת לך את הפקודה.</div>
+    <div class="grid" id="adm-cards"></div>
+    <div class="lbl">עדכון הכל — בדיקה, גיבוי, בנייה, העלאה ודחיפה</div>
+    <div class="cmd">
+      <code id="adm-cmd">powershell -File D:\Claude\windows-apps-offline\build\update-all.ps1</code>
+      <button class="btn ghost" data-copy="adm-cmd">העתקה</button>
+    </div>
+    <div class="lbl">רק לבדוק מה התחדש, בלי לשנות כלום</div>
+    <div class="cmd">
+      <code id="adm-cmd2">powershell -File D:\Claude\windows-apps-offline\build\update-all.ps1 -Check</code>
+      <button class="btn ghost" data-copy="adm-cmd2">העתקה</button>
+    </div>
+    <div class="lbl">משהו יצא רע — לחזור לגיבוי האחרון</div>
+    <div class="cmd">
+      <code id="adm-cmd3">powershell -File D:\Claude\windows-apps-offline\build\update-all.ps1 -Rollback last</code>
+      <button class="btn ghost" data-copy="adm-cmd3">העתקה</button>
+    </div>
+    <div id="adm-notes"></div>
+  </section>
+
   <section class="ask">
     <h3>חסרה לכם אפליקציה? רוצים אותה בעברית?</h3>
     <p>כתבו מה חסר — אפליקציה שאינה בחנות, או אפליקציה קיימת שתשמח אתכם בעברית. הבקשה נשלחת ישירות אליי.</p>
@@ -459,7 +503,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בנימין</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <span id="updated"></span></div>
+    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <span id="updated"></span></div>
   </div>
 </footer>
 
@@ -591,7 +635,7 @@ const EN = {
   'לחיצה אחת ונשלח. לא צריך תוכנת דואר ולא צריך להירשם.': 'One click and it is sent. No mail client, no sign-up.',
   'תודה! הבקשה הגיעה. אשמח לעדכן כשזה ייכנס לחנות.': 'Thank you! It arrived. I will let you know when it lands in the store.',
   'נבנה ומתוחזק בידי': 'Built and maintained by',
-  'בנימין': 'Benjamin',
+  'בני הבוט': 'BeniaBot',
   'יצירת קשר': 'Contact',
   'קוד המקור': 'Source code',
   'הקטלוג עודכן': 'Catalog updated',
@@ -1244,6 +1288,72 @@ function openSheet(en) {
   };
 }
 
+/* ===== maintenance panel =====
+   Unlocked with ?admin=<key>, remembered afterwards. The key is never in the page - only
+   the SHA-256 of it - and the panel shows nothing that is not already public, so this is
+   about keeping the page clean for visitors, not about secrecy. */
+const ADM_HASH = '8f3245af87a044a8c4fd31a7de8e35edd3cd107c694a69353e7bc84b152f5392';
+async function adminInit() {
+  const url = new URL(location.href);
+  const given = url.searchParams.get('admin');
+  let ok = false;
+  try { ok = localStorage.getItem('adm') === ADM_HASH; } catch (e) { }
+  if (given !== null) {
+    if (given === '') { try { localStorage.removeItem('adm'); } catch (e) { } ok = false; }
+    else {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(given));
+      const hex = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+      if (hex === ADM_HASH) { ok = true; try { localStorage.setItem('adm', ADM_HASH); } catch (e) { } }
+    }
+    url.searchParams.delete('admin');
+    history.replaceState(null, '', url.toString());
+  }
+  if (!ok) return;
+  const box = document.getElementById('adm');
+  box.classList.add('on');
+
+  const apps = (DATA && DATA.apps) || [];
+  const wanted = new Set();
+  apps.forEach(a => (a.files || []).forEach(f => { if (!a.url) wanted.add(f.exe); }));
+  const unpublished = [...wanted].filter(n => !LIVE[n]);
+  const xlat = apps.filter(a => a.xlat).length;
+  const noHeb = apps.filter(a => !a.heb && !a.noui).length;
+
+  const card = (v, label, cls) =>
+    '<div class="card ' + (cls || '') + '"><b>' + v + '</b><span>' + label + '</span></div>';
+  document.getElementById('adm-cards').innerHTML =
+    card(apps.length, 'אפליקציות בקטלוג') +
+    card(Object.keys(LIVE).length, 'קבצים מפורסמים') +
+    card(unpublished.length, 'נבנו אך לא פורסמו', unpublished.length ? 'warn' : 'ok') +
+    card(apps.filter(a => a.heb).length, 'עם ממשק בעברית') +
+    card(xlat, 'עם גרסה מתורגמת') +
+    card(noHeb, 'בלי עברית', noHeb ? 'warn' : 'ok');
+
+  let notes = '';
+  if (unpublished.length) {
+    notes += '<div class="lbl">נבנו ולא פורסמו (' + unpublished.length + ')</div><ul>' +
+      unpublished.slice(0, 25).map(n => '<li>' + esc(n) + '</li>').join('') +
+      (unpublished.length > 25 ? '<li>ועוד ' + (unpublished.length - 25) + '…</li>' : '') + '</ul>';
+  }
+  const isoAge = ['WINAPPS-W10-CORE.iso', 'WINAPPS-W11-CORE.iso'].filter(n => !LIVE[n]);
+  if (isoAge.length) {
+    notes += '<div class="lbl">דיסקים שאינם מפורסמים</div><ul>' +
+      isoAge.map(n => '<li>' + esc(n) + '</li>').join('') + '</ul>';
+  }
+  notes += '<div class="lbl">להסתיר את הפאנל</div><ul><li>הוסיפו <code style="all:unset;font-family:monospace">?admin=</code> לכתובת</li></ul>';
+  document.getElementById('adm-notes').innerHTML = notes;
+
+  box.querySelectorAll('[data-copy]').forEach(b => {
+    b.onclick = () => {
+      const el = document.getElementById(b.dataset.copy);
+      navigator.clipboard.writeText(el.textContent).then(() => {
+        const was = b.textContent; b.textContent = '✓ הועתק';
+        setTimeout(() => { b.textContent = was; }, 1600);
+      }).catch(() => { });
+    };
+  });
+}
+
 /* ===== theme, search ===== */
 const langBtn = document.getElementById('lang-btn');
 langBtn.onclick = () => {
@@ -1312,6 +1422,7 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
 }).then(pub => {
   (pub || []).forEach(n => LIVE[n] = true);
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
+  adminInit().catch(err => console.error('admin:', err));
 }).catch(err => {
   console.error('boot:', err);
   if (DATA) return;   // the catalog is already painted - do not wipe it
