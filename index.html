@@ -702,8 +702,8 @@ const EN = {
   'פתיחת הדף של האפליקציה בחנות מיקרוסופט': 'Open this app\u2019s page in the Microsoft Store',
   '✓ הקישור הועתק': '✓ Link copied',
   'הוספה לבחירה מרובה': 'Add to selection',
-  'הוספת הגרסה הזאת לבחירה מרובה': 'Add this version to the selection',
-  'הוספת הגרסה הראשית לבחירה מרובה': 'Add the main version to the selection',
+  'נוסף לבחירה מרובה': 'Added to the selection',
+  'הוסר מהבחירה': 'Removed from the selection',
   '✓ הסרה מהבחירה': '✓ Remove from selection',
   'סגירה': 'Close',
   'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט': 'Full file from the official source — works offline',
@@ -1083,6 +1083,21 @@ function render() {
   const box = document.getElementById('cats');
   let html = '', shown = 0, total = 0;
   const groups = CAT_ORDER.concat(W32_CATS, ['בפיתוח שלי']);
+  /* Catalog order puts every store app before every vendor program, so a pair that belongs
+     together - the Linux subsystem and the Android one - ends up at opposite ends of its
+     category. An entry can name the app it belongs beside, and gets moved there. */
+  function order(list) {
+    const out = list.slice();
+    for (let i = out.length - 1; i >= 0; i--) {
+      const near = out[i].near;
+      if (!near) continue;
+      const at = out.findIndex(x => x.en === near);
+      if (at < 0 || at === i) continue;      // its anchor is in another category - leave it
+      const moved = out.splice(i, 1)[0];
+      out.splice(at < i ? at + 1 : at, 0, moved);
+    }
+    return out;
+  }
   /* Which app each group claims. Kept in one place so the "did anything fall through"
      check below asks exactly the same question the rendering does. */
   const claims = (cat, a) =>
@@ -1098,9 +1113,9 @@ function render() {
   const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
   let seamDone = false;
   groups.forEach(cat => {
-    const members = DATA.apps.filter(a => claims(cat, a))
+    const members = order(DATA.apps.filter(a => claims(cat, a))
       // the strays ride along in the last vendor group rather than disappearing
-      .concat(cat === 'תוכנות נפוצות' ? orphans : []);
+      .concat(cat === 'תוכנות נפוצות' ? orphans : []));
     if (!members.length) return;
     chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
     total += members.filter(a => bestFile(a)).length;
@@ -1290,12 +1305,15 @@ function linkFor(a, exe) {
 }
 
 /* the little "copied" label, floated beside the icon that was clicked */
-function copiedToast(el) {
+/* A short label above the control that was just clicked. Started life as the copy-link
+   confirmation; the "+" borrows it, because a control that does something invisible has to
+   say so somewhere the eye already is. */
+function copiedToast(el, msg) {
   const old = document.querySelector('.copied');
   if (old) old.remove();
   const tip = document.createElement('div');
   tip.className = 'copied';
-  tip.textContent = T('הועתק קישור להורדה ישירה');
+  tip.textContent = msg || T('הועתק קישור להורדה ישירה');
   document.body.appendChild(tip);
   const r = el.getBoundingClientRect();
   const w = tip.offsetWidth, h = tip.offsetHeight;
@@ -1441,12 +1459,12 @@ function openSheet(en) {
     : null;
   const langBtn = '';
 
-  /* Rendered next to every download, then dropped below if it turns out there was only
-     one - see the cleanup after the sheet is built. Its label says "this version" because
-     that is the whole difference between it and the wide button underneath. */
+  /* One "+" per download row, always - it is the only control that adds to the selection.
+     On an app with several downloads it also answers WHICH, which is why it lives on the row
+     rather than under the sheet. */
   const addBtn = (kind) => '<button class="addsel' + (SELECTED.get(en) === kind ? ' on' : '') +
-    '" data-add="' + kind + '" title="' + esc(T('הוספת הגרסה הזאת לבחירה מרובה')) + '" aria-label="' +
-    esc(T('הוספת הגרסה הזאת לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
+    '" data-add="' + kind + '" title="' + esc(T('הוספה לבחירה מרובה')) + '" aria-label="' +
+    esc(T('הוספה לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
 
   const dlRow = (inner, url, withLang, kind) => '<div class="dlrow">' +
     (kind ? addBtn(kind) : '') + (withLang ? langBtn : '') + inner +
@@ -1525,19 +1543,7 @@ function openSheet(en) {
                        : T('ממשק באנגלית בלבד')) + '</div>' +
     '<div class="qbody" id="qb"></div>' +
     '<div class="rows">' + rows + '</div>' +
-    '<div class="acts">' + btns +
-    '<button class="btn lite" id="sp">' + (on ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה')) + '</button>' +
-    '</div></div>';
-  /* One download means the "+" and the wide button below are the same click with two
-     different looks. Keep the wide one - it says what it does in words. When there ARE
-     several downloads the "+" is the only way to say WHICH, so it stays, and the wide
-     button says out loud that it takes the main one. */
-  const adds = ov.querySelectorAll('.addsel');
-  if (adds.length < 2) adds.forEach(b => b.remove());
-  else {
-    const sp = ov.querySelector('#sp');
-    if (sp && !on) sp.textContent = T('הוספת הגרסה הראשית לבחירה מרובה');
-  }
+    '<div class="acts">' + btns + '</div></div>';
 
   document.body.appendChild(ov);
   translateDom(ov);
@@ -1568,17 +1574,18 @@ function openSheet(en) {
       });
     }
   };
-  ov.querySelector('#sp').onclick = () => { toggle(en, 'main'); shut(); };
   ov.querySelectorAll('[data-add]').forEach(b => {
     b.onclick = () => {
       toggle(en, b.dataset.add);
+      const added = SELECTED.get(en) === b.dataset.add;
       ov.querySelectorAll('[data-add]').forEach(x => {
         const on = SELECTED.get(en) === x.dataset.add;
         x.classList.toggle('on', on);
         x.textContent = on ? '✓' : '+';
       });
-      const sp = ov.querySelector('#sp');
-      if (sp) sp.textContent = SELECTED.has(en) ? T('✓ הסרה מהבחירה') : T('הוספה לבחירה מרובה');
+      /* the selection bar it feeds lives at the bottom of the page, behind this sheet, so
+         without a word here the click looks like it did nothing */
+      copiedToast(b, added ? T('נוסף לבחירה מרובה') : T('הוסר מהבחירה'));
     };
   });
   // our own projects: the download link always resolves to the newest release,

@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-03",
+    "updated":  "2026-09-04",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -5889,6 +5889,7 @@
                      "enName":  "Windows Subsystem for Android",
                      "icon":  "icons/w32/wsa.svg",
                      "heb":  true,
+                     "near":  "WSL",
                      "alt":  {
                                  "label":  "עם Google Play",
                                  "labelEn":  "with Google Play",

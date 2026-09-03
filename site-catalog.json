@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-03",
+    "updated":  "2026-09-04",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -3033,6 +3033,7 @@
                      "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
                      "cat":  "כלי טכנאי",
+                     "near":  "WSL",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
