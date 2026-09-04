@@ -846,6 +846,9 @@ const EN = {
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
   '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
+  '✓ ממשק בעברית בלבד — אין לה אנגלית': '✓ Hebrew interface only — it has no English',
+  'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.':
+    'The installer comes from the vendor, unmodified, with its own official language file already inside. This build only runs it silently and picks Hebrew in advance - so the program opens in Hebrew even on a machine that is not.',
   '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן': '★ Can be downloaded with the vendor’s own official language pack',
   'ממשק באנגלית בלבד': 'English interface only',
   'אין לו ממשק — רכיב שעובד ברקע': 'No interface of its own — a component that works in the background',
@@ -1588,6 +1591,9 @@ function langClaim(a) {
       case 'in-app-picker':        return T('✓ ממשק בעברית — ואותו קובץ כולל גם אנגלית, לבחירה בתוך התוכנה');
       case 'chosen-at-install':    return T('✓ ממשק בעברית — ההתקנה עצמה שואלת באיזו שפה');
       case 'per-language-download':return T('✓ ממשק בעברית — לאנגלית יש קובץ הורדה נפרד, כאן למטה');
+      /* written here, in Hebrew, and English was simply never added. The default below would
+         promise an English install that does not exist. */
+      case 'hebrew-only':          return T('✓ ממשק בעברית בלבד — אין לה אנגלית');
       /* a store app has always followed the Windows language; it turns out most of the
          vendor programs do too, so both share the sentence now */
       default:                     return T('✓ ממשק בעברית — עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית');
@@ -1886,13 +1892,15 @@ function openSheet(en) {
     dlRow('<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
       esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>',
       a.xlat.url || (REL + encodeURIComponent(a.xlat.exe)), false, 'xlat') +
-    /* two different things wear the same orange button: a translation made here, and a vendor's
-       own official language pack that simply ships separately from its installer. Only the first
-       one ever opened a package, so only the first one carries that warning. The catalog says
-       which is which in xlat.source, and carries the right sentence per app. */
-    '<div class="warn" style="margin:2px 0 4px">' + (a.xlat.source === 'official'
-      ? ((LANG === 'en' && a.xlat.noteEn ? a.xlat.noteEn : a.xlat.note) || '')
-      : T('התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.')) + '</div>';
+    /* two different things wear the same orange button. One is a translation made here, which
+       really did open the package. The other is the vendor's own installer with its own official
+       language file already inside it - there nothing was translated and nothing was opened; the
+       build only runs it silently and picks Hebrew, so it comes up Hebrew on an English machine
+       too. Said in the page rather than read from xlat.note, because both sentences describe the
+       one mechanism in mkxlat.ps1, not a fact that varies per app. */
+    '<div class="warn" style="margin:2px 0 4px">' + T(a.xlat.source === 'official'
+      ? 'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.'
+      : 'התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') + '</div>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
