@@ -2863,13 +2863,13 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Basic.exe",
-                     "match":  "K-Lite_Codec_Pack_*_Basic.exe",
+                     "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Standard.exe",
+                     "match":  "K-Lite_Codec_Pack_*_Standard.exe",
                      "silent":  "/verysilent /norestart",
                      "icon":  "icons/w32/klite.svg",
                      "color":  "#1d5fa0",
-                     "desc":  "חבילת הקודקים המלאה — כל וידאו ואודיו ייפתחו בכל נגן",
-                     "descEn":  "The complete codec pack — any video or audio will open in any player",
+                     "desc":  "קודקים שפותחים כל וידאו ואודיו בכל נגן במחשב, ונגן MPC-HC בתוספת",
+                     "descEn":  "Codecs that let any video or audio open in any player on the machine, plus the MPC-HC player",
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
@@ -2877,8 +2877,8 @@
                      "detect":  "K-Lite",
                      "files":  [
                                    {
-                                       "exe":  "K-Lite_Codec_Pack_*_Basic.exe",
-                                       "mb":  22,
+                                       "exe":  "K-Lite_Codec_Pack_*_Standard.exe",
+                                       "mb":  40,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2944,7 +2944,7 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://download.ccleaner.com/spsetup132.exe",
+                     "url":  "https://download.ccleaner.com/spsetup134.exe",
                      "match":  "spsetup*.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32/speccy.svg",
@@ -3167,6 +3167,7 @@
                      "cat":  "כלי טכנאי",
                      "near":  "WSL",
                      "langMode":  "follows-windows",
+                     "origin":  "community",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",

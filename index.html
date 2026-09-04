@@ -619,7 +619,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <button class="donate" id="donate-btn">תרומה</button> · <span id="updated"></span></div>
+    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <button class="donate" id="donate-btn">לתרומה לפרוייקט</button> · <span id="updated"></span></div>
   </div>
 </footer>
 
@@ -723,7 +723,7 @@ const EN = {
   'האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This site is not connected to Microsoft and is not supported by it.',
   'סגירה': 'Close',
   'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
-  'תרומה': 'Donate',
+  'לתרומה לפרוייקט': 'Contribute to the project',
   'תודה — ובאמת אין צורך': 'Thank you — and there is really no need',
   'אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.':
     'If you came here to donate, thank you. That is kind, and it means the site helped you with something. But there is nothing here to donate to.',
@@ -801,7 +801,8 @@ const EN = {
   'הוסר מהבחירה': 'Removed from the selection',
   '✓ הסרה מהבחירה': '✓ Remove from selection',
   'סגירה': 'Close',
-  'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט': 'Full file from the official source — works offline',
+  'קובץ מלא מהאתר של היצרן — עובד בלי אינטרנט': 'A complete file from the maker's own site — works offline',
+  'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט': 'A complete file from the project that maintains it — works offline',
   'התוכן שלה באינטרנט — למחשב שיחובר בהמשך': 'Its content lives online — for a PC that will connect later',
   'עובדת לגמרי בלי אינטרנט': 'Works entirely offline',
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
@@ -1759,7 +1760,9 @@ function openSheet(en) {
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
-    '<div class="net">' + (a.url ? 'קובץ מלא מהמקור הרשמי — עובד בלי אינטרנט'
+    '<div class="net">' + (a.url ? T(a.origin === 'community'
+                            ? 'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט'
+                            : 'קובץ מלא מהאתר של היצרן — עובד בלי אינטרנט')
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       langClaim(a) + '</div>' +

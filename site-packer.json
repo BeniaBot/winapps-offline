@@ -5716,20 +5716,20 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תוכנות נפוצות",
-                     "desc":  "חבילת הקודקים המלאה — כל וידאו ואודיו ייפתחו בכל נגן",
+                     "desc":  "קודקים שפותחים כל וידאו ואודיו בכל נגן במחשב, ונגן MPC-HC בתוספת",
                      "color":  "#1d5fa0",
-                     "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Basic.exe",
-                     "match":  "K-Lite_Codec_Pack_*_Basic.exe",
+                     "url":  "https://files3.codecguide.com/K-Lite_Codec_Pack_1995_Standard.exe",
+                     "match":  "K-Lite_Codec_Pack_*_Standard.exe",
                      "files":  [
                                    {
-                                       "exe":  "K-Lite_Codec_Pack_*_Basic.exe",
-                                       "mb":  22,
+                                       "exe":  "K-Lite_Codec_Pack_*_Standard.exe",
+                                       "mb":  40,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "The complete codec pack — any video or audio will open in any player",
+                     "descEn":  "Codecs that let any video or audio open in any player on the machine, plus the MPC-HC player",
                      "icon":  "icons/w32/klite.svg",
                      "heb":  true,
                      "langMode":  "in-app-picker",
@@ -5799,7 +5799,7 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "כל פרטי החומרה של המחשב במסך אחד",
                      "color":  "#33691e",
-                     "url":  "https://download.ccleaner.com/spsetup132.exe",
+                     "url":  "https://download.ccleaner.com/spsetup134.exe",
                      "match":  "spsetup*.exe",
                      "files":  [
                                    {
@@ -6023,6 +6023,7 @@
                      "near":  "WSL",
                      "langMode":  "follows-windows",
                      "repo":  "MustardChef/WSABuilds",
+                     "origin":  "community",
                      "alt":  {
                                  "label":  "עם Google Play",
                                  "labelEn":  "with Google Play",
