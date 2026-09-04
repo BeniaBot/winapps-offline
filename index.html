@@ -642,10 +642,11 @@
 const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/';
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
-const W32_CATS = ['רכיבי מערכת', 'תוכנות נפוצות'];
+const W32_CATS = ['עדכוני אבטחה', 'רכיבי מערכת', 'תוכנות נפוצות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
+  'עדכוני אבטחה': 'ההגנה המובנית של Windows מתעדכנת דרך האינטרנט. במחשב מנותק היא נשארת עם מה שהיה ביום ההתקנה — אלה שני הקבצים שמעדכנים אותה ביד. הסדר חשוב: קודם הפלטפורמה, אחר כך החתימות.',
   'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. אפשר להוריד כל אחת בנפרד מהשרת של היצרן, או לקחת קובץ אחד שכולל את כולן ומתקין הכל בלחיצה.',
   'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'כלים שפיתחתי בעצמי — תמיד בגרסה העדכנית ביותר מגיטהאב'
@@ -871,6 +872,9 @@ const EN = {
   'כלי טכנאי': 'Technician tools',
   'חשבון ומערכת': 'Account & system',
   'נוספות': 'Other',
+  'עדכוני אבטחה': 'Security updates',
+  'ההגנה המובנית של Windows מתעדכנת דרך האינטרנט. במחשב מנותק היא נשארת עם מה שהיה ביום ההתקנה — אלה שני הקבצים שמעדכנים אותה ביד. הסדר חשוב: קודם הפלטפורמה, אחר כך החתימות.':
+    'The built-in Windows protection updates itself over the internet. On a disconnected machine it stays as it was the day Windows was installed - these two files bring it up to date by hand. The order matters: the platform first, then the signatures.',
   'רכיבי מערכת': 'System components',
   'תוכנות נפוצות': 'Common software',
   'בפיתוח שלי': 'Built by me',

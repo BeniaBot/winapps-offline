@@ -3164,6 +3164,8 @@
                      "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",
                      "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
+                     "noteEn":  "A 7z archive, not an installer. Extract it and run the Run.bat inside. Needs Windows 11 with virtualisation enabled. A community build - not Microsoft’s. The plain edition ships with no app store; the second one includes Google Play (712MB)",
+                     "note":  "ארכיון 7z, לא מתקין. לפרוק ולהריץ את Run.bat שבפנים. דורש Windows 11 ווירטואליזציה מופעלת. בנייה קהילתית — לא של מיקרוסופט. המהדורה הרגילה מגיעה בלי חנות אפליקציות; המהדורה השנייה כוללת את Google Play (712MB)",
                      "cat":  "כלי טכנאי",
                      "near":  "WSL",
                      "langMode":  "follows-windows",
@@ -3172,6 +3174,72 @@
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
                                        "mb":  528,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "עדכון הפלטפורמה של Defender",
+                     "en":  "DefenderPlatform",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://go.microsoft.com/fwlink/?LinkID=870379\u0026arch=x64",
+                     "match":  "updateplatform*.exe",
+                     "silent":  "RUN:",
+                     "alt":  {
+                                 "label":  "למחשב 32 סיביות",
+                                 "labelEn":  "for a 32-bit machine",
+                                 "url":  "https://go.microsoft.com/fwlink/?LinkID=870379\u0026arch=x86",
+                                 "mb":  15
+                             },
+                     "icon":  "icons/w32png/DefenderPlatform.png",
+                     "color":  "#0f7bc4",
+                     "desc":  "המנוע של ההגנה המובנית של Windows. מתקינים אותו ראשון — לפני קובץ החתימות",
+                     "descEn":  "The engine of the built-in Windows protection. Install this one FIRST, before the signatures",
+                     "enName":  "Microsoft Defender platform update",
+                     "noui":  true,
+                     "noteEn":  "Install this first, before the signatures file. The link always gives the current version from Microsoft’s own servers.",
+                     "note":  "להתקין ראשון, לפני קובץ החתימות. הקישור נותן תמיד את הגרסה העדכנית ביותר מהשרתים של מיקרוסופט.",
+                     "cat":  "עדכוני אבטחה",
+                     "files":  [
+                                   {
+                                       "exe":  "updateplatform*.exe",
+                                       "mb":  39,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "חתימות הזיהוי של Defender",
+                     "en":  "DefenderSignatures",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://go.microsoft.com/fwlink/?LinkID=121721\u0026arch=x64",
+                     "match":  "mpam-fe*.exe",
+                     "silent":  "RUN:",
+                     "alt":  {
+                                 "label":  "למחשב 32 סיביות",
+                                 "labelEn":  "for a 32-bit machine",
+                                 "url":  "https://go.microsoft.com/fwlink/?LinkID=121721\u0026arch=x86",
+                                 "mb":  211
+                             },
+                     "icon":  "icons/w32png/DefenderSignatures.png",
+                     "color":  "#107c41",
+                     "desc":  "רשימת האיומים שההגנה של Windows מזהה. מתקינים אחרי עדכון הפלטפורמה",
+                     "descEn":  "The list of threats the Windows protection recognises. Install after the platform update",
+                     "enName":  "Microsoft Defender security intelligence",
+                     "noui":  true,
+                     "noteEn":  "Microsoft publishes new signatures several times a day, so a downloaded copy is stale within days - fetch it again before each round of installs. Note too that protection on a disconnected machine is weaker by nature: there is no real-time lookup against Microsoft’s servers. This raises the floor, no more than that.",
+                     "note":  "מיקרוסופט מפרסמת חתימות חדשות כמה פעמים ביום, ולכן קובץ שהורדתם מתיישן תוך ימים — כדאי להוריד מחדש לפני כל סבב התקנות. שימו לב גם שבמחשב מנותק ההגנה חלשה יותר מטבעה: אין בדיקה מול השרתים של מיקרוסופט בזמן אמת. זה מרים את הרצפה, לא יותר.",
+                     "cat":  "עדכוני אבטחה",
+                     "files":  [
+                                   {
+                                       "exe":  "mpam-fe*.exe",
+                                       "mb":  212,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
