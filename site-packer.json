@@ -4526,7 +4526,7 @@
                                ],
                      "descEn":  "The runtime libraries almost every modern program needs. Always install",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VCRedist64.png",
                      "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4551,7 +4551,7 @@
                                ],
                      "descEn":  "The 32-bit build — older programs need exactly this one",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VCRedist86.png",
                      "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4576,7 +4576,7 @@
                                ],
                      "descEn":  "Programs and games from the 2013-2015 era need it",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2013x64.png",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4601,7 +4601,7 @@
                                ],
                      "descEn":  "32-bit build of the 2013 libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2013x86.png",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4626,7 +4626,7 @@
                                ],
                      "descEn":  "The 2012 generation of libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2012x64.png",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4651,7 +4651,7 @@
                                ],
                      "descEn":  "32-bit build of the 2012 libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2012x86.png",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4676,7 +4676,7 @@
                                ],
                      "descEn":  "The 2010 generation of libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2010x64.png",
                      "detect":  "Microsoft Visual C++ 2010|x64",
                      "silent":  "/q /norestart"
                  },
@@ -4701,7 +4701,7 @@
                                ],
                      "descEn":  "32-bit build of the 2010 libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2010x86.png",
                      "detect":  "Microsoft Visual C++ 2010|x86",
                      "silent":  "/q /norestart"
                  },
@@ -4726,7 +4726,7 @@
                                ],
                      "descEn":  "The 2008 generation — older games and programs",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2008x64.png",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x64",
                      "silent":  "/q"
                  },
@@ -4751,7 +4751,7 @@
                                ],
                      "descEn":  "32-bit build of the 2008 libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2008x86.png",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x86",
                      "silent":  "/q"
                  },
@@ -4776,7 +4776,7 @@
                                ],
                      "descEn":  "The oldest one — for very old programs",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2005x64.png",
                      "detect":  "Microsoft Visual C++ 2005 Redistributable (x64)",
                      "silent":  "/q"
                  },
@@ -4801,7 +4801,7 @@
                                ],
                      "descEn":  "32-bit build of the 2005 libraries",
                      "noui":  true,
-                     "icon":  "icons/w32/vcpp.svg",
+                     "icon":  "icons/w32png/VC2005x86.png",
                      "detect":  "=Microsoft Visual C++ 2005 Redistributable",
                      "silent":  "/q"
                  },
@@ -4826,7 +4826,7 @@
                                ],
                      "descEn":  "The foundation of most older Windows programs. Full offline installer",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/NetFx481.png",
                      "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full!Release\u003e=533320",
                      "silent":  "/q /norestart"
                  },
@@ -4851,7 +4851,7 @@
                                ],
                      "descEn":  "For modern programs built on .NET 8",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/Net8Desktop.png",
                      "detect":  "Microsoft Windows Desktop Runtime - 8.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4876,7 +4876,7 @@
                                ],
                      "descEn":  "32-bit build — many .NET programs still are",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/Net8Desktop86.png",
                      "detect":  "Microsoft Windows Desktop Runtime - 8.|(x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4901,7 +4901,7 @@
                                ],
                      "descEn":  "For programs built on the older .NET 6",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/Net6Desktop.png",
                      "detect":  "Microsoft Windows Desktop Runtime - 6.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4926,7 +4926,7 @@
                                ],
                      "descEn":  "The browser engine modern apps display content in",
                      "noui":  true,
-                     "icon":  "icons/w32/webview2.svg",
+                     "icon":  "icons/w32png/WebView2.png",
                      "detect":  "Microsoft Edge WebView2 Runtime",
                      "silent":  "/silent /install"
                  },
@@ -4952,7 +4952,7 @@
                      "descEn":  "Libraries that games and older programs require",
                      "enName":  "DirectX (June 2010)",
                      "noui":  true,
-                     "icon":  "icons/w32/directx.svg",
+                     "icon":  "icons/w32png/DirectX.png",
                      "silent":  "SPECIAL_DIRECTX"
                  },
                  {
@@ -4976,7 +4976,7 @@
                                ],
                      "descEn":  "Many indie games (Terraria, Stardew and more) need it",
                      "noui":  true,
-                     "icon":  "icons/w32/xna.svg",
+                     "icon":  "icons/w32png/XNA.png",
                      "detect":  "Microsoft XNA Framework Redistributable 4.0",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5001,7 +5001,7 @@
                                ],
                      "descEn":  "A physics engine many games require — on any graphics card",
                      "noui":  true,
-                     "icon":  "icons/w32/nvidia.svg",
+                     "icon":  "icons/w32png/PhysX.png",
                      "detect":  "NVIDIA PhysX System Software",
                      "silent":  "/s"
                  },
@@ -5026,7 +5026,7 @@
                                ],
                      "descEn":  "Connect to Access and Excel files from other programs",
                      "noui":  true,
-                     "icon":  "icons/w32/ace.svg",
+                     "icon":  "icons/w32png/ACE2016.png",
                      "detect":  "Microsoft Access database engine 2016",
                      "silent":  "/quiet"
                  },
@@ -5051,7 +5051,7 @@
                                ],
                      "descEn":  "The older Java runtime — some programs need exactly this one",
                      "noui":  true,
-                     "icon":  "icons/w32/java.svg",
+                     "icon":  "icons/w32png/Java8.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 8u",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5075,7 +5075,7 @@
                                    }
                                ],
                      "descEn":  "Microsoft\u0027s modern command line",
-                     "icon":  "icons/w32/powershell.svg",
+                     "icon":  "icons/w32png/PowerShell7.png",
                      "repo":  "PowerShell/PowerShell",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5101,7 +5101,7 @@
                      "descEn":  "For very old programs. Note: on Windows 10/11 this may need the network — Windows Features is the better route",
                      "enName":  ".NET Framework 3.5 (full)",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/NetFx35.png",
                      "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v3.5!Install",
                      "silent":  "/q /norestart"
                  },
@@ -5126,7 +5126,7 @@
                                ],
                      "descEn":  "For the newest programs, built on .NET 9",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/Net9Desktop.png",
                      "detect":  "Microsoft Windows Desktop Runtime - 9.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -5151,7 +5151,7 @@
                                ],
                      "descEn":  "For programs built on .NET 7",
                      "noui":  true,
-                     "icon":  "icons/w32/dotnet.svg",
+                     "icon":  "icons/w32png/Net7Desktop.png",
                      "detect":  "Microsoft Windows Desktop Runtime - 7.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -5176,7 +5176,7 @@
                                ],
                      "descEn":  "The modern graphics interface — games and emulators need it",
                      "noui":  true,
-                     "icon":  "icons/w32/vulkan.svg",
+                     "icon":  "icons/w32png/Vulkan.png",
                      "detect":  "Vulkan Run Time Libraries",
                      "silent":  "/S"
                  },
@@ -5201,7 +5201,7 @@
                                ],
                      "descEn":  "For older game builds that need the historic PhysX",
                      "noui":  true,
-                     "icon":  "icons/w32/nvidia.svg",
+                     "icon":  "icons/w32png/PhysXLegacy.png",
                      "detect":  "NVIDIA PhysX (Legacy)",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5226,7 +5226,7 @@
                                ],
                      "descEn":  "A mid-generation Java runtime",
                      "noui":  true,
-                     "icon":  "icons/w32/java.svg",
+                     "icon":  "icons/w32png/Java11.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 11.",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5251,7 +5251,7 @@
                                ],
                      "descEn":  "A widely used Java LTS — Minecraft and many programs",
                      "noui":  true,
-                     "icon":  "icons/w32/java.svg",
+                     "icon":  "icons/w32png/Java17.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 17",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5275,7 +5275,7 @@
                                    }
                                ],
                      "descEn":  "Full installer (Enterprise MSI) — needs no network while installing",
-                     "icon":  "icons/w32/chrome.svg",
+                     "icon":  "icons/w32png/Chrome.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: הגדרות ← שפות, מוסיפים English ולוחצים \"הצג את Google Chrome בשפה זו\", ומפעילים מחדש.",
@@ -5303,7 +5303,7 @@
                                    }
                                ],
                      "descEn":  "Full installer in Hebrew",
-                     "icon":  "icons/w32/firefox.svg",
+                     "icon":  "icons/w32png/Firefox.png",
                      "heb":  true,
                      "langMode":  "per-language-download",
                      "detect":  "Mozilla Firefox",
@@ -5338,7 +5338,7 @@
                                    }
                                ],
                      "descEn":  "Full installer (Enterprise MSI) — also for a PC where Edge was removed or is stale",
-                     "icon":  "icons/w32/edge.svg",
+                     "icon":  "icons/w32png/Edge.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
@@ -5366,7 +5366,7 @@
                                    }
                                ],
                      "descEn":  "Opens every kind of archive",
-                     "icon":  "icons/w32/sevenzip.svg",
+                     "icon":  "icons/w32png/SevenZip.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: בתוך התוכנה Tools ← Options ← לשונית Language, ולבחור English.",
@@ -5401,7 +5401,7 @@
                                   "note":  "קובץ השפה הוא הקובץ הרשמי של voidtools — הם מפרסמים אותו בנפרד מהמתקין, ולכן התקנה רגילה יוצאת באנגלית.",
                                   "noteEn":  "The language file is voidtools\u0027 own official pack - they publish it separately from the installer, which is why a normal install comes out in English."
                               },
-                     "icon":  "icons/w32/everything.svg",
+                     "icon":  "icons/w32png/Everything.png",
                      "heb":  true,
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
@@ -5429,7 +5429,7 @@
                                    }
                                ],
                      "descEn":  "A small, fast PDF reader",
-                     "icon":  "icons/w32/sumatra.svg",
+                     "icon":  "icons/w32png/SumatraPDF.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בתפריט Settings ← Change Language ולבחור English.",
@@ -5457,7 +5457,7 @@
                                    }
                                ],
                      "descEn":  "Plays every video and audio format",
-                     "icon":  "icons/w32/vlc.svg",
+                     "icon":  "icons/w32png/VLC.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Tools ← Preferences ← Interface, לבחור English ברשימת השפות, לשמור ולפתוח מחדש.",
@@ -5485,7 +5485,7 @@
                                    }
                                ],
                      "descEn":  "A full free office suite - reads and writes Word, Excel and PowerPoint files",
-                     "icon":  "icons/w32/libreoffice.svg",
+                     "icon":  "icons/w32png/LibreOffice.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: כלים ← אפשרויות ← שפות ← ממשק משתמש, ולבחור English (USA).",
@@ -5513,7 +5513,7 @@
                                    }
                                ],
                      "descEn":  "The programming language — with pip and IDLE",
-                     "icon":  "icons/w32/python.svg",
+                     "icon":  "icons/w32png/Python.png",
                      "langMode":  "single-language",
                      "detect":  "Python 3.12",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0"
@@ -5538,7 +5538,7 @@
                                    }
                                ],
                      "descEn":  "Microsoft\u0027s code editor — full installer",
-                     "icon":  "icons/w32/vscode.svg",
+                     "icon":  "icons/w32png/VSCode.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה מותקנת באנגלית ממילא; שפה אחרת נבחרת מתוכה בפקודה Configure Display Language.",
                      "langHowEn":  "It installs in English anyway; another language is chosen from inside it with Configure Display Language.",
@@ -5565,7 +5565,7 @@
                                    }
                                ],
                      "descEn":  "A text and code editor",
-                     "icon":  "icons/w32/npp.svg",
+                     "icon":  "icons/w32png/NotepadPP.png",
                      "heb":  true,
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
@@ -5594,7 +5594,7 @@
                                    }
                                ],
                      "descEn":  "Version control for developers",
-                     "icon":  "icons/w32/git.svg",
+                     "icon":  "icons/w32png/Git.png",
                      "langMode":  "single-language",
                      "repo":  "git-for-windows/git",
                      "detect":  "Git",
@@ -5621,7 +5621,7 @@
                                ],
                      "descEn":  "The modern Java runtime",
                      "noui":  true,
-                     "icon":  "icons/w32/java.svg",
+                     "icon":  "icons/w32png/Java21.png",
                      "langMode":  "no-ui",
                      "detect":  "Eclipse Temurin JRE with Hotspot 21",
                      "silent":  "MSI:/qn /norestart"
@@ -5646,7 +5646,7 @@
                                    }
                                ],
                      "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
-                     "icon":  "icons/w32/rufus.svg",
+                     "icon":  "icons/w32png/Rufus.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
@@ -5673,7 +5673,7 @@
                                    }
                                ],
                      "descEn":  "Professional free image editing — the well-known Photoshop alternative",
-                     "icon":  "icons/w32/gimp.svg",
+                     "icon":  "icons/w32png/GIMP.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Edit ← Preferences ← Interface ← Language, לבחור English ולהפעיל מחדש.",
@@ -5701,7 +5701,7 @@
                                    }
                                ],
                      "descEn":  "Audio recording and editing",
-                     "icon":  "icons/w32/audacity.svg",
+                     "icon":  "icons/w32png/Audacity.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
@@ -5730,7 +5730,7 @@
                                    }
                                ],
                      "descEn":  "Codecs that let any video or audio open in any player on the machine, plus the MPC-HC player",
-                     "icon":  "icons/w32/klite.svg",
+                     "icon":  "icons/w32png/KLite.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
@@ -5758,7 +5758,7 @@
                                    }
                                ],
                      "descEn":  "Remote control — portable, no install. The connection itself needs internet",
-                     "icon":  "icons/w32/anydesk.svg",
+                     "icon":  "icons/w32png/AnyDesk.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
                      "langHowEn":  "The same file includes every language: the program menu \u003e Settings \u003e Application \u003e General, pick English under Language.",
@@ -5784,7 +5784,7 @@
                                    }
                                ],
                      "descEn":  "Remote control — full installer. The connection itself needs internet",
-                     "icon":  "icons/w32/teamviewer.svg",
+                     "icon":  "icons/w32png/TeamViewer.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: גלגל השיניים בפינה ← Advanced ← Display language ← English, ואז לסגור ולפתוח מחדש.",
                      "langHowEn":  "The same file includes English: the gear icon in the corner \u003e Advanced \u003e Display language \u003e English, then close and reopen it.",
@@ -5811,7 +5811,7 @@
                                    }
                                ],
                      "descEn":  "Every hardware detail of the PC on one screen",
-                     "icon":  "icons/w32/speccy.svg",
+                     "icon":  "icons/w32png/Speccy.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית ועברית: View ← Options ← לשונית General ← Language.",
@@ -5839,7 +5839,7 @@
                                    }
                                ],
                      "descEn":  "Thorough removal of stubborn programs, leftovers included",
-                     "icon":  "icons/w32/revo.svg",
+                     "icon":  "icons/w32png/Revo.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית ועברית: Options ← General ← Current Language.",
@@ -5867,7 +5867,7 @@
                                    }
                                ],
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
-                     "icon":  "icons/w32/thunderbird.svg",
+                     "icon":  "icons/w32png/Thunderbird.png",
                      "heb":  true,
                      "langMode":  "per-language-download",
                      "detect":  "Mozilla Thunderbird",
@@ -5902,7 +5902,7 @@
                                    }
                                ],
                      "descEn":  "Screen recording and streaming — the free standard",
-                     "icon":  "icons/w32/obsstudio.svg",
+                     "icon":  "icons/w32png/OBS.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
@@ -5931,7 +5931,7 @@
                                    }
                                ],
                      "descEn":  "A password manager that keeps everything on your own PC — no cloud",
-                     "icon":  "icons/w32/keepassxc.svg",
+                     "icon":  "icons/w32png/KeePassXC.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
@@ -5960,7 +5960,7 @@
                                    }
                                ],
                      "descEn":  "Encrypt drives and folders",
-                     "icon":  "icons/w32/veracrypt.svg",
+                     "icon":  "icons/w32png/VeraCrypt.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
@@ -5989,7 +5989,7 @@
                                    }
                                ],
                      "descEn":  "What is eating your disk — a visual map of every file",
-                     "icon":  "icons/w32/windirstat.svg",
+                     "icon":  "icons/w32png/WinDirStat.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
                      "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
@@ -6018,7 +6018,7 @@
                                ],
                      "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
                      "enName":  "Windows Subsystem for Android",
-                     "icon":  "icons/w32/wsa.svg",
+                     "icon":  "icons/w32png/WSAGitHub.png",
                      "heb":  true,
                      "near":  "WSL",
                      "langMode":  "follows-windows",
@@ -6050,7 +6050,7 @@
                      "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
                      "descEn":  "A tweaks and maintenance tool for Windows — one file, no install, in Hebrew. Built here",
                      "color":  "#5fd4fe",
-                     "icon":  "icons/w32/csharf.svg",
+                     "icon":  "icons/w32png/Csharf.png",
                      "heb":  true,
                      "repo":  "BeniaBot/Csharf"
                  },
@@ -6073,7 +6073,7 @@
                      "desc":  "ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן",
                      "descEn":  "Track and manage forum nicknames, in Hebrew. Everything stays on your PC — full privacy. Built here",
                      "color":  "#f59e0b",
-                     "icon":  "icons/w32/tiknick.svg",
+                     "icon":  "icons/w32png/TikNick.png",
                      "heb":  true,
                      "alt":  {
                                  "label":  "גרסה ניידת",
@@ -6102,7 +6102,7 @@
                      "desc":  "‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן",
                      "descEn":  "2048 upgraded, with hidden helper keys nobody can spot from the outside. Built here",
                      "color":  "#edc22e",
-                     "icon":  "icons/w32/g2049.svg",
+                     "icon":  "icons/w32png/Game2049.png",
                      "heb":  true,
                      "alt":  {
                                  "label":  "גרסה ניידת",
