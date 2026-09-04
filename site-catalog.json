@@ -2189,6 +2189,7 @@
                      "url":  "https://github.com/PowerShell/PowerShell/releases/download/v7.6.5/PowerShell-7.6.5-win-x64.msi",
                      "match":  "PowerShell-*-win-x64.msi",
                      "silent":  "MSI:/qn /norestart",
+                     "repo":  "PowerShell/PowerShell",
                      "icon":  "icons/w32/powershell.svg",
                      "color":  "#2671be",
                      "desc":  "שורת הפקודה המודרנית של מיקרוסופט",
@@ -2390,6 +2391,7 @@
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: הגדרות ← שפות, מוסיפים English ולוחצים \"הצג את Google Chrome בשפה זו\", ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: Settings \u003e Languages, add English, click \"Display Google Chrome in this language\", then restart it.",
+                     "detect":  "Google Chrome",
                      "files":  [
                                    {
                                        "exe":  "googlechromestandaloneenterprise64.msi",
@@ -2424,6 +2426,7 @@
                      "descEn":  "Full installer in Hebrew",
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "per-language-download",
+                     "detect":  "Mozilla Firefox",
                      "files":  [
                                    {
                                        "exe":  "Firefox Setup*.exe",
@@ -2451,6 +2454,7 @@
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: go to edge://settings/languages, add English, choose \"Display Microsoft Edge in this language\", then restart it.",
+                     "detect":  "Microsoft Edge",
                      "files":  [
                                    {
                                        "exe":  "MicrosoftEdgeEnterpriseX64.msi",
@@ -2478,6 +2482,7 @@
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: בתוך התוכנה Tools ← Options ← לשונית Language, ולבחור English.",
                      "langHowEn":  "The same file includes English: inside the program, Tools \u003e Options \u003e Language tab, pick English.",
+                     "detect":  "7-Zip",
                      "files":  [
                                    {
                                        "exe":  "7z2409-x64.exe",
@@ -2512,6 +2517,7 @@
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
                      "langHowEn":  "The installer asks which language; it can also be changed later under Tools \u003e Options \u003e General \u003e Language.",
+                     "detect":  "Everything",
                      "files":  [
                                    {
                                        "exe":  "Everything-*-Setup.exe",
@@ -2539,6 +2545,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בתפריט Settings ← Change Language ולבחור English.",
                      "langHowEn":  "The same file includes English: Settings \u003e Change Language, pick English.",
+                     "detect":  "SumatraPDF",
                      "files":  [
                                    {
                                        "exe":  "SumatraPDF-*-install.exe",
@@ -2566,6 +2573,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Tools ← Preferences ← Interface, לבחור English ברשימת השפות, לשמור ולפתוח מחדש.",
                      "langHowEn":  "The same file includes English: Tools \u003e Preferences \u003e Interface, pick English in the language list, save and reopen.",
+                     "detect":  "VLC media player",
                      "files":  [
                                    {
                                        "exe":  "vlc-*-win64.exe",
@@ -2593,6 +2601,7 @@
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: כלים ← אפשרויות ← שפות ← ממשק משתמש, ולבחור English (USA).",
                      "langHowEn":  "The same file includes English: Tools \u003e Options \u003e Languages \u003e User Interface, pick English (USA).",
+                     "detect":  "LibreOffice",
                      "files":  [
                                    {
                                        "exe":  "LibreOffice_*_Win_x86-64.msi",
@@ -2617,6 +2626,7 @@
                      "descEn":  "The programming language — with pip and IDLE",
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "single-language",
+                     "detect":  "Python 3.12",
                      "files":  [
                                    {
                                        "exe":  "python-*-amd64.exe",
@@ -2643,6 +2653,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה מותקנת באנגלית ממילא; שפה אחרת נבחרת מתוכה בפקודה Configure Display Language.",
                      "langHowEn":  "It installs in English anyway; another language is chosen from inside it with Configure Display Language.",
+                     "detect":  "Microsoft Visual Studio Code",
                      "files":  [
                                    {
                                        "exe":  "VSCodeSetup-x64-*.exe",
@@ -2662,6 +2673,7 @@
                      "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
                      "match":  "npp.*Installer.x64.exe",
                      "silent":  "/S",
+                     "repo":  "notepad-plus-plus/notepad-plus-plus",
                      "icon":  "icons/w32/npp.svg",
                      "color":  "#6f9b2b",
                      "desc":  "עורך טקסט וקוד",
@@ -2670,6 +2682,7 @@
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
                      "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
+                     "detect":  "Notepad++",
                      "files":  [
                                    {
                                        "exe":  "npp.*Installer.x64.exe",
@@ -2688,12 +2701,14 @@
                      "url":  "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe",
                      "match":  "Git-*-64-bit.exe",
                      "silent":  "/VERYSILENT /NORESTART",
+                     "repo":  "git-for-windows/git",
                      "icon":  "icons/w32/git.svg",
                      "color":  "#f05033",
                      "desc":  "ניהול גרסאות למפתחים",
                      "descEn":  "Version control for developers",
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "single-language",
+                     "detect":  "Git",
                      "files":  [
                                    {
                                        "exe":  "Git-*-64-bit.exe",
@@ -2719,6 +2734,7 @@
                      "noui":  true,
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "no-ui",
+                     "detect":  "Eclipse Temurin JRE",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK21U-jre_*.msi",
@@ -2737,6 +2753,7 @@
                      "w32":  true,
                      "url":  "https://github.com/pbatard/rufus/releases/download/v4.15/rufus-4.15.exe",
                      "match":  "rufus-*.exe",
+                     "repo":  "pbatard/rufus",
                      "icon":  "icons/w32/rufus.svg",
                      "color":  "#489bd6",
                      "desc":  "צריבת ISO לדיסק-און-קי. קובץ נייד — מריצים ישירות, בלי התקנה",
@@ -2772,6 +2789,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Edit ← Preferences ← Interface ← Language, לבחור English ולהפעיל מחדש.",
                      "langHowEn":  "The same file includes every language: Edit \u003e Preferences \u003e Interface \u003e Language, pick English and restart it.",
+                     "detect":  "GIMP",
                      "files":  [
                                    {
                                        "exe":  "gimp-*-setup*.exe",
@@ -2791,6 +2809,7 @@
                      "url":  "https://github.com/audacity/audacity/releases/download/Audacity-3.7.9/audacity-win-3.7.9-64bit.exe",
                      "match":  "audacity-win-*-64bit.exe",
                      "silent":  "/VERYSILENT /NORESTART",
+                     "repo":  "audacity/audacity",
                      "icon":  "icons/w32/audacity.svg",
                      "color":  "#0079c1",
                      "desc":  "הקלטה ועריכת אודיו",
@@ -2799,6 +2818,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
+                     "detect":  "Audacity",
                      "files":  [
                                    {
                                        "exe":  "audacity-win-*-64bit.exe",
@@ -2826,6 +2846,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
                      "langHowEn":  "The same file includes English: in the MPC-HC player press O, go to Player \u003e Language and pick English.",
+                     "detect":  "K-Lite",
                      "files":  [
                                    {
                                        "exe":  "K-Lite_Codec_Pack_*_Basic.exe",
@@ -2851,6 +2872,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
                      "langHowEn":  "The same file includes every language: the program menu \u003e Settings \u003e Application \u003e General, pick English under Language.",
+                     "detect":  "AnyDesk",
                      "files":  [
                                    {
                                        "exe":  "AnyDesk.exe",
@@ -2877,6 +2899,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: גלגל השיניים בפינה ← Advanced ← Display language ← English, ואז לסגור ולפתוח מחדש.",
                      "langHowEn":  "The same file includes English: the gear icon in the corner \u003e Advanced \u003e Display language \u003e English, then close and reopen it.",
+                     "detect":  "TeamViewer",
                      "files":  [
                                    {
                                        "exe":  "TeamViewer_Setup*.exe",
@@ -2904,6 +2927,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית ועברית: View ← Options ← לשונית General ← Language.",
                      "langHowEn":  "The same file includes English and Hebrew: View \u003e Options \u003e General tab \u003e Language.",
+                     "detect":  "Speccy",
                      "files":  [
                                    {
                                        "exe":  "spsetup*.exe",
@@ -2931,6 +2955,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית ועברית: Options ← General ← Current Language.",
                      "langHowEn":  "The same file includes English and Hebrew: Options \u003e General \u003e Current Language.",
+                     "detect":  "Revo Uninstaller",
                      "files":  [
                                    {
                                        "exe":  "revosetup*.exe",
@@ -2965,6 +2990,7 @@
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "per-language-download",
+                     "detect":  "Mozilla Thunderbird",
                      "files":  [
                                    {
                                        "exe":  "Thunderbird Setup*.exe",
@@ -2984,6 +3010,7 @@
                      "url":  "https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-Studio-32.2.2-Windows-x64-Installer.exe",
                      "match":  "OBS-Studio-*-Installer.exe",
                      "silent":  "/S",
+                     "repo":  "obsproject/obs-studio",
                      "icon":  "icons/w32/obsstudio.svg",
                      "color":  "#1f1f23",
                      "desc":  "הקלטת מסך ושידור — הסטנדרט החינמי",
@@ -2992,6 +3019,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
                      "langHowEn":  "The same file includes English: Settings \u003e General \u003e Language, pick English and restart it.",
+                     "detect":  "OBS Studio",
                      "files":  [
                                    {
                                        "exe":  "OBS-Studio-*-Installer.exe",
@@ -3011,6 +3039,7 @@
                      "url":  "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-Win64.msi",
                      "match":  "KeePassXC-*-Win64.msi",
                      "silent":  "MSI:/qn /norestart",
+                     "repo":  "keepassxreboot/keepassxc",
                      "icon":  "icons/w32/keepassxc.svg",
                      "color":  "#6cac4d",
                      "desc":  "מנהל סיסמאות שהכול נשמר אצלך במחשב — בלי ענן",
@@ -3019,6 +3048,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
                      "langHowEn":  "The same file includes every language: Tools \u003e Settings \u003e General, pick English under Language, then reopen it.",
+                     "detect":  "KeePassXC",
                      "files":  [
                                    {
                                        "exe":  "KeePassXC-*-Win64.msi",
@@ -3038,6 +3068,7 @@
                      "url":  "https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.29/VeraCrypt.Setup.1.26.29.exe",
                      "match":  "VeraCrypt*Setup*.exe",
                      "silent":  "/S",
+                     "repo":  "veracrypt/VeraCrypt",
                      "icon":  "icons/w32/veracrypt.svg",
                      "color":  "#3a5e8c",
                      "desc":  "הצפנת כוננים ותיקיות",
@@ -3046,6 +3077,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
                      "langHowEn":  "The same file includes every language, and English is the default; switch it under Settings \u003e Language.",
+                     "detect":  "VeraCrypt",
                      "files":  [
                                    {
                                        "exe":  "VeraCrypt*Setup*.exe",
@@ -3064,6 +3096,7 @@
                      "url":  "https://github.com/windirstat/windirstat/releases/download/release/v2.8.0/WinDirStat-x64.msi",
                      "match":  "WinDirStat-x64.msi",
                      "silent":  "MSI:/qn /norestart",
+                     "repo":  "windirstat/windirstat",
                      "icon":  "icons/w32/windirstat.svg",
                      "color":  "#2e6da4",
                      "desc":  "מה תופס את המקום בדיסק — מפה חזותית של כל הקבצים",
@@ -3072,6 +3105,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
                      "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
+                     "detect":  "WinDirStat",
                      "files":  [
                                    {
                                        "exe":  "WinDirStat-x64.msi",
@@ -3096,6 +3130,7 @@
                                  "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-GApps-13.0-NoAmazon.7z",
                                  "mb":  712
                              },
+                     "repo":  "MustardChef/WSABuilds",
                      "icon":  "icons/w32/wsa.svg",
                      "color":  "#3ddc84",
                      "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",

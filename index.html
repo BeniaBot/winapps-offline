@@ -367,6 +367,19 @@
            width: min(420px, 94vw); padding: 26px; text-align: center;
            max-height: 92vh; overflow-y: auto; }
   .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
+  .dlpanel { width: min(460px, 94vw); text-align: start; }
+  .dlpanel h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .dlnote { margin: 0 0 14px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
+  .dllist { display: flex; flex-direction: column; gap: 6px; max-height: 46vh; overflow-y: auto; }
+  .dlitem { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 12px;
+            background: var(--tile); border: 1px solid var(--stroke); color: var(--ink);
+            text-decoration: none; font-size: .86rem; }
+  .dlitem:hover { background: var(--tile-h); border-color: var(--accent); }
+  .dlitem.done { border-color: color-mix(in srgb, var(--ok) 50%, transparent); }
+  .dlitem.done .dlmark { color: var(--ok); }
+  .dlmark { flex: none; width: 15px; text-align: center; color: var(--muted); font-weight: 700; }
+  .dlname { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dlmb { flex: none; color: var(--muted); font-size: .78rem; }
   /* the practical half of the language claim - quieter than the claim itself, because it
      matters only to the reader who wants the other language */
   .langhow { color: var(--muted); font-size: .78rem; line-height: 1.65; margin-top: 3px;
@@ -434,6 +447,13 @@
   .qbody.open { display: block; }
   :root.light .msstore { background: color-mix(in srgb, #0f7bc4 12%, transparent); color: #0a5c95;
                          border-color: color-mix(in srgb, #0f7bc4 34%, transparent); }
+  /* the same pill, in GitHub's own neutral rather than the Store's blue */
+  .msstore.gh { background: color-mix(in srgb, #8b949e 16%, transparent); color: #c9d1d9;
+                border-color: color-mix(in srgb, #8b949e 38%, transparent); }
+  .msstore.gh:hover { background: color-mix(in srgb, #8b949e 28%, transparent);
+                      border-color: color-mix(in srgb, #8b949e 60%, transparent); color: #f0f6fc; }
+  :root.light .msstore.gh { background: color-mix(in srgb, #24292f 10%, transparent); color: #24292f;
+                            border-color: color-mix(in srgb, #24292f 28%, transparent); }
 
   /* the same question mark as on an app, at the scale of the whole shop */
   /* .sheet sets an explicit width, so this has to set one too - a max-width only caps it */
@@ -619,7 +639,27 @@ let TARGET = '11';
    'lang' (the vendor's other-language build) | 'alt' (a portable build).
    A Set of names could not answer "which one", which is why picking PC Manager used to
    fetch the English build even when the visitor had just been offered the Hebrew one. */
+/* en -> Set of kinds. It was one kind per app, so picking the Win 10 build replaced the
+   Win 11 one and there was no way to say "both". Nothing needed that restriction. */
 const SELECTED = new Map();
+const isPicked = (en, kind) => {
+  const set = SELECTED.get(en);
+  return !!set && (kind == null ? set.size > 0 : set.has(kind));
+};
+/* every variant this app is picked in - usually one, sometimes two */
+function picksOf(a) {
+  const set = SELECTED.get(a.en);
+  if (!set) return [];
+  const out = [];
+  set.forEach(k => { const v = variantOf(a, k); if (v) out.push(v); });
+  return out;
+}
+/* how many files the selection really amounts to, which is no longer the number of apps */
+function pickCount() {
+  let n = 0;
+  DATA.apps.forEach(a => { n += picksOf(a).length; });
+  return n;
+}
 
 
 /* ===== language =====
@@ -668,6 +708,17 @@ const EN = {
   'האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This site is not connected to Microsoft and is not supported by it.',
   'סגירה': 'Close',
   'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
+  'פתיחת הפרויקט בגיטהאב': 'Open the project on GitHub',
+  'אין מה לשים על הדיסק — צריך לבחור לפחות פריט אחד.': 'Nothing to put on the disc — pick at least one item.',
+  'הורדת הנבחרות': 'Download what you picked',
+  'התחלת ההורדה': 'Start downloading',
+  'להתחיל שוב את מה שחסר': 'Start whatever is missing again',
+  'מתקין שקט לכל מה שנבחר': 'Silent installer for everything picked',
+  'ISO אישי — שני קבצים': 'Your own ISO — two files',
+  'אם הדפדפן שואל אם לאפשר כמה הורדות — לאשר. כל קובץ שלא ירד, אפשר ללחוץ עליו כאן שוב.':
+    'If the browser asks whether to allow several downloads, allow it. Anything that did not arrive can be clicked here again.',
+  'שמים את שניהם באותה תיקייה ומריצים את IsoBuilder. הוא מוריד את הנבחרות וצורב WINAPPS-CUSTOM.iso עם החנות בפנים.':
+    'Put both in the same folder and run IsoBuilder. It downloads what you picked and burns WINAPPS-CUSTOM.iso with the store inside.',
   'האפליקציות של Windows,': 'The Windows apps,',
   'למחשב': 'for a PC',
   'שאין בו אינטרנט': 'with no internet',
@@ -853,6 +904,27 @@ function applyLang() {
 }
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
+/* a tab or a newline inside a description would shift every column of the selection file */
+const clean = v => (v || '').replace(/[\t\r\n]+/g, ' ').trim();
+/* The vendor's own filename, taken from its URL. Rejects anything that is not a usable
+   Windows filename - an endpoint with no path segment, or a name carrying wildcards. */
+const fileFromUrl = u => {
+  try {
+    const n = decodeURIComponent(new URL(u).pathname.split('/').pop() || '');
+    return (n && !/[*?<>:"|\\/]/.test(n) && n.indexOf('.') > 0) ? n : '';
+  } catch (e) { return ''; }
+};
+/* What to call a vendor file on the disc. Its catalog "exe" is a MATCH PATTERN, not a name -
+   "vlc-*-win64.exe" - so it can never be used as one: Windows will not create a file with an
+   asterisk in it. Prefer the name the vendor's own URL gives; fall back to the catalog key
+   with the pattern's extension. */
+function discName(a, v) {
+  if (!v.url) return v.exe;                       // ours, already a real filename
+  const fromUrl = fileFromUrl(v.url);
+  if (fromUrl) return fromUrl;
+  const m = /(\.[A-Za-z0-9]{1,6})$/.exec(v.exe || '');
+  return a.en + (m ? m[1] : '.exe');
+}
 
 /* The explainers are two paragraphs per app in two languages - too much to put in front of
    the first paint for a panel most visitors never open. Fetched once, on the first ask. */
@@ -1047,7 +1119,7 @@ function variantOf(a, kind) {
   if (!f || !isLive(a, f)) return null;
   return { kind: 'main', exe: f.exe, url: a.url ? urlFor(a) : null, mb: f.mb, tag: null };
 }
-function pickOf(a) { return variantOf(a, SELECTED.get(a.en) || 'main'); }
+function pickOf(a) { const p = picksOf(a); return p.length ? p[0] : null; }
 /* in English mode an app that ships a separate English build downloads that one */
 const urlFor = a => (LANG === 'en' && a.altEn && a.altEn.url) ? a.altEn.url : a.url;
 const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
@@ -1177,7 +1249,7 @@ document.addEventListener('click', e => {
     // toggle: if the whole section is already selected, a second click clears it
     const members = membersOf(pick.dataset.catpick).filter(a => bestFile(a));
     const allOn = members.every(a => SELECTED.has(a.en));
-    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.set(a.en, 'main'); });
+    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.set(a.en, new Set(['main'])); });
     render();
     return;
   }
@@ -1379,6 +1451,56 @@ function copiedToast(el, msg) {
   }, 1500);
 }
 
+/* A download the visitor can watch and repair.
+   Every installer sits on a GitHub release - a different origin - where the `download`
+   attribute is ignored, so each one is a navigation. Several navigations in a row is exactly
+   what a browser's multiple-download guard blocks, and the page used to say nothing about it:
+   a blocked file looked the same as a file that was never there. Now the files are listed as
+   real links. The automatic pass starts them one at a time; whatever it fails to deliver is
+   still sitting there to be clicked by hand, and a link a person clicks is never blocked. */
+function downloadPanel(items, title, note) {
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.innerHTML = '<div class="sheet dlpanel">' +
+    '<h3>' + esc(title) + '</h3>' +
+    '<p class="dlnote">' + esc(note || T('אם הדפדפן שואל אם לאפשר כמה הורדות — לאשר. כל קובץ שלא ירד, אפשר ללחוץ עליו כאן שוב.')) + '</p>' +
+    '<div class="dllist">' + items.map((it, i) =>
+      '<a class="dlitem" data-i="' + i + '" href="' + esc(it.href) + '"' +
+      (it.filename ? ' download="' + esc(it.filename) + '"' : '') +
+      ' target="_blank" rel="noopener"><span class="dlmark">•</span>' +
+      '<span class="dlname" dir="auto">' + esc(it.name) + '</span>' +
+      (it.mb ? '<span class="dlmb" dir="ltr">' + mbFmt(it.mb) + '</span>' : '') + '</a>').join('') +
+    '</div>' +
+    '<div class="acts">' +
+      '<button class="btn" id="dlgo">' + T('התחלת ההורדה') + '</button>' +
+      '<button class="btn lite" id="dlx">' + T('סגירה') + '</button>' +
+    '</div></div>';
+  document.body.appendChild(ov);
+  translateDom(ov);
+  document.body.style.overflow = 'hidden';
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
+  const onEsc = e => { if (e.key === 'Escape') shut(); };
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  document.addEventListener('keydown', onEsc);
+  ov.querySelector('#dlx').onclick = shut;
+  const mark = el => { el.classList.add('done'); el.querySelector('.dlmark').textContent = '✓'; };
+  ov.querySelectorAll('.dlitem').forEach(el => el.addEventListener('click', () => mark(el)));
+  ov.querySelector('#dlgo').onclick = () => {
+    const els = [].slice.call(ov.querySelectorAll('.dlitem'));
+    ov.querySelector('#dlgo').disabled = true;
+    /* Wide spacing on purpose: the guard reacts to a burst, and there is no rush here -
+       the panel stays open either way. */
+    els.forEach((el, i) => setTimeout(() => {
+      el.click();
+      if (i === els.length - 1) {
+        const b = ov.querySelector('#dlgo');
+        b.disabled = false; b.textContent = T('להתחיל שוב את מה שחסר');
+      }
+    }, i * 1400));
+  };
+  return ov;
+}
+
 function download(exe) {
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
@@ -1391,8 +1513,10 @@ function download(exe) {
 /* the one-click silent installer script for a picked set of w32 apps */
 function toggle(en, kind) {
   // picking the same build again clears it; picking a different build switches to it
-  if (SELECTED.has(en) && (!kind || SELECTED.get(en) === kind)) SELECTED.delete(en);
-  else SELECTED.set(en, kind || 'main');
+  const k = kind || 'main';
+  let set = SELECTED.get(en);
+  if (set && set.has(k)) { set.delete(k); if (!set.size) SELECTED.delete(en); }
+  else { if (!set) { set = new Set(); SELECTED.set(en, set); } set.add(k); }
   document.querySelectorAll('.t[data-en="' + en.replace(/"/g, '\\"') + '"]')
     .forEach(t => t.classList.toggle('sel', SELECTED.has(en)));
   updateDock();
@@ -1400,17 +1524,16 @@ function toggle(en, kind) {
 
 function updateDock() {
   const dock = document.getElementById('dock');
-  const n = SELECTED.size;
-  if (!n) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
+  if (!SELECTED.size) { dock.classList.remove('show'); document.body.classList.remove('has-sel'); return; }
   // count only what the button will actually download - the honest number,
   // and say WHY the rest are excluded (hidden by the Win filter vs still uploading)
   let mb = 0, w32s = 0, ready = 0, uploading = 0, filtered = 0, special = 0;
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
-    const v = pickOf(a);
-    if (v) { ready++; mb += v.mb || 0; if (a.w32 && a.silent) w32s++; if (v.kind !== 'main') special++; }
-    else if (!bestFile(a)) filtered++;
-    else uploading++;
+    const picks = picksOf(a);
+    picks.forEach(v => { ready++; mb += v.mb || 0; if (v.kind !== 'main') special++; });
+    if (picks.length && a.w32 && a.silent) w32s++;
+    if (!picks.length) { if (!bestFile(a)) filtered++; else uploading++; }
   });
   document.getElementById('selsum').innerHTML = '<b>' + ready + ' ' + T('נבחרו') + '</b> <span>· <span dir="ltr">' + mbFmt(mb) + '</span>' +
     (w32s >= 1 ? ' · ' + T('עם מתקין שקט') : '') +
@@ -1418,7 +1541,7 @@ function updateDock() {
     (filtered > 0 ? ' · ' + filtered + ' ' + T('מוסתרות בסינון שבחרת') : '') +
     (special > 0 ? ' · ' + special + ' ' + T('בגרסה שבחרת') : '') + '</span>';
   let dual = 0;
-  DATA.apps.forEach(a => { if (SELECTED.get(a.en) === 'main' && filesFor(a).length > 1) dual++; });
+  DATA.apps.forEach(a => { if (isPicked(a.en, 'main') && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
   tgt.innerHTML = (dual > 0 && FILTER === 'all')
     ? '<span style="color:var(--muted);font-size:.84rem">היעד:</span>' +
@@ -1436,20 +1559,24 @@ document.getElementById('dock-target').addEventListener('click', e => {
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
-  const picks = [], w32Silent = [];
+  const items = [], w32Silent = [];
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
-    const v = pickOf(a);
-    if (v) picks.push(v);
+    picksOf(a).forEach(v => items.push({
+      name: nameOf(a) + (v.tag ? ' · ' + v.tag : ''),
+      href: v.url || (REL + encodeURIComponent(v.exe)),
+      filename: v.url ? null : v.exe,   // the attribute only works same-origin anyway
+      mb: v.mb,
+    }));
     if (a.w32 && a.silent) w32Silent.push(a);
   });
-  picks.forEach((v, i) => setTimeout(() => {
-    if (v.url) { const el = document.createElement('a'); el.href = v.url; document.body.appendChild(el); el.click(); el.remove(); }
-    else download(v.exe);
-  }, i * 600));
-  const files = picks;
-  // silent install is the recommended default: any silent-capable pick bundles the runner
-  if (w32Silent.length >= 1) setTimeout(downloadRunner, files.length * 600 + 400);
+  if (!items.length) return;
+  // silent install is the recommended default: any silent-capable pick brings the runner
+  if (w32Silent.length >= 1) items.push({
+    name: T('מתקין שקט לכל מה שנבחר'), href: REL + encodeURIComponent('SilentInstall.exe'),
+    filename: 'SilentInstall.exe', mb: 0,
+  });
+  downloadPanel(items, T('הורדת הנבחרות'));
 };
 
 /* the compiled silent installer: drop it in the folder with the downloads and run it -
@@ -1459,24 +1586,35 @@ function downloadRunner() { download('SilentInstall.exe'); }
 /* custom ISO: export the selection as the builder's input file + the builder itself.
    (the browser cannot build the ISO alone - GitHub sends no CORS on release binaries) */
 document.getElementById('seliso').onclick = () => {
+  /* Every line carries its own address. Ours stay blank and mean "our release"; a vendor
+     program carries the vendor's URL, which is what lets the custom disc hold the browsers
+     and the runtimes and not only the Microsoft apps. */
   const rows = [];
   DATA.apps.forEach(a => {
-    if (!SELECTED.has(a.en) || a.w32 || a.custom || !a.id) return;
-    const f = bestFile(a);
-    if (!f || !isLive(a, f)) return;
-    rows.push([f.exe, a.he, a.id, f.ver || '', f.minBuild || 0, a.net ? 1 : 0, a.cat || 'נוספות', f.mb].join('\t'));
+    if (!SELECTED.has(a.en)) return;
+    picksOf(a).forEach(v => {
+      const isOurs = !v.url;
+      const file = discName(a, v);
+      if (!file) return;
+      rows.push([
+        file, a.he, a.id || '', (bestFile(a) || {}).ver || '', (bestFile(a) || {}).minBuild || 0,
+        a.net ? 1 : 0, a.cat || 'נוספות', v.mb || 0,
+        clean(descOf(a)), a.heb ? 1 : 0, clean(a.descEn || ''), nameOf(a), '',
+        (a.w32 || a.custom) ? 'win32' : '', clean(a.silent || ''), clean(a.detect || ''),
+        isOurs ? '' : v.url,
+      ].join('\t'));
+    });
   });
   if (!rows.length) {
-    alert('ל-ISO אישי בוחרים אפליקציות מהחנות של מיקרוסופט (רכיבים ותוכנות צד-שלישי יורדים בנפרד).');
+    alert(T('אין מה לשים על הדיסק — צריך לבחור לפחות פריט אחד.'));
     return;
   }
   const blob = new Blob([rows.join('\r\n')], { type: 'text/plain' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'בחירת-חנות.txt';
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => { URL.revokeObjectURL(a.href); download('IsoBuilder.exe'); }, 500);
-  alert('ירדו שני קבצים: בחירת-חנות.txt ו-IsoBuilder.exe.\nשמים אותם באותה תיקייה, מריצים את IsoBuilder — ומקבלים WINAPPS-CUSTOM.iso עם החנות והנבחרות.');
+  downloadPanel([
+    { name: 'בחירת-חנות.txt', href: URL.createObjectURL(blob), filename: 'בחירת-חנות.txt', mb: 0 },
+    { name: 'IsoBuilder.exe', href: REL + encodeURIComponent('IsoBuilder.exe'), filename: 'IsoBuilder.exe', mb: 0 },
+  ], T('ISO אישי — שני קבצים'),
+     T('שמים את שניהם באותה תיקייה ומריצים את IsoBuilder. הוא מוריד את הנבחרות וצורב WINAPPS-CUSTOM.iso עם החנות בפנים.'));
 };
 
 /* ===== sheet ===== */
@@ -1506,9 +1644,9 @@ function openSheet(en) {
   /* One "+" per download row, always - it is the only control that adds to the selection.
      On an app with several downloads it also answers WHICH, which is why it lives on the row
      rather than under the sheet. */
-  const addBtn = (kind) => '<button class="addsel' + (SELECTED.get(en) === kind ? ' on' : '') +
+  const addBtn = (kind) => '<button class="addsel' + (isPicked(en, kind) ? ' on' : '') +
     '" data-add="' + kind + '" title="' + esc(T('הוספה לבחירה מרובה')) + '" aria-label="' +
-    esc(T('הוספה לבחירה מרובה')) + '">' + (SELECTED.get(en) === kind ? '✓' : '+') + '</button>';
+    esc(T('הוספה לבחירה מרובה')) + '">' + (isPicked(en, kind) ? '✓' : '+') + '</button>';
 
   const dlRow = (inner, url, withLang, kind) => '<div class="dlrow">' +
     (kind ? addBtn(kind) : '') + (withLang ? langBtn : '') + inner +
@@ -1557,10 +1695,24 @@ function openSheet(en) {
     'M8.6 15.4h2.55v2.55H8.6V15.4z' +
     'M12.85 15.4h2.55v2.55h-2.55V15.4z' +
     '"/></svg>';
+  const GITHUB_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="' +
+    'M12 1.3a10.7 10.7 0 0 0-3.38 20.85c.53.1.73-.23.73-.51v-1.8c-2.98.65-3.61-1.44-3.61-1.44' +
+    '-.49-1.24-1.19-1.57-1.19-1.57-.97-.67.08-.65.08-.65 1.07.07 1.64 1.1 1.64 1.1.96 1.64 2.5 1.17 3.11.9' +
+    '.1-.7.37-1.17.68-1.44-2.38-.27-4.88-1.19-4.88-5.3 0-1.17.42-2.13 1.1-2.88-.11-.27-.48-1.36.1-2.84' +
+    '0 0 .9-.29 2.94 1.1a10.2 10.2 0 0 1 5.36 0c2.04-1.39 2.94-1.1 2.94-1.1.58 1.48.21 2.57.1 2.84' +
+    '.69.75 1.1 1.71 1.1 2.88 0 4.12-2.5 5.03-4.89 5.29.38.33.72.98.72 1.98v2.93c0 .28.19.62.74.51' +
+    'A10.7 10.7 0 0 0 12 1.3z"/></svg>';
+  /* Same corner as the Store link, because the two never occur together: an app is either in
+     Microsoft's shop or it is somebody's GitHub project. Our own re-hosted Microsoft
+     redistributables carry no repo on purpose - we mirror them, we are not their source. */
   const storeLink = (!a.w32 && !a.custom && a.pfn)
     ? '<a class="msstore" href="ms-windows-store://pdp/?PFN=' + esc(a.pfn) + '" title="' +
       esc(T('פתיחת הדף של האפליקציה בחנות מיקרוסופט')) + '">' + STORE_ICON +
       '<span>' + T('בחנות') + '</span></a>'
+    : a.repo
+    ? '<a class="msstore gh" href="https://github.com/' + esc(a.repo) + '" target="_blank" rel="noopener" title="' +
+      esc(T('פתיחת הפרויקט בגיטהאב')) + '">' + GITHUB_ICON +
+      '<span dir="ltr">' + esc(a.repo.split('/')[0]) + '</span></a>'
     : '';
 
   /* Opposite corner from the Store link. Hidden rather than shown empty when an app has
@@ -1613,9 +1765,9 @@ function openSheet(en) {
   ov.querySelectorAll('[data-add]').forEach(b => {
     b.onclick = () => {
       toggle(en, b.dataset.add);
-      const added = SELECTED.get(en) === b.dataset.add;
+      const added = isPicked(en, b.dataset.add);
       ov.querySelectorAll('[data-add]').forEach(x => {
-        const on = SELECTED.get(en) === x.dataset.add;
+        const on = isPicked(en, x.dataset.add);
         x.classList.toggle('on', on);
         x.textContent = on ? '✓' : '+';
       });
