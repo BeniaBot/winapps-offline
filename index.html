@@ -847,6 +847,7 @@ const EN = {
   '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
   '✓ ממשק בעברית בלבד — אין לה אנגלית': '✓ Hebrew interface only — it has no English',
+  'ממשק באנגלית — יש בה שפות נוספות לבחירה, אבל לא עברית': 'Interface in English — it offers other languages to choose from, but not Hebrew',
   'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.':
     'The installer comes from the vendor, unmodified, with its own official language file already inside. This build only runs it silently and picks Hebrew in advance - so the program opens in Hebrew even on a machine that is not.',
   '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן': '★ Can be downloaded with the vendor’s own official language pack',
@@ -1603,6 +1604,11 @@ function langClaim(a) {
     ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
     : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן');
   if (a.langMode === 'single-language') return T('ממשק באנגלית בלבד — אין לה שפה אחרת');
+  /* heb is false, but the catalog still recorded HOW this one picks a language - so it has
+     others, Hebrew simply is not among them. Calling that "English only" contradicted the
+     langMode sitting right beside it. This says only what the two fields already assert. */
+  if (a.langMode === 'in-app-picker' || a.langMode === 'chosen-at-install' || a.langMode === 'per-language-download')
+    return T('ממשק באנגלית — יש בה שפות נוספות לבחירה, אבל לא עברית');
   return T('ממשק באנגלית בלבד');
 }
 
