@@ -395,6 +395,16 @@
   .dlmark { flex: none; width: 15px; text-align: center; color: var(--muted); font-weight: 700; }
   .dlname { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .dlmb { flex: none; color: var(--muted); font-size: .78rem; }
+  /* a numbered step reads as an order to follow; a bullet reads as an option to pick */
+  .dlstep { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-flex;
+            align-items: center; justify-content: center; font-size: .74rem; font-weight: 700;
+            background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); }
+  .dlstep.last { background: var(--tile-h); color: var(--muted); }
+  .dlitem.done .dlstep { background: color-mix(in srgb, var(--ok) 22%, transparent); color: var(--ok); }
+  .dlstate { flex: none; color: var(--ok); font-size: .72rem; }
+  .dlthen { display: flex; align-items: center; gap: 10px; padding: 9px 12px; font-size: .82rem;
+            line-height: 1.6; color: var(--ink2); }
+  .dllist.steps .dlitem { padding-block: 11px; }
   .dlcount { color: var(--muted); font-size: .78rem; margin-top: 8px; }
   .dlcount b { color: var(--ink2); font-weight: 700; }
   /* the practical half of the language claim - quieter than the claim itself, because it
@@ -727,6 +737,17 @@ const EN = {
   'סגירה': 'Close',
   'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
   'הורדות עד כה': 'Downloads so far',
+  'ISO אישי — שלושה צעדים': 'Your own ISO — three steps',
+  'שני הקבצים האלה עובדים יחד. צריך את שניהם, באותה תיקייה.':
+    'These two files work together. You need both, in the same folder.',
+  'קובץ הבחירה — בחירת-חנות.txt': 'The selection file — בחירת-חנות.txt',
+  'הכלי שצורב — IsoBuilder.exe': 'The tool that burns it — IsoBuilder.exe',
+  'לשים את שניהם באותה תיקייה וללחוץ פעמיים על IsoBuilder. הוא יוריד את מה שבחרתם ויצרוב WINAPPS-CUSTOM.iso עם החנות בפנים.':
+    'Put both in the same folder and double-click IsoBuilder. It downloads what you picked and burns WINAPPS-CUSTOM.iso with the store inside.',
+  'הורדת שני הקבצים': 'Download both files',
+  'ירד · ללחוץ שוב כדי להוריד עוד פעם': 'taken · click again to fetch it once more',
+  'הכל ירד': 'Everything has arrived',
+  'הורדת מה שנשאר': 'Download what is left',
   'הורד': 'Taken',
   'פעמים מהאתר': 'times from this site',
   'לתרומה לפרוייקט': 'Contribute to the project',
@@ -1564,21 +1585,30 @@ function copiedToast(el, msg) {
    a blocked file looked the same as a file that was never there. Now the files are listed as
    real links. The automatic pass starts them one at a time; whatever it fails to deliver is
    still sitting there to be clicked by hand, and a link a person clicks is never blocked. */
-function downloadPanel(items, title, note) {
+function downloadPanel(items, title, note, opts) {
+  opts = opts || {};
   const ov = document.createElement('div');
   ov.className = 'overlay';
+  /* Numbered when the files are a SEQUENCE rather than a set - the custom ISO needs both
+     files in one folder and then one of them run, which a plain list does not convey. */
+  const step = opts.steps
+    ? i => '<span class="dlstep">' + (i + 1) + '</span>'
+    : () => '<span class="dlmark">•</span>';
   ov.innerHTML = '<div class="sheet dlpanel">' +
     '<h3>' + esc(title) + '</h3>' +
     '<p class="dlnote">' + esc(note || T('אם הדפדפן שואל אם לאפשר כמה הורדות — לאשר. כל קובץ שלא ירד, אפשר ללחוץ עליו כאן שוב.')) + '</p>' +
-    '<div class="dllist">' + items.map((it, i) =>
+    '<div class="dllist' + (opts.steps ? ' steps' : '') + '">' + items.map((it, i) =>
       '<a class="dlitem" data-i="' + i + '" href="' + esc(it.href) + '"' +
       (it.filename ? ' download="' + esc(it.filename) + '"' : '') +
-      ' target="_blank" rel="noopener"><span class="dlmark">•</span>' +
+      ' target="_blank" rel="noopener">' + step(i) +
       '<span class="dlname" dir="auto">' + esc(it.name) + '</span>' +
+      '<span class="dlstate"></span>' +
       (it.mb ? '<span class="dlmb" dir="ltr">' + mbFmt(it.mb) + '</span>' : '') + '</a>').join('') +
+      (opts.then ? '<div class="dlthen"><span class="dlstep last">' + (items.length + 1) + '</span>' +
+                   '<span>' + esc(opts.then) + '</span></div>' : '') +
     '</div>' +
     '<div class="acts">' +
-      '<button class="btn" id="dlgo">' + T('התחלת ההורדה') + '</button>' +
+      '<button class="btn" id="dlgo">' + T(opts.steps ? 'הורדת שני הקבצים' : 'התחלת ההורדה') + '</button>' +
       '<button class="btn lite" id="dlx">' + T('סגירה') + '</button>' +
     '</div></div>';
   document.body.appendChild(ov);
@@ -1589,19 +1619,34 @@ function downloadPanel(items, title, note) {
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   document.addEventListener('keydown', onEsc);
   ov.querySelector('#dlx').onclick = shut;
-  const mark = el => { el.classList.add('done'); el.querySelector('.dlmark').textContent = '✓'; };
+  /* A row that has already been taken must not look like one that has not - that is what
+     had people downloading the same file three times. */
+  const mark = el => {
+    el.classList.add('done');
+    const m = el.querySelector('.dlmark');
+    if (m) m.textContent = '✓';
+    el.querySelector('.dlstate').textContent = T('ירד · ללחוץ שוב כדי להוריד עוד פעם');
+    retitle();
+  };
+  const retitle = () => {
+    const all = [].slice.call(ov.querySelectorAll('.dlitem'));
+    const left = all.filter(e => !e.classList.contains('done')).length;
+    const b = ov.querySelector('#dlgo');
+    if (!left) { b.textContent = T('הכל ירד'); b.classList.add('lite'); }
+    else if (left < all.length) b.textContent = T('הורדת מה שנשאר');
+  };
   ov.querySelectorAll('.dlitem').forEach(el => el.addEventListener('click', () => mark(el)));
   ov.querySelector('#dlgo').onclick = () => {
-    const els = [].slice.call(ov.querySelectorAll('.dlitem'));
-    ov.querySelector('#dlgo').disabled = true;
+    // only what has not arrived yet, so pressing it twice does not fetch anything twice
+    const els = [].slice.call(ov.querySelectorAll('.dlitem')).filter(e => !e.classList.contains('done'));
+    if (!els.length) return;
+    const b = ov.querySelector('#dlgo');
+    b.disabled = true;
     /* Wide spacing on purpose: the guard reacts to a burst, and there is no rush here -
        the panel stays open either way. */
     els.forEach((el, i) => setTimeout(() => {
       el.click();
-      if (i === els.length - 1) {
-        const b = ov.querySelector('#dlgo');
-        b.disabled = false; b.textContent = T('להתחיל שוב את מה שחסר');
-      }
+      if (i === els.length - 1) { b.disabled = false; retitle(); }
     }, i * 1400));
   };
   return ov;
@@ -1717,10 +1762,12 @@ document.getElementById('seliso').onclick = () => {
   }
   const blob = new Blob([rows.join('\r\n')], { type: 'text/plain' });
   downloadPanel([
-    { name: 'בחירת-חנות.txt', href: URL.createObjectURL(blob), filename: 'בחירת-חנות.txt', mb: 0 },
-    { name: 'IsoBuilder.exe', href: REL + encodeURIComponent('IsoBuilder.exe'), filename: 'IsoBuilder.exe', mb: 0 },
-  ], T('ISO אישי — שני קבצים'),
-     T('שמים את שניהם באותה תיקייה ומריצים את IsoBuilder. הוא מוריד את הנבחרות וצורב WINAPPS-CUSTOM.iso עם החנות בפנים.'));
+    { name: T('קובץ הבחירה — בחירת-חנות.txt'), href: URL.createObjectURL(blob), filename: 'בחירת-חנות.txt', mb: 0 },
+    { name: T('הכלי שצורב — IsoBuilder.exe'), href: REL + encodeURIComponent('IsoBuilder.exe'), filename: 'IsoBuilder.exe', mb: 0 },
+  ], T('ISO אישי — שלושה צעדים'),
+     T('שני הקבצים האלה עובדים יחד. צריך את שניהם, באותה תיקייה.'),
+     { steps: true,
+       then: T('לשים את שניהם באותה תיקייה וללחוץ פעמיים על IsoBuilder. הוא יוריד את מה שבחרתם ויצרוב WINAPPS-CUSTOM.iso עם החנות בפנים.') });
 };
 
 /* ===== sheet ===== */
