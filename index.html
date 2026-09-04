@@ -395,6 +395,8 @@
   .dlmark { flex: none; width: 15px; text-align: center; color: var(--muted); font-weight: 700; }
   .dlname { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .dlmb { flex: none; color: var(--muted); font-size: .78rem; }
+  .dlcount { color: var(--muted); font-size: .78rem; margin-top: 8px; }
+  .dlcount b { color: var(--ink2); font-weight: 700; }
   /* the practical half of the language claim - quieter than the claim itself, because it
      matters only to the reader who wants the other language */
   .langhow { color: var(--muted); font-size: .78rem; line-height: 1.65; margin-top: 3px;
@@ -723,6 +725,9 @@ const EN = {
   'האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This site is not connected to Microsoft and is not supported by it.',
   'סגירה': 'Close',
   'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
+  'הורדות עד כה': 'Downloads so far',
+  'הורד': 'Taken',
+  'פעמים מהאתר': 'times from this site',
   'לתרומה לפרוייקט': 'Contribute to the project',
   'תודה — ובאמת אין צורך': 'Thank you — and there is really no need',
   'אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.':
@@ -936,6 +941,71 @@ function applyLang() {
 }
 
 const esc = s => (s || '').replace(/"/g, '&quot;');
+
+/* Numbers that arrive rather than appear. Anyone who has asked the system for less motion
+   gets the final value at once - the animation is decoration, and decoration is the first
+   thing to drop when someone has said they do not want it. */
+function countUp(root) {
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.querySelectorAll('[data-to]').forEach(el => {
+    const to = parseFloat(el.dataset.to) || 0;
+    const dp = (el.dataset.to.indexOf('.') >= 0) ? 1 : 0;
+    const suffix = el.dataset.suffix || '';
+    const show = v => { el.textContent = v.toFixed(dp) + suffix; };
+    if (still || !to) { show(to); return; }
+    const t0 = performance.now(), ms = 900;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / ms);
+      show(to * (1 - Math.pow(1 - k, 3)));   // ease out: fast first, settles gently
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+}
+
+/* How many times each file has been taken. Every file we host is a GitHub release asset and
+   GitHub counts them for us, so this needs no server of our own and records nothing about the
+   visitor. Cached briefly because the API allows only a handful of calls per hour per address.
+   The vendor programs are absent on purpose: they download from the vendor and we never see
+   the request, and a "0" beside them would read as "nobody wanted it". */
+let DLC = null;
+function loadDownloads() {
+  const KEY = 'dl-counts';
+  try {
+    const c = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (c && Date.now() - c.at < 30 * 60 * 1000) { applyDownloads(c.map); return; }
+  } catch (e) {}
+  fetch('https://api.github.com/repos/BeniaBot/winapps-offline/releases/tags/apps-v1')
+    .then(r => r.ok ? r.json() : null)
+    .then(j => {
+      if (!j || !j.assets) return;
+      const map = {};
+      j.assets.forEach(a => { map[a.name] = a.download_count || 0; });
+      try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), map: map })); } catch (e) {}
+      applyDownloads(map);
+    })
+    .catch(() => {});   // no counts is a fine outcome; the page never depended on them
+}
+function applyDownloads(map) {
+  DLC = map;
+  let total = 0;
+  Object.keys(map).forEach(k => { total += map[k]; });
+  const box = document.getElementById('fact-dl');
+  if (box && total > 0) {
+    box.hidden = false;
+    const b = box.querySelector('b');
+    b.dataset.to = String(total);
+    countUp(box);
+  }
+}
+/* every file this app is offered as, summed - a Win 10 and a Win 11 build are one app */
+function downloadsFor(a) {
+  if (!DLC || a.w32) return null;          // a vendor program is fetched from its vendor
+  let n = 0, seen = false;
+  (a.files || []).forEach(f => { if (f.exe in DLC) { n += DLC[f.exe]; seen = true; } });
+  if (a.xlat && a.xlat.exe in DLC) { n += DLC[a.xlat.exe]; seen = true; }
+  return seen ? n : null;
+}
 /* a tab or a newline inside a description would shift every column of the selection file */
 const clean = v => (v || '').replace(/[\t\r\n]+/g, ' ').trim();
 /* The vendor's own filename, taken from its URL. Rejects anything that is not a usable
@@ -1768,6 +1838,9 @@ function openSheet(en) {
       langClaim(a) + '</div>' +
     (langHow(a) ? '<div class="langhow">' + langHow(a) + '</div>' : '') +
     '<div class="qbody" id="qb"></div>' +
+    (downloadsFor(a) !== null
+      ? '<div class="dlcount">' + T('הורד') + ' <b>' + downloadsFor(a) + '</b> ' + T('פעמים מהאתר') + '</div>'
+      : '') +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns + '</div></div>';
 
@@ -2022,9 +2095,12 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
     '<span>' + T('הקטלוג עודכן') + '</span> <span dir="ltr">' + esc(d.updated) + '</span>';
   const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
-    '<div><b>' + d.apps.length + '</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
-    '<div><b dir="ltr">' + gb.toFixed(1) + ' GB</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
+    '<div><b data-to="' + d.apps.length + '">0</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
+    '<div><b dir="ltr" data-to="' + gb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
+    '<div id="fact-dl" hidden><b data-to="0">0</b><span>' + T('הורדות עד כה') + '</span></div>' +
     '<div><b>0</b><span>' + T('רשת בצד השני') + '</span></div>';
+  countUp(document.getElementById('facts'));
+  loadDownloads();
   // a rendering bug must never masquerade as a network problem
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
   return fetch('published.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
