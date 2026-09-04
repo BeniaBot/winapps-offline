@@ -405,6 +405,12 @@
   .dlthen { display: flex; align-items: center; gap: 10px; padding: 9px 12px; font-size: .82rem;
             line-height: 1.6; color: var(--ink2); }
   .dllist.steps .dlitem { padding-block: 11px; }
+  /* opposite corner from the Hebrew badge, and warmer than it - this one is a fact about
+     other people rather than about the app */
+  .pop { position: absolute; inset-inline-start: 8px; top: 8px; z-index: 2;
+         padding: 2px 7px; border-radius: 99px; font-size: .62rem; font-weight: 700;
+         background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn);
+         border: 1px solid color-mix(in srgb, var(--warn) 38%, transparent); }
   .dlcount { color: var(--muted); font-size: .78rem; margin-top: 8px; }
   .dlcount b { color: var(--ink2); font-weight: 700; }
   /* the practical half of the language claim - quieter than the claim itself, because it
@@ -750,22 +756,27 @@ const EN = {
   'הורדת מה שנשאר': 'Download what is left',
   'הורד': 'Taken',
   'פעמים מהאתר': 'times from this site',
+  'אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו':
+    'No counter — this file downloads from the maker\'s own site, not through us',
+  'פופולרי': 'Popular',
+  'מהנפוצות להורדה כאן': 'Among the most downloaded here',
   'לתרומה לפרוייקט': 'Contribute to the project',
-  'תודה — ובאמת אין צורך': 'Thank you — and there is really no need',
-  'אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.':
-    'If you came here to donate, thank you. That is kind, and it means the site helped you with something. But there is nothing here to donate to.',
-  'האתר הזה לא עלה כסף. הכתיבה נעשית על ידי מודל, הקבצים מגיעים מהשרתים של היצרנים עצמם, והאחסון חינמי. תרומה לא תקנה שום דבר שחסר כאן — היא פשוט תשב במקום כלשהו.':
-    'This site cost nothing to make. The writing is done by a model, the files come from the vendors\' own servers, and the hosting is free. A donation would not buy anything that is missing here — it would simply sit somewhere.',
-  'מה כן חסר': 'What is actually missing',
-  'הדבר היחיד שבאמת חסר הוא אנשים שמסתכלים ומוצאים מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".':
-    'The one thing genuinely in short supply is people who look and find what is wrong. Several of the best fixes here arrived exactly that way — somebody saying "hold on, that does not look right to me".',
-  'משהו שכתוב באתר ואינו מדויק — אפילו מילה אחת': 'Anything on the site that is not accurate — even one word',
-  'אפליקציה שהמתקין שלה לא עבד, ומה בדיוק קרה': 'An app whose installer did not work, and what exactly happened',
+  'תודה, אבל באמת לא צריך': 'Thank you, but there is really no need',
+  'אם הגעתם לכאן כדי לתרום — תודה. זה אומר שהאתר עזר לכם במשהו.':
+    'If you came here to donate, thank you. It means the site helped you with something.',
+  'אבל אין כאן למה לתרום, ועדיף שאגיד את זה ישר. האתר לא עלה כסף: הקוד נכתב במודל, הקבצים יורדים מהשרתים של היצרנים עצמם, והאחסון של גיטהאב חינם. כסף פשוט לא יקנה כאן כלום.':
+    'But there is nothing here to donate to, and I would rather say so plainly. This site cost nothing: the code was written by a model, the files come from the makers\' own servers, and GitHub hosts it for free. Money would not buy anything here.',
+  'מה כן שווה': 'What is worth something',
+  'שמישהו יסתכל וימצא מה לא בסדר. חלק מהתיקונים הכי טובים כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".':
+    'Someone looking and finding what is wrong. Some of the best fixes here arrived exactly that way — somebody saying "hold on, that does not look right to me".',
+  'משהו שכתוב כאן ולא מדויק — אפילו מילה אחת': 'Anything written here that is not accurate — even one word',
+  'מתקין שלא עבד, ומה בדיוק קרה': 'An installer that did not work, and what exactly happened',
   'תוכנה שחסרה כאן וכדאי שתהיה': 'A program missing here that ought to be here',
-  'ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום':
+  'ומי שכותב קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום':
     'And if you write code — the repository is open, and a pull request is worth more than any sum',
-  'כל אלה, וגם סתם לספר שזה עבד, דרך "יצירת קשר" למטה או ישירות בגיטהאב.':
-    'All of those, and simply telling us it worked, through "contact" below or straight on GitHub.',
+  'ודבר אחד אני כן מבקש: כתבו לי בטופס למטה. מי שבכלל חשב לתרום לפרויקט כזה — בא לי להכיר אותו.':
+    'And there is one thing I will ask for: write to me in the form below. Anyone who even considered donating to a project like this — I would like to know who you are.',
+  'לטופס': 'Take me to the form',
   'פתיחת הפרויקט בגיטהאב': 'Open the project on GitHub',
   'אין מה לשים על הדיסק — צריך לבחור לפחות פריט אחד.': 'Nothing to put on the disc — pick at least one item.',
   'הורדת הנבחרות': 'Download what you picked',
@@ -979,12 +990,16 @@ function countUp(root) {
     const show = v => { el.textContent = v.toFixed(dp) + suffix; };
     if (still || !to) { show(to); return; }
     const t0 = performance.now(), ms = 900;
+    let done = false;
     const step = now => {
       const k = Math.min(1, (now - t0) / ms);
       show(to * (1 - Math.pow(1 - k, 3)));   // ease out: fast first, settles gently
-      if (k < 1) requestAnimationFrame(step);
+      if (k < 1) requestAnimationFrame(step); else done = true;
     };
     requestAnimationFrame(step);
+    // rAF does not run in a background tab, and a headline stuck on zero reads as an answer
+    // rather than as an animation that has not started. Snap to the real figure regardless.
+    setTimeout(() => { if (!done) show(to); }, ms + 600);
   });
 }
 
@@ -993,28 +1008,47 @@ function countUp(root) {
    visitor. Cached briefly because the API allows only a handful of calls per hour per address.
    The vendor programs are absent on purpose: they download from the vendor and we never see
    the request, and a "0" beside them would read as "nobody wanted it". */
-let DLC = null;
+let DLC = null, DLREPO = null;
 function loadDownloads() {
   const KEY = 'dl-counts';
   try {
     const c = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (c && Date.now() - c.at < 30 * 60 * 1000) { applyDownloads(c.map); return; }
+    if (c && Date.now() - c.at < 30 * 60 * 1000) { applyDownloads(c.map, c.repo || {}); return; }
   } catch (e) {}
-  fetch('https://api.github.com/repos/BeniaBot/winapps-offline/releases/tags/apps-v1')
-    .then(r => r.ok ? r.json() : null)
-    .then(j => {
-      if (!j || !j.assets) return;
-      const map = {};
-      j.assets.forEach(a => { map[a.name] = a.download_count || 0; });
-      try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), map: map })); } catch (e) {}
-      applyDownloads(map);
-    })
-    .catch(() => {});   // no counts is a fine outcome; the page never depended on them
+
+  /* Our own release, plus one call per in-house app. Those live in their OWN repositories -
+     GitHub counts them there just the same, and leaving them out was an oversight rather
+     than a limitation. */
+  const repos = [];
+  (DATA.apps || []).forEach(a => { if (a.custom && a.repo && repos.indexOf(a.repo) < 0) repos.push(a.repo); });
+
+  Promise.all([
+    fetch('https://api.github.com/repos/BeniaBot/winapps-offline/releases/tags/apps-v1')
+      .then(r => r.ok ? r.json() : null).catch(() => null),
+  ].concat(repos.map(rp =>
+    fetch('https://api.github.com/repos/' + rp + '/releases/latest')
+      .then(r => r.ok ? r.json() : null).then(j => ({ repo: rp, rel: j })).catch(() => null)
+  ))).then(results => {
+    const ours = results[0];
+    const map = {};
+    if (ours && ours.assets) ours.assets.forEach(a => { map[a.name] = a.download_count || 0; });
+    const repo = {};
+    results.slice(1).forEach(r => {
+      if (!r || !r.rel || !r.rel.assets) return;
+      let n = 0;
+      r.rel.assets.forEach(a => { n += a.download_count || 0; });
+      repo[r.repo] = n;
+    });
+    if (!Object.keys(map).length && !Object.keys(repo).length) return;
+    try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), map: map, repo: repo })); } catch (e) {}
+    applyDownloads(map, repo);
+  });
 }
-function applyDownloads(map) {
-  DLC = map;
+function applyDownloads(map, repo) {
+  DLC = map; DLREPO = repo || {};
   let total = 0;
   Object.keys(map).forEach(k => { total += map[k]; });
+  Object.keys(DLREPO).forEach(k => { total += DLREPO[k]; });
   const box = document.getElementById('fact-dl');
   if (box && total > 0) {
     box.hidden = false;
@@ -1022,14 +1056,35 @@ function applyDownloads(map) {
     b.dataset.to = String(total);
     countUp(box);
   }
+  markPopular();
+  render();          // the tiles were painted before the numbers arrived
 }
+
 /* every file this app is offered as, summed - a Win 10 and a Win 11 build are one app */
 function downloadsFor(a) {
-  if (!DLC || a.w32) return null;          // a vendor program is fetched from its vendor
+  if (a.custom && a.repo && DLREPO && a.repo in DLREPO) return DLREPO[a.repo];
+  if (!DLC || a.w32) return null;          // a vendor program is fetched from its own maker
   let n = 0, seen = false;
   (a.files || []).forEach(f => { if (f.exe in DLC) { n += DLC[f.exe]; seen = true; } });
   if (a.xlat && a.xlat.exe in DLC) { n += DLC[a.xlat.exe]; seen = true; }
   return seen ? n : null;
+}
+
+/* The few most taken. A rank is only meaningful against a field, so this marks the top of the
+   list rather than everything above some invented threshold - and only where a count exists
+   at all, which is why no vendor program can ever carry it. */
+let POPULAR = null;
+function markPopular() {
+  const scored = [];
+  (DATA.apps || []).forEach(a => {
+    const n = downloadsFor(a);
+    if (n && n > 0) scored.push({ en: a.en, n: n });
+  });
+  if (scored.length < 6) { POPULAR = null; return; }   // too few to rank honestly
+  scored.sort((x, y) => y.n - x.n);
+  const take = Math.max(3, Math.round(scored.length * 0.15));
+  POPULAR = {};
+  scored.slice(0, take).forEach(x => { POPULAR[x.en] = true; });
 }
 /* a tab or a newline inside a description would shift every column of the selection file */
 const clean = v => (v || '').replace(/[\t\r\n]+/g, ' ').trim();
@@ -1268,7 +1323,8 @@ function tile(a) {
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(descOf(a) || nameOf(a)) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' +
-    (a.heb && !a.noui ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') + pl +
+    (a.heb && !a.noui ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') +
+    (POPULAR && POPULAR[a.en] ? '<span class="pop" title="' + esc(T('מהנפוצות להורדה כאן')) + '">' + T('פופולרי') + '</span>' : '') + pl +
     '<div class="nm" dir="auto">' + nameOf(a) + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
@@ -1891,6 +1947,8 @@ function openSheet(en) {
     '<div class="qbody" id="qb"></div>' +
     (downloadsFor(a) !== null
       ? '<div class="dlcount">' + T('הורד') + ' <b>' + downloadsFor(a) + '</b> ' + T('פעמים מהאתר') + '</div>'
+      : a.w32
+      ? '<div class="dlcount">' + T('אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו') + '</div>'
       : '') +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns + '</div></div>';
@@ -2033,19 +2091,22 @@ document.getElementById('donate-btn').onclick = () => {
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet give">' +
-    '<h3>' + T('תודה — ובאמת אין צורך') + '</h3>' +
-    '<p class="lead">' + T('אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.') + '</p>' +
-    '<p>' + T('האתר הזה לא עלה כסף. הכתיבה נעשית על ידי מודל, הקבצים מגיעים מהשרתים של היצרנים עצמם, והאחסון חינמי. תרומה לא תקנה שום דבר שחסר כאן — היא פשוט תשב במקום כלשהו.') + '</p>' +
-    '<h3 style="font-size:1rem;margin:18px 0 8px">' + T('מה כן חסר') + '</h3>' +
-    '<p>' + T('הדבר היחיד שבאמת חסר הוא אנשים שמסתכלים ומוצאים מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".') + '</p>' +
+    '<h3>' + T('תודה, אבל באמת לא צריך') + '</h3>' +
+    '<p class="lead">' + T('אם הגעתם לכאן כדי לתרום — תודה. זה אומר שהאתר עזר לכם במשהו.') + '</p>' +
+    '<p>' + T('אבל אין כאן למה לתרום, ועדיף שאגיד את זה ישר. האתר לא עלה כסף: הקוד נכתב במודל, הקבצים יורדים מהשרתים של היצרנים עצמם, והאחסון של גיטהאב חינם. כסף פשוט לא יקנה כאן כלום.') + '</p>' +
+    '<h3 style="font-size:1rem;margin:18px 0 8px">' + T('מה כן שווה') + '</h3>' +
+    '<p>' + T('שמישהו יסתכל וימצא מה לא בסדר. חלק מהתיקונים הכי טובים כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".') + '</p>' +
     '<ul>' +
-    '<li>' + T('משהו שכתוב באתר ואינו מדויק — אפילו מילה אחת') + '</li>' +
-    '<li>' + T('אפליקציה שהמתקין שלה לא עבד, ומה בדיוק קרה') + '</li>' +
+    '<li>' + T('משהו שכתוב כאן ולא מדויק — אפילו מילה אחת') + '</li>' +
+    '<li>' + T('מתקין שלא עבד, ומה בדיוק קרה') + '</li>' +
     '<li>' + T('תוכנה שחסרה כאן וכדאי שתהיה') + '</li>' +
-    '<li>' + T('ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום') + '</li>' +
+    '<li>' + T('ומי שכותב קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום') + '</li>' +
     '</ul>' +
-    '<p style="color:var(--muted);font-size:.82rem">' + T('כל אלה, וגם סתם לספר שזה עבד, דרך "יצירת קשר" למטה או ישירות בגיטהאב.') + '</p>' +
-    '<button class="btn lite close" id="gv-x">' + T('סגירה') + '</button>' +
+    '<p class="lead" style="margin-top:16px">' + T('ודבר אחד אני כן מבקש: כתבו לי בטופס למטה. מי שבכלל חשב לתרום לפרויקט כזה — בא לי להכיר אותו.') + '</p>' +
+    '<div class="acts" style="margin-top:16px">' +
+      '<button class="btn" id="gv-form">' + T('לטופס') + '</button>' +
+      '<button class="btn lite" id="gv-x">' + T('סגירה') + '</button>' +
+    '</div>' +
     '</div>';
   document.body.appendChild(ov);
   translateDom(ov);
@@ -2055,6 +2116,15 @@ document.getElementById('donate-btn').onclick = () => {
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   document.addEventListener('keydown', onEsc);
   ov.querySelector('#gv-x').onclick = shut;
+  /* Do not just name the form - take them to it, and put the cursor in it. Someone who has
+     read this far should not then have to go hunting down the page. */
+  ov.querySelector('#gv-form').onclick = () => {
+    shut();
+    const form = document.querySelector('section.ask');
+    if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const field = document.getElementById('ask-app');
+    if (field) setTimeout(() => field.focus(), 500);
+  };
 };
 
 document.getElementById('about-btn').onclick = () => {
