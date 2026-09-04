@@ -207,6 +207,21 @@
   }
 
   /* back to top */
+  /* deliberately the quietest thing in the footer: it is a link to a conversation, not an ask */
+  .donate { background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+            color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .donate:hover { color: var(--ink); }
+  /* .sheet sets a width too, and it is written later - so this needs the extra specificity
+     rather than relying on source order */
+  .sheet.give { width: min(520px, 94vw); text-align: start; }
+  .give h3 { margin: 0 0 10px; font-size: 1.12rem; }
+  .give p { margin: 0 0 11px; font-size: .87rem; line-height: 1.8; color: var(--ink2); }
+  .give .lead { color: var(--ink); }
+  .give ul { margin: 0 0 11px; padding-inline-start: 20px; font-size: .87rem;
+             line-height: 1.8; color: var(--ink2); }
+  .give li { margin-bottom: 4px; }
+  .give .close { margin-top: 16px; width: 100%; }
+
   .top-btn { position: fixed; bottom: 20px; inset-inline-start: 20px; z-index: 45;
              width: 44px; height: 44px; border-radius: 99px; border: 1px solid var(--stroke);
              background: var(--panel); color: var(--ink); font-size: 1.1rem; cursor: pointer;
@@ -367,7 +382,7 @@
            width: min(420px, 94vw); padding: 26px; text-align: center;
            max-height: 92vh; overflow-y: auto; }
   .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
-  .dlpanel { width: min(460px, 94vw); text-align: start; }
+  .sheet.dlpanel { width: min(460px, 94vw); text-align: start; }
   .dlpanel h3 { margin: 0 0 6px; font-size: 1.1rem; }
   .dlnote { margin: 0 0 14px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
   .dllist { display: flex; flex-direction: column; gap: 6px; max-height: 46vh; overflow-y: auto; }
@@ -457,7 +472,7 @@
 
   /* the same question mark as on an app, at the scale of the whole shop */
   /* .sheet sets an explicit width, so this has to set one too - a max-width only caps it */
-  .about { width: min(560px, 94vw); text-align: start; }
+  .sheet.about { width: min(560px, 94vw); text-align: start; }
   .about h3 { margin: 0 0 4px; font-size: 1.15rem; }
   .about h4 { margin: 18px 0 5px; font-size: .93rem; color: var(--ink); }
   .about p { margin: 0; font-size: .87rem; line-height: 1.78; color: var(--ink2); }
@@ -604,7 +619,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <span id="updated"></span></div>
+    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <button class="donate" id="donate-btn">תרומה</button> · <span id="updated"></span></div>
   </div>
 </footer>
 
@@ -708,6 +723,22 @@ const EN = {
   'האתר אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This site is not connected to Microsoft and is not supported by it.',
   'סגירה': 'Close',
   'לא הצלחנו לטעון את ההסבר.': 'The explanation could not be loaded.',
+  'תרומה': 'Donate',
+  'תודה — ובאמת אין צורך': 'Thank you — and there is really no need',
+  'אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.':
+    'If you came here to donate, thank you. That is kind, and it means the site helped you with something. But there is nothing here to donate to.',
+  'האתר הזה לא עלה כסף. הכתיבה נעשית על ידי מודל, הקבצים מגיעים מהשרתים של היצרנים עצמם, והאחסון חינמי. תרומה לא תקנה שום דבר שחסר כאן — היא פשוט תשב במקום כלשהו.':
+    'This site cost nothing to make. The writing is done by a model, the files come from the vendors\' own servers, and the hosting is free. A donation would not buy anything that is missing here — it would simply sit somewhere.',
+  'מה כן חסר': 'What is actually missing',
+  'הדבר היחיד שבאמת חסר הוא אנשים שמסתכלים ומוצאים מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".':
+    'The one thing genuinely in short supply is people who look and find what is wrong. Several of the best fixes here arrived exactly that way — somebody saying "hold on, that does not look right to me".',
+  'משהו שכתוב באתר ואינו מדויק — אפילו מילה אחת': 'Anything on the site that is not accurate — even one word',
+  'אפליקציה שהמתקין שלה לא עבד, ומה בדיוק קרה': 'An app whose installer did not work, and what exactly happened',
+  'תוכנה שחסרה כאן וכדאי שתהיה': 'A program missing here that ought to be here',
+  'ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום':
+    'And if you write code — the repository is open, and a pull request is worth more than any sum',
+  'כל אלה, וגם סתם לספר שזה עבד, דרך "יצירת קשר" למטה או ישירות בגיטהאב.':
+    'All of those, and simply telling us it worked, through "contact" below or straight on GitHub.',
   'פתיחת הפרויקט בגיטהאב': 'Open the project on GitHub',
   'אין מה לשים על הדיסק — צריך לבחור לפחות פריט אחד.': 'Nothing to put on the disc — pick at least one item.',
   'הורדת הנבחרות': 'Download what you picked',
@@ -1868,6 +1899,37 @@ async function adminInit() {
 /* The heading assumes the visitor already knows why a Windows app would refuse to install.
    Someone who does not know has nowhere to find out, so: plain words, no jargon, and the
    order a person actually asks them in - what is this, why, what do I do. */
+/* Someone offering money for this deserves a real answer rather than a payment form. The
+   honest one is that there is nothing to fund - and that the thing actually in short supply
+   is people who find the mistakes. */
+document.getElementById('donate-btn').onclick = () => {
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.innerHTML = '<div class="sheet give">' +
+    '<h3>' + T('תודה — ובאמת אין צורך') + '</h3>' +
+    '<p class="lead">' + T('אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו. אבל אין כאן למה לתרום.') + '</p>' +
+    '<p>' + T('האתר הזה לא עלה כסף. הכתיבה נעשית על ידי מודל, הקבצים מגיעים מהשרתים של היצרנים עצמם, והאחסון חינמי. תרומה לא תקנה שום דבר שחסר כאן — היא פשוט תשב במקום כלשהו.') + '</p>' +
+    '<h3 style="font-size:1rem;margin:18px 0 8px">' + T('מה כן חסר') + '</h3>' +
+    '<p>' + T('הדבר היחיד שבאמת חסר הוא אנשים שמסתכלים ומוצאים מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — מישהו שאמר "רגע, זה לא נראה לי נכון".') + '</p>' +
+    '<ul>' +
+    '<li>' + T('משהו שכתוב באתר ואינו מדויק — אפילו מילה אחת') + '</li>' +
+    '<li>' + T('אפליקציה שהמתקין שלה לא עבד, ומה בדיוק קרה') + '</li>' +
+    '<li>' + T('תוכנה שחסרה כאן וכדאי שתהיה') + '</li>' +
+    '<li>' + T('ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום') + '</li>' +
+    '</ul>' +
+    '<p style="color:var(--muted);font-size:.82rem">' + T('כל אלה, וגם סתם לספר שזה עבד, דרך "יצירת קשר" למטה או ישירות בגיטהאב.') + '</p>' +
+    '<button class="btn lite close" id="gv-x">' + T('סגירה') + '</button>' +
+    '</div>';
+  document.body.appendChild(ov);
+  translateDom(ov);
+  document.body.style.overflow = 'hidden';
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
+  const onEsc = e => { if (e.key === 'Escape') shut(); };
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  document.addEventListener('keydown', onEsc);
+  ov.querySelector('#gv-x').onclick = shut;
+};
+
 document.getElementById('about-btn').onclick = () => {
   const ov = document.createElement('div');
   ov.className = 'overlay';

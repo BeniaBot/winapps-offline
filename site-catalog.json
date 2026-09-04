@@ -1666,6 +1666,7 @@
                      "descEn":  "The runtime libraries almost every modern program needs. Always install",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x64)",
                      "files":  [
                                    {
                                        "exe":  "vc_redist.x64.exe",
@@ -1690,6 +1691,7 @@
                      "descEn":  "The 32-bit build — older programs need exactly this one",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x86)",
                      "files":  [
                                    {
                                        "exe":  "vc_redist.x86.exe",
@@ -1714,6 +1716,7 @@
                      "descEn":  "Programs and games from the 2013-2015 era need it",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2013 Redistributable (x64)",
                      "files":  [
                                    {
                                        "exe":  "VC2013-x64.exe",
@@ -1738,6 +1741,7 @@
                      "descEn":  "32-bit build of the 2013 libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2013 Redistributable (x86)",
                      "files":  [
                                    {
                                        "exe":  "VC2013-x86.exe",
@@ -1762,6 +1766,7 @@
                      "descEn":  "The 2012 generation of libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2012 Redistributable (x64)",
                      "files":  [
                                    {
                                        "exe":  "VC2012-x64.exe",
@@ -1786,6 +1791,7 @@
                      "descEn":  "32-bit build of the 2012 libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2012 Redistributable (x86)",
                      "files":  [
                                    {
                                        "exe":  "VC2012-x86.exe",
@@ -1810,6 +1816,7 @@
                      "descEn":  "The 2010 generation of libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2010|x64",
                      "files":  [
                                    {
                                        "exe":  "VC2010-x64.exe",
@@ -1834,6 +1841,7 @@
                      "descEn":  "32-bit build of the 2010 libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2010|x86",
                      "files":  [
                                    {
                                        "exe":  "VC2010-x86.exe",
@@ -1858,6 +1866,7 @@
                      "descEn":  "The 2008 generation — older games and programs",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2008 Redistributable - x64",
                      "files":  [
                                    {
                                        "exe":  "VC2008-x64.exe",
@@ -1882,6 +1891,7 @@
                      "descEn":  "32-bit build of the 2008 libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2008 Redistributable - x86",
                      "files":  [
                                    {
                                        "exe":  "VC2008-x86.exe",
@@ -1906,6 +1916,7 @@
                      "descEn":  "The oldest one — for very old programs",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Visual C++ 2005 Redistributable (x64)",
                      "files":  [
                                    {
                                        "exe":  "VC2005-x64.exe",
@@ -1930,6 +1941,7 @@
                      "descEn":  "32-bit build of the 2005 libraries",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "=Microsoft Visual C++ 2005 Redistributable",
                      "files":  [
                                    {
                                        "exe":  "VC2005-x86.exe",
@@ -1954,6 +1966,7 @@
                      "descEn":  "The foundation of most older Windows programs. Full offline installer",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full!Release\u003e=533320",
                      "files":  [
                                    {
                                        "exe":  "NDP481-x86-x64-AllOS-ENU.exe",
@@ -1978,6 +1991,7 @@
                      "descEn":  "For modern programs built on .NET 8",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Windows Desktop Runtime - 8.|(x64)",
                      "files":  [
                                    {
                                        "exe":  "windowsdesktop-runtime-8*-win-x64.exe",
@@ -2002,6 +2016,7 @@
                      "descEn":  "32-bit build — many .NET programs still are",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Windows Desktop Runtime - 8.|(x86)",
                      "files":  [
                                    {
                                        "exe":  "windowsdesktop-runtime-8*-win-x86.exe",
@@ -2026,6 +2041,7 @@
                      "descEn":  "For programs built on the older .NET 6",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Windows Desktop Runtime - 6.|(x64)",
                      "files":  [
                                    {
                                        "exe":  "windowsdesktop-runtime-6*-win-x64.exe",
@@ -2050,6 +2066,7 @@
                      "descEn":  "The browser engine modern apps display content in",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Edge WebView2 Runtime",
                      "files":  [
                                    {
                                        "exe":  "MicrosoftEdgeWebView2RuntimeInstallerX64.exe",
@@ -2099,6 +2116,7 @@
                      "descEn":  "Many indie games (Terraria, Stardew and more) need it",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft XNA Framework Redistributable 4.0",
                      "files":  [
                                    {
                                        "exe":  "xnafx40_redist.msi",
@@ -2123,6 +2141,7 @@
                      "descEn":  "A physics engine many games require — on any graphics card",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "NVIDIA PhysX System Software",
                      "files":  [
                                    {
                                        "exe":  "PhysX_*_SystemSoftware.exe",
@@ -2147,6 +2166,7 @@
                      "descEn":  "Connect to Access and Excel files from other programs",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Access database engine 2016",
                      "files":  [
                                    {
                                        "exe":  "accessdatabaseengine_X64.exe",
@@ -2171,6 +2191,7 @@
                      "descEn":  "The older Java runtime — some programs need exactly this one",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 8u",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK8U-jre_*.msi",
@@ -2220,6 +2241,7 @@
                      "enName":  ".NET Framework 3.5 (full)",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v3.5!Install",
                      "files":  [
                                    {
                                        "exe":  "dotnetfx35.exe",
@@ -2244,6 +2266,7 @@
                      "descEn":  "For the newest programs, built on .NET 9",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Windows Desktop Runtime - 9.|(x64)",
                      "files":  [
                                    {
                                        "exe":  "windowsdesktop-runtime-9*-win-x64.exe",
@@ -2268,6 +2291,7 @@
                      "descEn":  "For programs built on .NET 7",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Microsoft Windows Desktop Runtime - 7.|(x64)",
                      "files":  [
                                    {
                                        "exe":  "windowsdesktop-runtime-7*-win-x64.exe",
@@ -2292,6 +2316,7 @@
                      "descEn":  "The modern graphics interface — games and emulators need it",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Vulkan Run Time Libraries",
                      "files":  [
                                    {
                                        "exe":  "VulkanRT-*-Installer.exe",
@@ -2316,6 +2341,7 @@
                      "descEn":  "For older game builds that need the historic PhysX",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "NVIDIA PhysX (Legacy)",
                      "files":  [
                                    {
                                        "exe":  "PhysX-*-Legacy.msi",
@@ -2340,6 +2366,7 @@
                      "descEn":  "A mid-generation Java runtime",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 11.",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK11U-jre_*.msi",
@@ -2364,6 +2391,7 @@
                      "descEn":  "A widely used Java LTS — Minecraft and many programs",
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 17",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK17U-jre_*.msi",
@@ -2734,7 +2762,7 @@
                      "noui":  true,
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "no-ui",
-                     "detect":  "Eclipse Temurin JRE",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 21",
                      "files":  [
                                    {
                                        "exe":  "OpenJDK21U-jre_*.msi",

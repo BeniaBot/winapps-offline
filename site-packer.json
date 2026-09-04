@@ -4527,6 +4527,7 @@
                      "descEn":  "The runtime libraries almost every modern program needs. Always install",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4551,6 +4552,7 @@
                      "descEn":  "The 32-bit build — older programs need exactly this one",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2015-2022 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4575,6 +4577,7 @@
                      "descEn":  "Programs and games from the 2013-2015 era need it",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2013 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4599,6 +4602,7 @@
                      "descEn":  "32-bit build of the 2013 libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2013 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4623,6 +4627,7 @@
                      "descEn":  "The 2012 generation of libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2012 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4647,6 +4652,7 @@
                      "descEn":  "32-bit build of the 2012 libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2012 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4671,6 +4677,7 @@
                      "descEn":  "The 2010 generation of libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2010|x64",
                      "silent":  "/q /norestart"
                  },
                  {
@@ -4695,6 +4702,7 @@
                      "descEn":  "32-bit build of the 2010 libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2010|x86",
                      "silent":  "/q /norestart"
                  },
                  {
@@ -4719,6 +4727,7 @@
                      "descEn":  "The 2008 generation — older games and programs",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2008 Redistributable - x64",
                      "silent":  "/q"
                  },
                  {
@@ -4743,6 +4752,7 @@
                      "descEn":  "32-bit build of the 2008 libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2008 Redistributable - x86",
                      "silent":  "/q"
                  },
                  {
@@ -4767,6 +4777,7 @@
                      "descEn":  "The oldest one — for very old programs",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "Microsoft Visual C++ 2005 Redistributable (x64)",
                      "silent":  "/q"
                  },
                  {
@@ -4791,6 +4802,7 @@
                      "descEn":  "32-bit build of the 2005 libraries",
                      "noui":  true,
                      "icon":  "icons/w32/vcpp.svg",
+                     "detect":  "=Microsoft Visual C++ 2005 Redistributable",
                      "silent":  "/q"
                  },
                  {
@@ -4815,6 +4827,7 @@
                      "descEn":  "The foundation of most older Windows programs. Full offline installer",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full!Release\u003e=533320",
                      "silent":  "/q /norestart"
                  },
                  {
@@ -4839,6 +4852,7 @@
                      "descEn":  "For modern programs built on .NET 8",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "Microsoft Windows Desktop Runtime - 8.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4863,6 +4877,7 @@
                      "descEn":  "32-bit build — many .NET programs still are",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "Microsoft Windows Desktop Runtime - 8.|(x86)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4887,6 +4902,7 @@
                      "descEn":  "For programs built on the older .NET 6",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "Microsoft Windows Desktop Runtime - 6.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -4911,6 +4927,7 @@
                      "descEn":  "The browser engine modern apps display content in",
                      "noui":  true,
                      "icon":  "icons/w32/webview2.svg",
+                     "detect":  "Microsoft Edge WebView2 Runtime",
                      "silent":  "/silent /install"
                  },
                  {
@@ -4960,6 +4977,7 @@
                      "descEn":  "Many indie games (Terraria, Stardew and more) need it",
                      "noui":  true,
                      "icon":  "icons/w32/xna.svg",
+                     "detect":  "Microsoft XNA Framework Redistributable 4.0",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -4984,6 +5002,7 @@
                      "descEn":  "A physics engine many games require — on any graphics card",
                      "noui":  true,
                      "icon":  "icons/w32/nvidia.svg",
+                     "detect":  "NVIDIA PhysX System Software",
                      "silent":  "/s"
                  },
                  {
@@ -5008,6 +5027,7 @@
                      "descEn":  "Connect to Access and Excel files from other programs",
                      "noui":  true,
                      "icon":  "icons/w32/ace.svg",
+                     "detect":  "Microsoft Access database engine 2016",
                      "silent":  "/quiet"
                  },
                  {
@@ -5032,6 +5052,7 @@
                      "descEn":  "The older Java runtime — some programs need exactly this one",
                      "noui":  true,
                      "icon":  "icons/w32/java.svg",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 8u",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5081,6 +5102,7 @@
                      "enName":  ".NET Framework 3.5 (full)",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "@SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v3.5!Install",
                      "silent":  "/q /norestart"
                  },
                  {
@@ -5105,6 +5127,7 @@
                      "descEn":  "For the newest programs, built on .NET 9",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "Microsoft Windows Desktop Runtime - 9.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -5129,6 +5152,7 @@
                      "descEn":  "For programs built on .NET 7",
                      "noui":  true,
                      "icon":  "icons/w32/dotnet.svg",
+                     "detect":  "Microsoft Windows Desktop Runtime - 7.|(x64)",
                      "silent":  "/install /quiet /norestart"
                  },
                  {
@@ -5153,6 +5177,7 @@
                      "descEn":  "The modern graphics interface — games and emulators need it",
                      "noui":  true,
                      "icon":  "icons/w32/vulkan.svg",
+                     "detect":  "Vulkan Run Time Libraries",
                      "silent":  "/S"
                  },
                  {
@@ -5177,6 +5202,7 @@
                      "descEn":  "For older game builds that need the historic PhysX",
                      "noui":  true,
                      "icon":  "icons/w32/nvidia.svg",
+                     "detect":  "NVIDIA PhysX (Legacy)",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5201,6 +5227,7 @@
                      "descEn":  "A mid-generation Java runtime",
                      "noui":  true,
                      "icon":  "icons/w32/java.svg",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 11.",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5225,6 +5252,7 @@
                      "descEn":  "A widely used Java LTS — Minecraft and many programs",
                      "noui":  true,
                      "icon":  "icons/w32/java.svg",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 17",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5595,7 +5623,7 @@
                      "noui":  true,
                      "icon":  "icons/w32/java.svg",
                      "langMode":  "no-ui",
-                     "detect":  "Eclipse Temurin JRE",
+                     "detect":  "Eclipse Temurin JRE with Hotspot 21",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
