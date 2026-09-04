@@ -1886,7 +1886,13 @@ function openSheet(en) {
     dlRow('<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
       esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>',
       a.xlat.url || (REL + encodeURIComponent(a.xlat.exe)), false, 'xlat') +
-    '<div class="warn" style="margin:2px 0 4px">' + T('התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') + '</div>';
+    /* two different things wear the same orange button: a translation made here, and a vendor's
+       own official language pack that simply ships separately from its installer. Only the first
+       one ever opened a package, so only the first one carries that warning. The catalog says
+       which is which in xlat.source, and carries the right sentence per app. */
+    '<div class="warn" style="margin:2px 0 4px">' + (a.xlat.source === 'official'
+      ? ((LANG === 'en' && a.xlat.noteEn ? a.xlat.noteEn : a.xlat.note) || '')
+      : T('התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.')) + '</div>';
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
