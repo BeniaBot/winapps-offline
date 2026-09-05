@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-04",
+    "updated":  "2026-09-06",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -820,28 +820,38 @@
                                        "mb":  48,
                                        "win":  "all",
                                        "minBuild":  18362,
-                                       "ver":  "10.22031.10096.0",
-                                       "bundle":  "Microsoft.ZuneMusic_2019.22031.10096.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "ver":  "10.22031.10091.0",
+                                       "bundle":  "Microsoft.ZuneMusic_2019.22031.10091.0_neutral_~_8wekyb3d8bbwe.appxbundle",
                                        "deps":  [
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
-                                                        "arch":  "x86"
+                                                        "arch":  "x64"
                                                     },
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.4",
-                                                        "min":  "2.42005.18002.0",
+                                                        "name":  "Microsoft.VCLibs.140.00",
+                                                        "min":  "14.0.0.0",
                                                         "arch":  "x86"
                                                     },
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
-                                                        "arch":  "x64"
+                                                        "arch":  "arm64"
                                                     },
                                                     {
                                                         "name":  "Microsoft.UI.Xaml.2.4",
                                                         "min":  "2.42005.18002.0",
                                                         "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.4",
+                                                        "min":  "2.42005.18002.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.4",
+                                                        "min":  "2.42005.18002.0",
+                                                        "arch":  "arm64"
                                                     }
                                                 ],
                                        "live":  false
@@ -866,8 +876,8 @@
                                        "mb":  57,
                                        "win":  "all",
                                        "minBuild":  19042,
-                                       "ver":  "10.26061.10056.0",
-                                       "bundle":  "Microsoft.ZuneVideo_2019.26061.10056.0_neutral_~_8wekyb3d8bbwe.appxbundle",
+                                       "ver":  "10.26061.10051.0",
+                                       "bundle":  "Microsoft.ZuneVideo_2019.26061.10051.0_neutral_~_8wekyb3d8bbwe.appxbundle",
                                        "deps":  [
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
@@ -875,24 +885,24 @@
                                                         "arch":  "x64"
                                                     },
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.0.0.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.0.0.0",
                                                         "arch":  "x86"
                                                     },
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
                                                         "arch":  "arm64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.8",
+                                                        "min":  "8.0.0.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.8",
+                                                        "min":  "8.0.0.0",
+                                                        "arch":  "x86"
                                                     },
                                                     {
                                                         "name":  "Microsoft.UI.Xaml.2.8",
@@ -1931,7 +1941,6 @@
                      "icon":  "icons/Sysinternals.png",
                      "desc":  "ארגז הכלים של Sysinternals",
                      "descEn":  "The Sysinternals toolbox",
-                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -2861,7 +2870,6 @@
                      "desc":  "מנפה שגיאות של מיקרוסופט",
                      "descEn":  "Microsoft\u0027s debugger",
                      "enName":  "WinDbg",
-                     "noui":  true,
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -5001,7 +5009,7 @@
                                ],
                      "descEn":  "A physics engine many games require — on any graphics card",
                      "noui":  true,
-                     "icon":  "icons/w32png/PhysX.png",
+                     "icon":  "icons/w32real/PhysX.png",
                      "detect":  "NVIDIA PhysX System Software",
                      "silent":  "/s"
                  },
@@ -5051,7 +5059,7 @@
                                ],
                      "descEn":  "The older Java runtime — some programs need exactly this one",
                      "noui":  true,
-                     "icon":  "icons/w32png/Java8.png",
+                     "icon":  "icons/w32real/Java8.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 8u",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5075,7 +5083,7 @@
                                    }
                                ],
                      "descEn":  "Microsoft\u0027s modern command line",
-                     "icon":  "icons/w32png/PowerShell7.png",
+                     "icon":  "icons/w32real/PowerShell7.png",
                      "repo":  "PowerShell/PowerShell",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5176,7 +5184,7 @@
                                ],
                      "descEn":  "The modern graphics interface — games and emulators need it",
                      "noui":  true,
-                     "icon":  "icons/w32png/Vulkan.png",
+                     "icon":  "icons/w32real/Vulkan.png",
                      "detect":  "Vulkan Run Time Libraries",
                      "silent":  "/S"
                  },
@@ -5201,7 +5209,7 @@
                                ],
                      "descEn":  "For older game builds that need the historic PhysX",
                      "noui":  true,
-                     "icon":  "icons/w32png/PhysXLegacy.png",
+                     "icon":  "icons/w32real/PhysXLegacy.png",
                      "detect":  "NVIDIA PhysX (Legacy)",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5226,7 +5234,7 @@
                                ],
                      "descEn":  "A mid-generation Java runtime",
                      "noui":  true,
-                     "icon":  "icons/w32png/Java11.png",
+                     "icon":  "icons/w32real/Java11.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 11.",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5251,7 +5259,7 @@
                                ],
                      "descEn":  "A widely used Java LTS — Minecraft and many programs",
                      "noui":  true,
-                     "icon":  "icons/w32png/Java17.png",
+                     "icon":  "icons/w32real/Java17.png",
                      "detect":  "Eclipse Temurin JRE with Hotspot 17",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -5275,7 +5283,7 @@
                                    }
                                ],
                      "descEn":  "Full installer (Enterprise MSI) — needs no network while installing",
-                     "icon":  "icons/w32png/Chrome.png",
+                     "icon":  "icons/w32real/Chrome.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: הגדרות ← שפות, מוסיפים English ולוחצים \"הצג את Google Chrome בשפה זו\", ומפעילים מחדש.",
@@ -5303,7 +5311,7 @@
                                    }
                                ],
                      "descEn":  "Full installer in Hebrew",
-                     "icon":  "icons/w32png/Firefox.png",
+                     "icon":  "icons/w32real/Firefox.png",
                      "heb":  true,
                      "langMode":  "per-language-download",
                      "detect":  "Mozilla Firefox",
@@ -5338,7 +5346,7 @@
                                    }
                                ],
                      "descEn":  "Full installer (Enterprise MSI) — also for a PC where Edge was removed or is stale",
-                     "icon":  "icons/w32png/Edge.png",
+                     "icon":  "icons/w32real/Edge.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
@@ -5366,7 +5374,7 @@
                                    }
                                ],
                      "descEn":  "Opens every kind of archive",
-                     "icon":  "icons/w32png/SevenZip.png",
+                     "icon":  "icons/w32real/SevenZip.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "langHow":  "אותו קובץ כולל אנגלית: בתוך התוכנה Tools ← Options ← לשונית Language, ולבחור English.",
@@ -5398,10 +5406,10 @@
                                   "exe":  "Setup-Everything-Hebrew.exe",
                                   "mb":  3,
                                   "source":  "official",
-                                  "note":  "קובץ השפה הוא הקובץ הרשמי של voidtools — הם מפרסמים אותו בנפרד מהמתקין, ולכן התקנה רגילה יוצאת באנגלית.",
-                                  "noteEn":  "The language file is voidtools\u0027 own official pack - they publish it separately from the installer, which is why a normal install comes out in English."
+                                  "note":  "קובץ השפה הרשמי של voidtools נמצא כבר בתוך המתקין שלהם, וההתקנה הרגילה שואלת באיזו שפה — במחשב עברי היא יוצאת בעברית. הקובץ הזה מריץ את אותו מתקין בשקט ובוחר עברית מראש, כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.",
+                                  "noteEn":  "voidtools already ships its official language file inside its own installer, and a normal install asks which language to use - on a Hebrew machine it comes out Hebrew. This build runs that same installer silently and picks Hebrew in advance, so the program opens in Hebrew on a non-Hebrew machine too."
                               },
-                     "icon":  "icons/w32png/Everything.png",
+                     "icon":  "icons/w32real/Everything.png",
                      "heb":  true,
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
@@ -5429,7 +5437,7 @@
                                    }
                                ],
                      "descEn":  "A small, fast PDF reader",
-                     "icon":  "icons/w32png/SumatraPDF.png",
+                     "icon":  "icons/w32real/SumatraPDF.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בתפריט Settings ← Change Language ולבחור English.",
@@ -5457,7 +5465,7 @@
                                    }
                                ],
                      "descEn":  "Plays every video and audio format",
-                     "icon":  "icons/w32png/VLC.png",
+                     "icon":  "icons/w32real/VLC.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Tools ← Preferences ← Interface, לבחור English ברשימת השפות, לשמור ולפתוח מחדש.",
@@ -5513,7 +5521,7 @@
                                    }
                                ],
                      "descEn":  "The programming language — with pip and IDLE",
-                     "icon":  "icons/w32png/Python.png",
+                     "icon":  "icons/w32real/Python.png",
                      "langMode":  "single-language",
                      "detect":  "Python 3.12",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0"
@@ -5538,7 +5546,7 @@
                                    }
                                ],
                      "descEn":  "Microsoft\u0027s code editor — full installer",
-                     "icon":  "icons/w32png/VSCode.png",
+                     "icon":  "icons/w32real/VSCode.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה מותקנת באנגלית ממילא; שפה אחרת נבחרת מתוכה בפקודה Configure Display Language.",
                      "langHowEn":  "It installs in English anyway; another language is chosen from inside it with Configure Display Language.",
@@ -5565,7 +5573,7 @@
                                    }
                                ],
                      "descEn":  "A text and code editor",
-                     "icon":  "icons/w32png/NotepadPP.png",
+                     "icon":  "icons/w32real/NotepadPP.png",
                      "heb":  true,
                      "langMode":  "chosen-at-install",
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
@@ -5594,7 +5602,7 @@
                                    }
                                ],
                      "descEn":  "Version control for developers",
-                     "icon":  "icons/w32png/Git.png",
+                     "icon":  "icons/w32real/Git.png",
                      "langMode":  "single-language",
                      "repo":  "git-for-windows/git",
                      "detect":  "Git",
@@ -5621,7 +5629,7 @@
                                ],
                      "descEn":  "The modern Java runtime",
                      "noui":  true,
-                     "icon":  "icons/w32png/Java21.png",
+                     "icon":  "icons/w32real/Java21.png",
                      "langMode":  "no-ui",
                      "detect":  "Eclipse Temurin JRE with Hotspot 21",
                      "silent":  "MSI:/qn /norestart"
@@ -5646,7 +5654,7 @@
                                    }
                                ],
                      "descEn":  "Burn an ISO to a USB stick. Portable — just run it, no install",
-                     "icon":  "icons/w32png/Rufus.png",
+                     "icon":  "icons/w32real/Rufus.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
@@ -5673,7 +5681,7 @@
                                    }
                                ],
                      "descEn":  "Professional free image editing — the well-known Photoshop alternative",
-                     "icon":  "icons/w32png/GIMP.png",
+                     "icon":  "icons/w32real/GIMP.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Edit ← Preferences ← Interface ← Language, לבחור English ולהפעיל מחדש.",
@@ -5701,7 +5709,7 @@
                                    }
                                ],
                      "descEn":  "Audio recording and editing",
-                     "icon":  "icons/w32png/Audacity.png",
+                     "icon":  "icons/w32real/Audacity.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
@@ -5730,7 +5738,7 @@
                                    }
                                ],
                      "descEn":  "Codecs that let any video or audio open in any player on the machine, plus the MPC-HC player",
-                     "icon":  "icons/w32png/KLite.png",
+                     "icon":  "icons/w32real/KLite.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: בנגן MPC-HC מקישים O, נכנסים ל-Player ← Language ובוחרים English.",
@@ -5758,7 +5766,7 @@
                                    }
                                ],
                      "descEn":  "Remote control — portable, no install. The connection itself needs internet",
-                     "icon":  "icons/w32png/AnyDesk.png",
+                     "icon":  "icons/w32real/AnyDesk.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
                      "langHowEn":  "The same file includes every language: the program menu \u003e Settings \u003e Application \u003e General, pick English under Language.",
@@ -5784,7 +5792,7 @@
                                    }
                                ],
                      "descEn":  "Remote control — full installer. The connection itself needs internet",
-                     "icon":  "icons/w32png/TeamViewer.png",
+                     "icon":  "icons/w32real/TeamViewer.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: גלגל השיניים בפינה ← Advanced ← Display language ← English, ואז לסגור ולפתוח מחדש.",
                      "langHowEn":  "The same file includes English: the gear icon in the corner \u003e Advanced \u003e Display language \u003e English, then close and reopen it.",
@@ -5839,12 +5847,16 @@
                                    }
                                ],
                      "descEn":  "Thorough removal of stubborn programs, leftovers included",
-                     "icon":  "icons/w32png/Revo.png",
+                     "icon":  "icons/w32real/Revo.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית ועברית: Options ← General ← Current Language.",
                      "langHowEn":  "The same file includes English and Hebrew: Options \u003e General \u003e Current Language.",
                      "detect":  "Revo Uninstaller",
+                     "needs":  [
+                                   "VCRedist64",
+                                   "VCRedist86"
+                               ],
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -5867,7 +5879,7 @@
                                    }
                                ],
                      "descEn":  "A full mail client in Hebrew — read and write without a constant connection",
-                     "icon":  "icons/w32png/Thunderbird.png",
+                     "icon":  "icons/w32real/Thunderbird.png",
                      "heb":  true,
                      "langMode":  "per-language-download",
                      "detect":  "Mozilla Thunderbird",
@@ -5902,7 +5914,7 @@
                                    }
                                ],
                      "descEn":  "Screen recording and streaming — the free standard",
-                     "icon":  "icons/w32png/OBS.png",
+                     "icon":  "icons/w32real/OBS.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
@@ -5931,13 +5943,16 @@
                                    }
                                ],
                      "descEn":  "A password manager that keeps everything on your own PC — no cloud",
-                     "icon":  "icons/w32png/KeePassXC.png",
+                     "icon":  "icons/w32real/KeePassXC.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
                      "langHowEn":  "The same file includes every language: Tools \u003e Settings \u003e General, pick English under Language, then reopen it.",
                      "repo":  "keepassxreboot/keepassxc",
                      "detect":  "KeePassXC",
+                     "needs":  [
+                                   "VCRedist64"
+                               ],
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5960,7 +5975,7 @@
                                    }
                                ],
                      "descEn":  "Encrypt drives and folders",
-                     "icon":  "icons/w32png/VeraCrypt.png",
+                     "icon":  "icons/w32real/VeraCrypt.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
@@ -5989,7 +6004,7 @@
                                    }
                                ],
                      "descEn":  "What is eating your disk — a visual map of every file",
-                     "icon":  "icons/w32png/WinDirStat.png",
+                     "icon":  "icons/w32real/WinDirStat.png",
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
                      "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
