@@ -762,15 +762,17 @@ const EN = {
   'מהנפוצות להורדה כאן': 'Among the most downloaded here',
   'לתרומה לפרוייקט': 'Contribute to the project',
   'תודה — אבל באמת אין צורך': 'Thank you — but there is really no need',
-  'אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו.':
-    'If you came here to donate, thank you. That is kind, and it means the site helped you with something.',
-  'האתר הזה נבנה בשביל מי שחוסם למחשב שלו את הרשת, והוא פשוט לא עולה כסף להחזיק: אין שרת ואין אחסון בתשלום, הקבצים יורדים מהשרתים של היצרנים עצמם, וגיטהאב מארח את הכול חינם. מה שכן עלה הוא שימוש במודלים — הקוד נכתב בוויב קודינג.':
-    'This site was built for people who keep their computer off the network, and it simply costs nothing to run: no server, no paid hosting, the files come from the makers\' own servers, and GitHub hosts all of it for free. What it did cost is model usage — the code was vibe-coded.',
+  'אם הגעתם לכאן כדי לתרום — תודה. כנראה שהאתר עזר לכם במשהו, וזה בדיוק מה שהוא אמור לעשות.':
+    'If you came here to donate — thank you. The site must have helped you with something, which is exactly what it is for.',
+  'האתר הזה נבנה בשביל מי שחוסם למחשב שלו את הרשת, ואז מגלה שחצי מהאפליקציות מסרבות להיפתח בלי אינטרנט.':
+    'It was built for people who keep their computer off the network, and then discover that half their apps refuse to open without one.',
+  'אבל אין כאן למה לתרום, ועדיף שאגיד את זה ישר. אין שרת. אין אחסון בתשלום. הקבצים יורדים מהשרתים של היצרנים עצמם, וגיטהאב מארח את הכול חינם. ההוצאה היחידה שהייתה כאן היא שימוש במודלים — הקוד נכתב בוויב קודינג. אין כאן חור שכסף סוגר.':
+    'But there is nothing here to fund, and I would rather say so straight. No server. No paid hosting. The files come from the makers\' own servers, and GitHub hosts all of it for free. The only expense there ever was is model usage — the code was vibe-coded. There is no hole here that money closes.',
   'במה כן אפשר לעזור': 'How you can actually help',
-  'הכי הרבה עוזר שמישהו מסתכל ואומר מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — ממישהו שאמר "רגע, זה לא נראה לי נכון".':
-    'What helps most is someone looking and saying what is wrong. Several of the best fixes here arrived exactly that way — from somebody who said "hold on, that does not look right to me".',
-  'ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום.':
-    'And if you write code — the repository is open, and a pull request beats any sum.',
+  'הכי הרבה עוזר שמישהו מסתכל ואומר מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — ממישהו שאמר "רגע, זה לא נראה לי נכון". גם משפט אחד עוזר.':
+    'What helps most is someone looking and saying what is wrong. Several of the best fixes here arrived exactly that way — from somebody who said "hold on, that does not look right to me". Even one sentence helps.',
+  'ואם אתם כותבים קוד בעצמכם — אין תרומה טובה מזו. המאגר פתוח, ו-Pull Request שווה יותר מכל סכום.':
+    'And if you write code yourself — nothing beats that. The repository is open, and a pull request is worth more than any sum.',
   'משהו שכתוב כאן ולא מדויק — אפילו מילה אחת': 'Anything written here that is not accurate — even one word',
   'מתקין שלא עבד, ומה בדיוק קרה': 'An installer that did not work, and what exactly happened',
   'תוכנה שחסרה כאן וכדאי שתהיה': 'A program missing here that ought to be here',
@@ -2114,16 +2116,17 @@ document.getElementById('donate-btn').onclick = () => {
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet give">' +
     '<h3>' + T('תודה — אבל באמת אין צורך') + '</h3>' +
-    '<p class="lead">' + T('אם הגעתם לכאן כדי לתרום, תודה. זה נחמד מכם, וזה גם אומר שהאתר עזר לכם במשהו.') + '</p>' +
-    '<p>' + T('האתר הזה נבנה בשביל מי שחוסם למחשב שלו את הרשת, והוא פשוט לא עולה כסף להחזיק: אין שרת ואין אחסון בתשלום, הקבצים יורדים מהשרתים של היצרנים עצמם, וגיטהאב מארח את הכול חינם. מה שכן עלה הוא שימוש במודלים — הקוד נכתב בוויב קודינג.') + '</p>' +
+    '<p class="lead">' + T('אם הגעתם לכאן כדי לתרום — תודה. כנראה שהאתר עזר לכם במשהו, וזה בדיוק מה שהוא אמור לעשות.') + '</p>' +
+    '<p>' + T('האתר הזה נבנה בשביל מי שחוסם למחשב שלו את הרשת, ואז מגלה שחצי מהאפליקציות מסרבות להיפתח בלי אינטרנט.') + '</p>' +
+    '<p>' + T('אבל אין כאן למה לתרום, ועדיף שאגיד את זה ישר. אין שרת. אין אחסון בתשלום. הקבצים יורדים מהשרתים של היצרנים עצמם, וגיטהאב מארח את הכול חינם. ההוצאה היחידה שהייתה כאן היא שימוש במודלים — הקוד נכתב בוויב קודינג. אין כאן חור שכסף סוגר.') + '</p>' +
     '<h3 style="font-size:1rem;margin:18px 0 8px">' + T('במה כן אפשר לעזור') + '</h3>' +
-    '<p>' + T('הכי הרבה עוזר שמישהו מסתכל ואומר מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — ממישהו שאמר "רגע, זה לא נראה לי נכון".') + '</p>' +
+    '<p>' + T('הכי הרבה עוזר שמישהו מסתכל ואומר מה לא בסדר. כמה מהתיקונים הטובים ביותר כאן הגיעו בדיוק ככה — ממישהו שאמר "רגע, זה לא נראה לי נכון". גם משפט אחד עוזר.') + '</p>' +
     '<ul>' +
     '<li>' + T('משהו שכתוב כאן ולא מדויק — אפילו מילה אחת') + '</li>' +
     '<li>' + T('מתקין שלא עבד, ומה בדיוק קרה') + '</li>' +
     '<li>' + T('תוכנה שחסרה כאן וכדאי שתהיה') + '</li>' +
     '</ul>' +
-    '<p>' + T('ואם אתם כותבים קוד — המאגר פתוח, ו-Pull Request שווה יותר מכל סכום.') + '</p>' +
+    '<p>' + T('ואם אתם כותבים קוד בעצמכם — אין תרומה טובה מזו. המאגר פתוח, ו-Pull Request שווה יותר מכל סכום.') + '</p>' +
     '<p class="lead" style="margin-top:16px">' + T('ואם בא לכם, כתבו לי בטופס למטה. בא לי להכיר את מי שבכלל לחץ על הכפתור הזה.') + '</p>' +
     '<div class="acts" style="margin-top:16px">' +
       '<button class="btn" id="gv-form">' + T('לטופס') + '</button>' +
