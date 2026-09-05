@@ -417,6 +417,10 @@
      matters only to the reader who wants the other language */
   .langhow { color: var(--muted); font-size: .78rem; line-height: 1.65; margin-top: 3px;
              text-align: start; }
+  /* a requirement, not a warning: the store handles it, and the reader only needs to know */
+  .needs { color: var(--muted); font-size: .8rem; line-height: 1.6; margin-top: 8px;
+           padding: 7px 10px; border-radius: 10px; background: var(--panel1);
+           border: 1px solid var(--stroke); text-align: start; }
   .sheet .pl { width: 92px; height: 92px; border-radius: 26px; margin: 0 auto; }
   .sheet .pl img { width: 62px; height: 62px; }
   .sheet .pl img.glyph { width: 50px; height: 50px; }
@@ -1621,6 +1625,26 @@ function langHow(a) {
   return (LANG === 'en' ? a.langHowEn : a.langHow) || '';
 }
 
+/* What has to be on the machine before this program will open.
+   KeePassXC is why this line exists: its installer finishes with nothing else on the machine,
+   says it succeeded, and then the program will not start, because a Windows straight out of the
+   box has no Visual C++ runtime. On a connected machine that is one search; on the machines this
+   store is for it is a program that just does not work. So the disc installs the runtime first,
+   and the card says so before anyone downloads a single file. */
+function needsOf(a) {
+  return (a.needs || []).map(k => DATA.apps.find(x => x.en === k)).filter(Boolean);
+}
+function needsLine(a) {
+  const dep = needsOf(a);
+  if (!dep.length) return '';
+  const names = dep.map(d => nameOf(d)).join(T(' ו-'));
+  return '<div class="needs">' +
+    (LANG === 'en'
+      ? 'Needs ' + names + '. The store installs it first, on its own.'
+      : 'צריך גם את ' + names + '. החנות מתקינה את זה קודם, לבד.') +
+    '</div>';
+}
+
 function copiedToast(el, msg) {
   const old = document.querySelector('.copied');
   if (old) old.remove();
@@ -1811,9 +1835,19 @@ document.getElementById('seliso').onclick = () => {
      program carries the vendor's URL, which is what lets the custom disc hold the browsers
      and the runtimes and not only the Microsoft apps. */
   const rows = [];
-  DATA.apps.forEach(a => {
-    if (!SELECTED.has(a.en)) return;
-    picksOf(a).forEach(v => {
+  const written = new Set();
+
+  /* A program's prerequisite goes on the disc whether or not it was picked, and before it.
+     Nobody chooses "Visual C++ runtime" from a shelf; they choose a password manager, and a
+     disc that carries the manager without the runtime hands them a program that installs
+     perfectly and then will not open - on a machine with no internet to look up why. */
+  const put = (a) => {
+    if (written.has(a.en)) return;
+    written.add(a.en);
+    needsOf(a).forEach(put);
+    /* a prerequisite was never picked, so it has no chosen variant - take its main download */
+    const vs = picksOf(a);
+    (vs.length ? vs : [variantOf(a, 'main')].filter(Boolean)).forEach(v => {
       const isOurs = !v.url;
       const file = discName(a, v);
       if (!file) return;
@@ -1822,10 +1856,11 @@ document.getElementById('seliso').onclick = () => {
         a.net ? 1 : 0, a.cat || 'נוספות', v.mb || 0,
         clean(descOf(a)), a.heb ? 1 : 0, clean(a.descEn || ''), nameOf(a), '',
         (a.w32 || a.custom) ? 'win32' : '', clean(a.silent || ''), clean(a.detect || ''),
-        isOurs ? '' : v.url,
+        isOurs ? '' : v.url, (a.needs || []).join(','),
       ].join('\t'));
     });
-  });
+  };
+  DATA.apps.forEach(a => { if (SELECTED.has(a.en)) put(a); });
   if (!rows.length) {
     alert(T('אין מה לשים על הדיסק — צריך לבחור לפחות פריט אחד.'));
     return;
@@ -1955,10 +1990,12 @@ function openSheet(en) {
   const qBtn = '<button class="qmark" id="qm" title="' + esc(T('מידע נוסף על האפליקציה')) +
                '" aria-expanded="false">?</button>';
 
+
   ov.innerHTML = '<div class="sheet">' + storeLink + qBtn + pl +
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
+    needsLine(a) +
     '<div class="net">' + (a.url ? T(a.origin === 'community'
                             ? 'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט'
                             : 'קובץ מלא מהאתר של היצרן — עובד בלי אינטרנט')
