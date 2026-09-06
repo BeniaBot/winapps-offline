@@ -75,13 +75,24 @@ jobs:
           if [ ${#files[@]} -eq 0 ]; then echo "nothing fetched - leaving the release alone"; exit 0; fi
           gh release upload apps-v1 "${files[@]}" --clobber --repo "$GITHUB_REPOSITORY"
 
+      - name: Tell the site the copies are there
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # published.json is how the page decides whether a download button is live. Adding the
+          # files to the release without adding them here leaves four dead buttons - which is
+          # exactly what happened the first time.
+          gh release view apps-v1 --repo "$GITHUB_REPOSITORY" --json assets -q "[.assets[].name] | sort" > published.json
+          wc -c published.json
+
       - name: Record which build is being served
         run: |
           set -euo pipefail
           # git diff sees nothing in a file git has never tracked, so the first run always
           # reported "no change" and the record was never written at all
-          git add mirror.json
-          if git diff --cached --quiet -- mirror.json; then echo "no change"; exit 0; fi
+          git add mirror.json published.json
+          if git diff --cached --quiet -- mirror.json published.json; then echo "no change"; exit 0; fi
           git config user.name  "mirror bot"
           git config user.email "noreply@github.com"
           git commit -m "The copies in the store's own release, refreshed"
