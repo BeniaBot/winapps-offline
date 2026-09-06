@@ -1536,8 +1536,9 @@ let REPORT = null;
       if (cut) t = t.slice(-CAP);
       REPORT = { name: f.name, text: t, cut: cut };
       hint.style.color = 'var(--ok)';
-      hint.textContent = T('✓ צורף: ') + f.name + ' (' + Math.round(f.size / 1024) + ' KB' +
-        (cut ? T(', נשלח החלק האחרון') : '') + ')';
+      // a short report rounded to "0 KB", which reads as "nothing was attached"
+      const kb = f.size < 1024 ? (f.size + ' ' + T('בתים')) : (Math.round(f.size / 1024) + ' KB');
+      hint.textContent = T('✓ צורף: ') + f.name + ' (' + kb + (cut ? T(', נשלח החלק האחרון') : '') + ')';
       const kind = document.getElementById('ask-kind');
       if (kind) kind.value = 'דיווח על תקלה';
     };
