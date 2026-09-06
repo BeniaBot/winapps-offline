@@ -416,6 +416,11 @@
   .dlcount b { color: var(--ink2); font-weight: 700; }
   /* the practical half of the language claim - quieter than the claim itself, because it
      matters only to the reader who wants the other language */
+  .report { margin-top: 14px; padding: 12px 14px; border: 1px solid var(--stroke);
+           border-radius: 12px; background: var(--panel-2); }
+  .report .reptext { font-size: .84rem; line-height: 1.7; color: var(--muted); }
+  .report .repbtns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .report .rephint { font-size: .8rem; margin-top: 8px; min-height: 1em; color: var(--muted); }
   .langhow { color: var(--muted); font-size: .78rem; line-height: 1.65; margin-top: 3px;
              text-align: start; }
   /* a requirement, not a warning: the store handles it, and the reader only needs to know */
@@ -626,6 +631,22 @@
     <div style="margin-top:12px">
       <label for="ask-note">פרטים נוספים (לא חובה)</label>
       <textarea id="ask-note" dir="auto" placeholder="לינק, למה זה חשוב, מה בדיוק לא עבד..."></textarea>
+    </div>
+    <!-- Reporting a fault from a disconnected machine used to mean describing a window that
+         closes in half a second. The tool writes the whole picture to a file on the Desktop;
+         this carries that file back on the same stick and folds it into the message. Nothing
+         is uploaded anywhere - the file is read here in the browser and pasted into the text. -->
+    <div class="report" id="report-row">
+      <div class="reptext">
+        <b>דיווח על תקלה?</b> יש כלי קטן שאוסף את כל מה שצריך לדעת — גרסת Windows, מה הותקן, ומה בדיוק נכשל.
+        להריץ אותו במחשב שבו הייתה התקלה, ולצרף לכאן את הקובץ שנוצר על שולחן העבודה.
+      </div>
+      <div class="repbtns">
+        <a class="btn lite" id="rep-get" href="tools/דוח-תקלה.bat" download="דוח-תקלה.bat">הורדת הכלי</a>
+        <button class="btn lite" id="rep-pick">צירוף הדוח</button>
+        <input type="file" id="rep-file" accept=".txt,text/plain" hidden>
+      </div>
+      <div class="rephint" id="rep-hint"></div>
     </div>
     <div class="row2">
       <div class="field">
@@ -1491,6 +1512,43 @@ document.addEventListener('keydown', e => {
    FormSubmit relays it; mailto is only the emergency fallback if the relay is down. ===== */
 const ASK_TO = 'b0554003794@gmail.com';
 const ASK_ENDPOINT = 'https://formsubmit.co/ajax/' + ASK_TO;
+/* The fault report, carried back rather than uploaded.
+   A person on a disconnected machine cannot send anything from it. They run the tool there, the
+   file lands on the Desktop, and it travels back on the same stick they brought the store on.
+   Here it is read in the browser and folded into the message - it never goes to a third party,
+   and there is nothing to sign up for. */
+let REPORT = null;
+(() => {
+  const pick = document.getElementById('rep-pick');
+  const file = document.getElementById('rep-file');
+  const hint = document.getElementById('rep-hint');
+  if (!pick || !file) return;
+  pick.onclick = () => file.click();
+  file.onchange = () => {
+    const f = file.files && file.files[0];
+    if (!f) return;
+    // a whole log would be refused by the relay; the tail is where the failure is anyway
+    const CAP = 60000;
+    const r = new FileReader();
+    r.onload = () => {
+      let t = String(r.result || '');
+      const cut = t.length > CAP;
+      if (cut) t = t.slice(-CAP);
+      REPORT = { name: f.name, text: t, cut: cut };
+      hint.style.color = 'var(--ok)';
+      hint.textContent = T('✓ צורף: ') + f.name + ' (' + Math.round(f.size / 1024) + ' KB' +
+        (cut ? T(', נשלח החלק האחרון') : '') + ')';
+      const kind = document.getElementById('ask-kind');
+      if (kind) kind.value = 'דיווח על תקלה';
+    };
+    r.onerror = () => {
+      hint.style.color = 'var(--err)';
+      hint.textContent = T('לא הצלחנו לקרוא את הקובץ. אפשר גם לפתוח אותו, לסמן הכול ולהדביק למעלה.');
+    };
+    r.readAsText(f, 'utf-8');
+  };
+})();
+
 function askFields() {
   return {
     kind: document.getElementById('ask-kind').value,
@@ -1505,6 +1563,7 @@ function askText() {
   if (f.note) lines.push(f.note, '');
   if (f.from) lines.push('ליצירת קשר: ' + f.from, '');
   lines.push('— נשלח מהחנות: ' + location.href);
+  if (REPORT) lines.push('', '--- ' + REPORT.name + ' ---', REPORT.text);
   return { subject: '[חנות אופליין] ' + f.kind + (f.app ? ' — ' + f.app : ''), body: lines.join('\n') };
 }
 
@@ -1554,7 +1613,8 @@ askBtn.onclick = () => {
       'האפליקציה': f.app,
       'פרטים': f.note || '—',
       'ליצירת קשר': f.from || '—',
-      'נשלח מ': location.href
+      'נשלח מ': location.href,
+      'דוח תקלה': REPORT ? (REPORT.name + (REPORT.cut ? ' (החלק האחרון)' : '') + '\n\n' + REPORT.text) : '—'
     })
   }).then(r => r.json().catch(() => ({}))).then(j => {
     if (j && /activation/i.test(j.message || '')) throw new Error('pending activation');
