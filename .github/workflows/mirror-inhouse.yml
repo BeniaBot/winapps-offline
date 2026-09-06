@@ -75,6 +75,15 @@ jobs:
           if [ ${#files[@]} -eq 0 ]; then echo "nothing fetched - leaving the release alone"; exit 0; fi
           gh release upload apps-v1 "${files[@]}" --clobber --repo "$GITHUB_REPOSITORY"
 
+      - name: Keep a running total of downloads
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh release view apps-v1 --repo "$GITHUB_REPOSITORY" --json assets -q "[.assets[] | {name, count: .downloadCount}]" > now.json
+          node .github/counts.js now.json counts.json
+          rm -f now.json
+
       - name: Tell the site the copies are there
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -91,8 +100,8 @@ jobs:
           set -euo pipefail
           # git diff sees nothing in a file git has never tracked, so the first run always
           # reported "no change" and the record was never written at all
-          git add mirror.json published.json
-          if git diff --cached --quiet -- mirror.json published.json; then echo "no change"; exit 0; fi
+          git add mirror.json published.json counts.json
+          if git diff --cached --quiet -- mirror.json published.json counts.json; then echo "no change"; exit 0; fi
           git config user.name  "mirror bot"
           git config user.email "noreply@github.com"
           git commit -m "The copies in the store's own release, refreshed"

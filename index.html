@@ -1066,15 +1066,16 @@ function loadDownloads() {
   (DATA.apps || []).forEach(a => { if (a.custom && a.repo && repos.indexOf(a.repo) < 0) repos.push(a.repo); });
 
   Promise.all([
-    fetch('https://api.github.com/repos/BeniaBot/winapps-offline/releases/tags/apps-v1')
+    fetch('counts.json?v=' + (window.CATV || ''), { cache: 'no-cache' })
       .then(r => r.ok ? r.json() : null).catch(() => null),
   ].concat(repos.map(rp =>
     fetch('https://api.github.com/repos/' + rp + '/releases?per_page=100')
       .then(r => r.ok ? r.json() : null).then(j => ({ repo: rp, rels: j })).catch(() => null)
   ))).then(results => {
+    // { "Setup-Maps.exe": { carry, seen, total } } - total is what survives a rebuild
     const ours = results[0];
     const map = {};
-    if (ours && ours.assets) ours.assets.forEach(a => { map[a.name] = a.download_count || 0; });
+    if (ours) Object.keys(ours).forEach(k => { map[k] = (ours[k] && ours[k].total) || 0; });
     const repo = {};
     results.slice(1).forEach(r => {
       if (!r || !Array.isArray(r.rels)) return;
