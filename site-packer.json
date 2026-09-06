@@ -826,22 +826,7 @@
                                                     {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
-                                                        "arch":  "x64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.0.0",
                                                         "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.VCLibs.140.00",
-                                                        "min":  "14.0.0.0",
-                                                        "arch":  "arm64"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.4",
-                                                        "min":  "2.42005.18002.0",
-                                                        "arch":  "x64"
                                                     },
                                                     {
                                                         "name":  "Microsoft.UI.Xaml.2.4",
@@ -849,9 +834,14 @@
                                                         "arch":  "x86"
                                                     },
                                                     {
+                                                        "name":  "Microsoft.VCLibs.140.00",
+                                                        "min":  "14.0.0.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
                                                         "name":  "Microsoft.UI.Xaml.2.4",
                                                         "min":  "2.42005.18002.0",
-                                                        "arch":  "arm64"
+                                                        "arch":  "x64"
                                                     }
                                                 ],
                                        "live":  false
@@ -873,7 +863,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-MoviesTV.exe",
-                                       "mb":  57,
+                                       "mb":  80,
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "10.26061.10051.0",
@@ -885,8 +875,28 @@
                                                         "arch":  "x64"
                                                     },
                                                     {
+                                                        "name":  "Microsoft.UI.Xaml.2.8",
+                                                        "min":  "8.0.0.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
+                                                        "min":  "14.0.30704.0",
+                                                        "arch":  "x64"
+                                                    },
+                                                    {
                                                         "name":  "Microsoft.VCLibs.140.00",
                                                         "min":  "14.0.0.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.UI.Xaml.2.8",
+                                                        "min":  "8.0.0.0",
+                                                        "arch":  "x86"
+                                                    },
+                                                    {
+                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
+                                                        "min":  "14.0.30704.0",
                                                         "arch":  "x86"
                                                     },
                                                     {
@@ -897,16 +907,11 @@
                                                     {
                                                         "name":  "Microsoft.UI.Xaml.2.8",
                                                         "min":  "8.0.0.0",
-                                                        "arch":  "x64"
+                                                        "arch":  "arm64"
                                                     },
                                                     {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.0.0.0",
-                                                        "arch":  "x86"
-                                                    },
-                                                    {
-                                                        "name":  "Microsoft.UI.Xaml.2.8",
-                                                        "min":  "8.0.0.0",
+                                                        "name":  "Microsoft.VCLibs.140.00.UWPDesktop",
+                                                        "min":  "14.0.30704.0",
                                                         "arch":  "arm64"
                                                     }
                                                 ],
@@ -1062,6 +1067,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "heb":  true,
                      "icon":  "icons/3DViewer.png",
                      "desc":  "צפייה במודלים תלת-ממדיים",
@@ -1938,6 +1944,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Sysinternals.png",
                      "desc":  "ארגז הכלים של Sysinternals",
                      "descEn":  "The Sysinternals toolbox",
@@ -2018,6 +2025,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/FileRecovery.png",
                      "color":  "#0078D4",
                      "desc":  "שחזור קבצים שנמחקו",
@@ -2123,6 +2131,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Journal.png",
                      "color":  "#dddddd",
                      "desc":  "כתיבה בעט על מסך מגע",
@@ -2163,6 +2172,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "heb":  true,
                      "icon":  "icons/Print3D.png",
                      "desc":  "הדפסה תלת-ממדית",
@@ -2219,6 +2229,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "heb":  true,
                      "icon":  "icons/Builder3D.png",
                      "desc":  "בניית מודלים תלת-ממדיים",
@@ -2295,6 +2306,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Minesweeper.png",
                      "desc":  "שולה המוקשים הקלאסי",
                      "descEn":  "The classic Minesweeper",
@@ -2394,6 +2406,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Mahjong.png",
                      "color":  "#06706e",
                      "desc":  "מהג׳ונג",
@@ -2469,6 +2482,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Sudoku.png",
                      "desc":  "סודוקו",
                      "descEn":  "Sudoku",
@@ -2518,6 +2532,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Jigsaw.png",
                      "color":  "#522430",
                      "desc":  "פאזלים",
@@ -2568,6 +2583,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/TreasureHunt.png",
                      "color":  "#243F5D",
                      "desc":  "משחק ציד אוצרות",
@@ -2805,6 +2821,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "xlat":  {
                                   "exe":  "Setup-PCManager-Hebrew.exe",
                                   "mb":  116,
@@ -2865,6 +2882,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/WinDbg.png",
                      "color":  "#777777",
                      "desc":  "מנפה שגיאות של מיקרוסופט",
@@ -3894,6 +3912,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Whiteboard.png",
                      "color":  "#0C34FA",
                      "desc":  "לוח שיתופי לכתיבה וציור",
@@ -3969,6 +3988,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/PowerBI.png",
                      "desc":  "דוחות וניתוח נתונים",
                      "descEn":  "Reports and data analysis",
@@ -4014,6 +4034,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "heb":  true,
                      "icon":  "icons/Sway.png",
                      "color":  "#404040",
@@ -4080,6 +4101,7 @@
                                        "live":  false
                                    }
                                ],
+                     "needsFirstOnline":  true,
                      "icon":  "icons/Translator.png",
                      "color":  "#107C10",
                      "desc":  "תרגום טקסט ודיבור",

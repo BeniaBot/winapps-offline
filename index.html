@@ -1645,6 +1645,22 @@ function needsLine(a) {
     '</div>';
 }
 
+/* The line that had to be written after we watched it happen on a clean machine.
+   Windows checks a licence the moment a store app is opened. An app that Windows itself ships
+   already has one, and an app whose package asks to skip the check does not need one - but the
+   rest ask Microsoft at that moment, and on a disconnected machine the window appears for half a
+   second and closes with nothing written anywhere the person can see. The install was fine. It is
+   the opening that is refused, and the difference matters, because it is not something they can
+   fix by downloading again. */
+function firstOnlineLine(a) {
+  if (!a.needsFirstOnline) return '';
+  return '<div class="warn">' +
+    (LANG === 'en'
+      ? 'This one needs to be opened once on a connected computer. Windows asks Microsoft for a licence the first time it runs, and until it gets one the window closes immediately. Afterwards it works offline.'
+      : 'את זו צריך לפתוח פעם אחת במחשב שמחובר לאינטרנט. ‏Windows מבקש עליה רישיון ממיקרוסופט בפתיחה הראשונה, ועד שהוא מקבל אותו החלון נסגר מיד. אחר כך היא עובדת בלי רשת.') +
+    '</div>';
+}
+
 function copiedToast(el, msg) {
   const old = document.querySelector('.copied');
   if (old) old.remove();
@@ -1995,6 +2011,7 @@ function openSheet(en) {
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
+    firstOnlineLine(a) +
     needsLine(a) +
     '<div class="net">' + (a.url ? T(a.origin === 'community'
                             ? 'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט'

@@ -273,7 +273,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-MoviesTV.exe",
-                                       "mb":  57,
+                                       "mb":  80,
                                        "win":  "all",
                                        "minBuild":  19042,
                                        "ver":  "10.26061.10051.0"
@@ -315,6 +315,7 @@
                      "descEn":  "View 3D models",
                      "enName":  "3D Viewer",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-3DViewer.exe",
@@ -689,6 +690,7 @@
                      "desc":  "ארגז הכלים של Sysinternals",
                      "descEn":  "The Sysinternals toolbox",
                      "cat":  "כלי טכנאי",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Sysinternals.exe",
@@ -733,6 +735,7 @@
                      "descEn":  "Recover deleted files",
                      "noui":  true,
                      "cat":  "כלי טכנאי",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-FileRecovery.exe",
@@ -778,6 +781,7 @@
                      "desc":  "כתיבה בעט על מסך מגע",
                      "descEn":  "Pen writing on a touch screen",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Journal.exe",
@@ -800,6 +804,7 @@
                      "descEn":  "3D printing",
                      "enName":  "Print 3D",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Print3D.exe",
@@ -822,6 +827,7 @@
                      "descEn":  "Build 3D models",
                      "enName":  "3D Builder",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Builder3D.exe",
@@ -842,6 +848,7 @@
                      "desc":  "שולה המוקשים הקלאסי",
                      "descEn":  "The classic Minesweeper",
                      "cat":  "משחקים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Minesweeper.exe",
@@ -863,6 +870,7 @@
                      "desc":  "מהג׳ונג",
                      "descEn":  "Mahjong",
                      "cat":  "משחקים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Mahjong.exe",
@@ -883,6 +891,7 @@
                      "desc":  "סודוקו",
                      "descEn":  "Sudoku",
                      "cat":  "משחקים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Sudoku.exe",
@@ -904,6 +913,7 @@
                      "desc":  "פאזלים",
                      "descEn":  "Jigsaw puzzles",
                      "cat":  "משחקים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Jigsaw.exe",
@@ -925,6 +935,7 @@
                      "desc":  "משחק ציד אוצרות",
                      "descEn":  "A treasure hunting game",
                      "cat":  "משחקים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-TreasureHunt.exe",
@@ -1046,6 +1057,7 @@
                      "noteEn":  "Needs administrator rights — a Windows confirmation window will appear",
                      "note":  "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
                      "cat":  "כלי טכנאי",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-PCManager.exe",
@@ -1088,6 +1100,7 @@
                      "descEn":  "Microsoft\u0027s debugger",
                      "enName":  "WinDbg",
                      "cat":  "כלי טכנאי",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-WinDbg.exe",
@@ -1452,6 +1465,7 @@
                      "desc":  "לוח שיתופי לכתיבה וציור",
                      "descEn":  "A shared board for writing and drawing",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Whiteboard.exe",
@@ -1473,6 +1487,7 @@
                      "descEn":  "Reports and data analysis",
                      "enName":  "Power BI",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-PowerBI.exe",
@@ -1495,6 +1510,7 @@
                      "desc":  "מצגות ודפי סיפור",
                      "descEn":  "Presentations and story pages",
                      "cat":  "יצירה ועבודה",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Sway.exe",
@@ -1516,6 +1532,7 @@
                      "desc":  "תרגום טקסט ודיבור",
                      "descEn":  "Text and speech translation",
                      "cat":  "כלים",
+                     "needsFirstOnline":  true,
                      "files":  [
                                    {
                                        "exe":  "Setup-Translator.exe",
