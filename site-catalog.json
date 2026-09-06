@@ -3280,15 +3280,12 @@
                      "repo":  "kdroidFilter/Zayit",
                      "icon":  "icons/w32real/Zayit.png",
                      "color":  "#6b8e23",
-                     "desc":  "ספריית תורה שלמה במחשב — תנ״ך, ש״ס, מדרש, הלכה ומפרשים, וחיפוש בכל המאגר",
+                     "desc":  "תוכנת ספרייה תורנית למחשב: כ‑6,800 ספרים במסד נתונים מקומי, עם חיפוש, מפרשים בצד הטקסט וזמני היום בדף הבית — לאחר ההתקנה עובדת בלי אינטרנט.",
                      "descEn":  "A complete Torah library on the PC — Tanach, Shas, midrash, halacha and commentaries, with search across it all",
                      "noteEn":  "The program on its own is an empty bookcase. You also need both halves of the books database, further down this page, and they must sit in the same folder.\n\nOn first run pick the offline-install panel, press the file-choosing button and point it at the file ending in part01. The program finds the second part by itself, as long as it is in the same folder.\n\nAbout 10 GB free is needed while it unpacks, and about 7.5 GB stays afterwards. Unpacking takes several minutes — copy both parts to the hard drive first and choose them from there, rather than from the USB stick.\n\nIt installs for the current user only, with no admin rights. On a shared PC, install it for each user separately.\n\nThis build of the program needs the database offered here; an older database stops with a message asking you to update it.\n\nPowered by the technologies that drive Zayit — https://zayitapp.com/",
                      "note":  "התוכנה לבדה היא ארון ריק. צריך להוריד גם את שני חלקי מסד הספרים שכאן בהמשך, ולהניח את שניהם באותה תיקייה.\n\nבפתיחה הראשונה בוחרים במסך ״התקנה לא־מקוונת״, לוחצים ״בחירת קבצים״ ומצביעים על הקובץ שמסתיים ב־part01. את החלק השני התוכנה מוצאת לבד, ובלבד שהוא יושב באותה תיקייה.\n\nצריך כ־10 ג״ב פנויים בזמן הפריסה, וכ־7.5 ג״ב אחריה. הפריסה נמשכת כמה דקות טובות — עדיף להעתיק את שני החלקים לדיסק הקשיח ולבחור אותם משם, ולא מהדיסק־און־קי.\n\nההתקנה היא למשתמש הנוכחי בלבד, בלי הרשאות מנהל. במחשב עם כמה משתמשים — להתקין לכל אחד בנפרד.\n\nאת הגרסה הזו של התוכנה צריך להתקין עם המסד שכאן; מסד ישן יותר ייעצר בהודעה שצריך לעדכן.\n\nPowered by the technologies that drive Zayit — https://zayitapp.com/",
                      "cat":  "תורה ולימוד",
                      "langMode":  "hebrew-only",
-                     "needs":  [
-                                   "VCRedist64"
-                               ],
                      "origin":  "community",
                      "files":  [
                                    {
@@ -3380,7 +3377,7 @@
                      "repo":  "KleiKodesh/KleiKodeshProject",
                      "icon":  "icons/w32real/KleiKodesh.png",
                      "color":  "#8a5a2b",
-                     "desc":  "לשונית בתוך וורד: ספרייה תורנית לעיון בלי לצאת מהמסמך, חיפוש והחלפה מתקדמים, ועיצוב כמקובל בספרי קודש",
+                     "desc":  "תוסף לוורד לעימוד ולעריכה של ספרי קודש — ובאותה התקנה גם תוכנה עצמאית בשם \"כתבי הקודש\", שנפתחת בלי וורד וקוראת את מסד הספרים של זית.",
                      "descEn":  "A tab inside Word: a Torah library to consult without leaving the document, advanced find-and-replace, and typesetting the way sifrei kodesh are set",
                      "noteEn":  "This is a Word add-in, not a standalone program — Word has to be on the machine, and the store cannot supply it.\n\nThe books are not inside the add-in. Install Zayit with its database first; the add-in then finds the file by itself and shows the path in its settings screen. You can also point it by hand at a database file anywhere on the disk.\n\nThe first time it sees a database it builds its own search index. That is done on the machine with no network, but it takes a while and works the CPU hard.\n\nThere is no silent install — the wizard must run in front of the user. It installs for the current user, with no admin rights.\n\nBefore it starts it checks two components: .NET Framework 4.8 and Microsoft\u0027s VSTO 2010 runtime. If either is missing it stops and sends you to Microsoft\u0027s site — on a disconnected machine that is a closed door. On a machine that has Word, the VSTO runtime is almost always already there.\n\nWithout Word, take the portable build offered here — a standalone app, no install and no update checks.",
                      "note":  "זה תוסף לוורד, לא תוכנה עצמאית — צריך שיהיה וורד על המחשב. אין לחנות מה לספק במקומו.\n\nהספרים אינם בתוך התוסף. מתקינים קודם את זית עם מסד הספרים שלו, ואז התוסף מוצא את הקובץ לבד ומציג את הנתיב במסך ההגדרות. אפשר גם להצביע ידנית על קובץ מסד בכל מקום בדיסק.\n\nבפעם הראשונה שהוא רואה מסד נתונים הוא בונה לעצמו אינדקס חיפוש. הבנייה נעשית במחשב בלי רשת, אבל לוקחת זמן ומעמיסה על המעבד.\n\nאין התקנה שקטה — האשף חייב לרוץ מול המשתמש. ההתקנה למשתמש הנוכחי, בלי הרשאות מנהל.\n\nלפני שהוא מתחיל הוא בודק שני רכיבים: .NET Framework 4.8 (החנות מתקינה 4.8.1, שמכסה אותו) ורכיב VSTO 2010 של מיקרוסופט. אם אחד מהם חסר הוא נעצר ושולח לאתר של מיקרוסופט — כלומר במחשב מנותק הוא לא ימשיך. במחשב שמותקן בו וורד רכיב VSTO כמעט תמיד כבר קיים.\n\nמי שאין לו וורד יכול לקחת את הגרסה הניידת שכאן — אפליקציה עצמאית, בלי התקנה ובלי בדיקת עדכונים.",
@@ -3412,7 +3409,7 @@
                      "match":  "InstallToratEmet.exe",
                      "icon":  "icons/w32real/ToratEmet.png",
                      "color":  "#0148a5",
-                     "desc":  "מאגר תורני שלם בקובץ אחד — הספרים כבר בתוך המתקין, אין מה להוריד אחריו",
+                     "desc":  "ארון ספרים לחלונות: תנ״ך עם מפרשים, ש״ס, רמב״ם, שולחן ערוך, זוהר ומאות ספרי מוסר והלכה — הכול נכנס בהתקנה אחת ונפתח בלי אינטרנט.",
                      "descEn":  "A whole Torah corpus in one file — the books are already inside the installer, nothing to download afterwards",
                      "noteEn":  "This is the only program here with no second step: one file, one install, and there are books.\n\nIt installs into the Documents folder rather than Program Files, so it needs no admin rights. On a shared PC, install it for each user separately.\n\nFrom update 373 the program carries no uninstaller. The maker asks that an older version not be removed through Control Panel; a new install simply replaces it.\n\nAfter installing it takes about half a gigabyte.\n\nIt also has a downloader for a few extra books. That needs a network and will not work here — which does not affect anything else.\n\nThe build offered here is update 379; the file on the site is dated 30 June 2025.",
                      "note":  "זו התוכנה היחידה כאן שאין בה שלב שני: קובץ אחד, התקנה, ויש ספרים.\n\nההתקנה נכנסת לתיקיית המסמכים ולא ל־Program Files, ולכן אינה דורשת הרשאות מנהל. במחשב עם כמה משתמשים — להתקין לכל אחד בנפרד.\n\nמהעדכון 373 אין בתוכנה הסרת התקנה. לפי הוראת היצרן אין להסיר גרסה ישנה דרך לוח הבקרה; התקנה חדשה פשוט דורסת אותה.\n\nאחרי ההתקנה היא תופסת כחצי ג״ב.\n\nיש בה גם מנהל הורדות לספרים נוספים. הוא דורש רשת ולכן לא יעבוד כאן — וזה לא מפריע לשאר.\n\nהעדכון שכאן הוא 379, והקובץ באתר מתאריך 30.6.2025.",
@@ -3439,7 +3436,7 @@
                      "repo":  "kiwix/kiwix-desktop",
                      "icon":  "icons/w32real/Kiwix.png",
                      "color":  "#2b6cb0",
-                     "desc":  "קורא אתרים שמורים — קובץ תוכן אחד נפתח כאתר מלא, עם חיפוש, בלי שום חיבור",
+                     "desc":  "תוכנה שפותחת קובץ ZIM — אתר שלם ארוז לקובץ אחד — וקוראת אותו כמו דפדפן, עם חיפוש בתוך הטקסט ובלי שום חיבור.",
                      "descEn":  "A reader for saved websites — one content file opens as a whole site, searchable, with no connection at all",
                      "noteEn":  "A portable archive, not an installer: unzip it to a folder and run kiwix-desktop.exe inside.\n\nOn its own it is empty. It also needs a content file — the Hebrew Wikisource one further down.\n\nThe content file can live anywhere, an external drive included, and is opened from inside the program. There is no fixed data folder to get right.",
                      "note":  "ארכיון נייד ולא מתקין: לפרוק לתיקייה ולהריץ את kiwix-desktop.exe שבפנים.\n\nלבדו הוא ריק. צריך גם קובץ תוכן — ויקיטקסט העברי כאן בהמשך.\n\nאפשר להשאיר את קובץ התוכן בכל מקום, גם על התקן חיצוני, ולפתוח אותו מתוך התוכנה. אין תיקיית נתונים קבועה שצריך לפגוע בה.",
@@ -3499,12 +3496,15 @@
                      "repo":  "ComputeHalacha/JewishCalendar",
                      "icon":  "icons/w32real/LuachProject.png",
                      "color":  "#b8860b",
-                     "desc":  "לוח וזמני היום לכל תאריך ולכל מקום — הכול מחושב במחשב, בלי לשאול שום שרת",
+                     "desc":  "לוח שנה עברי לווינדוס: חודש שלם על המסך, וללחיצה על כל יום — זמני היום למקום שבחרתם, פרשה, דף יומי, מולד, והיארצייטים שהזנתם בעצמכם.",
                      "descEn":  "A luach and the day\u0027s zmanim for any date and place — all computed on the machine, asking no server",
                      "noteEn":  "A small archive with no installer: unzip it and run the file inside.\n\nThe places list and the whole calculation are inside it, so it works from the first moment with no network. It also converts Hebrew and civil dates, so no second program is needed for that.\n\nNo licence has been published for it, and the last build is from 2024 — try it once on a clean machine before putting it on a disc.",
                      "note":  "ארכיון קטן בלי מתקין: לפרוק ולהריץ את הקובץ שבפנים.\n\nרשימת המקומות והחישוב יושבים בתוכו, ולכן הוא עובד מהרגע הראשון בלי רשת. הוא גם ממיר תאריך עברי ולועזי, כך שאין צורך בתוכנה נוספת לזה.\n\nלא פורסם לו רישיון, והבנייה האחרונה מ־2024 — כדאי לנסות אותו פעם אחת על מחשב נקי לפני שמכניסים לדיסק.",
                      "cat":  "תורה ולימוד",
                      "langMode":  "hebrew-only",
+                     "needs":  [
+                                   "NetFx481"
+                               ],
                      "origin":  "community",
                      "files":  [
                                    {
@@ -3531,7 +3531,7 @@
                                  "mb":  1
                              },
                      "color":  "#7a5c3e",
-                     "desc":  "טקסטים שנפתחים בדפדפן שכבר יש במחשב — בלי התקנה ובלי שום תלות",
+                     "desc":  "אוסף קובצי HTML להורדה ממכון ממרא — פורסים זיפ לתיקייה, לוחצים על קובץ, והטקסט נפתח בדפדפן; ct005 הוא התנ\"ך עם טעמי המקרא.",
                      "descEn":  "Texts that open in the browser already on the machine — no install, nothing else needed",
                      "noteEn":  "A small archive: unzip it to a folder and open the index file inside. Everything runs locally and there is nothing to install.\n\nThis download is the Tanach with cantillation marks; the second one is a Tiqqun Qore\u0027im.\n\nThe same place carries more: Talmud Bavli, Talmud Yerushalmi, a vowelled Tanach, a vowelled Mishneh Torah, Sources of the Oral Law and Targum Onqelos. The whole set together is about 37 MB.\n\nThe files are refreshed rarely and may lag behind the website. The text follows the Rambam and Yemenite mesorah.",
                      "note":  "ארכיון קטן: לפרוק לתיקייה ולפתוח את קובץ הפתיחה שבתוכו. הכול רץ מקומית, ואין מה להתקין.\n\nכאן תנ״ך עם טעמי המקרא, ובהורדה השנייה תיקון קוראים.\n\nבאותו מקום יש עוד: תלמוד בבלי, תלמוד ירושלמי, תנ״ך מנוקד, משנה תורה מנוקד, מקורות ההלכה ותרגום אונקלוס. כל הסדרה יחד היא כ־37 מגה.\n\nהקבצים מתעדכנים לעתים רחוקות ולכן עשויים לפגר אחרי האתר. הנוסח הוא לפי מסורת הרמב״ם והתימנים.",
