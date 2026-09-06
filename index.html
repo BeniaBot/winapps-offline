@@ -851,6 +851,7 @@ const EN = {
   'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט': 'A complete file from the project that maintains it — works offline',
   'התוכן שלה באינטרנט — למחשב שיחובר בהמשך': 'Its content lives online — for a PC that will connect later',
   'עובדת לגמרי בלי אינטרנט': 'Works entirely offline',
+  'ההתקנה עצמה לא צריכה אינטרנט — הפתיחה הראשונה כן': 'Installing it needs no internet — opening it the first time does',
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
   '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
@@ -2021,10 +2022,15 @@ function openSheet(en) {
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
     firstOnlineLine(a) +
     needsLine(a) +
+    /* "works entirely without internet" cannot sit directly under a warning that says it needs
+       one connection to open. Whichever of the two the reader believes, the card has told them
+       the other thing in the same breath. */
     '<div class="net">' + (a.url ? T(a.origin === 'community'
                             ? 'קובץ מלא מהפרויקט שמתחזק אותו — עובד בלי אינטרנט'
                             : 'קובץ מלא מהאתר של היצרן — עובד בלי אינטרנט')
-                          : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך' : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
+                          : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך'
+                          : a.needsFirstOnline ? 'ההתקנה עצמה לא צריכה אינטרנט — הפתיחה הראשונה כן'
+                          : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       langClaim(a) + '</div>' +
     (langHow(a) ? '<div class="langhow">' + langHow(a) + '</div>' : '') +
