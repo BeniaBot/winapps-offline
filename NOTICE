@@ -1,0 +1,57 @@
+winapps-offline — חנות אפליקציות אופליין ל-Windows
+Copyright 2026 BeniaBot ("בני הבוט")
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+
+WHAT THE LICENCE COVERS
+=======================
+
+The Apache-2.0 licence in LICENSE covers THIS PROJECT'S OWN CODE only:
+
+  - the installer shell and the per-app installers (build/src/*.cs)
+  - the ISO builder and the silent runner
+  - the packer tool
+  - the build scripts (build/*.ps1)
+  - the website (site/index.html and everything beside it)
+
+It does NOT cover any software this project distributes, links to, or carries
+inside an installer or a disc image. Every Microsoft package, every vendor
+installer, every runtime and every framework remains under its own licence,
+held by its own owner. Nothing here grants a right to any of them.
+
+Where a program is carried inside one of our installers, the carried file is
+byte-identical to the file received from its maker and keeps that maker's own
+digital signature. The one exception is a build this project translated into
+Hebrew: those are modified, are labelled as such everywhere they appear, and
+therefore no longer carry a valid original signature.
+
+
+TWO LIMITS, SAID HERE RATHER THAN DISCOVERED LATER
+==================================================
+
+1. Sections 7 and 8 of the Apache licence disclaim warranty and limit liability
+   towards people who receive THE CODE. They are not a substitute for the site's
+   own terms of use towards people who visit the site and download software.
+   That is why the Hebrew terms carry their own limitation clause.
+
+2. The patent grant in section 3 runs from contributors to this code. It is not
+   a defence against a third party's patent claim over software distributed
+   here, and it does not cover the media codecs in the catalogue.
+
+
+TRADEMARKS
+==========
+
+Microsoft and Windows are registered trademarks of Microsoft Corporation.
+All other product names and marks belong to their respective owners and appear
+here for identification only. This project is independent and is not affiliated
+with, authorised by, sponsored by or endorsed by any of them.
+
+
+THIRD-PARTY SOFTWARE
+====================
+
+A machine-readable list of everything the catalogue carries, with each item's
+source URL and licence, is at build/data/win32-apps.json and build/data/plan.json.
+The site shows the source of every item on its own card.

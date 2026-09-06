@@ -385,6 +385,7 @@
   .sheet.dlpanel { width: min(460px, 94vw); text-align: start; }
   .dlpanel h3 { margin: 0 0 6px; font-size: 1.1rem; }
   .dlnote { margin: 0 0 14px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
+  .dlterms { margin: 14px 0 0; font-size: .76rem; line-height: 1.6; color: var(--muted); }
   .dllist { display: flex; flex-direction: column; gap: 6px; max-height: 46vh; overflow-y: auto; }
   .dlitem { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 12px;
             background: var(--tile); border: 1px solid var(--stroke); color: var(--ink);
@@ -642,6 +643,7 @@
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (למשל גרסאות מתורגמות, שאינן חתומות). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
     <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <button class="donate" id="donate-btn">לתרומה לפרוייקט</button> · <span id="updated"></span></div>
+    <div style="margin-top:6px"><a href="legal.html" style="color:var(--accent)">תנאי שימוש</a> · <a href="legal.html#privacy" style="color:var(--accent)">פרטיות</a> · <a href="legal.html#copyright" style="color:var(--accent)">זכויות יוצרים והסרה</a> · <a href="legal.html#security" style="color:var(--accent)">אבטחה ואימות</a></div>
   </div>
 </footer>
 
@@ -1717,6 +1719,12 @@ function downloadPanel(items, title, note, opts) {
       (opts.then ? '<div class="dlthen"><span class="dlstep last">' + (items.length + 1) + '</span>' +
                    '<span>' + esc(opts.then) + '</span></div>' : '') +
     '</div>' +
+    /* Terms that are only linked from the footer are terms nobody was shown. This is the moment
+       a person actually acts on them, so the link belongs here - and it names what the clause
+       does rather than saying "by downloading you agree", which tells the reader nothing. */
+    '<p class="dlterms">' + T('בהורדה חלים ') +
+      '<a href="legal.html" target="_blank" rel="noopener">' + T('תנאי השימוש') + '</a>' +
+      T(', ובהם סעיף שמגביל את האחריות שלנו לנזק.') + '</p>' +
     '<div class="acts">' +
       '<button class="btn" id="dlgo">' + T(opts.steps ? 'הורדת שני הקבצים' : 'התחלת ההורדה') + '</button>' +
       '<button class="btn lite" id="dlx">' + T('סגירה') + '</button>' +
