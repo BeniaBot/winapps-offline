@@ -384,6 +384,7 @@
   .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
   .sheet.dlpanel { width: min(460px, 94vw); text-align: start; }
   .dlpanel h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .dlcount .dlwhy { display: block; font-size: .72rem; color: var(--muted); margin-top: 2px; }
   .dlnote { margin: 0 0 14px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
   .dlterms { margin: 14px 0 0; font-size: .76rem; line-height: 1.6; color: var(--muted); }
   .dllist { display: flex; flex-direction: column; gap: 6px; max-height: 46vh; overflow-y: auto; }
@@ -784,6 +785,10 @@ const EN = {
   'הורדת מה שנשאר': 'Download what is left',
   'הורד': 'Taken',
   'פעמים מהאתר': 'times from this site',
+  'פעמים מגיטהאב': 'times from GitHub',
+  'זה המונה של GitHub על כל הגרסאות — כולל הורדות ישירות מהמאגר, לא רק דרך האתר': 'The GitHub counter, across every release — including downloads straight from the repository, not only through this site',
+  'אין מונה — הקובץ יושב במאגר שלו, ושם אי אפשר להפריד בין הורדה מכאן להורדה ישירה':
+    'No counter — the file lives in its own repository, and there a download from here cannot be told apart from a direct one',
   'אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו':
     'No counter — this file downloads from the maker\'s own site, not through us',
   'פופולרי': 'Popular',
@@ -1064,17 +1069,17 @@ function loadDownloads() {
     fetch('https://api.github.com/repos/BeniaBot/winapps-offline/releases/tags/apps-v1')
       .then(r => r.ok ? r.json() : null).catch(() => null),
   ].concat(repos.map(rp =>
-    fetch('https://api.github.com/repos/' + rp + '/releases/latest')
-      .then(r => r.ok ? r.json() : null).then(j => ({ repo: rp, rel: j })).catch(() => null)
+    fetch('https://api.github.com/repos/' + rp + '/releases?per_page=100')
+      .then(r => r.ok ? r.json() : null).then(j => ({ repo: rp, rels: j })).catch(() => null)
   ))).then(results => {
     const ours = results[0];
     const map = {};
     if (ours && ours.assets) ours.assets.forEach(a => { map[a.name] = a.download_count || 0; });
     const repo = {};
     results.slice(1).forEach(r => {
-      if (!r || !r.rel || !r.rel.assets) return;
+      if (!r || !Array.isArray(r.rels)) return;
       let n = 0;
-      r.rel.assets.forEach(a => { n += a.download_count || 0; });
+      r.rels.forEach(rel => (rel.assets || []).forEach(a => { n += a.download_count || 0; }));
       repo[r.repo] = n;
     });
     if (!Object.keys(map).length && !Object.keys(repo).length) return;
@@ -1100,7 +1105,7 @@ function applyDownloads(map, repo) {
 
 /* every file this app is offered as, summed - a Win 10 and a Win 11 build are one app */
 function downloadsFor(a) {
-  if (a.custom && a.repo && DLREPO && a.repo in DLREPO) return DLREPO[a.repo];
+  if (a.custom) return null;               // its file lives in its own repo - see the note below
   if (!DLC || a.w32) return null;          // a vendor program is fetched from its own maker
   let n = 0, seen = false;
   (a.files || []).forEach(f => { if (f.exe in DLC) { n += DLC[f.exe]; seen = true; } });
@@ -2102,8 +2107,10 @@ function openSheet(en) {
     '<div class="qbody" id="qb"></div>' +
     (downloadsFor(a) !== null
       ? '<div class="dlcount">' + T('הורד') + ' <b>' + downloadsFor(a) + '</b> ' + T('פעמים מהאתר') + '</div>'
-      : a.w32
-      ? '<div class="dlcount">' + T('אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו') + '</div>'
+      : (a.w32 || a.custom)
+      ? '<div class="dlcount">' + T(a.custom
+            ? 'אין מונה — הקובץ יושב במאגר שלו, ושם אי אפשר להפריד בין הורדה מכאן להורדה ישירה'
+            : 'אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו') + '</div>'
       : '') +
     '<div class="rows">' + rows + '</div>' +
     '<div class="acts">' + btns + '</div></div>';
