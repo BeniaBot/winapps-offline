@@ -523,6 +523,42 @@
                                "info":  "רשימת האיומים שההגנה של Windows יודעת לזהות. מיקרוסופט מפרסמת רשימה מעודכנת כמה פעמים ביום, ולכן קובץ שהורדתם מתיישן תוך ימים — כדאי להוריד מחדש לפני כל סבב התקנות ולא להסתמך על עותק ישן בדיסק-און-קי. חשוב לדעת מה זה לא נותן: במחשב מנותק אין בדיקה מול השרתים של מיקרוסופט בזמן אמת, וזו שכבת ההגנה המשמעותית ביותר בימינו. הקובץ הזה מרים את הרצפה — הוא לא הופך מחשב מנותק למוגן כמו מחשב מחובר.",
                                "infoEn":  "The list of threats the Windows protection can recognise. Microsoft publishes an updated list several times a day, so a copy you downloaded is stale within days - fetch it again before each round of installs rather than relying on an old one on the USB stick. Worth knowing what it does not give you: on a disconnected machine there is no real-time lookup against Microsoft\u0027s servers, and that is the most significant layer of protection there is today. This file raises the floor - it does not make a disconnected machine as protected as a connected one."
                            },
+    "Zayit":  {
+                  "info":  "ספריית תורה שיושבת כולה על המחשב: תנ״ך, ש״ס בבלי וירושלמי, מדרשים, הלכה ומפרשים, עם חיפוש על פני כל המאגר. פרויקט חופשי בקוד פתוח. התוכנה עצמה קטנה — הספרים הם הורדה נפרדת בשני חלקים, וזה מה שתופס את הנפח. בפתיחה הראשונה היא שואלת איפה הקבצים ופורסת אותם בעצמה, בלי שצריך להעתיק כלום ביד. אחרי זה הכול עובד בלי אינטרנט.",
+                  "infoEn":  "A Torah library that sits entirely on the PC: Tanach, both Talmuds, midrash, halacha and commentaries, with search across the whole corpus. A free open-source project. The program itself is small — the books are a separate two-part download, and that is where the size is. On first run it asks where the files are and unpacks them itself. After that everything works with no internet."
+              },
+    "ZayitDb1":  {
+                     "info":  "החצי הראשון של אוצר הספרים של זית. זה קובץ נתונים ולא מתקין — אין מה להריץ אותו. מורידים אותו יחד עם חלק 2, שמים את שניהם באותה תיקייה, ומצביעים על הראשון מתוך זית. את השאר התוכנה עושה לבד.",
+                     "infoEn":  "The first half of Zayit\u0027s book collection. It is a data file, not an installer — there is nothing to run. Download it together with part 2, put both in the same folder, and point Zayit at the first one. It does the rest."
+                 },
+    "ZayitDb2":  {
+                     "info":  "החצי השני של אותו קובץ. בלעדיו חלק 1 חסר תועלת, ושני החלקים חייבים לשבת באותה תיקייה כדי שזית תמצא אותם.",
+                     "infoEn":  "The second half of the same file. Without it part 1 is useless, and both must sit in the same folder for Zayit to find them."
+                 },
+    "KleiKodesh":  {
+                       "info":  "תוסף לוורד שמכניס ספרי קודש אל תוך המסמך: לחפש פסוק או מקור, ולהעתיק אותו פנימה מנוקד ומעוצב, בלי לצאת מהמסמך. שני תנאים: צריך שיהיה וורד מותקן במחשב, וצריך מסד ספרים — הוא קורא את זה של זית, אז מתקינים קודם את זית ואת שני חלקי המסד.",
+                       "infoEn":  "A Word add-in that brings Torah texts into the document: search for a verse or a source and drop it in, vowelled and formatted, without leaving the document. Two conditions: Word must be installed, and it needs a book database — it reads Zayit\u0027s, so install Zayit and both database parts first."
+                   },
+    "ToratEmet":  {
+                      "info":  "מאגר תורני חופשי לווינדוס — תנ״ך, משניות, תלמוד בבלי, שולחן ערוך על ארבעה חלקים, קיצור שולחן ערוך ועוד. הספרים כבר בתוך המתקין, אז אין שלב שני ואין מה להוריד בנפרד: מתקינים ופותחים. שימו לב שמגרסאות מסוימות והלאה אין לו הסרת התקנה רגילה.",
+                      "infoEn":  "A free Torah database for Windows — Tanach, Mishnayot, Talmud Bavli, Shulchan Aruch on all four parts, Kitzur and more. The books are already inside the installer, so there is no second step and nothing separate to fetch: install it and open it. Note that from certain versions onward it has no ordinary uninstall entry."
+                  },
+    "Kiwix":  {
+                  "info":  "קורא של אתרים שלמים שנארזו לקובץ אחד. לבדו הוא ארון ריק — צריך גם קובץ תוכן. עם ויקיטקסט העברי שכאן הוא הופך לארון ספרים תורני שעובד בלי שום חיבור. זו תוכנה ניידת: פורסים את הקובץ ומריצים, בלי התקנה.",
+                  "infoEn":  "A reader for whole websites packed into a single file. On its own it is an empty bookcase — it needs a content file. With the Hebrew Wikisource offered here it becomes a Torah library that works with no connection at all. It is portable: unpack and run, no install."
+              },
+    "KiwixWikisourceHe":  {
+                              "info":  "ויקיטקסט העברי כולו בקובץ אחד, לקריאה בקיוויקס בלי אינטרנט. יש בו תנ״ך, משנה, תלמוד, מדרשים, הלכה והרבה מעבר. חשוב לדעת: זה טקסט שהקהילה עורכת — מצוין לחיפוש ולעיון, אבל לא מהדורה מוגהת ולא מקור לפסק הלכה.",
+                              "infoEn":  "The whole Hebrew Wikisource in one file, to read in Kiwix with no internet. It holds Tanach, Mishna, Talmud, midrash, halacha and much more. Worth knowing: it is a community-edited text — excellent for looking things up, but not a proofread edition and not a source to rule from."
+                          },
+    "LuachProject":  {
+                         "info":  "לוח וזמנים לווינדוס: זמני היום לכל תאריך ולכל מקום — נץ, שקיעה, חצות, שעה זמנית, סוף זמן קריאת שמע ותפילה — והמרה בין תאריך עברי ללועזי. הכול מחושב במחשב עצמו, בלי לפנות לשום שרת, אז זה עובד מנותק לגמרי. קובץ קטן, בלי התקנה.",
+                         "infoEn":  "A luach and zmanim program for Windows: the times of the day for any date and any place — sunrise, sunset, midday, seasonal hour, the last time for shema and tefila — plus Hebrew/Gregorian date conversion. Everything is computed on the PC with no server involved, so it works fully disconnected. A small file, no install."
+                     },
+    "MechonMamre":  {
+                        "info":  "הטקסטים של מכון ממרא כארכיון להורדה: פורסים את הקובץ ופותחים בדפדפן שכבר יש במחשב — בלי התקנה ובלי אינטרנט. הנוסח הוא לפי מסורת הרמב״ם והתימנים, וזה שונה במקומות מהנוסח המקובל.",
+                        "infoEn":  "Mechon Mamre\u0027s texts as a downloadable archive: unpack it and open it in the browser already on the PC — no install and no internet. The text follows the Rambam and Yemenite tradition, which differs in places from the common one."
+                    },
     "Csharf":  {
                    "info":  "מרכז פעולות תחזוקה והגדרות של Windows במקום אחד, בעברית: ניקוי, כיבוי דברים מיותרים ושינויים קטנים במערכת. רץ מקובץ אחד בלי התקנה, אז אפשר להפעיל אותו גם מדיסק און קי. חלק מהפעולות משנות הגדרות מערכת ודורשות הרשאות מנהל, וכדאי להפעיל רק את מה שאתם מבינים. פותח בפרויקט הזה.",
                    "infoEn":  "Gathers Windows maintenance jobs and settings in one place, in Hebrew: cleanup, turning off things you do not need, and small system changes. It runs from a single file with no installation, so it also works from a USB stick. Some of the actions change system settings and need administrator rights, so run only what you understand. Built as part of this project."

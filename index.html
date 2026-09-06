@@ -664,11 +664,12 @@
 const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/';
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'משחקים', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
-const W32_CATS = ['עדכוני אבטחה', 'רכיבי מערכת', 'תוכנות נפוצות'];
+const W32_CATS = ['עדכוני אבטחה', 'תורה ולימוד', 'רכיבי מערכת', 'תוכנות נפוצות'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'משחקים': 'רכיבי ה-Xbox הקטנים נחוצים כדי שמשחקים ירוצו.',
   'עדכוני אבטחה': 'ההגנה המובנית של Windows מתעדכנת דרך האינטרנט. במחשב מנותק היא נשארת עם מה שהיה ביום ההתקנה — אלה שני הקבצים שמעדכנים אותה ביד. הסדר חשוב: קודם הפלטפורמה, אחר כך החתימות.',
+  'תורה ולימוד': 'ספריות תורניות שיושבות במלואן על המחשב. אצל חלקן התוכנה היא רק המדף — את הספרים עצמם מורידים בנפרד, ובכרטיס כתוב איך מחברים ביניהם.',
   'רכיבי מערכת': 'ספריות שתוכנות ומשחקים דורשים. אפשר להוריד כל אחת בנפרד מהשרת של היצרן, או לקחת קובץ אחד שכולל את כולן ומתקין הכל בלחיצה.',
   'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'כלים שפיתחתי בעצמי — תמיד בגרסה העדכנית ביותר מגיטהאב'
@@ -918,6 +919,9 @@ const EN = {
   'חשבון ומערכת': 'Account & system',
   'נוספות': 'Other',
   'עדכוני אבטחה': 'Security updates',
+  'תורה ולימוד': 'Torah study',
+  'ספריות תורניות שיושבות במלואן על המחשב. אצל חלקן התוכנה היא רק המדף — את הספרים עצמם מורידים בנפרד, ובכרטיס כתוב איך מחברים ביניהם.':
+    'Torah libraries that live entirely on the PC. For some of them the program is only the shelf - the books are a separate download, and the card says how the two are joined.',
   'ההגנה המובנית של Windows מתעדכנת דרך האינטרנט. במחשב מנותק היא נשארת עם מה שהיה ביום ההתקנה — אלה שני הקבצים שמעדכנים אותה ביד. הסדר חשוב: קודם הפלטפורמה, אחר כך החתימות.':
     'The built-in Windows protection updates itself over the internet. On a disconnected machine it stays as it was the day Windows was installed - these two files bring it up to date by hand. The order matters: the platform first, then the signatures.',
   'רכיבי מערכת': 'System components',
