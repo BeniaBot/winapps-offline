@@ -1732,6 +1732,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x64)",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2013-x64.exe",
@@ -1757,6 +1758,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x86)",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2013-x86.exe",
@@ -1782,6 +1784,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x64)",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2012-x64.exe",
@@ -1807,6 +1810,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x86)",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2012-x86.exe",
@@ -1832,6 +1836,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2010|x64",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2010-x64.exe",
@@ -1857,6 +1862,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2010|x86",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2010-x86.exe",
@@ -1882,6 +1888,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x64",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2008-x64.exe",
@@ -1907,6 +1914,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x86",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2008-x86.exe",
@@ -1932,6 +1940,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "Microsoft Visual C++ 2005 Redistributable (x64)",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2005-x64.exe",
@@ -1957,6 +1966,7 @@
                      "noui":  true,
                      "cat":  "רכיבי מערכת",
                      "detect":  "=Microsoft Visual C++ 2005 Redistributable",
+                     "relver":  "apps-v1",
                      "files":  [
                                    {
                                        "exe":  "VC2005-x86.exe",
@@ -2231,6 +2241,7 @@
                      "desc":  "שורת הפקודה המודרנית של מיקרוסופט",
                      "descEn":  "Microsoft\u0027s modern command line",
                      "cat":  "רכיבי מערכת",
+                     "relver":  "v7.6.5",
                      "files":  [
                                    {
                                        "exe":  "PowerShell-*-win-x64.msi",
@@ -2726,6 +2737,7 @@
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
                      "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "detect":  "Notepad++",
+                     "relver":  "v8.7",
                      "files":  [
                                    {
                                        "exe":  "npp.*Installer.x64.exe",
@@ -2752,6 +2764,7 @@
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "single-language",
                      "detect":  "Git",
+                     "relver":  "v2.46.2.windows.1",
                      "files":  [
                                    {
                                        "exe":  "Git-*-64-bit.exe",
@@ -2805,6 +2818,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
                      "langHowEn":  "The same file includes English: click the globe icon at the top of the Rufus window and pick English.",
+                     "relver":  "v4.15",
                      "files":  [
                                    {
                                        "exe":  "rufus-*.exe",
@@ -2862,6 +2876,7 @@
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "detect":  "Audacity",
+                     "relver":  "Audacity-3.7.9",
                      "files":  [
                                    {
                                        "exe":  "audacity-win-*-64bit.exe",
@@ -3067,6 +3082,7 @@
                      "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
                      "langHowEn":  "The same file includes English: Settings \u003e General \u003e Language, pick English and restart it.",
                      "detect":  "OBS Studio",
+                     "relver":  "32.2.2",
                      "files":  [
                                    {
                                        "exe":  "OBS-Studio-*-Installer.exe",
@@ -3099,6 +3115,7 @@
                      "needs":  [
                                    "VCRedist64"
                                ],
+                     "relver":  "2.7.12",
                      "files":  [
                                    {
                                        "exe":  "KeePassXC-*-Win64.msi",
@@ -3128,6 +3145,7 @@
                      "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
                      "langHowEn":  "The same file includes every language, and English is the default; switch it under Settings \u003e Language.",
                      "detect":  "VeraCrypt",
+                     "relver":  "VeraCrypt_1.26.29",
                      "files":  [
                                    {
                                        "exe":  "VeraCrypt*Setup*.exe",
@@ -3156,6 +3174,7 @@
                      "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
                      "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
                      "detect":  "WinDirStat",
+                     "relver":  "release",
                      "files":  [
                                    {
                                        "exe":  "WinDirStat-x64.msi",
@@ -3192,6 +3211,7 @@
                      "near":  "WSL",
                      "langMode":  "follows-windows",
                      "origin":  "community",
+                     "relver":  "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
                      "files":  [
                                    {
                                        "exe":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
@@ -3287,6 +3307,7 @@
                      "cat":  "תורה ולימוד",
                      "langMode":  "hebrew-only",
                      "origin":  "community",
+                     "relver":  "v0.5.17",
                      "files":  [
                                    {
                                        "exe":  "Zayit-*-windows-x64-nsis.exe",
@@ -3318,6 +3339,7 @@
                                    "Zayit"
                                ],
                      "origin":  "community",
+                     "relver":  "v1-20260601094341",
                      "files":  [
                                    {
                                        "exe":  "seforim_bundle.tar.zst.part01",
@@ -3350,6 +3372,7 @@
                                    "ZayitDb1"
                                ],
                      "origin":  "community",
+                     "relver":  "v1-20260601094341",
                      "files":  [
                                    {
                                        "exe":  "seforim_bundle.tar.zst.part02",
@@ -3389,6 +3412,7 @@
                                    "Zayit"
                                ],
                      "origin":  "community",
+                     "relver":  "v9.1.2",
                      "files":  [
                                    {
                                        "exe":  "KleiKodeshSetup-*.exe",
@@ -3506,6 +3530,7 @@
                                    "NetFx481"
                                ],
                      "origin":  "community",
+                     "relver":  "v2.7.3",
                      "files":  [
                                    {
                                        "exe":  "LuachProject.zip",
@@ -3530,6 +3555,7 @@
                                  "url":  "https://mechon-mamre.org/htmlzips/cp002.zip",
                                  "mb":  1
                              },
+                     "icon":  "icons/w32real/MechonMamre.png",
                      "color":  "#7a5c3e",
                      "desc":  "אוסף קובצי HTML להורדה ממכון ממרא — פורסים זיפ לתיקייה, לוחצים על קובץ, והטקסט נפתח בדפדפן; ct005 הוא התנ\"ך עם טעמי המקרא.",
                      "descEn":  "HTML files from Mechon Mamre: unpack the zip, click a file, and the text opens in the browser — ct005 is the Tanach with ta\u0027amei hamikra",
@@ -3559,6 +3585,7 @@
                      "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
                      "descEn":  "A tweaks and maintenance tool for Windows — one file, no install, in Hebrew. Built here",
                      "langMode":  "hebrew-only",
+                     "relver":  "v2.0",
                      "files":  [
                                    {
                                        "exe":  "Csharf.bat",
@@ -3584,6 +3611,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
+                     "relver":  "v0.8.23",
                      "files":  [
                                    {
                                        "exe":  "TikNick-Setup.exe",
@@ -3607,6 +3635,7 @@
                      "desc":  "‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן",
                      "descEn":  "2048 upgraded, with hidden helper keys nobody can spot from the outside. Built here",
                      "langMode":  "in-app-picker",
+                     "relver":  "v0.17.0",
                      "files":  [
                                    {
                                        "exe":  "2049_Setup.exe",
@@ -3629,6 +3658,7 @@
                      "desc":  "להוסיף כתוביות לסרט, לתקן כתוביות שלא מסונכרנות ולצרוב אותן פנימה. קובץ אחד, בלי התקנה. פותח כאן",
                      "descEn":  "Add subtitles to a film, fix ones that drift, and burn them in. One file, no install. Built here",
                      "langMode":  "hebrew-only",
+                     "relver":  "v0.5.1",
                      "files":  [
                                    {
                                        "exe":  "SubtitleStudio.exe",

@@ -1733,6 +1733,14 @@ function needsLine(a) {
    fix by downloading again. */
 function firstOnlineLine(a) {
   if (!a.needsFirstOnline) return '';
+  /* A translated build is not a store package at all - it installs as an ordinary program into
+     the user's own folder - so the licence check never runs on it. Marking the whole app as
+     gated told people the one download that DOES work offline does not. */
+  if (a.xlat) return '<div class="warn">' +
+    (LANG === 'en'
+      ? 'The Store version of this one needs to be opened once on a connected computer - Windows asks Microsoft for a licence the first time it runs. The Hebrew build offered here is not a Store package: it installs as an ordinary program and opens with no network at all.'
+      : 'את הגרסה מהחנות צריך לפתוח פעם אחת במחשב שמחובר לאינטרנט — ‏Windows מבקש עליה רישיון בפתיחה הראשונה. הגרסה העברית שכאן אינה אפליקציית חנות: היא מותקנת כתוכנה רגילה ונפתחת בלי רשת בכלל.') +
+    '</div>';
   return '<div class="warn">' +
     (LANG === 'en'
       ? 'This one needs to be opened once on a connected computer. Windows asks Microsoft for a licence the first time it runs, and until it gets one the window closes immediately. Afterwards it works offline.'
@@ -1984,7 +1992,7 @@ function openSheet(en) {
   const pl = plate(a, true);
   const rows = a.url
     ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
-      (a.repo ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono" id="livever">בודק…</span></div>' : '') +
+      (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '') +
       (a.silent && a.silent !== 'SPECIAL_DIRECTX'
         ? '' : '')
     : files.map(f =>
@@ -2164,15 +2172,7 @@ function openSheet(en) {
       copiedToast(b, added ? T('נוסף לבחירה מרובה') : T('הוסר מהבחירה'));
     };
   });
-  // our own projects: the download link always resolves to the newest release,
-  // so show which version that actually is right now
-  if (a.repo) {
-    const cell = ov.querySelector('#livever');
-    fetch('https://api.github.com/repos/' + a.repo + '/releases/latest')
-      .then(r => r.ok ? r.json() : null)
-      .then(j => { if (cell) cell.textContent = j && j.tag_name ? j.tag_name + ' ' + T('(העדכנית)') : T('העדכנית ביותר'); })
-      .catch(() => { if (cell) cell.textContent = T('העדכנית ביותר'); });
-  }
+
   ov.querySelectorAll('.cpy').forEach(b => {
     b.onclick = () => {
       navigator.clipboard.writeText(b.dataset.url)

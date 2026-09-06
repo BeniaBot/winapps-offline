@@ -4607,6 +4607,7 @@
                      "descEn":  "Programs and games from the 2013-2015 era need it",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2013x64.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4632,6 +4633,7 @@
                      "descEn":  "32-bit build of the 2013 libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2013x86.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2013 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4657,6 +4659,7 @@
                      "descEn":  "The 2012 generation of libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2012x64.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x64)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4682,6 +4685,7 @@
                      "descEn":  "32-bit build of the 2012 libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2012x86.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2012 Redistributable (x86)",
                      "silent":  "/install /quiet /norestart"
                  },
@@ -4707,6 +4711,7 @@
                      "descEn":  "The 2010 generation of libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2010x64.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2010|x64",
                      "silent":  "/q /norestart"
                  },
@@ -4732,6 +4737,7 @@
                      "descEn":  "32-bit build of the 2010 libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2010x86.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2010|x86",
                      "silent":  "/q /norestart"
                  },
@@ -4757,6 +4763,7 @@
                      "descEn":  "The 2008 generation — older games and programs",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2008x64.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x64",
                      "silent":  "/q"
                  },
@@ -4782,6 +4789,7 @@
                      "descEn":  "32-bit build of the 2008 libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2008x86.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2008 Redistributable - x86",
                      "silent":  "/q"
                  },
@@ -4807,6 +4815,7 @@
                      "descEn":  "The oldest one — for very old programs",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2005x64.png",
+                     "relver":  "apps-v1",
                      "detect":  "Microsoft Visual C++ 2005 Redistributable (x64)",
                      "silent":  "/q"
                  },
@@ -4832,6 +4841,7 @@
                      "descEn":  "32-bit build of the 2005 libraries",
                      "noui":  true,
                      "icon":  "icons/w32png/VC2005x86.png",
+                     "relver":  "apps-v1",
                      "detect":  "=Microsoft Visual C++ 2005 Redistributable",
                      "silent":  "/q"
                  },
@@ -5107,6 +5117,7 @@
                      "descEn":  "Microsoft\u0027s modern command line",
                      "icon":  "icons/w32real/PowerShell7.png",
                      "repo":  "PowerShell/PowerShell",
+                     "relver":  "v7.6.5",
                      "silent":  "MSI:/qn /norestart"
                  },
                  {
@@ -5601,6 +5612,7 @@
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
                      "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "repo":  "notepad-plus-plus/notepad-plus-plus",
+                     "relver":  "v8.7",
                      "detect":  "Notepad++",
                      "silent":  "/S"
                  },
@@ -5627,6 +5639,7 @@
                      "icon":  "icons/w32real/Git.png",
                      "langMode":  "single-language",
                      "repo":  "git-for-windows/git",
+                     "relver":  "v2.46.2.windows.1",
                      "detect":  "Git",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -5681,7 +5694,8 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
                      "langHowEn":  "The same file includes English: click the globe icon at the top of the Rufus window and pick English.",
-                     "repo":  "pbatard/rufus"
+                     "repo":  "pbatard/rufus",
+                     "relver":  "v4.15"
                  },
                  {
                      "he":  "GIMP",
@@ -5737,6 +5751,7 @@
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "repo":  "audacity/audacity",
+                     "relver":  "Audacity-3.7.9",
                      "detect":  "Audacity",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -5942,6 +5957,7 @@
                      "langHow":  "אותו קובץ כולל אנגלית: Settings ← General ← Language, לבחור English ולהפעיל מחדש.",
                      "langHowEn":  "The same file includes English: Settings \u003e General \u003e Language, pick English and restart it.",
                      "repo":  "obsproject/obs-studio",
+                     "relver":  "32.2.2",
                      "detect":  "OBS Studio",
                      "silent":  "/S"
                  },
@@ -5971,6 +5987,7 @@
                      "langHow":  "אותו קובץ כולל את כל השפות: Tools ← Settings ← General, לבחור English בשדה Language, ולפתוח מחדש.",
                      "langHowEn":  "The same file includes every language: Tools \u003e Settings \u003e General, pick English under Language, then reopen it.",
                      "repo":  "keepassxreboot/keepassxc",
+                     "relver":  "2.7.12",
                      "detect":  "KeePassXC",
                      "needs":  [
                                    "VCRedist64"
@@ -6003,6 +6020,7 @@
                      "langHow":  "אותו קובץ כולל את כל השפות, וברירת המחדל היא אנגלית; מחליפים בתפריט Settings ← Language.",
                      "langHowEn":  "The same file includes every language, and English is the default; switch it under Settings \u003e Language.",
                      "repo":  "veracrypt/VeraCrypt",
+                     "relver":  "VeraCrypt_1.26.29",
                      "detect":  "VeraCrypt",
                      "silent":  "/S"
                  },
@@ -6031,6 +6049,7 @@
                      "langHow":  "אותו קובץ כולל את כל השפות ואנגלית היא ברירת המחדל; משנים ב-Options ← Settings ← General ומפעילים מחדש.",
                      "langHowEn":  "The same file includes every language and English is the default; change it under Options \u003e Settings \u003e General and restart it.",
                      "repo":  "windirstat/windirstat",
+                     "relver":  "release",
                      "detect":  "WinDirStat",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -6060,6 +6079,7 @@
                      "near":  "WSL",
                      "langMode":  "follows-windows",
                      "repo":  "MustardChef/WSABuilds",
+                     "relver":  "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
                      "origin":  "community",
                      "note":  "ארכיון 7z, לא מתקין. לפרוק ולהריץ את Run.bat שבפנים. דורש Windows 11 ווירטואליזציה מופעלת. בנייה קהילתית — לא של מיקרוסופט. המהדורה הרגילה מגיעה בלי חנות אפליקציות; המהדורה השנייה כוללת את Google Play (712MB)",
                      "noteEn":  "A 7z archive, not an installer. Extract it and run the Run.bat inside. Needs Windows 11 with virtualisation enabled. A community build - not Microsoft’s. The plain edition ships with no app store; the second one includes Google Play (712MB)",
@@ -6160,6 +6180,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/Zayit",
+                     "relver":  "v0.5.17",
                      "origin":  "community",
                      "note":  "התוכנה היא המדף — הספרים הם שתי ההורדות שמתחת, 3.5 ג״ב יחד. שניהם חייבים לשבת באותה תיקייה, וצריך כ‑10 ג״ב פנויים בזמן הפריסה.",
                      "noteEn":  "The program is the shelf — the books are the two downloads below it, 3.5 GB together. Both must sit in the same folder, and about 10 GB free is needed while they unpack.",
@@ -6189,6 +6210,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/SeforimLibrary",
+                     "relver":  "v1-20260601094341",
                      "needs":  [
                                    "Zayit"
                                ],
@@ -6220,6 +6242,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/SeforimLibrary",
+                     "relver":  "v1-20260601094341",
                      "needs":  [
                                    "Zayit",
                                    "ZayitDb1"
@@ -6252,6 +6275,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "KleiKodesh/KleiKodeshProject",
+                     "relver":  "v9.1.2",
                      "needs":  [
                                    "NetFx481",
                                    "WebView2",
@@ -6377,6 +6401,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "ComputeHalacha/JewishCalendar",
+                     "relver":  "v2.7.3",
                      "needs":  [
                                    "NetFx481"
                                ],
@@ -6404,6 +6429,7 @@
                                    }
                                ],
                      "descEn":  "HTML files from Mechon Mamre: unpack the zip, click a file, and the text opens in the browser — ct005 is the Tanach with ta\u0027amei hamikra",
+                     "icon":  "icons/w32real/MechonMamre.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "note":  "לפרוק ולפתוח בדפדפן שכבר יש במחשב — בלי התקנה. הנוסח לפי מסורת הרמב״ם והתימנים, ושונה במקומות מהמקובל.",
@@ -6436,7 +6462,8 @@
                      "icon":  "icons/w32png/Csharf.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
-                     "repo":  "BeniaBot/Csharf"
+                     "repo":  "BeniaBot/Csharf",
+                     "relver":  "v2.0"
                  },
                  {
                      "he":  "Tik-Nick",
@@ -6462,6 +6489,7 @@
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
                      "repo":  "BeniaBot/tiknick",
+                     "relver":  "v0.8.23",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -6486,6 +6514,7 @@
                      "heb":  true,
                      "langMode":  "in-app-picker",
                      "repo":  "BeniaBot/2049",
+                     "relver":  "v0.17.0",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -6509,7 +6538,8 @@
                      "icon":  "icons/w32png/SubtitleStudio.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
-                     "repo":  "BeniaBot/subtitle-studio"
+                     "repo":  "BeniaBot/subtitle-studio",
+                     "relver":  "v0.5.1"
                  }
              ]
 }
