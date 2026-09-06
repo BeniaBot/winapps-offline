@@ -1105,7 +1105,12 @@ function applyDownloads(map, repo) {
 
 /* every file this app is offered as, summed - a Win 10 and a Win 11 build are one app */
 function downloadsFor(a) {
-  if (a.custom) return null;               // its file lives in its own repo - see the note below
+  // an in-house app is served from THIS project's release, mirrored there automatically, so
+  // GitHub's number for it counts downloads from this site and nothing else
+  if (a.custom) {
+    const f = (a.files || [])[0];
+    return (DLC && f && f.exe in DLC) ? DLC[f.exe] : null;
+  }
   if (!DLC || a.w32) return null;          // a vendor program is fetched from its own maker
   let n = 0, seen = false;
   (a.files || []).forEach(f => { if (f.exe in DLC) { n += DLC[f.exe]; seen = true; } });

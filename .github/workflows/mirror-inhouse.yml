@@ -1,0 +1,86 @@
+# Keeps a copy of each in-house app in this project's own release.
+#
+# Why a copy at all: the site wants to show how many people took a file FROM HERE. GitHub counts
+# downloads per release asset, and that number is honest for everything in this repository's
+# release, because those files are linked from nowhere else. The in-house apps used to be linked
+# straight to their own repositories, where the same counter also totals everyone who took the
+# file from the releases page - a real number attached to a false sentence.
+#
+# Why it is automatic: the other half of the requirement is that the site always offers the newest
+# build. A copy made by hand goes stale the first time somebody forgets. So this runs on a
+# schedule, and can be kicked off from the Actions tab whenever a release goes out.
+#
+# It writes mirror.json alongside the copies, so the site can show the version it is actually
+# serving rather than the version the source repository has reached.
+name: mirror in-house apps
+
+on:
+  # sent by each in-house repo the moment it publishes a release
+  repository_dispatch:
+    types: [inhouse-release]
+  # a safety net, for a dispatch that never arrived
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the newest build of each in-house app
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          echo '{' > mirror.json
+          first=1
+          # repo:asset-to-take:name-to-publish-it-under
+          while IFS=: read -r repo want as; do
+            [ -z "$repo" ] && continue
+            rel=$(gh api "repos/$repo/releases/latest" 2>/dev/null || echo '')
+            [ -z "$rel" ] && { echo "no release for $repo"; continue; }
+            tag=$(echo "$rel" | jq -r '.tag_name')
+            url=$(echo "$rel" | jq -r --arg w "$want" '.assets[] | select(.name==$w) | .url')
+            if [ -z "$url" ] || [ "$url" = "null" ]; then echo "no asset $want in $repo $tag"; continue; fi
+            curl -sL -H "Accept: application/octet-stream" -H "Authorization: Bearer $GH_TOKEN" "$url" -o "out/$as"
+            sz=$(stat -c%s "out/$as")
+            # a truncated download must never replace a good copy
+            if [ "$sz" -lt 10000 ]; then echo "$as came back at $sz bytes - skipping"; rm -f "out/$as"; continue; fi
+            echo "$repo $tag -> $as ($sz bytes)"
+            [ $first -eq 0 ] && echo ',' >> mirror.json
+            first=0
+            printf '  "%s": { "version": "%s", "asset": "%s", "bytes": %s }' "$repo" "$tag" "$as" "$sz" >> mirror.json
+          done <<'LIST'
+          BeniaBot/subtitle-studio:SubtitleStudio.exe:SubtitleStudio.exe
+          BeniaBot/tiknick:TikNick-Setup.exe:TikNick-Setup.exe
+          BeniaBot/2049:2049_Setup.exe:2049_Setup.exe
+          BeniaBot/Csharf:Csharf.bat:Csharf.bat
+          LIST
+          printf '\n}\n' >> mirror.json
+          cat mirror.json
+
+      - name: Publish the copies into this project's release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          files=(out/*)
+          if [ ${#files[@]} -eq 0 ]; then echo "nothing fetched - leaving the release alone"; exit 0; fi
+          gh release upload apps-v1 "${files[@]}" --clobber --repo "$GITHUB_REPOSITORY"
+
+      - name: Record which build is being served
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- mirror.json; then echo "no change"; exit 0; fi
+          git config user.name  "mirror bot"
+          git config user.email "noreply@github.com"
+          git add mirror.json
+          git commit -m "The copies in the store's own release, refreshed"
+          git push

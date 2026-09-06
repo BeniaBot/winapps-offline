@@ -6156,6 +6156,7 @@
                                    }
                                ],
                      "descEn":  "A complete Torah library on the PC — Tanach, Shas, midrash, halacha and commentaries, with search across it all",
+                     "icon":  "icons/w32real/Zayit.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/Zayit",
@@ -6187,6 +6188,7 @@
                                    }
                                ],
                      "descEn":  "The books themselves. Without this the program opens empty",
+                     "icon":  "icons/w32real/ZayitDb1.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/SeforimLibrary",
@@ -6217,6 +6219,7 @@
                                    }
                                ],
                      "descEn":  "The second half of the same file. Both parts must sit together",
+                     "icon":  "icons/w32real/ZayitDb2.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/SeforimLibrary",
@@ -6248,6 +6251,7 @@
                                    }
                                ],
                      "descEn":  "A tab inside Word: a Torah library to consult without leaving the document, advanced find-and-replace, and typesetting the way sifrei kodesh are set",
+                     "icon":  "icons/w32real/KleiKodesh.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "KleiKodesh/KleiKodeshProject",
@@ -6286,6 +6290,7 @@
                                    }
                                ],
                      "descEn":  "A whole Torah corpus in one file — the books are already inside the installer, nothing to download afterwards",
+                     "icon":  "icons/w32real/ToratEmet.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "note":  "זו התוכנה היחידה כאן שאין בה שלב שני: קובץ אחד, התקנה, ויש ספרים.\n\nההתקנה נכנסת לתיקיית המסמכים ולא ל־Program Files, ולכן אינה דורשת הרשאות מנהל. במחשב עם כמה משתמשים — להתקין לכל אחד בנפרד.\n\nמהעדכון 373 אין בתוכנה הסרת התקנה. לפי הוראת היצרן אין להסיר גרסה ישנה דרך לוח הבקרה; התקנה חדשה פשוט דורסת אותה.\n\nאחרי ההתקנה היא תופסת כחצי ג״ב.\n\nיש בה גם מנהל הורדות לספרים נוספים. הוא דורש רשת ולכן לא יעבוד כאן — וזה לא מפריע לשאר.\n\nהעדכון שכאן הוא 379, והקובץ באתר מתאריך 30.6.2025.",
@@ -6311,6 +6316,7 @@
                                    }
                                ],
                      "descEn":  "A reader for saved websites — one content file opens as a whole site, searchable, with no connection at all",
+                     "icon":  "icons/w32real/Kiwix.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
                      "repo":  "kiwix/kiwix-desktop",
@@ -6341,6 +6347,7 @@
                                    }
                                ],
                      "descEn":  "The Jewish bookshelf as the community types it: Tanach, Mishna, Talmud, Shulchan Aruch and Rambam, with full-text search",
+                     "icon":  "icons/w32real/KiwixWikisourceHe.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "needs":  [
@@ -6369,6 +6376,7 @@
                                    }
                                ],
                      "descEn":  "A luach and the day\u0027s zmanim for any date and place — all computed on the machine, asking no server",
+                     "icon":  "icons/w32real/LuachProject.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "ComputeHalacha/JewishCalendar",
@@ -6412,7 +6420,6 @@
                      "en":  "Csharf",
                      "net":  false,
                      "custom":  true,
-                     "url":  "https://github.com/BeniaBot/Csharf/releases/latest/download/Csharf.bat",
                      "match":  "Csharf.bat",
                      "files":  [
                                    {
@@ -6436,7 +6443,6 @@
                      "en":  "TikNick",
                      "net":  false,
                      "custom":  true,
-                     "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick-Setup.exe",
                      "match":  "TikNick-Setup.exe",
                      "files":  [
                                    {
@@ -6455,11 +6461,6 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
-                     "alt":  {
-                                 "label":  "גרסה ניידת",
-                                 "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick.exe",
-                                 "labelEn":  "Portable version"
-                             },
                      "repo":  "BeniaBot/tiknick",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -6468,7 +6469,6 @@
                      "en":  "Game2049",
                      "net":  false,
                      "custom":  true,
-                     "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049_Setup.exe",
                      "match":  "2049_Setup.exe",
                      "files":  [
                                    {
@@ -6485,11 +6485,6 @@
                      "icon":  "icons/w32png/Game2049.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
-                     "alt":  {
-                                 "label":  "גרסה ניידת",
-                                 "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049.exe",
-                                 "labelEn":  "Portable version"
-                             },
                      "repo":  "BeniaBot/2049",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -6498,7 +6493,6 @@
                      "en":  "SubtitleStudio",
                      "net":  false,
                      "custom":  true,
-                     "url":  "https://github.com/BeniaBot/subtitle-studio/releases/latest/download/SubtitleStudio.exe",
                      "match":  "SubtitleStudio.exe",
                      "files":  [
                                    {
