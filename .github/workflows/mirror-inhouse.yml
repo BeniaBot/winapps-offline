@@ -78,9 +78,11 @@ jobs:
       - name: Record which build is being served
         run: |
           set -euo pipefail
-          if git diff --quiet -- mirror.json; then echo "no change"; exit 0; fi
+          # git diff sees nothing in a file git has never tracked, so the first run always
+          # reported "no change" and the record was never written at all
+          git add mirror.json
+          if git diff --cached --quiet -- mirror.json; then echo "no change"; exit 0; fi
           git config user.name  "mirror bot"
           git config user.email "noreply@github.com"
-          git add mirror.json
           git commit -m "The copies in the store's own release, refreshed"
           git push
