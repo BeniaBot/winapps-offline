@@ -6157,6 +6157,7 @@
                      "color":  "#5fd4fe",
                      "icon":  "icons/w32png/Csharf.png",
                      "heb":  true,
+                     "langMode":  "hebrew-only",
                      "repo":  "BeniaBot/Csharf"
                  },
                  {
@@ -6180,6 +6181,9 @@
                      "color":  "#f59e0b",
                      "icon":  "icons/w32png/TikNick.png",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
+                     "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
+                     "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
                      "alt":  {
                                  "label":  "גרסה ניידת",
                                  "url":  "https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick.exe",
@@ -6209,6 +6213,7 @@
                      "color":  "#edc22e",
                      "icon":  "icons/w32png/Game2049.png",
                      "heb":  true,
+                     "langMode":  "in-app-picker",
                      "alt":  {
                                  "label":  "גרסה ניידת",
                                  "url":  "https://github.com/BeniaBot/2049/releases/latest/download/2049.exe",
@@ -6216,6 +6221,30 @@
                              },
                      "repo":  "BeniaBot/2049",
                      "silent":  "/VERYSILENT /NORESTART"
+                 },
+                 {
+                     "he":  "אולפן הכתוביות",
+                     "en":  "SubtitleStudio",
+                     "net":  false,
+                     "custom":  true,
+                     "url":  "https://github.com/BeniaBot/subtitle-studio/releases/latest/download/SubtitleStudio.exe",
+                     "match":  "SubtitleStudio.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "SubtitleStudio.exe",
+                                       "mb":  37,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "desc":  "להוסיף כתוביות לסרט, לתקן כתוביות שלא מסונכרנות ולצרוב אותן פנימה. קובץ אחד, בלי התקנה. פותח כאן",
+                     "descEn":  "Add subtitles to a film, fix ones that drift, and burn them in. One file, no install. Built here",
+                     "color":  "#f5a524",
+                     "icon":  "icons/w32png/SubtitleStudio.png",
+                     "heb":  true,
+                     "langMode":  "hebrew-only",
+                     "repo":  "BeniaBot/subtitle-studio"
                  }
              ]
 }

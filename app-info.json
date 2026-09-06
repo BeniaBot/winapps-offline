@@ -534,5 +534,9 @@
     "Game2049":  {
                      "info":  "משחק לוח פשוט: מזיזים אריחים עם מספרים, שני מספרים זהים שנפגשים מתאחדים למספר גדול יותר, והמטרה להגיע רחוק ככל האפשר. מתאים להפסקה קצרה, ואפשר לשחק גם בלי אינטרנט. יש בו גם מקשי עזרה נסתרים, כך שמי שמסתכל מהצד לא רואה שהשתמשתם בהם. פותח בפרויקט הזה.",
                      "infoEn":  "A simple board game: you slide numbered tiles, two equal numbers that meet merge into a bigger one, and the aim is to get as far as you can. Good for a short break, and it plays with no internet. It also has hidden helper keys, so anyone watching from the side cannot tell you used them. Built as part of this project."
-                 }
+                 },
+    "SubtitleStudio":  {
+                           "info":  "תוכנה לכתוביות: לכתוב כתוביות חדשות לסרט, לתקן כתוביות שהגיעו לא מסונכרנות, ולהוסיף אותן לסרט — צרובות בתמונה או כערוץ נפרד שאפשר לכבות. עוצרים את הסרט במקום שבו המשפט נשמע, לוחצים כפתור, והתוכנה מזיזה את התזמונים בעצמה. פותחת SRT, VTT, ASS ו-SUB, וגם קבצים ישנים בעברית שנפתחים אצל אחרים כג׳יבריש. קובץ אחד, בלי התקנה ובלי הרשמה. פותח בפרויקט הזה.",
+                           "infoEn":  "A subtitle tool: write new subtitles for a film, fix ones that arrived out of sync, and add them to the film - burned into the picture or as a separate track you can switch off. Stop the film where the line is actually spoken, press a button, and it shifts the timings itself. Opens SRT, VTT, ASS and SUB, including older Hebrew files that come out as gibberish elsewhere. One file, no install, no sign-up. Built as part of this project."
+                       }
 }
