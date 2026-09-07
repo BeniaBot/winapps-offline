@@ -2541,8 +2541,8 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://www.7-zip.org/a/7z2409-x64.exe",
-                     "match":  "7z2409-x64.exe",
+                     "url":  "https://www.7-zip.org/a/7z2603-x64.exe",
+                     "match":  "7z2603-x64.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32real/SevenZip.png",
                      "color":  "#b97a10",
@@ -2555,7 +2555,7 @@
                      "detect":  "7-Zip",
                      "files":  [
                                    {
-                                       "exe":  "7z2409-x64.exe",
+                                       "exe":  "7z2603-x64.exe",
                                        "mb":  2,
                                        "win":  "all",
                                        "minBuild":  0,
@@ -2612,7 +2612,7 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe",
+                     "url":  "https://www.sumatrapdfreader.org/dl/rel/3.6.1/SumatraPDF-3.6.1-64-install.exe",
                      "match":  "SumatraPDF-*-install.exe",
                      "silent":  "-s",
                      "icon":  "icons/w32real/SumatraPDF.png",
@@ -2627,7 +2627,7 @@
                      "files":  [
                                    {
                                        "exe":  "SumatraPDF-*-install.exe",
-                                       "mb":  8,
+                                       "mb":  11,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2640,7 +2640,7 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe",
+                     "url":  "https://download.videolan.org/pub/videolan/vlc/3.0.23/win64/vlc-3.0.23-win64.exe",
                      "match":  "vlc-*-win64.exe",
                      "silent":  "/S",
                      "icon":  "icons/w32real/VLC.png",
@@ -2655,7 +2655,7 @@
                      "files":  [
                                    {
                                        "exe":  "vlc-*-win64.exe",
-                                       "mb":  43,
+                                       "mb":  44,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2695,7 +2695,7 @@
                      "en":  "Python",
                      "net":  false,
                      "w32":  true,
-                     "url":  "https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe",
+                     "url":  "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe",
                      "match":  "python-*-amd64.exe",
                      "silent":  "/quiet InstallAllUsers=0 PrependPath=1 Include_test=0",
                      "icon":  "icons/w32real/Python.png",
@@ -2748,7 +2748,7 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
+                     "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.9.8/npp.8.9.8.Installer.x64.exe",
                      "match":  "npp.*Installer.x64.exe",
                      "silent":  "/S",
                      "repo":  "notepad-plus-plus/notepad-plus-plus",
@@ -2761,11 +2761,11 @@
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
                      "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "detect":  "Notepad++",
-                     "relver":  "v8.7",
+                     "relver":  "v8.9.8",
                      "files":  [
                                    {
                                        "exe":  "npp.*Installer.x64.exe",
-                                       "mb":  6,
+                                       "mb":  7,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2777,7 +2777,7 @@
                      "en":  "Git",
                      "net":  false,
                      "w32":  true,
-                     "url":  "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe",
+                     "url":  "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.5/Git-2.55.0.5-64-bit.exe",
                      "match":  "Git-*-64-bit.exe",
                      "silent":  "/VERYSILENT /NORESTART",
                      "repo":  "git-for-windows/git",
@@ -2788,11 +2788,11 @@
                      "cat":  "תוכנות נפוצות",
                      "langMode":  "single-language",
                      "detect":  "Git",
-                     "relver":  "v2.46.2.windows.1",
+                     "relver":  "v2.55.0.windows.5",
                      "files":  [
                                    {
                                        "exe":  "Git-*-64-bit.exe",
-                                       "mb":  65,
+                                       "mb":  62,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2859,7 +2859,7 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://download.gimp.org/gimp/v3.0/windows/gimp-3.0.8-setup-2.exe",
+                     "url":  "https://download.gimp.org/gimp/v3.2/windows/gimp-3.2.4-setup.exe",
                      "match":  "gimp-*-setup*.exe",
                      "silent":  "/VERYSILENT /NORESTART",
                      "icon":  "icons/w32real/GIMP.png",
@@ -2874,7 +2874,7 @@
                      "files":  [
                                    {
                                        "exe":  "gimp-*-setup*.exe",
-                                       "mb":  291,
+                                       "mb":  179,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -2887,9 +2887,8 @@
                      "net":  false,
                      "heb":  true,
                      "w32":  true,
-                     "url":  "https://github.com/audacity/audacity/releases/download/Audacity-3.7.9/audacity-win-3.7.9-64bit.exe",
-                     "match":  "audacity-win-*-64bit.exe",
-                     "silent":  "/VERYSILENT /NORESTART",
+                     "url":  "https://github.com/audacity/audacity/releases/download/Audacity-4.0.0/audacity-win-4.0.0-x86_64.msi",
+                     "match":  "audacity-win-*.msi",
                      "repo":  "audacity/audacity",
                      "icon":  "icons/w32real/Audacity.png",
                      "color":  "#0079c1",
@@ -2900,11 +2899,11 @@
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "detect":  "Audacity",
-                     "relver":  "Audacity-3.7.9",
+                     "relver":  "Audacity-4.0.0",
                      "files":  [
                                    {
-                                       "exe":  "audacity-win-*-64bit.exe",
-                                       "mb":  19,
+                                       "exe":  "audacity-win-*.msi",
+                                       "mb":  47,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -3757,7 +3756,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
-                     "relver":  "v0.8.23",
+                     "relver":  "v0.9.0",
                      "files":  [
                                    {
                                        "exe":  "TikNick-Setup.exe",
@@ -3804,7 +3803,7 @@
                      "desc":  "להוסיף כתוביות לסרט, לתקן כתוביות שלא מסונכרנות ולצרוב אותן פנימה. קובץ אחד, בלי התקנה. פותח כאן",
                      "descEn":  "Add subtitles to a film, fix ones that drift, and burn them in. One file, no install. Built here",
                      "langMode":  "hebrew-only",
-                     "relver":  "v0.5.1",
+                     "relver":  "v0.5.2",
                      "files":  [
                                    {
                                        "exe":  "SubtitleStudio.exe",

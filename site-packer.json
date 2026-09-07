@@ -5411,11 +5411,11 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "פתיחת כל סוגי הארכיונים",
                      "color":  "#b97a10",
-                     "url":  "https://www.7-zip.org/a/7z2409-x64.exe",
-                     "match":  "7z2409-x64.exe",
+                     "url":  "https://www.7-zip.org/a/7z2603-x64.exe",
+                     "match":  "7z2603-x64.exe",
                      "files":  [
                                    {
-                                       "exe":  "7z2409-x64.exe",
+                                       "exe":  "7z2603-x64.exe",
                                        "mb":  2,
                                        "win":  "all",
                                        "minBuild":  0,
@@ -5482,12 +5482,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "קורא PDF קטן ומהיר",
                      "color":  "#c08312",
-                     "url":  "https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe",
+                     "url":  "https://www.sumatrapdfreader.org/dl/rel/3.6.1/SumatraPDF-3.6.1-64-install.exe",
                      "match":  "SumatraPDF-*-install.exe",
                      "files":  [
                                    {
                                        "exe":  "SumatraPDF-*-install.exe",
-                                       "mb":  8,
+                                       "mb":  11,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5510,12 +5510,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "מנגן כל פורמט וידאו ואודיו",
                      "color":  "#e85e00",
-                     "url":  "https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe",
+                     "url":  "https://download.videolan.org/pub/videolan/vlc/3.0.23/win64/vlc-3.0.23-win64.exe",
                      "match":  "vlc-*-win64.exe",
                      "files":  [
                                    {
                                        "exe":  "vlc-*-win64.exe",
-                                       "mb":  43,
+                                       "mb":  44,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5566,7 +5566,7 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "שפת התכנות — עם pip ו-IDLE",
                      "color":  "#3776ab",
-                     "url":  "https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe",
+                     "url":  "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe",
                      "match":  "python-*-amd64.exe",
                      "files":  [
                                    {
@@ -5618,12 +5618,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "עורך טקסט וקוד",
                      "color":  "#6f9b2b",
-                     "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7/npp.8.7.Installer.x64.exe",
+                     "url":  "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.9.8/npp.8.9.8.Installer.x64.exe",
                      "match":  "npp.*Installer.x64.exe",
                      "files":  [
                                    {
                                        "exe":  "npp.*Installer.x64.exe",
-                                       "mb":  6,
+                                       "mb":  7,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5636,7 +5636,7 @@
                      "langHow":  "ההתקנה שואלת באיזו שפה; לשנות אחר כך ב-Settings ← Preferences ← General ← Localization.",
                      "langHowEn":  "The installer asks which language; change it later under Settings \u003e Preferences \u003e General \u003e Localization.",
                      "repo":  "notepad-plus-plus/notepad-plus-plus",
-                     "relver":  "v8.7",
+                     "relver":  "v8.9.8",
                      "detect":  "Notepad++",
                      "silent":  "/S"
                  },
@@ -5648,12 +5648,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "ניהול גרסאות למפתחים",
                      "color":  "#f05033",
-                     "url":  "https://github.com/git-for-windows/git/releases/download/v2.46.2.windows.1/Git-2.46.2-64-bit.exe",
+                     "url":  "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.5/Git-2.55.0.5-64-bit.exe",
                      "match":  "Git-*-64-bit.exe",
                      "files":  [
                                    {
                                        "exe":  "Git-*-64-bit.exe",
-                                       "mb":  65,
+                                       "mb":  62,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5663,7 +5663,7 @@
                      "icon":  "icons/w32real/Git.png",
                      "langMode":  "single-language",
                      "repo":  "git-for-windows/git",
-                     "relver":  "v2.46.2.windows.1",
+                     "relver":  "v2.55.0.windows.5",
                      "detect":  "Git",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
@@ -5729,12 +5729,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "עריכת תמונות מקצועית וחינמית — התחליף המוכר לפוטושופ",
                      "color":  "#5c5543",
-                     "url":  "https://download.gimp.org/gimp/v3.0/windows/gimp-3.0.8-setup-2.exe",
+                     "url":  "https://download.gimp.org/gimp/v3.2/windows/gimp-3.2.4-setup.exe",
                      "match":  "gimp-*-setup*.exe",
                      "files":  [
                                    {
                                        "exe":  "gimp-*-setup*.exe",
-                                       "mb":  291,
+                                       "mb":  179,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5757,12 +5757,12 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "הקלטה ועריכת אודיו",
                      "color":  "#0079c1",
-                     "url":  "https://github.com/audacity/audacity/releases/download/Audacity-3.7.9/audacity-win-3.7.9-64bit.exe",
-                     "match":  "audacity-win-*-64bit.exe",
+                     "url":  "https://github.com/audacity/audacity/releases/download/Audacity-4.0.0/audacity-win-4.0.0-x86_64.msi",
+                     "match":  "audacity-win-*.msi",
                      "files":  [
                                    {
-                                       "exe":  "audacity-win-*-64bit.exe",
-                                       "mb":  19,
+                                       "exe":  "audacity-win-*.msi",
+                                       "mb":  47,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""
@@ -5775,9 +5775,8 @@
                      "langHow":  "אותו קובץ כולל אנגלית: פותחים Preferences, בוחרים English ברשימת Language, ומפעילים מחדש.",
                      "langHowEn":  "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
                      "repo":  "audacity/audacity",
-                     "relver":  "Audacity-3.7.9",
-                     "detect":  "Audacity",
-                     "silent":  "/VERYSILENT /NORESTART"
+                     "relver":  "Audacity-4.0.0",
+                     "detect":  "Audacity"
                  },
                  {
                      "he":  "K-Lite Codec Pack",
@@ -6635,7 +6634,7 @@
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
                      "repo":  "BeniaBot/tiknick",
-                     "relver":  "v0.8.23",
+                     "relver":  "v0.9.0",
                      "silent":  "/VERYSILENT /NORESTART"
                  },
                  {
@@ -6685,7 +6684,7 @@
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "BeniaBot/subtitle-studio",
-                     "relver":  "v0.5.1"
+                     "relver":  "v0.5.2"
                  }
              ]
 }
