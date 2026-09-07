@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-07",
+    "updated":  "2026-09-08",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -6642,6 +6642,32 @@
                      "origin":  "community",
                      "note":  "ארכיון נייד: לפרוק, ולגרור קובץ מודל אל f3d.exe. בלי התקנה, בלי רשת. קוד פתוח (BSD).",
                      "noteEn":  "Portable archive: extract, and drag a model file onto f3d.exe. No install, no network. Open source (BSD)."
+                 },
+                 {
+                     "he":  "חלל · נאס״א",
+                     "en":  "SpaceTheme",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "ערכות נושא",
+                     "desc":  "ערכת נושא: טפט מתחלף של תמונות חלל מרהיבות מנאס״א. לחיצה כפולה מחליפה את רקע שולחן העבודה.",
+                     "color":  "#1b2838",
+                     "url":  "https://beniabot.github.io/winapps-offline/themes/Space.deskthemepack",
+                     "match":  "Space.deskthemepack",
+                     "files":  [
+                                   {
+                                       "exe":  "Space.deskthemepack",
+                                       "mb":  8,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "A theme: a rotating wallpaper of stunning NASA space images. Double-click to change your desktop background.",
+                     "enName":  "Space - NASA",
+                     "icon":  "icons/w32real/SpaceTheme.png",
+                     "origin":  "community",
+                     "note":  "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (טפט מתחלף כל חצי שעה). עובד לגמרי בלי רשת. התמונות של נאס״א, נחלת הכלל, בלי אנשים.",
+                     "noteEn":  "Not an installer — a theme. Download and double-click, and it applies at once (the wallpaper rotates every half hour). Fully offline. Images are NASA public domain, no people."
                  },
                  {
                      "he":  "Csharf",
