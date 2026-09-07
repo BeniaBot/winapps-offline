@@ -430,6 +430,14 @@
          background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn);
          border: 1px solid color-mix(in srgb, var(--warn) 38%, transparent); }
   .dlcount { color: var(--muted); font-size: .78rem; margin-top: 8px; }
+  .starcta { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px;
+    padding: 11px 14px; border-radius: 13px; text-decoration: none; font-weight: 700; font-size: .9rem;
+    color: var(--ink); background: linear-gradient(180deg, rgba(255,196,107,.14), rgba(255,196,107,.06));
+    border: 1px solid rgba(255,196,107,.28); transition: background .15s, transform .1s; }
+  .starcta:hover { background: linear-gradient(180deg, rgba(255,196,107,.24), rgba(255,196,107,.10)); }
+  .starcta:active { transform: scale(.98); }
+  .starcta span { font-size: 1.05rem; filter: saturate(1.3); }
+  :root.light .starcta { color: #7a5200; border-color: rgba(200,150,20,.35); }
   .dlcount b { color: var(--ink2); font-weight: 700; }
   /* the practical half of the language claim - quieter than the claim itself, because it
      matters only to the reader who wants the other language */
@@ -1168,10 +1176,22 @@ function applyDownloads(map, repo) {
 }
 
 /* every file this app is offered as, summed - a Win 10 and a Win 11 build are one app */
+/* Only on the maker's own apps: a warm nudge to star the repo. His work, his ask - shown
+   nowhere else. Links to the repo, where the star button lives. */
+function starLine(a) {
+  if (!a.custom || !a.repo) return '';
+  return '<a class="starcta" href="https://github.com/' + esc(a.repo) + '" target="_blank" rel="noopener">' +
+    (LANG === 'en' ? 'Enjoyed it? A star would make my day <span>⭐</span>' : 'נהניתם? אשמח לכוכב <span>⭐</span>') +
+    '</a>';
+}
+
 function downloadsFor(a) {
   // an in-house app is served from THIS project's release, mirrored there automatically, so
   // GitHub's number for it counts downloads from this site and nothing else
   if (a.custom) {
+    // the real total is how many people took this app from its own GitHub release - the site
+    // serves it straight from there. counts.json only sees copies mirrored into our release.
+    if (DLREPO && a.repo && a.repo in DLREPO && DLREPO[a.repo] > 0) return DLREPO[a.repo];
     const f = (a.files || [])[0];
     return (DLC && f && f.exe in DLC) ? DLC[f.exe] : null;
   }
@@ -2215,7 +2235,7 @@ function openSheet(en) {
             : 'אין מונה — הקובץ יורד מהאתר של היצרן ולא דרכנו') + '</div>'
       : '') +
     '<div class="rows">' + rows + '</div>' +
-    '<div class="acts">' + btns + '</div></div>';
+    '<div class="acts">' + btns + '</div>' + starLine(a) + '</div>';
 
   document.body.appendChild(ov);
   translateDom(ov);
