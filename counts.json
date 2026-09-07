@@ -1,33 +1,168 @@
 {
- "2049_Setup.exe": {
+ "VC2005-x64.exe": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "VC2005-x86.exe": {
+  "carry": 0,
+  "seen": 4,
+  "total": 4
+ },
+ "VC2008-x64.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "VC2008-x86.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "VC2010-x64.exe": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "VC2010-x86.exe": {
+  "carry": 0,
+  "seen": 5,
+  "total": 5
+ },
+ "VC2012-x64.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "VC2012-x86.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "VC2013-x64.exe": {
+  "carry": 0,
+  "seen": 5,
+  "total": 5
+ },
+ "VC2013-x86.exe": {
+  "carry": 0,
+  "seen": 5,
+  "total": 5
+ },
+ "winapps-packer.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "Csharf.bat": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "IsoBuilder.exe": {
+ "SilentInstall.exe": {
   "carry": 0,
   "seen": 3,
   "total": 3
+ },
+ "StoreShell.exe": {
+  "carry": 0,
+  "seen": 2,
+  "total": 2
+ },
+ "System-Components-All.exe": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "WINAPPS-W10-CORE.iso": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "WINAPPS-W11-CORE.iso": {
+  "carry": 0,
+  "seen": 11,
+  "total": 11
+ },
+ "IsoBuilder.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "Setup-WSL.exe": {
+  "carry": 2,
+  "seen": 0,
+  "total": 2
+ },
+ "Setup-Weather.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-WebpExtension.exe": {
+  "carry": 2,
+  "seen": 0,
+  "total": 2
+ },
+ "Setup-Whiteboard.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Widgets-Win11.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-WinDbg.exe": {
+  "carry": 1,
+  "seen": 0,
+  "total": 1
+ },
+ "Setup-XboxApp.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-XboxGameBar.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-XboxGameOverlay.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-XboxIdentity.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-XboxSpeech.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-XboxTCUI.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Maps.exe": {
+  "carry": 5,
+  "seen": 0,
+  "total": 5
  },
  "Setup-3DViewer.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "Setup-AppInstaller.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
  "Setup-AV1Extension.exe": {
   "carry": 1,
   "seen": 0,
   "total": 1
+ },
+ "Setup-AppInstaller.exe": {
+  "carry": 2,
+  "seen": 0,
+  "total": 2
  },
  "Setup-BingSearch.exe": {
   "carry": 1,
@@ -50,8 +185,8 @@
   "total": 2
  },
  "Setup-Clipchamp.exe": {
-  "carry": 0,
-  "seen": 1,
+  "carry": 1,
+  "seen": 0,
   "total": 1
  },
  "Setup-Clock.exe": {
@@ -149,11 +284,6 @@
   "seen": 0,
   "total": 1
  },
- "Setup-Maps.exe": {
-  "carry": 5,
-  "seen": 0,
-  "total": 5
- },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
   "seen": 0,
@@ -204,16 +334,6 @@
   "seen": 0,
   "total": 2
  },
- "Setup-Paint-Win11.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Paint3D.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
   "seen": 0,
@@ -223,6 +343,16 @@
   "carry": 2,
   "seen": 0,
   "total": 2
+ },
+ "Setup-Paint-Win11.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Paint3D.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
  },
  "Setup-People.exe": {
   "carry": 0,
@@ -364,159 +494,29 @@
   "seen": 0,
   "total": 1
  },
- "Setup-Weather.exe": {
+ "Csharf.bat": {
   "carry": 0,
   "seen": 0,
   "total": 0
- },
- "Setup-WebpExtension.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-Whiteboard.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Widgets-Win11.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-WinDbg.exe": {
-  "carry": 1,
-  "seen": 0,
-  "total": 1
- },
- "Setup-WSA-Win11.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-WSL.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-XboxApp.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxGameBar.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxGameOverlay.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxIdentity.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxSpeech.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxTCUI.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "SilentInstall.exe": {
-  "carry": 0,
-  "seen": 3,
-  "total": 3
- },
- "StoreShell.exe": {
-  "carry": 0,
-  "seen": 2,
-  "total": 2
- },
- "SubtitleStudio.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "System-Components-All.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
  },
  "TikNick-Setup.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "VC2005-x64.exe": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "VC2005-x86.exe": {
-  "carry": 0,
-  "seen": 4,
-  "total": 4
- },
- "VC2008-x64.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2008-x86.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "VC2010-x64.exe": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "VC2010-x86.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "VC2012-x64.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2012-x86.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2013-x64.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "VC2013-x86.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "winapps-packer.exe": {
+ "2049_Setup.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "WINAPPS-W10-CORE.iso": {
+ "SubtitleStudio.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 0,
+  "total": 0
  },
- "WINAPPS-W11-CORE.iso": {
+ "Setup-WSA-Win11.exe": {
   "carry": 0,
-  "seen": 10,
-  "total": 10
+  "seen": 0,
+  "total": 0
  }
 }
