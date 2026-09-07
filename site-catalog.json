@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-06",
+    "updated":  "2026-09-07",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -3384,7 +3384,41 @@
                                ]
                  },
                  {
-                     "he":  "כלי קודש לוורד",
+                     "he":  "אוצריא",
+                     "en":  "Otzaria",
+                     "net":  false,
+                     "heb":  true,
+                     "w32":  true,
+                     "url":  "https://github.com/Otzaria/otzaria/releases/download/0.9.96%2B736/otzaria-0.9.96-windows-full.exe",
+                     "match":  "otzaria-*-windows-full.exe",
+                     "silent":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS",
+                     "repo":  "Otzaria/otzaria",
+                     "icon":  "icons/w32real/Otzaria.png",
+                     "color":  "#8b5a2b",
+                     "desc":  "ספרייה תורנית שהספרים כבר בתוך המתקין — הורדה אחת, בלי שלב שני. תנ״ך, ש״ס, מדרש, הלכה, שו״ת וקבלה, עם חיפוש בכל המאגר",
+                     "descEn":  "A Torah library with the books already inside the installer — one download, no second step. Tanach, Shas, midrash, halacha, responsa and kabbalah, with search across it all",
+                     "noteEn":  "This is the full build — the books are inside it and there is nothing to download separately. A smaller 30 MB installer also exists which fetches the library on first run; on a disconnected machine that leaves an empty bookcase, so it is not offered here.\n\nIt installs for all users and needs administrator rights. It is offered here with the project\u0027s express permission.",
+                     "note":  "זו הגרסה המלאה — הספרים בתוכה, ואין מה להוריד בנפרד. יש גם מתקין קטן בן 30 מגה שמוריד את הספרייה בהפעלה הראשונה; במחשב מנותק הוא נשאר ארון ריק, ולכן הוא לא כאן.\n\nמותקנת לכל המשתמשים ודורשת הרשאות מנהל. מפיצים אותה כאן באישור מפורש של הפרויקט.",
+                     "cat":  "תורה ולימוד",
+                     "langMode":  "hebrew-only",
+                     "needs":  [
+                                   "VCRedist64",
+                                   "WebView2"
+                               ],
+                     "origin":  "community",
+                     "relver":  "0.9.96+736",
+                     "files":  [
+                                   {
+                                       "exe":  "otzaria-*-windows-full.exe",
+                                       "mb":  2016,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "כלי קודש",
                      "en":  "KleiKodesh",
                      "net":  false,
                      "heb":  true,
