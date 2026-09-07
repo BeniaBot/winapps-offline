@@ -841,7 +841,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Minesweeper.exe",
-                                       "mb":  288,
+                                       "mb":  147,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.7.2041.0"
@@ -3699,6 +3699,32 @@
                                    {
                                        "exe":  "windbg.msixbundle",
                                        "mb":  1134,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "אוסף משחקי חשיבה",
+                     "en":  "TathamPuzzles",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.zip",
+                     "match":  "puzzles.zip",
+                     "color":  "#8b5cf6",
+                     "desc":  "אוסף של כ‑45 משחקי חשיבה קטנים — כולל מוקש, סודוקו ועוד. קבצים ניידים, בלי התקנה.",
+                     "descEn":  "About 45 small logic games — including Minesweeper (Mines) and Sudoku (Solo). Portable, no install.",
+                     "enName":  "Simon Tatham\u0027s Puzzles",
+                     "noteEn":  "Extract the zip and run any game: mines = Minesweeper, solo = Sudoku, and dozens more. No install, fully offline. Open source (MIT).",
+                     "note":  "לפרוק את ה‑zip ולהריץ כל משחק: mines = מוקש, solo = סודוקו, ועוד עשרות. אין התקנה, עובד לגמרי בלי רשת. קוד פתוח (MIT).",
+                     "cat":  "משחקים",
+                     "langMode":  "follows-windows",
+                     "origin":  "community",
+                     "files":  [
+                                   {
+                                       "exe":  "puzzles.zip",
+                                       "mb":  3,
                                        "win":  "all",
                                        "minBuild":  0,
                                        "ver":  ""

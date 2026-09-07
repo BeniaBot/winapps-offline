@@ -2230,7 +2230,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-Minesweeper.exe",
-                                       "mb":  288,
+                                       "mb":  147,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "4.7.2041.0",
@@ -6557,6 +6557,32 @@
                      "origin":  "microsoft",
                      "note":  "קובץ msixbundle רשמי ממיקרוסופט (לא מהחנות): לחיצה כפולה פותחת את App Installer שמתקין אותו, והוא נפתח אופליין. גדול — כ-1.1 ג״ב. חלופה קלה יותר: \"כלי הדיבוג של Windows\" שבתוך ערכת ה-SDK.",
                      "noteEn":  "An official msixbundle from Microsoft (not the Store): double-click opens App Installer to install it, and it opens offline. Large — about 1.1 GB. A lighter alternative is the \u0027Debugging Tools for Windows\u0027 in the Windows SDK."
+                 },
+                 {
+                     "he":  "אוסף משחקי חשיבה",
+                     "en":  "TathamPuzzles",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "משחקים",
+                     "desc":  "אוסף של כ‑45 משחקי חשיבה קטנים — כולל מוקש, סודוקו ועוד. קבצים ניידים, בלי התקנה.",
+                     "color":  "#8b5cf6",
+                     "url":  "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.zip",
+                     "match":  "puzzles.zip",
+                     "files":  [
+                                   {
+                                       "exe":  "puzzles.zip",
+                                       "mb":  3,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "About 45 small logic games — including Minesweeper (Mines) and Sudoku (Solo). Portable, no install.",
+                     "enName":  "Simon Tatham\u0027s Puzzles",
+                     "langMode":  "follows-windows",
+                     "origin":  "community",
+                     "note":  "לפרוק את ה‑zip ולהריץ כל משחק: mines = מוקש, solo = סודוקו, ועוד עשרות. אין התקנה, עובד לגמרי בלי רשת. קוד פתוח (MIT).",
+                     "noteEn":  "Extract the zip and run any game: mines = Minesweeper, solo = Sudoku, and dozens more. No install, fully offline. Open source (MIT)."
                  },
                  {
                      "he":  "Csharf",
