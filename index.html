@@ -1377,9 +1377,12 @@ function tile(a) {
     '<div class="nm" dir="auto">' + nameOf(a) + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
-/* white glyph icons sit on a solid, slightly deepened brand plate; store icons keep the soft tint */
+/* white glyph icons sit on a solid, slightly deepened brand plate; store icons keep the soft tint.
+   Fifteen store icons are themselves white glyphs (Treasure Hunt, 3D Viewer, the codec extensions,
+   Xbox) - Microsoft draws them for a coloured tile - and on the soft tint they vanished. The export
+   measures each icon and marks those, so they get the solid plate the tile gave them. */
 function plate(a, big) {
-  const glyph = a.icon && a.icon.indexOf('/w32/') >= 0;
+  const glyph = a.glyph || (a.icon && a.icon.indexOf('/w32/') >= 0);
   const hex6 = a.color && /^#[0-9a-f]{6}$/i.test(a.color);
   const bg = hex6 ? ' style="background-color:' + a.color + (glyph ? '' : '2e') + '"' : '';
   const letter = esc((a.he || a.en).trim().charAt(0));
