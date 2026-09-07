@@ -1983,7 +1983,7 @@
                      "files":  [
                                    {
                                        "exe":  "Setup-FileRecovery.exe",
-                                       "mb":  29,
+                                       "mb":  14,
                                        "win":  "all",
                                        "minBuild":  19041,
                                        "ver":  "0.1.20151.0",
@@ -2849,34 +2849,6 @@
                      "icon":  "icons/PowerShell.png",
                      "desc":  "PowerShell 7 — מעטפת מתקדמת",
                      "descEn":  "PowerShell 7 — the advanced shell",
-                     "cat":  "כלי טכנאי"
-                 },
-                 {
-                     "he":  "WinDbg",
-                     "en":  "WinDbg",
-                     "pfn":  "Microsoft.WinDbg_8wekyb3d8bbwe",
-                     "id":  "Microsoft.WinDbg",
-                     "net":  false,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-WinDbg.exe",
-                                       "mb":  1135,
-                                       "win":  "all",
-                                       "minBuild":  17763,
-                                       "ver":  "1.2606.22001.0",
-                                       "bundle":  "Microsoft.WinDbg_1.2606.22001.0_neutral_~_8wekyb3d8bbwe.msixbundle",
-                                       "deps":  [
-
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "needsFirstOnline":  true,
-                     "icon":  "icons/WinDbg.png",
-                     "color":  "#777777",
-                     "desc":  "מנפה שגיאות של מיקרוסופט",
-                     "descEn":  "Microsoft\u0027s debugger",
-                     "enName":  "WinDbg",
                      "cat":  "כלי טכנאי"
                  },
                  {
@@ -3880,33 +3852,6 @@
                      "noteEn":  "A Windows 11 component only",
                      "note":  "רכיב של Windows 11 בלבד",
                      "cat":  "חשבון ומערכת"
-                 },
-                 {
-                     "he":  "Whiteboard",
-                     "en":  "Whiteboard",
-                     "pfn":  "Microsoft.Whiteboard_8wekyb3d8bbwe",
-                     "id":  "Microsoft.Whiteboard",
-                     "net":  true,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Whiteboard.exe",
-                                       "mb":  784,
-                                       "win":  "all",
-                                       "minBuild":  15063,
-                                       "ver":  "56.20201.588.0",
-                                       "bundle":  "Microsoft.Whiteboard_56.20201.588.0_neutral_~_8wekyb3d8bbwe.appxbundle",
-                                       "deps":  [
-
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "needsFirstOnline":  true,
-                     "icon":  "icons/Whiteboard.png",
-                     "color":  "#0C34FA",
-                     "desc":  "לוח שיתופי לכתיבה וציור",
-                     "descEn":  "A shared board for writing and drawing",
-                     "cat":  "יצירה ועבודה"
                  },
                  {
                      "he":  "Power BI",
@@ -6585,6 +6530,33 @@
                      "origin":  "microsoft",
                      "note":  "זיפ של כלים ניידים ישירות ממיקרוסופט: לפרוק ולהריץ כל כלי. אין התקנה, עובד לגמרי בלי רשת. (מחליף את גרסת החנות שלא נפתחה אופליין.)",
                      "noteEn":  "A zip of portable tools straight from Microsoft: extract and run any tool. No install, works fully offline. (Replaces the Store version that would not open offline.)"
+                 },
+                 {
+                     "he":  "WinDbg",
+                     "en":  "WinDbg",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "כלי טכנאי",
+                     "desc":  "מנפה השגיאות של מיקרוסופט לניתוח קריסות, זיכרון ותהליכים ברמת המערכת — הכלי המקצועי.",
+                     "color":  "#6b4fa0",
+                     "url":  "https://windbg.download.prss.microsoft.com/dbazure/prod/1-2606-22001-0/windbg.msixbundle",
+                     "match":  "windbg.msixbundle",
+                     "files":  [
+                                   {
+                                       "exe":  "windbg.msixbundle",
+                                       "mb":  1134,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "Microsoft\u0027s debugger for analysing crashes, memory and processes at the system level — the professional tool.",
+                     "enName":  "WinDbg",
+                     "icon":  "icons/WinDbg.png",
+                     "langMode":  "follows-windows",
+                     "origin":  "microsoft",
+                     "note":  "קובץ msixbundle רשמי ממיקרוסופט (לא מהחנות): לחיצה כפולה פותחת את App Installer שמתקין אותו, והוא נפתח אופליין. גדול — כ-1.1 ג״ב. חלופה קלה יותר: \"כלי הדיבוג של Windows\" שבתוך ערכת ה-SDK.",
+                     "noteEn":  "An official msixbundle from Microsoft (not the Store): double-click opens App Installer to install it, and it opens offline. Large — about 1.1 GB. A lighter alternative is the \u0027Debugging Tools for Windows\u0027 in the Windows SDK."
                  },
                  {
                      "he":  "Csharf",
