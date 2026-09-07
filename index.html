@@ -894,7 +894,7 @@ const EN = {
   'לחיצה כפולה': 'Double-click',
   'אפליקציות ותוכנות': 'apps and programs',
   'אם לוקחים הכל': 'if you take everything',
-  'רשת בצד השני': 'network needed',
+  'חשבון או תשלום': 'account or payment',
   'הכל': 'All',
   'Windows 10 ומעלה': 'Windows 10 and up',
   'ליבה': 'Core',
@@ -2477,7 +2477,7 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
     '<div><b data-to="' + d.apps.length + '">0</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
     '<div><b dir="ltr" data-to="' + gb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
     '<div id="fact-dl" hidden><b data-to="0">0</b><span>' + T('הורדות עד כה') + '</span></div>' +
-    '<div><b>0</b><span>' + T('רשת בצד השני') + '</span></div>';
+    '<div><b>0</b><span>' + T('חשבון או תשלום') + '</span></div>';
   countUp(document.getElementById('facts'));
   loadDownloads();
   // a rendering bug must never masquerade as a network problem
