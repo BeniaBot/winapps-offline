@@ -1732,6 +1732,15 @@ function needsLine(a) {
    the opening that is refused, and the difference matters, because it is not something they can
    fix by downloading again. */
 function firstOnlineLine(a) {
+  /* Gated only from a certain Windows build. Maps is the case: it ships inside Windows 10 and
+     Windows 11 up to 23H2, so those already hold its licence and it opens offline - but from
+     24H2 Microsoft stopped shipping it, there is nothing to inherit, and it closes the moment it
+     opens. A person on 24H2 wrote in with exactly that. */
+  if (a.gatedFrom && !a.needsFirstOnline) return '<div class="warn">' +
+    (LANG === 'en'
+      ? 'On Windows 11 24H2 and newer this one needs to be opened once on a connected computer - Windows asks Microsoft for a licence the first time it runs, and until then the window closes immediately. On Windows 10 and on older Windows 11 it opens offline.'
+      : 'ב-Windows 11 גרסה 24H2 ומעלה את זו צריך לפתוח פעם אחת במחשב שמחובר לאינטרנט — ‏Windows מבקש עליה רישיון בפתיחה הראשונה, ועד אז החלון נסגר מיד. ב-Windows 10 וב-11 ישן יותר היא נפתחת בלי רשת.') +
+    '</div>';
   if (!a.needsFirstOnline) return '';
   /* A translated build is not a store package at all - it installs as an ordinary program into
      the user's own folder - so the licence check never runs on it. Marking the whole app as

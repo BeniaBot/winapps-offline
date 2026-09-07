@@ -403,6 +403,7 @@
                      "noteEn":  "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself",
                      "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
                      "cat":  "כלים",
+                     "gatedFrom":  26100,
                      "files":  [
                                    {
                                        "exe":  "Setup-Maps.exe",
