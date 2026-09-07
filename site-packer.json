@@ -6664,6 +6664,7 @@
                      "icon":  "icons/w32png/Csharf.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
+                     "cat":  "כלי טכנאי",
                      "repo":  "BeniaBot/Csharf",
                      "relver":  "v2.0"
                  },
@@ -6690,6 +6691,7 @@
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
+                     "cat":  "תקשורת",
                      "repo":  "BeniaBot/tiknick",
                      "relver":  "v0.9.0",
                      "silent":  "/VERYSILENT /NORESTART"
@@ -6715,6 +6717,7 @@
                      "icon":  "icons/w32png/Game2049.png",
                      "heb":  true,
                      "langMode":  "in-app-picker",
+                     "cat":  "משחקים",
                      "repo":  "BeniaBot/2049",
                      "relver":  "v0.17.0",
                      "silent":  "/VERYSILENT /NORESTART"
@@ -6740,6 +6743,7 @@
                      "icon":  "icons/w32png/SubtitleStudio.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
+                     "cat":  "מדיה",
                      "repo":  "BeniaBot/subtitle-studio",
                      "relver":  "v0.5.2"
                  }

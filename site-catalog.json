@@ -3801,6 +3801,7 @@
                      "color":  "#5fd4fe",
                      "desc":  "כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן",
                      "descEn":  "A tweaks and maintenance tool for Windows — one file, no install, in Hebrew. Built here",
+                     "cat":  "כלי טכנאי",
                      "langMode":  "hebrew-only",
                      "relver":  "v2.0",
                      "files":  [
@@ -3825,6 +3826,7 @@
                      "color":  "#f59e0b",
                      "desc":  "ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן",
                      "descEn":  "Track and manage forum nicknames, in Hebrew. Everything stays on your PC — full privacy. Built here",
+                     "cat":  "תקשורת",
                      "langMode":  "in-app-picker",
                      "langHow":  "התוכנה נפתחת בעברית. יש בה מתג לאנגלית, והוא מתרגם גם את הדוחות ואת הגיליון להדפסה.",
                      "langHowEn":  "It opens in Hebrew. A switch inside turns the whole window - and the reports - to English.",
@@ -3851,6 +3853,7 @@
                      "color":  "#edc22e",
                      "desc":  "‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן",
                      "descEn":  "2048 upgraded, with hidden helper keys nobody can spot from the outside. Built here",
+                     "cat":  "משחקים",
                      "langMode":  "in-app-picker",
                      "relver":  "v0.17.0",
                      "files":  [
@@ -3874,6 +3877,7 @@
                      "color":  "#f5a524",
                      "desc":  "להוסיף כתוביות לסרט, לתקן כתוביות שלא מסונכרנות ולצרוב אותן פנימה. קובץ אחד, בלי התקנה. פותח כאן",
                      "descEn":  "Add subtitles to a film, fix ones that drift, and burn them in. One file, no install. Built here",
+                     "cat":  "מדיה",
                      "langMode":  "hebrew-only",
                      "relver":  "v0.5.2",
                      "files":  [
