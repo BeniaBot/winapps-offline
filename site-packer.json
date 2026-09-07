@@ -5439,7 +5439,7 @@
                      "cat":  "תוכנות נפוצות",
                      "desc":  "חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה",
                      "color":  "#d8551b",
-                     "url":  "https://www.voidtools.com/Everything-1.4.1.1028.x64-Setup.exe",
+                     "url":  "https://www.voidtools.com/Everything-1.4.1.1032.x64-Setup.exe",
                      "match":  "Everything-*-Setup.exe",
                      "files":  [
                                    {
@@ -5464,7 +5464,15 @@
                      "langHow":  "ההתקנה שואלת באיזו שפה; אפשר גם לשנות אחר כך ב-Tools ← Options ← General ← Language.",
                      "langHowEn":  "The installer asks which language; it can also be changed later under Tools \u003e Options \u003e General \u003e Language.",
                      "detect":  "Everything",
-                     "silent":  "/S"
+                     "note":  "שתי גרסאות: היציבה (1.4) כברירת מחדל, וגרסת 1.5 החדשה יותר (בטא, אבל יציבה מאוד) עם שיפורים רבים כהורדה השנייה. שתיהן זעירות ועובדות לגמרי בלי רשת.",
+                     "noteEn":  "Two versions: the stable 1.4 by default, and the newer 1.5 (a very stable beta) with many improvements as the second download. Both are tiny and work fully offline.",
+                     "silent":  "/S",
+                     "alt":  {
+                                 "label":  "גרסה 1.5 (בטא)",
+                                 "labelEn":  "version 1.5 (beta)",
+                                 "url":  "https://www.voidtools.com/Everything-1.5.0.1423b.x64-Setup.exe",
+                                 "mb":  2
+                             }
                  },
                  {
                      "he":  "Sumatra PDF",
