@@ -6551,6 +6551,35 @@
                      "noteEn":  "The User installer bundles its runtime — installs without admin and without internet. Needs Windows 11 (or up-to-date 10)."
                  },
                  {
+                     "he":  "Screenbox",
+                     "en":  "Screenbox",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "מדיה",
+                     "desc":  "נגן מדיה מודרני לווידאו ומוזיקה מבוסס VLC — מנגן כל פורמט לגמרי במצב לא-מקוון, בלי חשבון ובלי פרסומות.",
+                     "color":  "#e0a63c",
+                     "url":  "https://github.com/huynhsontung/Screenbox/releases/download/v0.21.0/sideload.zip",
+                     "match":  "sideload.zip",
+                     "files":  [
+                                   {
+                                       "exe":  "sideload.zip",
+                                       "mb":  338,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "Modern VLC-based video and music player — plays every format fully offline, no account, no ads.",
+                     "enName":  "Screenbox",
+                     "icon":  "icons/w32real/Screenbox.png",
+                     "langMode":  "follows-windows",
+                     "repo":  "huynhsontung/Screenbox",
+                     "relver":  "v0.21.0",
+                     "origin":  "community",
+                     "note":  "חבילת התקנה (sideload), לא מתקין רגיל: לפרוק את ה-zip ולהריץ את Install.ps1 בהרשאות מנהל — הוא בוטח בתעודה ומתקין את האפליקציה ואת התלויות שבתיקיית Dependencies. אחרי זה נפתחת לגמרי בלי רשת. קוד פתוח GPL.",
+                     "noteEn":  "A sideload package, not a plain installer: extract the zip and run Install.ps1 as admin — it trusts the certificate and installs the app plus the dependencies in the Dependencies folder. After that it opens fully offline. Open source, GPL."
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,

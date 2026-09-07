@@ -3683,6 +3683,35 @@
                                ]
                  },
                  {
+                     "he":  "Screenbox",
+                     "en":  "Screenbox",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://github.com/huynhsontung/Screenbox/releases/download/v0.21.0/sideload.zip",
+                     "match":  "sideload.zip",
+                     "repo":  "huynhsontung/Screenbox",
+                     "icon":  "icons/w32real/Screenbox.png",
+                     "color":  "#e0a63c",
+                     "desc":  "נגן מדיה מודרני לווידאו ומוזיקה מבוסס VLC — מנגן כל פורמט לגמרי במצב לא-מקוון, בלי חשבון ובלי פרסומות.",
+                     "descEn":  "Modern VLC-based video and music player — plays every format fully offline, no account, no ads.",
+                     "enName":  "Screenbox",
+                     "noteEn":  "A sideload package, not a plain installer: extract the zip and run Install.ps1 as admin — it trusts the certificate and installs the app plus the dependencies in the Dependencies folder. After that it opens fully offline. Open source, GPL.",
+                     "note":  "חבילת התקנה (sideload), לא מתקין רגיל: לפרוק את ה-zip ולהריץ את Install.ps1 בהרשאות מנהל — הוא בוטח בתעודה ומתקין את האפליקציה ואת התלויות שבתיקיית Dependencies. אחרי זה נפתחת לגמרי בלי רשת. קוד פתוח GPL.",
+                     "cat":  "מדיה",
+                     "langMode":  "follows-windows",
+                     "origin":  "community",
+                     "relver":  "v0.21.0",
+                     "files":  [
+                                   {
+                                       "exe":  "sideload.zip",
+                                       "mb":  338,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,
