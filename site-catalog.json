@@ -3712,6 +3712,7 @@
                      "w32":  true,
                      "url":  "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.zip",
                      "match":  "puzzles.zip",
+                     "icon":  "icons/w32real/TathamPuzzles.png",
                      "color":  "#8b5cf6",
                      "desc":  "אוסף של כ‑45 משחקי חשיבה קטנים — כולל מוקש, סודוקו ועוד. קבצים ניידים, בלי התקנה.",
                      "descEn":  "About 45 small logic games — including Minesweeper (Mines) and Sudoku (Solo). Portable, no install.",

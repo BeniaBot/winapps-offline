@@ -6579,6 +6579,7 @@
                                ],
                      "descEn":  "About 45 small logic games — including Minesweeper (Mines) and Sudoku (Solo). Portable, no install.",
                      "enName":  "Simon Tatham\u0027s Puzzles",
+                     "icon":  "icons/w32real/TathamPuzzles.png",
                      "langMode":  "follows-windows",
                      "origin":  "community",
                      "note":  "לפרוק את ה‑zip ולהריץ כל משחק: mines = מוקש, solo = סודוקו, ועוד עשרות. אין התקנה, עובד לגמרי בלי רשת. קוד פתוח (MIT).",
