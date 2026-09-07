@@ -1797,6 +1797,24 @@ function needsLine(a) {
    second and closes with nothing written anywhere the person can see. The install was fine. It is
    the opening that is refused, and the difference matters, because it is not something they can
    fix by downloading again. */
+/* Where a gated Store app has a replacement that opens offline today, point to it. This makes
+   the store's own rule - prefer the thing that works - visible right where the caveat is. */
+const ALT_FOR = {
+  Minesweeper: 'TathamPuzzles', Sudoku: 'TathamPuzzles', Jigsaw: 'TathamPuzzles',
+  Mahjong: 'TathamPuzzles', TreasureHunt: 'TathamPuzzles',
+  Journal: 'Xournalpp', '3DViewer': 'F3D',
+};
+function altLine(a) {
+  const altEn = ALT_FOR[a.en];
+  if (!altEn) return '';
+  const alt = DATA.apps.find(x => x.en === altEn);
+  if (!alt) return '';
+  return '<div class="warn" style="color:var(--ok)">' +
+    (LANG === 'en' ? 'Works offline right now: ' : 'יש חלופה שעובדת אופליין עכשיו: ') +
+    '<a data-sheet="' + esc(altEn) + '" style="color:var(--accent);cursor:pointer;text-decoration:underline">' +
+    esc(nameOf(alt)) + '</a></div>';
+}
+
 function firstOnlineLine(a) {
   /* One sentence. The mechanism - Windows asking Microsoft for a licence at first launch, and
      why it refuses offline - is behind the question mark, where a person who wants it can find
@@ -2174,6 +2192,7 @@ function openSheet(en) {
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
     firstOnlineLine(a) +
+    altLine(a) +
     needsLine(a) +
     /* "works entirely without internet" cannot sit directly under a warning that says it needs
        one connection to open. Whichever of the two the reader believes, the card has told them
