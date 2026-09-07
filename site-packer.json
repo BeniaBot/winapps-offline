@@ -5383,8 +5383,8 @@
                      "icon":  "icons/w32real/Edge.png",
                      "heb":  true,
                      "langMode":  "follows-windows",
-                     "langHow":  "אותו קובץ כולל אנגלית: נכנסים ל-edge://settings/languages, מוסיפים English ובוחרים \"הצג את Microsoft Edge בשפה זו\", ומפעילים מחדש.",
-                     "langHowEn":  "The same file includes English: go to edge://settings/languages, add English, choose \"Display Microsoft Edge in this language\", then restart it.",
+                     "langHow":  "לאנגלית: edge://settings/languages, להוסיף English ולסמן \"הצג את Edge בשפה זו\".",
+                     "langHowEn":  "English: edge://settings/languages, add English, tick \"Display Edge in this language\".",
                      "detect":  "Microsoft Edge",
                      "silent":  "MSI:/qn /norestart"
                  },
@@ -6060,7 +6060,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "כלי טכנאי",
-                     "desc":  "תת-מערכת אנדרואיד ל-Windows 11. מיקרוסופט הפסיקה את התמיכה — זו בנייה קהילתית של אותה גרסה, שממשיכה לעבוד. שתי מהדורות: נקייה, או עם חנות Google Play",
+                     "desc":  "אנדרואיד בתוך Windows 11. מיקרוסופט נטשה — זו בנייה קהילתית של אותה גרסה.",
                      "color":  "#3ddc84",
                      "url":  "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
                      "match":  "WSA_2407.40000.4.0_x64_Release-Nightly-NoGApps-NoAmazon.7z",
@@ -6073,7 +6073,7 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "The Android subsystem for Windows 11. Microsoft ended support - this is a community build of the same version that keeps working. Two editions: plain, or with the Google Play store",
+                     "descEn":  "Android inside Windows 11. Microsoft dropped it — this is a community build of the same release.",
                      "enName":  "Windows Subsystem for Android",
                      "icon":  "icons/w32png/WSAGitHub.png",
                      "heb":  true,
@@ -6082,8 +6082,8 @@
                      "repo":  "MustardChef/WSABuilds",
                      "relver":  "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
                      "origin":  "community",
-                     "note":  "ארכיון 7z, לא מתקין. לפרוק ולהריץ את Run.bat שבפנים. דורש Windows 11 ווירטואליזציה מופעלת. בנייה קהילתית — לא של מיקרוסופט. המהדורה הרגילה מגיעה בלי חנות אפליקציות; המהדורה השנייה כוללת את Google Play (712MB)",
-                     "noteEn":  "A 7z archive, not an installer. Extract it and run the Run.bat inside. Needs Windows 11 with virtualisation enabled. A community build - not Microsoft’s. The plain edition ships with no app store; the second one includes Google Play (712MB)",
+                     "note":  "ארכיון 7z: לפרוק ולהריץ Run.bat. דורש וירטואליזציה מופעלת. המהדורה השנייה כוללת Google Play (712MB).",
+                     "noteEn":  "7z archive: extract and run Run.bat. Needs virtualization enabled. Second edition includes Google Play (712MB).",
                      "alt":  {
                                  "label":  "עם Google Play",
                                  "labelEn":  "with Google Play",
@@ -6130,7 +6130,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "עדכוני אבטחה",
-                     "desc":  "רשימת האיומים שההגנה של Windows מזהה. מתקינים אחרי עדכון הפלטפורמה",
+                     "desc":  "רשימת האיומים שההגנה של Windows מזהה. להתקין אחרי עדכון הפלטפורמה.",
                      "color":  "#107c41",
                      "url":  "https://go.microsoft.com/fwlink/?LinkID=121721\u0026arch=x64",
                      "match":  "mpam-fe*.exe",
@@ -6143,12 +6143,12 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "The list of threats the Windows protection recognises. Install after the platform update",
+                     "descEn":  "The threat list Windows Security recognises. Install after the platform update.",
                      "enName":  "Microsoft Defender security intelligence",
                      "noui":  true,
                      "icon":  "icons/w32png/DefenderSignatures.png",
-                     "note":  "מיקרוסופט מפרסמת חתימות חדשות כמה פעמים ביום, ולכן קובץ שהורדתם מתיישן תוך ימים — כדאי להוריד מחדש לפני כל סבב התקנות. שימו לב גם שבמחשב מנותק ההגנה חלשה יותר מטבעה: אין בדיקה מול השרתים של מיקרוסופט בזמן אמת. זה מרים את הרצפה, לא יותר.",
-                     "noteEn":  "Microsoft publishes new signatures several times a day, so a downloaded copy is stale within days - fetch it again before each round of installs. Note too that protection on a disconnected machine is weaker by nature: there is no real-time lookup against Microsoft’s servers. This raises the floor, no more than that.",
+                     "note":  "מתיישן תוך ימים — להוריד מחדש לפני כל סבב התקנות.",
+                     "noteEn":  "Goes stale within days — download again before each round of installs.",
                      "silent":  "RUN:",
                      "alt":  {
                                  "label":  "למחשב 32 סיביות",
@@ -6163,7 +6163,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "תוכנת ספרייה תורנית למחשב: כ‑6,800 ספרים במסד נתונים מקומי, עם חיפוש, מפרשים בצד הטקסט וזמני היום בדף הבית — לאחר ההתקנה עובדת בלי אינטרנט.",
+                     "desc":  "ספרייה תורנית: כ‑6,800 ספרים במחשב, עם חיפוש ומפרשים לצד הטקסט.",
                      "color":  "#6b8e23",
                      "url":  "https://github.com/kdroidFilter/Zayit/releases/download/v0.5.17/Zayit-0.5.17-windows-x64-nsis.exe",
                      "match":  "Zayit-*-windows-x64-nsis.exe",
@@ -6176,15 +6176,15 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "A Torah library on the PC: about 6,800 books in a local database, with search, commentaries beside the text and the day\u0027s zmanim on the home page",
+                     "descEn":  "Torah library: ~6,800 books on your PC, with search and commentaries beside the text.",
                      "icon":  "icons/w32real/Zayit.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
                      "repo":  "kdroidFilter/Zayit",
                      "relver":  "v0.5.17",
                      "origin":  "community",
-                     "note":  "התוכנה היא המדף — הספרים הם שתי ההורדות שמתחת, 3.5 ג״ב יחד. שניהם חייבים לשבת באותה תיקייה, וצריך כ‑10 ג״ב פנויים בזמן הפריסה.",
-                     "noteEn":  "The program is the shelf — the books are the two downloads below it, 3.5 GB together. Both must sit in the same folder, and about 10 GB free is needed while they unpack.",
+                     "note":  "התוכנה היא המדף; הספרים הם שתי ההורדות שמתחת (3.5 ג״ב), באותה תיקייה.",
+                     "noteEn":  "The app is the shelf; the books are the two downloads below (3.5 GB), in the same folder.",
                      "silent":  "/S"
                  },
                  {
@@ -6258,7 +6258,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "ספרייה תורנית שהספרים כבר בתוך המתקין — הורדה אחת, בלי שלב שני. תנ״ך, ש״ס, מדרש, הלכה, שו״ת וקבלה, עם חיפוש בכל המאגר",
+                     "desc":  "ספרייה תורנית שהספרים כבר בתוך המתקין — תנ״ך, ש״ס, מדרש, הלכה, שו״ת וקבלה, עם חיפוש.",
                      "color":  "#8b5a2b",
                      "url":  "https://github.com/Otzaria/otzaria/releases/download/0.9.96%2B736/otzaria-0.9.96-windows-full.exe",
                      "match":  "otzaria-*-windows-full.exe",
@@ -6271,7 +6271,7 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "A Torah library with the books already inside the installer — one download, no second step. Tanach, Shas, midrash, halacha, responsa and kabbalah, with search across it all",
+                     "descEn":  "Torah library with the books inside the installer — Tanach, Shas, Midrash, Halacha, Responsa, Kabbalah, with search.",
                      "icon":  "icons/w32real/Otzaria.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
@@ -6282,8 +6282,8 @@
                                    "WebView2"
                                ],
                      "origin":  "community",
-                     "note":  "זו הגרסה המלאה — הספרים בתוכה, ואין מה להוריד בנפרד. יש גם מתקין קטן בן 30 מגה שמוריד את הספרייה בהפעלה הראשונה; במחשב מנותק הוא נשאר ארון ריק, ולכן הוא לא כאן.\n\nמותקנת לכל המשתמשים ודורשת הרשאות מנהל. מפיצים אותה כאן באישור מפורש של הפרויקט.",
-                     "noteEn":  "This is the full build — the books are inside it and there is nothing to download separately. A smaller 30 MB installer also exists which fetches the library on first run; on a disconnected machine that leaves an empty bookcase, so it is not offered here.\n\nIt installs for all users and needs administrator rights. It is offered here with the project\u0027s express permission.",
+                     "note":  "הורדה אחת, בלי שלב שני. מופצת כאן באישור הפרויקט.",
+                     "noteEn":  "One download, no second step. Distributed here with the project\u0027s permission.",
                      "silent":  "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS"
                  },
                  {
@@ -6292,7 +6292,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "תוסף לוורד לעימוד ולעריכה של ספרי קודש — ובאותה התקנה גם תוכנה עצמאית בשם \"כתבי הקודש\", שנפתחת בלי וורד וקוראת את מסד הספרים של זית.",
+                     "desc":  "תוסף לוורד לעימוד ספרי קודש, ואיתו תוכנת עיון עצמאית \"כתבי הקודש\".",
                      "color":  "#8a5a2b",
                      "url":  "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.2/KleiKodeshSetup-v9.1.2.exe",
                      "match":  "KleiKodeshSetup-*.exe",
@@ -6305,7 +6305,7 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "Two programs in one install: a Torah library inside Word, and a standalone reader that opens without it",
+                     "descEn":  "Word add-in for typesetting sefarim, plus a standalone reader, \"Kitvei HaKodesh\".",
                      "icon":  "icons/w32real/KleiKodesh.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
@@ -6317,8 +6317,8 @@
                                    "Zayit"
                                ],
                      "origin":  "community",
-                     "note":  "שתי תוכנות בהתקנה אחת: לשונית בתוך וורד, ו״כתבי הקודש״ — תוכנת עיון שנפתחת מתפריט התחל בלי וורד בכלל. שתיהן קוראות את מסד הספרים של זית, אז מתקינים אותו קודם.",
-                     "noteEn":  "Two programs in one install: a tab inside Word, and כתבי הקודש — a reader that opens from the Start menu with no Word at all. Both read Zayit\u0027s book database, so install that first.",
+                     "note":  "קוראת את מסד הספרים של זית — להתקין אותו קודם.",
+                     "noteEn":  "Reads Zayit\u0027s book database — install Zayit first.",
                      "alt":  {
                                  "label":  "גרסה ניידת — בלי וורד",
                                  "labelEn":  "Portable build — no Word needed",
@@ -6332,7 +6332,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "ארון ספרים לחלונות: תנ״ך עם מפרשים, ש״ס, רמב״ם, שולחן ערוך, זוהר ומאות ספרי מוסר והלכה — הכול נכנס בהתקנה אחת ונפתח בלי אינטרנט.",
+                     "desc":  "ארון ספרים: תנ״ך עם מפרשים, ש״ס, רמב״ם, שולחן ערוך, זוהר ועוד — הכול בהתקנה אחת.",
                      "color":  "#0148a5",
                      "url":  "https://www.toratemetfreeware.com/InstallToratEmet.exe",
                      "match":  "InstallToratEmet.exe",
@@ -6345,12 +6345,12 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "A whole bookshelf in one install: Tanach with commentaries, Shas, Rambam, Shulchan Aruch, Zohar and hundreds of works of mussar and halacha",
+                     "descEn":  "Bookshelf: Tanach with commentaries, Shas, Rambam, Shulchan Aruch, Zohar and more — one install.",
                      "icon":  "icons/w32real/ToratEmet.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
-                     "note":  "הספרים כבר בתוך המתקין — אין הורדה שנייה. מתקינה למסמכים ולא לתיקיית התוכניות, ולמשתמש הנוכחי בלבד.",
-                     "noteEn":  "The books are already inside the installer — there is no second download. It installs into Documents rather than Program Files, for the current user only."
+                     "note":  "מתקינה לתיקיית המסמכים, למשתמש הנוכחי בלבד.",
+                     "noteEn":  "Installs into Documents, for the current user only."
                  },
                  {
                      "he":  "Kiwix",
@@ -6418,7 +6418,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "לוח שנה עברי לווינדוס: חודש שלם על המסך, וללחיצה על כל יום — זמני היום למקום שבחרתם, פרשה, דף יומי, מולד, והיארצייטים שהזנתם בעצמכם.",
+                     "desc":  "לוח שנה עברי: חודש על המסך, ולכל יום — זמנים, פרשה, דף יומי ויארצייטים.",
                      "color":  "#b8860b",
                      "url":  "https://github.com/ComputeHalacha/JewishCalendar/releases/download/v2.7.3/LuachProject.zip",
                      "match":  "LuachProject.zip",
@@ -6431,7 +6431,7 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "A Hebrew calendar for Windows: a whole month on screen, and a click on any day gives its zmanim for your place, the parasha, daf yomi and molad",
+                     "descEn":  "Hebrew calendar: a month on screen, and per day — zmanim, parasha, daf yomi, yahrzeits.",
                      "icon":  "icons/w32real/LuachProject.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
@@ -6441,8 +6441,8 @@
                                    "NetFx481"
                                ],
                      "origin":  "community",
-                     "note":  "הכול מחושב במחשב עצמו, בלי לפנות לשום שרת. לא פורסם לו רישיון, והבנייה האחרונה מ‑2024.",
-                     "noteEn":  "Everything is computed on the machine, asking no server. No licence was ever published for it, and the last build is from 2024."
+                     "note":  "הכול מחושב במחשב. הבנייה האחרונה מ‑2024.",
+                     "noteEn":  "All computed locally. Last build 2024."
                  },
                  {
                      "he":  "מכון ממרא — טקסטים לדפדפן",
@@ -6450,7 +6450,7 @@
                      "net":  false,
                      "w32":  true,
                      "cat":  "תורה ולימוד",
-                     "desc":  "אוסף קובצי HTML להורדה ממכון ממרא — פורסים זיפ לתיקייה, לוחצים על קובץ, והטקסט נפתח בדפדפן; ct005 הוא התנ\"ך עם טעמי המקרא.",
+                     "desc":  "קובצי HTML ממכון ממרא — פורסים, לוחצים, והטקסט נפתח בדפדפן. ct005 = תנ״ך עם טעמים.",
                      "color":  "#7a5c3e",
                      "url":  "https://mechon-mamre.org/htmlzips/ct005.zip",
                      "match":  "ct005.zip",
@@ -6463,12 +6463,12 @@
                                        "ver":  ""
                                    }
                                ],
-                     "descEn":  "HTML files from Mechon Mamre: unpack the zip, click a file, and the text opens in the browser — ct005 is the Tanach with ta\u0027amei hamikra",
+                     "descEn":  "HTML files from Mechon Mamre — extract, click, reads in the browser. ct005 = Tanach with cantillation.",
                      "icon":  "icons/w32real/MechonMamre.png",
                      "heb":  true,
                      "langMode":  "hebrew-only",
-                     "note":  "לפרוק ולפתוח בדפדפן שכבר יש במחשב — בלי התקנה. הנוסח לפי מסורת הרמב״ם והתימנים, ושונה במקומות מהמקובל.",
-                     "noteEn":  "Unpack it and open it in the browser already on the machine — no install. The text follows the Rambam and Yemenite tradition, which differs in places from the common one.",
+                     "note":  "בלי התקנה. הנוסח לפי מסורת הרמב״ם והתימנים.",
+                     "noteEn":  "No install. Text follows the Rambam/Yemenite tradition.",
                      "alt":  {
                                  "label":  "תיקון קוראים",
                                  "labelEn":  "Tiqqun Qore\u0027im",
