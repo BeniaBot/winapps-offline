@@ -6585,6 +6585,64 @@
                      "noteEn":  "Extract the zip and run any game: mines = Minesweeper, solo = Sudoku, and dozens more. No install, fully offline. Open source (MIT)."
                  },
                  {
+                     "he":  "Xournal++",
+                     "en":  "Xournalpp",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "יצירה ועבודה",
+                     "desc":  "מחברת לכתיבה ביד, ציור, וסימון והערות על קובצי PDF — בעט, סטיילוס או עכבר. חלופה חופשית ל-Journal.",
+                     "color":  "#1e88e5",
+                     "url":  "https://github.com/xournalpp/xournalpp/releases/download/v1.3.7/xournalpp-1.3.7-windows-portable-AMD64.zip",
+                     "match":  "xournalpp-*-windows-portable-AMD64.zip",
+                     "files":  [
+                                   {
+                                       "exe":  "xournalpp-*-windows-portable-AMD64.zip",
+                                       "mb":  94,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "A notebook for handwriting, drawing, and annotating PDFs — with a pen, stylus or mouse. A free alternative to Journal.",
+                     "enName":  "Xournal++",
+                     "icon":  "icons/w32real/Xournalpp.png",
+                     "langMode":  "follows-windows",
+                     "repo":  "xournalpp/xournalpp",
+                     "relver":  "v1.3.7",
+                     "origin":  "community",
+                     "note":  "ארכיון נייד: לפרוק ולהריץ xournalpp.exe. בלי התקנה, עובד לגמרי בלי רשת. קוד פתוח (GPL).",
+                     "noteEn":  "Portable archive: extract and run xournalpp.exe. No install, fully offline. Open source (GPL)."
+                 },
+                 {
+                     "he":  "F3D — מציג תלת-ממד",
+                     "en":  "F3D",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "יצירה ועבודה",
+                     "desc":  "מציג מודלים תלת-ממדיים מהיר: פותח עשרות פורמטים (STL, OBJ, glTF ועוד), מסובב ומצלם. חלופה למציג התלת-ממד.",
+                     "color":  "#00897b",
+                     "url":  "https://github.com/f3d-app/f3d/releases/download/v3.5.0/F3D-3.5.0-Windows-x86_64.zip",
+                     "match":  "F3D-*-Windows-x86_64.zip",
+                     "files":  [
+                                   {
+                                       "exe":  "F3D-*-Windows-x86_64.zip",
+                                       "mb":  43,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "A fast 3D model viewer: opens dozens of formats (STL, OBJ, glTF and more), rotate and snapshot. An alternative to 3D Viewer.",
+                     "enName":  "F3D",
+                     "icon":  "icons/w32real/F3D.png",
+                     "langMode":  "follows-windows",
+                     "repo":  "f3d-app/f3d",
+                     "relver":  "v3.5.0",
+                     "origin":  "community",
+                     "note":  "ארכיון נייד: לפרוק, ולגרור קובץ מודל אל f3d.exe. בלי התקנה, בלי רשת. קוד פתוח (BSD).",
+                     "noteEn":  "Portable archive: extract, and drag a model file onto f3d.exe. No install, no network. Open source (BSD)."
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,
