@@ -1,168 +1,33 @@
 {
- "VC2005-x64.exe": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "VC2005-x86.exe": {
-  "carry": 0,
-  "seen": 4,
-  "total": 4
- },
- "VC2008-x64.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2008-x86.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2010-x64.exe": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "VC2010-x86.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "VC2012-x64.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2012-x86.exe": {
-  "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "VC2013-x64.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "VC2013-x86.exe": {
-  "carry": 0,
-  "seen": 5,
-  "total": 5
- },
- "winapps-packer.exe": {
+ "2049_Setup.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "SilentInstall.exe": {
+ "Csharf.bat": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
- },
- "StoreShell.exe": {
-  "carry": 0,
-  "seen": 2,
-  "total": 2
- },
- "System-Components-All.exe": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "WINAPPS-W10-CORE.iso": {
-  "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "WINAPPS-W11-CORE.iso": {
-  "carry": 0,
-  "seen": 11,
-  "total": 11
+  "seen": 0,
+  "total": 0
  },
  "IsoBuilder.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
- },
- "Setup-WSL.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-Weather.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-WebpExtension.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-Whiteboard.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Widgets-Win11.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-WinDbg.exe": {
-  "carry": 1,
-  "seen": 0,
-  "total": 1
- },
- "Setup-XboxApp.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxGameBar.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxGameOverlay.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxIdentity.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxSpeech.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxTCUI.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Maps.exe": {
-  "carry": 5,
-  "seen": 0,
-  "total": 5
+  "seen": 9,
+  "total": 9
  },
  "Setup-3DViewer.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-AV1Extension.exe": {
-  "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
   "seen": 0,
   "total": 2
+ },
+ "Setup-AV1Extension.exe": {
+  "carry": 1,
+  "seen": 2,
+  "total": 3
  },
  "Setup-BingSearch.exe": {
   "carry": 1,
@@ -171,28 +36,28 @@
  },
  "Setup-Builder3D.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "Setup-Calculator.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-Camera.exe": {
   "carry": 2,
-  "seen": 0,
-  "total": 2
+  "seen": 1,
+  "total": 3
  },
  "Setup-Clipchamp.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 5,
+  "total": 6
  },
  "Setup-Clock.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 2,
+  "total": 3
  },
  "Setup-Copilot.exe": {
   "carry": 1,
@@ -236,8 +101,8 @@
  },
  "Setup-GamingServices.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -251,48 +116,53 @@
  },
  "Setup-HEIFExtension.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 3,
+  "total": 4
  },
  "Setup-HEVCExtension-Win10.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-HEVCExtension-Win11.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "Setup-Jigsaw.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 6,
+  "total": 7
  },
  "Setup-Journal.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "Setup-Mahjong.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 6,
+  "total": 6
  },
  "Setup-Mail.exe": {
   "carry": 1,
   "seen": 0,
   "total": 1
  },
+ "Setup-Maps.exe": {
+  "carry": 5,
+  "seen": 6,
+  "total": 11
+ },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Messaging-Win10.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Messaging-Win11.exe": {
   "carry": 0,
@@ -301,8 +171,8 @@
  },
  "Setup-Minesweeper.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 6,
+  "total": 6
  },
  "Setup-MixedReality.exe": {
   "carry": 0,
@@ -311,8 +181,8 @@
  },
  "Setup-MoviesTV.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 3,
+  "total": 3
  },
  "Setup-News.exe": {
   "carry": 0,
@@ -321,38 +191,38 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-OfficeHub.exe": {
   "carry": 3,
-  "seen": 0,
-  "total": 3
+  "seen": 1,
+  "total": 4
  },
  "Setup-OneNote.exe": {
   "carry": 2,
-  "seen": 0,
+  "seen": 2,
+  "total": 4
+ },
+ "Setup-Paint-Win11.exe": {
+  "carry": 0,
+  "seen": 4,
+  "total": 4
+ },
+ "Setup-Paint3D.exe": {
+  "carry": 0,
+  "seen": 2,
   "total": 2
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 2,
+  "total": 3
  },
  "Setup-PCManager.exe": {
   "carry": 2,
   "seen": 0,
   "total": 2
- },
- "Setup-Paint-Win11.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Paint3D.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
  },
  "Setup-People.exe": {
   "carry": 0,
@@ -371,13 +241,13 @@
  },
  "Setup-Photos.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-PowerBI.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-PowerShell.exe": {
   "carry": 2,
@@ -386,8 +256,8 @@
  },
  "Setup-Print3D.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "Setup-QuickAssist.exe": {
   "carry": 0,
@@ -396,13 +266,13 @@
  },
  "Setup-RawExtension-Win10.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 0,
@@ -411,8 +281,8 @@
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
@@ -421,13 +291,13 @@
  },
  "Setup-Solitaire.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-SoundRecorder-Win11.exe": {
   "carry": 0,
@@ -436,8 +306,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -446,18 +316,18 @@
  },
  "Setup-StorePurchase.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Sudoku.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 6,
+  "total": 6
  },
  "Setup-Sway.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Sysinternals.exe": {
   "carry": 4,
@@ -476,47 +346,177 @@
  },
  "Setup-ToDo.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Translator.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 4,
+  "total": 4
  },
  "Setup-TreasureHunt.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 8,
+  "total": 9
  },
  "Setup-VP9Extension.exe": {
+  "carry": 1,
+  "seen": 2,
+  "total": 3
+ },
+ "Setup-Weather.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
+ },
+ "Setup-WebpExtension.exe": {
+  "carry": 2,
+  "seen": 3,
+  "total": 5
+ },
+ "Setup-Whiteboard.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
+ },
+ "Setup-Widgets-Win11.exe": {
+  "carry": 0,
+  "seen": 2,
+  "total": 2
+ },
+ "Setup-WinDbg.exe": {
   "carry": 1,
   "seen": 0,
   "total": 1
  },
- "Csharf.bat": {
+ "Setup-WSA-Win11.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "TikNick-Setup.exe": {
+ "Setup-WSL.exe": {
+  "carry": 2,
+  "seen": 0,
+  "total": 2
+ },
+ "Setup-XboxApp.exe": {
+  "carry": 0,
+  "seen": 2,
+  "total": 2
+ },
+ "Setup-XboxGameBar.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
+ },
+ "Setup-XboxGameOverlay.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "2049_Setup.exe": {
+ "Setup-XboxIdentity.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
+ },
+ "Setup-XboxSpeech.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
+ },
+ "Setup-XboxTCUI.exe": {
+  "carry": 0,
+  "seen": 3,
+  "total": 3
+ },
+ "SilentInstall.exe": {
+  "carry": 0,
+  "seen": 3,
+  "total": 3
+ },
+ "StoreShell.exe": {
+  "carry": 0,
+  "seen": 2,
+  "total": 2
  },
  "SubtitleStudio.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
  },
- "Setup-WSA-Win11.exe": {
+ "System-Components-All.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "TikNick-Setup.exe": {
   "carry": 0,
   "seen": 0,
   "total": 0
+ },
+ "VC2005-x64.exe": {
+  "carry": 0,
+  "seen": 9,
+  "total": 9
+ },
+ "VC2005-x86.exe": {
+  "carry": 0,
+  "seen": 6,
+  "total": 6
+ },
+ "VC2008-x64.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "VC2008-x86.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "VC2010-x64.exe": {
+  "carry": 0,
+  "seen": 9,
+  "total": 9
+ },
+ "VC2010-x86.exe": {
+  "carry": 0,
+  "seen": 9,
+  "total": 9
+ },
+ "VC2012-x64.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "VC2012-x86.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "VC2013-x64.exe": {
+  "carry": 0,
+  "seen": 8,
+  "total": 8
+ },
+ "VC2013-x86.exe": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "winapps-packer.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
+ "WINAPPS-W10-CORE.iso": {
+  "carry": 0,
+  "seen": 7,
+  "total": 7
+ },
+ "WINAPPS-W11-CORE.iso": {
+  "carry": 0,
+  "seen": 13,
+  "total": 13
  }
 }
