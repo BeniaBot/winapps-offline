@@ -1934,32 +1934,6 @@
                      "cat":  "כלי טכנאי"
                  },
                  {
-                     "he":  "Sysinternals Suite",
-                     "en":  "Sysinternals",
-                     "pfn":  "Microsoft.SysinternalsSuite_8wekyb3d8bbwe",
-                     "id":  "Microsoft.SysinternalsSuite",
-                     "net":  false,
-                     "files":  [
-                                   {
-                                       "exe":  "Setup-Sysinternals.exe",
-                                       "mb":  288,
-                                       "win":  "all",
-                                       "minBuild":  18362,
-                                       "ver":  "2026.8.1.0",
-                                       "bundle":  "Microsoft.SysinternalsSuite_2026.8.1.0_neutral_~_8wekyb3d8bbwe.msixbundle",
-                                       "deps":  [
-
-                                                ],
-                                       "live":  false
-                                   }
-                               ],
-                     "needsFirstOnline":  true,
-                     "icon":  "icons/Sysinternals.png",
-                     "desc":  "ארגז הכלים של Sysinternals",
-                     "descEn":  "The Sysinternals toolbox",
-                     "cat":  "כלי טכנאי"
-                 },
-                 {
                      "he":  "Windows Terminal Preview",
                      "en":  "TerminalPreview",
                      "pfn":  "Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe",
@@ -6585,6 +6559,32 @@
                      "origin":  "community",
                      "note":  "חבילת התקנה (sideload), לא מתקין רגיל: לפרוק את ה-zip ולהריץ את Install.ps1 בהרשאות מנהל — הוא בוטח בתעודה ומתקין את האפליקציה ואת התלויות שבתיקיית Dependencies. אחרי זה נפתחת לגמרי בלי רשת. קוד פתוח GPL.",
                      "noteEn":  "A sideload package, not a plain installer: extract the zip and run Install.ps1 as admin — it trusts the certificate and installs the app plus the dependencies in the Dependencies folder. After that it opens fully offline. Open source, GPL."
+                 },
+                 {
+                     "he":  "Sysinternals Suite",
+                     "en":  "Sysinternals",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "כלי טכנאי",
+                     "desc":  "אוסף כלי המערכת של מיקרוסופט: Process Explorer, Autoruns, PsExec ועוד — כלים ניידים, בלי התקנה.",
+                     "color":  "#c0392b",
+                     "url":  "https://download.sysinternals.com/files/SysinternalsSuite.zip",
+                     "match":  "SysinternalsSuite.zip",
+                     "files":  [
+                                   {
+                                       "exe":  "SysinternalsSuite.zip",
+                                       "mb":  192,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "Microsoft\u0027s system utilities: Process Explorer, Autoruns, PsExec and more — portable tools, no install.",
+                     "enName":  "Sysinternals Suite",
+                     "icon":  "icons/Sysinternals.png",
+                     "origin":  "microsoft",
+                     "note":  "זיפ של כלים ניידים ישירות ממיקרוסופט: לפרוק ולהריץ כל כלי. אין התקנה, עובד לגמרי בלי רשת. (מחליף את גרסת החנות שלא נפתחה אופליין.)",
+                     "noteEn":  "A zip of portable tools straight from Microsoft: extract and run any tool. No install, works fully offline. (Replaces the Store version that would not open offline.)"
                  },
                  {
                      "he":  "Csharf",
