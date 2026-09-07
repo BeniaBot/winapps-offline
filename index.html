@@ -1189,11 +1189,13 @@ function downloadsFor(a) {
   // an in-house app is served from THIS project's release, mirrored there automatically, so
   // GitHub's number for it counts downloads from this site and nothing else
   if (a.custom) {
-    // the real total is how many people took this app from its own GitHub release - the site
-    // serves it straight from there. counts.json only sees copies mirrored into our release.
-    if (DLREPO && a.repo && a.repo in DLREPO && DLREPO[a.repo] > 0) return DLREPO[a.repo];
+    // ONLY the site-tracked count (counts.json). The GitHub release total counts the maker's
+    // own dev/CI pulls and direct-from-GitHub downloads too, so it over-reports and its "from
+    // this site" label would be a lie. A tracked 0 means "served from its own repo, not really
+    // counted here" - return null so the card shows that honestly instead of a bald "0".
     const f = (a.files || [])[0];
-    return (DLC && f && f.exe in DLC) ? DLC[f.exe] : null;
+    const n = (DLC && f && f.exe in DLC) ? DLC[f.exe] : null;
+    return (n && n > 0) ? n : null;
   }
   if (!DLC || a.w32) return null;          // a vendor program is fetched from its own maker
   let n = 0, seen = false;
