@@ -6492,6 +6492,65 @@
                              }
                  },
                  {
+                     "he":  "תאריכון",
+                     "en":  "Tarichon",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "תורה ולימוד",
+                     "desc":  "וידג\u0027ט לשורת המשימות: תאריך עברי, פרשת השבוע וזמני היום — עובד לגמרי במחשב מנותק.",
+                     "color":  "#3f6f4f",
+                     "url":  "https://github.com/Ani-yakhol/Tarichon/releases/download/v0.8.4/Tarichon-Setup-0.8.4-Full.exe",
+                     "match":  "Tarichon-Setup-0.8.4-Full.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "Tarichon-Setup-0.8.4-Full.exe",
+                                       "mb":  66,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "Taskbar widget showing the Hebrew date, weekly parsha, and daily halachic times — fully offline.",
+                     "enName":  "Tarichon",
+                     "icon":  "icons/w32real/Tarichon.png",
+                     "heb":  true,
+                     "langMode":  "hebrew-only",
+                     "repo":  "Ani-yakhol/Tarichon",
+                     "relver":  "v0.8.4",
+                     "origin":  "community",
+                     "note":  "המתקין המלא כולל את סביבת NET 8. מותקן למשתמש הנוכחי, בלי הרשאות מנהל. הופץ כאן לבקשת המפתח.",
+                     "noteEn":  "The Full installer bundles the .NET 8 runtime. Installs per-user, no admin. Published here at the developer\u0027s request."
+                 },
+                 {
+                     "he":  "PowerToys",
+                     "en":  "PowerToys",
+                     "net":  false,
+                     "w32":  true,
+                     "cat":  "כלי טכנאי",
+                     "desc":  "ערכת כלים רשמית של מיקרוסופט: שינוי שם מרובה, בורר צבע, חלונות מסודרים, השבתת מקשים ועוד.",
+                     "color":  "#4a4a4a",
+                     "url":  "https://github.com/microsoft/PowerToys/releases/download/v0.101.2362.0/PowerToysUserSetup-0.101.2362.0-x64.exe",
+                     "match":  "PowerToysUserSetup-*-x64.exe",
+                     "files":  [
+                                   {
+                                       "exe":  "PowerToysUserSetup-*-x64.exe",
+                                       "mb":  283,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ],
+                     "descEn":  "Microsoft\u0027s official power-user toolkit: bulk rename, color picker, window layouts, key remap, and more.",
+                     "enName":  "PowerToys",
+                     "icon":  "icons/w32real/PowerToys.png",
+                     "langMode":  "follows-windows",
+                     "repo":  "microsoft/PowerToys",
+                     "relver":  "v0.101.2362.0",
+                     "origin":  "microsoft",
+                     "note":  "המתקין למשתמש (User) כולל את סביבת ההרצה בתוכו — מתקין בלי הרשאות מנהל ובלי רשת. דורש Windows 11 (או 10 מעודכן).",
+                     "noteEn":  "The User installer bundles its runtime — installs without admin and without internet. Needs Windows 11 (or up-to-date 10)."
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,
