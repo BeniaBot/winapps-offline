@@ -11,13 +11,13 @@
  },
  "IsoBuilder.exe": {
   "carry": 0,
-  "seen": 9,
-  "total": 9
+  "seen": 11,
+  "total": 11
  },
  "Setup-3DViewer.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
@@ -36,8 +36,8 @@
  },
  "Setup-Builder3D.exe": {
   "carry": 1,
-  "seen": 2,
-  "total": 3
+  "seen": 3,
+  "total": 4
  },
  "Setup-Calculator.exe": {
   "carry": 0,
@@ -131,8 +131,8 @@
  },
  "Setup-Jigsaw.exe": {
   "carry": 1,
-  "seen": 6,
-  "total": 7
+  "seen": 7,
+  "total": 8
  },
  "Setup-Journal.exe": {
   "carry": 0,
@@ -141,8 +141,8 @@
  },
  "Setup-Mahjong.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 7,
+  "total": 7
  },
  "Setup-Mail.exe": {
   "carry": 1,
@@ -171,8 +171,8 @@
  },
  "Setup-Minesweeper.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 7,
+  "total": 7
  },
  "Setup-MixedReality.exe": {
   "carry": 0,
@@ -191,8 +191,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "Setup-OfficeHub.exe": {
   "carry": 3,
@@ -211,18 +211,18 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
-  "seen": 2,
-  "total": 3
+  "seen": 4,
+  "total": 5
  },
  "Setup-PCManager.exe": {
   "carry": 2,
-  "seen": 0,
-  "total": 2
+  "seen": 1,
+  "total": 3
  },
  "Setup-People.exe": {
   "carry": 0,
@@ -256,8 +256,8 @@
  },
  "Setup-Print3D.exe": {
   "carry": 1,
-  "seen": 2,
-  "total": 3
+  "seen": 3,
+  "total": 4
  },
  "Setup-QuickAssist.exe": {
   "carry": 0,
@@ -321,8 +321,8 @@
  },
  "Setup-Sudoku.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 7,
+  "total": 7
  },
  "Setup-Sway.exe": {
   "carry": 0,
@@ -351,13 +351,13 @@
  },
  "Setup-Translator.exe": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 6,
+  "total": 6
  },
  "Setup-TreasureHunt.exe": {
   "carry": 1,
-  "seen": 8,
-  "total": 9
+  "seen": 12,
+  "total": 13
  },
  "Setup-VP9Extension.exe": {
   "carry": 1,
@@ -516,7 +516,7 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 20,
+  "total": 20
  }
 }
