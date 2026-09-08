@@ -430,6 +430,11 @@
          background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn);
          border: 1px solid color-mix(in srgb, var(--warn) 38%, transparent); }
   .dlcount { color: var(--muted); font-size: .78rem; margin-top: 8px; }
+  /* a theme is not a program: say so on the tile itself */
+  .tbadge { position: absolute; inset-inline-start: 8px; top: 8px; z-index: 2;
+         padding: 2px 8px; border-radius: 99px; font-size: .62rem; font-weight: 800;
+         background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent);
+         border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); pointer-events: none; }
   .starcta { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px;
     padding: 11px 14px; border-radius: 13px; text-decoration: none; font-weight: 700; font-size: .9rem;
     color: var(--ink); background: linear-gradient(180deg, rgba(255,196,107,.14), rgba(255,196,107,.06));
@@ -1458,7 +1463,8 @@ function tile(a) {
   return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(descOf(a) || nameOf(a)) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' +
     (a.heb && !a.noui ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') +
-    (POPULAR && POPULAR[a.en] ? '<span class="pop" title="' + esc(T('מהנפוצות להורדה כאן')) + '">' + T('פופולרי') + '</span>' : '') + pl +
+    (POPULAR && POPULAR[a.en] ? '<span class="pop" title="' + esc(T('מהנפוצות להורדה כאן')) + '">' + T('פופולרי') + '</span>' : '') +
+    (a.cat === 'ערכות נושא' ? '<span class="tbadge" title="' + esc(T('ערכת נושא — לחיצה כפולה מחליפה את הטפט, בלי התקנה')) + '">' + T('ערכת נושא') + '</span>' : '') + pl +
     '<div class="nm" dir="auto">' + nameOf(a) + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
