@@ -3817,6 +3817,84 @@
                                ]
                  },
                  {
+                     "he":  "הרי האלפים",
+                     "en":  "MountainsTheme",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://beniabot.github.io/winapps-offline/themes/Mountains.deskthemepack",
+                     "match":  "Mountains.deskthemepack",
+                     "icon":  "icons/w32real/MountainsTheme.png",
+                     "color":  "#3b5a72",
+                     "desc":  "ערכת נושא: פסגות מושלגות באלפים ובדולומיטים — מאטרהורן, קרחון אלץ׳, פאסו סלה.",
+                     "descEn":  "A theme: snow-capped peaks in the Alps and Dolomites — the Matterhorn, the Aletsch glacier, Passo Sella.",
+                     "enName":  "Alpine Mountains",
+                     "noteEn":  "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+                     "note":  "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
+                     "cat":  "ערכות נושא",
+                     "origin":  "community",
+                     "files":  [
+                                   {
+                                       "exe":  "Mountains.deskthemepack",
+                                       "mb":  11,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "אגמים ומפלים",
+                     "en":  "WaterTheme",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://beniabot.github.io/winapps-offline/themes/Water.deskthemepack",
+                     "match":  "Water.deskthemepack",
+                     "icon":  "icons/w32real/WaterTheme.png",
+                     "color":  "#2c5f6b",
+                     "desc":  "ערכת נושא: אגמים ומפלים באירופה — איסלנד, אגם אייבזה, אשינן, לאגו די טובל.",
+                     "descEn":  "A theme: European lakes and waterfalls — Iceland, Eibsee, Oeschinensee, Lago di Tovel.",
+                     "enName":  "Lakes \u0026 Waterfalls",
+                     "noteEn":  "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+                     "note":  "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
+                     "cat":  "ערכות נושא",
+                     "origin":  "community",
+                     "files":  [
+                                   {
+                                       "exe":  "Water.deskthemepack",
+                                       "mb":  13,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
+                     "he":  "יערות ואחו",
+                     "en":  "ForestTheme",
+                     "net":  false,
+                     "w32":  true,
+                     "url":  "https://beniabot.github.io/winapps-offline/themes/Forest.deskthemepack",
+                     "match":  "Forest.deskthemepack",
+                     "icon":  "icons/w32real/ForestTheme.png",
+                     "color":  "#3d5a3a",
+                     "desc":  "ערכת נושא: יערות ואחו באירופה — ערפל בדולומיטים, סייזר אלם, יער אשור שוודי, רמות סקוטלנד.",
+                     "descEn":  "A theme: European forests and meadows — Dolomite mist, Seiser Alm, a Swedish beech wood, the Scottish Highlands.",
+                     "enName":  "Forests \u0026 Meadows",
+                     "noteEn":  "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+                     "note":  "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
+                     "cat":  "ערכות נושא",
+                     "origin":  "community",
+                     "files":  [
+                                   {
+                                       "exe":  "Forest.deskthemepack",
+                                       "mb":  10,
+                                       "win":  "all",
+                                       "minBuild":  0,
+                                       "ver":  ""
+                                   }
+                               ]
+                 },
+                 {
                      "he":  "Csharf",
                      "en":  "Csharf",
                      "net":  false,
