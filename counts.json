@@ -41,8 +41,8 @@
  },
  "Setup-Calculator.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 6,
+  "total": 6
  },
  "Setup-Camera.exe": {
   "carry": 2,
@@ -51,8 +51,8 @@
  },
  "Setup-Clipchamp.exe": {
   "carry": 1,
-  "seen": 5,
-  "total": 6
+  "seen": 6,
+  "total": 7
  },
  "Setup-Clock.exe": {
   "carry": 1,
@@ -151,8 +151,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 5,
-  "seen": 6,
-  "total": 11
+  "seen": 7,
+  "total": 12
  },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
@@ -206,8 +206,8 @@
  },
  "Setup-Paint-Win11.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "Setup-Paint3D.exe": {
   "carry": 0,
@@ -281,8 +281,8 @@
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
@@ -336,8 +336,8 @@
  },
  "Setup-Terminal.exe": {
   "carry": 2,
-  "seen": 0,
-  "total": 2
+  "seen": 1,
+  "total": 3
  },
  "Setup-TerminalPreview.exe": {
   "carry": 4,
@@ -516,7 +516,7 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 0,
-  "seen": 13,
-  "total": 13
+  "seen": 15,
+  "total": 15
  }
 }
