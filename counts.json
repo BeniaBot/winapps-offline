@@ -36,8 +36,8 @@
  },
  "Setup-Builder3D.exe": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 2,
+  "total": 3
  },
  "Setup-Calculator.exe": {
   "carry": 0,
@@ -46,13 +46,13 @@
  },
  "Setup-Camera.exe": {
   "carry": 2,
-  "seen": 1,
-  "total": 3
+  "seen": 2,
+  "total": 4
  },
  "Setup-Clipchamp.exe": {
   "carry": 1,
-  "seen": 6,
-  "total": 7
+  "seen": 7,
+  "total": 8
  },
  "Setup-Clock.exe": {
   "carry": 1,
@@ -96,8 +96,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 4,
-  "seen": 0,
-  "total": 4
+  "seen": 1,
+  "total": 5
  },
  "Setup-GamingServices.exe": {
   "carry": 0,
@@ -151,8 +151,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 5,
-  "seen": 7,
-  "total": 12
+  "seen": 10,
+  "total": 15
  },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
@@ -211,8 +211,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -256,8 +256,8 @@
  },
  "Setup-Print3D.exe": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 2,
+  "total": 3
  },
  "Setup-QuickAssist.exe": {
   "carry": 0,
@@ -266,13 +266,13 @@
  },
  "Setup-RawExtension-Win10.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 2,
+  "total": 3
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 0,
@@ -296,13 +296,13 @@
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "Setup-SoundRecorder-Win11.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-StickyNotes.exe": {
   "carry": 0,
@@ -351,8 +351,8 @@
  },
  "Setup-Translator.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "Setup-TreasureHunt.exe": {
   "carry": 1,
@@ -371,8 +371,8 @@
  },
  "Setup-WebpExtension.exe": {
   "carry": 2,
-  "seen": 3,
-  "total": 5
+  "seen": 4,
+  "total": 6
  },
  "Setup-Whiteboard.exe": {
   "carry": 0,
@@ -511,12 +511,12 @@
  },
  "WINAPPS-W10-CORE.iso": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 8,
+  "total": 8
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 0,
-  "seen": 15,
-  "total": 15
+  "seen": 17,
+  "total": 17
  }
 }
