@@ -86,8 +86,8 @@
  },
  "Setup-Family.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "Setup-FeedbackHub.exe": {
   "carry": 0,
@@ -101,8 +101,8 @@
  },
  "Setup-GamingServices.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -151,8 +151,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 5,
-  "seen": 10,
-  "total": 15
+  "seen": 11,
+  "total": 16
  },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
@@ -166,8 +166,8 @@
  },
  "Setup-Messaging-Win11.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-Minesweeper.exe": {
   "carry": 0,
@@ -201,8 +201,8 @@
  },
  "Setup-OneNote.exe": {
   "carry": 2,
-  "seen": 2,
-  "total": 4
+  "seen": 3,
+  "total": 5
  },
  "Setup-Paint-Win11.exe": {
   "carry": 0,
@@ -226,8 +226,8 @@
  },
  "Setup-People.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-PhoneLink-Win10.exe": {
   "carry": 0,
@@ -291,8 +291,8 @@
  },
  "Setup-Solitaire.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 0,
