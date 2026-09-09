@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-08",
+    "updated":  "2026-09-10",
     "apps":  [
                  {
                      "he":  "פנקס רשימות",
@@ -401,14 +401,13 @@
                      "color":  "#0078D4",
                      "desc":  "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
                      "descEn":  "Windows Maps with the map of Israel built in — works fully offline",
-                     "noteEn":  "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself",
-                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה",
+                     "noteEn":  "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself. The package was rebuilt so it opens even on a PC that has never been online.",
+                     "note":  "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה. החבילה נבנתה מחדש כך שהיא נפתחת גם במחשב שמעולם לא היה מחובר לאינטרנט.",
                      "cat":  "כלים",
-                     "gatedFrom":  26100,
                      "files":  [
                                    {
                                        "exe":  "Setup-Maps.exe",
-                                       "mb":  214,
+                                       "mb":  199,
                                        "win":  "all",
                                        "minBuild":  17134,
                                        "ver":  "10.2104.2.0"
