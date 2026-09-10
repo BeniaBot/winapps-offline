@@ -5378,12 +5378,11 @@
       "relver": "v9.1.2",
       "needs": [
         "NetFx481",
-        "WebView2",
-        "Zayit"
+        "WebView2"
       ],
       "origin": "community",
-      "note": "קוראת את מסד הספרים של זית — להתקין אותו קודם.",
-      "noteEn": "Reads Zayit's book database — install Zayit first.",
+      "note": "שני דברים בהתקנה אחת: תוסף עימוד לוורד, ותוכנת עיון עצמאית שנפתחת גם בלי וורד. אף אחד מהם לא דורש ספרים — ומי שכבר התקין את זית, העיון יקרא את אוצר הספרים שלו.",
+      "noteEn": "Two things in one install: a typesetting add-in for Word, and a standalone reader that opens without Word. Neither needs a book collection - and if Zayit is already installed, the reader will read its library.",
       "alt": {
         "label": "גרסה ניידת — בלי וורד",
         "labelEn": "Portable build — no Word needed",

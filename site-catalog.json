@@ -3105,14 +3105,13 @@
       "color": "#8a5a2b",
       "desc": "תוסף לוורד לעימוד ספרי קודש, ואיתו תוכנת עיון עצמאית \"כתבי הקודש\".",
       "descEn": "Word add-in for typesetting sefarim, plus a standalone reader, \"Kitvei HaKodesh\".",
-      "noteEn": "Reads Zayit's book database — install Zayit first.",
-      "note": "קוראת את מסד הספרים של זית — להתקין אותו קודם.",
+      "noteEn": "Two things in one install: a typesetting add-in for Word, and a standalone reader that opens without Word. Neither needs a book collection - and if Zayit is already installed, the reader will read its library.",
+      "note": "שני דברים בהתקנה אחת: תוסף עימוד לוורד, ותוכנת עיון עצמאית שנפתחת גם בלי וורד. אף אחד מהם לא דורש ספרים — ומי שכבר התקין את זית, העיון יקרא את אוצר הספרים שלו.",
       "cat": "תורה ולימוד",
       "langMode": "hebrew-only",
       "needs": [
         "NetFx481",
-        "WebView2",
-        "Zayit"
+        "WebView2"
       ],
       "origin": "community",
       "relver": "v9.1.2",
