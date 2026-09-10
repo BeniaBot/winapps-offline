@@ -707,7 +707,7 @@
     <img src="logo.svg" alt="">
     <div class="t2">
       <h3>החנות בדיסק — לוקחים ומתקינים בכל מקום</h3>
-      <p>הליבה = היום הראשון של מחשב נקי: כלי היומיום וכל הקודקים, עם החנות שמזהה מה חסר ומתקינה מהדיסק. המלאה — כל 82 המתקינים.</p>
+      <p>הליבה = היום הראשון של מחשב נקי: כלי היומיום וכל הקודקים, עם החנות שמזהה מה חסר ומתקינה מהדיסק. ומי שצריך משהו אחר — בונה דיסק בדיוק בגודל ובתוכן שהוא רוצה.</p>
     </div>
     <div class="btns" id="iso-btns"></div>
   </div>
@@ -1031,6 +1031,9 @@ const EN = {
   'מקור': 'Source',
   'מקור החלופה': 'Alternative from',
   'המהדורה של החנות': "This store's own release",
+  'דיסק משלכם — בוחרים מה נכנס': 'Your own disc — pick what goes on it',
+  'קודם בוחרים מה ייכנס: על כל כרטיס יש +, והוא מוסיף אותו לדיסק. אחר כך חוזרים לכאן.':
+    'First pick what goes on it: every card has a +, which adds it to the disc. Then come back here.',
   'גרסה': 'Version',
   'בודק…': 'checking…',
   'התקנה שקטה': 'Silent switches',
@@ -2653,8 +2656,20 @@ function isoButtons() {
   const b = [];
   if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">' + T('ליבה') + ' · Win 11 · <span dir="ltr">582MB</span></a>');
   if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">' + T('ליבה') + ' · Win 10 · <span dir="ltr">445MB</span></a>');
-  b.push('<button class="btn lite" disabled title="מוכנה, מחפשת בית — גדולה מדי ל-GitHub">המלאה · 17GB · 82 מתקינים — בקרוב</button>');
+  /* The full disc has no home - a GitHub release asset stops at 2GB and the disc is fifteen
+     times that. It sat here as a greyed-out "coming soon" for months, which is a dead end
+     dressed as a promise. The path that does exist is better anyway: pick what the machine
+     actually needs and burn exactly that, so the disc is the size of the job rather than the
+     size of the catalogue. The tool for it was already published; it just was not offered here. */
+  b.push('<button class="btn lite" id="iso-own">' + T('דיסק משלכם — בוחרים מה נכנס') + '</button>');
   document.getElementById('iso-btns').innerHTML = b.join('');
+  document.getElementById('iso-own').onclick = () => {
+    if (SELECTED.size) { document.getElementById('seliso').click(); return; }
+    // nothing picked yet: say what to do, then put them where they can do it
+    alert(T('קודם בוחרים מה ייכנס: על כל כרטיס יש +, והוא מוסיף אותו לדיסק. אחר כך חוזרים לכאן.'));
+    const c = document.getElementById('cats');
+    if (c) c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 }
 
 /* ===== boot: paint as soon as the slim catalog is here; buttons light up after ===== */
