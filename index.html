@@ -381,6 +381,7 @@
   .iso p { color: var(--muted); font-size: .89rem; margin-top: 4px; }
   .iso .btns { display: flex; gap: 10px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+         flex-wrap: wrap; text-align: center; row-gap: 2px;
          background: linear-gradient(135deg, #7ee0ff, #38b0ec); color: var(--on-accent); text-decoration: none; border: 0;
          font-weight: 700; font-size: .9rem; padding: 10px 22px; border-radius: 99px; cursor: pointer;
          box-shadow: 0 8px 20px -10px rgba(95,212,254,.55); }
@@ -389,6 +390,7 @@
   .btn:hover { filter: brightness(1.08); }
   .btn.lite { background: var(--tile); color: var(--ink); border: 1px solid var(--stroke); }
   .btn.lite:hover { background: var(--tile-h); filter: none; }
+  .btn .sz { white-space: nowrap; }
   .btn[disabled] { opacity: .45; cursor: default; filter: none; }
 
   /* ===== sheet ===== */
@@ -2173,7 +2175,7 @@ function openSheet(en) {
   let btns = files.map(f => {
     const label = files.length > 1
       ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
-      : T('הורדה') + ' · <span dir="ltr">' + mbFmt(f.mb) + '</span>';
+      : T('הורדה') + ' <span class="sz">· <span dir="ltr">' + mbFmt(f.mb) + '</span></span>';
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
     // one build: 'main' follows the dock's Win target. Several: pin the exact file.
     return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>',
@@ -2185,9 +2187,9 @@ function openSheet(en) {
     T('הורדה') + ' · <span dir="ltr">' + esc(otherLang.name) + '</span></a>', otherLang.url, false, 'lang');
   /* the size goes on the button, like every other download - the two editions are being
      compared, and the difference between them is mostly size */
-  if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' + T('הורדה') + ' · ' +
+  if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' +
     esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) +
-    (a.alt.mb ? ' · <span dir="ltr">' + mbFmt(a.alt.mb) + '</span>' : '') + '</a>', a.alt.url, false, 'alt');
+    (a.alt.mb ? ' <span class="sz">· <span dir="ltr">' + mbFmt(a.alt.mb) + '</span></span>' : '') + '</a>', a.alt.url, false, 'alt');
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
   if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
