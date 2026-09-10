@@ -3684,6 +3684,43 @@
       ]
     },
     {
+      "he": "BleachBit",
+      "en": "BleachBit",
+      "net": false,
+      "heb": true,
+      "w32": true,
+      "url": "https://github.com/bleachbit/bleachbit/releases/download/v6.0.4/BleachBit-6.0.4-setup.exe",
+      "match": "BleachBit-*-setup.exe",
+      "silent": "/S",
+      "alt": {
+        "label": "גרסה ניידת — בלי התקנה",
+        "labelEn": "Portable build - no install",
+        "url": "https://github.com/bleachbit/bleachbit/releases/download/v6.0.4/BleachBit-6.0.4-portable.zip",
+        "mb": 18
+      },
+      "repo": "bleachbit/bleachbit",
+      "icon": "icons/w32real/BleachBit.png",
+      "color": "#4a90b8",
+      "desc": "מנקה קבצים מיותרים ומוחק עקבות — היסטוריה, מטמון ורשימות של מה נפתח. קוד פתוח, בעברית מלאה.",
+      "descEn": "Clears junk files and wipes traces - history, caches, and lists of what was opened. Open source, fully translated into Hebrew.",
+      "enName": "BleachBit",
+      "noteEn": "It deletes for good. Look over what you ticked before you run it - some of it is worth keeping, such as passwords saved in a browser.",
+      "note": "מוחקת לצמיתות. כדאי לעבור על מה שסימנתם לפני שלוחצים — יש שם גם דברים ששווה לשמור, כמו סיסמאות שמורות בדפדפן.",
+      "cat": "כלי טכנאי",
+      "near": "Csharf",
+      "origin": "community",
+      "relver": "v6.0.4",
+      "files": [
+        {
+          "exe": "BleachBit-*-setup.exe",
+          "mb": 17,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
       "he": "Csharf",
       "en": "Csharf",
       "net": false,
@@ -3777,6 +3814,30 @@
         {
           "exe": "SubtitleStudio.exe",
           "mb": 37,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
+      "he": "זאב, כבשה וכרוב",
+      "en": "WolfSheepCabbage",
+      "net": false,
+      "custom": true,
+      "heb": true,
+      "repo": "BeniaBot/wolf-sheep-cabbage",
+      "icon": "icons/w32/wolfsheepcabbage.svg",
+      "color": "#7c9c5a",
+      "desc": "שיבוץ חדרים לפנימייה — חדרים, שמות, וכללים מי לא עם מי. קובץ אחד שנפתח בדפדפן, בלי התקנה. פותח כאן",
+      "descEn": "Dormitory room assignment - rooms, names, and rules about who may not share with whom. One file that opens in a browser, no install. Built here",
+      "cat": "יצירה ועבודה",
+      "langMode": "hebrew-only",
+      "relver": "v1.0",
+      "files": [
+        {
+          "exe": "WolfSheepCabbage.html",
+          "mb": 1,
           "win": "all",
           "minBuild": 0,
           "ver": ""

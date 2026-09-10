@@ -61,6 +61,7 @@ jobs:
           BeniaBot/tiknick:TikNick-Setup.exe:TikNick-Setup.exe
           BeniaBot/2049:2049_Setup.exe:2049_Setup.exe
           BeniaBot/Csharf:Csharf.bat:Csharf.bat
+          BeniaBot/wolf-sheep-cabbage:WolfSheepCabbage.html:WolfSheepCabbage.html
           LIST
           printf '\n}\n' >> mirror.json
           cat mirror.json
