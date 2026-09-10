@@ -2591,10 +2591,18 @@
       "w32": true,
       "url": "https://download.anydesk.com/AnyDesk.exe",
       "match": "AnyDesk.exe",
+      "alt": {
+        "label": "גרסה 5.2 — הישנה",
+        "labelEn": "Version 5.2 - the old one",
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/AnyDesk-5.2.1.exe",
+        "mb": 3
+      },
       "icon": "icons/w32real/AnyDesk.png",
       "color": "#ef443b",
       "desc": "שליטה מרחוק — קובץ נייד, בלי התקנה. החיבור עצמו דורש אינטרנט",
       "descEn": "Remote control — portable, no install. The connection itself needs internet",
+      "noteEn": "The older download below is 5.2 from 2019, signed by the maker itself. It suits anyone the current build keeps flagging as \"commercial use\". Run it as it is, without installing - then there is no background service to update it behind your back.",
+      "note": "הגרסה הישנה שלמטה היא 5.2 מ-2019, חתומה במקור על ידי היצרן. היא נוחה למי שהחדשה מסמנת לו \"שימוש עסקי\". להריץ אותה כמו שהיא ובלי להתקין — כך אין שירות רקע שמעדכן אותה מאחורי הגב.",
       "cat": "תוכנות נפוצות",
       "langMode": "in-app-picker",
       "langHow": "אותו קובץ כולל את כל השפות: תפריט התוכנה ← Settings ← Application ← General, ולבחור English בשדה Language.",
@@ -3603,6 +3611,72 @@
         {
           "exe": "ItimHebrewCalendar-Setup-1.8.2.exe",
           "mb": 75,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
+      "he": "RustDesk",
+      "en": "RustDesk",
+      "net": false,
+      "w32": true,
+      "url": "https://github.com/rustdesk/rustdesk/releases/download/1.4.9/rustdesk-1.4.9-x86_64.exe",
+      "match": "rustdesk-*-x86_64.exe",
+      "silent": "--silent-install",
+      "alt": {
+        "label": "גרסה 1.3.2",
+        "labelEn": "Version 1.3.2",
+        "url": "https://github.com/rustdesk/rustdesk/releases/download/1.3.2/rustdesk-1.3.2-x86_64.exe",
+        "mb": 21
+      },
+      "repo": "rustdesk/rustdesk",
+      "color": "#0a6cff",
+      "desc": "שליטה מרחוק במחשב אחר, בקוד פתוח. אפשר גם להריץ שרת משלכם ולא לעבור דרך אף אחד.",
+      "descEn": "Remote control of another PC, open source. You can run your own server and route through nobody else.",
+      "enName": "RustDesk",
+      "noteEn": "The connection itself needs a network - it is remote-control software. The install needs nothing.",
+      "note": "החיבור עצמו דורש רשת — זו תוכנת שליטה מרחוק. ההתקנה לא דורשת כלום.",
+      "cat": "תוכנות נפוצות",
+      "near": "AnyDesk",
+      "origin": "community",
+      "relver": "1.4.9",
+      "files": [
+        {
+          "exe": "rustdesk-*-x86_64.exe",
+          "mb": 21,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
+      "he": "לוח וידג׳טים",
+      "en": "WidgetsNF",
+      "net": false,
+      "heb": true,
+      "w32": true,
+      "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
+      "match": "Widgets.NF.Setup.*.exe",
+      "silent": "/S",
+      "repo": "ASDX-collab/Widgets-NF",
+      "color": "#4a6fa5",
+      "desc": "לוח וידג׳טים נשלף לצד המסך: שעון, מזג אוויר, חדשות, מחשבון, פתקים, זמני היום והתראות פיקוד העורף.",
+      "descEn": "A widgets panel that slides in from the side: clock, weather, news, calculator, notes, daily times, and Home Front Command alerts.",
+      "enName": "Widgets NF",
+      "noteEn": "Written to replace the Windows widgets board, which breaks on a filtered connection. The install needs no network; some of the widgets fetch content, so those do.",
+      "note": "נכתב כתחליף ללוח הווידג׳טים של Windows, שנשבר בחיבור מסונן. ההתקנה לא דורשת רשת; חלק מהווידג׳טים מושכים תוכן ולכן כן.",
+      "cat": "כלים",
+      "near": "Widgets",
+      "langMode": "hebrew-only",
+      "origin": "community",
+      "relver": "v2.1.2",
+      "files": [
+        {
+          "exe": "Widgets.NF.Setup.*.exe",
+          "mb": 72,
           "win": "all",
           "minBuild": 0,
           "ver": ""
