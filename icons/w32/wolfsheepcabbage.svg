@@ -1,19 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <!-- the page that hangs on the wall: a corridor with a row of rooms on each side, which is
-       what the tool draws and prints -->
-  <g stroke="#fff" stroke-width="2.4" stroke-linejoin="round">
-    <rect x="6" y="8" width="10" height="9" rx="1.6"/>
-    <rect x="19" y="8" width="10" height="9" rx="1.6"/>
-    <rect x="32" y="8" width="10" height="9" rx="1.6"/>
-    <rect x="6" y="31" width="10" height="9" rx="1.6"/>
-    <rect x="19" y="31" width="10" height="9" rx="1.6"/>
-    <rect x="32" y="31" width="10" height="9" rx="1.6"/>
-  </g>
-  <!-- the corridor itself -->
-  <path d="M4 24h40" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="5 4" opacity=".75"/>
-  <!-- one room already filled: three beds taken -->
-  <g fill="#fff">
-    <rect x="21.4" y="10.6" width="5.2" height="1.5" rx=".75"/>
-    <rect x="21.4" y="13.4" width="5.2" height="1.5" rx=".75"/>
+  <!-- A bed, which is what the tool's own favicon is: it uses the 🛏️ emoji, and an emoji inside
+       an <img> depends on whichever emoji font the machine happens to have. Same sign, drawn, so
+       it renders the same everywhere and matches the other tiles. -->
+  <g stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- headboard and the frame -->
+    <path d="M7 13v22"/>
+    <path d="M7 33h34v2"/>
+    <path d="M41 35v-9"/>
+    <!-- mattress -->
+    <path d="M11 26h30a2 2 0 0 1 2 2v5H11z" fill="#fff" stroke="none" opacity=".92"/>
+    <!-- pillow -->
+    <path d="M12 19h11a2 2 0 0 1 2 2v4H10v-4a2 2 0 0 1 2-2z" fill="#fff" stroke="none" opacity=".92"/>
+    <!-- legs -->
+    <path d="M41 35v3M8 35v3"/>
   </g>
 </svg>
