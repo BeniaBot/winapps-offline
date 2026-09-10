@@ -240,6 +240,28 @@
   }
   .search:focus-within { border-color: var(--accent);
                          box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+  /* On a phone the bar could not fit: the name, a search box that refused to go under 200px,
+     and three round buttons came to about 570px inside a 375px screen, and the whole page
+     scrolled sideways because of it. The search keeps the width it is given instead of
+     demanding a minimum, and the shop's name gives way to its mark - the header is the one
+     place where the name is the least useful thing on the row. */
+  @media (max-width: 560px) {
+    .wrap { padding: 0 12px; }
+    .top .wrap { gap: 8px; }
+    .brand { flex: none; }
+    .brand span { display: none; }
+    .search { flex: 1 1 0; min-width: 0; margin-inline: 0; padding: 8px 12px; }
+    .search input { min-width: 0; }
+    .theme-btn { width: 32px; height: 32px; }
+    /* The section headings carry a chip beside them, and under "רכיבי מערכת" that chip is a
+       whole sentence - title, count, chip and "select all" came to 538px on a row 351px wide,
+       and that one heading was what made the entire page scroll sideways on a phone. It wraps
+       now, and the rule that fills the leftover space is dropped: on a wrapped row it has no
+       leftover space to fill and would only take a line of its own. */
+    .grouphead { flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+    .grouphead::after { display: none; }
+    .grouphead .chip { max-width: 100%; white-space: normal; text-align: start; }
+  }
   .search svg { width: 15px; height: 15px; opacity: .55; flex: none; }
   .search input { border: 0; outline: 0; background: none; color: var(--ink); font: inherit; font-size: 16px; width: 100%; }
   .theme-btn { border: 0; background: none; color: var(--muted); font-size: 1rem; cursor: pointer;

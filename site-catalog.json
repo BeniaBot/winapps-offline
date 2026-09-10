@@ -690,7 +690,7 @@
       "files": [
         {
           "exe": "Setup-FileRecovery.exe",
-          "mb": 14,
+          "mb": 29,
           "win": "all",
           "minBuild": 19041,
           "ver": "0.1.20151.0"
@@ -813,7 +813,7 @@
       "files": [
         {
           "exe": "Setup-PCManager.exe",
-          "mb": 134,
+          "mb": 230,
           "win": "all",
           "minBuild": 19042,
           "ver": "3.22.4.0"
@@ -3637,6 +3637,7 @@
         "mb": 21
       },
       "repo": "rustdesk/rustdesk",
+      "icon": "icons/w32/rustdesk.svg",
       "color": "#0a6cff",
       "desc": "שליטה מרחוק במחשב אחר, בקוד פתוח. אפשר גם להריץ שרת משלכם ולא לעבור דרך אף אחד.",
       "descEn": "Remote control of another PC, open source. You can run your own server and route through nobody else.",

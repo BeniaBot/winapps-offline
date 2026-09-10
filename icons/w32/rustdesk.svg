@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Two screens and the link between them: one machine driving another, which is the whole
+       of what this program does. Drawn to sit beside the other vendor glyphs rather than
+       lifted from the project's own mark, which is a wordmark and does not shrink to a tile. -->
+  <g stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- the machine being driven, behind -->
+    <rect x="22" y="6" width="21" height="15" rx="2.5"/>
+    <path d="M30 25h5M32.5 21v4"/>
+    <!-- the machine doing the driving, in front -->
+    <rect x="5" y="24" width="23" height="16" rx="2.5" fill="#0a6cff" fill-opacity=".28"/>
+    <path d="M12 43h9M16.5 40v3"/>
+    <!-- the link -->
+    <path d="M19 20.5 25.5 27" stroke-dasharray="3 3"/>
+    <!-- the pointer that arrives at the far end -->
+    <path d="M30 10.5v7l1.8-1.9 1.6 3 1.7-.9-1.6-3 2.5-.3z" fill="#fff" stroke="none"/>
+  </g>
+</svg>
