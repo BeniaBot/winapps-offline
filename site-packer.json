@@ -5845,6 +5845,37 @@
       "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people."
     },
     {
+      "he": "עיתים",
+      "en": "Itim",
+      "net": false,
+      "w32": true,
+      "cat": "תורה ולימוד",
+      "desc": "לוח שנה עברי וזמני היום בשורת המשימות — הכל מחושב במחשב עצמו, בלי רשת.",
+      "color": "#73a6a6",
+      "url": "https://github.com/abaye123/ItimHebrewCalendar/releases/download/v1.8.2/ItimHebrewCalendar-Setup-1.8.2.exe",
+      "match": "ItimHebrewCalendar-Setup-1.8.2.exe",
+      "files": [
+        {
+          "exe": "ItimHebrewCalendar-Setup-1.8.2.exe",
+          "mb": 75,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ],
+      "descEn": "A Hebrew calendar and daily halachic times in the tray — everything computed on the machine itself, with no network.",
+      "enName": "Itim",
+      "icon": "icons/w32real/Itim.png",
+      "heb": true,
+      "near": "Tarichon",
+      "langMode": "hebrew-only",
+      "repo": "abaye123/ItimHebrewCalendar",
+      "relver": "v1.8.2",
+      "origin": "community",
+      "note": "הזמנים ההלכתיים מחושבים מקומית, ולכן ייתכנו סטיות של דקות ואין לסמוך עליהם למעשה.",
+      "noteEn": "The halachic times are computed locally, so they can be off by minutes and should not be relied on in practice."
+    },
+    {
       "he": "Csharf",
       "en": "Csharf",
       "net": false,

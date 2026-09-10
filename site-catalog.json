@@ -3580,6 +3580,37 @@
       ]
     },
     {
+      "he": "עיתים",
+      "en": "Itim",
+      "net": false,
+      "heb": true,
+      "w32": true,
+      "url": "https://github.com/abaye123/ItimHebrewCalendar/releases/download/v1.8.2/ItimHebrewCalendar-Setup-1.8.2.exe",
+      "match": "ItimHebrewCalendar-Setup-1.8.2.exe",
+      "repo": "abaye123/ItimHebrewCalendar",
+      "icon": "icons/w32real/Itim.png",
+      "color": "#73a6a6",
+      "desc": "לוח שנה עברי וזמני היום בשורת המשימות — הכל מחושב במחשב עצמו, בלי רשת.",
+      "descEn": "A Hebrew calendar and daily halachic times in the tray — everything computed on the machine itself, with no network.",
+      "enName": "Itim",
+      "noteEn": "The halachic times are computed locally, so they can be off by minutes and should not be relied on in practice.",
+      "note": "הזמנים ההלכתיים מחושבים מקומית, ולכן ייתכנו סטיות של דקות ואין לסמוך עליהם למעשה.",
+      "cat": "תורה ולימוד",
+      "near": "Tarichon",
+      "langMode": "hebrew-only",
+      "origin": "community",
+      "relver": "v1.8.2",
+      "files": [
+        {
+          "exe": "ItimHebrewCalendar-Setup-1.8.2.exe",
+          "mb": 75,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
       "he": "Csharf",
       "en": "Csharf",
       "net": false,
