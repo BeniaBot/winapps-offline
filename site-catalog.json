@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -316,16 +316,21 @@
       "descEn": "View 3D models",
       "enName": "3D Viewer",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-3DViewer.exe",
-          "mb": 166,
+          "mb": 128,
           "win": "all",
           "minBuild": 16299,
           "ver": "7.2602.8012.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-3DViewer-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 166
+      }
     },
     {
       "he": "שולחן עבודה מרוחק",
@@ -732,16 +737,21 @@
       "desc": "כתיבה בעט על מסך מגע",
       "descEn": "Pen writing on a touch screen",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-Journal.exe",
-          "mb": 532,
+          "mb": 314,
           "win": "all",
           "minBuild": 19042,
           "ver": "1.25336.1113.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Journal-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 532
+      }
     },
     {
       "he": "Print 3D",
@@ -756,16 +766,21 @@
       "descEn": "3D printing",
       "enName": "Print 3D",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-Print3D.exe",
-          "mb": 25,
+          "mb": 18,
           "win": "all",
           "minBuild": 16299,
           "ver": "3.3.791.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Print3D-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 25
+      }
     },
     {
       "he": "3D Builder",
@@ -779,16 +794,21 @@
       "descEn": "Build 3D models",
       "enName": "3D Builder",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-Builder3D.exe",
-          "mb": 71,
+          "mb": 41,
           "win": "all",
           "minBuild": 15063,
           "ver": "20.0.4.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Builder3D-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 71
+      }
     },
     {
       "he": "PC Manager",
@@ -1177,16 +1197,21 @@
       "descEn": "Reports and data analysis",
       "enName": "Power BI",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-PowerBI.exe",
-          "mb": 140,
+          "mb": 108,
           "win": "all",
           "minBuild": 17763,
           "ver": "3223.30905.55001.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-PowerBI-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 140
+      }
     },
     {
       "he": "Sway",
@@ -1200,16 +1225,21 @@
       "desc": "מצגות ודפי סיפור",
       "descEn": "Presentations and story pages",
       "cat": "יצירה ועבודה",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-Sway.exe",
-          "mb": 14,
+          "mb": 11,
           "win": "all",
           "minBuild": 10586,
           "ver": "18.2003.51105.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Sway-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 14
+      }
     },
     {
       "he": "מתרגם Bing",
@@ -1222,7 +1252,6 @@
       "desc": "תרגום טקסט ודיבור",
       "descEn": "Text and speech translation",
       "cat": "כלים",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-Translator.exe",
@@ -1231,7 +1260,13 @@
           "minBuild": 16299,
           "ver": "5.6.0.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Translator-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 136
+      }
     },
     {
       "he": "רכישות מהחנות",

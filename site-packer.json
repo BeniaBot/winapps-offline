@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -982,7 +982,7 @@
       "files": [
         {
           "exe": "Setup-3DViewer.exe",
-          "mb": 166,
+          "mb": 128,
           "win": "all",
           "minBuild": 16299,
           "ver": "7.2602.8012.0",
@@ -1067,7 +1067,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "heb": true,
       "icon": "icons/3DViewer.png",
       "glyph": true,
@@ -1867,7 +1866,7 @@
       "files": [
         {
           "exe": "Setup-Journal.exe",
-          "mb": 532,
+          "mb": 314,
           "win": "all",
           "minBuild": 19042,
           "ver": "1.25336.1113.0",
@@ -1927,7 +1926,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "icon": "icons/Journal.png",
       "color": "#dddddd",
       "desc": "כתיבה בעט על מסך מגע",
@@ -1943,7 +1941,7 @@
       "files": [
         {
           "exe": "Setup-Print3D.exe",
-          "mb": 25,
+          "mb": 18,
           "win": "all",
           "minBuild": 16299,
           "ver": "3.3.791.0",
@@ -1968,7 +1966,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "heb": true,
       "icon": "icons/Print3D.png",
       "glyph": true,
@@ -1986,7 +1983,7 @@
       "files": [
         {
           "exe": "Setup-Builder3D.exe",
-          "mb": 71,
+          "mb": 41,
           "win": "all",
           "minBuild": 15063,
           "ver": "20.0.4.0",
@@ -2026,7 +2023,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "heb": true,
       "icon": "icons/Builder3D.png",
       "desc": "בניית מודלים תלת-ממדיים",
@@ -3049,7 +3045,7 @@
       "files": [
         {
           "exe": "Setup-PowerBI.exe",
-          "mb": 140,
+          "mb": 108,
           "win": "all",
           "minBuild": 17763,
           "ver": "3223.30905.55001.0",
@@ -3109,7 +3105,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "icon": "icons/PowerBI.png",
       "desc": "דוחות וניתוח נתונים",
       "descEn": "Reports and data analysis",
@@ -3125,7 +3120,7 @@
       "files": [
         {
           "exe": "Setup-Sway.exe",
-          "mb": 14,
+          "mb": 11,
           "win": "all",
           "minBuild": 10586,
           "ver": "18.2003.51105.0",
@@ -3155,7 +3150,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "heb": true,
       "icon": "icons/Sway.png",
       "color": "#404040",
@@ -3222,7 +3216,6 @@
           "live": false
         }
       ],
-      "needsFirstOnline": true,
       "icon": "icons/Translator.png",
       "color": "#107C10",
       "desc": "תרגום טקסט ודיבור",
