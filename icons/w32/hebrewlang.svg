@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- A window with an aleph in it: what this changes is the language of Windows itself, not of
+       one program. The letter is drawn rather than typed, so it does not depend on the machine
+       having a Hebrew face - which is exactly the machine this installer is for. -->
+  <g stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="8" width="38" height="32" rx="4"/>
+    <path d="M5 16h38"/>
+    <circle cx="10.5" cy="12" r="1.2" fill="#fff" stroke="none"/>
+    <circle cx="15" cy="12" r="1.2" fill="#fff" stroke="none"/>
+    <!-- the aleph -->
+    <path d="M16 22.5 30.5 34.5M30 22.5l-5 4.2M22.5 28.8l-5 4.2" stroke-width="2.6"/>
+  </g>
+</svg>
