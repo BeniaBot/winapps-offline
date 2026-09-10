@@ -1144,12 +1144,18 @@
       "id": "MicrosoftWindows.Client.WebExperience",
       "pfn": "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
       "heb": true,
+      "alt": {
+        "label": "לוח חלופי — לאינטרנט מסונן",
+        "labelEn": "Alternative board - for a filtered connection",
+        "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
+        "mb": 72
+      },
       "icon": "icons/Widgets.png",
       "desc": "לוח הווידג'טים",
       "descEn": "The widgets board",
       "noui": true,
-      "noteEn": "A Windows 11 component only",
-      "note": "רכיב של Windows 11 בלבד",
+      "noteEn": "The Windows board leans on MSN, and on a filtered connection it closes at once. The second download is an alternative board written for exactly that - clock, weather, news, calculator, notes, daily times, and Home Front Command alerts.",
+      "note": "הלוח של Windows נשען על MSN, ובחיבור מסונן הוא נסגר מיד. ההורדה השנייה היא לוח חלופי שנכתב בדיוק בשביל זה — שעון, מזג אוויר, חדשות, מחשבון, פתקים, זמני היום והתראות פיקוד העורף.",
       "cat": "חשבון ומערכת",
       "files": [
         {
@@ -3646,37 +3652,6 @@
         {
           "exe": "rustdesk-*-x86_64.exe",
           "mb": 21,
-          "win": "all",
-          "minBuild": 0,
-          "ver": ""
-        }
-      ]
-    },
-    {
-      "he": "לוח וידג׳טים",
-      "en": "WidgetsNF",
-      "net": false,
-      "heb": true,
-      "w32": true,
-      "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
-      "match": "Widgets.NF.Setup.*.exe",
-      "silent": "/S",
-      "repo": "ASDX-collab/Widgets-NF",
-      "color": "#4a6fa5",
-      "desc": "לוח וידג׳טים נשלף לצד המסך: שעון, מזג אוויר, חדשות, מחשבון, פתקים, זמני היום והתראות פיקוד העורף.",
-      "descEn": "A widgets panel that slides in from the side: clock, weather, news, calculator, notes, daily times, and Home Front Command alerts.",
-      "enName": "Widgets NF",
-      "noteEn": "Written to replace the Windows widgets board, which breaks on a filtered connection. The install needs no network; some of the widgets fetch content, so those do.",
-      "note": "נכתב כתחליף ללוח הווידג׳טים של Windows, שנשבר בחיבור מסונן. ההתקנה לא דורשת רשת; חלק מהווידג׳טים מושכים תוכן ולכן כן.",
-      "cat": "כלים",
-      "near": "Widgets",
-      "langMode": "hebrew-only",
-      "origin": "community",
-      "relver": "v2.1.2",
-      "files": [
-        {
-          "exe": "Widgets.NF.Setup.*.exe",
-          "mb": 72,
           "win": "all",
           "minBuild": 0,
           "ver": ""
