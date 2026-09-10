@@ -1,6 +1,7 @@
 {
   "BeniaBot/subtitle-studio": { "version": "v0.6.4", "asset": "SubtitleStudio.exe", "bytes": 38356480 },
-  "BeniaBot/tiknick": { "version": "v0.9.0", "asset": "TikNick-Setup.exe", "bytes": 17738515 },
+  "BeniaBot/tiknick": { "version": "v0.9.0", "asset": "TikNick-Setup.exe", "bytes": 17752002 },
   "BeniaBot/2049": { "version": "v0.17.0", "asset": "2049_Setup.exe", "bytes": 31625805 },
-  "BeniaBot/Csharf": { "version": "v2.0", "asset": "Csharf.bat", "bytes": 48283 }
+  "BeniaBot/Csharf": { "version": "v2.0", "asset": "Csharf.bat", "bytes": 48283 },
+  "BeniaBot/wolf-sheep-cabbage": { "version": "v1.0", "asset": "WolfSheepCabbage.html", "bytes": 574228 }
 }

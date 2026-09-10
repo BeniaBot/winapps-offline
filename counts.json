@@ -4,6 +4,11 @@
   "seen": 0,
   "total": 0
  },
+ "AnyDesk-5.2.1.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
  "Csharf.bat": {
   "carry": 0,
   "seen": 0,
@@ -18,6 +23,11 @@
   "carry": 0,
   "seen": 3,
   "total": 3
+ },
+ "Setup-AnyDesk-5.2.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
@@ -50,8 +60,8 @@
   "total": 4
  },
  "Setup-Clipchamp.exe": {
-  "carry": 1,
-  "seen": 7,
+  "carry": 8,
+  "seen": 0,
   "total": 8
  },
  "Setup-Clock.exe": {
@@ -95,8 +105,8 @@
   "total": 0
  },
  "Setup-FileRecovery.exe": {
-  "carry": 4,
-  "seen": 5,
+  "carry": 9,
+  "seen": 0,
   "total": 9
  },
  "Setup-GamingServices.exe": {
@@ -129,9 +139,14 @@
   "seen": 1,
   "total": 2
  },
+ "Setup-Jigsaw-Original.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
  "Setup-Jigsaw.exe": {
-  "carry": 1,
-  "seen": 10,
+  "carry": 11,
+  "seen": 0,
   "total": 11
  },
  "Setup-Journal.exe": {
@@ -139,9 +154,14 @@
   "seen": 2,
   "total": 2
  },
- "Setup-Mahjong.exe": {
+ "Setup-Mahjong-Original.exe": {
   "carry": 0,
-  "seen": 9,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Mahjong.exe": {
+  "carry": 9,
+  "seen": 0,
   "total": 9
  },
  "Setup-Mail.exe": {
@@ -149,10 +169,15 @@
   "seen": 0,
   "total": 1
  },
+ "Setup-Maps-Original.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
  "Setup-Maps.exe": {
-  "carry": 5,
-  "seen": 17,
-  "total": 22
+  "carry": 22,
+  "seen": 2,
+  "total": 24
  },
  "Setup-MediaPlayer.exe": {
   "carry": 0,
@@ -169,9 +194,14 @@
   "seen": 1,
   "total": 1
  },
- "Setup-Minesweeper.exe": {
+ "Setup-Minesweeper-Original.exe": {
   "carry": 0,
-  "seen": 9,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Minesweeper.exe": {
+  "carry": 9,
+  "seen": 0,
   "total": 9
  },
  "Setup-MixedReality.exe": {
@@ -220,8 +250,8 @@
   "total": 5
  },
  "Setup-PCManager.exe": {
-  "carry": 2,
-  "seen": 4,
+  "carry": 6,
+  "seen": 0,
   "total": 6
  },
  "Setup-People.exe": {
@@ -276,8 +306,8 @@
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 0,
@@ -319,9 +349,14 @@
   "seen": 1,
   "total": 1
  },
- "Setup-Sudoku.exe": {
+ "Setup-Sudoku-Original.exe": {
   "carry": 0,
-  "seen": 10,
+  "seen": 0,
+  "total": 0
+ },
+ "Setup-Sudoku.exe": {
+  "carry": 10,
+  "seen": 0,
   "total": 10
  },
  "Setup-Sway.exe": {
@@ -354,9 +389,14 @@
   "seen": 9,
   "total": 9
  },
+ "Setup-TreasureHunt-Original.exe": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
+ },
  "Setup-TreasureHunt.exe": {
-  "carry": 1,
-  "seen": 14,
+  "carry": 15,
+  "seen": 0,
   "total": 15
  },
  "Setup-VP9Extension.exe": {
@@ -516,7 +556,12 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 0,
-  "seen": 22,
-  "total": 22
+  "seen": 23,
+  "total": 23
+ },
+ "WolfSheepCabbage.html": {
+  "carry": 0,
+  "seen": 0,
+  "total": 0
  }
 }
