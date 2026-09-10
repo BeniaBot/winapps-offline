@@ -3658,6 +3658,33 @@
       ]
     },
     {
+      "he": "CAPS FIX",
+      "en": "CAPS FIX",
+      "net": false,
+      "heb": true,
+      "w32": true,
+      "url": "https://mitmachim.top/assets/uploads/files/1777589380516-caps_fix_5.exe",
+      "match": "*caps_fix*.exe",
+      "icon": "icons/w32/capsfix.svg",
+      "color": "#e0a83a",
+      "desc": "מתקנת שורה שהוקלדה בפריסת המקלדת ההפוכה. מסמנים, Ctrl+Q, והטקסט חוזר לעברית או לאנגלית — והמקלדת מתחלפת לבד לפריסה הנכונה. Ctrl+Alt+Q הופך טקסט שיצא הפוך.",
+      "descEn": "Fixes a line typed in the wrong keyboard layout. Select it, press Ctrl+Q, and the text comes back as Hebrew or as English - and the keyboard switches to the matching layout on its own. Ctrl+Alt+Q reverses text that came out backwards.",
+      "noteEn": "A single file, no install - run it and it sits in the tray. Its menu changes the shortcuts, excludes programs it should stay out of, and starts it with Windows. Antivirus tools sometimes flag it: it is built with AutoHotkey, and that is what gets flagged, not anything the file does.",
+      "note": "קובץ אחד, בלי התקנה — מריצים והוא יושב במגש. מהתפריט שלו אפשר לשנות את הקיצורים, להחריג תוכנות שבהן הוא לא יתערב, ולבקש שיעלה עם Windows. אנטי-וירוסים מסמנים אותה לפעמים: היא בנויה ב-AutoHotkey, וזה מה שמסמן — לא תוכן הקובץ.",
+      "cat": "תוכנות נפוצות",
+      "langMode": "hebrew-only",
+      "origin": "community",
+      "files": [
+        {
+          "exe": "*caps_fix*.exe",
+          "mb": 1,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
       "he": "BleachBit",
       "en": "BleachBit",
       "net": false,

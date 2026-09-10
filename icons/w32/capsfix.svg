@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- What the tool actually does: one keycap holds a Hebrew letter, the other a Latin one, and
+       the arrows between them are the swap. Drawn rather than lettered in a font, so the aleph
+       does not depend on the machine having a Hebrew face. -->
+  <g stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- the two keycaps -->
+    <rect x="4" y="7" width="17" height="17" rx="3.5"/>
+    <rect x="27" y="24" width="17" height="17" rx="3.5"/>
+    <!-- aleph, in the first cap -->
+    <path d="M9.5 11.5 15.5 19.5M15.5 11.5l-2.2 3M11.7 16.2l-2.2 3" stroke-width="2"/>
+    <!-- A, in the second cap -->
+    <path d="M31.5 37 35.5 28l4 9M32.9 34h5.2" stroke-width="2"/>
+    <!-- the swap -->
+    <path d="M27 12.5h9M33 9.5l3 3-3 3" stroke-width="2.2"/>
+    <path d="M21 35.5h-9M15 32.5l-3 3 3 3" stroke-width="2.2"/>
+  </g>
+</svg>
