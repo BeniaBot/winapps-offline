@@ -684,8 +684,9 @@
       "desc": "שחזור קבצים שנמחקו",
       "descEn": "Recover deleted files",
       "noui": true,
+      "noteEn": "The program was lifted out of its Store package and installs as an ordinary one, so it opens on a PC that has never been online. The recovery itself needs administrator rights.",
+      "note": "התוכנה נלקחה מתוך חבילת החנות ומותקנת כתוכנית רגילה, ולכן היא נפתחת גם במחשב שמעולם לא היה מחובר. השחזור עצמו דורש הרשאות מנהל.",
       "cat": "כלי טכנאי",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-FileRecovery.exe",
@@ -806,14 +807,13 @@
       "desc": "ניקוי ותחזוקת המחשב",
       "descEn": "Clean up and maintain the PC",
       "enName": "PC Manager",
-      "noteEn": "Needs administrator rights — a Windows confirmation window will appear",
-      "note": "דורשת הרשאות מנהל — יופיע חלון אישור של Windows",
+      "noteEn": "The first download was lifted out of its Store package and installs as an ordinary program, so it opens on a PC that has never been online. The Hebrew download is still a packaged build; that has not been done to it yet. Both need administrator rights.",
+      "note": "ההורדה הראשונה נלקחה מתוך חבילת החנות ומותקנת כתוכנית רגילה, ולכן היא נפתחת גם במחשב שמעולם לא היה מחובר. ההורדה בעברית עדיין חבילה ארוזה, ולה זה עוד לא נעשה. שתיהן דורשות הרשאות מנהל.",
       "cat": "כלי טכנאי",
-      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-PCManager.exe",
-          "mb": 230,
+          "mb": 134,
           "win": "all",
           "minBuild": 19042,
           "ver": "3.22.4.0"
