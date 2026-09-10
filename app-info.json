@@ -55,10 +55,6 @@
     "info": "פותח קובצי מודל תלת-ממדי ומאפשר לסובב, לקרב ולראות אותם מכל צד. שימושי אם קיבלתם קובץ כזה — למשל דגם להדפסה בתלת-ממד — ואתם רק רוצים להסתכל עליו, בלי תוכנת עריכה כבדה. זו תוכנת צפייה בלבד, אי אפשר לערוך בה. בגרסאות Windows החדשות היא כבר לא מותקנת מראש.",
     "infoEn": "Opens 3D model files and lets you spin, zoom and look at them from every side. Useful when someone sends you such a file, a 3D printing model for example, and you only want to look at it without a heavy editing program. It is a viewer only, nothing can be changed in it. Newer Windows versions no longer include it."
   },
-  "XboxGameBar": {
-    "info": "שכבה שנפתחת מעל כל תוכנה בלחיצת Win+G, ודרכה אפשר להקליט את המסך, לצלם תמונת מסך ולראות כמה המחשב עמוס. שימושי אם רוצים להקליט הסבר קצר על מה שקורה במסך בלי להתקין תוכנת הקלטה נפרדת. ההקלטה נשענת על כרטיס המסך, ובמחשבים ישנים היא עלולה לא לעבוד.",
-    "infoEn": "A layer that opens over any program when you press Win+G, letting you record the screen, take a screenshot and see how hard the computer is working. Useful for recording a short explanation of what is happening on screen without installing separate recording software. Recording leans on the graphics card, and on older PCs it may not work."
-  },
   "RemoteDesktop": {
     "info": "מציג את שולחן העבודה של מחשב אחר בחלון אצלכם, כך שאפשר לעבוד עליו כאילו אתם יושבים מולו. שימושי כשיש מחשב נוסף בבית או במשרד ולא רוצים לקום אליו בכל פעם. המחשב המרוחק צריך להיות דלוק, מחובר לאותה רשת, ומוגדר לאפשר חיבור מרחוק — הגדרה שקיימת בגרסאות Pro של Windows.",
     "infoEn": "Shows another computer's desktop in a window on yours, so you can work on it as if you were sitting in front of it. Useful when there is a second PC in the house or the office and you would rather not walk over to it. The other computer must be switched on, on the same network, and set to allow remote connections — a setting found in Pro editions of Windows."
@@ -135,22 +131,6 @@
     "info": "מאפשר לפתוח מודלים תלת-ממדיים, לסובב אותם, לשנות גודל ולבצע עריכות פשוטות — למשל לתקן מודל לפני הדפסה. מתאים למי שמתעסק בהדפסת תלת-ממד, או למי שרק רוצה להסתכל על קובץ כזה. גם זו אפליקציה ותיקה של Microsoft שכבר לא מפותחת, אבל היא עדיין עובדת. לעבודות עיצוב רציניות היא לא מספיקה.",
     "infoEn": "Lets you open 3D models, rotate them, change their size and make simple edits — for example fixing a model before printing it. Suited to people who dabble in 3D printing, or who just want to look at such a file. This too is an older Microsoft app that is no longer developed, though it still works. It is not enough for serious design work."
   },
-  "XboxIdentity": {
-    "info": "רכיב רקע שמטפל בכניסה לחשבון Xbox עבור משחקים. אין לו חלון ואין מה לפתוח — הוא פשוט מותקן ויושב ברקע, והמשחקים פונים אליו כשהם צריכים חשבון. אם משחק נסגר מיד עם הפתיחה או מתלונן שאי אפשר להיכנס, לרוב זה הרכיב החסר. הכניסה עצמה דורשת חיבור לאינטרנט; ההתקנה לא.",
-    "infoEn": "A background component that handles Xbox account sign-in for games. It has no window and nothing to open — it installs and sits in the background, and games call on it when they need an account. If a game closes the moment it opens, or complains that it cannot sign in, this is usually the missing piece. Signing in itself needs an internet connection; installing it does not."
-  },
-  "XboxGameOverlay": {
-    "info": "רכיב רקע ששייך לסרגל המשחק של Windows — השכבה שנפתחת מעל משחק ומאפשרת פעולות מהירות בלי לצאת ממנו. אין לו חלון משלו ואין מה לפתוח מתפריט התחל; הוא מותקן ויושב ברקע. שווה להתקין אם משחקים מתלוננים על רכיב חסר או אם חלק מתכונות המשחק לא מופיעות.",
-    "infoEn": "A background component belonging to the Windows game bar — the layer that opens on top of a game so you can do a few things without leaving it. It has no window of its own and nothing to open from the Start menu; it installs and sits in the background. Worth installing if games complain about a missing component, or if some in-game features do not appear."
-  },
-  "XboxTCUI": {
-    "info": "רכיב רקע שמשחקי Xbox משתמשים בו כדי להציג חלוניות של המערכת בתוך המשחק, כמו מסכי חברים והזמנות. אין לו ממשק משלו ואין מה לפתוח — הוא מותקן ויושב ברקע ומשרת משחקים אחרים. מתקינים אותו כשמשחק דורש אותו או מציג שגיאה על רכיב חסר, לא לשימוש ישיר.",
-    "infoEn": "A background component that Xbox games use to show system panels inside the game, such as friends and invitation screens. It has no interface of its own and nothing to open — it installs and sits in the background, serving other games. You install it when a game asks for it or reports a missing component, not to use it directly."
-  },
-  "XboxSpeech": {
-    "info": "רכיב רקע שמציג במשחקים כתוביות למה שנאמר בצ׳אט הקולי, ומאפשר להשיב בהקלדה. אין לו חלון ואין מה לפתוח — הוא מותקן ויושב ברקע ופועל רק בתוך משחקים שתומכים בכך. שימושי בעיקר למי שמתקשה לשמוע או שמשחק בסביבה רועשת. שאר המשתמשים יכולים לדלג עליו.",
-    "infoEn": "A background component that shows text of what is said in a game's voice chat, and lets you answer by typing. It has no window and nothing to open — it installs and sits in the background, and works only inside games that support it. Mainly useful for someone who has trouble hearing or plays in a noisy room. Everyone else can skip it."
-  },
   "PCManager": {
     "info": "כלי התחזוקה של מיקרוסופט: פינוי קבצים מיותרים ששוכבים על הדיסק, בדיקת מקום פנוי, ניהול התוכניות שנפתחות יחד עם המחשב ומצב המערכת — הכול במסך אחד, בלי לחפש בהגדרות. שימושי במחשב שהאט או שהדיסק שלו מתמלא. דורש הרשאות מנהל, ויופיע חלון אישור של Windows.",
     "infoEn": "Microsoft's maintenance tool: clearing out files that pile up on the disk, checking free space, managing which programs start together with the computer, and seeing the general state of the system — all in one screen, without digging through Settings. Useful on a PC that has slowed down or whose disk is filling up. It needs administrator rights, so a Windows confirmation window will appear."
@@ -194,10 +174,6 @@
   "PhoneLink": {
     "info": "מחברת את הטלפון למחשב: לראות הודעות, תמונות והתראות על המסך הגדול, ולענות לשיחות מהמחשב. נוח אם הטלפון מונח בצד ואתם עובדים מול המחשב. צריך להתקין אפליקציה מתאימה גם בטלפון, ושני המכשירים צריכים להיות מחוברים לאינטרנט או לאותה רשת.",
     "infoEn": "Connects your phone to the PC: see messages, photos and notifications on the big screen, and answer calls from the computer. Convenient when the phone is sitting aside while you work at the PC. You also need to install the matching app on the phone, and both devices need to be connected to the internet or the same network."
-  },
-  "XboxApp": {
-    "info": "מרכז המשחקים של ווינדוס: משם מתקינים ומריצים משחקים, ומי שמנוי על Game Pass מגיע דרכה לספרייה שלו. אפשר גם לראות מי מהחברים מחובר. דורשת כניסה עם חשבון Microsoft וחיבור לאינטרנט, ובמחשב מנותק אין בה שימוש ממשי.",
-    "infoEn": "The games hub for Windows: from here you install and launch games, and if you subscribe to Game Pass you reach its library. You can also see which friends are online. It requires signing in with a Microsoft account and an internet connection, so on a disconnected PC there is little use for it."
   },
   "Store": {
     "info": "החנות עצמה, המקום שממנו ווינדוס מתקין ומעדכן אפליקציות. שווה להתקין אותה אם היא נמחקה מהמחשב, או אם המחשב יחובר לאינטרנט בהמשך ותרצו להתקין דרכה תוכנות. כל עוד אין חיבור, החנות תיפתח אבל לא תוכל להוריד או לעדכן דבר.",
@@ -246,10 +222,6 @@
   "DevHomeGitHub": {
     "info": "תוסף שמחבר את היישום Dev Home לחשבון GitHub ומציג בתוכו מידע על מאגרי קוד ומשימות. רלוונטי רק למי שכותב תוכנה ומשתמש ב-Dev Home. אין לו חלון משלו — הוא מותקן ברקע ומופיע בתוך Dev Home. צריך שגם Dev Home יהיה מותקן, ובנוסף חשבון GitHub וחיבור לאינטרנט.",
     "infoEn": "An add-on that connects the Dev Home app to a GitHub account and shows information about code repositories and tasks inside it. Only relevant to people who write software and use Dev Home. It has no window of its own: it installs in the background and appears inside Dev Home. It also needs Dev Home installed, plus a GitHub account and an internet connection."
-  },
-  "GamingServices": {
-    "info": "רכיב רקע שמשחקי Xbox ומשחקים שהותקנו מהחנות נשענים עליו כדי להתקין ולהיפתח. אין לו חלון משלו ואין מה לפתוח אחרי ההתקנה. שווה להתקין אם משחק מסרב לרוץ ומופיעה הודעה על שירותי משחקים חסרים; אם אינכם משחקים במחשב הזה, אין בו צורך.",
-    "infoEn": "A background component that Xbox games, and games installed from the Store, rely on in order to install and start. It has no window of its own and there is nothing to open after installing. Worth adding if a game refuses to run and complains about missing gaming services; if you do not play games on this PC, you do not need it."
   },
   "VCRedist64": {
     "info": "תוכנות רבות אינן כוללות בתוכן חלקים בסיסיים של קוד, ומצפות למצוא אותם מוכנים במחשב. זו החבילה שמספקת אותם לתוכנות 64 סיביות מהשנים האחרונות. אם תוכנה מסרבת להיפתח ומופיעה הודעה על קובץ DLL חסר, זה בדרך כלל מה שחסר. אין כאן מה לפתוח — ההתקנה מוסיפה קבצים ברקע ודורשת הרשאות מנהל.",

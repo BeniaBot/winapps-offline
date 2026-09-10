@@ -264,27 +264,6 @@ dep	3DViewer	w11	arm64	Microsoft.UI.Xaml.2.7	7.2109.13004.0
 dep	3DViewer	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
 dep	3DViewer	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
 dep	3DViewer	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-app	XboxGameBar	סרגל המשחקים	Microsoft.XboxGamingOverlay_8wekyb3d8bbwe	Microsoft.XboxGamingOverlay	0	הקלטת מסך וסרגל משחקים (Win+G)
-flavor	XboxGameBar	w10	Microsoft.XboxGamingOverlay_7.326.8061.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.326.8061.0	19041	40.7
-dep	XboxGameBar	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w10	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxGameBar	w10	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w10	x86	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxGameBar	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w10	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-flavor	XboxGameBar	w11	Microsoft.XboxGamingOverlay_7.326.8061.0_neutral_~_8wekyb3d8bbwe.appxbundle	7.326.8061.0	19041	40.7
-dep	XboxGameBar	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w11	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxGameBar	w11	x86	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w11	x86	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxGameBar	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxGameBar	w11	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxGameBar	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
 app	RemoteDesktop	שולחן עבודה מרוחק	Microsoft.RemoteDesktop_8wekyb3d8bbwe	Microsoft.RemoteDesktop	0	התחברות למחשב אחר ברשת
 flavor	RemoteDesktop	w10	Microsoft.RemoteDesktop_2025.822.1549.0_neutral_~_8wekyb3d8bbwe.appxbundle	10.2.4012.0	16299	67.7
 dep	RemoteDesktop	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27912.0
@@ -565,25 +544,6 @@ dep	PhoneLink	w11	x64	Microsoft.WindowsAppRuntime.2	2.1.3.0
 dep	PhoneLink	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
 dep	PhoneLink	w11	arm64	Microsoft.WindowsAppRuntime.2	2.1.3.0
 dep	PhoneLink	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-app	XboxApp	Xbox	Microsoft.GamingApp_8wekyb3d8bbwe	Microsoft.GamingApp	1	משחקי Xbox ו-Game Pass
-flavor	XboxApp	w10	Microsoft.GamingApp_2608.1001.17.0_neutral_~_8wekyb3d8bbwe.msixbundle	2608.1001.17.0	18362	472.2
-dep	XboxApp	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxApp	w10	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxApp	w10	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxApp	w10	x64	Microsoft.WindowsAppRuntime.2	2.2.0.0
-dep	XboxApp	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxApp	w10	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxApp	w10	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxApp	w10	arm64	Microsoft.WindowsAppRuntime.2	2.2.0.0
-flavor	XboxApp	w11	Microsoft.GamingApp_2608.1001.17.0_neutral_~_8wekyb3d8bbwe.msixbundle	2608.1001.17.0	18362	472.2
-dep	XboxApp	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxApp	w11	x64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxApp	w11	x64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxApp	w11	x64	Microsoft.WindowsAppRuntime.2	2.2.0.0
-dep	XboxApp	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxApp	w11	arm64	Microsoft.VCLibs.140.00.UWPDesktop	14.0.33728.0
-dep	XboxApp	w11	arm64	Microsoft.UI.Xaml.2.8	8.2310.30001.0
-dep	XboxApp	w11	arm64	Microsoft.WindowsAppRuntime.2	2.2.0.0
 app	Store	חנות Microsoft	Microsoft.WindowsStore_8wekyb3d8bbwe	Microsoft.WindowsStore	1	חנות האפליקציות עצמה
 flavor	Store	w10	Microsoft.WindowsStore_22607.1401.7.0_neutral_~_8wekyb3d8bbwe.msixbundle	22607.1401.7.0	18362	125.5
 dep	Store	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
@@ -818,56 +778,6 @@ dep	Translator	w11	x64	Microsoft.UI.Xaml.2.1	2.11906.6001.0
 dep	Translator	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27405.0
 dep	Translator	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27328.0
 dep	Translator	w11	x64	Microsoft.VCLibs.140.00	14.0.27323.0
-app	XboxIdentity	Xbox Identity Provider	Microsoft.XboxIdentityProvider_8wekyb3d8bbwe	Microsoft.XboxIdentityProvider	0	כניסה לחשבון Xbox — משחקים נשברים בלעדיו
-flavor	XboxIdentity	w10	Microsoft.XboxIdentityProvider_12.130.16001.0_neutral_~_8wekyb3d8bbwe.appxbundle	12.130.16001.0	16299	28.7
-dep	XboxIdentity	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxIdentity	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w10	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxIdentity	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-flavor	XboxIdentity	w11	Microsoft.XboxIdentityProvider_12.130.16001.0_neutral_~_8wekyb3d8bbwe.appxbundle	12.130.16001.0	16299	28.7
-dep	XboxIdentity	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxIdentity	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w11	x86	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	XboxIdentity	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxIdentity	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxIdentity	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-app	XboxGameOverlay	Xbox Game Overlay	Microsoft.XboxGameOverlay_8wekyb3d8bbwe	Microsoft.XboxGameOverlay	0	שכבת המשחק של Xbox
-flavor	XboxGameOverlay	w10	Microsoft.XboxGameOverlay_1.54.4001.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.54.4001.0	17134	3.2
-dep	XboxGameOverlay	w10	x86	Microsoft.VCLibs.140.00	14.0.26706.0
-dep	XboxGameOverlay	w10	x64	Microsoft.VCLibs.140.00	14.0.26706.0
-flavor	XboxGameOverlay	w11	Microsoft.XboxGameOverlay_1.54.4001.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.54.4001.0	17134	3.2
-dep	XboxGameOverlay	w11	x86	Microsoft.VCLibs.140.00	14.0.26706.0
-dep	XboxGameOverlay	w11	x64	Microsoft.VCLibs.140.00	14.0.26706.0
-app	XboxTCUI	Xbox TCUI	Microsoft.Xbox.TCUI_8wekyb3d8bbwe	Microsoft.Xbox.TCUI	0	רכיב ממשק של Xbox
-flavor	XboxTCUI	w10	Microsoft.Xbox.TCUI_1.24.10001.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.24.10001.0	16299	13.2
-dep	XboxTCUI	w10	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxTCUI	w10	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxTCUI	w10	x86	Microsoft.VCLibs.140.00	14.0.26706.0
-dep	XboxTCUI	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxTCUI	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxTCUI	w10	x64	Microsoft.VCLibs.140.00	14.0.26706.0
-flavor	XboxTCUI	w11	Microsoft.Xbox.TCUI_1.24.10001.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.24.10001.0	16299	13.2
-dep	XboxTCUI	w11	x86	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxTCUI	w11	x86	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxTCUI	w11	x86	Microsoft.VCLibs.140.00	14.0.26706.0
-dep	XboxTCUI	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.27011.0
-dep	XboxTCUI	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.27011.0
-dep	XboxTCUI	w11	x64	Microsoft.VCLibs.140.00	14.0.26706.0
-app	XboxSpeech	Xbox Speech To Text	Microsoft.XboxSpeechToTextOverlay_8wekyb3d8bbwe	Microsoft.XboxSpeechToTextOverlay	0	דיבור לטקסט במשחקים
-flavor	XboxSpeech	w10	Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.21.13002.0	15031	0.9
-dep	XboxSpeech	w10	x86	Microsoft.VCLibs.140.00	14.0.24123.0
-dep	XboxSpeech	w10	x64	Microsoft.VCLibs.140.00	14.0.24123.0
-flavor	XboxSpeech	w11	Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_neutral_~_8wekyb3d8bbwe.appxbundle	1.21.13002.0	15031	0.9
-dep	XboxSpeech	w11	x86	Microsoft.VCLibs.140.00	14.0.24123.0
-dep	XboxSpeech	w11	x64	Microsoft.VCLibs.140.00	14.0.24123.0
 app	StorePurchase	רכישות מהחנות	Microsoft.StorePurchaseApp_8wekyb3d8bbwe	Microsoft.StorePurchaseApp	1	רכישות מחנות Microsoft
 flavor	StorePurchase	w10	Microsoft.StorePurchaseApp_22607.1401.4.0_neutral_~_8wekyb3d8bbwe.msixbundle	22607.1401.4.0	18362	80.8
 dep	StorePurchase	w10	x64	Microsoft.UI.Xaml.2.8	8.2501.31001.0
@@ -951,21 +861,6 @@ flavor	DevHomeGitHub	w11	Microsoft.Windows.DevHomeGitHubExtension_0.1800.625.0_n
 dep	DevHomeGitHub	w11	x64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
 dep	DevHomeGitHub	w11	x86	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
 dep	DevHomeGitHub	w11	arm64	Microsoft.WindowsAppRuntime.1.5	5001.58.448.0
-app	GamingServices	Gaming Services	Microsoft.GamingServices_8wekyb3d8bbwe	Microsoft.GamingServices	1	שירותי המשחקים של Xbox
-flavor	GamingServices	w10	Microsoft.GamingServices_38.116.6003.0_neutral_~_8wekyb3d8bbwe.appxbundle	38.116.6003.0	18362	190.1
-dep	GamingServices	w10	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	GamingServices	w10	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	GamingServices	w10	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	GamingServices	w10	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	GamingServices	w10	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	GamingServices	w10	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
-flavor	GamingServices	w11	Microsoft.GamingServices_38.116.6003.0_neutral_~_8wekyb3d8bbwe.appxbundle	38.116.6003.0	18362	190.1
-dep	GamingServices	w11	x64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	GamingServices	w11	x64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	GamingServices	w11	x64	Microsoft.VCLibs.140.00	14.0.33519.0
-dep	GamingServices	w11	arm64	Microsoft.NET.Native.Framework.2.2	2.2.29512.0
-dep	GamingServices	w11	arm64	Microsoft.NET.Native.Runtime.2.2	2.2.28604.0
-dep	GamingServices	w11	arm64	Microsoft.VCLibs.140.00	14.0.33519.0
 custom	Csharf	Csharf	0	כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן	https://github.com/BeniaBot/Csharf/releases/latest/download/Csharf.bat	appx	1	0		
 custom	TikNick	Tik-Nick	0	ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן	https://github.com/BeniaBot/tiknick/releases/latest/download/TikNick-Setup.exe	appx	17	0		
 custom	Game2049	2049	0	‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן	https://github.com/BeniaBot/2049/releases/latest/download/2049_Setup.exe	appx	30	0		

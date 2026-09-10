@@ -328,27 +328,6 @@
       ]
     },
     {
-      "he": "הקלטת מסך",
-      "en": "XboxGameBar",
-      "net": false,
-      "id": "Microsoft.XboxGamingOverlay",
-      "pfn": "Microsoft.XboxGamingOverlay_8wekyb3d8bbwe",
-      "heb": true,
-      "icon": "icons/XboxGameBar.png",
-      "desc": "הקלטת וידאו של מסך המחשב, בלחיצה על Win+G",
-      "descEn": "Records video of your screen, on Win+G",
-      "cat": "מדיה",
-      "files": [
-        {
-          "exe": "Setup-XboxGameBar.exe",
-          "mb": 81,
-          "win": "all",
-          "minBuild": 19041,
-          "ver": "7.326.8061.0"
-        }
-      ]
-    },
-    {
       "he": "שולחן עבודה מרוחק",
       "en": "RemoteDesktop",
       "net": false,
@@ -390,7 +369,13 @@
           "minBuild": 17134,
           "ver": "10.2104.2.0"
         }
-      ]
+      ],
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Maps-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 214
+      }
     },
     {
       "he": "To Do",
@@ -805,100 +790,6 @@
       ]
     },
     {
-      "he": "Xbox Identity Provider",
-      "en": "XboxIdentity",
-      "net": false,
-      "id": "Microsoft.XboxIdentityProvider",
-      "pfn": "Microsoft.XboxIdentityProvider_8wekyb3d8bbwe",
-      "heb": true,
-      "icon": "icons/XboxIdentity.png",
-      "color": "#1a1a1a",
-      "desc": "כניסה לחשבון Xbox — משחקים נשברים בלעדיו",
-      "descEn": "Xbox account sign-in — games break without it",
-      "noui": true,
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-XboxIdentity.exe",
-          "mb": 48,
-          "win": "all",
-          "minBuild": 16299,
-          "ver": "12.130.16001.0"
-        }
-      ]
-    },
-    {
-      "he": "Xbox Game Overlay",
-      "en": "XboxGameOverlay",
-      "net": false,
-      "id": "Microsoft.XboxGameOverlay",
-      "pfn": "Microsoft.XboxGameOverlay_8wekyb3d8bbwe",
-      "icon": "icons/XboxGameOverlay.png",
-      "color": "#107C10",
-      "glyph": true,
-      "desc": "שכבת המשחק של Xbox",
-      "descEn": "Xbox's in-game overlay",
-      "noui": true,
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-XboxGameOverlay.exe",
-          "mb": 6,
-          "win": "all",
-          "minBuild": 17134,
-          "ver": "1.54.4001.0"
-        }
-      ]
-    },
-    {
-      "he": "Xbox TCUI",
-      "en": "XboxTCUI",
-      "net": false,
-      "id": "Microsoft.Xbox.TCUI",
-      "pfn": "Microsoft.Xbox.TCUI_8wekyb3d8bbwe",
-      "heb": true,
-      "icon": "icons/XboxTCUI.png",
-      "color": "#464646",
-      "glyph": true,
-      "desc": "רכיב ממשק של Xbox",
-      "descEn": "An Xbox interface component",
-      "enName": "Xbox TCUI",
-      "noui": true,
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-XboxTCUI.exe",
-          "mb": 25,
-          "win": "all",
-          "minBuild": 16299,
-          "ver": "1.24.10001.0"
-        }
-      ]
-    },
-    {
-      "he": "Xbox Speech To Text",
-      "en": "XboxSpeech",
-      "net": false,
-      "id": "Microsoft.XboxSpeechToTextOverlay",
-      "pfn": "Microsoft.XboxSpeechToTextOverlay_8wekyb3d8bbwe",
-      "icon": "icons/XboxSpeech.png",
-      "color": "#107C10",
-      "glyph": true,
-      "desc": "דיבור לטקסט במשחקים",
-      "descEn": "Speech to text in games",
-      "noui": true,
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-XboxSpeech.exe",
-          "mb": 3,
-          "win": "all",
-          "minBuild": 15031,
-          "ver": "1.21.13002.0"
-        }
-      ]
-    },
-    {
       "he": "PC Manager",
       "en": "PCManager",
       "net": false,
@@ -1158,28 +1049,6 @@
           "win": "11",
           "minBuild": 22631,
           "ver": "1.26071.164.0"
-        }
-      ]
-    },
-    {
-      "he": "Xbox",
-      "en": "XboxApp",
-      "net": true,
-      "id": "Microsoft.GamingApp",
-      "pfn": "Microsoft.GamingApp_8wekyb3d8bbwe",
-      "heb": true,
-      "icon": "icons/XboxApp.png",
-      "color": "#107C10",
-      "desc": "משחקי Xbox ו-Game Pass",
-      "descEn": "Xbox games and Game Pass",
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-XboxApp.exe",
-          "mb": 590,
-          "win": "all",
-          "minBuild": 18362,
-          "ver": "2608.1001.17.0"
         }
       ]
     },
@@ -1457,30 +1326,6 @@
           "win": "all",
           "minBuild": 19041,
           "ver": "0.1800.625.0"
-        }
-      ]
-    },
-    {
-      "he": "Gaming Services",
-      "en": "GamingServices",
-      "net": true,
-      "id": "Microsoft.GamingServices",
-      "pfn": "Microsoft.GamingServices_8wekyb3d8bbwe",
-      "heb": true,
-      "icon": "icons/GamingServices.png",
-      "color": "#464646",
-      "glyph": true,
-      "desc": "שירותי המשחקים של Xbox",
-      "descEn": "Xbox gaming services",
-      "noui": true,
-      "cat": "חשבון ומערכת",
-      "files": [
-        {
-          "exe": "Setup-GamingServices.exe",
-          "mb": 204,
-          "win": "all",
-          "minBuild": 18362,
-          "ver": "38.116.6003.0"
         }
       ]
     },
@@ -3445,8 +3290,8 @@
       "desc": "וידג'ט לשורת המשימות: תאריך עברי, פרשת השבוע וזמני היום — עובד לגמרי במחשב מנותק.",
       "descEn": "Taskbar widget showing the Hebrew date, weekly parsha, and daily halachic times — fully offline.",
       "enName": "Tarichon",
-      "noteEn": "The Full installer bundles the .NET 8 runtime. Installs per-user, no admin. Published here at the developer's request.",
-      "note": "המתקין המלא כולל את סביבת NET 8. מותקן למשתמש הנוכחי, בלי הרשאות מנהל. הופץ כאן לבקשת המפתח.",
+      "noteEn": "The Full installer bundles the .NET 8 runtime. Installs per-user, no admin.",
+      "note": "המתקין המלא כולל את סביבת NET 8. מותקן למשתמש הנוכחי, בלי הרשאות מנהל.",
       "cat": "תורה ולימוד",
       "langMode": "hebrew-only",
       "origin": "community",
