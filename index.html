@@ -988,6 +988,7 @@ const EN = {
   'הורדת הנבחרות': 'Download selected',
   'היעד:': 'Target:',
   'מקור': 'Source',
+  'מקור החלופה': 'Alternative from',
   'גרסה': 'Version',
   'בודק…': 'checking…',
   'התקנה שקטה': 'Silent switches',
@@ -2192,12 +2193,19 @@ function openSheet(en) {
   if (!a) return;
   const files = filesFor(a);
   const pl = plate(a, true);
+  /* Where each download actually comes from. A card can now carry two - the maker's own build
+     and somebody else's replacement - and they rarely come from the same place, so each says so.
+     A Store app has no url of its own; its packages come from Microsoft's servers. */
+  const srcRow = (label, text, href) =>
+    '<div class="row"><span>' + label + '</span><span dir="ltr" class="mono">' +
+    (href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener" style="color:var(--accent)">' + esc(text) + '</a>' : esc(text)) +
+    '</span></div>';
+  const altSrc = (a.alt && a.alt.url) ? srcRow(T('מקור החלופה'), host(a.alt.url), a.alt.url) : '';
   const rows = a.url
-    ? '<div class="row"><span>מקור</span><span dir="ltr" class="mono">' + host(a.url) + '</span></div>' +
-      (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '') +
-      (a.silent && a.silent !== 'SPECIAL_DIRECTX'
-        ? '' : '')
-    : files.map(f =>
+    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc +
+      (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
+    : srcRow(T('מקור'), 'Microsoft Store') + altSrc +
+      files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
   const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
