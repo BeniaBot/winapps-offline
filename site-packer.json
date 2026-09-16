@@ -47,7 +47,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "5d8ac8b6ccfb8c04e6bff6b3032e601af85c2885961e06d60f4c5153a390c7a5"
         }
       ],
       "heb": true,
@@ -148,7 +149,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "e7618e0390037d5d0151b68286fce379d5d57ae5990fbe47fc76cb63b23ab573"
         }
       ],
       "heb": true,
@@ -204,7 +206,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "3a88dc1e09132460c3ee187e83a8367348627117686252175ffd975eafaf35ee"
         }
       ],
       "heb": true,
@@ -260,7 +263,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "025da30309852e5aba276838a83c722e3acd33ef69dd66ad746500fc3fb29bef"
         },
         {
           "exe": "Setup-SnippingTool-Win11.exe",
@@ -311,7 +315,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6bae2c26b8b3822ee43b21b27a06b75c6dbc88d02275c2f416dfb3d45b370b72"
         }
       ],
       "heb": true,
@@ -367,7 +372,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "c76e7326591b185f2fb04b32467ef0f9938ac2ed08eaeb4e4763339ce22cb4ad"
         }
       ],
       "heb": true,
@@ -423,7 +429,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "799a597dfa91d69911e54bcc803e79880ce30637e122710f1e2b5af4d32c73b3"
         },
         {
           "exe": "Setup-SoundRecorder-Win11.exe",
@@ -484,7 +491,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "37739f544b4e62c40e1d6d517e051831a668644e120bd0bc32401742f6c8d978"
         }
       ],
       "heb": true,
@@ -570,7 +578,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "9a782ffb049f6544799520a629965094c03968e6c04299139011372fb6fabf5d"
         }
       ],
       "heb": true,
@@ -686,7 +695,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "fe86a443770c721d34d4d194c49577ca67f3cdab8481b40f3c6b9efdd8d4774c"
         }
       ],
       "heb": true,
@@ -757,7 +767,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "4edf446f2777d7d9ff2aa3606ef8e555ee999bd66eab74c9f45d8f340cf2ff52"
         }
       ],
       "heb": true,
@@ -798,7 +809,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "585e00b07ec0178856c39cae2faa8dca39984c1b0ef34d015b1048f9344a9006"
         }
       ],
       "heb": true,
@@ -844,7 +856,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "cc5090a358a231098055df236492b03773239bc8e5a2c638609d615475d40920"
         }
       ],
       "heb": true,
@@ -915,7 +928,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "10771844c68e08d3caa7c638f9b2ed5d1c58d3e7a88917bbf3456ff2a0f9fc59"
         }
       ],
       "heb": true,
@@ -962,7 +976,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "f2633c9b99eb9e68a14ce6582696e17e3fb30edf7dce4e270eb27dd720f59db5"
         }
       ],
       "heb": true,
@@ -1064,7 +1079,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "61ed10b88d962dbc86682ab56a03296296dd7254db006b3a90e16c7345e69f59"
         }
       ],
       "heb": true,
@@ -1136,7 +1152,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "5deea567800cfe2a79b6bba24f72cac55b20379a7d534e51e19a6ab8df8a63f2"
         }
       ],
       "icon": "icons/RemoteDesktop.png",
@@ -1220,7 +1237,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "7514a85089e441ac862adc9a9acb959480f9465ada82cf8ddc158cb2915a5338"
         }
       ],
       "heb": true,
@@ -1323,7 +1341,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "af8b2ab2dba3f1ada637ff81d1f8e406589d3ae8b48b3b16003a662ae0c82944"
         }
       ],
       "heb": true,
@@ -1394,7 +1413,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6641bb453d6d7d147057b5114c6edb11b400f106d7fc0719e595f1cef30a5d11"
         }
       ],
       "heb": true,
@@ -1430,7 +1450,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6a62a488fb651153df57cffbb9a7757200ac1d42987f08ecddffdd6af88c9313"
         }
       ],
       "heb": true,
@@ -1461,7 +1482,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "58d38a5f4177e8d719a55fd0e7e2c924f7708884145826e1e1eb65c8dfe7a9d7"
         }
       ],
       "icon": "icons/MixedReality.png",
@@ -1485,7 +1507,8 @@
           "ver": "1.2.48.0",
           "bundle": "Microsoft.HEIFImageExtension_1.2.48.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "c31cd0a6cea28cc301b22491db47fa2da9580421f529662ca612346996535110"
         }
       ],
       "heb": true,
@@ -1513,7 +1536,8 @@
           "ver": "1.2.31.0",
           "bundle": "Microsoft.WebpImageExtension_1.2.31.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "b281e2c217e8901d21cfc4a41cf948483f1d6a23abdd8ca3938e1bf343e25b2b"
         }
       ],
       "heb": true,
@@ -1557,7 +1581,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "43489277b5de295d78b69a0c1c431fd0a9e5ae0d0fcbf295b324429de6185228"
         },
         {
           "exe": "Setup-RawExtension-Win11.exe",
@@ -1567,7 +1592,8 @@
           "ver": "2.5.24.0",
           "bundle": "Microsoft.RawImageExtension_2.5.24.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "49a166ca02768623bd9957bbd383974c8f574218a48a1316287cf3f3f2430c88"
         }
       ],
       "heb": true,
@@ -1595,7 +1621,8 @@
           "ver": "1.2.20.0",
           "bundle": "Microsoft.VP9VideoExtensions_1.2.20.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "d7c91e53a57997276a9ba61382e231359b28c8f146949ef79bb2dabdf67e066a"
         }
       ],
       "heb": true,
@@ -1623,7 +1650,8 @@
           "ver": "2.0.30.0",
           "bundle": "Microsoft.AV1VideoExtension_2.0.30.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "b883ce1b96b9c12c5d2ae557c1414cf27a3b99224b3235dbadd6494286389883"
         }
       ],
       "icon": "icons/AV1Extension.png",
@@ -1650,7 +1678,8 @@
           "ver": "2.4.109.0",
           "bundle": "Microsoft.HEVCVideoExtension_2.4.109.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "40b6171b10e928da3d577e4bdcc3e30a1eb3bdc8c073c25dda0eb71f8e551755"
         },
         {
           "exe": "Setup-HEVCExtension-Win11.exe",
@@ -1660,7 +1689,8 @@
           "ver": "2.5.33.0",
           "bundle": "Microsoft.HEVCVideoExtension_2.5.33.0_neutral_~_8wekyb3d8bbwe.appxbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "73ae20a42e37426b8561550ef669224307886d0f08a3829ce3735c89a987604a"
         }
       ],
       "heb": true,
@@ -1734,7 +1764,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "05b2175357832b0af0478e3d6d475be7c80c3bcec5c37aae167f94cd28b22148"
         }
       ],
       "heb": true,
@@ -1777,7 +1808,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "1d8e70187e21177afca6cdb2dc22a86a0ee93ef292e7dbf4d9f7276307272f0f"
         }
       ],
       "heb": true,
@@ -1818,7 +1850,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "4808d6af26e4aa3dd5d053210088f74518fb5c17dbbf60c0b6718238c8d09dab"
         }
       ],
       "icon": "icons/FileRecovery.png",
@@ -1845,7 +1878,8 @@
           "ver": "2.7.12.0",
           "bundle": "MicrosoftCorporationII.WindowsSubsystemForLinux_2.7.12.0_neutral_~_8wekyb3d8bbwe.msixbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "9948da8440b1e0c16dee5d1b30480b982d6bb861f3f9a15a48930001f0bd4df5"
         }
       ],
       "icon": "icons/WSL.png",
@@ -1923,7 +1957,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6d57bc814db3542dbc974c74aafed85f3d788a70c04dc958f5f1e5218573ca02"
         }
       ],
       "icon": "icons/Journal.png",
@@ -1963,7 +1998,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "7ceab226b41dab5106f83da1d45c12628faf59eb00f9b1d4239be2323abcfee6"
         }
       ],
       "heb": true,
@@ -2020,7 +2056,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6c6906092d7e4c926bc073072360dbf409210ee72f57a7d4e97449e3b8ae2800"
         }
       ],
       "heb": true,
@@ -2056,7 +2093,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6121ef4853e78ac6232d8e51bd030610173a2dae6d9408f8b029026be804656d"
         }
       ],
       "xlat": {
@@ -2089,7 +2127,8 @@
           "ver": "7.6.5.0",
           "bundle": "Microsoft.PowerShell_2026.811.2337.0_neutral_~_8wekyb3d8bbwe.msixbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "66377b4fa406995b9d958967b113548bba154c758b0c52896097f9601d4abb71"
         }
       ],
       "icon": "icons/PowerShell.png",
@@ -2188,7 +2227,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "e2ee820ee2b5d5d2bc29cbbedc10d49efb917091756deedf0ef5c0f98aa4cab4"
         }
       ],
       "heb": true,
@@ -2289,7 +2329,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "9a56a1afbe99d2561ac22eb478ee21f6f603621b0c9b719152d025b30331cfa7"
         }
       ],
       "heb": true,
@@ -2345,7 +2386,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6a2ae7fab952a54220ae1f7022b640d84303cb978aa56fbc9d69d3f6f1b12706"
         },
         {
           "exe": "Setup-GetHelp-Win11.exe",
@@ -2386,7 +2428,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "65cca4c401b7d4786afa1d5aa2ef2e33351566275983e393f134190fe7e69571"
         }
       ],
       "heb": true,
@@ -2487,7 +2530,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "157876d42042a0d74df88635825ef0fd7892c34e62743572012c07f6fc381753"
         }
       ],
       "heb": true,
@@ -2543,7 +2587,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "82d86dec5445ef5d46c53601525d7b524b206a6e700f4ca5891362f918a251f8"
         }
       ],
       "heb": true,
@@ -2568,7 +2613,8 @@
           "ver": "19.2608.54041.0",
           "bundle": "Microsoft.MicrosoftOfficeHub_2026.824.1736.0_neutral_~_8wekyb3d8bbwe.msixbundle",
           "deps": [],
-          "live": false
+          "live": false,
+          "sha256": "76e489440beabaf9b922ca1861dcf3d78c21da1bcf9d8e3f9db5f73bb05c9e27"
         }
       ],
       "heb": true,
@@ -2624,7 +2670,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "5bf5a5c27c4f466c261685ed975b5d350a9d4550d40956a5129a3a286667597c"
         }
       ],
       "heb": true,
@@ -2665,7 +2712,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "e9bba914184619a9366ce1d936a3d30d32aeb77aa58f9a967a65982d34fb2f5f"
         }
       ],
       "heb": true,
@@ -2731,7 +2779,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "5b4c2e0c7980aad82ecd33a6cef0c43cfff7bf1f616ce126d454b5d66c7b23b4"
         },
         {
           "exe": "Setup-PhoneLink-Win11.exe",
@@ -2762,7 +2811,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "b07f2309393d0f56e3f21b81118ec320c374e8574afb6fd929a5f01d5de6fc88"
         }
       ],
       "heb": true,
@@ -2818,7 +2868,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "2e7dfa52d1eaf9a06e9d9e278ea99df12e746c38ab63de9ff8f29918a091d9cd"
         }
       ],
       "heb": true,
@@ -2873,7 +2924,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "5dc53eccd57226b717b9433d4c125e797f43e926562907689513fb5e69a6d239"
         }
       ],
       "heb": true,
@@ -2928,7 +2980,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "745e592fa80aa05b2243b286ae2318ff96eb1a0ed855d040f16e8f3690bcee39"
         }
       ],
       "heb": true,
@@ -2963,7 +3016,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "2573613242e84b518637955db1665f444d2aa3c93523abef255137bf9bec5299"
         }
       ],
       "heb": true,
@@ -3019,7 +3073,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "6752a6f5156ce9237204706616cd49b72a0076ced3ce938011087036432f25b0"
         }
       ],
       "heb": true,
@@ -3102,7 +3157,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "8a94962b654b494b576cbac14c6a05472d772fc2a69441fa79dd5204c52d01a1"
         }
       ],
       "icon": "icons/PowerBI.png",
@@ -3147,7 +3203,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "441c60bc0d4a431deed374977abb487b02101fe1385045cd796118b4fcc3e5df"
         }
       ],
       "heb": true,
@@ -3213,7 +3270,8 @@
               "arch": "x64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "8d06b0aaabd32d130f0093a151ef37c608b2d9ec7f9c1186ee210bc13f8d6f2c"
         }
       ],
       "icon": "icons/Translator.png",
@@ -3268,7 +3326,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "70ee518a31719509f133a0a4e70cb972c58d5fd307c3b9dda8d5dd9192a95944"
         }
       ],
       "heb": true,
@@ -3324,7 +3383,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "a73acc5420ea52d378b9eb8670170ebd0c84360b386393a6532b4b8467561547"
         },
         {
           "exe": "Setup-CrossDevice-Win11.exe",
@@ -3355,7 +3415,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "c8929777854dca2dc743dc767d86b9ba7aebf19b81eff6b26e40b238accb3eed"
         }
       ],
       "heb": true,
@@ -3456,7 +3517,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "0b0f603a422194f482697f3420fbb59a578c721afbb6719cbc7529c975b9a709"
         },
         {
           "exe": "Setup-Messaging-Win11.exe",
@@ -3542,7 +3604,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "37396b7979278d098c3001a6d7820b56bd21e3682948270895451a40eb06bdae"
         }
       ],
       "heb": true,
@@ -3582,7 +3645,8 @@
               "arch": "arm64"
             }
           ],
-          "live": false
+          "live": false,
+          "sha256": "55e54d6878b76e70c78e44e219ac060ad3363f784d7c247d63c60b014b6bd503"
         }
       ],
       "icon": "icons/DevHomeGitHub.png",
@@ -3658,7 +3722,8 @@
           "mb": 7,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "a4bba7701e355ae29c403431f871a537897c363e215cafe706615e270984f17c"
         }
       ],
       "descEn": "Programs and games from the 2013-2015 era need it",
@@ -3684,7 +3749,8 @@
           "mb": 6,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "53b605d1100ab0a88b867447bbf9274b5938125024ba01f5105a9e178a3dcdbd"
         }
       ],
       "descEn": "32-bit build of the 2013 libraries",
@@ -3710,7 +3776,8 @@
           "mb": 7,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "681be3e5ba9fd3da02c09d7e565adfa078640ed66a0d58583efad2c1e3cc4064"
         }
       ],
       "descEn": "The 2012 generation of libraries",
@@ -3736,7 +3803,8 @@
           "mb": 6,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "b924ad8062eaf4e70437c8be50fa612162795ff0839479546ce907ffa8d6e386"
         }
       ],
       "descEn": "32-bit build of the 2012 libraries",
@@ -3762,7 +3830,8 @@
           "mb": 10,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "f3b7a76d84d23f91957aa18456a14b4e90609e4ce8194c5653384ed38dada6f3"
         }
       ],
       "descEn": "The 2010 generation of libraries",
@@ -3788,7 +3857,8 @@
           "mb": 9,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "99dce3c841cc6028560830f7866c9ce2928c98cf3256892ef8e6cf755147b0d8"
         }
       ],
       "descEn": "32-bit build of the 2010 libraries",
@@ -3814,7 +3884,8 @@
           "mb": 5,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "c5e273a4a16ab4d5471e91c7477719a2f45ddadb76c7f98a38fa5074a6838654"
         }
       ],
       "descEn": "The 2008 generation — older games and programs",
@@ -3840,7 +3911,8 @@
           "mb": 4,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "8742bcbf24ef328a72d2a27b693cc7071e38d3bb4b9b44dec42aa3d2c8d61d92"
         }
       ],
       "descEn": "32-bit build of the 2008 libraries",
@@ -3866,7 +3938,8 @@
           "mb": 3,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "4487570bd86e2e1aac29db2a1d0a91eb63361fcaac570808eb327cd4e0e2240d"
         }
       ],
       "descEn": "The oldest one — for very old programs",
@@ -3892,7 +3965,8 @@
           "mb": 3,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "8648c5fc29c44b9112fe52f9a33f80e7fc42d10f3b5b42b2121542a13e44adfd"
         }
       ],
       "descEn": "32-bit build of the 2005 libraries",
@@ -4888,7 +4962,8 @@
         "label": "גרסה 5.2 — בלי עדכונים",
         "labelEn": "Version 5.2 - updates off",
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-AnyDesk-5.2.exe",
-        "mb": 3
+        "mb": 3,
+        "sha256": "a67c6693a237fb58399abc1a7a80fa4e187f51d3b72074d49879d6f3e98648e1"
       }
     },
     {
@@ -5942,7 +6017,8 @@
           "mb": 1,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "3df4cefb8ba5ac77d0ad9c2996eff6b5c7b3e97a89ba3b235e950ae10ced1b9d"
         }
       ],
       "descEn": "Fixes a line typed in the wrong keyboard layout. Select it, press Ctrl+Q, and the text comes back as Hebrew or as English - and the keyboard switches to the matching layout on its own. Ctrl+Alt+Q reverses text that came out backwards.",
@@ -6133,7 +6209,8 @@
           "mb": 95,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "78fc9bca005b652b8acef18421837d7092892d99aaf524c535d9cd9e2e03008a"
         }
       ],
       "desc": "מעביר את Windows לעברית — התפריטים, ההגדרות, סייר הקבצים, המקלדת והאזור. בוחר לבד את החבילה שמתאימה לגרסה שעל המחשב, ומחיל גם על מסך הכניסה ועל משתמשים חדשים.",

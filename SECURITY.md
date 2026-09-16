@@ -18,8 +18,8 @@ Anything else offering "the same files" is not this project. We do not know what
 ## What we promise
 
 - Vendor and Microsoft packages are redistributed **unmodified** — not repackaged, re-signed, patched, or stripped of notices — except for the two cases named below, which are labelled wherever they appear. Some are *carried inside* an installer or an ISO we build; the carried file is byte-identical to the file we received, and the vendor's signature stays on it. Carrying is not modifying, and we say which is which rather than letting one word cover both.
-- **What backs that claim, precisely.** Every package is fetched over TLS from the vendor's or Microsoft's CDN; the build records the SHA-256, the full signer subject and the certificate thumbprint of each file at the moment it is fetched, and fails the build if any of them changes without a human approving the change; and the SHA-256 of every byte embedded in a shipped installer is re-checked against that record before release. Where that pipeline is not yet in place for an item, the item's page says so, rather than implying a check that does not run. "As received" is only worth something if we say what we verified on receipt.
-- We publish, for every item, two hashes: the SHA-256 of the file we ship, **and** the filename, size and SHA-256 of the vendor's original file carried inside it. The second one can be checked against the vendor's own site, from any connected machine, without trusting us at all.
+- **What backs that claim, and what does not yet.** Every package is fetched over TLS from the vendor's or Microsoft's CDN. What is in place today is the last link: the SHA-256 of every file we serve is computed from the file that ships and published on its item page, so you can tell whether the bytes you hold are the bytes we released. What is **not** yet in place is the beginning of that chain - we do not currently record the signer subject and certificate thumbprint at fetch time, and the build does not fail on a change to them. We would rather say that than describe a pipeline that is only partly built. "As received" is only worth something if we say what we actually verified on receipt.
+- We publish the SHA-256 of every file **we** serve, on that file's own item page, beside its download. Files that download straight from the vendor - the Visual C++ runtimes, the .NET runtimes, DirectX, the Java builds and the rest - carry no hash from us, because they never pass through our hands and the vendor replaces them without telling us; for those, the vendor's own published value is the one to use. We do **not** yet publish the separate hash of the vendor's original file carried *inside* an installer we build. That would be the stronger check, and it is not there; saying it was would be worse than not offering it.
 - There are **two** exceptions to "unmodified", both labelled everywhere they appear. The first is Hebrew-translated builds produced by this project. The second is packages repaired so they open on a machine that has never been online: some Store apps check a licence with Microsoft's servers at first launch and simply fail on a disconnected machine, so those packages have a capability added to their manifest and are re-signed with this project's own certificate. Both **are** modified and neither carries a valid original vendor signature — a repaired package is signed `CN=BeniaBot Offline`, and its identity changes with the signer, which also means Windows Update will not replace it. The maker's untouched original is offered beside every one of them.
 - We will **never** ask a user to disable protection software, a firewall, Defender, or a filtering mechanism.
 - We will **never** ask for a password, payment details, an ID number, or a one-time code.
@@ -35,14 +35,14 @@ Two different things can be verified, and this section is explicit about which o
 Let the machine do the comparison. Do not eyeball 64 hex characters.
 
 ```powershell
-$expected = '<paste the value from the item page>'
-if ((Get-FileHash .\Setup-Notepad.exe).Hash -eq $expected) { 'MATCH' } else { 'NO MATCH' }
+$expected = '<the SHA-256 shown under the download on the item page>'
+if ((Get-FileHash .\Setup-Paint.exe).Hash -eq $expected) { 'MATCH' } else { 'NO MATCH' }
 ```
 
 `Get-FileHash` defaults to SHA-256. Without PowerShell:
 
 ```
-certutil -hashfile Setup-Notepad.exe SHA256
+certutil -hashfile Setup-Paint.exe SHA256
 ```
 
 On older Windows builds `certutil` prints the digest with spaces between byte pairs; strip them before comparing.
@@ -51,9 +51,11 @@ On older Windows builds `certutil` prints the digest with spaces between byte pa
 
 And it does **not** protect against a compromise of this project's GitHub account. An attacker in that position would update the hash list too. We state that plainly rather than implying more than the check delivers.
 
-### The stronger check: against the vendor, not against us
+### The stronger check, which is not built yet
 
-Each item also publishes the name, size and SHA-256 of the vendor's original file carried inside our installer. Compare that value against what the vendor publishes, and this project drops out of the trust chain entirely. It is the only verification here that survives our own account being taken over, and it is the one we would want a careful user to run.
+The check we would most want a careful person to run is not against us at all: the name, size and SHA-256 of the vendor's original file *carried inside* our installer, compared against what the vendor publishes on their own site. That drops this project out of the trust chain entirely, and it is the only verification here that would survive our own account being taken over.
+
+**It does not exist today.** The installers do not expose the carried file's hash, and no item page shows one. This section says so rather than quietly disappearing, because it is the gap that matters most, and because a reader deserves to know which checks are real before deciding how much to rely on them.
 
 ### Signatures — what you can actually inspect
 
@@ -72,7 +74,7 @@ The installer shell written by this project is **not code-signed**.
 What you will see:
 
 - With the mark-of-the-web present: SmartScreen's blue "Windows protected your PC" screen — *More info* → *Run anyway*.
-- **In addition, in almost every case:** a UAC prompt naming an unknown publisher. Most installers here request `requireAdministrator`, so that prompt appears even when the blue screen does not. (A small number install only into the user's own profile and raise no UAC prompt.) Anyone who told you to expect no warning at all was wrong.
+- **For a minority of installs, in addition:** a UAC prompt naming an unknown publisher. Most installers here do not ask for it - a Store app installs into your own profile and raises no prompt at all. The ones that do are the repaired packages (they have to trust a certificate), the Hebrew-translated builds, PC Manager, the Linux subsystem, the app that gets a firewall rule, and the all-in-one components file. Anyone who told you to expect no warning at all was wrong; so was an earlier version of this page, which said most of them ask.
 
 That warning is correct — the system genuinely does not know who wrote the file.
 
@@ -87,7 +89,7 @@ That warning is correct — the system genuinely does not know who wrote the fil
 Please report privately first:
 
 - GitHub → **Security → Report a vulnerability** on this repository (private vulnerability reporting is enabled), or
-- Email: [EDIT ME: project email address]
+- Email: b0554003794@gmail.com
 
 Please include: what you found, which file or URL, how to reproduce it, and how you would like to be credited.
 
@@ -120,11 +122,11 @@ There is no bug bounty. There is thanks, and credit if you want it.
 ## If a compromise is confirmed
 
 1. The affected release is pulled immediately.
-2. Known-good hashes are published — **and, so that this step is worth anything, they are also recorded out-of-band in advance.** A hash list published only from the account that was taken over proves nothing; the verification section above says as much, and it would be dishonest to then offer that same channel as the remedy. Each release's hash list is therefore also posted, dated, to a channel not controlled by that account. The front page names where. In an incident, compare against that copy, not only against this repository.
+2. Known-good hashes are published. **And here is the limitation, stated rather than glossed:** a hash list published only from the account that was taken over proves nothing, because whoever holds the account can publish a list to match whatever they replaced. The remedy for that is an out-of-band copy, dated, on a channel this account does not control - **and that copy does not exist yet.** Until it does, treat an incident notice from this repository as what it is: a claim from the same place the files come from. The strongest check available today remains comparing against the vendor's own published value, wherever the file is one the vendor also publishes.
 3. A dated notice goes on the site's front page and in the repository README, saying which files and which dates were affected.
 4. Credentials are rotated and the incident is written up publicly once it is understood.
 5. Releases are immutable and tagged by date, so an asset that changed under an existing tag is itself a signal — not something a reader has to take on trust.
 
 ## Copyright and takedown
 
-Rights holders: see the takedown page on the site. Files are removed as fast as we can manage — our own target is 72 hours, and we hit it nearly always, but this is a one-person project and we state it as a target rather than a contractual guarantee. No argument, no legal correspondence required first. The pseudonym is not a shield: a rights holder who needs the operator's identity to pursue a claim will be given it. Contact: [EDIT ME: project email address].
+Rights holders: see the takedown page on the site. Files are removed as fast as we can manage — our own target is 72 hours, and we hit it nearly always, but this is a one-person project and we state it as a target rather than a contractual guarantee. No argument, no legal correspondence required first. The pseudonym is not a shield: a rights holder who needs the operator's identity to pursue a claim will be given it. Contact: b0554003794@gmail.com.

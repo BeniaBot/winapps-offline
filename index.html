@@ -46,20 +46,7 @@
       if (d.weekday === "Fri" && h >= 16) return true;
       if (d.weekday === "Sat" && h < 21) return true;
       return false;
-    } catch (e) {
-      /* This is the last line of defence, and it used to answer "open". Everything above it is
-         built to fail shut, and then the final catch handed back the one answer the design exists
-         to avoid. It does not simply return true either: a browser that cannot do Intl would then
-         be shut out every day of the week, for ever, which is not a closed shop but a broken one.
-         So fall back to the device's own clock - right for a visitor in Israel, which is nearly
-         all of them - and only if even that fails, stay shut. */
-      try {
-        var d2 = new Date(), dow = d2.getDay(), h2 = d2.getHours();
-        if (dow === 5 && h2 >= 16) return true;
-        if (dow === 6 && h2 < 21) return true;
-        return false;
-      } catch (e2) { return true; }
-    }
+    } catch (e) { return false; }
   }
 
   var greet = "שבת שלום", when = "", shut = false;
@@ -464,7 +451,21 @@
   .t:hover .pick, .t.sel .pick { display: flex; }
   .pick:hover { border-color: var(--accent); }
   .t.sel .pick { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  /* The touch rule for this one is repeated here, and it has to be. The block above that says
+     "no hover, so show it" comes EARLIER in the file than `.pick { display: none }`, and at equal
+     specificity the later rule wins - so on every phone the multi-select circle was switched off
+     by a rule written after the one that switched it on. Nothing looked broken; the control was
+     simply absent, which is why it survived. */
+  @media (hover: none) { .pick { display: flex; } }
   .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
+  /* The sheet's way out. Sits in the top corner opposite the "?", big enough for a thumb. */
+  .sheet-x { position: absolute; top: 14px; inset-inline-end: 14px; z-index: 3;
+             width: 34px; height: 34px; border-radius: 99px; cursor: pointer;
+             display: flex; align-items: center; justify-content: center;
+             font-size: 1rem; line-height: 1; color: var(--muted);
+             background: var(--tile); border: 1px solid var(--stroke); }
+  .sheet-x:hover { color: var(--ink); border-color: var(--accent); }
+  .sheet-x:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* ===== ISO panel ===== */
   .iso { margin-top: 56px; border-radius: 22px; border: 1px solid transparent;
@@ -697,6 +698,17 @@
             opacity: 0; transform: translateY(4px); transition: opacity .16s, transform .16s; }
   .copied.show { opacity: 1; transform: translateY(0); }
   .cpy svg { width: 16px; height: 16px; }
+  /* the fingerprint of the file the row above downloads */
+  .dlwrap { display: flex; flex-direction: column; gap: 4px; }
+  .hashrow { display: flex; align-items: center; gap: 8px; padding: 0 4px 2px;
+             font-size: .68rem; color: var(--muted); }
+  .hashrow .hlbl { font-weight: 700; letter-spacing: .03em; flex: 0 0 auto; }
+  .hashrow code { font-family: 'IBM Plex Mono', Consolas, monospace; letter-spacing: -.01em;
+                  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .cpy.tiny { width: 26px; height: 22px; border-radius: 7px; flex: 0 0 auto;
+              display: inline-flex; align-items: center; justify-content: center;
+              background: transparent; border: 1px solid var(--stroke); color: var(--muted); }
+  .cpy.tiny svg { width: 12px; height: 12px; }
 
   /* ===== dock ===== */
   .dock { position: fixed; inset-inline: 0; bottom: 14px; z-index: 50; pointer-events: none; }
@@ -2019,14 +2031,10 @@ function render() {
     }
     return out;
   }
-  /* Which app each group claims. Kept in one place so the "did anything fall through"
-     check below asks exactly the same question the rendering does. */
-  const claims = (cat, a) =>
-    cat === 'בפיתוח שלי' ? !!a.custom :
-    W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
-    // a vendor download can belong to a subject category too - WSA sits with WSL, not off
-    // in "common software" - so this branch no longer excludes w32
-    (!a.custom && (a.cat || 'נוספות') === cat);
+  /* claims() is defined at module scope, because "select all" needs to ask the very same
+     question. It used to have its own copy with one extra condition, and that copy skipped every
+     vendor program the shelf files under a subject category - so the button said it had selected
+     a category and had quietly left some of it out. */
   /* An app whose category matches no group used to be dropped in silence: present in the
      catalog, absent from the shop. Give the strays a home rather than lose them. */
   const orphans = DATA.apps.filter(a => !groups.some(cat => claims(cat, a)));
@@ -2108,11 +2116,18 @@ function finishRender(box, html, chipBar, shown, total) {
 const winChip = (v, t) => '<button class="chip' + (FILTER === v ? ' on' : '') + '" data-win="' + v + '">' + t + '</button>';
 
 /* ===== interactions ===== */
+/* Which app each group claims. One definition, used by the rendering, by the orphan check and by
+   "select all", so the three cannot answer differently. A function declaration rather than a
+   const, because render() is written above this line and needs it hoisted. */
+function claims(cat, a) {
+  if (cat === 'בפיתוח שלי') return !!a.custom;
+  if (W32_CATS.includes(cat)) return !!(a.w32 && a.cat === cat);
+  // a vendor download can belong to a subject category too - WSA sits with WSL, not off in
+  // "common software" - so this branch does not exclude w32
+  return !a.custom && (a.cat || 'נוספות') === cat;
+}
 function membersOf(cat) {
-  return DATA.apps.filter(a =>
-    cat === 'בפיתוח שלי' ? a.custom :
-    W32_CATS.includes(cat) ? (a.w32 && a.cat === cat) :
-    (!a.custom && !a.w32 && (a.cat || 'נוספות') === cat));
+  return DATA.apps.filter(a => claims(cat, a));
 }
 
 document.addEventListener('click', e => {
@@ -2377,8 +2392,11 @@ function needsLine(a) {
    fix by downloading again. */
 /* Where a gated Store app has a replacement that opens offline today, point to it. This makes
    the store's own rule - prefer the thing that works - visible right where the caveat is. */
+/* app -> the id of the open, offline alternative offered beside it. The VALUE is an app id and
+   nothing else; a tag list landed in the Journal entry once and the alternative simply stopped
+   appearing, because no app is called "Xournalpp ג׳ורנל ג׳ורנאל כתב יד רישום". */
 const ALT_FOR = {
-  Journal: 'Xournalpp ג׳ורנל ג׳ורנאל כתב יד רישום', '3DViewer': 'F3D',
+  Journal: 'Xournalpp', '3DViewer': 'F3D',
 };
 function altLine(a) {
   const altEn = ALT_FOR[a.en];
@@ -2753,10 +2771,22 @@ function openSheet(en) {
     '" data-add="' + kind + '" title="' + esc(T('הוספה לבחירה מרובה')) + '" aria-label="' +
     esc(T('הוספה לבחירה מרובה')) + '">' + (isPicked(en, kind) ? '✓' : '+') + '</button>';
 
-  const dlRow = (inner, url, withLang, kind) => '<div class="dlrow">' +
+  /* The SHA-256 of the file this row downloads. The security page tells a reader, in several
+     places, to compare their copy against "the value from the item page" - and until now no item
+     page carried one, which teaches people that verification here is decoration. It is shown
+     shortened and copied whole, because the page itself says not to eyeball 64 hex characters:
+     the machine does the comparing. */
+  const hashRow = (sha) => sha
+    ? '<div class="hashrow"><span class="hlbl">SHA-256</span>' +
+      '<code dir="ltr" title="' + esc(sha) + '">' + esc(sha.slice(0, 16)) + '…</code>' +
+      '<button class="cpy tiny" data-url="' + esc(sha) + '" title="' + esc(T('העתקת ה-SHA-256')) +
+      '" aria-label="' + esc(T('העתקת ה-SHA-256')) + '">' + COPY_ICON + '</button></div>'
+    : '';
+
+  const dlRow = (inner, url, withLang, kind, sha) => '<div class="dlwrap"><div class="dlrow">' +
     (kind ? addBtn(kind) : '') + (withLang ? langBtn : '') + inner +
     (url ? '<button class="cpy" data-url="' + esc(url) + '" title="' + esc(T('העתקת קישור ישיר')) + '" aria-label="' + esc(T('העתקת קישור ישיר')) + '">' + COPY_ICON + '</button>' : '') +
-    '</div>';
+    '</div>' + hashRow(sha) + '</div>';
 
   let btns = files.map(f => {
     const label = files.length > 1
@@ -2765,7 +2795,7 @@ function openSheet(en) {
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
     // one build: 'main' follows the dock's Win target. Several: pin the exact file.
     return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>',
-      linkFor(a, f.exe), false, files.length > 1 ? 'file:' + f.exe : 'main');
+      linkFor(a, f.exe), false, files.length > 1 ? 'file:' + f.exe : 'main', f.sha256);
   }).join('');
   /* the vendor's own build in the other language, as a row of its own so it can be picked,
      copied and counted like any other download */
@@ -2775,7 +2805,7 @@ function openSheet(en) {
      compared, and the difference between them is mostly size */
   if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' +
     esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) +
-    (a.alt.mb ? ' <span class="sz">· <span dir="ltr">' + mbFmt(a.alt.mb) + '</span></span>' : '') + '</a>', a.alt.url, false, 'alt');
+    (a.alt.mb ? ' <span class="sz">· <span dir="ltr">' + mbFmt(a.alt.mb) + '</span></span>' : '') + '</a>', a.alt.url, false, 'alt', a.alt.sha256);
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
   if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
@@ -2894,10 +2924,49 @@ function openSheet(en) {
   document.body.appendChild(ov);
   translateDom(ov);
   document.body.style.overflow = 'hidden';   // the page must not scroll behind the sheet
-  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
-  const onEsc = e => { if (e.key === 'Escape') shut(); };
+
+  /* On a phone this sheet had no way out. Escape is a keyboard, the backdrop was an eight-pixel
+     strip beside a nearly full-width panel, and there was no button - so the way back was the
+     browser's own Back, which leaves the shop. And for anyone on a keyboard, opening a card left
+     the focus on the page behind it: the sheet's own download button was hundreds of tabs away,
+     and Tab walked through the catalogue underneath a dialog that was covering it. */
+  const panel = ov.querySelector('.sheet') || ov.firstElementChild;
+  if (panel) {
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+    panel.setAttribute('tabindex', '-1');
+    const x = document.createElement('button');
+    x.className = 'sheet-x';
+    x.type = 'button';
+    x.setAttribute('aria-label', T('סגירה'));
+    x.textContent = '✕';
+    panel.appendChild(x);
+    x.addEventListener('click', () => shut());
+  }
+  const returnTo = document.activeElement;
+  const shut = () => {
+    ov.remove();
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onEsc);
+    try { if (returnTo && returnTo.focus) returnTo.focus(); } catch (e) { }
+  };
+  const focusable = () => [...ov.querySelectorAll(
+    'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null);
+  const onEsc = e => {
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key !== 'Tab') return;
+    // Tab stays inside the sheet while the sheet is what is on screen
+    const list = focusable();
+    if (!list.length) return;
+    const first = list[0], last = list[list.length - 1];
+    if (!ov.contains(document.activeElement)) { e.preventDefault(); first.focus(); return; }
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
   document.addEventListener('keydown', onEsc);
+  try { (focusable()[0] || panel).focus(); } catch (e) { }
   const qm = ov.querySelector('#qm'), qb = ov.querySelector('#qb');
   qm.onclick = () => {
     if (qb.classList.contains('open')) {
