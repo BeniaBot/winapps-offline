@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11",
+  "updated": "2026-09-16",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -2409,6 +2409,16 @@
       "url": "https://update.code.visualstudio.com/latest/win32-x64/stable",
       "match": "VSCodeSetup-x64-*.exe",
       "silent": "/VERYSILENT /NORESTART /MERGETASKS=!runcode",
+      "xlat": {
+        "exe": "hebrew-ui-translation-amaarets-1.137.0.vsix",
+        "url": "https://github.com/Y-PLONI/vscode-language-pack-he/releases/download/v1.137.0/hebrew-ui-translation-amaarets-1.137.0.vsix",
+        "mb": 0.7,
+        "source": "community",
+        "by": "Y-PLONI",
+        "repo": "Y-PLONI/vscode-language-pack-he",
+        "note": "תרגום עברי מלא של הממשק, נעשה בידי מתרגם עצמאי ופורסם בקוד פתוח. זה תוסף ולא מתקין: פותחים ב-VS Code את אזור ההרחבות, לוחצים על שלוש הנקודות שלמעלה, בוחרים Install from VSIX ומצביעים על הקובץ שהורדתם. אין מה להריץ ואין מה להתקין מחדש.",
+        "noteEn": "A full Hebrew translation of the interface, made by an independent translator and published as open source. It is an extension, not an installer: in VS Code open the Extensions view, click the three dots at the top, choose Install from VSIX and point it at the file you downloaded. Nothing to run, nothing to reinstall."
+      },
       "icon": "icons/w32real/VSCode.png",
       "color": "#0098ff",
       "desc": "עורך הקוד של מיקרוסופט — מתקין מלא",

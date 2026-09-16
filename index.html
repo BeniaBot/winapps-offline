@@ -1082,6 +1082,9 @@ const EN = {
   '✓ ממשק בעברית — נפתחת בעברית במחשב עברי': '✓ Hebrew interface — opens in Hebrew on a Hebrew PC',
   '✓ התפריטים וההגדרות בעברית — הפלט עצמו, מטבע הדברים, לא מתורגם': '✓ Menus and settings in Hebrew — what it prints, naturally, is not translated',
   '★ קיים תרגום לעברית — לא רשמי, נעשה כאן': '★ A Hebrew translation exists — unofficial, made here',
+  '★ קיים תרגום לעברית — של מתרגם עצמאי, לא רשמי': "★ A Hebrew translation exists — by an independent translator, unofficial",
+  'התרגום אינו רשמי ולא נעשה כאן — הוא של מתרגם עצמאי, בקוד פתוח, ויורד ישירות ממנו. הקובץ המקורי של היצרן אינו נוגע.':
+    "The translation is unofficial and was not made here — it belongs to an independent translator, is open source, and downloads straight from them. The maker's own file is untouched.",
   '✓ ממשק בעברית בלבד — אין לה אנגלית': '✓ Hebrew interface only — it has no English',
   'ממשק באנגלית — יש בה שפות נוספות לבחירה, אבל לא עברית': 'Interface in English — it offers other languages to choose from, but not Hebrew',
   'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.':
@@ -1902,9 +1905,10 @@ function langClaim(a) {
       default:                     return T('✓ ממשק בעברית — עוקבת אחרי שפת Windows: אם השפה אנגלית, היא תותקן באנגלית');
     }
   }
-  if (a.xlat) return T(a.xlat.source === 'official'
-    ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
-    : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן');
+  if (a.xlat) return T(
+    a.xlat.source === 'official'  ? '★ אפשר להוריד אותה עם חבילת השפה הרשמית של היצרן'
+  : a.xlat.source === 'community' ? '★ קיים תרגום לעברית — של מתרגם עצמאי, לא רשמי'
+                                  : '★ קיים תרגום לעברית — לא רשמי, נעשה כאן');
   if (a.langMode === 'single-language') return T('ממשק באנגלית בלבד — אין לה שפה אחרת');
   /* heb is false, but the catalog still recorded HOW this one picks a language - so it has
      others, Hebrew simply is not among them. Calling that "English only" contradicted the
@@ -2333,9 +2337,23 @@ function openSheet(en) {
        build only runs it silently and picks Hebrew, so it comes up Hebrew on an English machine
        too. Said in the page rather than read from xlat.note, because both sentences describe the
        one mechanism in mkxlat.ps1, not a fact that varies per app. */
-    '<div class="warn" style="margin:2px 0 4px">' + T(a.xlat.source === 'official'
-      ? 'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.'
-      : 'התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') + '</div>';
+    /* A third source exists and saying "made here" of it would be a plain lie: a translation
+       somebody else published, which we neither made nor host. It gets its own sentence, its
+       own credit, and - because these arrive as an add-on rather than an installer - its own
+       instruction, taken from the translation's note instead of assumed. */
+    '<div class="warn" style="margin:2px 0 4px">' + T(
+      a.xlat.source === 'official'
+        ? 'המתקין הוא של היצרן, ללא שינוי, וקובץ השפה הרשמי שלו כבר בתוכו. הקובץ הזה מריץ אותו בשקט ובוחר עברית מראש — כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.'
+      : a.xlat.source === 'community'
+        ? 'התרגום אינו רשמי ולא נעשה כאן — הוא של מתרגם עצמאי, בקוד פתוח, ויורד ישירות ממנו. הקובץ המקורי של היצרן אינו נוגע.'
+        : 'התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') +
+      (a.xlat.source === 'community' && a.xlat.by ? ' <span dir="ltr">' + esc(a.xlat.by) + '</span>' : '') +
+    '</div>' +
+    /* An add-on is not run, so "download and double-click" - true of every other button on this
+       page - is wrong here. The note says what to do instead. */
+    (a.xlat.note || a.xlat.noteEn
+      ? '<div class="langhow" style="margin:0 0 6px">' + esc(LANG === 'en' ? (a.xlat.noteEn || a.xlat.note) : (a.xlat.note || a.xlat.noteEn)) + '</div>'
+      : '');
   const on = SELECTED.has(en);
   const ov = document.createElement('div');
   ov.className = 'overlay';
