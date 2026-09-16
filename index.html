@@ -1382,8 +1382,30 @@ function loadInfo() {
   if (!INFO_P) INFO_P = fetch('app-info.json')
     .then(r => r.ok ? r.json() : {})
     .then(j => (INFO = Object.assign(j, (XTRA && XTRA.info) || {})))
+    .then(() => {
+      // the explainers are part of the index; any haystack cached before they arrived is stale
+      if (DATA) DATA.apps.forEach(a => { if (!a._hayInfo) { a._hay = null; a._fld = null; } });
+      return INFO;
+    })
     .catch(() => (INFO = {}));
   return INFO_P;
+}
+
+/* The shop sells a program whose whole purpose is fixing text typed in the wrong keyboard
+   layout, which is as plain a statement as there could be that its own visitors do it. Typing
+   "chrome" with the keyboard still in Hebrew produces "בירםצק", which matched nothing at all.
+   Mapped back rather than guessed at: this is the standard Israeli layout, key for key. */
+const KB_EN = "qwertyuiop" + "asdfghjkl;'" + "zxcvbnm,./";
+const KB_HE = "/'קראטוןםפ" + "שדגכעיחלךף," + "זסבהנמצתץ.";
+function retype(word) {
+  if (!/[֐-׿]/.test(word)) return null;
+  let out = '';
+  for (const ch of word) {
+    const i = KB_HE.indexOf(ch);
+    if (i < 0) return null;            // a real Hebrew word, not a mistyped Latin one
+    out += KB_EN[i];
+  }
+  return out.length >= 2 ? out : null;
 }
 
 /* ===== smart search =====
@@ -1391,79 +1413,180 @@ function loadInfo() {
    and a category word ("דפדפן") should bring the whole family. */
 /* what each app answers to, beyond its own name - the search's real knowledge */
 const TAGS = {
-  Chrome: 'דפדפן browser כרום גוגל google גלישה',
-  Firefox: 'דפדפן browser פיירפוקס מוזילה mozilla גלישה',
+  '3DViewer': 'תלת ממד תלת-ממד מודלים 3d מציג',
+  Builder3D: 'תלת ממד תלת-ממד מודלים 3d בנייה',
+  Print3D: 'תלת ממד תלת-ממד הדפסה תלת ממדית 3d',
+  F3D: 'תלת ממד תלת-ממד מודלים 3d מציג stl obj',
+  MixedReality: 'מציאות מעורבת מציאות רבודה vr ar',
+  HEIFExtension: 'heic אייפון תמונות הרחבה קודק',
+  WebpExtension: 'webp תמונות הרחבה קודק',
+  RawExtension: 'raw מצלמה תמונות הרחבה קודק',
+  VP9Extension: 'vp9 וידאו הרחבה קודק',
+  AV1Extension: 'av1 וידאו הרחבה קודק',
+  HEVCExtension: 'hevc h265 וידאו הרחבה קודק',
+  FileRecovery: 'שחזור קבצים לשחזר קובץ שנמחק מחיקה',
+  Journal: 'ג׳ורנל ג׳ורנאל כתב יד רישום מחברת עט מסך מגע',
+  Xournalpp: 'מחברת כתב יד עט הערות סימון pdf רישום ציור',
+  GetHelp: 'עזרה תמיכה',
+  FeedbackHub: 'משוב פידבק',
+  QuickAssist: 'סיוע מהיר שליטה מרחוק תמיכה מרחוק',
+  Family: 'בקרת הורים משפחה סינון ילדים',
+  Widgets: 'ווידגטים ויג׳טים לוח מידע',
+  StorePurchase: 'חנות רכישות',
+  CrossDevice: 'חיבור מכשירים טלפון',
+  Messaging: 'הודעות sms',
+  BingSearch: 'חיפוש bing שורת המשימות',
+  DevHomeGitHub: 'גיטהאב github dev home',
+  VCRedist64: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ ספריות ריצה רכיב',
+  VCRedist86: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VC2013x64: 'vc++ visual c++ ספריות ריצה רכיב',
+  VC2013x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VC2012x64: 'vc++ visual c++ ספריות ריצה רכיב',
+  VC2012x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VC2010x64: 'vc++ visual c++ ספריות ריצה רכיב',
+  VC2010x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VC2008x64: 'vc++ visual c++ ספריות ריצה רכיב',
+  VC2008x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VC2005x64: 'vc++ visual c++ ספריות ריצה רכיב',
+  VC2005x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  DirectX: 'דיירקט אקס directx גרפיקה רכיב',
+  WSAGitHub: 'אנדרואיד android אפליקציות אנדרואיד wsa סאבסיסטם',
+  DefenderPlatform: 'דיפנדר אנטיוירוס אנטי וירוס הגנה מנוע עדכון',
+  DefenderSignatures: 'דיפנדר אנטיוירוס אנטי וירוס הגנה חתימות עדכון',
+  SpaceTheme: 'ערכת נושא טפט רקע חלל נאסא',
+  MountainsTheme: 'ערכת נושא טפט רקע הרים אלפים',
+  WaterTheme: 'ערכת נושא טפט רקע מים אגמים מפלים',
+  ForestTheme: 'ערכת נושא טפט רקע יער יערות',
+  'CAPS FIX': 'קאפס פיקס caps fix מקלדת פריסה עברית אנגלית הפוך תיקון שורה ממשק בעברית',
+  WolfSheepCabbage: 'שיבוץ חדרים פנימייה זאב כבשה כרוב',
+  /* The Torah shelf. Each library answers to the books it actually holds, so "גמרא" returns
+     the two that carry one rather than everything filed under תורה ולימוד. */
+  Otzaria: 'אוצריא גמרא תלמוד בבלי ירושלמי משנה חומש תנך רמבם שולחן ערוך הלכה מדרש זוהר תהילים ספרים ספרייה ארון ספרים',
+  ToratEmet: 'תורת אמת גמרא תלמוד בבלי משנה חומש תנך הלכה מדרש ספרים ספרייה ארון ספרים',
+  Zayit: 'זית גמרא תלמוד בבלי משנה חומש תנך סידור תפילה מחזור תהילים ספרים ספרייה ארון ספרים',
+  /* the two database halves stay findable by name, but carry no book names: they are the shelf
+     Zayit reads from, not a library a person opens, and they must not outrank the real ones */
+  ZayitDb1: 'זית מסד ספרים',
+  ZayitDb2: 'זית מסד ספרים',
+  MechonMamre: 'מכון ממרא תנך חומש משנה רמבם תלמוד ספרים',
+  KleiKodesh: 'כלי קודש סידור מחזור הגדה ניקוד גופנים טיפוגרפיה',
+  LuachProject: 'פרויקט לוח לוח שנה זמנים תאריך עברי זמני היום',
+  Tarichon: 'תאריכון לוח שנה תאריך עברי המרת תאריכים',
+  Itim: 'עיתים לוח שנה זמנים תאריך עברי זמני היום',
+  /* Hebrew spellings of Latin names, and the words for what each one is FOR. They sit here
+     rather than in SYN because the search needs every typed word to hit one app's own text:
+     a synonym group wide enough to bridge "פאוורטויס" to PowerToys would drag its other
+     members onto every app whose description happens to share a word. */
+  Kiwix: 'קיוויקס זים ויקיטקסט ויקיפדיה קורא אופליין ארון ספרים ספרייה',
+  KiwixWikisourceHe: 'קיוויקס זים ויקיטקסט תנך משנה ספרים',
+  PowerShell: 'פאוורשל פאוור של מעטפת טרמינל שורת פקודה terminal console',
+  NetFx481: 'דוט נט דוטנט נט פריימוורק framework',
+  NetFx35: 'דוט נט דוטנט נט פריימוורק framework',
+  Net6Desktop: 'דוט נט דוטנט runtime',
+  Net7Desktop: 'דוט נט דוטנט runtime',
+  Net8Desktop: 'דוט נט דוטנט runtime',
+  Net8Desktop86: 'דוט נט דוטנט runtime',
+  Net9Desktop: 'דוט נט דוטנט runtime',
+  RustDesk: 'ראסטדסק ראסט דסק שליטה מרחוק',
+  TerminalPreview: 'טרמינל שורת פקודה terminal console',
+  Copilot: 'קופיילוט קו פיילוט',
+  Clipchamp: 'קליפצ׳מפ קליפ צ׳מפ עריכת וידאו',
+  ACE2016: 'אקסס אופיס מסדי נתונים',
+  ToDo: 'טו דו טודו משימות רשימת משימות',
+  PowerToys: 'פאוורטויס פאוור טויס כלים',
+  Sysinternals: 'סיסאינטרנלס כלי מערכת',
+  WinDbg: 'וינדבג דיבאגר ניפוי שגיאות',
+  BleachBit: 'בליצ׳ביט ניקוי לנקות פרטיות',
+  Screenbox: 'סקרינבוקס נגן',
+  Vulkan: 'וולקן גרפיקה',
+  PhysX: 'פיזיקס פיסיקס',
+  PhysXLegacy: 'פיזיקס פיסיקס',
+  XNA: 'אקס אן איי',
+  WebView2: 'ווב ויו webview רכיב',
+  AppInstaller: 'וינגט winget מנהל חבילות התקנה',
+  Sway: 'סוואי מצגות',
+  PowerBI: 'פאואר בי איי פאוור בי איי נתונים',
+  OfficeHub: 'אופיס office',
+  SubtitleStudio: 'כתובית כתוביות סרטים תרגום',
+  Mail: 'מיילים אימייל דואר אלקטרוני',
+  HebrewLanguage: 'ווינדוס בעברית חלונות בעברית שפת ממשק עברית',
+  Chrome: 'דפדפן browser כרום גוגל google גלישה קרום',
+  Firefox: 'דפדפן browser פיירפוקס מוזילה mozilla גלישה פירפוקס מזילה',
   Edge: 'דפדפן browser אדג מיקרוסופט גלישה',
-  Thunderbird: 'דואר מייל mail email תיבת דואר',
-  VLC: 'נגן player וידאו סרטים מוזיקה שמע media',
+  Thunderbird: 'דואר מייל mail email תיבת דואר תאנדרבירד ת׳אנדרבירד מיילים אימייל',
+  VLC: 'נגן player וידאו סרטים מוזיקה שמע media וי אל סי ויאלסי',
   MediaPlayer: 'נגן player מוזיקה שמע media',
   MoviesTV: 'נגן player סרטים וידאו media',
-  GIMP: 'ציור עריכת תמונות photoshop פוטושופ גרפיקה image editor',
-  Audacity: 'הקלטה עריכת שמע audio recorder',
-  OBS: 'הקלטת מסך שידור streaming screen record',
-  SevenZip: 'ארכיון zip rar חילוץ דחיסה archive extract',
-  SumatraPDF: 'pdf מסמכים קורא reader',
-  LibreOffice: 'אופיס office word excel powerpoint מסמכים גיליון מצגת',
-  Everything: 'חיפוש קבצים search find',
-  WinDirStat: 'דיסק מקום storage space ניתוח',
-  Speccy: 'חומרה hardware מפרט מידע מערכת',
-  Revo: 'הסרה uninstall שאריות ניקוי',
-  KeePassXC: 'סיסמאות password מנהל כספת',
-  VeraCrypt: 'הצפנה encrypt כספת אבטחה',
-  AnyDesk: 'שליטה מרחוק remote תמיכה',
-  TeamViewer: 'שליטה מרחוק remote תמיכה',
+  GIMP: 'ציור עריכת תמונות photoshop פוטושופ גרפיקה image editor גימפ',
+  Audacity: 'הקלטה עריכת שמע audio recorder אודסיטי אודאסיטי',
+  OBS: 'הקלטת מסך שידור streaming screen record או בי אס אוביאס',
+  SevenZip: 'ארכיון zip rar חילוץ דחיסה archive extract סבן זיפ שבע זיפ וינרר winrar',
+  SumatraPDF: 'pdf מסמכים קורא reader סומטרה סומאטרה פי די אף ספרים ספר קריאה קורא ספרים',
+  LibreOffice: 'אופיס office word excel powerpoint מסמכים גיליון מצגת ליברה ליברהאופיס וורד אקסל פאוורפוינט פאוור פוינט',
+  Everything: 'חיפוש קבצים search find אוורית׳ינג אברית׳ינג',
+  WinDirStat: 'דיסק כונן מקום לפנות מקום פינוי מקום storage space ניתוח וינדירסטט בדיסק',
+  Speccy: 'חומרה hardware מפרט מפרט המחשב מה יש לי במחשב מחשב מעבד זיכרון כרטיס מסך לוח אם דגם מידע מערכת ספקי',
+  Revo: 'הסרה uninstall שאריות ניקוי רבו ריבו מסיר',
+  KeePassXC: 'סיסמאות password מנהל כספת קיפאס קי פאס',
+  VeraCrypt: 'הצפנה להצפין encrypt כספת אבטחה דיסק כונן מחיצה ורהקריפט ורה קריפט',
+  AnyDesk: 'שליטה מרחוק remote תמיכה אנידסק אני דסק',
+  TeamViewer: 'שליטה מרחוק remote תמיכה טימוויוער טים ויוער',
   RemoteDesktop: 'שליטה מרחוק remote rdp',
-  Rufus: 'צריבה usb דיסק און קי iso bootable',
-  KLite: 'קודקים codec וידאו נגן',
-  Python: 'תכנות programming קוד פיתוח',
-  Git: 'תכנות גרסאות version control פיתוח',
+  Rufus: 'צריבה usb דיסק און קי iso bootable רופוס לצרוב',
+  KLite: 'קודקים codec וידאו נגן קיי לייט',
+  Python: 'תכנות programming קוד פיתוח פייתון פיתון',
+  Git: 'תכנות גרסאות version control פיתוח גיט',
   /* Its name only ever appears in Latin, so a Hebrew speaker typing what they say out loud found
      nothing at all. The spellings belong here rather than in SYN: the search requires every word
      typed to hit, so "ויזואל סטודיו" works only if both words sit in this app's own text - and a
      synonym group wide enough to catch it would drag in every app whose description says קוד. */
   VSCode: 'תכנות עורך קוד editor פיתוח ויזואל ויז׳ואל סטודיו וי אס',
-  Java: 'תכנות ריצה runtime',
-  Java8: 'תכנות ריצה runtime',
-  Java11: 'תכנות ריצה runtime',
-  Java17: 'תכנות ריצה runtime',
-  Java21: 'תכנות ריצה runtime',
-  NotepadPP: 'עורך טקסט editor קוד תכנות',
+  Java8: 'תכנות ריצה runtime ג׳אווה גאווה ג׳אוה',
+  Java11: 'תכנות ריצה runtime ג׳אווה גאווה ג׳אוה',
+  Java17: 'תכנות ריצה runtime ג׳אווה גאווה ג׳אוה מיינקראפט',
+  Java21: 'תכנות ריצה runtime ג׳אווה גאווה ג׳אוה',
+  NotepadPP: 'עורך טקסט editor קוד תכנות נוטפד נוטפאד נוטפד פלוס',
   Notepad: 'עורך טקסט editor פנקס',
-  PowerShell7: 'טרמינל שורת פקודה terminal console תכנות',
+  PowerShell7: 'טרמינל שורת פקודה terminal console תכנות פאוורשל פאוור של מעטפת',
   Terminal: 'טרמינל שורת פקודה console cmd תכנות',
-  PCManager: 'ניקוי תחזוקה אופטימיזציה clean optimize',
-  Csharf: 'ניקוי תחזוקה טוויקים tweaks אופטימיזציה',
+  PCManager: 'ניקוי תחזוקה אופטימיזציה clean optimize לנקות',
+  Csharf: 'ניקוי תחזוקה טוויקים tweaks אופטימיזציה סיהרף צהרף',
   Calculator: 'מחשבון calculator חישוב',
   StickyNotes: 'פתקים notes תזכורות',
-  OneNote: 'פתקים notes מחברת',
+  OneNote: 'פתקים notes מחברת וואן נוט וואננוט פנקס',
   SnippingTool: 'צילום מסך screenshot חיתוך גזירה',
-  SoundRecorder: 'הקלטה רשמקול recorder שמע',
+  SoundRecorder: 'הקלטה רשמקול recorder שמע רשם קול מקליט',
   Camera: 'מצלמה camera צילום',
   Photos: 'תמונות photos גלריה תצוגה',
-  Paint: 'ציור paint גרפיקה',
-  Paint3D: 'ציור paint תלת ממד 3d',
+  Paint: 'ציור paint גרפיקה פיינט',
+  Paint3D: 'ציור paint תלת ממד 3d פיינט פיינט',
   Maps: 'מפות maps ניווט navigation',
-  Weather: 'מזג אוויר weather תחזית',
+  Weather: 'מזג אוויר weather תחזית אויר',
   News: 'חדשות news',
   Translator: 'תרגום translate מתרגם',
   People: 'אנשי קשר contacts',
   Clock: 'שעון alarm התראות טיימר שעונים',
   PhoneLink: 'טלפון phone נייד android',
-  WSL: 'לינוקס linux וירטואלי subsystem',
-  TikNick: 'ניקים פורומים ניהול מעקב',
+  WSL: 'לינוקס linux וירטואלי subsystem לינקס אובונטו',
+  TikNick: 'ניקים פורומים ניהול מעקב טיקניק טיק ניק',
   Game2049: '2048',
   Store: 'חנות store microsoft',
-  DesktopAppInstaller: 'winget התקנה package manager'
 };
 const SYN = [
   ['דפדפן', 'דפדפנים', 'browser', 'browsers'],
   ['chrome', 'כרום', 'גוגל', 'google'],
   ['firefox', 'פיירפוקס', 'מוזילה', 'mozilla'],
   ['edge', 'אדג', 'אדג׳'],
-  ['נגן', 'נגנים', 'player', 'media', 'מדיה', 'וידאו', 'video', 'סרטים', 'movies', 'מוזיקה', 'music', 'שמע', 'audio'],
+  /* Three groups, not one. As a single list of thirteen, "נגן ווידאו" expanded both typed words
+     into the same thirteen terms and returned twenty-seven cards - every codec, every extension,
+     every app whose description mentions sound. Someone asking for a video player is not asking
+     for a music library, and the shop should not answer as if they were. */
+  ['נגן', 'נגנים', 'player', 'מדיה', 'media'],
+  ['וידאו', 'ווידאו', 'video', 'סרט', 'סרטים', 'movies', 'movie'],
+  ['מוזיקה', 'מוסיקה', 'music', 'שמע', 'audio', 'שירים', 'שיר'],
   ['vlc'], ['קודק', 'קודקים', 'codec', 'codecs', 'hevc', 'heif', 'webp', 'av1', 'vp9', 'raw', 'הרחבה', 'הרחבות'],
   ['תמונה', 'תמונות', 'photo', 'photos', 'image', 'images', 'צילום', 'picture'],
-  ['עריכה', 'editor', 'עורך', 'edit'],
+  ['עריכה', 'editor', 'עורך', 'ערוך', 'לערוך', 'edit'],
   ['ציור', 'paint', 'צייר', 'draw', 'גרפיקה', 'graphics', 'gimp'],
   ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'לחלץ', 'extract', 'archive', 'דחיסה', 'לדחוס', 'כיווץ', 'לכווץ', 'compress', 'unzip', 'לפתוח קובץ'],
   ['pdf', 'מסמך', 'מסמכים', 'document', 'documents'],
@@ -1474,10 +1597,25 @@ const SYN = [
   ['מצלמה', 'camera', 'webcam'],
   ['הקלטה', 'להקליט', 'מקליט', 'הקלטת קול', 'קול', 'קולי', 'דיקטפון', 'record', 'recorder', 'sound', 'voice', 'רשמקול', 'obs', 'audacity'],
   ['צילום מסך', 'לצלם', 'צלם', 'צילום', 'תמונת מסך', 'screenshot', 'snip', 'snipping', 'חיתוך', 'לחתוך', 'גזירה', 'לגזור'],
-  ['שליטה מרחוק', 'remote', 'anydesk', 'teamviewer', 'rdp', 'שלט'],
+  ['שליטה מרחוק', 'remote', 'anydesk', 'teamviewer', 'rdp', 'שלט', 'סקרינשוט', 'רימוט'],
+  /* Deliberately small. The first attempt put every book name in one group of thirty, and a
+     search for "גמרא" then expanded to all thirty and returned forty-two apps - the whole Torah
+     category plus anything whose prose mentions a book. The book names belong on the apps that
+     actually carry those books, in TAGS; what stays here is only the handful of words that are
+     genuinely interchangeable with each other. */
+  ['תורה', 'לימוד', 'תורני'],
+  ['ספרים', 'ספר', 'ספרייה', 'קורא ספרים', 'ארון ספרים'],
+  ['הסרה', 'להסיר', 'מסיר', 'הסרת תוכנות', 'uninstall', 'uninstaller', 'לעקור', 'שאריות'],
+  ['ניקוי', 'לנקות', 'מנקה', 'clean', 'cleaner', 'cleanup', 'זבל', 'מקום פנוי', 'לפנות', 'פינוי', 'אופטימיזציה'],
+  ['צריבה', 'לצרוב', 'צורב', 'burn', 'iso', 'דיסק און קי', 'דיסק-און-קי', 'usb', 'bootable', 'מאתחל'],
+  ['מקלדת', 'keyboard', 'פריסה', 'layout', 'שפה', 'language'],
+  ['סיסמאות', 'סיסמה', 'password', 'passwords', 'כספת', 'vault'],
+  ['גיבוי', 'לגבות', 'backup', 'שחזור', 'לשחזר', 'restore', 'recovery'],
+  ['הדפסה', 'להדפיס', 'מדפסת', 'print', 'printer', 'סריקה', 'סורק', 'scan', 'scanner'],
+  ['אנטיוירוס', 'אנטי וירוס', 'antivirus', 'וירוס', 'נוזקה', 'defender', 'הגנה'],
   ['אבטחה', 'security', 'antivirus', 'אנטי וירוס', 'וירוס', 'הצפנה', 'להצפין', 'encrypt', 'veracrypt', 'סיסמה', 'סיסמאות', 'password', 'keepass'],
   ['ניקוי', 'לנקות', 'מנקה', 'clean', 'cleanup', 'תחזוקה', 'maintenance', 'pcmanager', 'טוויק', 'csharf', 'לזרז', 'האצה'],
-  ['דיסק', 'disk', 'storage', 'אחסון', 'מקום', 'space', 'windirstat'],
+  ['דיסק', 'כונן', 'disk', 'drive', 'storage', 'אחסון', 'מקום', 'space', 'windirstat'],
   ['חיפוש', 'search', 'everything', 'למצוא', 'find'],
   ['תכנות', 'code', 'coding', 'developer', 'מפתחים', 'python', 'git', 'vscode', 'java', 'terminal', 'powershell'],
   ['רכיב', 'רכיבים', 'runtime', 'redistributable', 'ספריות', 'library', 'framework', 'net', 'vc++', 'directx'],
@@ -1494,8 +1632,39 @@ const SYN = [
 const norm = s => (s || '').toLowerCase()
   .replace(/["'`׳״]/g, '')
   .replace(/[֑-ׇ]/g, '')      // niqqud
+  /* Hebrew is written both ways and people type both. "מוסיקה" and "מוזיקה" are the same word,
+     so are "אויר" and "אוויר", and a doubled vav or yod inside a word is a spelling choice
+     rather than a different word. Folding them here means the index and the query are folded
+     the same way, so neither side has to carry both spellings. The doubling only folds INSIDE a
+     word - a leading double vav is the prefix ו + ו, not a spelling variant. */
+  .replace(/(?<=[֐-׿])וו(?=[֐-׿])/g, 'ו')
+  .replace(/(?<=[֐-׿])יי(?=[֐-׿])/g, 'י')
   .replace(/\s+/g, ' ')
   .trim();
+
+/* Hebrew glues its prepositions and its "the" onto the front of the word: לצריבה is ל+צריבה,
+   בעברית is ב+עברית, המחשב is ה+מחשב. The index holds the bare noun, so every phrase a person
+   naturally types - "תוכנה לצריבה", "מקלדת בעברית", "לנקות את המחשב" - failed on a letter.
+   Stripping is offered as an ALTERNATIVE spelling rather than a replacement, so a word that is
+   genuinely itself keeps working: "ברזל" still searches for ברזל, and also for רזל, which
+   matches nothing and costs nothing. */
+const HEB_PREFIX = /^(ו?[הבכלמש]|ו)(?=[֐-׿]{2,})/;
+function deprefix(word) {
+  const out = [word];
+  let w = word;
+  for (let i = 0; i < 2 && HEB_PREFIX.test(w); i++) {
+    w = w.replace(HEB_PREFIX, '');
+    out.push(w);
+  }
+  return out;
+}
+
+/* Words that carry no information on a page of software. "את" and "של" are grammar; "תוכנה" and
+   "אפליקציה" are stamped on every card by haystack() itself, so requiring them matched nothing
+   useful and - because the two are mutually exclusive origin flags - a query containing both
+   could never match anything at all. Dropped only when something else was typed too, so a
+   search for "תוכנה" on its own still behaves. */
+const STOP = new Set(['את', 'של', 'עם', 'על', 'לי', 'לא', 'יש', 'זה', 'הוא', 'אני', 'תוכנה', 'אפליקציה', 'תוכנית', 'program', 'app', 'software', 'the', 'a', 'for', 'to']);
 /* every word that should also count as a hit for this query word */
 function expand(word) {
   const out = new Set([word]);
@@ -1513,10 +1682,16 @@ function haystack(a) {
     /* pretty(a.en) and the English category go in too: the tile says "Snipping Tool"
        and "Tools", and neither string existed in the index, so typing what you can see
        returned nothing for 43 apps. */
+    /* The explainer behind each card's "?" is the richest Hebrew this shop has - a paragraph
+       saying what the app is for, in the words a person would use - and none of it was searchable.
+       It arrives after the catalogue, so the cached haystack is thrown away when it lands rather
+       than being built without it. */
+    const extra = (INFO && INFO[a.en]) ? (INFO[a.en].info || '') + ' ' + (INFO[a.en].infoEn || '') : '';
     a._hay = norm([a.he, a.en, pretty(a.en), nameOf(a), a.desc, a.descEn,
-                   a.cat, EN[a.cat] || '', a.note, TAGS[a.en] || '',
-                   a.heb ? 'עברית hebrew' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
+                   a.cat, EN[a.cat] || '', a.note, TAGS[a.en] || '', extra,
+                   a.heb ? 'עברית hebrew ממשק בעברית' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
                    a.custom ? 'שלי' : ''].join(' '));
+    a._hayInfo = !!extra;
   }
   return a._hay;
 }
@@ -1525,19 +1700,91 @@ function haystack(a) {
    typed - "sumat" and "spec" returned nothing at all. A word-start match keeps the
    Terraria guard (there "rar" sits mid-word) and restores as-you-type search.
    Hebrew has no \b in JS and its words rarely collide, so it stays a substring. */
+/* A term has to land at the START of a word, in Hebrew exactly as in Latin. Hebrew used to be
+   matched as a bare substring, on the reasoning that prefix letters stick to the next word -
+   and that is true, but it also meant "ספר" was found inside "מספר", so asking for a book
+   reader returned every card whose explainer happens to count something. The prefixes are
+   handled where they belong, on the typed word, by deprefix(). */
 const hitCache = {};
 function hits(hay, term) {
-  if (!/^[a-z0-9+.]+$/.test(term)) return hay.includes(term);
   const re = hitCache[term] || (hitCache[term] =
-    new RegExp('(^|[^a-z0-9])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    new RegExp('(^|[^a-z0-9֐-׿])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   return re.test(hay);
 }
+/* matches() answers yes or no. That was the whole search, and it is half a search: a query that
+   is right about thirteen cards still shows them in catalogue order, so "ווינדוס בעברית" put the
+   Hebrew language pack thirteenth out of thirteen. The same words are worth more in an app's own
+   name than in its tags, more in its tags than in its description, and more typed exactly than
+   reached through a synonym - so say so, and let the shop sort by it. */
+function fields(a) {
+  const extra = (INFO && INFO[a.en]) ? (INFO[a.en].info || '') + ' ' + (INFO[a.en].infoEn || '') : '';
+  if (!a._fld) {
+    a._fld = {
+      name: norm([a.he, a.en, pretty(a.en), nameOf(a)].join(' ')),
+      tags: norm(TAGS[a.en] || ''),
+      desc: norm([a.desc, a.descEn, a.cat, EN[a.cat] || '', a.note].join(' ')),
+      // the synthetic "ממשק בעברית" every Hebrew card carries lives here, at the weakest weight:
+      // it is true of eighty-five apps, so it must never outrank an app that says it of itself
+      info: norm(extra + (a.heb ? ' עברית hebrew ממשק בעברית' : '')),
+    };
+  }
+  return a._fld;
+}
+function score(a, query) {
+  const q = norm(query);
+  if (!q) return 0;
+  const f = fields(a);
+  let s = 0;
+  if (f.name === q) s += 200;                 // they typed the name, and only the name
+  else if (hits(f.name, q)) s += 80;          // the whole phrase, inside the name
+  if (hits(f.tags, q)) s += 40;               // the whole phrase, as one of the app's own words
+  let words = q.split(' ').filter(Boolean);
+  const real = words.filter(w => !STOP.has(w));
+  if (real.length) words = real;
+  let weakest = Infinity;
+  words.forEach(w => {
+    const forms = deprefix(w);
+    const t = retype(w);
+    if (t) forms.push(t);
+    let best = 0;
+    forms.forEach(v => {
+      if (hits(f.name, v)) best = Math.max(best, 40);
+      if (hits(f.tags, v)) best = Math.max(best, 14);
+      if (hits(f.desc, v)) best = Math.max(best, 7);
+      if (hits(f.info, v)) best = Math.max(best, 3);
+      expand(v).forEach(x => {
+        if (x === v) return;
+        if (hits(f.name, x) || hits(f.tags, x)) best = Math.max(best, 5);
+        else if (hits(f.desc, x) || hits(f.info, x)) best = Math.max(best, 2);
+      });
+    });
+    s += best;
+    weakest = Math.min(weakest, best);
+  });
+  /* Sum alone rewards answering half the question brilliantly. "נגן ווידאו" put the VP9 codec
+     extension second, because "וידאו" is in its name - while "נגן" it barely touched. The word
+     the app answers WORST is what says whether it answers the question at all, so it counts
+     twice more. A card that meets every word decently now beats one that meets one word loudly. */
+  if (weakest < Infinity) s += 2 * weakest;
+  return s;
+}
 function matches(a, query) {
-  const words = norm(query).split(' ').filter(Boolean);
+  let words = norm(query).split(' ').filter(Boolean);
   if (!words.length) return true;
+  // grammar and the two words every card already carries, dropped only when something else
+  // was typed as well - so searching for "תוכנה" alone still means something
+  const real = words.filter(w => !STOP.has(w));
+  if (real.length) words = real;
   const hay = haystack(a);
-  // every word the visitor typed must hit something - each via its own synonyms
-  return words.every(w => expand(w).some(v => hits(hay, v)));
+  /* Every word the visitor typed must hit something - through its synonyms, and through the
+     same word with its Hebrew prefix letters peeled off, because "לצריבה" and "צריבה" are the
+     same request and only one of them is in the index. */
+  return words.every(w => {
+    if (deprefix(w).some(v => expand(v).some(x => hits(hay, x)))) return true;
+    // last resort: the same keys, read as if the keyboard had been in the other layout
+    const t = retype(w);
+    return t ? expand(t).some(x => hits(hay, x)) : false;
+  });
 }
 const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
 const bestFile = a => {
@@ -1653,14 +1900,43 @@ function render() {
   const orphans = DATA.apps.filter(a => !groups.some(cat => claims(cat, a)));
   if (orphans.length) console.warn('apps with no matching group:', orphans.map(a => a.en));
   const chipBar = ['<button class="chip' + (CATSEL === '' ? ' on' : '') + '" data-cat="">הכל</button>'];
-  let seamDone = false;
+  const memberOf = {};
   groups.forEach(cat => {
-    const members = order(DATA.apps.filter(a => claims(cat, a))
+    memberOf[cat] = order(DATA.apps.filter(a => claims(cat, a))
       // the strays ride along in the last vendor group rather than disappearing
       .concat(cat === 'תוכנות נפוצות' ? orphans : []));
-    if (!members.length) return;
+    if (!memberOf[cat].length) return;
     chipBar.push('<button class="chip' + (CATSEL === cat ? ' on' : '') + '" data-cat="' + cat + '">' + cat + '</button>');
-    total += members.filter(a => bestFile(a)).length;
+    total += memberOf[cat].filter(a => bestFile(a)).length;
+  });
+  /* While a query is live the page is a result list, not a shelf: the best answer comes first,
+     inside a category and between categories. The chips above keep their fixed order - they are
+     the shelf's map, and a map that rearranges itself as you type is no map. Clearing the box
+     puts everything back. */
+  /* A query turns the shelf into an answer. Grouping it by category sounds tidier and reads
+     worse: the best match's category floats to the top, and then the SECOND card on the page is
+     that category's second-best, which can be far weaker than the best card of the next one -
+     "קורא ספרים" put Python above Kiwix. So while the box has something in it the page is one
+     ranked list, strongest first, and the shelf comes back the moment it is cleared. Picking a
+     category chip is an explicit request to stay inside that category, and is left alone. */
+  if (QUERY && !CATSEL) {
+    const tiles = groups.reduce((all, cat) => all.concat(memberOf[cat]), [])
+      .map(a => [a, score(a, QUERY)])
+      .sort((x, y) => y[1] - x[1])
+      .map(p => tile(p[0])).filter(Boolean);
+    shown = tiles.length;
+    if (tiles.length) {
+      html = '<div class="grouphead"><h3>' + T('תוצאות') + '</h3><span class="n">' + tiles.length + '</span>' +
+             '<button class="chip catpick" data-catpick="">' + T('לסמן הכל') + '</button></div>' +
+             '<div class="grid">' + tiles.join('') + '</div>';
+    }
+    finishRender(box, html, chipBar, shown, total);
+    return;
+  }
+  let seamDone = false;
+  groups.forEach(cat => {
+    const members = memberOf[cat];
+    if (!members.length) return;
     if (CATSEL && CATSEL !== cat) return;
     const tiles = members.map(tile).filter(Boolean);
     if (!tiles.length) return;
@@ -1680,6 +1956,11 @@ function render() {
     html += '<div class="grouphead"><h3>' + cat + '</h3><span class="n">' + tiles.length + '</span>' + catAll + catPick + '</div>' +
             note + '<div class="grid">' + tiles.join('') + '</div>';
   });
+  finishRender(box, html, chipBar, shown, total);
+}
+/* The tail of render(), shared by the shelf and the result list so the two cannot drift apart:
+   the same chip bar, the same counter, the same empty state. */
+function finishRender(box, html, chipBar, shown, total) {
   chipBar.push('<span class="spacer"></span>');
   chipBar.push('<span class="count" dir="ltr">' + shown + ' / ' + total + '</span>');
   chipBar.push('<button class="chip' + (HEBONLY ? ' on' : '') + '" data-heb="1" title="רק אפליקציות עם ממשק בעברית">עברית</button>');
@@ -1703,8 +1984,11 @@ function membersOf(cat) {
 document.addEventListener('click', e => {
   const pick = e.target.closest('[data-catpick]');
   if (pick) {
-    // toggle: if the whole section is already selected, a second click clears it
-    const members = membersOf(pick.dataset.catpick).filter(a => bestFile(a));
+    // toggle: if the whole section is already selected, a second click clears it.
+    // an empty name is the result list's own button - "everything this query found"
+    const members = (pick.dataset.catpick
+      ? membersOf(pick.dataset.catpick)
+      : DATA.apps.filter(a => matches(a, QUERY))).filter(a => bestFile(a));
     const allOn = members.every(a => SELECTED.has(a.en));
     members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.set(a.en, new Set(['main'])); });
     render();
@@ -1960,7 +2244,7 @@ function needsLine(a) {
 /* Where a gated Store app has a replacement that opens offline today, point to it. This makes
    the store's own rule - prefer the thing that works - visible right where the caveat is. */
 const ALT_FOR = {
-  Journal: 'Xournalpp', '3DViewer': 'F3D',
+  Journal: 'Xournalpp ג׳ורנל ג׳ורנאל כתב יד רישום', '3DViewer': 'F3D',
 };
 function altLine(a) {
   const altEn = ALT_FOR[a.en];
@@ -2293,6 +2577,12 @@ function openSheet(en) {
   const ownSrc = (a.repo)
     ? srcRow(T('מקור'), 'github.com/' + a.repo, 'https://github.com/' + a.repo)
     : srcRow(T('מקור'), T('המהדורה של החנות'));
+  /* "Microsoft Store" was the default for every card without a link of its own, on the reasoning
+     that only Store apps lack one. That stopped being true the moment a vendor program had to be
+     carried here instead of linked - CAPS FIX, a one-file AutoHotkey utility from a forum, said
+     it came from the Microsoft Store. A Store package is one that has a package family name;
+     anything else says where it really comes from. */
+  const fromStore = !a.custom && !a.w32 && !!a.pfn;
   /* Somebody else's program that we carry rather than link to - because the place it was
      published refuses downloads that arrive from another site. Carrying it without naming whose
      it is and where it came from would read as a claim that we wrote it. */
@@ -2302,7 +2592,7 @@ function openSheet(en) {
   const rows = a.url
     ? srcRow(T('מקור'), host(a.url), a.url) + altSrc + xlatSrc + bySrc +
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
-    : (a.custom ? ownSrc : srcRow(T('מקור'), 'Microsoft Store')) + altSrc + xlatSrc + bySrc +
+    : (fromStore ? srcRow(T('מקור'), 'Microsoft Store') : ownSrc) + altSrc + xlatSrc + bySrc +
       files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
@@ -2718,6 +3008,11 @@ themeBtn.onclick = () => {
 themeLabel();
 document.getElementById('q').addEventListener('input', e => {
   QUERY = e.target.value.trim();
+  /* The explainers are part of the index, and until they arrive the same query answers
+     differently - "ווינדוס בעברית" found one card before the "?" panel had ever been opened
+     and thirteen afterwards. Someone typing in the box is searching, so fetch them now and
+     draw again when they land, rather than serving a thinner index to whoever asks first. */
+  if (QUERY && !INFO) loadInfo().then(render);
   render();
   // the results live below the hero: bring them up so typing shows something
   if (QUERY) {

@@ -5950,8 +5950,8 @@
       "heb": true,
       "langMode": "hebrew-only",
       "origin": "community",
-      "by": "י. פל. / mitmachim.top",
-      "src": "https://mitmachim.top/topic/101589/",
+      "by": "cannon / mitmachim.top",
+      "src": "https://mitmachim.top/topic/88637/",
       "note": "קובץ אחד, בלי התקנה — מריצים והוא יושב במגש. מהתפריט שלו אפשר לשנות את הקיצורים, להחריג תוכנות שבהן הוא לא יתערב, ולבקש שיעלה עם Windows. אנטי-וירוסים מסמנים אותה לפעמים: היא בנויה ב-AutoHotkey, וזה מה שמסמן — לא תוכן הקובץ.",
       "noteEn": "A single file, no install - run it and it sits in the tray. Its menu changes the shortcuts, excludes programs it should stay out of, and starts it with Windows. Antivirus tools sometimes flag it: it is built with AutoHotkey, and that is what gets flagged, not anything the file does."
     },
