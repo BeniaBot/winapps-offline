@@ -1052,6 +1052,7 @@ const EN = {
   'היעד:': 'Target:',
   'מקור': 'Source',
   'מקור החלופה': 'Alternative from',
+  'מקור התרגום': 'Translation from',
   'המהדורה של החנות': "This store's own release",
   'דיסק משלכם — בוחרים מה נכנס': 'Your own disc — pick what goes on it',
   'קודם בוחרים מה ייכנס: על כל כרטיס יש +, והוא מוסיף אותו לדיסק. אחר כך חוזרים לכאן.':
@@ -1415,7 +1416,11 @@ const TAGS = {
   KLite: 'קודקים codec וידאו נגן',
   Python: 'תכנות programming קוד פיתוח',
   Git: 'תכנות גרסאות version control פיתוח',
-  VSCode: 'תכנות עורך קוד editor פיתוח',
+  /* Its name only ever appears in Latin, so a Hebrew speaker typing what they say out loud found
+     nothing at all. The spellings belong here rather than in SYN: the search requires every word
+     typed to hit, so "ויזואל סטודיו" works only if both words sit in this app's own text - and a
+     synonym group wide enough to catch it would drag in every app whose description says קוד. */
+  VSCode: 'תכנות עורך קוד editor פיתוח ויזואל ויז׳ואל סטודיו וי אס',
   Java: 'תכנות ריצה runtime',
   Java8: 'תכנות ריצה runtime',
   Java11: 'תכנות ריצה runtime',
@@ -1593,8 +1598,7 @@ function tile(a) {
 }
 
 /* white glyph icons sit on a solid, slightly deepened brand plate; store icons keep the soft tint.
-   Fifteen store icons are themselves white glyphs (Treasure Hunt, 3D Viewer, the codec extensions,
-   Xbox) - Microsoft draws them for a coloured tile - and on the soft tint they vanished. The export
+some icons are themselves white glyphs - Microsoft draws several of them for a coloured tile - Microsoft draws them for a coloured tile - and on the soft tint they vanished. The export
    measures each icon and marks those, so they get the solid plate the tile gave them. */
 function plate(a, big) {
   const glyph = a.glyph || (a.icon && a.icon.indexOf('/w32/') >= 0);
@@ -1988,6 +1992,10 @@ function loadXtra() {
       if (!j || !j.d) return null;
       const bytes = Uint8Array.from(atob(j.d), c => c.charCodeAt(0));
       XTRA = JSON.parse(new TextDecoder().decode(bytes));
+      /* Their file names were taken out of published.json, which is a public list that spelled
+         the aisle out in plain text. They ride in here instead, and go back into LIVE now - the
+         page draws a download button only for a name it finds there. */
+      (XTRA.live || []).forEach(n => { LIVE[n] = true; });
       EN[XTRA.cat] = XTRA.catEn;
       EN[XTRA.note] = XTRA.noteEn;
       CAT_NOTE[XTRA.cat] = XTRA.note;
@@ -2272,6 +2280,12 @@ function openSheet(en) {
     (href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener" style="color:var(--accent)">' + esc(text) + '</a>' : esc(text)) +
     '</span></div>';
   const altSrc = (a.alt && a.alt.url) ? srcRow(T('מקור החלופה'), host(a.alt.url), a.alt.url) : '';
+  /* A translation somebody else made is a third origin on the card, and it needs naming for the
+     same reason the other two do: the reader should be able to see where each file came from
+     without taking anyone's word for it. */
+  const xlatSrc = (a.xlat && a.xlat.source === 'community' && a.xlat.repo)
+    ? srcRow(T('מקור התרגום'), 'github.com/' + a.xlat.repo, 'https://github.com/' + a.xlat.repo)
+    : '';
   /* An app built here is not from the Store, and saying so was the default only because every
      card without a url of its own used to be a Store app. One with a repository names it; one
      that exists only as a file in this project's own release says that instead. */
@@ -2279,9 +2293,9 @@ function openSheet(en) {
     ? srcRow(T('מקור'), 'github.com/' + a.repo, 'https://github.com/' + a.repo)
     : srcRow(T('מקור'), T('המהדורה של החנות'));
   const rows = a.url
-    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc +
+    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc + xlatSrc +
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
-    : (a.custom ? ownSrc : srcRow(T('מקור'), 'Microsoft Store')) + altSrc +
+    : (a.custom ? ownSrc : srcRow(T('מקור'), 'Microsoft Store')) + altSrc + xlatSrc +
       files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
@@ -2347,7 +2361,12 @@ function openSheet(en) {
       : a.xlat.source === 'community'
         ? 'התרגום אינו רשמי ולא נעשה כאן — הוא של מתרגם עצמאי, בקוד פתוח, ויורד ישירות ממנו. הקובץ המקורי של היצרן אינו נוגע.'
         : 'התרגום נעשה כאן ואינו רשמי. החבילה נפרקה ותורגמה, ולכן אינה חתומה בחתימת מיקרוסופט — מי שמעדיף מקור רשמי בלבד, שיבחר בהורדה הרגילה.') +
-      (a.xlat.source === 'community' && a.xlat.by ? ' <span dir="ltr">' + esc(a.xlat.by) + '</span>' : '') +
+      /* Credit is not the point of the link - checkability is. A stranger's translation of your
+         editor is worth nothing on trust, and everything if you can go and read what it does. */
+      (a.xlat.source === 'community' && a.xlat.repo
+        ? ' <a href="' + esc('https://github.com/' + a.xlat.repo) + '" target="_blank" rel="noopener" dir="ltr" style="color:inherit;text-decoration:underline">' +
+          esc(a.xlat.by || a.xlat.repo) + '</a>'
+        : (a.xlat.source === 'community' && a.xlat.by ? ' <span dir="ltr">' + esc(a.xlat.by) + '</span>' : '')) +
     '</div>' +
     /* An add-on is not run, so "download and double-click" - true of every other button on this
        page - is wrong here. The note says what to do instead. */
@@ -2595,12 +2614,22 @@ document.getElementById('donate-btn').onclick = () => {
   ov.querySelector('#gv-x').onclick = shut;
   /* Seven taps on the heading. No hint, no cursor change, no counter, no half-way feedback -
      somebody who was not told about it is meant to find nothing here at all. */
-  let taps = 0;
+  /* The taps have to be QUICK, and that is not a detail. Without a window they accumulated for
+     as long as the dialog stayed open, so seven idle clicks over a minute opened the aisle - and
+     this heading invites idle clicks: it selects no text and answers nothing, which is exactly
+     what makes a person on a phone tap it again. Somebody reached it on a first visit with an
+     empty cache that way. A gap longer than the window starts the count over, so the gesture is
+     now deliberate drumming rather than patience. */
+  let taps = 0, lastTap = 0;
+  const TAP_GAP = 600;
   const seal = ov.querySelector('h3');
   if (seal) {
     seal.style.userSelect = 'none';
     seal.addEventListener('click', () => {
-      if (++taps < 7) return;
+      const now = Date.now();
+      taps = (now - lastTap <= TAP_GAP) ? taps + 1 : 1;
+      lastTap = now;
+      if (taps < 7) return;
       taps = -999;
       try { localStorage.setItem(XKEY, '1'); } catch (e) { }
       loadXtra().then(p => {
