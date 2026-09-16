@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -3709,8 +3709,8 @@
       "net": false,
       "heb": true,
       "w32": true,
-      "url": "https://mitmachim.top/assets/uploads/files/1777589380516-caps_fix_5.exe",
-      "match": "*caps_fix*.exe",
+      "url": null,
+      "match": "CapsFix-5.exe",
       "icon": "icons/w32/capsfix.svg",
       "color": "#e0a83a",
       "desc": "מתקנת שורה שהוקלדה בפריסת המקלדת ההפוכה. מסמנים, Ctrl+Q, והטקסט חוזר לעברית או לאנגלית — והמקלדת מתחלפת לבד לפריסה הנכונה. Ctrl+Alt+Q הופך טקסט שיצא הפוך.",
@@ -3720,9 +3720,11 @@
       "cat": "תוכנות נפוצות",
       "langMode": "hebrew-only",
       "origin": "community",
+      "by": "י. פל. / mitmachim.top",
+      "src": "https://mitmachim.top/topic/101589/",
       "files": [
         {
-          "exe": "*caps_fix*.exe",
+          "exe": "CapsFix-5.exe",
           "mb": 1,
           "win": "all",
           "minBuild": 0,

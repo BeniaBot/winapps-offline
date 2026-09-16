@@ -22,9 +22,13 @@ held by its own owner. Nothing here grants a right to any of them.
 
 Where a program is carried inside one of our installers, the carried file is
 byte-identical to the file received from its maker and keeps that maker's own
-digital signature. The one exception is a build this project translated into
-Hebrew: those are modified, are labelled as such everywhere they appear, and
-therefore no longer carry a valid original signature.
+digital signature. There are two exceptions, both labelled everywhere they
+appear. One is a build this project translated into Hebrew. The other is a
+package repaired so that it opens on a machine which has never been online:
+those have a capability added to their manifest and are re-signed with this
+project's own certificate, CN=BeniaBot Offline. Both are modified and neither
+carries a valid original signature. The maker's untouched file is offered
+beside every one of them.
 
 
 TWO LIMITS, SAID HERE RATHER THAN DISCOVERED LATER

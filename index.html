@@ -1053,6 +1053,7 @@ const EN = {
   'מקור': 'Source',
   'מקור החלופה': 'Alternative from',
   'מקור התרגום': 'Translation from',
+  'מאת': 'By',
   'המהדורה של החנות': "This store's own release",
   'דיסק משלכם — בוחרים מה נכנס': 'Your own disc — pick what goes on it',
   'קודם בוחרים מה ייכנס: על כל כרטיס יש +, והוא מוסיף אותו לדיסק. אחר כך חוזרים לכאן.':
@@ -2292,10 +2293,16 @@ function openSheet(en) {
   const ownSrc = (a.repo)
     ? srcRow(T('מקור'), 'github.com/' + a.repo, 'https://github.com/' + a.repo)
     : srcRow(T('מקור'), T('המהדורה של החנות'));
+  /* Somebody else's program that we carry rather than link to - because the place it was
+     published refuses downloads that arrive from another site. Carrying it without naming whose
+     it is and where it came from would read as a claim that we wrote it. */
+  const bySrc = (a.by)
+    ? srcRow(T('מאת'), a.by, a.src || null)
+    : '';
   const rows = a.url
-    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc + xlatSrc +
+    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc + xlatSrc + bySrc +
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
-    : (a.custom ? ownSrc : srcRow(T('מקור'), 'Microsoft Store')) + altSrc + xlatSrc +
+    : (a.custom ? ownSrc : srcRow(T('מקור'), 'Microsoft Store')) + altSrc + xlatSrc + bySrc +
       files.map(f =>
         '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
