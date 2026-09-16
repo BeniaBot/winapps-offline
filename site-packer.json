@@ -1153,7 +1153,7 @@
       "files": [
         {
           "exe": "Setup-Maps.exe",
-          "mb": 199,
+          "mb": 214,
           "win": "all",
           "minBuild": 17134,
           "ver": "10.2104.2.0",

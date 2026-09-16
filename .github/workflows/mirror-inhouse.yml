@@ -94,7 +94,11 @@ jobs:
           # files to the release without adding them here leaves four dead buttons - which is
           # exactly what happened the first time.
           gh release view apps-v1 --repo "$GITHUB_REPOSITORY" --json assets -q "[.assets[].name] | sort" > published.json
-          wc -c published.json
+          # Both lists come straight from the release, so both hold every asset in it. The
+          # catalogue does not show every asset; extras.json says which names these two files
+          # leave out, and this puts that back after the regeneration undoes it.
+          node .github/unlist.js published.json counts.json
+          wc -c published.json counts.json
 
       - name: Record which build is being served
         run: |

@@ -16,9 +16,15 @@ const now = JSON.parse(fs.readFileSync(nowPath, 'utf8'));
 let prev = {};
 try { prev = JSON.parse(fs.readFileSync(outPath, 'utf8')); } catch (e) { /* first run */ }
 
+// An asset the catalogue does not show keeps its history under an opaque key (see unlist.js),
+// so the previous total has to be looked for there too - otherwise its carry restarts every pass
+// and the number it reports drops back to whatever the current release says.
+const crypto = require('crypto');
+const key = n => '#' + crypto.createHash('sha256').update(n).digest('hex').slice(0, 16);
+
 const out = {};
 for (const a of now) {
-  const p = prev[a.name] || { carry: 0, seen: 0 };
+  const p = prev[a.name] || prev[key(a.name)] || { carry: 0, seen: 0 };
   const carry = a.count < p.seen ? p.carry + p.seen : p.carry;
   out[a.name] = { carry: carry, seen: a.count, total: carry + a.count };
 }

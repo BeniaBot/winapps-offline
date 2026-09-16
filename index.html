@@ -46,7 +46,20 @@
       if (d.weekday === "Fri" && h >= 16) return true;
       if (d.weekday === "Sat" && h < 21) return true;
       return false;
-    } catch (e) { return false; }
+    } catch (e) {
+      /* This is the last line of defence, and it used to answer "open". Everything above it is
+         built to fail shut, and then the final catch handed back the one answer the design exists
+         to avoid. It does not simply return true either: a browser that cannot do Intl would then
+         be shut out every day of the week, for ever, which is not a closed shop but a broken one.
+         So fall back to the device's own clock - right for a visitor in Israel, which is nearly
+         all of them - and only if even that fails, stay shut. */
+      try {
+        var d2 = new Date(), dow = d2.getDay(), h2 = d2.getHours();
+        if (dow === 5 && h2 >= 16) return true;
+        if (dow === 6 && h2 < 21) return true;
+        return false;
+      } catch (e2) { return true; }
+    }
   }
 
   var greet = "שבת שלום", when = "", shut = false;
@@ -127,9 +140,24 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"אפליקציות Windows להתקנה אופליין","numberOfItems":146,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"פנקס רשימות","alternateName":"Notepad","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"עורך טקסט פשוט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"מחשבון","alternateName":"Calculator","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"מחשבון רגיל, מדעי והמרות יחידות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"צייר","alternateName":"Paint","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"עורך תמונות בסיסי","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"כלי החיתוך","alternateName":"SnippingTool","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"צילום מסך וחיתוך","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"תמונות","alternateName":"Photos","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"צפייה בתמונות ועריכה קלה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"רשמקול","alternateName":"SoundRecorder","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"הקלטת קול","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"מצלמה","alternateName":"Camera","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"צילום ממצלמת המחשב","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"שעון והתראות","alternateName":"Clock","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"שעון, טיימר, סטופר והתראות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"פתקים דביקים","alternateName":"StickyNotes","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"פתקים על שולחן העבודה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Windows Terminal","alternateName":"Terminal","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"מסוף מודרני לשורת הפקודה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"נגן מדיה","alternateName":"MediaPlayer","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"נגינת מוזיקה ווידאו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"סרטים וטלוויזיה","alternateName":"Movies & TV","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"נגן וידאו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":13,"item":{"@type":"SoftwareApplication","name":"Paint 3D","alternateName":"Paint 3D","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"עריכה תלת-ממדית (המוצר הופסק אך עובד)","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":14,"item":{"@type":"SoftwareApplication","name":"מציג תלת-ממד","alternateName":"3D Viewer","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"צפייה במודלים תלת-ממדיים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":15,"item":{"@type":"SoftwareApplication","name":"שולחן עבודה מרוחק","alternateName":"RemoteDesktop","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"התחברות למחשב אחר ברשת","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":16,"item":{"@type":"SoftwareApplication","name":"מפות","alternateName":"Maps","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":17,"item":{"@type":"SoftwareApplication","name":"To Do","alternateName":"ToDo","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"רשימות משימות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":18,"item":{"@type":"SoftwareApplication","name":"אנשים","alternateName":"People","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"ספר כתובות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":19,"item":{"@type":"SoftwareApplication","name":"OneNote","alternateName":"OneNote","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"מחברות ורשימות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":20,"item":{"@type":"SoftwareApplication","name":"מציאות מעורבת","alternateName":"MixedReality","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"פורטל למשקפי מציאות מעורבת","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":21,"item":{"@type":"SoftwareApplication","name":"הרחבת HEIF (תמונות iPhone)","alternateName":"HEIF Image Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"פותח תמונות HEIC של אייפון","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":22,"item":{"@type":"SoftwareApplication","name":"הרחבת WebP","alternateName":"WebP Image Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"פותח תמונות WebP","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":23,"item":{"@type":"SoftwareApplication","name":"הרחבת RAW (מצלמות)","alternateName":"Raw Image Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"פותח קבצי RAW ממצלמות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":24,"item":{"@type":"SoftwareApplication","name":"הרחבת וידאו VP9","alternateName":"VP9 Video Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"מנגן וידאו VP9","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":25,"item":{"@type":"SoftwareApplication","name":"הרחבת וידאו AV1","alternateName":"AV1 Video Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"מנגן וידאו AV1","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":26,"item":{"@type":"SoftwareApplication","name":"הרחבת HEVC מיצרן","alternateName":"HEVC Video Extension","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"מנגן וידאו HEVC / H.265","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":27,"item":{"@type":"SoftwareApplication","name":"מתקין אפליקציות / winget","alternateName":"AppInstaller","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"מתקין חבילות ושורת הפקודה winget","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":28,"item":{"@type":"SoftwareApplication","name":"Windows Terminal Preview","alternateName":"TerminalPreview","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"גרסת התצוגה המקדימה של Terminal","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":29,"item":{"@type":"SoftwareApplication","name":"שחזור קבצים","alternateName":"FileRecovery","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"שחזור קבצים שנמחקו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":30,"item":{"@type":"SoftwareApplication","name":"Windows Subsystem for Linux","alternateName":"Windows Subsystem for Linux","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"תת-מערכת Linux ל-Windows","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":31,"item":{"@type":"SoftwareApplication","name":"Journal","alternateName":"Journal","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"כתיבה בעט על מסך מגע","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":32,"item":{"@type":"SoftwareApplication","name":"Print 3D","alternateName":"Print 3D","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"הדפסה תלת-ממדית","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":33,"item":{"@type":"SoftwareApplication","name":"3D Builder","alternateName":"3D Builder","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"בניית מודלים תלת-ממדיים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":34,"item":{"@type":"SoftwareApplication","name":"PC Manager","alternateName":"PC Manager","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"ניקוי ותחזוקת המחשב","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":35,"item":{"@type":"SoftwareApplication","name":"PowerShell","alternateName":"PowerShell","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"PowerShell 7 — מעטפת מתקדמת","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":36,"item":{"@type":"SoftwareApplication","name":"מזג אוויר","alternateName":"Weather","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"תחזית מזג אוויר","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":37,"item":{"@type":"SoftwareApplication","name":"חדשות","alternateName":"News","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"חדשות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":38,"item":{"@type":"SoftwareApplication","name":"קבלת עזרה","alternateName":"GetHelp","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"התמיכה של מיקרוסופט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":39,"item":{"@type":"SoftwareApplication","name":"רכזת משוב","alternateName":"FeedbackHub","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"שליחת משוב למיקרוסופט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":40,"item":{"@type":"SoftwareApplication","name":"דואר ולוח שנה","alternateName":"Mail","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"דואר ולוח שנה (הדור הקודם)","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":41,"item":{"@type":"SoftwareApplication","name":"Office","alternateName":"OfficeHub","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"מסך הבית של Microsoft 365","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":42,"item":{"@type":"SoftwareApplication","name":"Clipchamp","alternateName":"Clipchamp","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"עריכת וידאו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":43,"item":{"@type":"SoftwareApplication","name":"סיוע מהיר","alternateName":"QuickAssist","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"שליטה מרחוק לקבלת עזרה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":44,"item":{"@type":"SoftwareApplication","name":"קישור לטלפון","alternateName":"PhoneLink","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"חיבור הטלפון למחשב","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":45,"item":{"@type":"SoftwareApplication","name":"חנות Microsoft","alternateName":"Store","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"חנות האפליקציות עצמה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":46,"item":{"@type":"SoftwareApplication","name":"Copilot","alternateName":"Copilot","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"העוזר החכם של מיקרוסופט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":47,"item":{"@type":"SoftwareApplication","name":"משפחה","alternateName":"Family","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"בקרת הורים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":48,"item":{"@type":"SoftwareApplication","name":"חיפוש Bing","alternateName":"BingSearch","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"חיפוש Bing בשורת המשימות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":49,"item":{"@type":"SoftwareApplication","name":"ווידג'טים","alternateName":"Widgets","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"לוח הווידג'טים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":50,"item":{"@type":"SoftwareApplication","name":"Power BI","alternateName":"Power BI","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"דוחות וניתוח נתונים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":51,"item":{"@type":"SoftwareApplication","name":"Sway","alternateName":"Sway","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"מצגות ודפי סיפור","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":52,"item":{"@type":"SoftwareApplication","name":"מתרגם Bing","alternateName":"Translator","applicationCategory":"כלים","operatingSystem":"Windows 10, Windows 11","description":"תרגום טקסט ודיבור","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":53,"item":{"@type":"SoftwareApplication","name":"רכישות מהחנות","alternateName":"StorePurchase","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"רכישות מחנות Microsoft","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":54,"item":{"@type":"SoftwareApplication","name":"חיבור בין מכשירים","alternateName":"CrossDevice","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"חיבור בין מכשירים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":55,"item":{"@type":"SoftwareApplication","name":"הודעות","alternateName":"Messaging","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"הודעות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":56,"item":{"@type":"SoftwareApplication","name":"Dev Home (GitHub)","alternateName":"Dev Home GitHub Extension","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"הרחבת GitHub ל-Dev Home","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":57,"item":{"@type":"SoftwareApplication","name":"VC++ 2015–2022 (x64)","alternateName":"VCRedist64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ספריות הריצה שכמעט כל תוכנה מודרנית דורשת. להתקין תמיד","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":58,"item":{"@type":"SoftwareApplication","name":"VC++ 2015–2022 (x86)","alternateName":"VCRedist86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"הגרסה ל-32 סיביות — תוכנות ישנות צריכות דווקא אותה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":59,"item":{"@type":"SoftwareApplication","name":"VC++ 2013 (x64)","alternateName":"VC2013x64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"תוכנות ומשחקים מדור 2013–2015 דורשים אותה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":60,"item":{"@type":"SoftwareApplication","name":"VC++ 2013 (x86)","alternateName":"VC2013x86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות של ספריות 2013","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":61,"item":{"@type":"SoftwareApplication","name":"VC++ 2012 (x64)","alternateName":"VC2012x64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ספריות דור 2012","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":62,"item":{"@type":"SoftwareApplication","name":"VC++ 2012 (x86)","alternateName":"VC2012x86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות של ספריות 2012","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":63,"item":{"@type":"SoftwareApplication","name":"VC++ 2010 (x64)","alternateName":"VC2010x64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ספריות דור 2010","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":64,"item":{"@type":"SoftwareApplication","name":"VC++ 2010 (x86)","alternateName":"VC2010x86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות של ספריות 2010","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":65,"item":{"@type":"SoftwareApplication","name":"VC++ 2008 (x64)","alternateName":"VC2008x64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ספריות דור 2008 — משחקים ותוכנות ותיקים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":66,"item":{"@type":"SoftwareApplication","name":"VC++ 2008 (x86)","alternateName":"VC2008x86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות של ספריות 2008","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":67,"item":{"@type":"SoftwareApplication","name":"VC++ 2005 (x64)","alternateName":"VC2005x64","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"הוותיקה ביותר — לתוכנות ישנות במיוחד","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":68,"item":{"@type":"SoftwareApplication","name":"VC++ 2005 (x86)","alternateName":"VC2005x86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות של ספריות 2005","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":69,"item":{"@type":"SoftwareApplication","name":".NET Framework 4.8.1","alternateName":"NetFx481","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"התשתית של רוב תוכנות Windows הוותיקות. מתקין מלא אופליין","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":70,"item":{"@type":"SoftwareApplication","name":".NET Desktop Runtime 8 (x64)","alternateName":"Net8Desktop","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לתוכנות מודרניות שנבנו על ‎.NET 8","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":71,"item":{"@type":"SoftwareApplication","name":".NET Desktop Runtime 8 (x86)","alternateName":"Net8Desktop86","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"גרסת 32 סיביות — תוכנות ‎.NET רבות עדיין 32-ביט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":72,"item":{"@type":"SoftwareApplication","name":".NET Desktop Runtime 6 (x64)","alternateName":"Net6Desktop","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לתוכנות שנבנו על ‎.NET 6 הוותיק יותר","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":73,"item":{"@type":"SoftwareApplication","name":"WebView2 Runtime (x64)","alternateName":"WebView2","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"מנוע הדפדפן שאפליקציות מודרניות מציגות בו תוכן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":74,"item":{"@type":"SoftwareApplication","name":"DirectX (יוני 2010)","alternateName":"DirectX (June 2010)","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ספריות שמשחקים ותוכנות ותיקות דורשים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":75,"item":{"@type":"SoftwareApplication","name":"XNA Framework 4.0","alternateName":"XNA","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"משחקי אינדי רבים (Terraria, Stardew ועוד) דורשים אותו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":76,"item":{"@type":"SoftwareApplication","name":"NVIDIA PhysX","alternateName":"PhysX","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"מנוע פיזיקה שמשחקים רבים דורשים — גם בכרטיסי מסך אחרים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":77,"item":{"@type":"SoftwareApplication","name":"Access Database Engine 2016","alternateName":"ACE2016","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"חיבור לקובצי Access ו-Excel מתוכנות אחרות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":78,"item":{"@type":"SoftwareApplication","name":"Java 8 (Temurin JRE)","alternateName":"Java8","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"סביבת Java הוותיקה — תוכנות ישנות דורשות דווקא אותה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":79,"item":{"@type":"SoftwareApplication","name":"PowerShell 7","alternateName":"PowerShell7","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"שורת הפקודה המודרנית של מיקרוסופט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":80,"item":{"@type":"SoftwareApplication","name":".NET Framework 3.5 (מלא)","alternateName":".NET Framework 3.5 (full)","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לתוכנות ותיקות מאוד. שימו לב: ב-Windows 10/11 ההתקנה עלולה לדרוש רשת — עדיף דרך תכונות Windows","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":81,"item":{"@type":"SoftwareApplication","name":".NET Desktop Runtime 9 (x64)","alternateName":"Net9Desktop","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לתוכנות החדשות ביותר שנבנו על ‎.NET 9","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":82,"item":{"@type":"SoftwareApplication","name":".NET Desktop Runtime 7 (x64)","alternateName":"Net7Desktop","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לתוכנות שנבנו על ‎.NET 7","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":83,"item":{"@type":"SoftwareApplication","name":"Vulkan Runtime","alternateName":"Vulkan","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"ממשק הגרפיקה המודרני — משחקים ואמולטורים דורשים אותו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":84,"item":{"@type":"SoftwareApplication","name":"PhysX Legacy","alternateName":"PhysXLegacy","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"לגרסאות ישנות של משחקים שדורשים PhysX היסטורי","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":85,"item":{"@type":"SoftwareApplication","name":"Java 11 (Temurin JRE)","alternateName":"Java11","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"סביבת Java דור ביניים — תוכנות מסוימות דורשות דווקא אותה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":86,"item":{"@type":"SoftwareApplication","name":"Java 17 (Temurin JRE)","alternateName":"Java17","applicationCategory":"רכיבי מערכת","operatingSystem":"Windows 10, Windows 11","description":"‏Java LTS נפוצה — מיינקראפט ותוכנות רבות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":87,"item":{"@type":"SoftwareApplication","name":"Chrome","alternateName":"Chrome","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מתקין מלא (Enterprise MSI) — לא דורש רשת בהתקנה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":88,"item":{"@type":"SoftwareApplication","name":"Firefox","alternateName":"Firefox","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מתקין מלא בעברית","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":89,"item":{"@type":"SoftwareApplication","name":"Edge","alternateName":"Edge","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מתקין מלא (Enterprise MSI) — גם למחשב שבו Edge הוסר או מיושן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":90,"item":{"@type":"SoftwareApplication","name":"7-Zip","alternateName":"SevenZip","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"פתיחת כל סוגי הארכיונים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":91,"item":{"@type":"SoftwareApplication","name":"Everything","alternateName":"Everything","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"חיפוש קבצים מיידי בכל הדיסק — מוצא תוך כדי הקלדה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":92,"item":{"@type":"SoftwareApplication","name":"Sumatra PDF","alternateName":"SumatraPDF","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"קורא PDF קטן ומהיר","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":93,"item":{"@type":"SoftwareApplication","name":"VLC","alternateName":"VLC","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מנגן כל פורמט וידאו ואודיו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":94,"item":{"@type":"SoftwareApplication","name":"LibreOffice","alternateName":"LibreOffice","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"חבילת אופיס מלאה וחינמית — קוראת וכותבת קובצי Word, Excel ו-PowerPoint","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":95,"item":{"@type":"SoftwareApplication","name":"Python 3.12","alternateName":"Python","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"שפת התכנות — עם pip ו-IDLE","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":96,"item":{"@type":"SoftwareApplication","name":"VS Code","alternateName":"VSCode","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"עורך הקוד של מיקרוסופט — מתקין מלא","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":97,"item":{"@type":"SoftwareApplication","name":"Notepad++","alternateName":"NotepadPP","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"עורך טקסט וקוד","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":98,"item":{"@type":"SoftwareApplication","name":"Git","alternateName":"Git","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"ניהול גרסאות למפתחים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":99,"item":{"@type":"SoftwareApplication","name":"Java 21 (Temurin JRE)","alternateName":"Java21","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"סביבת הריצה המודרנית של Java","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":100,"item":{"@type":"SoftwareApplication","name":"Rufus","alternateName":"Rufus","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"צריבת ISO לדיסק-און-קי. קובץ נייד — מריצים ישירות, בלי התקנה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":101,"item":{"@type":"SoftwareApplication","name":"GIMP","alternateName":"GIMP","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"עריכת תמונות מקצועית וחינמית — התחליף המוכר לפוטושופ","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":102,"item":{"@type":"SoftwareApplication","name":"Audacity","alternateName":"Audacity","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"הקלטה ועריכת אודיו","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":103,"item":{"@type":"SoftwareApplication","name":"K-Lite Codec Pack","alternateName":"KLite","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"קודקים שפותחים כל וידאו ואודיו בכל נגן במחשב, ונגן MPC-HC בתוספת","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":104,"item":{"@type":"SoftwareApplication","name":"AnyDesk","alternateName":"AnyDesk","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"שליטה מרחוק — קובץ נייד, בלי התקנה. החיבור עצמו דורש אינטרנט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":105,"item":{"@type":"SoftwareApplication","name":"TeamViewer","alternateName":"TeamViewer","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"שליטה מרחוק — מתקין מלא. החיבור עצמו דורש אינטרנט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":106,"item":{"@type":"SoftwareApplication","name":"Speccy","alternateName":"Speccy","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"כל פרטי החומרה של המחשב במסך אחד","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":107,"item":{"@type":"SoftwareApplication","name":"Revo Uninstaller","alternateName":"Revo","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"הסרה יסודית של תוכנות עקשניות, כולל שאריות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":108,"item":{"@type":"SoftwareApplication","name":"Thunderbird","alternateName":"Thunderbird","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"תוכנת דואר מלאה בעברית — קוראים וכותבים גם בלי חיבור קבוע","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":109,"item":{"@type":"SoftwareApplication","name":"OBS Studio","alternateName":"OBS","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"הקלטת מסך ושידור — הסטנדרט החינמי","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":110,"item":{"@type":"SoftwareApplication","name":"KeePassXC","alternateName":"KeePassXC","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מנהל סיסמאות שהכול נשמר אצלך במחשב — בלי ענן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":111,"item":{"@type":"SoftwareApplication","name":"VeraCrypt","alternateName":"VeraCrypt","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"הצפנת כוננים ותיקיות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":112,"item":{"@type":"SoftwareApplication","name":"WinDirStat","alternateName":"WinDirStat","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מה תופס את המקום בדיסק — מפה חזותית של כל הקבצים","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":113,"item":{"@type":"SoftwareApplication","name":"Windows Subsystem for Android","alternateName":"Windows Subsystem for Android","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"אנדרואיד בתוך Windows 11. מיקרוסופט נטשה — זו בנייה קהילתית של אותה גרסה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":114,"item":{"@type":"SoftwareApplication","name":"עדכון הפלטפורמה של Defender","alternateName":"Microsoft Defender platform update","applicationCategory":"עדכוני אבטחה","operatingSystem":"Windows 10, Windows 11","description":"המנוע של ההגנה המובנית של Windows. מתקינים אותו ראשון — לפני קובץ החתימות","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":115,"item":{"@type":"SoftwareApplication","name":"חתימות הזיהוי של Defender","alternateName":"Microsoft Defender security intelligence","applicationCategory":"עדכוני אבטחה","operatingSystem":"Windows 10, Windows 11","description":"רשימת האיומים שההגנה של Windows מזהה. להתקין אחרי עדכון הפלטפורמה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":116,"item":{"@type":"SoftwareApplication","name":"זית","alternateName":"Zayit","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"ספרייה תורנית: כ‑6,800 ספרים במחשב, עם חיפוש ומפרשים לצד הטקסט.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":117,"item":{"@type":"SoftwareApplication","name":"מסד הספרים של זית — חלק 1 מתוך 2","alternateName":"ZayitDb1","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"אוצר הספרים עצמו. בלעדיו התוכנה נפתחת ריקה","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":118,"item":{"@type":"SoftwareApplication","name":"מסד הספרים של זית — חלק 2 מתוך 2","alternateName":"ZayitDb2","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"החצי השני של אותו קובץ. שני החלקים חייבים לשבת יחד","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":119,"item":{"@type":"SoftwareApplication","name":"אוצריא","alternateName":"Otzaria","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"ספרייה תורנית שהספרים כבר בתוך המתקין — תנ״ך, ש״ס, מדרש, הלכה, שו״ת וקבלה, עם חיפוש.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":120,"item":{"@type":"SoftwareApplication","name":"כלי קודש","alternateName":"KleiKodesh","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"תוסף לוורד לעימוד ספרי קודש, ואיתו תוכנת עיון עצמאית \"כתבי הקודש\".","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":121,"item":{"@type":"SoftwareApplication","name":"תורת אמת","alternateName":"ToratEmet","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"ארון ספרים: תנ״ך עם מפרשים, ש״ס, רמב״ם, שולחן ערוך, זוהר ועוד — הכול בהתקנה אחת.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":122,"item":{"@type":"SoftwareApplication","name":"Kiwix","alternateName":"Kiwix","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"תוכנה שפותחת קובץ ZIM — אתר שלם ארוז לקובץ אחד — וקוראת אותו כמו דפדפן, עם חיפוש בתוך הטקסט ובלי שום חיבור.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":123,"item":{"@type":"SoftwareApplication","name":"ויקיטקסט העברי — לקיוויקס","alternateName":"KiwixWikisourceHe","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"ארון הספרים היהודי כפי שהקהילה מקלידה אותו: תנ״ך, משנה, תלמוד, שולחן ערוך ורמב״ם, עם חיפוש בטקסט","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":124,"item":{"@type":"SoftwareApplication","name":"פרויקט לוח","alternateName":"LuachProject","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"לוח שנה עברי: חודש על המסך, ולכל יום — זמנים, פרשה, דף יומי ויארצייטים.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":125,"item":{"@type":"SoftwareApplication","name":"מכון ממרא — טקסטים לדפדפן","alternateName":"MechonMamre","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"קובצי HTML ממכון ממרא — פורסים, לוחצים, והטקסט נפתח בדפדפן. ct005 = תנ״ך עם טעמים.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":126,"item":{"@type":"SoftwareApplication","name":"תאריכון","alternateName":"Tarichon","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"וידג'ט לשורת המשימות: תאריך עברי, פרשת השבוע וזמני היום — עובד לגמרי במחשב מנותק.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":127,"item":{"@type":"SoftwareApplication","name":"PowerToys","alternateName":"PowerToys","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"ערכת כלים רשמית של מיקרוסופט: שינוי שם מרובה, בורר צבע, חלונות מסודרים, השבתת מקשים ועוד.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":128,"item":{"@type":"SoftwareApplication","name":"Screenbox","alternateName":"Screenbox","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"נגן מדיה מודרני לווידאו ומוזיקה מבוסס VLC — מנגן כל פורמט לגמרי במצב לא-מקוון, בלי חשבון ובלי פרסומות.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":129,"item":{"@type":"SoftwareApplication","name":"Sysinternals Suite","alternateName":"Sysinternals Suite","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"אוסף כלי המערכת של מיקרוסופט: Process Explorer, Autoruns, PsExec ועוד — כלים ניידים, בלי התקנה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":130,"item":{"@type":"SoftwareApplication","name":"WinDbg","alternateName":"WinDbg","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"מנפה השגיאות של מיקרוסופט לניתוח קריסות, זיכרון ותהליכים ברמת המערכת — הכלי המקצועי.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":131,"item":{"@type":"SoftwareApplication","name":"Xournal++","alternateName":"Xournal++","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"מחברת לכתיבה ביד, ציור, וסימון והערות על קובצי PDF — בעט, סטיילוס או עכבר. חלופה חופשית ל-Journal.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":132,"item":{"@type":"SoftwareApplication","name":"F3D — מציג תלת-ממד","alternateName":"F3D","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"מציג מודלים תלת-ממדיים מהיר: פותח עשרות פורמטים (STL, OBJ, glTF ועוד), מסובב ומצלם. חלופה למציג התלת-ממד.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":133,"item":{"@type":"SoftwareApplication","name":"חלל · נאס״א","alternateName":"Space - NASA","applicationCategory":"ערכות נושא","operatingSystem":"Windows 10, Windows 11","description":"ערכת נושא: טפט מתחלף של תמונות חלל מרהיבות מנאס״א. לחיצה כפולה מחליפה את רקע שולחן העבודה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":134,"item":{"@type":"SoftwareApplication","name":"הרי האלפים","alternateName":"Alpine Mountains","applicationCategory":"ערכות נושא","operatingSystem":"Windows 10, Windows 11","description":"ערכת נושא: פסגות מושלגות באלפים ובדולומיטים — מאטרהורן, קרחון אלץ׳, פאסו סלה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":135,"item":{"@type":"SoftwareApplication","name":"אגמים ומפלים","alternateName":"Lakes & Waterfalls","applicationCategory":"ערכות נושא","operatingSystem":"Windows 10, Windows 11","description":"ערכת נושא: אגמים ומפלים באירופה — איסלנד, אגם אייבזה, אשינן, לאגו די טובל.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":136,"item":{"@type":"SoftwareApplication","name":"יערות ואחו","alternateName":"Forests & Meadows","applicationCategory":"ערכות נושא","operatingSystem":"Windows 10, Windows 11","description":"ערכת נושא: יערות ואחו באירופה — ערפל בדולומיטים, סייזר אלם, יער אשור שוודי, רמות סקוטלנד.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":137,"item":{"@type":"SoftwareApplication","name":"עיתים","alternateName":"Itim","applicationCategory":"תורה ולימוד","operatingSystem":"Windows 10, Windows 11","description":"לוח שנה עברי וזמני היום בשורת המשימות — הכל מחושב במחשב עצמו, בלי רשת.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":138,"item":{"@type":"SoftwareApplication","name":"RustDesk","alternateName":"RustDesk","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"שליטה מרחוק במחשב אחר, בקוד פתוח. אפשר גם להריץ שרת משלכם ולא לעבור דרך אף אחד.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":139,"item":{"@type":"SoftwareApplication","name":"CAPS FIX","alternateName":"CAPS FIX","applicationCategory":"תוכנות נפוצות","operatingSystem":"Windows 10, Windows 11","description":"מתקנת שורה שהוקלדה בפריסת המקלדת ההפוכה. מסמנים, Ctrl+Q, והטקסט חוזר לעברית או לאנגלית — והמקלדת מתחלפת לבד לפריסה הנכונה. Ctrl+Alt+Q הופך טקסט שיצא הפוך.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":140,"item":{"@type":"SoftwareApplication","name":"BleachBit","alternateName":"BleachBit","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"מנקה קבצים מיותרים ומוחק עקבות — היסטוריה, מטמון ורשימות של מה נפתח. קוד פתוח, בעברית מלאה.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":141,"item":{"@type":"SoftwareApplication","name":"Csharf","alternateName":"Csharf","applicationCategory":"כלי טכנאי","operatingSystem":"Windows 10, Windows 11","description":"כלי טוויקים ותחזוקה ל-Windows — קובץ אחד, בלי התקנה, בעברית. פותח כאן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":142,"item":{"@type":"SoftwareApplication","name":"Tik-Nick","alternateName":"TikNick","applicationCategory":"תקשורת","operatingSystem":"Windows 10, Windows 11","description":"ניהול ומעקב אחר ניקים בפורומים, בעברית. הכול נשמר במחשב שלכם — פרטיות מלאה. פותח כאן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":143,"item":{"@type":"SoftwareApplication","name":"2049","alternateName":"Game2049","applicationCategory":"נוספות","operatingSystem":"Windows 10, Windows 11","description":"‏2048 בגרסה משודרגת, עם מקשי עזרה נסתרים שאי אפשר לזהות מבחוץ. פותח כאן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":144,"item":{"@type":"SoftwareApplication","name":"אולפן הכתוביות","alternateName":"SubtitleStudio","applicationCategory":"מדיה","operatingSystem":"Windows 10, Windows 11","description":"להוסיף כתוביות לסרט, לתקן כתוביות שלא מסונכרנות ולצרוב אותן פנימה. קובץ אחד, בלי התקנה. פותח כאן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":145,"item":{"@type":"SoftwareApplication","name":"זאב, כבשה וכרוב","alternateName":"WolfSheepCabbage","applicationCategory":"יצירה ועבודה","operatingSystem":"Windows 10, Windows 11","description":"שיבוץ חדרים לפנימייה — חדרים, שמות, וכללים מי לא עם מי. קובץ אחד שנפתח בדפדפן, בלי התקנה. פותח כאן","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}},{"@type":"ListItem","position":146,"item":{"@type":"SoftwareApplication","name":"חוויית שפה עברית","alternateName":"HebrewLanguage","applicationCategory":"חשבון ומערכת","operatingSystem":"Windows 10, Windows 11","description":"מעביר את Windows לעברית — התפריטים, ההגדרות, סייר הקבצים, המקלדת והאזור. בוחר לבד את החבילה שמתאימה לגרסה שעל המחשב, ומחיל גם על מסך הכניסה ועל משתמשים חדשים.","offers":{"@type":"Offer","price":"0","priceCurrency":"ILS"}}}]}</script>
 <!--SEO-HEAD:END-->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<!-- The fonts are asked for by script rather than by a <link>, for one reason: when the shop is
+     closed for Shabbat or Yom Tov it should not be reaching out to anybody. A <link> in the head
+     is fetched by the parser before any of our code can decide otherwise; this is not. The
+     Shabbat block above runs first and marks the page, and on a closed page these never load. -->
+<script>(function () {
+  if (document.documentElement.hasAttribute("data-rest")) return;
+  var pre = [["https://fonts.googleapis.com", false], ["https://fonts.gstatic.com", true]];
+  for (var i = 0; i < pre.length; i++) {
+    var l = document.createElement("link");
+    l.rel = "preconnect"; l.href = pre[i][0];
+    if (pre[i][1]) l.crossOrigin = "";
+    document.head.appendChild(l);
+  }
+  var s = document.createElement("link");
+  s.rel = "stylesheet";
+  s.href = "https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap";
+  document.head.appendChild(s);
+})();</script>
 <style>
   /* ===== launcher look: deep navy night, big icon tiles, cyan action ===== */
   :root {
@@ -892,6 +920,19 @@ const CAT_NOTE = {
   'תוכנות נפוצות': 'תוכנות שכל מחשב צריך — מתקינים מלאים שעובדים בלי אינטרנט. בבחירה מרובה מצורף SilentInstall.exe שמתקין את כולן ברצף.',
   'בפיתוח שלי': 'כלים שפיתחתי בעצמי — תמיד בגרסה העדכנית ביותר מגיטהאב'
 };
+/* A closed shop that keeps talking to the network is not closed. The block at the top of the page
+   replaces the body and marks the page, and then everything below it used to run anyway: the
+   catalogue, the download counts, the published list, the mirror record, GitHub's API - ten
+   requests from a page that says it is shut. The visitor cannot see any of it, which is exactly
+   why it had to be found by reading rather than by looking.
+   The whole script is not wrapped in a condition, because half of it is reached from inline
+   handlers in the markup and would stop existing. What goes instead is the one thing that leaves
+   the machine. Every caller already handles a rejected fetch - that is how the page survives a
+   file that has not been uploaded yet - so they take this the same way. */
+if (document.documentElement.hasAttribute('data-rest')) {
+  window.fetch = function () { return Promise.reject(new Error('closed')); };
+}
+
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
 let TARGET = '11';
 /* app -> which build of it was picked: 'main' | 'xlat' (the Hebrew build) |
@@ -1399,13 +1440,32 @@ const KB_EN = "qwertyuiop" + "asdfghjkl;'" + "zxcvbnm,./";
 const KB_HE = "/'קראטוןםפ" + "שדגכעיחלךף," + "זסבהנמצתץ.";
 function retype(word) {
   if (!/[֐-׿]/.test(word)) return null;
+  /* The w key. On the Israeli layout it emits an apostrophe, and the two Hebrew layouts do not
+     agree on WHICH one: "Hebrew" gives U+0027, "Hebrew (Standard)" gives the geresh U+05F3. Both
+     are the same keystroke and both must read as w, or every Latin word with a w in it - windows,
+     winrar, viewer, power, browser - comes back a letter short. */
+  const keys = word.replace(/׳/g, "'").replace(/״/g, '"');
   let out = '';
-  for (const ch of word) {
+  for (const ch of keys) {
     const i = KB_HE.indexOf(ch);
     if (i < 0) return null;            // a real Hebrew word, not a mistyped Latin one
     out += KB_EN[i];
   }
   return out.length >= 2 ? out : null;
+}
+
+/* The query, split once, each word paired with the untouched text the visitor typed.
+   norm() folds the apostrophe away - it has to, so that ג'אווה and ג׳אווה are one word - and that
+   fold destroys exactly the character retype() needs, because the apostrophe IS the w key. Reading
+   the raw word for the keyboard question and the normalised one for everything else is the only
+   way both can be right. They are paired rather than kept in two arrays because both matches() and
+   score() drop stop words, and two arrays filtered separately drift apart on the first query that
+   contains one. */
+function queryWords(query) {
+  const pairs = String(query || '').toLowerCase().trim().split(/\s+/)
+    .map(raw => [norm(raw), raw]).filter(p => p[0]);
+  const real = pairs.filter(p => !STOP.has(p[0]));
+  return real.length ? real : pairs;
 }
 
 /* ===== smart search =====
@@ -1437,18 +1497,18 @@ const TAGS = {
   Messaging: 'הודעות sms',
   BingSearch: 'חיפוש bing שורת המשימות',
   DevHomeGitHub: 'גיטהאב github dev home',
-  VCRedist64: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ ספריות ריצה רכיב',
-  VCRedist86: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
-  VC2013x64: 'vc++ visual c++ ספריות ריצה רכיב',
-  VC2013x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
-  VC2012x64: 'vc++ visual c++ ספריות ריצה רכיב',
-  VC2012x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
-  VC2010x64: 'vc++ visual c++ ספריות ריצה רכיב',
-  VC2010x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
-  VC2008x64: 'vc++ visual c++ ספריות ריצה רכיב',
-  VC2008x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
-  VC2005x64: 'vc++ visual c++ ספריות ריצה רכיב',
-  VC2005x86: 'vc++ visual c++ ספריות ריצה רכיב 32 סיביות',
+  VCRedist64: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VCRedist86: 'וי סי רדיסטרביוטבל וי סי פלוס פלוס פלוס vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
+  VC2013x64: 'vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VC2013x86: 'vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
+  VC2012x64: 'vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VC2012x86: 'vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
+  VC2010x64: 'vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VC2010x86: 'vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
+  VC2008x64: 'vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VC2008x86: 'vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
+  VC2005x64: 'vc++ visual c++ רכיבי ריצה רכיב runtime',
+  VC2005x86: 'vc++ visual c++ רכיבי ריצה רכיב runtime 32 סיביות',
   DirectX: 'דיירקט אקס directx גרפיקה רכיב',
   WSAGitHub: 'אנדרואיד android אפליקציות אנדרואיד wsa סאבסיסטם',
   DefenderPlatform: 'דיפנדר אנטיוירוס אנטי וירוס הגנה מנוע עדכון',
@@ -1520,7 +1580,7 @@ const TAGS = {
   GIMP: 'ציור עריכת תמונות photoshop פוטושופ גרפיקה image editor גימפ',
   Audacity: 'הקלטה עריכת שמע audio recorder אודסיטי אודאסיטי',
   OBS: 'הקלטת מסך שידור streaming screen record או בי אס אוביאס',
-  SevenZip: 'ארכיון zip rar חילוץ דחיסה archive extract סבן זיפ שבע זיפ וינרר winrar',
+  SevenZip: 'ארכיון zip rar חילוץ דחיסה archive extract סבן זיפ שבע זיפ וינרר winrar iso img קובץ דחוס',
   SumatraPDF: 'pdf מסמכים קורא reader סומטרה סומאטרה פי די אף ספרים ספר קריאה קורא ספרים',
   LibreOffice: 'אופיס office word excel powerpoint מסמכים גיליון מצגת ליברה ליברהאופיס וורד אקסל פאוורפוינט פאוור פוינט',
   Everything: 'חיפוש קבצים search find אוורית׳ינג אברית׳ינג',
@@ -1588,7 +1648,10 @@ const SYN = [
   ['תמונה', 'תמונות', 'photo', 'photos', 'image', 'images', 'צילום', 'picture'],
   ['עריכה', 'editor', 'עורך', 'ערוך', 'לערוך', 'edit'],
   ['ציור', 'paint', 'צייר', 'draw', 'גרפיקה', 'graphics', 'gimp'],
-  ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'לחלץ', 'extract', 'archive', 'דחיסה', 'לדחוס', 'כיווץ', 'לכווץ', 'compress', 'unzip', 'לפתוח קובץ'],
+  ['ארכיון', 'זיפ', 'zip', 'rar', '7zip', 'חילוץ', 'לחלץ', 'extract', 'archive', 'דחיסה', 'לדחוס', 'כיווץ', 'לכווץ', 'compress', 'unzip',
+   /* Opening a file IS what an archiver is for, and the verb was missing: "איך אני פותח קובץ RAR"
+      matched three cards, none of them 7-Zip, because no card says פותח. */
+   'לפתוח קובץ', 'לפתוח', 'פותח', 'פתיחה', 'פתיחת'],
   ['pdf', 'מסמך', 'מסמכים', 'document', 'documents'],
   ['אופיס', 'office', 'word', 'excel', 'powerpoint', 'libreoffice', 'מסמכים'],
   ['דואר', 'מייל', 'mail', 'email', 'thunderbird', 'outlook'],
@@ -1648,13 +1711,27 @@ const norm = s => (s || '').toLowerCase()
    Stripping is offered as an ALTERNATIVE spelling rather than a replacement, so a word that is
    genuinely itself keeps working: "ברזל" still searches for ברזל, and also for רזל, which
    matches nothing and costs nothing. */
-const HEB_PREFIX = /^(ו?[הבכלמש]|ו)(?=[֐-׿]{2,})/;
+/* Three letters have to remain, not two. With two, "שבת" peeled to "בת" and matched anything
+   containing those letters: twenty-eight cards, led by Photos and a codec pack. A two-letter
+   Hebrew stump is not a word, it is a coincidence generator. */
+const HEB_PREFIX = /^(ו?[הבכלמש]|ו)(?=[֐-׿]{3,})/;
+/* Hebrew plurals are suffixes, and the index holds whichever form the writer used. Someone typing
+   "מצגות" cannot reach a card that says "מצגת", and "לוחות שנה" reached nothing at all. Offered
+   as an extra spelling, exactly like the prefix strip, and with the same three-letter floor. */
+const HEB_PLURAL = /(ים|ות|יות|יים)$/;
 function deprefix(word) {
   const out = [word];
   let w = word;
   for (let i = 0; i < 2 && HEB_PREFIX.test(w); i++) {
     w = w.replace(HEB_PREFIX, '');
     out.push(w);
+  }
+  for (const v of out.slice()) {
+    if (HEB_PLURAL.test(v) && v.replace(HEB_PLURAL, '').length >= 3) out.push(v.replace(HEB_PLURAL, ''));
+    /* Single vav where the index has two. "ווינדוס" is in the tags and "וינדוס" is what half the
+       people type; norm() folds a doubled vav INSIDE a word but cannot touch a leading one, because
+       there a double vav is the prefix ו + the word. So offer the doubled spelling as well. */
+    if (/^ו[^ו]/.test(v)) out.push('ו' + v);
   }
   return out;
 }
@@ -1664,7 +1741,13 @@ function deprefix(word) {
    useful and - because the two are mutually exclusive origin flags - a query containing both
    could never match anything at all. Dropped only when something else was typed too, so a
    search for "תוכנה" on its own still behaves. */
-const STOP = new Set(['את', 'של', 'עם', 'על', 'לי', 'לא', 'יש', 'זה', 'הוא', 'אני', 'תוכנה', 'אפליקציה', 'תוכנית', 'program', 'app', 'software', 'the', 'a', 'for', 'to']);
+const STOP = new Set(['את', 'של', 'עם', 'על', 'לי', 'לא', 'יש', 'זה', 'הוא', 'אני',
+  'תוכנה', 'אפליקציה', 'תוכנית', 'program', 'app', 'software', 'the', 'a', 'for', 'to',
+  /* People ask the shop questions, not keywords: "איך אני פותח קובץ RAR", "מה מוריד שירים".
+     The question word carries nothing and, under an all-words-must-match rule, it was the word
+     that killed the query. */
+  'איך', 'מה', 'במה', 'איפה', 'למה', 'כמה', 'אפשר', 'צריך', 'רוצה', 'טוב', 'הכי',
+  'how', 'what', 'which', 'where', 'best']);
 /* every word that should also count as a hit for this query word */
 function expand(word) {
   const out = new Set([word]);
@@ -1689,7 +1772,11 @@ function haystack(a) {
     const extra = (INFO && INFO[a.en]) ? (INFO[a.en].info || '') + ' ' + (INFO[a.en].infoEn || '') : '';
     a._hay = norm([a.he, a.en, pretty(a.en), nameOf(a), a.desc, a.descEn,
                    a.cat, EN[a.cat] || '', a.note, TAGS[a.en] || '', extra,
-                   a.heb ? 'עברית hebrew ממשק בעברית' : '', a.w32 ? 'תוכנה' : 'אפליקציה',
+                   a.heb ? 'עברית hebrew ממשק בעברית' : '',
+                   /* The origin stamp used to sit here, one of "תוכנה" or "אפליקציה" on every
+                      single card. Since a term matches at a word START, "אפל" - Apple - matched
+                      "אפליקציה" and returned 64 of the 146 cards. Both words are stop words anyway,
+                      so they only ever mattered typed alone, and matches() answers that from the flag. */
                    a.custom ? 'שלי' : ''].join(' '));
     a._hayInfo = !!extra;
   }
@@ -1705,12 +1792,50 @@ function haystack(a) {
    and that is true, but it also meant "ספר" was found inside "מספר", so asking for a book
    reader returned every card whose explainer happens to count something. The prefixes are
    handled where they belong, on the typed word, by deprefix(). */
-const hitCache = {};
+// Object.create(null), not {}. A visitor who searches for "constructor" or "toString" otherwise
+// gets Object.prototype's member back instead of a cached regex, and re.test is not a function -
+// which throws inside render() and freezes every filter on the page until the box is edited.
+const hitCache = Object.create(null);
+const wordCache = Object.create(null);
 function hits(hay, term) {
   const re = hitCache[term] || (hitCache[term] =
     new RegExp('(^|[^a-z0-9֐-׿])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   return re.test(hay);
 }
+/* The same term, but the word has to END there too. "מחשב" starts "מחשבון" and "ספר" starts
+   "ספריות", so matching a word-start alone answered "what is in my computer" with the calculator
+   and "book" with ten C++ runtimes. Both are still matches - a prefix is how Hebrew plurals and
+   possessives attach - but the card carrying the whole word is the better answer, and score()
+   is where that belongs rather than in the yes/no test. */
+function hitsWord(hay, term) {
+  const re = wordCache[term] || (wordCache[term] =
+    new RegExp('(^|[^a-z0-9֐-׿])' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
+               '([^a-z0-9֐-׿]|$)'));
+  return re.test(hay);
+}
+/* Every word must hit the same card. That is the right rule for two or three words and the wrong
+   one for a sentence, and people type sentences: "לפתוח קובץ של אקסל" and "איך אני פותח קובץ RAR"
+   both returned "לא נמצא כלום", because one word in each - "של", "פותח" - is in no card's text.
+   The shop knows the answer and said it had nothing.
+   So when the strict pass comes back empty, rank the whole catalogue by the score it already
+   computes and show the few that stand out. Not everything with a flicker of a match: a long
+   sentence touches half the shop faintly, so only what is close to the best is worth showing, and
+   the page says plainly that these are the closest rather than the answer. */
+const SOFT_MAX = 12;
+let SOFT = false;
+function searchApps(list, query) {
+  SOFT = false;
+  if (!query) return list.slice();
+  const byScore = arr => arr.map(a => [a, score(a, query)]).sort((x, y) => y[1] - x[1]).map(p => p[0]);
+  const strict = list.filter(a => matches(a, query));
+  if (strict.length) return byScore(strict);
+  const scored = list.map(a => [a, score(a, query)]).filter(p => p[1] > 0).sort((x, y) => y[1] - x[1]);
+  if (!scored.length) return [];
+  const best = scored[0][1];
+  SOFT = true;
+  return scored.filter(p => p[1] >= Math.max(8, best * 0.55)).slice(0, SOFT_MAX).map(p => p[0]);
+}
+
 /* matches() answers yes or no. That was the whole search, and it is half a search: a query that
    is right about thirteen cards still shows them in catalogue order, so "ווינדוס בעברית" put the
    Hebrew language pack thirteenth out of thirteen. The same words are worth more in an app's own
@@ -1725,7 +1850,9 @@ function fields(a) {
       desc: norm([a.desc, a.descEn, a.cat, EN[a.cat] || '', a.note].join(' ')),
       // the synthetic "ממשק בעברית" every Hebrew card carries lives here, at the weakest weight:
       // it is true of eighty-five apps, so it must never outrank an app that says it of itself
-      info: norm(extra + (a.heb ? ' עברית hebrew ממשק בעברית' : '')),
+      // Whatever matches() can find, score() has to be able to weigh, or a query that matches
+      // through one of these comes back in catalogue order with every card scoring the same.
+      info: norm(extra + (a.heb ? ' עברית hebrew ממשק בעברית' : '') + (a.custom ? ' שלי' : '')),
     };
   }
   return a._fld;
@@ -1738,20 +1865,21 @@ function score(a, query) {
   if (f.name === q) s += 200;                 // they typed the name, and only the name
   else if (hits(f.name, q)) s += 80;          // the whole phrase, inside the name
   if (hits(f.tags, q)) s += 40;               // the whole phrase, as one of the app's own words
-  let words = q.split(' ').filter(Boolean);
-  const real = words.filter(w => !STOP.has(w));
-  if (real.length) words = real;
   let weakest = Infinity;
-  words.forEach(w => {
+  queryWords(query).forEach(pair => {
+    const w = pair[0], raw = pair[1];
     const forms = deprefix(w);
-    const t = retype(w);
-    if (t) forms.push(t);
+    const t = retype(raw);
+    if (t) forms.push(norm(t));
     let best = 0;
-    forms.forEach(v => {
-      if (hits(f.name, v)) best = Math.max(best, 40);
-      if (hits(f.tags, v)) best = Math.max(best, 14);
-      if (hits(f.desc, v)) best = Math.max(best, 7);
-      if (hits(f.info, v)) best = Math.max(best, 3);
+    forms.forEach((v, vi) => {
+      // A form the visitor did not type - a prefix peeled, a plural undone, the keyboard re-read -
+      // is a guess about what they meant, and is worth less than the word they actually typed.
+      const g = vi === 0 ? 1 : 0.6;
+      const w = (field, full) => {
+        if (hits(field, v)) best = Math.max(best, g * full * (hitsWord(field, v) ? 1 : 0.55));
+      };
+      w(f.name, 40); w(f.tags, 14); w(f.desc, 7); w(f.info, 3);
       expand(v).forEach(x => {
         if (x === v) return;
         if (hits(f.name, x) || hits(f.tags, x)) best = Math.max(best, 5);
@@ -1768,22 +1896,27 @@ function score(a, query) {
   if (weakest < Infinity) s += 2 * weakest;
   return s;
 }
+const W32_WORDS = new Set(['תוכנה', 'תוכנית', 'program', 'software']);
+const STORE_WORDS = new Set(['אפליקציה', 'app']);
 function matches(a, query) {
-  let words = norm(query).split(' ').filter(Boolean);
+  const words = queryWords(query);
   if (!words.length) return true;
-  // grammar and the two words every card already carries, dropped only when something else
-  // was typed as well - so searching for "תוכנה" alone still means something
-  const real = words.filter(w => !STOP.has(w));
-  if (real.length) words = real;
+  // "תוכנה" and "אפליקציה" typed alone are a real question - which half of the shop -
+  // and it is answered from the flag rather than from a word stamped on every card.
+  if (words.length === 1) {
+    if (W32_WORDS.has(words[0][0])) return !!a.w32;
+    if (STORE_WORDS.has(words[0][0])) return !a.w32;
+  }
   const hay = haystack(a);
   /* Every word the visitor typed must hit something - through its synonyms, and through the
      same word with its Hebrew prefix letters peeled off, because "לצריבה" and "צריבה" are the
      same request and only one of them is in the index. */
-  return words.every(w => {
-    if (deprefix(w).some(v => expand(v).some(x => hits(hay, x)))) return true;
-    // last resort: the same keys, read as if the keyboard had been in the other layout
-    const t = retype(w);
-    return t ? expand(t).some(x => hits(hay, x)) : false;
+  return words.every(pair => {
+    if (deprefix(pair[0]).some(v => expand(v).some(x => hits(hay, x)))) return true;
+    // last resort: the keys as typed, read as if the keyboard had been in the other layout.
+    // The RAW word, not the normalised one - norm() folds away the apostrophe, which is the w key.
+    const t = retype(pair[1]);
+    return t ? expand(norm(t)).some(x => hits(hay, x)) : false;
   });
 }
 const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
@@ -1827,7 +1960,6 @@ const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) 
 /* ===== tiles ===== */
 function tile(a) {
   if (HEBONLY && !a.heb && !a.noui) return '';
-  if (QUERY && !matches(a, QUERY)) return '';
   const f = bestFile(a);
   if (!f) return '';
   const pl = plate(a, false);
@@ -1920,14 +2052,14 @@ function render() {
      ranked list, strongest first, and the shelf comes back the moment it is cleared. Picking a
      category chip is an explicit request to stay inside that category, and is left alone. */
   if (QUERY && !CATSEL) {
-    const tiles = groups.reduce((all, cat) => all.concat(memberOf[cat]), [])
-      .map(a => [a, score(a, QUERY)])
-      .sort((x, y) => y[1] - x[1])
-      .map(p => tile(p[0])).filter(Boolean);
+    const found = searchApps(groups.reduce((all, cat) => all.concat(memberOf[cat]), []), QUERY);
+    const soft = SOFT;
+    const tiles = found.map(tile).filter(Boolean);
     shown = tiles.length;
     if (tiles.length) {
-      html = '<div class="grouphead"><h3>' + T('תוצאות') + '</h3><span class="n">' + tiles.length + '</span>' +
+      html = '<div class="grouphead"><h3>' + T(soft ? 'הכי קרוב' : 'תוצאות') + '</h3><span class="n">' + tiles.length + '</span>' +
              '<button class="chip catpick" data-catpick="">' + T('לסמן הכל') + '</button></div>' +
+             (soft ? '<div class="groupnote">' + T('לא נמצא משהו שמתאים לכל המילים שהקלדתם — אלו הכי קרובים.') + '</div>' : '') +
              '<div class="grid">' + tiles.join('') + '</div>';
     }
     finishRender(box, html, chipBar, shown, total);
@@ -1935,9 +2067,11 @@ function render() {
   }
   let seamDone = false;
   groups.forEach(cat => {
-    const members = memberOf[cat];
+    let members = memberOf[cat];
     if (!members.length) return;
     if (CATSEL && CATSEL !== cat) return;
+    if (QUERY) members = searchApps(members, QUERY);
+    if (!members.length) return;
     const tiles = members.map(tile).filter(Boolean);
     if (!tiles.length) return;
     shown += tiles.length;
@@ -2281,6 +2415,12 @@ function loadXtra() {
          the aisle out in plain text. They ride in here instead, and go back into LIVE now - the
          page draws a download button only for a name it finds there. */
       (XTRA.live || []).forEach(n => { LIVE[n] = true; });
+      /* Their download totals came out of counts.json for the same reason their names came out of
+         published.json - that file is public and it was spelling all eighteen of them out. They
+         ride in here too, and go back into the map the cards read. */
+      if (DLC && XTRA.counts) {
+        Object.keys(XTRA.counts).forEach(k => { DLC[k] = (XTRA.counts[k] && XTRA.counts[k].total) || 0; });
+      }
       EN[XTRA.cat] = XTRA.catEn;
       EN[XTRA.note] = XTRA.noteEn;
       CAT_NOTE[XTRA.cat] = XTRA.note;

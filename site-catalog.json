@@ -369,18 +369,12 @@
       "files": [
         {
           "exe": "Setup-Maps.exe",
-          "mb": 199,
+          "mb": 214,
           "win": "all",
           "minBuild": 17134,
           "ver": "10.2104.2.0"
         }
-      ],
-      "alt": {
-        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Maps-Original.exe",
-        "label": "המקורי של מיקרוסופט",
-        "labelEn": "Microsoft's original",
-        "mb": 214
-      }
+      ]
     },
     {
       "he": "To Do",

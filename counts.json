@@ -109,11 +109,6 @@
   "seen": 0,
   "total": 9
  },
- "Setup-GamingServices.exe": {
-  "carry": 5,
-  "seen": 0,
-  "total": 5
- },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
   "seen": 0,
@@ -144,30 +139,10 @@
   "seen": 0,
   "total": 2
  },
- "Setup-Jigsaw-Original.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Jigsaw.exe": {
-  "carry": 11,
-  "seen": 0,
-  "total": 11
- },
  "Setup-Journal.exe": {
   "carry": 2,
   "seen": 0,
   "total": 2
- },
- "Setup-Mahjong-Original.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Mahjong.exe": {
-  "carry": 9,
-  "seen": 0,
-  "total": 9
  },
  "Setup-Mail.exe": {
   "carry": 1,
@@ -198,16 +173,6 @@
   "carry": 1,
   "seen": 0,
   "total": 1
- },
- "Setup-Minesweeper-Original.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Minesweeper.exe": {
-  "carry": 9,
-  "seen": 0,
-  "total": 9
  },
  "Setup-MixedReality.exe": {
   "carry": 2,
@@ -324,11 +289,6 @@
   "seen": 0,
   "total": 0
  },
- "Setup-Solitaire.exe": {
-  "carry": 9,
-  "seen": 2,
-  "total": 11
- },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
   "seen": 0,
@@ -353,16 +313,6 @@
   "carry": 1,
   "seen": 0,
   "total": 1
- },
- "Setup-Sudoku-Original.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-Sudoku.exe": {
-  "carry": 10,
-  "seen": 0,
-  "total": 10
  },
  "Setup-Sway.exe": {
   "carry": 1,
@@ -393,16 +343,6 @@
   "carry": 9,
   "seen": 0,
   "total": 9
- },
- "Setup-TreasureHunt-Original.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-TreasureHunt.exe": {
-  "carry": 15,
-  "seen": 0,
-  "total": 15
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
@@ -443,36 +383,6 @@
   "carry": 2,
   "seen": 0,
   "total": 2
- },
- "Setup-XboxApp.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-XboxGameBar.exe": {
-  "carry": 1,
-  "seen": 0,
-  "total": 1
- },
- "Setup-XboxGameOverlay.exe": {
-  "carry": 0,
-  "seen": 0,
-  "total": 0
- },
- "Setup-XboxIdentity.exe": {
-  "carry": 2,
-  "seen": 0,
-  "total": 2
- },
- "Setup-XboxSpeech.exe": {
-  "carry": 1,
-  "seen": 0,
-  "total": 1
- },
- "Setup-XboxTCUI.exe": {
-  "carry": 3,
-  "seen": 0,
-  "total": 3
  },
  "SilentInstall.exe": {
   "carry": 0,
