@@ -56,6 +56,19 @@ with, authorised by, sponsored by or endorsed by any of them.
 THIRD-PARTY SOFTWARE
 ====================
 
-A machine-readable list of everything the catalogue carries, with each item's
-source URL and licence, is at build/data/win32-apps.json and build/data/plan.json.
-The site shows the source of every item on its own card.
+A machine-readable list of everything the catalogue carries is kept in
+build/data/win32-apps.json and build/data/plan.json. Stated plainly, because a
+promise of more than a file holds is worse than a smaller promise kept: those
+files carry each item's SOURCE - the vendor URL, or the repository, or the
+person whose work it is - and they do NOT carry a licence field. Neither one
+does, for any of the 160 entries.
+
+Licence terms are the vendor's own, published wherever the vendor publishes
+them, and the source on each card is the way to reach them. Where this project
+carries somebody else's work rather than linking to it, the licence is checked
+before it is carried and the card names whose work it is; where a licence does
+not permit carrying, the card links to the maker's own release instead and the
+bytes are not kept here.
+
+The site shows the source of every item on its own card, and build/check-sources.js
+refuses to pass a card that does not.

@@ -1120,6 +1120,22 @@ const EN = {
   'לא נמצא כלום': 'nothing found',
   'היעד:': 'Target:',
   'טביעת אצבע': 'Fingerprint',
+  'ערכות נושא': 'Themes',
+  'ערכת נושא': 'Theme',
+  'עב': 'HE',
+  'בתים': 'bytes',
+  'הבקשה נשלחה': 'Sent',
+  'תנאי השימוש': 'Terms of use',
+  'הכי קרוב': 'Closest matches',
+  'לבדיקת שלמות הקובץ (SHA-256)': 'To check the file is intact (SHA-256)',
+  'לא נמצא משהו שמתאים לכל המילים שהקלדתם — אלו הכי קרובים.': 'Nothing matched every word you typed - these are the closest.',
+  'לא הצלחנו לקרוא את הקובץ. אפשר גם לפתוח אותו, לסמן הכול ולהדביק למעלה.': 'We could not read the file. You can also open it, select everything and paste it above.',
+  'ערכת נושא — לחיצה כפולה מחליפה את הטפט, בלי התקנה': 'A theme - double-click swaps the wallpaper, nothing to install',
+  '✓ צורף: ': '✓ attached: ',
+  ', נשלח החלק האחרון': ', last part only',
+  'בהורדה חלים ': 'Downloading is subject to ',
+  ', ובהם סעיף שמגביל את האחריות שלנו לנזק.': ', which include a clause limiting our liability for damage.',
+  ' ו-': ' and ',
   'החלופה מאת': 'Alternative by',
   'טביעת האצבע של הקובץ (SHA-256). אפשר להעתיק ולהשוות מול הקובץ שהורד, כדי לוודא שהוא הגיע שלם': "The file's fingerprint (SHA-256). Copy it and compare it against the file you downloaded, to check it arrived intact",
   'העתקת טביעת האצבע': 'Copy the fingerprint',
@@ -1520,6 +1536,26 @@ function retype(word) {
     const i = KB_HE.indexOf(ch);
     if (i < 0) return null;            // a real Hebrew word, not a mistyped Latin one
     out += KB_EN[i];
+  }
+  return out.length >= 2 ? out : null;
+}
+
+/* The same mistake in the other direction, which is the commoner one here. retype() catches a
+   Latin word typed while the keyboard was still in Hebrew. This catches a HEBREW word typed while
+   the keyboard was still in English: somebody means "תרגום", the keyboard is on English, and what
+   lands in the box is ",rduo".
+   Both are one person hitting the same keys with the wrong layout selected, and for a Hebrew
+   speaker the second happens more often - the machine boots English and the first thing typed is
+   Hebrew. The shop sells a program whose entire purpose is fixing exactly this, so it should not
+   be the one place that cannot cope with it. */
+function untype(word) {
+  if (/[֐-׿]/.test(word)) return null;     // already Hebrew; nothing to undo
+  if (!/[a-z]/i.test(word)) return null;   // digits and punctuation alone are not a mistyped word
+  let out = '';
+  for (const ch of word.toLowerCase()) {
+    const i = KB_EN.indexOf(ch);
+    if (i < 0) return null;                // a character no Hebrew key produces: a real Latin word
+    out += KB_HE[i];
   }
   return out.length >= 2 ? out : null;
 }
@@ -1943,7 +1979,7 @@ function score(a, query) {
   queryWords(query).forEach(pair => {
     const w = pair[0], raw = pair[1];
     const forms = deprefix(w);
-    const t = retype(raw);
+    const t = retype(raw) || untype(raw);
     if (t) forms.push(norm(t));
     let best = 0;
     forms.forEach((v, vi) => {
@@ -1987,9 +2023,10 @@ function matches(a, query) {
      same request and only one of them is in the index. */
   return words.every(pair => {
     if (deprefix(pair[0]).some(v => expand(v).some(x => hits(hay, x)))) return true;
-    // last resort: the keys as typed, read as if the keyboard had been in the other layout.
+    // last resort: the keys as typed, read as if the keyboard had been in the other layout -
+    // in BOTH directions, because either layout can be the wrong one.
     // The RAW word, not the normalised one - norm() folds away the apostrophe, which is the w key.
-    const t = retype(pair[1]);
+    const t = retype(pair[1]) || untype(pair[1]);
     return t ? expand(norm(t)).some(x => hits(hay, x)) : false;
   });
 }
@@ -2507,7 +2544,10 @@ function mergeXtra() {
 function loadXtra() {
   if (XTRA) return Promise.resolve(XTRA);
   if (XTRA_P) return XTRA_P;
-  XTRA_P = fetch('extras.json?v=' + (window.CATV || ''), { cache: 'no-cache' })
+  /* The ?v= already carries the build stamp, so a new build gets a new URL and the browser
+     fetches it; no-cache on top of that only means re-downloading the same 49 KB on every
+     single page load, for ever, for anyone who ever made the gesture. */
+  XTRA_P = fetch('extras.json?v=' + (window.CATV || ''))
     .then(r => r.ok ? r.json() : null)
     .then(j => {
       if (!j || !j.d) return null;
@@ -3296,6 +3336,18 @@ document.getElementById('donate-btn').onclick = () => {
       lastTap = now;
       if (taps < 7) return;
       taps = -999;
+      /* An eighth tap closes it again. The gesture was one-way: once tapped, every later visit
+         fetched the extra catalogue for ever, and the only way back was the browser's own site
+         settings - which is not somewhere a person goes, and not something the page told them
+         about. The same seven taps that opened it are the obvious way to change one's mind. */
+      let already = false;
+      try { already = !!localStorage.getItem(XKEY); } catch (e) { }
+      if (already) {
+        try { localStorage.removeItem(XKEY); } catch (e) { }
+        XTRA = null; XTRA_P = null;
+        location.reload();
+        return;
+      }
       try { localStorage.setItem(XKEY, '1'); } catch (e) { }
       loadXtra().then(p => {
         shut();
