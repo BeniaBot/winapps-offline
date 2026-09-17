@@ -3921,7 +3921,8 @@
           "mb": 1,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "7de34f031c6717601b3d7a8a6fedf7e0edc83b1b6d22b4ce697093da2bb4fa38"
         }
       ]
     },
@@ -3948,7 +3949,8 @@
           "mb": 17,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "482b19d46f157a6b3f5707762957d5a8dbabd52862966d47b953cfeef2c1dc4b"
         }
       ]
     },
@@ -3973,7 +3975,8 @@
           "mb": 30,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "11baa84982666239658bd070b76c2a4b89da4d3677a10614ca689fafcf23d51a"
         }
       ]
     },
@@ -3997,7 +4000,8 @@
           "mb": 37,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "fc3d774927079e38f804516b8853057642b3c330c9ac73884fb82ecc2d1cda93"
         }
       ]
     },
@@ -4021,7 +4025,8 @@
           "mb": 1,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "6e9bf94761ef5088ac3c165b47c8b157d852bda52f97ded906697f295314f0f3"
         }
       ]
     },
@@ -4069,7 +4074,8 @@
           "mb": 5,
           "win": "all",
           "minBuild": 0,
-          "ver": ""
+          "ver": "",
+          "sha256": "2e83fbbc357d07d73cbfe6b25813a3d1fad9ac31e68e087932612e39e4ca7edb"
         }
       ]
     }
