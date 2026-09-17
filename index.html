@@ -158,13 +158,24 @@
     --panel:   #1a2233;
     --panel-2: #141b2b;
     --ok:      #6ade8d;
+    --on-ok:   #06210f;
     --warn:    #ffc46b;
     --err:     #ff8b81;
+    /* --ink2 and --panel1 are used in eight rules and were never defined anywhere, so those rules
+       fell back to inherited colour and to transparent. Nothing looked obviously broken, which is
+       why it lasted: a paragraph in almost-the-right grey reads as a design choice. */
+    --ink2:    #c3cde0;
+    --panel1:  #1f2839;
     --shadow:  0 16px 38px -16px rgba(0,0,0,.7);
   }
   :root.light {
     --ink:     #17202e;
-    --muted:   #64708a;
+    --ink2:    #3b475c;
+    --panel1:  #ffffff;
+    /* Darkened from #64708a, which measured about 4.1:1 against the light background - under the
+       4.5:1 that ordinary body text needs. It is used for descriptions, sizes and every secondary
+       line on the page, so it was the single token failing in the most places. */
+    --muted:   #586479;
     --accent:  #0067c0;
     --on-accent:#ffffff;
     --tile:    #ffffff;
@@ -173,6 +184,7 @@
     --panel:   #ffffff;
     --panel-2: #eef1f7;
     --ok:      #157a3d;
+    --on-ok:   #ffffff;
     --warn:    #9a6206;
     --err:     #b3362d;
     --shadow:  0 16px 38px -20px rgba(30,50,90,.28);
@@ -458,9 +470,11 @@
      simply absent, which is why it survived. */
   @media (hover: none) { .pick { display: flex; } }
   .empty { color: var(--muted); padding: 24px 4px; grid-column: 1/-1; }
+  .sronly { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   /* The sheet's way out. Sits in the top corner opposite the "?", big enough for a thumb. */
   .sheet-x { position: absolute; top: 14px; inset-inline-end: 14px; z-index: 3;
-             width: 34px; height: 34px; border-radius: 99px; cursor: pointer;
+             width: 32px; height: 32px; border-radius: 99px; cursor: pointer;
              display: flex; align-items: center; justify-content: center;
              font-size: 1rem; line-height: 1; color: var(--muted);
              background: var(--tile); border: 1px solid var(--stroke); }
@@ -651,7 +665,10 @@
 
   /* the opposite corner from the Store link, and deliberately plainer than it - this is a
      question, not a destination */
-  .qmark { position: absolute; inset-inline-end: 14px; top: 14px; z-index: 2;
+  /* The close button took this corner, so the explainer button moves along one place rather than
+     disappearing under it - which is what happened when the close button was added: same corner,
+     higher z-index, and the "?" was simply gone. */
+  .qmark { position: absolute; inset-inline-end: 56px; top: 14px; z-index: 2;
            width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
            display: inline-flex; align-items: center; justify-content: center;
            background: var(--tile); border: 1px solid var(--stroke); color: var(--muted);
@@ -692,7 +709,9 @@
   .lang:hover { background: var(--tile-h); color: var(--ink); border-color: var(--accent); }
 
   .copied { position: fixed; z-index: 90; pointer-events: none;
-            background: var(--ok); color: #06210f; font-size: .78rem; font-weight: 600;
+            /* was #06210f on --ok, which is 3.15:1 in the light theme and unreadable on a phone
+               in daylight; the token follows the theme so both stay legible */
+            background: var(--ok); color: var(--on-ok); font-size: .78rem; font-weight: 600;
             padding: 6px 12px; border-radius: 99px; white-space: nowrap;
             box-shadow: 0 6px 20px rgba(0,0,0,.4);
             opacity: 0; transform: translateY(4px); transition: opacity .16s, transform .16s; }
@@ -723,7 +742,11 @@
   .dock .clear { background: none; border: 0; color: var(--muted); cursor: pointer; }
   .dock .btn { margin-inline-start: auto; }
   body.has-sel { padding-bottom: 90px; }
-  @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; } body.has-sel { padding-bottom: 150px; } }
+  @media (max-width: 640px) { .dock .inner { border-radius: 20px; flex-wrap: wrap; } body.has-sel { padding-bottom: 150px; }
+    /* On a phone the dock grows to two rows and the body gets 150px of padding, but the
+       back-to-top button stayed at 100px - so its lower third sat under the dock and the taps
+       that landed there did nothing. */
+    body.has-sel .top-btn { bottom: 168px; } }
 
   footer { border-top: 1px solid var(--stroke); margin-top: 64px; padding: 30px 0 44px; color: var(--muted); font-size: .85rem; text-align: center; }
   footer img { width: 30px; height: 30px; opacity: .85; margin-bottom: 10px; }
@@ -760,6 +783,11 @@
 </div>
 
 <main class="wrap" id="catalog">
+  <!-- The result count is announced, not just drawn. Typing in the search box rewrote the whole
+       catalogue with nothing said out loud, so a visitor using a screen reader had no way to
+       know whether anything had been found. The live region is separate from the grid itself
+       because re-announcing 147 tiles on every keystroke would be worse than silence. -->
+  <p id="found" class="sronly" role="status" aria-live="polite" aria-atomic="true"></p>
   <div id="cats" class="sk"><div class="grid">
     <div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div>
     <div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div><div class="ph"></div>
@@ -923,7 +951,10 @@ const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
 const CAT_AT = 3;   // where a category that is not on the shelf slots back in, once asked for
-const W32_CATS = ['עדכוני אבטחה', 'תורה ולימוד', 'רכיבי מערכת', 'תוכנות נפוצות'];
+/* The four themes carry cat="ערכות נושא" and that aisle was in no group list, so the orphan
+   fallback quietly swept them into "תוכנות נפוצות" - while the FAQ told visitors to go and look
+   in an aisle called "ערכות נושא", which the shelf did not have and no chip offered. */
+const W32_CATS = ['עדכוני אבטחה', 'תורה ולימוד', 'רכיבי מערכת', 'תוכנות נפוצות', 'ערכות נושא'];
 const CAT_NOTE = {
   'מדיה': 'כולל את הרחבות הקודקים — בלעדיהן תמונות מאייפון ווידאו מודרני לא נפתחים.',
   'עדכוני אבטחה': 'ההגנה המובנית של Windows מתעדכנת דרך האינטרנט. במחשב מנותק היא נשארת עם מה שהיה ביום ההתקנה — אלה שני הקבצים שמעדכנים אותה ביד. הסדר חשוב: קודם הפלטפורמה, אחר כך החתימות.',
@@ -945,6 +976,8 @@ if (document.documentElement.hasAttribute('data-rest')) {
   window.fetch = function () { return Promise.reject(new Error('closed')); };
 }
 
+// true = we could not find out what is published, so a missing button means "we do not know"
+let LIVE_UNKNOWN = false;
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
 let TARGET = '11';
 /* app -> which build of it was picked: 'main' | 'xlat' (the Hebrew build) |
@@ -1093,6 +1126,16 @@ const EN = {
   'הורדה ▾': 'Download ▾',
   'בהעלאה...': 'uploading…',
   'בהעלאה לשרת...': 'uploading to the server…',
+  'לא נטען': 'could not load',
+  'לא נמצא כלום': 'nothing found',
+  'היעד:': 'Target:',
+  'טביעת אצבע': 'Fingerprint',
+  'החלופה מאת': 'Alternative by',
+  'טביעת האצבע של הקובץ (SHA-256). אפשר להעתיק ולהשוות מול הקובץ שהורד, כדי לוודא שהוא הגיע שלם': "The file's fingerprint (SHA-256). Copy it and compare it against the file you downloaded, to check it arrived intact",
+  'העתקת טביעת האצבע': 'Copy the fingerprint',
+  'נמצאה תוצאה אחת': 'one result',
+  'תוצאות': 'results',
+  'רשימת הקבצים לא נטענה — כדאי לרענן את הדף': 'The file list did not load - try refreshing the page',
   'לבחירה מרובה': 'add to selection',
   'ממשק בעברית': 'Hebrew interface',
   'נבחרו': 'selected',
@@ -1108,6 +1151,8 @@ const EN = {
   'מקור התרגום': 'Translation from',
   'מאת': 'By',
   'המהדורה של החנות': "This store's own release",
+  'מיקרוסופט, נבנה מחדש כאן': "Microsoft's, rebuilt here",
+  'החבילה הזאת נפתחה, שונתה ונחתמה מחדש בתעודה שלנו כדי שתיפתח במחשב שמעולם לא היה מחובר — היא אינה נושאת את חתימת מיקרוסופט, וגם החנות לא תעדכן אותה. מי שמעדיף מקור רשמי בלבד — ההורדה השנייה כאן היא המקורית של היצרן, ללא שינוי.': 'This package was opened, changed and signed again with our own certificate so that it opens on a machine that has never been online. It does not carry Microsoft’s signature, and the Store will not update it. If you would rather have an official source only, the second download here is the maker’s original, unchanged.',
   'דיסק משלכם — בוחרים מה נכנס': 'Your own disc — pick what goes on it',
   'קודם בוחרים מה ייכנס: על כל כרטיס יש +, והוא מוסיף אותו לדיסק. אחר כך חוזרים לכאן.':
     'First pick what goes on it: every card has a +, which adds it to the disc. Then come back here.',
@@ -1275,7 +1320,14 @@ function applyLang() {
   try { localStorage.lang = LANG; } catch (e) {}
 }
 
-const esc = s => (s || '').replace(/"/g, '&quot;');
+/* Escapes everything that matters, not only the quote. It was written for attribute values - where
+   a double quote is the character that breaks out - and then used for element text as well, where
+   "<" is. Nothing in the catalogue contains one today, so nothing was visibly wrong; but the
+   catalogue is edited by hand and one "<" in a description would have been enough. The ampersand
+   goes first, or it would double-escape the entities the other replacements produce. */
+const esc = s => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 /* Numbers that arrive rather than appear. Anyone who has asked the system for less motion
    gets the final value at once - the animation is decoration, and decoration is the first
@@ -1983,7 +2035,7 @@ function tile(a) {
   const get = twoAmbiguous
     ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
     : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
-                    : '<span class="get soon">בהעלאה...</span>');
+                    : '<span class="get soon">' + T(LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה...') + '</span>');
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(descOf(a) || nameOf(a)) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' +
@@ -2114,6 +2166,13 @@ function finishRender(box, html, chipBar, shown, total) {
   chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
   document.getElementById('chips').innerHTML = chipBar.join('');
   box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
+  const said = document.getElementById('found');
+  if (said) {
+    said.textContent = !QUERY ? ''
+      : shown === 0 ? T('לא נמצא כלום')
+      : shown === 1 ? T('נמצאה תוצאה אחת')
+      : shown + ' ' + T('תוצאות');
+  }
   updateDock();
   translateDom();
 }
@@ -2143,7 +2202,14 @@ document.addEventListener('click', e => {
       ? membersOf(pick.dataset.catpick)
       : DATA.apps.filter(a => matches(a, QUERY))).filter(a => bestFile(a));
     const allOn = members.every(a => SELECTED.has(a.en));
-    members.forEach(a => { if (allOn) SELECTED.delete(a.en); else SELECTED.set(a.en, new Set(['main'])); });
+    /* Only ADD. Somebody who deliberately picked the Hebrew build of an app, or the maker's
+       original instead of the repaired one, and then pressed "select all" for the category, had
+       that choice silently replaced by the default - and the dock said the right number, so
+       nothing looked wrong until the download. A card that is already chosen is left as it is. */
+    members.forEach(a => {
+      if (allOn) SELECTED.delete(a.en);
+      else if (!SELECTED.has(a.en)) SELECTED.set(a.en, new Set(['main']));
+    });
     render();
     return;
   }
@@ -2237,7 +2303,15 @@ function askText() {
   if (f.note) lines.push(f.note, '');
   if (f.from) lines.push('ליצירת קשר: ' + f.from, '');
   lines.push('— נשלח מהחנות: ' + location.href);
-  if (REPORT) lines.push('', '--- ' + REPORT.name + ' ---', REPORT.text);
+  /* The attached report used to go into the message body whole - up to about 150 KB of log text.
+     That is a URL Google rejects outright, and on the way it puts the entire contents of somebody
+     else's machine into Google's request logs and into the visitor's own browser history, where
+     neither of them expects it. A mail body is not a file transfer. The report is offered as a
+     file to attach instead, and the message says a line about it so the reader knows to look. */
+  if (REPORT) {
+    lines.push('', '--- ' + REPORT.name + ' ---',
+      '(הקובץ מצורף בנפרד — אם הוא לא נצמד להודעה, אפשר לגרור אותו לכאן מהתיקייה שבה נשמר)');
+  }
   return { subject: '[חנות אופליין] ' + f.kind + (f.app ? ' — ' + f.app : ''), body: lines.join('\n') };
 }
 
@@ -2447,7 +2521,13 @@ function loadXtra() {
       EN[XTRA.note] = XTRA.noteEn;
       CAT_NOTE[XTRA.cat] = XTRA.note;
       Object.assign(ALT_FOR, XTRA.alt || {});
-      if (INFO) Object.assign(INFO, XTRA.info || {});
+      /* Their explainers arrive after the haystacks were built, so the cached ones are stale for
+         exactly these cards - the same trap loadInfo() already guards against for everyone else.
+         Without this, the aisle's own text is unsearchable until something else invalidates. */
+      if (INFO) {
+        Object.assign(INFO, XTRA.info || {});
+        if (DATA) DATA.apps.forEach(a => { if (XTRA.info && XTRA.info[a.en]) { a._hay = null; a._fld = null; } });
+      }
       mergeXtra();
       if (DATA) { try { isoButtons(); render(); } catch (err) { console.error('render:', err); } }
       return XTRA;
@@ -2456,6 +2536,23 @@ function loadXtra() {
   return XTRA_P;
 }
 try { if (localStorage.getItem(XKEY)) loadXtra(); } catch (e) { /* private window: fine, stays shut */ }
+
+/* The label this project promises in four separate documents and did not print anywhere.
+   legal.html, SECURITY.md, NOTICE and the FAQ all say there are exactly two exceptions to "we do
+   not modify packages" and that both are labelled wherever they appear. The translated builds
+   were. The repaired ones - twelve packages that were unpacked, given a capability their maker
+   did not give them, and signed with a certificate that is ours - were not labelled on the card,
+   in the sheet, or anywhere else a visitor looks. Somebody comparing a signature would have found
+   CN=BeniaBot Offline with nothing on the page having warned them.
+   The maker's own untouched package is offered on the same card, so the sentence can end by
+   pointing at it rather than leaving the reader with a problem and no way out. */
+function resignedLine(a) {
+  if (!a.resigned) return '';
+  return '<div class="warn">' + T(
+    'החבילה הזאת נפתחה, שונתה ונחתמה מחדש בתעודה שלנו כדי שתיפתח במחשב שמעולם לא היה מחובר — ' +
+    'היא אינה נושאת את חתימת מיקרוסופט, וגם החנות לא תעדכן אותה. ' +
+    'מי שמעדיף מקור רשמי בלבד — ההורדה השנייה כאן היא המקורית של היצרן, ללא שינוי.') + '</div>';
+}
 
 function firstOnlineLine(a) {
   /* One sentence. The mechanism - Windows asking Microsoft for a licence at first launch, and
@@ -2584,7 +2681,15 @@ function downloadPanel(items, title, note, opts) {
   return ov;
 }
 
+/* A double-click on a download button used to fire the download twice - two requests for the same
+   half-gigabyte file, and on a browser that asks where to save, two dialogs. The second click is
+   never meant; ignoring anything within a second of the first is enough, and is short enough that
+   somebody who really does want the file again can simply press it again. */
+const lastDl = Object.create(null);
 function download(exe) {
+  const now = Date.now();
+  if (lastDl[exe] && now - lastDl[exe] < 1200) return;
+  lastDl[exe] = now;
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
   const a = document.createElement('a');
@@ -2627,7 +2732,9 @@ function updateDock() {
   DATA.apps.forEach(a => { if (isPicked(a.en, 'main') && filesFor(a).length > 1) dual++; });
   const tgt = document.getElementById('dock-target');
   tgt.innerHTML = (dual > 0 && FILTER === 'all')
-    ? '<span style="color:var(--muted);font-size:.84rem">היעד:</span>' +
+    // the one label in the dock that was written straight into the markup instead of through T(),
+    // so it stayed Hebrew in English mode next to two English buttons
+    ? '<span style="color:var(--muted);font-size:.84rem">' + T('היעד:') + '</span>' +
       '<button class="chip' + (TARGET === '11' ? ' on' : '') + '" data-target="11">Win 11</button>' +
       '<button class="chip' + (TARGET === '10' ? ' on' : '') + '" data-target="10">Win 10</button>'
     : '';
@@ -2726,7 +2833,26 @@ function openSheet(en) {
     '<div class="row"><span>' + label + '</span><span dir="ltr" class="mono">' +
     (href ? '<a href="' + esc(href) + '" target="_blank" rel="noopener" style="color:var(--accent)">' + esc(text) + '</a>' : esc(text)) +
     '</span></div>';
-  const altSrc = (a.alt && a.alt.url) ? srcRow(T('מקור החלופה'), host(a.alt.url), a.alt.url) : '';
+  /* "github.com" is not attribution. Every link this shop makes to somebody else's work on GitHub
+     was rendering as the bare host, which names the hosting company and not the person - and for
+     the alternative Widgets board, written by somebody else and hosted by them, the card said
+     nothing at all about whose it was. The owner and repository are the name. */
+  const srcName = u => {
+    const h = host(u);
+    if (h !== 'github.com') return h;
+    try { const p = new URL(u).pathname.split('/').filter(Boolean); return p.length >= 2 ? h + '/' + p[0] + '/' + p[1] : h; }
+    catch (e) { return h; }
+  };
+  /* ...but not four times over. When the alternative comes from the same place and the same hands
+     as the main download - WSA, where both builds are MustardChef's - repeating it twice under two
+     labels is noise that makes the card harder to read, not more honest. */
+  const altWhere = a.alt ? (a.alt.src || a.alt.url) : '';
+  const mainWhere = a.src || a.url || '';
+  const sameSource = altWhere && mainWhere && srcName(altWhere) === srcName(mainWhere);
+  const altSrc = (a.alt && a.alt.url)
+    ? (sameSource ? '' : srcRow(T('מקור החלופה'), srcName(altWhere), altWhere)) +
+      ((a.alt.by && a.alt.by !== a.by) ? srcRow(T('החלופה מאת'), a.alt.by, a.alt.src || null) : '')
+    : '';
   /* A translation somebody else made is a third origin on the card, and it needs naming for the
      same reason the other two do: the reader should be able to see where each file came from
      without taking anyone's word for it. */
@@ -2738,13 +2864,21 @@ function openSheet(en) {
      that exists only as a file in this project's own release says that instead. */
   const ownSrc = (a.repo)
     ? srcRow(T('מקור'), 'github.com/' + a.repo, 'https://github.com/' + a.repo)
+    : a.resigned
+    // a repaired package: Microsoft's, rebuilt here. Both halves of that in one row, because
+    // either half alone is a half-truth.
+    ? srcRow(T('מקור'), T('מיקרוסופט, נבנה מחדש כאן'))
     : srcRow(T('מקור'), T('המהדורה של החנות'));
   /* "Microsoft Store" was the default for every card without a link of its own, on the reasoning
      that only Store apps lack one. That stopped being true the moment a vendor program had to be
      carried here instead of linked - CAPS FIX, a one-file AutoHotkey utility from a forum, said
      it came from the Microsoft Store. A Store package is one that has a package family name;
      anything else says where it really comes from. */
-  const fromStore = !a.custom && !a.w32 && !!a.pfn;
+  /* ...and a re-signed package is not one of them either. The bytes we serve for those were
+     unpacked, changed and signed again here; saying "Microsoft Store" on that row asserts a
+     provenance the file no longer has. The maker's untouched package is on the same card, under
+     its own row, and that one really is from the Store. */
+  const fromStore = !a.custom && !a.w32 && !a.resigned && !!a.pfn;
   /* Somebody else's program that we carry rather than link to - because the place it was
      published refuses downloads that arrive from another site. Carrying it without naming whose
      it is and where it came from would read as a claim that we wrote it. */
@@ -2752,7 +2886,7 @@ function openSheet(en) {
     ? srcRow(T('מאת'), a.by, a.src || null)
     : '';
   const rows = a.url
-    ? srcRow(T('מקור'), host(a.url), a.url) + altSrc + xlatSrc + bySrc +
+    ? srcRow(T('מקור'), srcName(a.url), a.url) + altSrc + xlatSrc + bySrc +
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
     : (fromStore ? srcRow(T('מקור'), 'Microsoft Store') : ownSrc) + altSrc + xlatSrc + bySrc +
       files.map(f =>
@@ -2781,10 +2915,11 @@ function openSheet(en) {
      shortened and copied whole, because the page itself says not to eyeball 64 hex characters:
      the machine does the comparing. */
   const hashRow = (sha) => sha
-    ? '<div class="hashrow"><span class="hlbl">SHA-256</span>' +
-      '<code dir="ltr" title="' + esc(sha) + '">' + esc(sha.slice(0, 16)) + '…</code>' +
-      '<button class="cpy tiny" data-url="' + esc(sha) + '" title="' + esc(T('העתקת ה-SHA-256')) +
-      '" aria-label="' + esc(T('העתקת ה-SHA-256')) + '">' + COPY_ICON + '</button></div>'
+    ? '<div class="hashrow" title="' + esc(T('טביעת האצבע של הקובץ (SHA-256). אפשר להעתיק ולהשוות מול הקובץ שהורד, כדי לוודא שהוא הגיע שלם')) + '">' +
+      '<span class="hlbl">' + T('טביעת אצבע') + '</span>' +
+      '<code dir="ltr">' + esc(sha.slice(0, 12)) + '…</code>' +
+      '<button class="cpy tiny" data-url="' + esc(sha) + '" title="' + esc(T('העתקת טביעת האצבע')) +
+      '" aria-label="' + esc(T('העתקת טביעת האצבע')) + '">' + COPY_ICON + '</button></div>'
     : '';
 
   const dlRow = (inner, url, withLang, kind, sha) => '<div class="dlwrap"><div class="dlrow">' +
@@ -2796,7 +2931,7 @@ function openSheet(en) {
     const label = files.length > 1
       ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
       : T('הורדה') + ' <span class="sz">· <span dir="ltr">' + mbFmt(f.mb) + '</span></span>';
-    if (!isLive(a, f)) return '<button class="btn" disabled>' + T('בהעלאה לשרת...') + '</button>';
+    if (!isLive(a, f)) return '<button class="btn" disabled>' + T(LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה לשרת...') + '</button>';
     // one build: 'main' follows the dock's Win target. Several: pin the exact file.
     return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>',
       linkFor(a, f.exe), false, files.length > 1 ? 'file:' + f.exe : 'main', f.sha256);
@@ -2895,6 +3030,7 @@ function openSheet(en) {
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
+    resignedLine(a) +
     firstOnlineLine(a) +
     altLine(a) +
     needsLine(a) +
@@ -3235,6 +3371,23 @@ document.getElementById('q').addEventListener('input', e => {
   }
 });
 
+/* The structured data in the head advertises a search endpoint - ?q={term} - and the page never
+   read it. A search engine offering that box would have sent people to a URL that ignored what
+   they typed. It is honoured now, which also makes a search linkable: somebody answering a
+   question in a forum can point at the answer rather than describe how to find it.
+   Deliberately read-only. Writing the query back into the address bar as somebody types would
+   fill their history with fragments of every word. */
+(function () {
+  var q;
+  try { q = new URLSearchParams(location.search).get('q'); } catch (e) { return; }
+  if (!q) return;
+  var box = document.getElementById('q');
+  if (!box) return;
+  box.value = q;
+  QUERY = q.trim();
+  if (QUERY) loadInfo().then(render).catch(function () { render(); });
+})();
+
 /* ===== ISO ===== */
 function isoButtons() {
   const b = [];
@@ -3277,7 +3430,13 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
   loadDownloads();
   // a rendering bug must never masquerade as a network problem
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
-  return fetch('published.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => []);
+  /* A failure here is NOT the same thing as 'this file has not been uploaded yet', and the page
+     used to say the second when the first happened: an empty list makes every download button
+     read 'uploading to the server...', which is a confident, wrong answer. A visitor on a
+     filtered connection would see a shop that appears to have nothing ready. */
+  return fetch('published.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error('published.json ' + r.status); return r.json(); })
+    .catch(err => { console.error('published:', err); LIVE_UNKNOWN = true; return []; });
 }).then(pub => {
   (pub || []).forEach(n => LIVE[n] = true);
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
@@ -3288,8 +3447,11 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
   // never strand the visitor on an eternal skeleton
   const box = document.getElementById('cats');
   box.classList.remove('sk');
-  box.innerHTML = '<div class="empty">הקטלוג לא הצליח להיטען. כדאי לבדוק את החיבור ולנסות שוב.<br><br>' +
-    '<button class="btn" onclick="location.reload()">טעינה מחדש</button></div>';
+  // Both strings have translations and neither went through T(). This is the one screen a
+  // visitor sees when everything else has failed, so it is the worst place to answer in the
+  // wrong language.
+  box.innerHTML = '<div class="empty">' + T('הקטלוג לא הצליח להיטען. כדאי לבדוק את החיבור ולנסות שוב.') + '<br><br>' +
+    '<button class="btn" onclick="location.reload()">' + T('טעינה מחדש') + '</button></div>';
 });
 </script>
 </body>

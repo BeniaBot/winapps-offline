@@ -341,6 +341,7 @@
           "sha256": "61ed10b88d962dbc86682ab56a03296296dd7254db006b3a90e16c7345e69f59"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-3DViewer-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -776,6 +777,7 @@
           "sha256": "6d57bc814db3542dbc974c74aafed85f3d788a70c04dc958f5f1e5218573ca02"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Journal-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -807,6 +809,7 @@
           "sha256": "7ceab226b41dab5106f83da1d45c12628faf59eb00f9b1d4239be2323abcfee6"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Print3D-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -837,6 +840,7 @@
           "sha256": "6c6906092d7e4c926bc073072360dbf409210ee72f57a7d4e97449e3b8ae2800"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Builder3D-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -1220,7 +1224,11 @@
         "label": "לוח לאינטרנט מסונן",
         "labelEn": "Board for a filtered connection",
         "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
-        "mb": 72
+        "mb": 72,
+        "by": "ASDX-collab",
+        "src": "https://github.com/ASDX-collab/Widgets-NF",
+        "note": "נכתב בידי ASDX-collab ומופץ במאגר שלו. ההורדה מובילה אליו ישירות — הקובץ אינו נשמר אצלנו, מפני שהרישיון שלו אינו מתיר לשאת אותו.",
+        "noteEn": "Written by ASDX-collab and published in their own repository. The download goes straight there - we do not carry the file, because their licence does not permit it."
       },
       "icon": "icons/Widgets.png",
       "desc": "לוח הווידג'טים",
@@ -1260,6 +1268,7 @@
           "sha256": "8a94962b654b494b576cbac14c6a05472d772fc2a69441fa79dd5204c52d01a1"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-PowerBI-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -1290,6 +1299,7 @@
           "sha256": "441c60bc0d4a431deed374977abb487b02101fe1385045cd796118b4fcc3e5df"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Sway-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -1321,6 +1331,7 @@
           "sha256": "8d06b0aaabd32d130f0093a151ef37c608b2d9ec7f9c1186ee210bc13f8d6f2c"
         }
       ],
+      "resigned": true,
       "alt": {
         "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Translator-Original.exe",
         "label": "המקורי של מיקרוסופט",
@@ -3002,7 +3013,9 @@
         "label": "עם Google Play",
         "labelEn": "with Google Play",
         "url": "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-GApps-13.0-NoAmazon.7z",
-        "mb": 712
+        "mb": 712,
+        "by": "MustardChef",
+        "src": "https://github.com/MustardChef/WSABuilds"
       },
       "repo": "MustardChef/WSABuilds",
       "icon": "icons/w32png/WSAGitHub.png",
@@ -3016,6 +3029,8 @@
       "near": "WSL",
       "langMode": "follows-windows",
       "origin": "community",
+      "by": "MustardChef",
+      "src": "https://github.com/MustardChef/WSABuilds",
       "relver": "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
       "files": [
         {
@@ -3031,6 +3046,7 @@
       "he": "עדכון הפלטפורמה של Defender",
       "en": "DefenderPlatform",
       "net": false,
+      "heb": true,
       "w32": true,
       "url": "https://go.microsoft.com/fwlink/?LinkID=870379&arch=x64",
       "match": "updateplatform*.exe",
@@ -3445,6 +3461,7 @@
       "he": "PowerToys",
       "en": "PowerToys",
       "net": false,
+      "heb": true,
       "w32": true,
       "url": "https://github.com/microsoft/PowerToys/releases/download/v0.101.2362.0/PowerToysUserSetup-0.101.2362.0-x64.exe",
       "match": "PowerToysUserSetup-*-x64.exe",
@@ -3458,6 +3475,7 @@
       "note": "המתקין למשתמש (User) כולל את סביבת ההרצה בתוכו — מתקין בלי הרשאות מנהל ובלי רשת. דורש Windows 11 (או 10 מעודכן).",
       "cat": "כלי טכנאי",
       "langMode": "follows-windows",
+      "langHow": "הממשק עוקב אחרי שפת Windows. בחלונות בעברית הוא עולה בעברית; אפשר גם לבחור שפה בהגדרות של PowerToys עצמו.",
       "origin": "microsoft",
       "relver": "v0.101.2362.0",
       "files": [
@@ -3556,6 +3574,7 @@
       "he": "Xournal++",
       "en": "Xournalpp",
       "net": false,
+      "heb": true,
       "w32": true,
       "url": "https://github.com/xournalpp/xournalpp/releases/download/v1.3.7/xournalpp-1.3.7-windows-portable-AMD64.zip",
       "match": "xournalpp-*-windows-portable-AMD64.zip",
@@ -3569,6 +3588,7 @@
       "note": "ארכיון נייד: לפרוק ולהריץ xournalpp.exe. בלי התקנה, עובד לגמרי בלי רשת. קוד פתוח (GPL).",
       "cat": "יצירה ועבודה",
       "langMode": "follows-windows",
+      "langHow": "הממשק עוקב אחרי שפת Windows.",
       "origin": "community",
       "relver": "v1.3.7",
       "files": [

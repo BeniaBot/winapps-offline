@@ -3088,7 +3088,11 @@
         "label": "לוח לאינטרנט מסונן",
         "labelEn": "Board for a filtered connection",
         "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
-        "mb": 72
+        "mb": 72,
+        "by": "ASDX-collab",
+        "src": "https://github.com/ASDX-collab/Widgets-NF",
+        "note": "נכתב בידי ASDX-collab ומופץ במאגר שלו. ההורדה מובילה אליו ישירות — הקובץ אינו נשמר אצלנו, מפני שהרישיון שלו אינו מתיר לשאת אותו.",
+        "noteEn": "Written by ASDX-collab and published in their own repository. The download goes straight there - we do not carry the file, because their licence does not permit it."
       }
     },
     {
@@ -5240,13 +5244,17 @@
       "repo": "MustardChef/WSABuilds",
       "relver": "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
       "origin": "community",
+      "by": "MustardChef",
+      "src": "https://github.com/MustardChef/WSABuilds",
       "note": "ארכיון 7z: לפרוק ולהריץ Run.bat. דורש וירטואליזציה מופעלת. המהדורה השנייה כוללת Google Play (712MB).",
       "noteEn": "7z archive: extract and run Run.bat. Needs virtualization enabled. Second edition includes Google Play (712MB).",
       "alt": {
         "label": "עם Google Play",
         "labelEn": "with Google Play",
         "url": "https://github.com/MustardChef/WSABuilds/releases/download/Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1/WSA_2407.40000.4.0_x64_Release-Nightly-GApps-13.0-NoAmazon.7z",
-        "mb": 712
+        "mb": 712,
+        "by": "MustardChef",
+        "src": "https://github.com/MustardChef/WSABuilds"
       }
     },
     {
@@ -5272,6 +5280,7 @@
       "enName": "Microsoft Defender platform update",
       "noui": true,
       "icon": "icons/w32png/DefenderPlatform.png",
+      "heb": true,
       "note": "להתקין ראשון, לפני קובץ החתימות. הקישור נותן תמיד את הגרסה העדכנית ביותר מהשרתים של מיקרוסופט.",
       "noteEn": "Install this first, before the signatures file. The link always gives the current version from Microsoft’s own servers.",
       "silent": "RUN:",
@@ -5685,7 +5694,9 @@
       "descEn": "Microsoft's official power-user toolkit: bulk rename, color picker, window layouts, key remap, and more.",
       "enName": "PowerToys",
       "icon": "icons/w32real/PowerToys.png",
+      "heb": true,
       "langMode": "follows-windows",
+      "langHow": "הממשק עוקב אחרי שפת Windows. בחלונות בעברית הוא עולה בעברית; אפשר גם לבחור שפה בהגדרות של PowerToys עצמו.",
       "repo": "microsoft/PowerToys",
       "relver": "v0.101.2362.0",
       "origin": "microsoft",
@@ -5796,7 +5807,9 @@
       "descEn": "A notebook for handwriting, drawing, and annotating PDFs — with a pen, stylus or mouse. A free alternative to Journal.",
       "enName": "Xournal++",
       "icon": "icons/w32real/Xournalpp.png",
+      "heb": true,
       "langMode": "follows-windows",
+      "langHow": "הממשק עוקב אחרי שפת Windows.",
       "repo": "xournalpp/xournalpp",
       "relver": "v1.3.7",
       "origin": "community",
