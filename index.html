@@ -1095,7 +1095,7 @@ const EN = {
   'הכל ירד': 'Everything has arrived',
   'הורדת מה שנשאר': 'Download what is left',
   'הורד': 'Taken',
-  'פעמים מהאתר': 'times from this site',
+  'פעמים מהשרת שלנו': 'times from our server',
   'פעמים מגיטהאב': 'times from GitHub',
   'זה המונה של GitHub על כל הגרסאות — כולל הורדות ישירות מהמאגר, לא רק דרך האתר': 'The GitHub counter, across every release — including downloads straight from the repository, not only through this site',
   'אין מונה — הקובץ יושב במאגר שלו, ושם אי אפשר להפריד בין הורדה מכאן להורדה ישירה':
@@ -1402,51 +1402,54 @@ function countUp(root) {
 
 /* How many times each file has been taken. Every file we host is a GitHub release asset and
    GitHub counts them for us, so this needs no server of our own and records nothing about the
-   visitor. Cached briefly because the API allows only a handful of calls per hour per address.
-   The vendor programs are absent on purpose: they download from the vendor and we never see
-   the request, and a "0" beside them would read as "nobody wanted it". */
-let DLC = null, DLREPO = null;
+   visitor. Cached briefly. The vendor programs are absent on purpose: they download from the
+   vendor and we never see the request, and a "0" beside them would read as "nobody wanted it".
+
+   What the number IS, exactly, because the card used to claim more than it knows: the number of
+   times GitHub handed this asset to somebody. It said "times from this site", and that is not
+   knowable - the release URL is public, every download row here has a copy-link button, and a
+   link somebody shares counts without anyone visiting. It counts a crawler, a virus scanner, and
+   a rebuild verified from this machine; it counts an aborted transfer too, measured: a curl of
+   Setup-Maps-Original.exe that stopped at 41 MB of 224 took the counter from 2 to 3. And some of
+   it is not a choice at all - the ISO builder pulls every prerequisite a selection needs, which
+   is why a dozen VC++ runtimes sit within one download of each other and of IsoBuilder.exe.
+   So the card says "from our server", which is the part that is true, and the number is best read
+   as a rough floor rather than a tally of people. */
+let DLC = null;
 function loadDownloads() {
   const KEY = 'dl-counts';
   try {
     const c = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (c && Date.now() - c.at < 30 * 60 * 1000) { applyDownloads(c.map, c.repo || {}); return; }
+    if (c && Date.now() - c.at < 30 * 60 * 1000) { applyDownloads(c.map); return; }
   } catch (e) {}
 
-  /* Our own release, plus one call per in-house app. Those live in their OWN repositories -
-     GitHub counts them there just the same, and leaving them out was an oversight rather
-     than a limitation. */
-  const repos = [];
-  (DATA.apps || []).forEach(a => { if (a.custom && a.repo && repos.indexOf(a.repo) < 0) repos.push(a.repo); });
-
-  Promise.all([
-    fetch('counts.json?v=' + (window.CATV || ''), { cache: 'no-cache' })
-      .then(r => r.ok ? r.json() : null).catch(() => null),
-  ].concat(repos.map(rp =>
-    fetch('https://api.github.com/repos/' + rp + '/releases?per_page=100')
-      .then(r => r.ok ? r.json() : null).then(j => ({ repo: rp, rels: j })).catch(() => null)
-  ))).then(results => {
-    // { "Setup-Maps.exe": { carry, seen, total } } - total is what survives a rebuild
-    const ours = results[0];
-    const map = {};
-    if (ours) Object.keys(ours).forEach(k => { map[k] = (ours[k] && ours[k].total) || 0; });
-    const repo = {};
-    results.slice(1).forEach(r => {
-      if (!r || !Array.isArray(r.rels)) return;
-      let n = 0;
-      r.rels.forEach(rel => (rel.assets || []).forEach(a => { n += a.download_count || 0; }));
-      repo[r.repo] = n;
+  /* One file, from this site. There used to be six more calls beside it, straight to
+     api.github.com, one per in-house app, to read that app's total across its own repository's
+     releases. Those totals went into the headline and nowhere else - no card would show them,
+     because "taken from this shop" is not what they count. So the page was spending six of a
+     visitor's sixty unauthenticated GitHub calls an hour, and telling every one of their browsers
+     to announce itself to a third party, to inflate one number by 381. */
+  fetch('counts.json?v=' + (window.CATV || ''), { cache: 'no-cache' })
+    .then(r => r.ok ? r.json() : null).catch(() => null)
+    .then(ours => {
+      // { "Setup-Maps.exe": { carry, seen, total } } - total is what survives a rebuild
+      const map = {};
+      if (ours) Object.keys(ours).forEach(k => { map[k] = (ours[k] && ours[k].total) || 0; });
+      if (!Object.keys(map).length) return;
+      try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), map: map })); } catch (e) {}
+      applyDownloads(map);
     });
-    if (!Object.keys(map).length && !Object.keys(repo).length) return;
-    try { localStorage.setItem(KEY, JSON.stringify({ at: Date.now(), map: map, repo: repo })); } catch (e) {}
-    applyDownloads(map, repo);
-  });
 }
-function applyDownloads(map, repo) {
-  DLC = map; DLREPO = repo || {};
+function applyDownloads(map) {
+  DLC = map;
+  /* Only what this release served, which is the only thing any card is allowed to claim.
+     A second term used to be added here: each in-house app's total across its OWN repository's
+     releases - every download from that project's releases page, every CI pull, every build
+     fetched while writing it. downloadsFor() refuses to put those on a card, in so many words,
+     because "taken from this shop" is not true of them. The headline said it anyway, with no card
+     under it to check: 381 of the 1603 it used to report. */
   let total = 0;
   Object.keys(map).forEach(k => { total += map[k]; });
-  Object.keys(DLREPO).forEach(k => { total += DLREPO[k]; });
   const box = document.getElementById('fact-dl');
   if (box && total > 0) {
     box.hidden = false;
@@ -3153,7 +3156,7 @@ function openSheet(en) {
     (langHow(a) ? '<div class="langhow">' + langHow(a) + '</div>' : '') +
     '<div class="qbody" id="qb"></div>' +
     (downloadsFor(a) !== null
-      ? '<div class="dlcount">' + T('הורד') + ' <b>' + downloadsFor(a) + '</b> ' + T('פעמים מהאתר') + '</div>'
+      ? '<div class="dlcount">' + T('הורד') + ' <b>' + downloadsFor(a) + '</b> ' + T('פעמים מהשרת שלנו') + '</div>'
       : (a.w32 || (a.custom && a.repo))
       /* Only a program with a repository of its own has the problem this line describes - its
          downloads are split between here and GitHub and cannot be told apart. Something that
@@ -3549,16 +3552,24 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
   return r.json();
 }).then(d => {
   DATA = d;
+  /* Counted BEFORE the merge, and this is the whole point of doing it here.
+     mergeXtra pushes the quiet aisle's entries into DATA.apps, and the headline used to be read
+     off DATA.apps afterwards - so anybody who had ever made the gesture saw a different number of
+     apps, and a different number of gigabytes, from everybody else. Worse, it was a race:
+     extras.json is asked for while the script is still being parsed and the catalogue a moment
+     later, so the same page said one thing on a cold load and another on a warm one. The headline
+     is the shop's public figure and it is the same for every visitor. */
+  const publicCount = d.apps.length;
+  const publicGb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   mergeXtra();
   document.getElementById('cats').classList.remove('sk');
   // one text node "הקטלוג עודכן 2026-09-03" matched no dictionary key, so the footer
   // stayed in the previous language forever. Split the label from the date.
   document.getElementById('updated').innerHTML =
     '<span>' + T('הקטלוג עודכן') + '</span> <span dir="ltr">' + esc(d.updated) + '</span>';
-  const gb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   document.getElementById('facts').innerHTML =
-    '<div><b data-to="' + d.apps.length + '">0</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
-    '<div><b dir="ltr" data-to="' + gb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
+    '<div><b data-to="' + publicCount + '">0</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
+    '<div><b dir="ltr" data-to="' + publicGb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
     '<div id="fact-dl" hidden><b data-to="0">0</b><span>' + T('הורדות עד כה') + '</span></div>';
   countUp(document.getElementById('facts'));
   loadDownloads();
