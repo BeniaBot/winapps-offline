@@ -3219,7 +3219,7 @@
       "cat": "יצירה ועבודה"
     },
     {
-      "he": "מתרגם Bing",
+      "he": "מתרגם Bing — דורש אינטרנט",
       "en": "Translator",
       "pfn": "Microsoft.BingTranslator_8wekyb3d8bbwe",
       "id": "Microsoft.BingTranslator",
@@ -6084,7 +6084,7 @@
       }
     },
     {
-      "he": "מתרגם אופליין",
+      "he": "מתרגם עברית–אנגלית (ללא אינטרנט)",
       "en": "OfflineTranslate",
       "net": false,
       "w32": true,

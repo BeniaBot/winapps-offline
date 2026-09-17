@@ -1309,7 +1309,7 @@
       }
     },
     {
-      "he": "מתרגם Bing",
+      "he": "מתרגם Bing — דורש אינטרנט",
       "en": "Translator",
       "net": true,
       "id": "Microsoft.BingTranslator",
@@ -3869,7 +3869,7 @@
       ]
     },
     {
-      "he": "מתרגם אופליין",
+      "he": "מתרגם עברית–אנגלית (ללא אינטרנט)",
       "en": "OfflineTranslate",
       "net": false,
       "w32": true,

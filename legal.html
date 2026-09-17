@@ -7,9 +7,18 @@
 <meta name="description" content="תנאי השימוש, מדיניות הפרטיות, זכויות היוצרים והוראות האימות של חנות האפליקציות האופליין.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<!-- carried by this project, not fetched from anyone; see build/getfonts.js -->
+<style>
+@font-face{font-family:'Heebo';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Heebo-400-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Heebo-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Heebo-500-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Heebo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Heebo-700-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Heebo-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/Heebo-800-hebrew.woff2) format('woff2');unicode-range:U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F}
+@font-face{font-family:'Heebo';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/Heebo-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/IBMPlexMono-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
 <style>
   :root {
     --ink:#e9edf6; --muted:#7d8aa5; --accent:#5fd4fe; --on-accent:#0b1524;
@@ -80,8 +89,8 @@
 <section id="privacy">
 <h2>פרטיות</h2>
 <p><b>האתר לא אוסף עליכם כלום.</b> אין חשבונות, אין מעקב, אין פרסומות ואין קובצי Cookie משלנו.</p>
-<p><b>מה נשמר בדפדפן שלכם, ורק שם:</b> בחירת שפה, מצב תצוגה, ומספרי ההורדות שנטענו לאחרונה. אפשר למחוק בכל רגע דרך הגדרות הדפדפן.</p>
-<p><b>מה עוזב את הדפדפן:</b> האתר מתארח ב‑GitHub Pages ומבקש ממנו את מספרי ההורדות, כך ש‑GitHub רואה את הבקשה. הגופנים נטענים משירות הגופנים של גוגל.</p>
+<p><b>מה נשמר בדפדפן שלכם, ורק שם:</b> ארבעה ערכים, ואלה כולם — <code>lang</code> (שפת הממשק), <code>theme</code> (בהיר או כהה), <code>dl-counts</code> (מספרי ההורדות שנטענו לאחרונה, כדי לא לבקש אותם שוב בכל טעינה), ו-<code>wao.x</code> (סימן שנפתח אגף נוסף בקטלוג). במחשב של מנהל האתר נשמר גם <code>adm</code>. אף אחד מהם אינו מזהה אתכם ואף אחד לא עוזב את המחשב. אפשר למחוק בכל רגע דרך הגדרות הדפדפן.</p>
+<p><b>מה עוזב את הדפדפן:</b> האתר מתארח ב‑GitHub Pages ומבקש ממנו את מספרי ההורדות, כך ש‑GitHub רואה את הבקשה. וזה הכול: אין שום צד שלישי נוסף. הגופנים נטענו עד ספטמבר 2026 משירות הגופנים של גוגל, ומעכשיו הם נשמרים אצלנו ונטענים מאותו המקום כמו שאר האתר.</p>
 <p><b>טופס יצירת הקשר:</b> מה שתכתבו מגיע אלינו בדוא"ל דרך שירות ממסר חיצוני שיושב מחוץ לישראל. שום שדה אינו חובה ואין חובה חוקית למסור דבר. הפנייה נשמרת כל עוד היא רלוונטית, ונמחקת לבקשתכם.</p>
 <p><b>היומן שהמתקין כותב</b> נשמר אצלכם במחשב, תחת <code>%LOCALAPPDATA%\WinAppsOffline</code>, ולא נשלח לשום מקום. אם תרצו לשלוח אותו — זו החלטה שלכם בכל פעם מחדש.</p>
 <p>לפי בחינתנו אין כאן מאגר מידע החייב ברישום. בשאלות פרטיות: <a href="mailto:b0554003794@gmail.com">b0554003794@gmail.com</a>.</p>
