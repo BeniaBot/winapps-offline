@@ -310,13 +310,21 @@
       "files": [
         {
           "exe": "Setup-Paint3D.exe",
-          "mb": 70,
+          "mb": 47,
           "win": "all",
           "minBuild": 16299,
           "ver": "6.2410.13017.0",
-          "sha256": "f2633c9b99eb9e68a14ce6582696e17e3fb30edf7dce4e270eb27dd720f59db5"
+          "sha256": "8ed5cd54691c46ab0b46ee6f68e59e7ec54e50d813c7ecd0d21286d7befe9671"
         }
-      ]
+      ],
+      "resigned": true,
+      "alt": {
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Setup-Paint3D-Original.exe",
+        "label": "המקורי של מיקרוסופט",
+        "labelEn": "Microsoft's original",
+        "mb": 70,
+        "sha256": "fa798b2c3a307fa85325fd9c5e27e6971bf17659d2ff507c7617a6634a29d376"
+      }
     },
     {
       "he": "מציג תלת-ממד",
@@ -347,7 +355,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 166,
-        "sha256": "34ce1f8fc747250f4d5aca99a30137b45afc7149760a92bf18fef932849939b8"
+        "sha256": "8155b29b1791ba0e8973f1d15146baf6997c4ba4ca8eba799c297b32a59b0f4a"
       }
     },
     {
@@ -360,6 +368,7 @@
       "desc": "התחברות למחשב אחר ברשת",
       "descEn": "Connect to another PC on the network",
       "cat": "תקשורת",
+      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-RemoteDesktop.exe",
@@ -477,6 +486,7 @@
       "desc": "פורטל למשקפי מציאות מעורבת",
       "descEn": "Portal for mixed reality headsets",
       "cat": "חשבון ומערכת",
+      "needsFirstOnline": true,
       "files": [
         {
           "exe": "Setup-MixedReality.exe",
@@ -784,7 +794,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 532,
-        "sha256": "1636ad4cf489a31c0b4f2abb43339b15beb963e3cc160d4ca126b369d983ea18"
+        "sha256": "4bb973bbf5c458e65c0ebfd463dc9cac10f6ed2a7505e3e1bad8d945c2b1ae01"
       }
     },
     {
@@ -816,7 +826,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 25,
-        "sha256": "e628d3499a2e0824b32687db3f769ff471c9cc31a0b42b13946cc0055cde92b1"
+        "sha256": "59d1e3a1b54513bf41a9b81f8b2ca34f56aae70ae859c93bbdbdce3586275070"
       }
     },
     {
@@ -847,7 +857,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 71,
-        "sha256": "ba9a91e56180666674853457ec9a5fb729581c8935a8899ff1339aea0a6f4755"
+        "sha256": "5261d75ffb01b220722b4a89871c4ec60bfa3ba2ff5c883361d973dc831792fe"
       }
     },
     {
@@ -1277,7 +1287,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 140,
-        "sha256": "65eee208dda6a4c2fde2735bb0e31840a09de3350abd52a49b236af1b12a8d36"
+        "sha256": "8a09f48c8985e072624c03f5fc282db08d784ae5dea9c197458973fc5a83b364"
       }
     },
     {
@@ -1308,7 +1318,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 14,
-        "sha256": "a771cbc95cf988acf272dc977b1f3669c1ece7a9b30c305a641a9bba6d8a201e"
+        "sha256": "4e427145d4af5d76b14c2ec9cb427c18552c8a6326a9f1d230c8fa4b78239b30"
       }
     },
     {
@@ -1340,7 +1350,7 @@
         "label": "המקורי של מיקרוסופט",
         "labelEn": "Microsoft's original",
         "mb": 136,
-        "sha256": "61cf97fcae9b8793db1e3377e1df0907617710e30dc9463bd6110e6cdc0fe3ee"
+        "sha256": "c6e6172f21d551aa4300e7ea2816515f5252eec19cad3c416eedc02bf16352e3"
       }
     },
     {
@@ -4066,7 +4076,9 @@
       "desc": "הצ'אטבוט הראשון בהיסטוריה, מ-1966, כתוכנה לווינדוס — ובעברית. קובץ אחד, בלי התקנה ובלי רשת. פותח כאן",
       "descEn": "The first chatbot in history, from 1966, as a Windows program - and in Hebrew. One file, no install, no network. Built here",
       "cat": "נוספות",
-      "langMode": "hebrew-only",
+      "langMode": "in-app-picker",
+      "langHow": "בהגדרות, בלשונית \"התוכנה\", יש שורה \"שפת הממשק\" עם שני כפתורים: עברית ואנגלית. הכול עובר מיד, כולל כיוון הכתיבה.",
+      "langHowEn": "In Settings, under the \"Program\" tab, \"Interface language\" offers Hebrew and English. Everything switches at once, including the writing direction.",
       "relver": "v1",
       "files": [
         {

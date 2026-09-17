@@ -949,7 +949,7 @@
       "files": [
         {
           "exe": "Setup-Paint3D.exe",
-          "mb": 70,
+          "mb": 47,
           "win": "all",
           "minBuild": 16299,
           "ver": "6.2410.13017.0",
@@ -977,7 +977,7 @@
             }
           ],
           "live": false,
-          "sha256": "f2633c9b99eb9e68a14ce6582696e17e3fb30edf7dce4e270eb27dd720f59db5"
+          "sha256": "8ed5cd54691c46ab0b46ee6f68e59e7ec54e50d813c7ecd0d21286d7befe9671"
         }
       ],
       "heb": true,
@@ -1156,6 +1156,7 @@
           "sha256": "5deea567800cfe2a79b6bba24f72cac55b20379a7d534e51e19a6ab8df8a63f2"
         }
       ],
+      "needsFirstOnline": true,
       "icon": "icons/RemoteDesktop.png",
       "desc": "התחברות למחשב אחר ברשת",
       "descEn": "Connect to another PC on the network",
@@ -1487,6 +1488,7 @@
           "sha256": "58d38a5f4177e8d719a55fd0e7e2c924f7708884145826e1e1eb65c8dfe7a9d7"
         }
       ],
+      "needsFirstOnline": true,
       "icon": "icons/MixedReality.png",
       "color": "#1F1F1F",
       "desc": "פורטל למשקפי מציאות מעורבת",
@@ -6296,7 +6298,9 @@
       "descEn": "The first chatbot in history, from 1966, as a Windows program - and in Hebrew. One file, no install, no network. Built here",
       "color": "#4bb3a0",
       "heb": true,
-      "langMode": "hebrew-only",
+      "langMode": "in-app-picker",
+      "langHow": "בהגדרות, בלשונית \"התוכנה\", יש שורה \"שפת הממשק\" עם שני כפתורים: עברית ואנגלית. הכול עובר מיד, כולל כיוון הכתיבה.",
+      "langHowEn": "In Settings, under the \"Program\" tab, \"Interface language\" offers Hebrew and English. Everything switches at once, including the writing direction.",
       "cat": "נוספות",
       "repo": "BeniaBot/eliza",
       "relver": "v1"
