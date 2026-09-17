@@ -1246,9 +1246,10 @@
       "color": "#0078D4",
       "desc": "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
       "descEn": "Windows Maps with the map of Israel built in — works fully offline",
-      "noteEn": "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself. The package was rebuilt so it opens even on a PC that has never been online.",
-      "note": "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה. החבילה נבנתה מחדש כך שהיא נפתחת גם במחשב שמעולם לא היה מחובר לאינטרנט.",
-      "cat": "כלים"
+      "noteEn": "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself. The package is Microsoft's own, unchanged.",
+      "note": "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה. החבילה היא של מיקרוסופט, ללא שינוי.",
+      "cat": "כלים",
+      "gatedFrom": 26100
     },
     {
       "he": "To Do",
@@ -1851,7 +1852,7 @@
             }
           ],
           "live": false,
-          "sha256": "4808d6af26e4aa3dd5d053210088f74518fb5c17dbbf60c0b6718238c8d09dab"
+          "sha256": "1c71496873fb9ca81486f508aac01cca2195ff24218361e5066fa035455d5f2d"
         }
       ],
       "icon": "icons/FileRecovery.png",
@@ -2103,14 +2104,15 @@
         "mb": 116,
         "source": "unofficial",
         "note": "התרגום נעשה כאן ואינו של מיקרוסופט. קובצי התוכנה עצמם שלה, ללא שינוי, פרט למחרוזות הממשק. מותקן בתיקיית המשתמש, בלי הרשאות מנהל.",
-        "noteEn": "The translation was made here and is not Microsoft's. The program files are theirs, unchanged, except for the interface strings. Installs in your user folder, with no administrator rights."
+        "noteEn": "The translation was made here and is not Microsoft's. The program files are theirs, unchanged, except for the interface strings. Installs in your user folder, with no administrator rights.",
+        "sha256": "e54e1a0ee674dc46281d2e73090c40065c93daf05eff5ca553d52f89e0a3f386"
       },
       "icon": "icons/PCManager.png",
       "desc": "ניקוי ותחזוקת המחשב",
       "descEn": "Clean up and maintain the PC",
       "enName": "PC Manager",
-      "noteEn": "The first download was lifted out of its Store package and installs as an ordinary program, so it opens on a PC that has never been online. The Hebrew download is still a packaged build; that has not been done to it yet. Both need administrator rights.",
-      "note": "ההורדה הראשונה נלקחה מתוך חבילת החנות ומותקנת כתוכנית רגילה, ולכן היא נפתחת גם במחשב שמעולם לא היה מחובר. ההורדה בעברית עדיין חבילה ארוזה, ולה זה עוד לא נעשה. שתיהן דורשות הרשאות מנהל.",
+      "noteEn": "The first download is Microsoft's Store package, and it wants one launch on a connected PC. The Hebrew download is the program itself, lifted out of the package - it has no licence to check, it lays out into the user's folder, and it needs no administrator.",
+      "note": "ההורדה הראשונה היא חבילת החנות של מיקרוסופט, והיא רוצה פתיחה אחת במחשב מחובר. ההורדה בעברית היא התוכנה עצמה, שנלקחה מתוך החבילה — אין לה רישיון לבדוק, היא נפרסת לתיקיית המשתמש ואינה דורשת הרשאות מנהל.",
       "cat": "כלי טכנאי"
     },
     {
@@ -4578,7 +4580,8 @@
         "mb": 3,
         "source": "official",
         "note": "קובץ השפה הרשמי של voidtools נמצא כבר בתוך המתקין שלהם, וההתקנה הרגילה שואלת באיזו שפה — במחשב עברי היא יוצאת בעברית. הקובץ הזה מריץ את אותו מתקין בשקט ובוחר עברית מראש, כך שהתוכנה נפתחת בעברית גם במחשב שאינו בעברית.",
-        "noteEn": "voidtools already ships its official language file inside its own installer, and a normal install asks which language to use - on a Hebrew machine it comes out Hebrew. This build runs that same installer silently and picks Hebrew in advance, so the program opens in Hebrew on a non-Hebrew machine too."
+        "noteEn": "voidtools already ships its official language file inside its own installer, and a normal install asks which language to use - on a Hebrew machine it comes out Hebrew. This build runs that same installer silently and picks Hebrew in advance, so the program opens in Hebrew on a non-Hebrew machine too.",
+        "sha256": "e91fbcc53d996ee0017d12a9dc5e485cf67ee21c5377190909d8e8f6bf088a41"
       },
       "icon": "icons/w32real/Everything.png",
       "heb": true,
@@ -5013,7 +5016,7 @@
       "files": [
         {
           "exe": "spsetup*.exe",
-          "mb": 9,
+          "mb": 21,
           "win": "all",
           "minBuild": 0,
           "ver": ""
@@ -6101,7 +6104,7 @@
           "win": "all",
           "minBuild": 0,
           "ver": "",
-          "sha256": "c7b987ffb389be7d1b4d2c8afeec6a9decd519a431598a03b56f2c0b3b573f41"
+          "sha256": "aeba8554c4e954947d36f97f8849e105bd31c33c319a05a93749bf72f232f46f"
         }
       ],
       "descEn": "Hebrew↔English translation that runs entirely on your own machine. Paste text, get a translation, with no network connection at all.",

@@ -1120,6 +1120,7 @@ const EN = {
   'לא נמצא כלום': 'nothing found',
   'היעד:': 'Target:',
   'טביעת אצבע': 'Fingerprint',
+  'עובדת בלי אינטרנט — פרט לגרסאות החדשות של Windows 11, שם דרושה פתיחה אחת מחוברת': 'Works with no internet - except on recent Windows 11, where it needs one connected launch',
   'ערכות נושא': 'Themes',
   'ערכת נושא': 'Theme',
   'עב': 'HE',
@@ -3085,6 +3086,11 @@ function openSheet(en) {
                             : 'קובץ מלא מהאתר של היצרן — עובד בלי אינטרנט')
                           : a.net ? 'התוכן שלה באינטרנט — למחשב שיחובר בהמשך'
                           : a.needsFirstOnline ? 'ההתקנה עצמה לא צריכה אינטרנט — הפתיחה הראשונה כן'
+                          /* ...and the same care for a gate that depends on the Windows build. This line
+                             read "works entirely offline" directly above a warning saying that on 24H2
+                             it needs one connected launch - the two things the comment above says must
+                             never sit together, in one breath, on the one card where it was measured. */
+                          : a.gatedFrom ? 'עובדת בלי אינטרנט — פרט לגרסאות החדשות של Windows 11, שם דרושה פתיחה אחת מחוברת'
                           : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       langClaim(a) + '</div>' +
@@ -3167,6 +3173,7 @@ function openSheet(en) {
         const shas = (filesFor(a) || []).filter(f => f.sha256)
           .map(f => ({ name: f.exe, sha: f.sha256 }));
         if (a.alt && a.alt.sha256) shas.push({ name: decodeURIComponent(a.alt.url.split('/').pop()), sha: a.alt.sha256 });
+        if (a.xlat && a.xlat.sha256) shas.push({ name: a.xlat.exe, sha: a.xlat.sha256 });
         if (shas.length) {
           const box = document.createElement('div');
           box.className = 'hashbox';
