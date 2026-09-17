@@ -3276,8 +3276,10 @@
       ],
       "icon": "icons/Translator.png",
       "color": "#107C10",
-      "desc": "תרגום טקסט ודיבור",
-      "descEn": "Text and speech translation",
+      "desc": "תרגום מול שרתי מיקרוסופט — דורש אינטרנט, ולא מתרגם במחשב מנותק",
+      "descEn": "Translates against Microsoft's servers - needs internet, and translates nothing on a disconnected machine",
+      "noteEn": "The offline translation packs can no longer be downloaded - Microsoft closed the service. For translation that works with no internet, this shop has an offline translator.",
+      "note": "חבילות התרגום לעבודה אופליין כבר אינן ניתנות להורדה — מיקרוסופט סגרה את השירות. לתרגום שעובד בלי אינטרנט יש כאן מתרגם אופליין.",
       "cat": "כלים"
     },
     {
@@ -6067,6 +6069,35 @@
         "url": "https://github.com/bleachbit/bleachbit/releases/download/v6.0.4/BleachBit-6.0.4-portable.zip",
         "mb": 18
       }
+    },
+    {
+      "he": "מתרגם אופליין",
+      "en": "OfflineTranslate",
+      "net": false,
+      "w32": true,
+      "cat": "תקשורת",
+      "desc": "תרגום עברית↔אנגלית שרץ כולו במחשב שלכם. מדביקים טקסט, מקבלים תרגום — בלי שום חיבור לרשת.",
+      "color": "#7c5cff",
+      "url": null,
+      "match": "Setup-Translate.exe",
+      "files": [
+        {
+          "exe": "Setup-Translate.exe",
+          "mb": 49,
+          "win": "all",
+          "minBuild": 0,
+          "ver": "",
+          "sha256": "c7b987ffb389be7d1b4d2c8afeec6a9decd519a431598a03b56f2c0b3b573f41"
+        }
+      ],
+      "descEn": "Hebrew↔English translation that runs entirely on your own machine. Paste text, get a translation, with no network connection at all.",
+      "langMode": "english-ui",
+      "origin": "community",
+      "by": "translateLocally (MIT) + מודלי Firefox Translations של Mozilla (MPL 2.0)",
+      "src": "https://github.com/XapaJIaMnu/translateLocally",
+      "note": "מנוע התרגום ושני המודלים ארוזים בפנים — אין מה להוריד אחרי ההתקנה. אלו המודלים ש-Firefox עצמו מריץ כשהוא מתרגם דף. הממשק עצמו באנגלית, אבל הוא שני חלונות טקסט ושתי רשימות, ושמות השפות ברשימות הם בעברית.",
+      "noteEn": "The engine and both models are packed inside - there is nothing to download after installing. These are the same models Firefox itself runs when it translates a page. The interface is in English, but it is two text boxes and two lists, and the language names in those lists are in Hebrew.",
+      "silent": "-auto"
     },
     {
       "he": "Csharf",
