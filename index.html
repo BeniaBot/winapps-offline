@@ -939,6 +939,45 @@
 'use strict';
 const REL = 'https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/';
 const WIN_LABEL = { all: 'Windows 10 ומעלה', '10': 'Windows 10', '11': 'Windows 11' };
+/* The floor of each label: the first build of that Windows. A file tagged "11" whose minBuild is
+   higher than 22000 does not run on Windows 11 - it runs on SOME Windows 11, and the label said
+   otherwise. The HEVC extension is the case: the newest one Microsoft publishes wants build 26200,
+   which is 25H2, so every 22H2, 23H2 and 24H2 machine - almost all of them - downloaded a file
+   labelled "Windows 11" and was told its Windows is too old. The build number is in the catalog
+   already; it just never reached the label. */
+const WIN_FLOOR = { all: 10240, '10': 10240, '11': 22000 };
+/* The number Microsoft puts on the box, not the one it puts in the registry. "Windows 11 23H2" is
+   a thing somebody can check in winver; "build 22631 ומעלה" is a thing they have to look up. */
+const RELEASE_NAME = {
+  10586: '1511', 14393: '1607', 15063: '1703', 16299: '1709', 17134: '1803', 17763: '1809',
+  18362: '1903', 18363: '1909',
+  19041: '2004', 19042: '20H2', 19043: '21H1', 19044: '21H2', 19045: '22H2',
+  22000: '21H2', 22621: '22H2', 22631: '23H2', 26100: '24H2', 26200: '25H2',
+  /* 17688 (Mixed Reality) and 18985 (Messaging) are deliberately absent: they are Insider builds
+     that were never a named release, and they sit ABOVE the release below them - 17688 is past
+     1803, 18985 is past 1909 - so naming them after that release would tell somebody on it that
+     the file installs when it does not. Those two show the build number, which is the only thing
+     that is true about them. */
+};
+/* Returns the finished label, in the page's language - so callers do NOT wrap it in T(). They
+   used to wrap WIN_LABEL[f.win], which works because that exact string is a key in EN; the moment
+   a version is glued on, "Windows 11 25H2 ומעלה" is a key EN has never heard of, T() hands it
+   back unchanged, and the English page says ומעלה. */
+function winLabel(f) {
+  /* Shown on a Windows 11 shelf, a build tagged "10" is there because the 11 one wants a newer
+     Windows than this machine may be - so "Windows 10" is the wrong thing to call it, and its own
+     build number is not what the reader is deciding with. What is true of it, and the whole
+     reason it is on screen, is that it runs on Windows 10 and everything after. */
+  if (FILTER === '11' && f.win === '10') return T(WIN_LABEL.all);
+  const base = T(WIN_LABEL[f.win] || WIN_LABEL.all);
+  const floor = WIN_FLOOR[f.win] || 0;
+  if (!f || !f.minBuild || f.minBuild <= floor) return base;
+  const rel = RELEASE_NAME[f.minBuild] || ('build ' + f.minBuild);
+  /* "Windows 10 ומעלה" already ends in "and up", so the version goes in the middle of it rather
+     than after - "Windows 10 1709 ומעלה", not "Windows 10 ומעלה 1709". */
+  if (f.win === 'all') return LANG === 'en' ? 'Windows 10 ' + rel + ' and up' : 'Windows 10 ' + rel + ' ומעלה';
+  return base + ' ' + rel + (LANG === 'en' ? ' and up' : ' ומעלה');
+}
 const CAT_ORDER = ['כלים', 'מדיה', 'יצירה ועבודה', 'תקשורת', 'כלי טכנאי', 'חשבון ומערכת', 'נוספות'];
 const CAT_AT = 3;   // where a category that is not on the shelf slots back in, once asked for
 /* The four themes carry cat="ערכות נושא" and that aisle was in no group list, so the orphan
@@ -2031,7 +2070,22 @@ function matches(a, query) {
     return t ? expand(norm(t)).some(x => hits(hay, x)) : false;
   });
 }
-const filesFor = a => a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+/* Which builds of this app belong on screen for the Windows the shelf is set to.
+   The extra clause is for the four cards whose "Windows 11" build wants a build number above
+   22000 - HEVC wants 25H2, Phone Link and Cross Device want 23H2, the RAW extension wants 22H2.
+   Filtered to Win 11, those cards showed exactly one download, and on a 22H2 or 23H2 machine it
+   refuses to install. The Windows 10 build sitting on the same card installs there perfectly -
+   a store package built for 10 runs on 11 - and it was hidden by the filter. So when the 11
+   build asks for more than Windows 11, its 10 sibling stays on screen beside it, and the label
+   on each says which machine it is for. */
+const filesFor = a => {
+  const keep = a.files.filter(f => FILTER === 'all' || f.win === 'all' || f.win === FILTER);
+  if (FILTER !== '11') return keep;
+  const fussy = keep.some(f => f.win === '11' && f.minBuild && f.minBuild > WIN_FLOOR['11']);
+  if (!fussy) return keep;
+  const older = a.files.filter(f => f.win === '10' && keep.indexOf(f) < 0);
+  return keep.concat(older);
+};
 const bestFile = a => {
   const fs = filesFor(a);
   if (!fs.length) return null;
@@ -2056,7 +2110,9 @@ function variantOf(a, kind) {
     const want = kind.slice(5);
     const ff = a.files.find(x => x.exe === want);
     if (ff && isLive(a, ff))
-      return { kind: kind, exe: ff.exe, url: a.url ? urlFor(a) : null, mb: ff.mb, tag: WIN_LABEL[ff.win] };
+      /* the same label the row was clicked on, so the dock shows what was picked - "Windows 11
+         25H2", not a "Windows 11" the picked file does not actually install on */
+      return { kind: kind, exe: ff.exe, url: a.url ? urlFor(a) : null, mb: ff.mb, tag: winLabel(ff) };
   }
   const f = bestFile(a);
   if (!f || !isLive(a, f)) return null;
@@ -2937,7 +2993,7 @@ function openSheet(en) {
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
     : (fromStore ? srcRow(T('מקור'), 'Microsoft Store') : ownSrc) + altSrc + xlatSrc + bySrc +
       files.map(f =>
-        '<div class="row"><span>' + WIN_LABEL[f.win] + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
+        '<div class="row"><span>' + esc(winLabel(f)) + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
   const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
     'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/>' +
@@ -2973,7 +3029,7 @@ function openSheet(en) {
 
   let btns = files.map(f => {
     const label = files.length > 1
-      ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + T(WIN_LABEL[f.win])
+      ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + winLabel(f)
       : T('הורדה') + ' <span class="sz">· <span dir="ltr">' + mbFmt(f.mb) + '</span></span>';
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T(LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה לשרת...') + '</button>';
     // one build: 'main' follows the dock's Win target. Several: pin the exact file.
