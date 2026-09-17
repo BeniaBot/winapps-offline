@@ -21,8 +21,8 @@
  },
  "ELIZA.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "IsoBuilder.exe": {
   "carry": 0,
@@ -126,8 +126,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 1,
-  "total": 17
+  "seen": 2,
+  "total": 18
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -141,8 +141,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 9,
-  "total": 9
+  "seen": 10,
+  "total": 10
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -181,8 +181,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 6,
-  "total": 30
+  "seen": 10,
+  "total": 34
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -201,13 +201,13 @@
  },
  "Setup-MixedReality.exe": {
   "carry": 2,
-  "seen": 6,
-  "total": 8
+  "seen": 7,
+  "total": 9
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
-  "seen": 8,
-  "total": 11
+  "seen": 9,
+  "total": 12
  },
  "Setup-News.exe": {
   "carry": 0,
@@ -271,8 +271,8 @@
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 9,
-  "total": 13
+  "seen": 10,
+  "total": 14
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
@@ -386,8 +386,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 2,
-  "total": 7
+  "seen": 5,
+  "total": 10
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -521,13 +521,13 @@
  },
  "WINAPPS-W10-CORE.iso": {
   "carry": 8,
-  "seen": 1,
-  "total": 9
+  "seen": 2,
+  "total": 10
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 23,
-  "seen": 6,
-  "total": 29
+  "seen": 7,
+  "total": 30
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
