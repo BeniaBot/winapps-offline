@@ -1828,7 +1828,7 @@
       "files": [
         {
           "exe": "Setup-FileRecovery.exe",
-          "mb": 29,
+          "mb": 14,
           "win": "all",
           "minBuild": 19041,
           "ver": "0.1.20151.0",
@@ -2097,6 +2097,7 @@
           "sha256": "6121ef4853e78ac6232d8e51bd030610173a2dae6d9408f8b029026be804656d"
         }
       ],
+      "needsFirstOnline": true,
       "xlat": {
         "exe": "Setup-PCManager-Hebrew.exe",
         "mb": 116,
@@ -6245,7 +6246,7 @@
       "he": "חוויית שפה עברית",
       "en": "HebrewLanguage",
       "net": false,
-      "custom": true,
+      "custom": false,
       "match": "Setup-Hebrew.exe",
       "files": [
         {
@@ -6263,9 +6264,33 @@
       "icon": "icons/w32/hebrewlang.svg",
       "heb": true,
       "langMode": "hebrew-only",
-      "note": "החבילות בפנים הן של מיקרוסופט, ללא שינוי — ארבע מהן, לכל משפחת גרסאות: Windows 10, ו-Windows 11 בגרסאות 21H2‏, 22H2/23H2 ו-24H2/25H2. במחשב מחובר אפשר להשיג בדיוק את אותו הדבר דרך הגדרות ← שעה ושפה; כאן הן פשוט נמצאות כבר בקובץ.\n\nלפני שהוא נוגע במשהו הוא שומר נקודת שחזור וגיבוי של הרישום, וכותב סקריפט חזרה. צריך לצאת מהמשתמש ולהיכנס שוב כדי לראות את השינוי.\n\nמסך הכניסה עצמו יישאר בשפה שבה Windows הותקן — הטקסט שם מוטמע בקובץ ואין חבילת שפה שמחליפה אותו. זה נכון בכל דרך, לא רק כאן.",
-      "noteEn": "The packs inside are Microsoft’s own, unmodified - four of them, one per build family: Windows 10, and Windows 11 in 21H2, 22H2/23H2 and 24H2/25H2. On a connected machine the same thing is available through Settings > Time & language; here they are simply already in the file.\n\nBefore it touches anything it takes a restore point and a registry backup, and writes an undo script. Sign out and back in to see the change.\n\nThe sign-in screen itself stays in the language Windows was installed in - its text is compiled into the file and no language pack replaces it. That is true by any route, not only this one.",
+      "note": "חבילות השפה עצמן הן של מיקרוסופט, ללא שינוי. מה שנבנה כאן הוא המתקין שבוחר את החבילה לפי גרסת ה-Windows שעל המחשב, ומחיל אותה גם על מסך הכניסה ועל משתמשים חדשים.",
+      "noteEn": "The language packs themselves are Microsoft's, unchanged. What was built here is the installer that picks the pack matching the Windows build on the machine, and applies it to the sign-in screen and to new users as well.",
       "cat": "חשבון ומערכת"
+    },
+    {
+      "he": "אלייזה",
+      "en": "Eliza",
+      "net": false,
+      "custom": true,
+      "match": "ELIZA.exe",
+      "files": [
+        {
+          "exe": "ELIZA.exe",
+          "mb": 5,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ],
+      "desc": "הצ'אטבוט הראשון בהיסטוריה, מ-1966, כתוכנה לווינדוס — ובעברית. קובץ אחד, בלי התקנה ובלי רשת. פותח כאן",
+      "descEn": "The first chatbot in history, from 1966, as a Windows program - and in Hebrew. One file, no install, no network. Built here",
+      "color": "#4bb3a0",
+      "heb": true,
+      "langMode": "hebrew-only",
+      "cat": "נוספות",
+      "repo": "BeniaBot/eliza",
+      "relver": "v1"
     }
   ]
 }
