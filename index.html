@@ -3741,7 +3741,15 @@ async function discManifest() {
   try {
     DISC.man = await (await fetch('disc-manifest.json')).json();
     for (const a of DISC.man.list || [])
-      for (const b of (a.builds || [])) if (b.ver) DISC.ver.set(b.file, b.ver);
+      for (const b of (a.builds || [])) {
+        /* A theme pack, a zip and a few installers state no version anywhere - not in a resource,
+           not in an MSI table, not in their own filename - and inventing one would be worse than
+           none. What IS true of them is when the copy on this disc was made, and on a frozen shelf
+           that answers the same question: is this one older than the one I already have. Fourteen
+           cards showed a blank where a version goes. */
+        if (b.ver) DISC.ver.set(b.file, b.ver);
+        else if (b.dated) DISC.ver.set(b.file, T('מהעותק של') + ' ' + b.dated);
+      }
   } catch (e) { console.error('disc manifest:', e); }
 }
 /* The version to print for one download. On the disc the file itself is the authority - the
