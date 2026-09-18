@@ -2918,7 +2918,11 @@ function download(exe) {
      is to show the person where the file is. */
   if (DISC.on) {
     const owner = DATA.apps.find(x => (x.files || []).some(f => f.exe === exe));
-    if (owner && discManual(owner)) { discSay('reveal	' + (discFile(exe) || exe)); return; }
+    /* If the frame is not listening, "show me the file" does nothing at all and the button
+       looks broken. Falling through to the install panel is not a consolation prize: what
+       that panel now says on a dead channel - the מתקינים folder, one file per program,
+       double-click it - is the same advice this click was about to give. */
+    if (owner && discManual(owner) && discSay('reveal	' + (discFile(exe) || exe))) return;
     discInstall([exe]);
     return;
   }
