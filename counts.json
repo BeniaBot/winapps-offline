@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -11,18 +11,18 @@
  },
  "CapsFix-5.exe": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 8,
+  "total": 8
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 1,
+  "total": 1
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 4,
+  "total": 5
  },
  "IsoBuilder.exe": {
   "carry": 0,
@@ -31,83 +31,83 @@
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
-  "seen": 2,
-  "total": 8
+  "seen": 3,
+  "total": 9
  },
  "Setup-3DViewer.exe": {
   "carry": 3,
-  "seen": 10,
-  "total": 13
+  "seen": 11,
+  "total": 14
  },
  "Setup-AnyDesk-5.2.exe": {
+  "carry": 1,
+  "seen": 10,
+  "total": 11
+ },
+ "Setup-AppInstaller.exe": {
+  "carry": 2,
+  "seen": 12,
+  "total": 14
+ },
+ "Setup-AV1Extension.exe": {
+  "carry": 5,
+  "seen": 11,
+  "total": 16
+ },
+ "Setup-BingSearch.exe": {
   "carry": 1,
   "seen": 9,
   "total": 10
  },
- "Setup-AppInstaller.exe": {
-  "carry": 2,
-  "seen": 11,
-  "total": 13
+ "Setup-Builder3D-Original.exe": {
+  "carry": 6,
+  "seen": 3,
+  "total": 9
  },
- "Setup-AV1Extension.exe": {
-  "carry": 5,
+ "Setup-Builder3D.exe": {
+  "carry": 4,
   "seen": 10,
-  "total": 15
+  "total": 14
  },
- "Setup-BingSearch.exe": {
+ "Setup-Calculator.exe": {
+  "carry": 6,
+  "seen": 14,
+  "total": 20
+ },
+ "Setup-Camera.exe": {
+  "carry": 4,
+  "seen": 12,
+  "total": 16
+ },
+ "Setup-Clipchamp.exe": {
+  "carry": 8,
+  "seen": 13,
+  "total": 21
+ },
+ "Setup-Clock.exe": {
+  "carry": 3,
+  "seen": 9,
+  "total": 12
+ },
+ "Setup-Copilot.exe": {
   "carry": 1,
   "seen": 8,
   "total": 9
  },
- "Setup-Builder3D-Original.exe": {
-  "carry": 6,
-  "seen": 2,
-  "total": 8
- },
- "Setup-Builder3D.exe": {
-  "carry": 4,
-  "seen": 9,
-  "total": 13
- },
- "Setup-Calculator.exe": {
-  "carry": 6,
-  "seen": 13,
-  "total": 19
- },
- "Setup-Camera.exe": {
-  "carry": 4,
-  "seen": 11,
-  "total": 15
- },
- "Setup-Clipchamp.exe": {
-  "carry": 8,
-  "seen": 12,
-  "total": 20
- },
- "Setup-Clock.exe": {
-  "carry": 3,
-  "seen": 8,
-  "total": 11
- },
- "Setup-Copilot.exe": {
-  "carry": 1,
-  "seen": 7,
-  "total": 8
- },
  "Setup-CrossDevice-Win10.exe": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 8,
+  "total": 8
  },
  "Setup-CrossDevice-Win11.exe": {
   "carry": 1,
-  "seen": 7,
-  "total": 8
+  "seen": 8,
+  "total": 9
  },
  "Setup-DevHomeGitHub.exe": {
   "carry": 3,
-  "seen": 7,
-  "total": 10
+  "seen": 8,
+  "total": 11
  },
  "Setup-Everything-Hebrew.exe": {
   "carry": 0,
@@ -116,133 +116,133 @@
  },
  "Setup-Family.exe": {
   "carry": 2,
-  "seen": 7,
-  "total": 9
+  "seen": 8,
+  "total": 10
  },
  "Setup-FeedbackHub.exe": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 8,
+  "total": 8
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 7,
-  "total": 23
+  "seen": 8,
+  "total": 24
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
- },
- "Setup-GetHelp-Win11.exe": {
-  "carry": 1,
-  "seen": 7,
+  "seen": 8,
   "total": 8
  },
- "Setup-Hebrew.exe": {
-  "carry": 0,
-  "seen": 12,
-  "total": 12
- },
- "Setup-HEIFExtension.exe": {
-  "carry": 4,
-  "seen": 12,
-  "total": 16
- },
- "Setup-HEVCExtension-Win10.exe": {
+ "Setup-GetHelp-Win11.exe": {
   "carry": 1,
   "seen": 8,
   "total": 9
  },
- "Setup-HEVCExtension-Win11.exe": {
-  "carry": 2,
-  "seen": 10,
-  "total": 12
- },
- "Setup-Journal-Original.exe": {
-  "carry": 7,
-  "seen": 0,
-  "total": 7
- },
- "Setup-Journal.exe": {
-  "carry": 2,
-  "seen": 11,
+ "Setup-Hebrew.exe": {
+  "carry": 0,
+  "seen": 13,
   "total": 13
  },
- "Setup-Mail.exe": {
+ "Setup-HEIFExtension.exe": {
+  "carry": 4,
+  "seen": 13,
+  "total": 17
+ },
+ "Setup-HEVCExtension-Win10.exe": {
   "carry": 1,
   "seen": 9,
   "total": 10
  },
+ "Setup-HEVCExtension-Win11.exe": {
+  "carry": 2,
+  "seen": 11,
+  "total": 13
+ },
+ "Setup-Journal-Original.exe": {
+  "carry": 7,
+  "seen": 1,
+  "total": 8
+ },
+ "Setup-Journal.exe": {
+  "carry": 2,
+  "seen": 12,
+  "total": 14
+ },
+ "Setup-Mail.exe": {
+  "carry": 1,
+  "seen": 10,
+  "total": 11
+ },
  "Setup-Maps-Original.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 16,
-  "total": 40
+  "seen": 17,
+  "total": 41
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
-  "seen": 11,
-  "total": 12
+  "seen": 12,
+  "total": 13
  },
  "Setup-Messaging-Win10.exe": {
+  "carry": 1,
+  "seen": 9,
+  "total": 10
+ },
+ "Setup-Messaging-Win11.exe": {
   "carry": 1,
   "seen": 8,
   "total": 9
  },
- "Setup-Messaging-Win11.exe": {
-  "carry": 1,
-  "seen": 7,
-  "total": 8
- },
  "Setup-MixedReality.exe": {
   "carry": 2,
-  "seen": 9,
-  "total": 11
+  "seen": 10,
+  "total": 12
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
-  "seen": 12,
-  "total": 15
+  "seen": 13,
+  "total": 16
  },
  "Setup-News.exe": {
   "carry": 0,
-  "seen": 12,
-  "total": 12
+  "seen": 13,
+  "total": 13
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 19,
-  "total": 24
+  "seen": 20,
+  "total": 25
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
-  "seen": 9,
-  "total": 13
+  "seen": 10,
+  "total": 14
  },
  "Setup-OneNote.exe": {
   "carry": 5,
-  "seen": 9,
-  "total": 14
+  "seen": 10,
+  "total": 15
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 9,
-  "total": 14
+  "seen": 10,
+  "total": 15
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 4,
-  "total": 17
+  "seen": 5,
+  "total": 18
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -251,118 +251,118 @@
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 7,
-  "total": 13
+  "seen": 8,
+  "total": 14
  },
  "Setup-People.exe": {
   "carry": 1,
-  "seen": 10,
-  "total": 11
+  "seen": 11,
+  "total": 12
  },
  "Setup-PhoneLink-Win10.exe": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 8,
+  "total": 8
  },
  "Setup-PhoneLink-Win11.exe": {
   "carry": 1,
-  "seen": 8,
-  "total": 9
+  "seen": 9,
+  "total": 10
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 11,
-  "total": 15
+  "seen": 12,
+  "total": 16
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
-  "seen": 3,
-  "total": 9
+  "seen": 4,
+  "total": 10
  },
  "Setup-PowerBI.exe": {
   "carry": 1,
-  "seen": 9,
-  "total": 10
+  "seen": 10,
+  "total": 11
  },
  "Setup-PowerShell.exe": {
   "carry": 2,
-  "seen": 9,
-  "total": 11
+  "seen": 10,
+  "total": 12
  },
  "Setup-Print3D-Original.exe": {
-  "carry": 6,
-  "seen": 2,
-  "total": 8
- },
- "Setup-Print3D.exe": {
-  "carry": 4,
-  "seen": 11,
-  "total": 15
- },
- "Setup-QuickAssist.exe": {
-  "carry": 0,
-  "seen": 8,
-  "total": 8
- },
- "Setup-RawExtension-Win10.exe": {
-  "carry": 2,
-  "seen": 8,
-  "total": 10
- },
- "Setup-RawExtension-Win11.exe": {
-  "carry": 4,
-  "seen": 11,
-  "total": 15
- },
- "Setup-RemoteDesktop.exe": {
-  "carry": 1,
-  "seen": 8,
-  "total": 9
- },
- "Setup-SnippingTool-Win10.exe": {
-  "carry": 3,
-  "seen": 8,
-  "total": 11
- },
- "Setup-SnippingTool-Win11.exe": {
-  "carry": 0,
-  "seen": 8,
-  "total": 8
- },
- "Setup-SoundRecorder-Win10.exe": {
-  "carry": 2,
-  "seen": 8,
-  "total": 10
- },
- "Setup-SoundRecorder-Win11.exe": {
-  "carry": 1,
-  "seen": 9,
-  "total": 10
- },
- "Setup-StickyNotes.exe": {
-  "carry": 7,
-  "seen": 10,
-  "total": 17
- },
- "Setup-Store.exe": {
-  "carry": 0,
-  "seen": 11,
-  "total": 11
- },
- "Setup-StorePurchase.exe": {
-  "carry": 1,
-  "seen": 9,
-  "total": 10
- },
- "Setup-Sway-Original.exe": {
   "carry": 6,
   "seen": 3,
   "total": 9
  },
+ "Setup-Print3D.exe": {
+  "carry": 4,
+  "seen": 12,
+  "total": 16
+ },
+ "Setup-QuickAssist.exe": {
+  "carry": 0,
+  "seen": 9,
+  "total": 9
+ },
+ "Setup-RawExtension-Win10.exe": {
+  "carry": 2,
+  "seen": 9,
+  "total": 11
+ },
+ "Setup-RawExtension-Win11.exe": {
+  "carry": 4,
+  "seen": 12,
+  "total": 16
+ },
+ "Setup-RemoteDesktop.exe": {
+  "carry": 1,
+  "seen": 9,
+  "total": 10
+ },
+ "Setup-SnippingTool-Win10.exe": {
+  "carry": 3,
+  "seen": 9,
+  "total": 12
+ },
+ "Setup-SnippingTool-Win11.exe": {
+  "carry": 0,
+  "seen": 9,
+  "total": 9
+ },
+ "Setup-SoundRecorder-Win10.exe": {
+  "carry": 2,
+  "seen": 9,
+  "total": 11
+ },
+ "Setup-SoundRecorder-Win11.exe": {
+  "carry": 1,
+  "seen": 10,
+  "total": 11
+ },
+ "Setup-StickyNotes.exe": {
+  "carry": 7,
+  "seen": 11,
+  "total": 18
+ },
+ "Setup-Store.exe": {
+  "carry": 0,
+  "seen": 12,
+  "total": 12
+ },
+ "Setup-StorePurchase.exe": {
+  "carry": 1,
+  "seen": 10,
+  "total": 11
+ },
+ "Setup-Sway-Original.exe": {
+  "carry": 6,
+  "seen": 4,
+  "total": 10
+ },
  "Setup-Sway.exe": {
   "carry": 1,
-  "seen": 8,
-  "total": 9
+  "seen": 9,
+  "total": 10
  },
  "Setup-Sysinternals.exe": {
   "carry": 4,
@@ -371,48 +371,48 @@
  },
  "Setup-Terminal.exe": {
   "carry": 3,
-  "seen": 9,
-  "total": 12
+  "seen": 10,
+  "total": 13
  },
  "Setup-TerminalPreview.exe": {
   "carry": 4,
-  "seen": 8,
-  "total": 12
+  "seen": 9,
+  "total": 13
  },
  "Setup-ToDo.exe": {
   "carry": 1,
-  "seen": 9,
-  "total": 10
+  "seen": 10,
+  "total": 11
  },
  "Setup-Translate.exe": {
-  "carry": 5,
-  "seen": 8,
-  "total": 13
- },
- "Setup-Translator-Original.exe": {
-  "carry": 6,
-  "seen": 3,
-  "total": 9
- },
- "Setup-Translator.exe": {
-  "carry": 9,
-  "seen": 14,
-  "total": 23
- },
- "Setup-VP9Extension.exe": {
   "carry": 5,
   "seen": 10,
   "total": 15
  },
+ "Setup-Translator-Original.exe": {
+  "carry": 6,
+  "seen": 4,
+  "total": 10
+ },
+ "Setup-Translator.exe": {
+  "carry": 9,
+  "seen": 15,
+  "total": 24
+ },
+ "Setup-VP9Extension.exe": {
+  "carry": 5,
+  "seen": 11,
+  "total": 16
+ },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 11,
-  "total": 12
+  "seen": 12,
+  "total": 13
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
-  "seen": 15,
-  "total": 21
+  "seen": 16,
+  "total": 22
  },
  "Setup-Whiteboard.exe": {
   "carry": 1,
@@ -421,8 +421,8 @@
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
-  "seen": 8,
-  "total": 12
+  "seen": 9,
+  "total": 13
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
@@ -436,8 +436,8 @@
  },
  "Setup-WSL.exe": {
   "carry": 2,
-  "seen": 6,
-  "total": 8
+  "seen": 7,
+  "total": 9
  },
  "SilentInstall.exe": {
   "carry": 0,
@@ -451,8 +451,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "System-Components-All.exe": {
   "carry": 0,
@@ -461,58 +461,58 @@
  },
  "TikNick-Setup.exe": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "VC2005-x64.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "VC2005-x86.exe": {
   "carry": 0,
-  "seen": 14,
-  "total": 14
+  "seen": 15,
+  "total": 15
  },
  "VC2008-x64.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "VC2008-x86.exe": {
   "carry": 0,
-  "seen": 16,
-  "total": 16
+  "seen": 17,
+  "total": 17
  },
  "VC2010-x64.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "VC2010-x86.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "VC2012-x64.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "VC2012-x86.exe": {
   "carry": 0,
-  "seen": 16,
-  "total": 16
- },
- "VC2013-x64.exe": {
-  "carry": 0,
   "seen": 17,
   "total": 17
  },
+ "VC2013-x64.exe": {
+  "carry": 0,
+  "seen": 18,
+  "total": 18
+ },
  "VC2013-x86.exe": {
   "carry": 0,
-  "seen": 15,
-  "total": 15
+  "seen": 16,
+  "total": 16
  },
  "winapps-packer.exe": {
   "carry": 0,
@@ -531,97 +531,97 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
-  "seen": 0,
-  "total": 0
+  "seen": 2,
+  "total": 2
  },
  "#87b32f25445b2575": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#75e1cdc3cb59271b": {
   "carry": 2,
-  "seen": 1,
-  "total": 3
+  "seen": 2,
+  "total": 4
  },
  "#40a96a4b7775a83a": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#515f8ab22452738d": {
   "carry": 2,
-  "seen": 0,
-  "total": 2
+  "seen": 1,
+  "total": 3
  },
  "#209f94d007363919": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#913b920a0a5d30af": {
   "carry": 2,
-  "seen": 0,
-  "total": 2
+  "seen": 1,
+  "total": 3
  },
  "#310bffce312a892a": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#efe2d69061d03920": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 6,
+  "total": 6
  },
  "#c1bf7e19aa28ce86": {
   "carry": 2,
-  "seen": 1,
-  "total": 3
+  "seen": 2,
+  "total": 4
  },
  "#e52cfff08a26b7f1": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#8e70da0819e8ca67": {
   "carry": 2,
-  "seen": 1,
-  "total": 3
+  "seen": 2,
+  "total": 4
  },
  "#b98bad4c2c43d03d": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#d198ccdc97a3bad3": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#049cc765963c3c17": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#fa1c2c1e528e4418": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#ebb54cde1ce4109e": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#0f2c26720d38d2c9": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "#fe7f4f15dc1afa12": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  }
 }
