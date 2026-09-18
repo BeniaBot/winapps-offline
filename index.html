@@ -341,6 +341,11 @@
           padding: 6px 16px; cursor: pointer; }
   .chip:hover { color: var(--ink); background: var(--tile-h); }
   .chip.on { background: var(--accent); color: var(--on-accent); border-color: transparent; font-weight: 700; }
+  /* how many cards a state chip will leave on the shelf, so the answer is on the chip rather than
+     one click away */
+  .chipn { display: inline-block; margin-inline-start: 5px; padding: 0 5px; border-radius: 99px;
+           font-size: .74rem; font-weight: 700; background: rgba(125,138,165,.2); }
+  .chip.on .chipn { background: rgba(0,0,0,.18); }
   .spacer { flex: 1; }
   .count { color: var(--muted); font-size: .84rem; white-space: nowrap; }
 
@@ -407,14 +412,18 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(122px, 1fr)); gap: 10px; }
   @media (max-width: 480px) {
     .grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+    .t { --plate: 68px; }
     .pl { width: 68px; height: 68px; border-radius: 19px; }
     .pl img { width: 44px; height: 44px; }
     .pl img.glyph { width: 36px; height: 36px; }
   }
   .t {
+    /* --pad-top and --plate are the two numbers the disc's state badge is positioned from, so
+       they are declared once and used, not repeated as literals in three places. */
+    --pad-top: 18px; --plate: 76px;
     position: relative;
     display: flex; flex-direction: column; align-items: center; gap: 9px;
-    padding: 18px 8px 13px; border-radius: 16px; cursor: pointer; text-align: center;
+    padding: var(--pad-top) 8px 13px; border-radius: 16px; cursor: pointer; text-align: center;
     transition: background .14s, transform .14s;
   }
   .t:hover { background: var(--tile-h); transform: translateY(-3px); }
@@ -591,8 +600,15 @@
      What this machine already has of a card. Along the bottom of the plate rather than in a
      corner: the corners are taken, and this is the one line somebody scanning the shelf on their
      own PC is actually looking for. */
-  .dstat { position: absolute; inset-inline: 8px; top: 92px; z-index: 2; text-align: center;
-           padding: 2px 6px; border-radius: 99px; font-size: .62rem; font-weight: 800;
+  /* Across the bottom of the icon, worked out from the icon rather than guessed at. "top: 92px"
+     was the guess: the plate ends at 94px and the name starts at 103px, so a 16px pill at 92 sat
+     on the first line of the name and covered it - and on the narrow layout, where the plate is
+     68px, it floated in the gap instead. Both numbers now come from the two that decide them. */
+  .dstat { position: absolute; inset-inline: 0; margin-inline: auto; width: max-content;
+           max-width: calc(100% - 12px); top: calc(var(--pad-top) + var(--plate) - 15px);
+           z-index: 2; text-align: center;
+           padding: 2px 7px; border-radius: 99px; font-size: .62rem; font-weight: 800;
+           white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
            pointer-events: none; }
   .dhere { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok);
            border: 1px solid color-mix(in srgb, var(--ok) 42%, transparent); }
@@ -988,7 +1004,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (גרסאות שתורגמו כאן, וחבילות שתוקנו כדי להיפתח בלי אינטרנט; לצד כל אחת מהן מוצעת גם המקורית). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div class="footlinks" style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b><span class="sep"> · </span><a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a><span class="sep"> · </span><a class="src-link" href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a><span class="sep"> · </span><button class="donate" id="donate-btn">לתרומה לפרוייקט</button> · <span id="updated"></span></div>
+    <div class="footlinks" style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b><span class="sep"> · </span><a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a><span class="sep"> · </span><a class="src-link" href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a><span class="sep"> · </span><button class="donate" id="donate-btn">לתרומה לפרוייקט</button><span class="sep"> · </span><span id="updated"></span></div>
     <div style="margin-top:6px"><a href="legal.html" style="color:var(--accent)">תנאי שימוש</a> · <a href="legal.html#privacy" style="color:var(--accent)">פרטיות</a> · <a href="legal.html#copyright" style="color:var(--accent)">זכויות יוצרים והסרה</a> · <a href="legal.html#security" style="color:var(--accent)">אבטחה ואימות</a></div>
   </div>
 </footer>
@@ -1078,6 +1094,11 @@ if (document.documentElement.hasAttribute('data-rest')) {
 // true = we could not find out what is published, so a missing button means "we do not know"
 let LIVE_UNKNOWN = false;
 let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = false;
+/* Which answer-about-this-machine the shelf is narrowed to, on the disc only: '' is everything,
+   otherwise one of the states the frame reports. The single most common thing somebody does with
+   a disc in a strange machine is "show me what is NOT on here yet", and until now the only way to
+   ask that was to read 149 tiles and check each one's badge. */
+let DSEL = '';
 let TARGET = '11';
 /* app -> which build of it was picked: 'main' | 'xlat' (the Hebrew build) |
    'lang' (the vendor's other-language build) | 'alt' (a portable build).
@@ -1186,10 +1207,34 @@ const EN = {
   'כבר רצה התקנה אחרת. להמתין לסיומה.': 'Another install is already running. Wait for it to finish.',
   'סיימנו. אפשר לסגור את החלון.': 'Finished. You can close this.',
   'לא רצה': 'did not run',
+  'במחשב הזה:': 'On this PC:',
+  'לא מותקנות': 'Not installed',
+  'מותקנות': 'Installed',
+  'לא מתאימות': 'Needs a newer Windows',
+  'מה זה הדיסק הזה?': 'What is this disc?',
+  'מה זה הדיסק הזה': 'What is this disc',
+  'הדיסק הזה מתקין אפליקציות ותוכנות במחשב שאין בו חיבור לאינטרנט. הכול כבר כאן — אין מה להוריד ואין מה לחכות לו.':
+    'This disc installs apps and programs on a PC with no internet. Everything is already here — nothing to download and nothing to wait for.',
+  'למה צריך את זה בכלל': 'Why this is needed at all',
+  'כל פריט בדיסק הוא קובץ אחד גמור. כל מה שהאפליקציה צריכה כבר בתוכו, כולל ספריות המערכת שהיא נשענת עליהן.':
+    'Every item on this disc is one finished file. Everything the app needs is inside it, including the system libraries it leans on.',
+  'בוחרים אפליקציה מהמדף. אפשר גם לסמן כמה ולהתקין את כולן ברצף.':
+    'Pick an app from the shelf. You can also tick several and install them one after another.',
+  'לוחצים התקנה. ההתקנה רצה מהדיסק, בלי רשת.': 'Press Install. It runs from the disc, with no network.',
+  'מה המילים הצבעוניות על האריחים': 'What the coloured words on the tiles mean',
+  'הדיסק בודק מה כבר יש במחשב הזה. "מותקנת" — כבר אצלכם, אין מה לעשות. "יש עדכון" — מותקנת אצלכם גרסה ישנה יותר מזו שבדיסק. "לא מתאים ל-Windows הזה" — הגרסה כאן דורשת Windows חדש יותר. אפשר לסנן לפי זה בשורת הקטגוריות.':
+    'The disc checks what this PC already has. "Installed" — already yours, nothing to do. "Update available" — you have an older version than the one here. "Not for this Windows" — the build here needs a newer Windows. You can filter by all of this in the chip row.',
+  'אם החנות לא נפתחת': 'If the shop will not open',
+  'בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה. לחיצה כפולה על אחד מהם מתקינה אותו, בלי החנות ובלי שום דבר אחר.':
+    'The "מתקינים" folder on this disc holds one file per app. Double-click one and it installs, with no shop and nothing else.',
+  'הקבצים של מיקרוסופט הועתקו לכאן מהשרתים שלה, חתומים בחתימה הדיגיטלית שלה, ללא שינוי. שני יוצאים מן הכלל, ושניהם כתובים בגלוי על הכרטיס: אפליקציה שתורגמה כאן, ואפליקציה שתוקנה כדי להיפתח במחשב מנותק. בשתיהן החבילה נפתחה ונחתמה מחדש — ולצד כל אחת מהן יש בדיסק גם את המקורית של היצרן.':
+    'Microsoft’s files were copied here from its own servers, signed with its digital signature, unchanged. Two exceptions, both stated openly on the card: an app translated here, and an app repaired so it opens on a disconnected PC. In both the package was opened and re-signed — and beside each one this disc also carries the maker’s original.',
+  'הדיסק הזה': 'This disc',
+  'הדיסק אינו קשור למיקרוסופט ואינו נתמך על ידה.': 'This disc is not affiliated with or endorsed by Microsoft.',
   'החנות לא מצליחה לדבר עם המתקין. אפשר להתקין גם בלעדיה: בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה, בשם בעברית - לחיצה כפולה עליו מתקינה אותה.':
     'The shop cannot reach the installer. You can install without it: the "מתקינים" folder on this disc holds one file per program - double-click one to install it.',
   'מותקנת': 'installed',
-  'יש עדכון': 'update available',
+  'יש עדכון': 'Update available',
   'לא מתאים ל-Windows הזה': 'not for this Windows',
   'לא על הדיסק הזה': 'not on this disc',
   'התקנה': 'Install',
@@ -2246,6 +2291,7 @@ const mbFmt = mb => mb > 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) 
 /* ===== tiles ===== */
 function tile(a) {
   if (HEBONLY && !a.heb && !a.noui) return '';
+  if (DSEL && discStateOf(a) !== DSEL) return '';
   const f = bestFile(a);
   if (!f) return '';
   const pl = plate(a, false);
@@ -2384,6 +2430,8 @@ function finishRender(box, html, chipBar, shown, total) {
   chipBar.push('<button class="chip' + (HEBONLY ? ' on' : '') + '" data-heb="1" title="רק אפליקציות עם ממשק בעברית">עברית</button>');
   chipBar.push('<span class="count">מתאים ל:</span>');
   chipBar.push(winChip('all', 'הכל'), winChip('10', 'Win 10'), winChip('11', 'Win 11'));
+  // only the disc knows anything about the machine it is in, so only the disc can offer this
+  if (DISC.on) chipBar.push(...discStateChips());
   document.getElementById('chips').innerHTML = chipBar.join('');
   box.innerHTML = html || '<div class="empty">לא נמצא כלום.</div>';
   const said = document.getElementById('found');
@@ -2443,6 +2491,7 @@ document.addEventListener('click', e => {
   }
   const chip = e.target.closest('.chip');
   if (chip && chip.dataset.heb !== undefined) { HEBONLY = !HEBONLY; render(); return; }
+  if (chip && chip.dataset.dsel !== undefined) { DSEL = chip.dataset.dsel; render(); return; }
   if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
   if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
   const dl = e.target.closest('[data-dl]');
@@ -3542,6 +3591,13 @@ document.getElementById('donate-btn').onclick = () => {
 };
 
 document.getElementById('about-btn').onclick = () => {
+  /* On a disc this whole panel was a lie told six times over. It opened "what is this SITE",
+     explained that the apps here are one finished file so nothing has to be downloaded during
+     the install - and then told the reader to find a machine with internet, press Download, copy
+     the file onto a memory stick and carry it over. They are holding the memory stick. It also
+     said other makers' programs are "linked straight to their own websites", on a disc whose
+     every link is deliberately dead. Same question, different object in the person's hand. */
+  if (DISC.on) { discHelp(); return; }
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet about">' +
@@ -3708,6 +3764,10 @@ function discWire() {
     if (best) DISC.at.set(n, best);
   });
   document.body.classList.add('on-disc');
+  // the tooltip asked "what is this SITE" while a person held a disc
+  const ab = document.getElementById('about-btn');
+  if (ab) ab.title = T('מה זה הדיסק הזה');
+  discTidySeps(document.querySelector('.footlinks'));
   /* Watched, not swept once: the shelf, every card sheet and every panel are drawn later, and the
      next link will be added by somebody who never read discDeadenLinks. */
   new MutationObserver(ms => {
@@ -3802,6 +3862,27 @@ function armSeal(ov, shut) {
    explainer, in the terms line of every download panel - and the next one will be added by
    somebody who has forgotten this paragraph exists. An observer catches whatever the page draws,
    whenever it draws it, and turns it into plain text that still says what it said. */
+/* A " · " between two things is punctuation. A " · " with nothing on one side is a stray mark, and
+   the disc hides three of the four things in the footer row. The CSS answer was to hide every
+   separator in that row, which is why it read "בני הבוטהקטלוג עודכן" - two items with no space at
+   all between them. So the stylesheet still hides them all, as the safe default, and this puts
+   back exactly the ones that have something visible on both sides. */
+function discTidySeps(row) {
+  if (!row) return;
+  const isSep = n => n.nodeType === 1 && n.classList.contains('sep');
+  const shown = n => n.nodeType === 3 ? n.textContent.trim() !== ''
+                                      : n.nodeType === 1 && getComputedStyle(n).display !== 'none';
+  let seen = false, pending = null;
+  for (const n of [...row.childNodes]) {
+    if (isSep(n)) { pending = n; continue; }
+    if (!shown(n)) continue;
+    // the stylesheet's rule carries !important, so putting one back has to as well
+    if (seen && pending) pending.style.setProperty('display', 'inline', 'important');
+    seen = true;
+    pending = null;
+  }
+}
+
 function discDeadenLinks(root) {
   if (!DISC.on) return;
   const scope = root && root.querySelectorAll ? root : document;
@@ -3814,7 +3895,12 @@ function discDeadenLinks(root) {
     const h = a.getAttribute('href') || '';
     if (!/^(https?:|mailto:|tel:)/i.test(h)) continue;
     const span = document.createElement('span');
-    span.className = 'wasLink';
+    /* The original classes come WITH it. Overwriting className threw them away, and one of them
+       was doing a job: the disc hides .src-link, so "קוד המקור" was supposed to be gone from the
+       footer entirely. Deadened, it lost the class, the rule stopped matching, and the words came
+       back as plain text - naming a github address on a machine with no internet, which is the
+       one thing the disc is not supposed to do. */
+    span.className = ((a.getAttribute('class') || '') + ' wasLink').trim();
     span.setAttribute('dir', a.getAttribute('dir') || 'auto');
     span.textContent = a.textContent;
     if (a.title) span.title = a.title;
@@ -3854,6 +3940,38 @@ function verOf(f) {
 }
 
 const DISC_WORD = { here: 'מותקנת', older: 'יש עדכון', tooold: 'לא מתאים ל-Windows הזה' };
+/* This machine's answer for one card, as one word. A card the frame could not decide about counts
+   as not installed, deliberately and for the same reason the installer does: offering something
+   that turns out to be there already costs a wasted minute, and hiding something that turns out to
+   be missing costs a program that will not open. */
+function discStateOf(a) {
+  if (!DISC.on) return '';
+  const f = bestFile(a), real = f && discFile(f.exe);
+  const row = real && DISC.state[real];
+  const s = row && row[0];
+  return (s === 'here' || s === 'older' || s === 'tooold') ? s : 'missing';
+}
+/* The words for the chip row, and the order they sit in: what is missing first, because that is
+   the question, then what is out of date, then what is already here. */
+const DSEL_WORD = [['missing', 'לא מותקנות'], ['older', 'יש עדכון'], ['here', 'מותקנות'],
+                   ['tooold', 'לא מתאימות']];
+function discStateChips() {
+  const n = {};
+  for (const a of (DATA.apps || [])) {
+    if (!bestFile(a)) continue;
+    const s = discStateOf(a);
+    n[s] = (n[s] || 0) + 1;
+  }
+  const out = ['<span class="count">' + T('במחשב הזה:') + '</span>',
+               '<button class="chip' + (DSEL === '' ? ' on' : '') + '" data-dsel="">' + T('הכל') + '</button>'];
+  for (const [k, word] of DSEL_WORD) {
+    // a chip for nothing is a dead end that has to be clicked to find that out
+    if (!n[k]) continue;
+    out.push('<button class="chip' + (DSEL === k ? ' on' : '') + '" data-dsel="' + k + '">' +
+             T(word) + ' <span class="chipn" dir="ltr">' + n[k] + '</span></button>');
+  }
+  return out;
+}
 function discBadge(a) {
   if (!DISC.on) return '';
   const f = bestFile(a), real = f && discFile(f.exe);
@@ -3882,6 +4000,47 @@ function discVersionLine() {
                  '<span class="what">' + T('מה יש בדיסק · יומן שינויים') + '</span>';
   el.onclick = discAbout;
   facts.insertAdjacentElement('afterend', el);
+}
+
+/* The "?" panel, for somebody holding the disc. Same question the site's version answers, about a
+   different object: there is nothing to download, nothing to carry over, and no vendor website to
+   follow. What a person here needs instead is what the coloured words on the tiles mean and what
+   to do when the shop itself will not open. */
+function discHelp() {
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  const m = DISC.man;
+  ov.innerHTML = '<div class="sheet about">' +
+    '<h3>' + T('מה זה הדיסק הזה?') + '</h3>' +
+    '<p>' + T('הדיסק הזה מתקין אפליקציות ותוכנות במחשב שאין בו חיבור לאינטרנט. הכול כבר כאן — אין מה להוריד ואין מה לחכות לו.') + '</p>' +
+    '<h4>' + T('למה צריך את זה בכלל') + '</h4>' +
+    '<p>' + T('הרבה מהאפליקציות של Windows כבר לא מגיעות מותקנות. הן מגיעות כקיצור דרך שמושך את עצמו מהחנות בפעם הראשונה שפותחים אותו — ובמחשב בלי אינטרנט, המשיכה הזאת נכשלת. גם תוכנה רגילה בדרך כלל מגיעה כמתקין קטן שרק מוריד את השאר, וגם הוא נתקע.') + '</p>' +
+    '<h4>' + T('מה יש כאן במקום') + '</h4>' +
+    '<p>' + T('כל פריט בדיסק הוא קובץ אחד גמור. כל מה שהאפליקציה צריכה כבר בתוכו, כולל ספריות המערכת שהיא נשענת עליהן.') + '</p>' +
+    '<h4>' + T('איך משתמשים') + '</h4>' +
+    '<ol><li>' + T('בוחרים אפליקציה מהמדף. אפשר גם לסמן כמה ולהתקין את כולן ברצף.') + '</li>' +
+    '<li>' + T('לוחצים התקנה. ההתקנה רצה מהדיסק, בלי רשת.') + '</li>' +
+    '<li>' + T('זהו. רוב ההתקנות אינן מבקשות סיסמת מנהל.') + '</li></ol>' +
+    '<h4>' + T('מה המילים הצבעוניות על האריחים') + '</h4>' +
+    '<p>' + T('הדיסק בודק מה כבר יש במחשב הזה. "מותקנת" — כבר אצלכם, אין מה לעשות. "יש עדכון" — מותקנת אצלכם גרסה ישנה יותר מזו שבדיסק. "לא מתאים ל-Windows הזה" — הגרסה כאן דורשת Windows חדש יותר. אפשר לסנן לפי זה בשורת הקטגוריות.') + '</p>' +
+    '<h4>' + T('אם החנות לא נפתחת') + '</h4>' +
+    '<p>' + T('בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה. לחיצה כפולה על אחד מהם מתקינה אותו, בלי החנות ובלי שום דבר אחר.') + '</p>' +
+    '<h4>' + T('האם זה בטוח') + '</h4>' +
+    '<p>' + T('הקבצים של מיקרוסופט הועתקו לכאן מהשרתים שלה, חתומים בחתימה הדיגיטלית שלה, ללא שינוי. שני יוצאים מן הכלל, ושניהם כתובים בגלוי על הכרטיס: אפליקציה שתורגמה כאן, ואפליקציה שתוקנה כדי להיפתח במחשב מנותק. בשתיהן החבילה נפתחה ונחתמה מחדש — ולצד כל אחת מהן יש בדיסק גם את המקורית של היצרן.') + '</p>' +
+    (m ? '<p style="margin-top:10px;color:var(--muted);font-size:.8rem">' +
+         T('הדיסק הזה') + ': ' + esc(m.label || m.version) + ' · ' + T('נצרב בתאריך') + ' ' +
+         '<span dir="ltr">' + esc(m.cut) + '</span></p>' : '') +
+    '<p style="margin-top:6px;color:var(--muted);font-size:.8rem">' + T('הדיסק אינו קשור למיקרוסופט ואינו נתמך על ידה.') + '</p>' +
+    '<button class="btn lite close" id="ab-x">' + T('סגירה') + '</button>' +
+    '</div>';
+  document.body.appendChild(ov);
+  translateDom(ov);
+  document.body.style.overflow = 'hidden';
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; document.removeEventListener('keydown', onEsc); };
+  const onEsc = e => { if (e.key === 'Escape') shut(); };
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  document.addEventListener('keydown', onEsc);
+  ov.querySelector('#ab-x').onclick = shut;
 }
 
 function discAbout() {
