@@ -5733,6 +5733,7 @@
       "langHow": "הממשק עוקב אחרי שפת Windows. בחלונות בעברית הוא עולה בעברית; אפשר גם לבחור שפה בהגדרות של PowerToys עצמו.",
       "repo": "microsoft/PowerToys",
       "relver": "v0.101.2362.0",
+      "detect": "PowerToys",
       "origin": "microsoft",
       "note": "המתקין למשתמש (User) כולל את סביבת ההרצה בתוכו — מתקין בלי הרשאות מנהל ובלי רשת. דורש Windows 11 (או 10 מעודכן).",
       "noteEn": "The User installer bundles its runtime — installs without admin and without internet. Needs Windows 11 (or up-to-date 10)."

@@ -3518,6 +3518,7 @@
       "cat": "כלי טכנאי",
       "langMode": "follows-windows",
       "langHow": "הממשק עוקב אחרי שפת Windows. בחלונות בעברית הוא עולה בעברית; אפשר גם לבחור שפה בהגדרות של PowerToys עצמו.",
+      "detect": "PowerToys",
       "origin": "microsoft",
       "relver": "v0.101.2362.0",
       "files": [
