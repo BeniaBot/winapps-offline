@@ -1806,6 +1806,33 @@
       ]
     },
     {
+      "he": ".NET Framework 4.8",
+      "en": "NetFx48",
+      "net": false,
+      "w32": true,
+      "url": "https://dotnet.microsoft.com/download/dotnet-framework/net48",
+      "match": "NDP48-x86-x64-AllOS-ENU.exe",
+      "silent": "/q /norestart",
+      "icon": "icons/w32/dotnet.svg",
+      "color": "#512bd4",
+      "desc": "רכיב מערכת של מיקרוסופט שתוכנות רבות נשענות עליו. מיועד למחשבים ישנים יותר — Windows 7 SP1 עד Windows 10, שבהם אי אפשר להתקין את 4.8.1.",
+      "descEn": "A Microsoft system component many programs rely on. For older machines - Windows 7 SP1 through Windows 10 - where 4.8.1 cannot be installed.",
+      "enName": ".NET Framework 4.8",
+      "noteEn": "If the shop itself will not open and shows a .NET Framework error, this is the file: double-click it in the מתקינים folder and the shop will open afterwards. On Windows 10 20H2 and newer, 4.8.1 is the better choice.",
+      "note": "אם החנות עצמה לא נפתחת ומופיעה שגיאה על .NET Framework — זה הקובץ. לחיצה כפולה עליו בתיקיית \"מתקינים\", ואחר כך החנות תיפתח. במחשבים מ-Windows 10 20H2 ומעלה עדיף 4.8.1.",
+      "cat": "רכיבי מערכת",
+      "origin": "microsoft",
+      "files": [
+        {
+          "exe": "NDP48-x86-x64-AllOS-ENU.exe",
+          "mb": 116,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
       "he": ".NET Desktop Runtime 8 (x64)",
       "en": "Net8Desktop",
       "net": false,
