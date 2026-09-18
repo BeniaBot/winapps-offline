@@ -618,6 +618,16 @@
            border: 1px solid rgba(125,138,165,.34); }
   .dlitem.bad .dlstate { color: var(--err); }
   .dlnote.warn { color: var(--warn); }
+  /* the two questions, above the list they apply to */
+  .preask { margin: 12px 0 4px; padding: 12px 14px; border-radius: 12px;
+            background: rgba(125,138,165,.08); border: 1px solid var(--stroke); }
+  .pa { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; cursor: pointer; }
+  .pa input { margin-top: 3px; width: 17px; height: 17px; flex: none; accent-color: var(--accent); cursor: pointer; }
+  .pa input:disabled { cursor: default; }
+  .pa b { display: block; font-size: .93rem; font-weight: 600; }
+  .pa small { display: block; color: var(--muted); font-size: .8rem; line-height: 1.5; margin-top: 2px; }
+  .pa input:disabled + span b { color: var(--muted); }
+  .pa-note { margin: 8px 0 0; color: var(--warn); font-size: .82rem; line-height: 1.5; }
   /* the disc's own version, under the headline figures */
   .discver { display: inline-flex; align-items: center; gap: 12px; margin: 14px auto 0; padding: 9px 16px;
              border-radius: 99px; cursor: pointer; font: inherit; color: var(--ink);
@@ -1207,6 +1217,31 @@ const EN = {
   'נפתח…': 'opening…',
   'פורק מהדיסק…': 'unpacking from the disc…',
   'מעתיק…': 'copying…',
+  'להתחיל': 'Start',
+  'ליצור נקודת שחזור לפני ההתקנה': 'Create a System Restore point first',
+  'אם משהו ישתבש אפשר להחזיר את המחשב למצב שלפני. לוקח כדקה.':
+    'If something goes wrong you can put the PC back as it was. Takes about a minute.',
+  'דורש הרשאות מנהל — ראו את השורה הבאה.': 'Needs administrator rights - see the line below.',
+  'להתקין עם הרשאות מנהל': 'Install with administrator rights',
+  'החנות כבר רצה עם הרשאות מנהל. לא תישאלו שוב.':
+    'The shop is already running as administrator. You will not be asked again.',
+  'החנות רצה בלי הרשאות מנהל. בלעדיהן חלק מהתוכנות לא יותקנו כלל.':
+    'The shop is running without administrator rights. Without them some programs will not install at all.',
+  'שימו לב': 'Note',
+  'מהתוכנות ברשימה פותחות חלון משלהן שצריך ללחוץ בו. אין דרך לענות עליו מראש.':
+    'of the programs listed open a window of their own that has to be clicked through. There is no way to answer that in advance.',
+  'כדי להתקין עם הרשאות מנהל צריך לפתוח את החנות מחדש: סוגרים, פותחים שוב את "חנות.exe", ועונים "כן" בשאלה שמופיעה בהתחלה. אפשר גם להמשיך בלי — מסירים את הסימון.':
+    'To install with administrator rights the shop has to be reopened: close it, run חנות.exe again and answer Yes to the question at the start. Or carry on without - clear the tick.',
+  'יוצר נקודת שחזור… זה לוקח כדקה.': 'Creating a restore point… this takes about a minute.',
+  'נקודת שחזור נוצרה. מתחילים בהתקנה.': 'Restore point created. Starting the installs.',
+  'שחזור המערכת כבוי במחשב הזה, אז לא נוצרה נקודה. ההתקנה ממשיכה.':
+    'System Restore is switched off on this PC, so no point was made. The installs continue.',
+  'Windows לא יצר נקודה חדשה — כבר יש אחת מה-24 שעות האחרונות, והיא מגנה באותה מידה. ההתקנה ממשיכה.':
+    'Windows made no new point - there is already one from the last 24 hours, and it protects you just as well. The installs continue.',
+  'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.':
+    'A restore point needs administrator rights. The installs continue without one.',
+  'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.':
+    'The restore point could not be created. The installs continue without one.',
   'האפליקציה הזאת לא נמצאת בדיסק הזה.': 'This app is not on this disc.',
   'עצירה אחרי הנוכחית': 'Stop after this one',
   'כבר רצה התקנה אחרת. להמתין לסיומה.': 'Another install is already running. Wait for it to finish.',
@@ -4186,18 +4221,48 @@ function discInstall(exes) {
     return { exe: r, name: a ? nameOf(a) : r, mb: a ? mbOf(a) : 0 };
   });
 
+  /* The two things worth deciding BEFORE a batch of installs touches the machine, asked once,
+     here, where the list of what is about to happen is on screen beside them.
+       - a restore point, so a bad afternoon is undoable. It needs administrator rights and it
+         takes about a minute, and both of those are said rather than discovered.
+       - administrator rights, which almost everything here needs: without them the MSIs fail
+         silently with 1925, sixteen vendor installers refuse to start, and the packaged apps
+         raise a separate prompt each. One answer instead of forty.
+     What cannot be promised is silence from the installers themselves. Some open a window and
+     ask their own questions, and no switch exists to answer those - so the panel counts them and
+     says how many rather than implying they will not happen. */
+  const kindOf = e => (DISC.act && DISC.act[e]) || '';
+  const needClicks = rows.filter(r => kindOf(r.exe) === 'SHOW' || kindOf(r.exe) === 'SIDELOAD').length;
+  const ask =
+    '<div class="preask">' +
+      '<label class="pa"><input type="checkbox" id="pa-restore"' + (DISC.admin ? ' checked' : ' disabled') + '>' +
+        '<span><b>' + T('ליצור נקודת שחזור לפני ההתקנה') + '</b>' +
+        '<small>' + T(DISC.admin
+          ? 'אם משהו ישתבש אפשר להחזיר את המחשב למצב שלפני. לוקח כדקה.'
+          : 'דורש הרשאות מנהל — ראו את השורה הבאה.') + '</small></span></label>' +
+      '<label class="pa"><input type="checkbox" id="pa-admin" checked' + (DISC.admin ? ' disabled' : '') + '>' +
+        '<span><b>' + T('להתקין עם הרשאות מנהל') + '</b>' +
+        '<small>' + T(DISC.admin
+          ? 'החנות כבר רצה עם הרשאות מנהל. לא תישאלו שוב.'
+          : 'החנות רצה בלי הרשאות מנהל. בלעדיהן חלק מהתוכנות לא יותקנו כלל.') + '</small></span></label>' +
+      (needClicks ? '<p class="pa-note">' + T('שימו לב') + ': ' + needClicks + ' ' +
+        T('מהתוכנות ברשימה פותחות חלון משלהן שצריך ללחוץ בו. אין דרך לענות עליו מראש.') + '</p>' : '') +
+    '</div>';
+
   const ov = document.createElement('div');
   ov.className = 'overlay';
   ov.innerHTML = '<div class="sheet dlpanel">' +
     '<h3>' + T('התקנה מהדיסק') + '</h3>' +
     '<p class="dlnote">' + T('ההתקנות רצות אחת אחרי השנייה. אפשר להשאיר את החלון פתוח ולחזור אליו.') + '</p>' +
+    ask +
     '<div class="dllist">' + rows.map(r =>
       '<div class="dlitem" data-exe="' + esc(r.exe) + '"><span class="dlmark">•</span>' +
       '<span class="dlname" dir="auto">' + esc(r.name) + '</span>' +
       '<span class="dlstate">' + T('ממתינה') + '</span>' +
       (r.mb ? '<span class="dlmb" dir="ltr">' + mbFmt(r.mb) + '</span>' : '') + '</div>').join('') +
     '</div><div class="acts">' +
-      '<button class="btn lite" id="dstop">' + T('עצירה אחרי הנוכחית') + '</button>' +
+      '<button class="btn" id="dgo">' + T('להתחיל') + '</button>' +
+      '<button class="btn lite" id="dstop" style="display:none">' + T('עצירה אחרי הנוכחית') + '</button>' +
       '<button class="btn lite" id="dshut">' + T('סגירה') + '</button>' +
     '</div></div>';
   document.body.appendChild(ov);
@@ -4206,7 +4271,8 @@ function discInstall(exes) {
   discPanel = ov;
   ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; };
   ov.querySelector('#dstop').onclick = () => discSay('cancel');
-  if (!discSay('install\t' + real.join('\t'))) {
+  const start = wantRestore => {
+  if (!discSay('install\t' + (wantRestore ? 'R1' : 'R0') + '\t' + real.join('\t'))) {
     /* Nothing is listening, so nothing will ever move these rows. Say it, and say the one thing
        that still works on this disc without us: the "מתקינים" folder holds a Hebrew-named file
        per program, and a double-click on one installs it. */
@@ -4216,6 +4282,24 @@ function discInstall(exes) {
     ov.querySelector('#dstop').style.display = 'none';
     ov.querySelectorAll('.dlstate').forEach(s => { s.textContent = T('לא רצה'); });
   }
+  };
+  ov.querySelector('#dgo').onclick = () => {
+    const wantRestore = !!(ov.querySelector('#pa-restore') || {}).checked;
+    const wantAdmin = !!(ov.querySelector('#pa-admin') || {}).checked;
+    /* Asked for administrator rights from a shop that does not have them: the frame would have to
+       start over to get them, and starting over closes this window and loses the selection. Saying
+       so is the honest move; half-starting and failing eleven of them at 1925 is not. */
+    if (wantAdmin && !DISC.admin) {
+      const n = ov.querySelector('.dlnote');
+      n.textContent = T('כדי להתקין עם הרשאות מנהל צריך לפתוח את החנות מחדש: סוגרים, פותחים שוב את "חנות.exe", ועונים "כן" בשאלה שמופיעה בהתחלה. אפשר גם להמשיך בלי — מסירים את הסימון.');
+      n.classList.add('warn');
+      return;
+    }
+    ov.querySelector('.preask').remove();
+    ov.querySelector('#dgo').remove();
+    ov.querySelector('#dstop').style.display = '';
+    start(wantRestore);
+  };
 }
 
 /* "handson" is not a kind of "running" and must not read like one. The installer's own window is
@@ -4248,6 +4332,22 @@ if (DISC.on && window.chrome && window.chrome.webview) {
       return;
     }
     if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); return; }
+    /* The restore point, reported for what it actually did. Windows refuses to make a second one
+       within 24 hours and refuses SILENTLY, so "declined" is a real answer and not a failure - a
+       point from this morning protects them exactly as well. Saying "created" either way would be
+       the one lie that matters here. */
+    if (state === 'restoring') { note.textContent = T('יוצר נקודת שחזור… זה לוקח כדקה.'); return; }
+    if (state.indexOf('restored') === 0) {
+      const rc = state.slice(8);
+      note.textContent = T(
+        rc === '0' ? 'נקודת שחזור נוצרה. מתחילים בהתקנה.' :
+        rc === '1' ? 'שחזור המערכת כבוי במחשב הזה, אז לא נוצרה נקודה. ההתקנה ממשיכה.' :
+        rc === '2' ? 'Windows לא יצר נקודה חדשה — כבר יש אחת מה-24 שעות האחרונות, והיא מגנה באותה מידה. ההתקנה ממשיכה.' :
+        rc === '3' ? 'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.' :
+                     'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.');
+      note.classList.toggle('warn', rc !== '0' && rc !== '2');
+      return;
+    }
     if (state === 'finished') {
       const stop = discPanel.querySelector('#dstop');
       if (stop) stop.style.display = 'none';
