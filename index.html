@@ -602,14 +602,54 @@
            border: 1px solid rgba(125,138,165,.34); }
   .dlitem.bad .dlstate { color: var(--err); }
   .dlnote.warn { color: var(--warn); }
+  /* the disc's own version, under the headline figures */
+  .discver { display: inline-flex; align-items: center; gap: 12px; margin: 14px auto 0; padding: 9px 16px;
+             border-radius: 99px; cursor: pointer; font: inherit; color: var(--ink);
+             background: color-mix(in srgb, var(--accent) 10%, transparent);
+             border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent); }
+  .discver:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+  .discver b { font-size: .95rem; }
+  .discver span { color: var(--muted); font-size: .82rem; }
+  .discver .what { color: var(--accent); font-weight: 700; }
+  .discabout h4 { margin: 18px 0 8px; font-size: .95rem; }
+  .discabout h4 small { color: var(--muted); font-weight: 500; }
+  .vhead { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 4px; }
+  .vhead div { background: var(--panel2); border: 1px solid var(--stroke); border-radius: 12px; padding: 10px 8px; text-align: center; }
+  .vhead b { display: block; font-size: 1.05rem; }
+  .vhead span { color: var(--muted); font-size: .74rem; }
+  @media (max-width: 560px) { .vhead { grid-template-columns: repeat(2, 1fr); } }
+  .vlist { border: 1px solid var(--stroke); border-radius: 12px; overflow: hidden; }
+  .vlist.tall { max-height: 320px; overflow-y: auto; }
+  .vrow { display: flex; justify-content: space-between; gap: 12px; padding: 7px 12px; font-size: .86rem; }
+  .vrow:nth-child(odd) { background: color-mix(in srgb, var(--panel2) 60%, transparent); }
+  .vname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vchips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .vchip { padding: 3px 10px; border-radius: 99px; font-size: .78rem;
+           background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok);
+           border: 1px solid color-mix(in srgb, var(--ok) 34%, transparent); }
+  .vchip.out { background: rgba(125,138,165,.14); color: var(--muted); border-color: rgba(125,138,165,.3); }
+  .dim { color: var(--muted); }
   /* Things that only mean something on the web. A counter of downloads from a server, a link to
      copy, a fingerprint to compare against a download, and a tool that burns a disc are all noise
-     on a disc that is already in the drive. */
+     on a disc that is already in the drive.
+
+     The block at the end of the page is the clearest case. A panel offering to send you a disc,
+     a form that mails a request, a link to the source on GitHub and a donate button all assume
+     the one thing this machine does not have. On a disc they are not merely useless: each one is
+     a control that does nothing when pressed, which is how a person decides a program is broken. */
   body.on-disc .cpy,
   body.on-disc .dlcount,
   body.on-disc #fact-dl,
   body.on-disc .hashbox,
-  body.on-disc .isobar { display: none !important; }
+  body.on-disc .isobar,
+  body.on-disc #iso,
+  body.on-disc .ask,
+  body.on-disc #seliso,
+  body.on-disc #contact-link,
+  body.on-disc #donate-btn,
+  body.on-disc .src-link { display: none !important; }
+  /* the separators around the links that just went away would otherwise sit there in a row */
+  body.on-disc .footlinks .sep { display: none !important; }
   .starcta { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px;
     padding: 11px 14px; border-radius: 13px; text-decoration: none; font-weight: 700; font-size: .9rem;
     color: var(--ink); background: linear-gradient(180deg, rgba(255,196,107,.14), rgba(255,196,107,.06));
@@ -817,6 +857,12 @@
   </div>
 
 
+  <!-- web-only:start
+       Everything between these markers is cut out of the copy that goes on a disc. This block is
+       the maintainer's own console: it prints commands with absolute paths from the machine the
+       shop is built on. On the web it is behind a password and it is his own site. On a disc
+       handed to a stranger it is noise at best, and a description of somebody else's filesystem
+       at worst. mkdiscshop.ps1 removes it; nothing here has to be remembered. -->
   <section id="adm" class="wrap">
     <h3>תחזוקה</h3>
     <div class="sub">גלוי רק לך. האתר עצמו סטטי ולא יכול לבנות — מה שהוא כן יודע זה להגיד לך מה מיושן, ולתת לך את הפקודה.</div>
@@ -838,6 +884,7 @@
     </div>
     <div id="adm-notes"></div>
   </section>
+  <!-- web-only:end -->
 
   <section class="ask">
     <h3>חסרה לכם אפליקציה? רוצים אותה בעברית?</h3>
@@ -941,7 +988,7 @@
   <div class="wrap">
     <img src="logo.svg" alt=""><br>
     <div>החבילות שבתוך המתקינים מגיעות חתומות מהשרתים של מיקרוסופט, ללא שינוי — מלבד היכן שמצוין אחרת במפורש (גרסאות שתורגמו כאן, וחבילות שתוקנו כדי להיפתח בלי אינטרנט; לצד כל אחת מהן מוצעת גם המקורית). הפרויקט עצמאי ואינו קשור למיקרוסופט.</div>
-    <div style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b> · <a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a> · <a href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a> · <button class="donate" id="donate-btn">לתרומה לפרוייקט</button> · <span id="updated"></span></div>
+    <div class="footlinks" style="margin-top:6px">נבנה ומתוחזק בידי <b>בני הבוט</b><span class="sep"> · </span><a href="#" id="contact-link" style="color:var(--accent)">יצירת קשר</a><span class="sep"> · </span><a class="src-link" href="https://github.com/BeniaBot/winapps-offline" style="color:var(--accent)">קוד המקור</a><span class="sep"> · </span><button class="donate" id="donate-btn">לתרומה לפרוייקט</button> · <span id="updated"></span></div>
     <div style="margin-top:6px"><a href="legal.html" style="color:var(--accent)">תנאי שימוש</a> · <a href="legal.html#privacy" style="color:var(--accent)">פרטיות</a> · <a href="legal.html#copyright" style="color:var(--accent)">זכויות יוצרים והסרה</a> · <a href="legal.html#security" style="color:var(--accent)">אבטחה ואימות</a></div>
   </div>
 </footer>
@@ -3035,7 +3082,7 @@ function openSheet(en) {
       (a.relver ? '<div class="row"><span>גרסה</span><span dir="ltr" class="mono">' + esc(a.relver) + '</span></div>' : '')
     : (fromStore ? srcRow(T('מקור'), 'Microsoft Store') : ownSrc) + altSrc + xlatSrc + bySrc +
       files.map(f =>
-        '<div class="row"><span>' + esc(winLabel(f)) + '</span><span dir="ltr"><span class="mono">' + f.ver + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
+        '<div class="row"><span>' + esc(winLabel(f)) + '</span><span dir="ltr"><span class="mono">' + esc(verOf(f)) + '</span> · ' + mbFmt(f.mb) + '</span></div>').join('');
   /* one row = the download, plus the copy icon for THAT file's own link */
   const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
     'stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/>' +
@@ -3625,6 +3672,29 @@ function discWire() {
 const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
 const discSay  = msg => { try { window.chrome.webview.postMessage(msg); } catch (e) { console.error(e); } };
 
+/* What this cut of the disc holds, and what changed since the last one. A frozen shelf with no
+   version numbers on it, on a machine with no internet, is a shelf nobody can reason about: is
+   the Git on this disc newer than the Git already installed, and is this March's disc or
+   September's? Neither question has an answer unless the disc answers it. */
+DISC.man = null;
+DISC.ver = new Map();     // real file -> the version the FILE reports, not the filename
+async function discManifest() {
+  if (!DISC.on) return;
+  try {
+    DISC.man = await (await fetch('disc-manifest.json')).json();
+    for (const a of DISC.man.list || [])
+      for (const b of (a.builds || [])) if (b.ver) DISC.ver.set(b.file, b.ver);
+  } catch (e) { console.error('disc manifest:', e); }
+}
+/* The version to print for one download. On the disc the file itself is the authority - the
+   catalogue says nothing at all about a vendor program's version, because on the web it links to
+   the maker and whatever they hand over is current by definition. */
+function verOf(f) {
+  if (!f) return '';
+  if (DISC.on) { const real = discFile(f.exe); if (real && DISC.ver.has(real)) return DISC.ver.get(real); }
+  return f.ver || '';
+}
+
 const DISC_WORD = { here: 'מותקנת', older: 'יש עדכון', tooold: 'לא מתאים ל-Windows הזה' };
 function discBadge(a) {
   if (!DISC.on) return '';
@@ -3633,6 +3703,77 @@ function discBadge(a) {
   if (!row || !DISC_WORD[row[0]]) return '';
   const cls = row[0] === 'here' ? 'dhere' : row[0] === 'older' ? 'dold' : 'dno';
   return '<span class="dstat ' + cls + '">' + T(DISC_WORD[row[0]]) + '</span>';
+}
+
+/* What this disc is, what is on it, and what changed since the disc before it. Reachable from the
+   line under the title, because on a disc that line is the only place a version belongs: the
+   shop's own version, not any one program's. */
+/* The disc's own version, under the title, where a person looking at a disc in their hand wants
+   to know which disc it is. It is also the way in to the changelog, because there is nowhere else
+   on a shelf of programs that a question about the SHELF belongs. */
+function discVersionLine() {
+  const m = DISC.man;
+  if (!m) return;
+  const facts = document.getElementById('facts');
+  if (!facts || document.getElementById('discver')) return;
+  const el = document.createElement('button');
+  el.id = 'discver';
+  el.className = 'discver';
+  el.innerHTML = '<b>' + esc(m.label || m.version) + '</b>' +
+                 '<span dir="ltr">' + esc(m.cut) + '</span>' +
+                 '<span class="what">' + T('מה יש בדיסק · יומן שינויים') + '</span>';
+  el.onclick = discAbout;
+  facts.insertAdjacentElement('afterend', el);
+}
+
+function discAbout() {
+  const m = DISC.man;
+  if (!m) return;
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  const list = (m.list || []).filter(a => !a.quiet)
+    .sort((x, y) => (x.he || '').localeCompare(y.he || '', 'he'));
+  const row = a => {
+    const b = (a.builds || [])[0] || {};
+    const v = b.ver ? '<span class="mono">' + esc(b.ver) + '</span>'
+                    : b.dated ? '<span class="dim">' + T('מהעותק של') + ' ' + esc(b.dated) + '</span>' : '';
+    return '<div class="vrow"><span class="vname" dir="auto">' + esc(a.he || a.en) + '</span>' +
+           '<span dir="ltr">' + v + '</span></div>';
+  };
+  const changed = (m.changed || []).map(c => {
+    const a = list.find(x => x.en === c.app);
+    return '<div class="vrow"><span class="vname" dir="auto">' + esc(a ? (a.he || a.en) : c.app) + '</span>' +
+           '<span dir="ltr"><span class="dim mono">' + esc(c.from || '—') + '</span> ← <span class="mono">' + esc(c.to || '') + '</span></span></div>';
+  }).join('');
+  const added = (m.added || []).map(en => {
+    const a = list.find(x => x.en === en);
+    return '<span class="vchip" dir="auto">' + esc(a ? (a.he || a.en) : en) + '</span>';
+  }).join('');
+
+  ov.innerHTML = '<div class="sheet dlpanel discabout">' +
+    '<h3>' + T('מה יש בדיסק הזה') + '</h3>' +
+    '<div class="vhead">' +
+      '<div><b>' + esc(m.label || m.version) + '</b><span>' + T('גרסת הדיסק') + '</span></div>' +
+      '<div><b dir="ltr">' + esc(m.cut) + '</b><span>' + T('נצרב בתאריך') + '</span></div>' +
+      '<div><b>' + m.apps + '</b><span>' + T('תוכנות') + '</span></div>' +
+      '<div><b dir="ltr">' + (m.mb > 1024 ? (m.mb / 1024).toFixed(1) + ' GB' : m.mb + ' MB') + '</b><span>' + T('בסך הכל') + '</span></div>' +
+    '</div>' +
+    (m.first ? '<p class="dlnote">' + T('זו הגרסה הראשונה שרושמת את תוכנה.') + '</p>'
+     : '<p class="dlnote">' + T('מה השתנה מאז') + ' ' + esc(m.since) + (m.sinceOn ? ' (' + esc(m.sinceOn) + ')' : '') + ':</p>' +
+       (added ? '<h4>' + T('נוספו') + ' <small>' + (m.added || []).length + '</small></h4><div class="vchips">' + added + '</div>' : '') +
+       (changed ? '<h4>' + T('עודכנו') + ' <small>' + (m.changed || []).length + '</small></h4><div class="vlist">' + changed + '</div>' : '') +
+       ((m.gone || []).length ? '<h4>' + T('ירדו מהדיסק') + '</h4><div class="vchips">' +
+          m.gone.map(g => '<span class="vchip out" dir="auto">' + esc(g) + '</span>').join('') + '</div>' : '')) +
+    '<h4>' + T('כל התוכנות והגרסאות') + ' <small>' + list.length + '</small></h4>' +
+    '<div class="vlist tall">' + list.map(row).join('') + '</div>' +
+    '<div class="acts"><button class="btn lite" id="vshut">' + T('סגירה') + '</button></div>' +
+    '</div>';
+  document.body.appendChild(ov);
+  translateDom(ov);
+  document.body.style.overflow = 'hidden';
+  const shut = () => { ov.remove(); document.body.style.overflow = ''; };
+  ov.querySelector('#vshut').onclick = shut;
+  ov.addEventListener('click', e => { if (e.target === ov) shut(); });
 }
 
 /* Hands the frame a list of files and watches it work. The page never runs anything itself - it
@@ -3728,7 +3869,11 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
   // a counter of downloads from a server means nothing on a disc already in the drive
   if (!DISC.on) loadDownloads();
   // a rendering bug must never masquerade as a network problem
-  try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
+  const paint = () => { try { isoButtons(); render(); } catch (err) { console.error('render:', err); } };
+  /* On the disc the first paint waits for the manifest - a few milliseconds off the same disc -
+     because the version on every card comes out of it, and drawing them all blank and then filling
+     them in reads as a fault rather than as loading. */
+  if (DISC.on) discManifest().then(() => { discVersionLine(); paint(); }, paint); else paint();
   /* A failure here is NOT the same thing as 'this file has not been uploaded yet', and the page
      used to say the second when the first happened: an empty list makes every download button
      read 'uploading to the server...', which is a confident, wrong answer. A visitor on a
