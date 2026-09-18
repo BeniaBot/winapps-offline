@@ -4912,7 +4912,7 @@
       "langHowEn": "The same file includes English: click the globe icon at the top of the Rufus window and pick English.",
       "repo": "pbatard/rufus",
       "relver": "v4.15",
-      "silent": "SHOW:"
+      "silent": "PORTABLE:"
     },
     {
       "he": "GIMP",
@@ -5027,7 +5027,7 @@
       "detect": "AnyDesk",
       "note": "הגרסה השנייה היא 5.2 מ-2019, מלפני שחלק מהתכונות הפכו לתשלום — הקובץ של היצרן, עם החתימה המקורית שלו. המתקין מעביר לו את הדגל שמכבה עדכונים אוטומטיים, אחרת הוא היה מעדכן את עצמו חזרה לחדשה.",
       "noteEn": "The second download is 5.2 from 2019, from before parts of it went paid - the maker’s own file, carrying its own signature. The installer passes it the flag that turns automatic updates off; without that it would update itself back to the current build.",
-      "silent": "SHOW:",
+      "silent": "PORTABLE:",
       "alt": {
         "label": "גרסה 5.2 — בלי עדכונים",
         "labelEn": "Version 5.2 - updates off",
@@ -6226,7 +6226,8 @@
       "langMode": "hebrew-only",
       "cat": "כלי טכנאי",
       "repo": "BeniaBot/Csharf",
-      "relver": "v2.0"
+      "relver": "v2.0",
+      "silent": "PORTABLE:"
     },
     {
       "he": "Tik-Nick",
@@ -6308,7 +6309,8 @@
       "langMode": "hebrew-only",
       "cat": "מדיה",
       "repo": "BeniaBot/subtitle-studio",
-      "relver": "v0.5.2"
+      "relver": "v0.5.2",
+      "silent": "PORTABLE:"
     },
     {
       "he": "זאב, כבשה וכרוב",
@@ -6334,7 +6336,8 @@
       "langMode": "hebrew-only",
       "cat": "יצירה ועבודה",
       "repo": "BeniaBot/wolf-sheep-cabbage",
-      "relver": "v1.0"
+      "relver": "v1.0",
+      "silent": "OPEN:"
     },
     {
       "he": "חוויית שפה עברית",
@@ -6387,7 +6390,8 @@
       "langHowEn": "In Settings, under the \"Program\" tab, \"Interface language\" offers Hebrew and English. Everything switches at once, including the writing direction.",
       "cat": "נוספות",
       "repo": "BeniaBot/eliza",
-      "relver": "v1"
+      "relver": "v1",
+      "silent": "PORTABLE:"
     }
   ]
 }
