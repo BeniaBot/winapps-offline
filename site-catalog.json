@@ -2518,8 +2518,8 @@
         "source": "community",
         "by": "Y-PLONI",
         "repo": "Y-PLONI/vscode-language-pack-he",
-        "note": "תרגום עברי מלא של הממשק, נעשה בידי מתרגם עצמאי ופורסם בקוד פתוח. זה תוסף ולא מתקין: פותחים ב-VS Code את אזור ההרחבות, לוחצים על שלוש הנקודות שלמעלה, בוחרים Install from VSIX ומצביעים על הקובץ שהורדתם. אין מה להריץ ואין מה להתקין מחדש.\n\nשווה לדעת לפני: בעברית שורת הכותרת נפרסת לצד השני, וחלק מהכפתורים שם מסתתרים מאחורי ה-X של סגירת החלון. יש בפורום כלי שמתקן את זה, אבל הוא משנה קבצים של VS Code עצמו — ואחרי זה VS Code מודיע שההתקנה שלו פגומה. לכן הוא לא כאן.\n\nלחזור לאנגלית: לא מספיק להסיר את התוסף. צריך גם Ctrl+Shift+P, להקליד Configure Display Language ולבחור en — אחרת הממשק נשאר הפוך. זו בדיוק המכשלה שתפסה גם את המתרגם עצמו.",
-        "noteEn": "A full Hebrew translation of the interface, made by an independent translator and published as open source. It is an extension, not an installer: in VS Code open the Extensions view, click the three dots at the top, choose Install from VSIX and point it at the file you downloaded. Nothing to run, nothing to reinstall.\n\nWorth knowing first: in Hebrew the title bar flips, and some of the buttons there end up behind the window's close button. There is a community tool that fixes it, but it edits VS Code's own files and VS Code then reports that its installation is corrupt. That is why it is not here.\n\nTo go back to English: removing the extension is not enough. Press Ctrl+Shift+P, type Configure Display Language and choose en - otherwise the layout stays flipped. That is the trap that caught the translator himself."
+        "note": "תרגום עברי מלא של הממשק, נעשה בידי מתרגם עצמאי ופורסם בקוד פתוח. זה תוסף ולא מתקין: פותחים ב-VS Code את אזור ההרחבות, לוחצים על שלוש הנקודות שלמעלה, בוחרים Install from VSIX ומצביעים על הקובץ שהורדתם. אין מה להריץ ואין מה להתקין מחדש.\n\nשווה לדעת לפני: בעברית שורת הכותרת נפרסת לצד השני, וחלק מהכפתורים שם מסתתרים מאחורי ה-X של סגירת החלון. יש כאן בחנות כלי שמתקן את זה — מחפשים \"תיקון שורת הכותרת\". שווה לקרוא שם מה הוא עושה לפני שמריצים.\n\nלחזור לאנגלית: לא מספיק להסיר את התוסף. צריך גם Ctrl+Shift+P, להקליד Configure Display Language ולבחור en — אחרת הממשק נשאר הפוך. זו בדיוק המכשלה שתפסה גם את המתרגם עצמו.",
+        "noteEn": "A full Hebrew translation of the interface, made by an independent translator and published as open source. It is an extension, not an installer: in VS Code open the Extensions view, click the three dots at the top, choose Install from VSIX and point it at the file you downloaded. Nothing to run, nothing to reinstall.\n\nWorth knowing first: in Hebrew the title bar flips, and some of the buttons there end up behind the window's close button. There is a tool for it in this shop - search for \"title bar\". Read what it does there before running it.\n\nTo go back to English: removing the extension is not enough. Press Ctrl+Shift+P, type Configure Display Language and choose en - otherwise the layout stays flipped. That is the trap that caught the translator himself."
       },
       "icon": "icons/w32real/VSCode.png",
       "color": "#0098ff",
@@ -2534,6 +2534,34 @@
         {
           "exe": "VSCodeSetup-x64-*.exe",
           "mb": 221,
+          "win": "all",
+          "minBuild": 0,
+          "ver": ""
+        }
+      ]
+    },
+    {
+      "he": "תיקון שורת הכותרת ל-VS Code בעברית",
+      "en": "VSCodeRtlFix",
+      "net": false,
+      "w32": true,
+      "url": "https://mitmachim.top/assets/uploads/files/1770803333624-rtl.exe",
+      "match": "rtl-vs-code-fix.exe",
+      "silent": "RUN:",
+      "icon": "icons/w32/vscode.svg",
+      "color": "#0098ff",
+      "desc": "בעברית שורת הכותרת של VS Code מתהפכת, וחלק מהכפתורים שם נבלעים מאחורי ה-X של סגירת החלון. הכלי הזה מסדר אותה. להריץ פעם אחת, אחרי שהתרגום העברי כבר מותקן.",
+      "descEn": "In Hebrew, VS Code flips its title bar and some of the buttons there end up behind the window close button. This puts it right. Run it once, after the Hebrew translation is already installed.",
+      "noteEn": "Worth knowing before you run it: the tool adds a file to VS Code's own folder and injects a line into it. It works, and it also makes VS Code report on later launches that its installation is corrupt - the message is misleading, nothing is broken, and it can be dismissed. If that message would bother you, skip the fix and live with the title bar. The fix only applies itself when the display language is Hebrew or Arabic; in English it touches nothing.",
+      "note": "שווה לדעת לפני שמריצים: הכלי מוסיף קובץ לתיקייה של VS Code ומזריק אליו שורה. זה עובד, וזה גם גורם ל-VS Code להודיע בפתיחות הבאות שההתקנה שלו פגומה — ההודעה מטעה, שום דבר לא נשבר, ואפשר לסגור אותה. מי שההודעה מפריעה לו — עדיף לוותר על התיקון ולחיות עם שורת הכותרת. התיקון מחיל את עצמו רק כששפת הממשק עברית או ערבית; באנגלית הוא לא נוגע בכלום.",
+      "cat": "תוכנות נפוצות",
+      "langMode": "hebrew-only",
+      "by": "ע\"ה דכו\"ע",
+      "src": "https://mitmachim.top/topic/85959",
+      "files": [
+        {
+          "exe": "rtl-vs-code-fix.exe",
+          "mb": 8,
           "win": "all",
           "minBuild": 0,
           "ver": ""
