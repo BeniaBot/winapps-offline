@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 4,
+  "total": 4
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -16,13 +16,13 @@
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 2,
+  "total": 2
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 4,
-  "total": 5
+  "seen": 5,
+  "total": 6
  },
  "IsoBuilder.exe": {
   "carry": 0,
@@ -181,8 +181,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 17,
-  "total": 41
+  "seen": 18,
+  "total": 42
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -386,18 +386,18 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 10,
-  "total": 15
+  "seen": 11,
+  "total": 16
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
-  "seen": 4,
-  "total": 10
+  "seen": 5,
+  "total": 11
  },
  "Setup-Translator.exe": {
   "carry": 9,
-  "seen": 15,
-  "total": 24
+  "seen": 16,
+  "total": 25
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
