@@ -4884,7 +4884,8 @@
       "langHow": "אותו קובץ כולל אנגלית: לוחצים על סמל כדור הארץ בראש חלון Rufus ובוחרים English.",
       "langHowEn": "The same file includes English: click the globe icon at the top of the Rufus window and pick English.",
       "repo": "pbatard/rufus",
-      "relver": "v4.15"
+      "relver": "v4.15",
+      "silent": "SHOW:"
     },
     {
       "he": "GIMP",
@@ -4941,7 +4942,8 @@
       "langHowEn": "The same file includes English: open Preferences, pick English in the Language list, and restart it.",
       "repo": "audacity/audacity",
       "relver": "Audacity-4.0.0",
-      "detect": "Audacity"
+      "detect": "Audacity",
+      "silent": "MSI:/qn /norestart"
     },
     {
       "he": "K-Lite Codec Pack",
@@ -4998,6 +5000,7 @@
       "detect": "AnyDesk",
       "note": "הגרסה השנייה היא 5.2 מ-2019, מלפני שחלק מהתכונות הפכו לתשלום — הקובץ של היצרן, עם החתימה המקורית שלו. המתקין מעביר לו את הדגל שמכבה עדכונים אוטומטיים, אחרת הוא היה מעדכן את עצמו חזרה לחדשה.",
       "noteEn": "The second download is 5.2 from 2019, from before parts of it went paid - the maker’s own file, carrying its own signature. The installer passes it the flag that turns automatic updates off; without that it would update itself back to the current build.",
+      "silent": "SHOW:",
       "alt": {
         "label": "גרסה 5.2 — בלי עדכונים",
         "labelEn": "Version 5.2 - updates off",
@@ -5519,6 +5522,7 @@
       "origin": "community",
       "note": "שני דברים בהתקנה אחת: תוסף עימוד לוורד, ותוכנת עיון עצמאית שנפתחת גם בלי וורד. אף אחד מהם לא דורש ספרים — ומי שכבר התקין את זית, העיון יקרא את אוצר הספרים שלו.",
       "noteEn": "Two things in one install: a typesetting add-in for Word, and a standalone reader that opens without Word. Neither needs a book collection - and if Zayit is already installed, the reader will read its library.",
+      "silent": "SHOW:",
       "alt": {
         "label": "גרסה ניידת — בלי וורד",
         "labelEn": "Portable build — no Word needed",
@@ -5550,7 +5554,8 @@
       "heb": true,
       "langMode": "hebrew-only",
       "note": "מתקינה לתיקיית המסמכים, למשתמש הנוכחי בלבד.",
-      "noteEn": "Installs into Documents, for the current user only."
+      "noteEn": "Installs into Documents, for the current user only.",
+      "silent": "SHOW:"
     },
     {
       "he": "Kiwix",
@@ -5581,7 +5586,8 @@
       ],
       "origin": "community",
       "note": "לבדה היא ארון ריק. צריך גם קובץ תוכן — ויקיטקסט העברי נמצא ממש מתחת.",
-      "noteEn": "On its own it is an empty bookcase. It needs a content file — the Hebrew Wikisource is right below."
+      "noteEn": "On its own it is an empty bookcase. It needs a content file — the Hebrew Wikisource is right below.",
+      "silent": "UNPACK:kiwix-desktop.exe"
     },
     {
       "he": "ויקיטקסט העברי — לקיוויקס",
@@ -5642,7 +5648,8 @@
       ],
       "origin": "community",
       "note": "הכול מחושב במחשב. הבנייה האחרונה מ‑2024.",
-      "noteEn": "All computed locally. Last build 2024."
+      "noteEn": "All computed locally. Last build 2024.",
+      "silent": "UNPACK:LuachProject.exe"
     },
     {
       "he": "מכון ממרא — טקסטים לדפדפן",
@@ -5669,6 +5676,7 @@
       "langMode": "hebrew-only",
       "note": "בלי התקנה. הנוסח לפי מסורת הרמב״ם והתימנים.",
       "noteEn": "No install. Text follows the Rambam/Yemenite tradition.",
+      "silent": "UNPACK:",
       "alt": {
         "label": "תיקון קוראים",
         "labelEn": "Tiqqun Qore'im",
@@ -5704,7 +5712,8 @@
       "relver": "v0.8.4",
       "origin": "community",
       "note": "המתקין המלא כולל את סביבת NET 8. מותקן למשתמש הנוכחי, בלי הרשאות מנהל.",
-      "noteEn": "The Full installer bundles the .NET 8 runtime. Installs per-user, no admin."
+      "noteEn": "The Full installer bundles the .NET 8 runtime. Installs per-user, no admin.",
+      "silent": "SHOW:"
     },
     {
       "he": "PowerToys",
@@ -5736,7 +5745,8 @@
       "detect": "PowerToys",
       "origin": "microsoft",
       "note": "המתקין למשתמש (User) כולל את סביבת ההרצה בתוכו — מתקין בלי הרשאות מנהל ובלי רשת. דורש Windows 11 (או 10 מעודכן).",
-      "noteEn": "The User installer bundles its runtime — installs without admin and without internet. Needs Windows 11 (or up-to-date 10)."
+      "noteEn": "The User installer bundles its runtime — installs without admin and without internet. Needs Windows 11 (or up-to-date 10).",
+      "silent": "SHOW:"
     },
     {
       "he": "Screenbox",
@@ -5791,7 +5801,8 @@
       "icon": "icons/Sysinternals.png",
       "origin": "microsoft",
       "note": "זיפ של כלים ניידים ישירות ממיקרוסופט: לפרוק ולהריץ כל כלי. אין התקנה, עובד לגמרי בלי רשת. (מחליף את גרסת החנות שלא נפתחה אופליין.)",
-      "noteEn": "A zip of portable tools straight from Microsoft: extract and run any tool. No install, works fully offline. (Replaces the Store version that would not open offline.)"
+      "noteEn": "A zip of portable tools straight from Microsoft: extract and run any tool. No install, works fully offline. (Replaces the Store version that would not open offline.)",
+      "silent": "UNPACK:"
     },
     {
       "he": "WinDbg",
@@ -5849,7 +5860,8 @@
       "relver": "v1.3.7",
       "origin": "community",
       "note": "ארכיון נייד: לפרוק ולהריץ xournalpp.exe. בלי התקנה, עובד לגמרי בלי רשת. קוד פתוח (GPL).",
-      "noteEn": "Portable archive: extract and run xournalpp.exe. No install, fully offline. Open source (GPL)."
+      "noteEn": "Portable archive: extract and run xournalpp.exe. No install, fully offline. Open source (GPL).",
+      "silent": "UNPACK:xournalpp.exe"
     },
     {
       "he": "F3D — מציג תלת-ממד",
@@ -5878,7 +5890,8 @@
       "relver": "v3.5.0",
       "origin": "community",
       "note": "ארכיון נייד: לפרוק, ולגרור קובץ מודל אל f3d.exe. בלי התקנה, בלי רשת. קוד פתוח (BSD).",
-      "noteEn": "Portable archive: extract, and drag a model file onto f3d.exe. No install, no network. Open source (BSD)."
+      "noteEn": "Portable archive: extract, and drag a model file onto f3d.exe. No install, no network. Open source (BSD).",
+      "silent": "UNPACK:f3d.exe"
     },
     {
       "he": "חלל · נאס״א",
@@ -5904,7 +5917,8 @@
       "icon": "icons/w32real/SpaceTheme.jpg",
       "origin": "community",
       "note": "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (טפט מתחלף כל חצי שעה). עובד לגמרי בלי רשת. התמונות של נאס״א, נחלת הכלל, בלי אנשים.",
-      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the wallpaper rotates every half hour). Fully offline. Images are NASA public domain, no people."
+      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the wallpaper rotates every half hour). Fully offline. Images are NASA public domain, no people.",
+      "silent": "OPEN:"
     },
     {
       "he": "הרי האלפים",
@@ -5930,7 +5944,8 @@
       "icon": "icons/w32real/MountainsTheme.jpg",
       "origin": "community",
       "note": "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
-      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people."
+      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+      "silent": "OPEN:"
     },
     {
       "he": "אגמים ומפלים",
@@ -5956,7 +5971,8 @@
       "icon": "icons/w32real/WaterTheme.jpg",
       "origin": "community",
       "note": "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
-      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people."
+      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+      "silent": "OPEN:"
     },
     {
       "he": "יערות ואחו",
@@ -5982,7 +5998,8 @@
       "icon": "icons/w32real/ForestTheme.jpg",
       "origin": "community",
       "note": "לא מתקין — ערכת נושא. מורידים ולוחצים לחיצה כפולה, וההחלפה מיידית (הרקע מתחלף כל חצי שעה). עובד לגמרי בלי רשת. תמונות CC0, בלי אנשים.",
-      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people."
+      "noteEn": "Not an installer — a theme. Download and double-click, and it applies at once (the background rotates every half hour). Fully offline. CC0 images, no people.",
+      "silent": "OPEN:"
     },
     {
       "he": "עיתים",
@@ -6013,7 +6030,8 @@
       "relver": "v1.8.2",
       "origin": "community",
       "note": "הזמנים ההלכתיים מחושבים מקומית, ולכן ייתכנו סטיות של דקות ואין לסמוך עליהם למעשה.",
-      "noteEn": "The halachic times are computed locally, so they can be off by minutes and should not be relied on in practice."
+      "noteEn": "The halachic times are computed locally, so they can be off by minutes and should not be relied on in practice.",
+      "silent": "SHOW:"
     },
     {
       "he": "RustDesk",
@@ -6079,7 +6097,8 @@
       "by": "cannon / mitmachim.top",
       "src": "https://mitmachim.top/topic/88637/",
       "note": "קובץ אחד, בלי התקנה — מריצים והוא יושב במגש. מהתפריט שלו אפשר לשנות את הקיצורים, להחריג תוכנות שבהן הוא לא יתערב, ולבקש שיעלה עם Windows. אנטי-וירוסים מסמנים אותה לפעמים: היא בנויה ב-AutoHotkey, וזה מה שמסמן — לא תוכן הקובץ.",
-      "noteEn": "A single file, no install - run it and it sits in the tray. Its menu changes the shortcuts, excludes programs it should stay out of, and starts it with Windows. Antivirus tools sometimes flag it: it is built with AutoHotkey, and that is what gets flagged, not anything the file does."
+      "noteEn": "A single file, no install - run it and it sits in the tray. Its menu changes the shortcuts, excludes programs it should stay out of, and starts it with Windows. Antivirus tools sometimes flag it: it is built with AutoHotkey, and that is what gets flagged, not anything the file does.",
+      "silent": "SHOW:"
     },
     {
       "he": "BleachBit",

@@ -3217,10 +3217,17 @@ function openSheet(en) {
     (url ? '<button class="cpy" data-url="' + esc(url) + '" title="' + esc(T('העתקת קישור ישיר')) + '" aria-label="' + esc(T('העתקת קישור ישיר')) + '">' + COPY_ICON + '</button>' : '') +
     '</div>';
 
+  /* On a disc there is nothing to download - the bytes are in the drive and חנות.exe is standing
+     by to run them. The tiles knew that and said "התקנה"; this panel, one click deeper, still said
+     "הורדה · 23MB" on every button. Worse, the second offer on a card - the maker's original, the
+     other language - was written as a plain link to the vendor, and the disc turns every outward
+     link into dead text: the file was ON the disc, listed in the run table, installable, and the
+     only control that reached it had been flattened into something nobody can click. */
+  const dWord = DISC.on ? 'התקנה' : 'הורדה';
   let btns = files.map(f => {
     const label = files.length > 1
-      ? T('הורדה') + (LANG === 'he' ? ' ל-' : ' for ') + winLabel(f)
-      : T('הורדה') + ' <span class="sz">· <span dir="ltr">' + mbFmt(f.mb) + '</span></span>';
+      ? T(dWord) + (LANG === 'he' ? ' ל-' : ' for ') + winLabel(f)
+      : T(dWord) + (DISC.on ? '' : ' <span class="sz">· <span dir="ltr">' + mbFmt(f.mb) + '</span></span>');
     if (!isLive(a, f)) return '<button class="btn" disabled>' + T(LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה לשרת...') + '</button>';
     // one build: 'main' follows the dock's Win target. Several: pin the exact file.
     return dlRow('<button class="btn" data-dl="' + esc(f.exe) + '">' + label + '</button>',
@@ -3228,18 +3235,32 @@ function openSheet(en) {
   }).join('');
   /* the vendor's own build in the other language, as a row of its own so it can be picked,
      copied and counted like any other download */
-  if (otherLang) btns += dlRow('<a class="btn lite" href="' + esc(otherLang.url) + '">' +
-    T('הורדה') + ' · <span dir="ltr">' + esc(otherLang.name) + '</span></a>', otherLang.url, false, 'lang');
+  if (otherLang) {
+    const oFile = discFile(decodeURIComponent(otherLang.url.split('/').pop()));
+    btns += dlRow(DISC.on && oFile
+      ? '<button class="btn lite" data-dl="' + esc(oFile) + '">' + T('התקנה') +
+        ' · <span dir="ltr">' + esc(otherLang.name) + '</span></button>'
+      : '<a class="btn lite" href="' + esc(otherLang.url) + '">' +
+        T('הורדה') + ' · <span dir="ltr">' + esc(otherLang.name) + '</span></a>',
+      otherLang.url, false, 'lang');
+  }
   /* the size goes on the button, like every other download - the two editions are being
      compared, and the difference between them is mostly size */
-  if (a.alt && !otherLang) btns += dlRow('<a class="btn lite" href="' + esc(a.alt.url) + '">' +
-    esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label) +
-    (a.alt.mb ? ' <span class="sz">· <span dir="ltr">' + mbFmt(a.alt.mb) + '</span></span>' : '') + '</a>', a.alt.url, false, 'alt', a.alt.sha256);
+  if (a.alt && !otherLang) {
+    const altLabel = esc(LANG === 'en' && a.alt.labelEn ? a.alt.labelEn : a.alt.label);
+    const altFile = discFile(decodeURIComponent(a.alt.url.split('/').pop()));
+    btns += dlRow(DISC.on && altFile
+      ? '<button class="btn lite" data-dl="' + esc(altFile) + '">' + T('התקנה') + ' · ' + altLabel + '</button>'
+      : '<a class="btn lite" href="' + esc(a.alt.url) + '">' + altLabel +
+        (a.alt.mb ? ' <span class="sz">· <span dir="ltr">' + mbFmt(a.alt.mb) + '</span></span>' : '') + '</a>',
+      a.alt.url, false, 'alt', a.alt.sha256);
+  }
   /* only once the build is really published - an orange button that 404s is worse
      than no button */
   if (a.xlat && (a.xlat.url || LIVE[a.xlat.exe])) btns +=
     dlRow('<button class="btn" style="background:linear-gradient(135deg,#ffc46b,#e59b2b);color:#2a1c00" data-dl="' +
-      esc(a.xlat.exe) + '">' + T('הורדה בעברית') + ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span></button>',
+      esc(a.xlat.exe) + '">' + T(DISC.on ? 'התקנה בעברית' : 'הורדה בעברית') +
+      (DISC.on ? '' : ' · <span dir="ltr">' + mbFmt(a.xlat.mb) + '</span>') + '</button>',
       a.xlat.url || (REL + encodeURIComponent(a.xlat.exe)), false, 'xlat') +
     /* two different things wear the same orange button. One is a translation made here, which
        really did open the package. The other is the vendor's own installer with its own official
@@ -4152,7 +4173,12 @@ function discInstall(exes) {
   }
 }
 
+/* "handson" is not a kind of "running" and must not read like one. The installer's own window is
+   on screen waiting for an answer, and a row saying "מתקין…" tells the person to wait for the
+   thing that is waiting for them - which is how a five-second install becomes a hang nobody can
+   explain. */
 const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
+                     handson: '← נפתח חלון, יש להמשיך בו', opening: 'נפתח…',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
