@@ -1190,6 +1190,7 @@ const EN = {
   'לא מתאים ל-Windows הזה': 'not for this Windows',
   'לא על הדיסק הזה': 'not on this disc',
   'התקנה': 'Install',
+  'הצגת הקובץ': 'Show the file',
   'ISO אישי — שלושה צעדים': 'Your own ISO — three steps',
   'שני הקבצים האלה עובדים יחד. צריך את שניהם, באותה תיקייה.':
     'These two files work together. You need both, in the same folder.',
@@ -2246,10 +2247,10 @@ function tile(a) {
   if (!f) return '';
   const pl = plate(a, false);
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
-  const verb = DISC.on ? 'התקנה' : 'הורדה';
+  const verb = DISC.on ? (discManual(a) ? 'הצגת הקובץ' : 'התקנה') : 'הורדה';
   const get = twoAmbiguous
     ? '<button class="get" data-sheet="' + esc(a.en) + '">' + verb + ' ▾</button>'
-    : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">' + verb + '</button>'
+    : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">' + T(verb) + '</button>'
     /* on the disc a missing file is not "still uploading" - it is simply not on this cut */
                     : '<span class="get soon">' + T(DISC.on ? 'לא על הדיסק הזה' : LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה...') + '</span>');
   const on = SELECTED.has(a.en);
@@ -2909,8 +2910,15 @@ function download(exe) {
   const now = Date.now();
   if (lastDl[exe] && now - lastDl[exe] < 1200) return;
   lastDl[exe] = now;
-  // on the disc there is nothing to fetch: the file is here and חנות.exe is the one that runs it
-  if (DISC.on) { discInstall([exe]); return; }
+  /* On the disc there is nothing to fetch: the file is here and חנות.exe is the one that runs it -
+     unless it is one of the things nothing can install unattended, in which case the honest action
+     is to show the person where the file is. */
+  if (DISC.on) {
+    const owner = DATA.apps.find(x => (x.files || []).some(f => f.exe === exe));
+    if (owner && discManual(owner)) { discSay('reveal	' + (discFile(exe) || exe)); return; }
+    discInstall([exe]);
+    return;
+  }
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
   const a = document.createElement('a');
@@ -3680,6 +3688,12 @@ function discWire() {
                          '<b>' + T('זהו') + '</b>';
 }
 const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
+/* Twenty-five of the vendor programs have no silent switch: an archive to unpack, a portable exe
+   to keep, an installer whose maker offers no unattended mode. The shop cannot install those and
+   never could - it refuses them and says so - but the button said "Install" first and the refusal
+   came afterwards, in a panel, after a click. On a disc the button can simply tell the truth up
+   front and open the folder instead. */
+const discManual = a => DISC.on && !!a.w32 && !a.silent;
 const discSay  = msg => { try { window.chrome.webview.postMessage(msg); } catch (e) { console.error(e); } };
 
 /* Seven quick taps on a panel's heading. No hint, no cursor change, no counter, no half-way
