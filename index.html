@@ -587,6 +587,29 @@
          padding: 2px 8px; border-radius: 99px; font-size: .62rem; font-weight: 800;
          background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent);
          border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); pointer-events: none; }
+  /* ---- the disc ----
+     What this machine already has of a card. Along the bottom of the plate rather than in a
+     corner: the corners are taken, and this is the one line somebody scanning the shelf on their
+     own PC is actually looking for. */
+  .dstat { position: absolute; inset-inline: 8px; top: 92px; z-index: 2; text-align: center;
+           padding: 2px 6px; border-radius: 99px; font-size: .62rem; font-weight: 800;
+           pointer-events: none; }
+  .dhere { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok);
+           border: 1px solid color-mix(in srgb, var(--ok) 42%, transparent); }
+  .dold  { background: color-mix(in srgb, var(--warn) 20%, transparent); color: var(--warn);
+           border: 1px solid color-mix(in srgb, var(--warn) 42%, transparent); }
+  .dno   { background: rgba(125,138,165,.16); color: var(--muted);
+           border: 1px solid rgba(125,138,165,.34); }
+  .dlitem.bad .dlstate { color: var(--err); }
+  .dlnote.warn { color: var(--warn); }
+  /* Things that only mean something on the web. A counter of downloads from a server, a link to
+     copy, a fingerprint to compare against a download, and a tool that burns a disc are all noise
+     on a disc that is already in the drive. */
+  body.on-disc .cpy,
+  body.on-disc .dlcount,
+  body.on-disc #fact-dl,
+  body.on-disc .hashbox,
+  body.on-disc .isobar { display: none !important; }
   .starcta { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px;
     padding: 11px 14px; border-radius: 13px; text-decoration: none; font-weight: 700; font-size: .9rem;
     color: var(--ink); background: linear-gradient(180deg, rgba(255,196,107,.14), rgba(255,196,107,.06));
@@ -764,7 +787,7 @@
     <img class="logo" src="logo.svg" alt="">
     <h1>האפליקציות של Windows,<br>למחשב <span class="grad">שאין בו אינטרנט</span></h1>
     <p>כל אפליקציה כאן היא מתקין מוכן: קובץ אחד עם הכל בפנים, בלי צורך בחיבור לרשת.</p>
-    <div class="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה</b></div>
+    <div class="steps" id="steps"><b>מורידים</b><span class="sep">←</span><b>מעבירים בדיסק-און-קי</b><span class="sep">←</span><b>לחיצה כפולה</b></div>
     <div class="facts" id="facts"></div>
   </div>
 </div>
@@ -2094,7 +2117,11 @@ const bestFile = a => {
   if (!fs.length) return null;
   return fs.find(f => f.win === TARGET) || fs[0];
 };
-const isLive = (a, f) => a.url ? true : !!LIVE[f.exe];
+/* On the web: is the file up on our release yet (a vendor's own file always is, it is theirs).
+   On the disc: is it actually in the installers folder - the only question there, and the answer
+   for a vendor program is no longer automatically yes. A disc cut without Firefox must not draw a
+   Firefox button that does nothing. */
+const isLive = (a, f) => DISC.on ? !!discFile(f.exe) : (a.url ? true : !!LIVE[f.exe]);
 
 /* What a pick actually downloads. 'main' stays unresolved until download time, because the
    Win 10 / Win 11 target can still change after it was picked. */
@@ -2135,16 +2162,18 @@ function tile(a) {
   if (!f) return '';
   const pl = plate(a, false);
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
+  const verb = DISC.on ? 'התקנה' : 'הורדה';
   const get = twoAmbiguous
-    ? '<button class="get" data-sheet="' + esc(a.en) + '">הורדה ▾</button>'
-    : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">הורדה</button>'
-                    : '<span class="get soon">' + T(LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה...') + '</span>');
+    ? '<button class="get" data-sheet="' + esc(a.en) + '">' + verb + ' ▾</button>'
+    : (isLive(a, f) ? '<button class="get" data-dl="' + esc(f.exe) + '">' + verb + '</button>'
+    /* on the disc a missing file is not "still uploading" - it is simply not on this cut */
+                    : '<span class="get soon">' + T(DISC.on ? 'לא על הדיסק הזה' : LIVE_UNKNOWN ? 'לא נטען' : 'בהעלאה...') + '</span>');
   const on = SELECTED.has(a.en);
   return '<div class="t' + (on ? ' sel' : '') + '" tabindex="0" role="button" data-en="' + esc(a.en) + '" title="' + esc(descOf(a) || nameOf(a)) + '">' +
     '<span class="pick" title="לבחירה מרובה">✓</span>' +
     (a.heb && !a.noui ? '<span class="heb" title="ממשק בעברית">עב</span>' : '') +
     (POPULAR && POPULAR[a.en] ? '<span class="pop" title="' + esc(T('מהנפוצות להורדה כאן')) + '">' + T('פופולרי') + '</span>' : '') +
-    (a.cat === 'ערכות נושא' ? '<span class="tbadge" title="' + esc(T('ערכת נושא — לחיצה כפולה מחליפה את הטפט, בלי התקנה')) + '">' + T('ערכת נושא') + '</span>' : '') + pl +
+    (a.cat === 'ערכות נושא' ? '<span class="tbadge" title="' + esc(T('ערכת נושא — לחיצה כפולה מחליפה את הטפט, בלי התקנה')) + '">' + T('ערכת נושא') + '</span>' : '') + discBadge(a) + pl +
     '<div class="nm" dir="auto">' + nameOf(a) + '</div><div class="mb" dir="ltr">' + mbFmt(f.mb) + '</div>' + get + '</div>';
 }
 
@@ -2796,6 +2825,8 @@ function download(exe) {
   const now = Date.now();
   if (lastDl[exe] && now - lastDl[exe] < 1200) return;
   lastDl[exe] = now;
+  // on the disc there is nothing to fetch: the file is here and חנות.exe is the one that runs it
+  if (DISC.on) { discInstall([exe]); return; }
   // w32 and custom entries point straight at the vendor's own file
   const owner = DATA.apps.find(x => x.url && x.files.some(f => f.exe === exe));
   const a = document.createElement('a');
@@ -2855,6 +2886,14 @@ document.getElementById('dock-target').addEventListener('click', e => {
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
 document.getElementById('selgo').onclick = () => {
+  /* On the disc there is nothing to fetch and no runner to hand over: the picks go straight to
+     the frame, which installs them one after another and reports each one back. */
+  if (DISC.on) {
+    const want = [];
+    DATA.apps.forEach(a => { if (SELECTED.has(a.en)) picksOf(a).forEach(v => { if (v.exe) want.push(v.exe); }); });
+    if (want.length) discInstall(want);
+    return;
+  }
   const items = [], w32Silent = [];
   DATA.apps.forEach(a => {
     if (!SELECTED.has(a.en)) return;
@@ -3546,12 +3585,126 @@ function isoButtons() {
   };
 }
 
+/* ===== the disc =====
+   The same page, shown by חנות.exe off the DVD instead of served by GitHub Pages. The frame puts
+   a window.DISC on the document before this script runs, so the very first paint already knows
+   where it is; everything below is inert on the web, where that object never exists.
+
+   What changes: "download" becomes "install", because the file is already here and there is a
+   program beside the page waiting to run it. What is added: this machine's own answer for each
+   card - already installed, an older version, or a Windows too old for it - which a web page has
+   no way to know, and which the disc's old native shell knew and would have taken with it. */
+const DISC = window.DISC || { on: false };
+DISC.have = new Set(DISC.files || []);
+DISC.at   = new Map();     // catalogue name (sometimes a pattern) -> the real file on the disc
+
+/* A vendor entry names its file the way the vendor spells it, version and all: "Firefox
+   Setup*.exe". The disc holds one concrete file. Matched once, here, rather than guessed. */
+function discWire() {
+  if (!DISC.on) return;
+  const names = new Set();
+  (DATA.apps || []).forEach(a => {
+    (a.files || []).forEach(f => f.exe && names.add(f.exe));
+    if (a.xlat && a.xlat.exe) names.add(a.xlat.exe);
+    if (a.alt && a.alt.url) names.add(decodeURIComponent(a.alt.url.split('/').pop()));
+  });
+  names.forEach(n => {
+    if (DISC.have.has(n)) { DISC.at.set(n, n); return; }
+    if (n.indexOf('*') < 0) return;
+    const re = new RegExp('^' + n.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$', 'i');
+    for (const f of DISC.have) if (re.test(f)) { DISC.at.set(n, f); return; }
+  });
+  document.body.classList.add('on-disc');
+  /* The three words under the title are instructions, and on a disc they instruct nobody:
+     there is nothing to download and no memory stick in the story. */
+  const st = document.getElementById('steps');
+  if (st) st.innerHTML = '<b>' + T('בוחרים') + '</b><span class="sep">←</span>' +
+                         '<b>' + T('לוחצים התקנה') + '</b><span class="sep">←</span>' +
+                         '<b>' + T('זהו') + '</b>';
+}
+const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
+const discSay  = msg => { try { window.chrome.webview.postMessage(msg); } catch (e) { console.error(e); } };
+
+const DISC_WORD = { here: 'מותקנת', older: 'יש עדכון', tooold: 'לא מתאים ל-Windows הזה' };
+function discBadge(a) {
+  if (!DISC.on) return '';
+  const f = bestFile(a), real = f && discFile(f.exe);
+  const row = real && DISC.state[real];
+  if (!row || !DISC_WORD[row[0]]) return '';
+  const cls = row[0] === 'here' ? 'dhere' : row[0] === 'older' ? 'dold' : 'dno';
+  return '<span class="dstat ' + cls + '">' + T(DISC_WORD[row[0]]) + '</span>';
+}
+
+/* Hands the frame a list of files and watches it work. The page never runs anything itself - it
+   cannot, and should not be able to. */
+let discPanel = null;
+function discInstall(exes) {
+  const real = [...new Set(exes.map(discFile).filter(Boolean))];
+  if (!real.length) return;
+  const rows = real.map(r => {
+    const a = (DATA.apps || []).find(x => (x.files || []).some(f => discFile(f.exe) === r)
+                                       || (x.xlat && discFile(x.xlat.exe) === r));
+    return { exe: r, name: a ? nameOf(a) : r, mb: a ? mbOf(a) : 0 };
+  });
+
+  const ov = document.createElement('div');
+  ov.className = 'overlay';
+  ov.innerHTML = '<div class="sheet dlpanel">' +
+    '<h3>' + T('התקנה מהדיסק') + '</h3>' +
+    '<p class="dlnote">' + T('ההתקנות רצות אחת אחרי השנייה. אפשר להשאיר את החלון פתוח ולחזור אליו.') + '</p>' +
+    '<div class="dllist">' + rows.map(r =>
+      '<div class="dlitem" data-exe="' + esc(r.exe) + '"><span class="dlmark">•</span>' +
+      '<span class="dlname" dir="auto">' + esc(r.name) + '</span>' +
+      '<span class="dlstate">' + T('ממתינה') + '</span>' +
+      (r.mb ? '<span class="dlmb" dir="ltr">' + mbFmt(r.mb) + '</span>' : '') + '</div>').join('') +
+    '</div><div class="acts">' +
+      '<button class="btn lite" id="dstop">' + T('עצירה אחרי הנוכחית') + '</button>' +
+      '<button class="btn lite" id="dshut">' + T('סגירה') + '</button>' +
+    '</div></div>';
+  document.body.appendChild(ov);
+  translateDom(ov);
+  document.body.style.overflow = 'hidden';
+  discPanel = ov;
+  ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; };
+  ov.querySelector('#dstop').onclick = () => discSay('cancel');
+  discSay('install\t' + real.join('\t'));
+}
+
+const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
+                     manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
+if (DISC.on) {
+  window.chrome.webview.addEventListener('message', ev => {
+    const p = String(ev.data || '').split('\t');
+    if (p[0] !== 'job' || !discPanel) return;
+    const exe = p[1], state = p[2];
+    if (state === 'firewall') {
+      const n = discPanel.querySelector('.dlnote');
+      n.textContent = T('שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. ' +
+                        'זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.');
+      n.classList.add('warn');
+      return;
+    }
+    if (state === 'busy') { discPanel.querySelector('.dlnote').textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); return; }
+    if (state === 'finished') {
+      discPanel.querySelector('#dstop').style.display = 'none';
+      discPanel.querySelector('.dlnote').textContent = T('סיימנו. אפשר לסגור את החלון.');
+      return;
+    }
+    const row = discPanel.querySelector('.dlitem[data-exe="' + exe.replace(/"/g, '\\"') + '"]');
+    if (!row) return;
+    row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
+    row.classList.toggle('done', state === 'done');
+    row.classList.toggle('bad', state === 'failed');
+  });
+}
+
 /* ===== boot: paint as soon as the slim catalog is here; buttons light up after ===== */
 fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' }).then(r => {
   if (!r.ok) throw new Error('catalog HTTP ' + r.status);
   return r.json();
 }).then(d => {
   DATA = d;
+  discWire();      // before anything is drawn: the first paint must already know it is on a disc
   /* Counted BEFORE the merge, and this is the whole point of doing it here.
      mergeXtra pushes the quiet aisle's entries into DATA.apps, and the headline used to be read
      off DATA.apps afterwards - so anybody who had ever made the gesture saw a different number of
@@ -3572,7 +3725,8 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
     '<div><b dir="ltr" data-to="' + publicGb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
     '<div id="fact-dl" hidden><b data-to="0">0</b><span>' + T('הורדות עד כה') + '</span></div>';
   countUp(document.getElementById('facts'));
-  loadDownloads();
+  // a counter of downloads from a server means nothing on a disc already in the drive
+  if (!DISC.on) loadDownloads();
   // a rendering bug must never masquerade as a network problem
   try { isoButtons(); render(); } catch (err) { console.error('render:', err); }
   /* A failure here is NOT the same thing as 'this file has not been uploaded yet', and the page
