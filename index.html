@@ -3477,40 +3477,7 @@ document.getElementById('donate-btn').onclick = () => {
      what makes a person on a phone tap it again. Somebody reached it on a first visit with an
      empty cache that way. A gap longer than the window starts the count over, so the gesture is
      now deliberate drumming rather than patience. */
-  let taps = 0, lastTap = 0;
-  const TAP_GAP = 600;
-  const seal = ov.querySelector('h3');
-  if (seal) {
-    seal.style.userSelect = 'none';
-    seal.addEventListener('click', () => {
-      const now = Date.now();
-      taps = (now - lastTap <= TAP_GAP) ? taps + 1 : 1;
-      lastTap = now;
-      if (taps < 7) return;
-      taps = -999;
-      /* An eighth tap closes it again. The gesture was one-way: once tapped, every later visit
-         fetched the extra catalogue for ever, and the only way back was the browser's own site
-         settings - which is not somewhere a person goes, and not something the page told them
-         about. The same seven taps that opened it are the obvious way to change one's mind. */
-      let already = false;
-      try { already = !!localStorage.getItem(XKEY); } catch (e) { }
-      if (already) {
-        try { localStorage.removeItem(XKEY); } catch (e) { }
-        XTRA = null; XTRA_P = null;
-        location.reload();
-        return;
-      }
-      try { localStorage.setItem(XKEY, '1'); } catch (e) { }
-      loadXtra().then(p => {
-        shut();
-        if (!p) return;
-        CATSEL = p.cat;
-        render();
-        const box = document.getElementById('cats');
-        if (box) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
+  armSeal(ov, shut);
   /* Do not just name the form - take them to it, and put the cursor in it. Someone who has
      read this far should not then have to go hunting down the page. */
   ov.querySelector('#gv-form').onclick = () => {
@@ -3662,6 +3629,12 @@ function discWire() {
     for (const f of DISC.have) if (re.test(f)) { DISC.at.set(n, f); return; }
   });
   document.body.classList.add('on-disc');
+  /* Watched, not swept once: the shelf, every card sheet and every panel are drawn later, and the
+     next link will be added by somebody who never read discDeadenLinks. */
+  new MutationObserver(ms => {
+    for (const m of ms) for (const node of m.addedNodes) if (node.nodeType === 1) discDeadenLinks(node);
+  }).observe(document.documentElement, { childList: true, subtree: true });
+  discDeadenLinks(document);
   /* The three words under the title are instructions, and on a disc they instruct nobody:
      there is nothing to download and no memory stick in the story. */
   const st = document.getElementById('steps');
@@ -3671,6 +3644,91 @@ function discWire() {
 }
 const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
 const discSay  = msg => { try { window.chrome.webview.postMessage(msg); } catch (e) { console.error(e); } };
+
+/* Seven quick taps on a panel's heading. No hint, no cursor change, no counter, no half-way
+   feedback - somebody who was not told about it is meant to find nothing here at all.
+
+   The taps have to be QUICK, and that is not a detail. Without a window they accumulated for as
+   long as the dialog stayed open, so seven idle clicks over a minute opened the aisle, and a
+   heading that selects no text and answers nothing is exactly what invites idle clicking.
+
+   It lives in a function because there are two doors now. On the web it is the heading of the
+   thank-you dialog. On a disc that dialog is gone - nobody takes a donation on a machine with no
+   internet - and hiding it took the only way in with it, so the disc's own panel carries the same
+   gesture instead. */
+function armSeal(ov, shut) {
+  const seal = ov.querySelector('h3');
+  if (!seal) return;
+  let taps = 0, lastTap = 0;
+  const TAP_GAP = 600;
+  seal.style.userSelect = 'none';
+  seal.addEventListener('click', () => {
+    const now = Date.now();
+    taps = (now - lastTap <= TAP_GAP) ? taps + 1 : 1;
+    lastTap = now;
+    if (taps < 7) return;
+    taps = -999;
+    /* An eighth tap closes it again. The gesture was one-way: once tapped, every later visit
+       fetched the extra catalogue for ever, and the only way back was the browser's own site
+       settings - not somewhere a person goes, and not something the page told them about.
+
+       On a disc nothing is remembered at all. A disc is handed around, and the next person to put
+       it in a drive gets the shop as it ships; whoever wants the other aisle taps for it again,
+       that session only. So the disc never reads or writes the key. */
+    if (DISC.on) {
+      if (XTRA) { XTRA = null; XTRA_P = null; location.reload(); return; }
+      loadXtra().then(p => { shut(); if (!p) return; CATSEL = p.cat; render();
+        const box = document.getElementById('cats'); if (box) box.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+      return;
+    }
+    let already = false;
+    try { already = !!localStorage.getItem(XKEY); } catch (e) { }
+    if (already) {
+      try { localStorage.removeItem(XKEY); } catch (e) { }
+      XTRA = null; XTRA_P = null;
+      location.reload();
+      return;
+    }
+    try { localStorage.setItem(XKEY, '1'); } catch (e) { }
+    loadXtra().then(p => {
+      shut();
+      if (!p) return;
+      CATSEL = p.cat;
+      render();
+      const box = document.getElementById('cats');
+      if (box) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+/* Every link out, on a disc, is a dead end. The machine has no internet by definition - that is
+   what the shop is for - so a blue underlined word is an invitation to a click that does nothing,
+   and somebody who clicks two of them concludes the program is broken.
+
+   Done as a rule rather than a list, and watched rather than applied once. There are links in the
+   footer, on the source row of every card, on the star request under an in-house app, inside the
+   explainer, in the terms line of every download panel - and the next one will be added by
+   somebody who has forgotten this paragraph exists. An observer catches whatever the page draws,
+   whenever it draws it, and turns it into plain text that still says what it said. */
+function discDeadenLinks(root) {
+  if (!DISC.on) return;
+  const scope = root && root.querySelectorAll ? root : document;
+  /* The node ITSELF counts. querySelectorAll looks only at descendants, and a block that sets its
+     own innerHTML to a row of links hands the observer those anchors directly - so the two ISO
+     download links survived, invisible inside a hidden block but still live in the page. */
+  const found = [...scope.querySelectorAll('a[href]')];
+  if (scope.matches && scope.matches('a[href]')) found.unshift(scope);
+  for (const a of found) {
+    const h = a.getAttribute('href') || '';
+    if (!/^(https?:|mailto:|tel:)/i.test(h)) continue;
+    const span = document.createElement('span');
+    span.className = 'wasLink';
+    span.setAttribute('dir', a.getAttribute('dir') || 'auto');
+    span.textContent = a.textContent;
+    if (a.title) span.title = a.title;
+    a.replaceWith(span);
+  }
+}
 
 /* What this cut of the disc holds, and what changed since the last one. A frozen shelf with no
    version numbers on it, on a machine with no internet, is a shelf nobody can reason about: is
@@ -3774,6 +3832,8 @@ function discAbout() {
   const shut = () => { ov.remove(); document.body.style.overflow = ''; };
   ov.querySelector('#vshut').onclick = shut;
   ov.addEventListener('click', e => { if (e.target === ov) shut(); });
+  /* the disc's own door to the other aisle - see armSeal */
+  armSeal(ov, shut);
 }
 
 /* Hands the frame a list of files and watches it work. The page never runs anything itself - it
@@ -3813,7 +3873,11 @@ function discInstall(exes) {
 
 const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
-if (DISC.on) {
+/* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
+   script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
+   symptom is a shop with nothing in it and no error a person can see. Anything that sets
+   window.DISC without being the frame gets a page that still works, minus the install channel. */
+if (DISC.on && window.chrome && window.chrome.webview) {
   window.chrome.webview.addEventListener('message', ev => {
     const p = String(ev.data || '').split('\t');
     if (p[0] !== 'job' || !discPanel) return;
@@ -3873,7 +3937,8 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
   /* On the disc the first paint waits for the manifest - a few milliseconds off the same disc -
      because the version on every card comes out of it, and drawing them all blank and then filling
      them in reads as a fault rather than as loading. */
-  if (DISC.on) discManifest().then(() => { discVersionLine(); paint(); }, paint); else paint();
+  if (DISC.on) discManifest().then(() => { discVersionLine(); paint(); discDeadenLinks(document); }, paint);
+  else paint();
   /* A failure here is NOT the same thing as 'this file has not been uploaded yet', and the page
      used to say the second when the first happened: an empty list makes every download button
      read 'uploading to the server...', which is a confident, wrong answer. A visitor on a
