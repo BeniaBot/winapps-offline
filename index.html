@@ -1244,6 +1244,13 @@ const EN = {
     'The restore point could not be created. The installs continue without one.',
   '✕ הדיסק יצא מהכונן': '✕ the disc left the drive',
   '✕ אין מספיק מקום בכונן': '✕ not enough room on the drive',
+  'לנסות שוב': 'Try again',
+  'אף אחת מהתוכנות שנבחרו לא נמצאת בדיסק הזה.': 'None of the programs picked are on this disc.',
+  'מהתוכנות ברשימה פותחות חלון משלהן — מתקין שצריך ללחוץ בו, או התוכנה עצמה שנפתחת בסוף.':
+    'of the programs listed open a window of their own - an installer to click through, or the program itself at the end.',
+  '✕ חסר 7-Zip': '✕ 7-Zip is missing',
+  'שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.':
+    'The Windows Firewall service is switched off on this PC, and without it Windows installs no store app at all. This is not a fault in the disc. To turn it on: services.msc → Windows Defender Firewall → Start.',
   'לוקח זמן — כנראה עדיין מתקינה ברקע': 'taking a while — probably still installing in the background',
   'הדיסק יצא מהכונן באמצע ההתקנה. מחזירים אותו ולוחצים התקנה שוב — מה שכבר הותקן לא יותקן שוב.':
     'The disc left the drive mid-install. Put it back and press Install again - whatever already installed will not be installed twice.',
@@ -4223,6 +4230,11 @@ function discAbout() {
 /* Hands the frame a list of files and watches it work. The page never runs anything itself - it
    cannot, and should not be able to. */
 let discPanel = null;
+/* The message handler lives outside discInstall and has no way back into its closure, so a
+   reply of "firewall" or "busy" - both of which mean nothing started - could put a Try again
+   button on the panel but had nothing to hang on it. This is that handle, set when a panel
+   opens and cleared when it closes. */
+let discRetry = () => {};
 function discInstall(exes) {
   const real = [...new Set(exes.map(discFile).filter(Boolean))];
   /* Not a silent return. Somebody pressed Install and nothing at all happened - no panel, no
@@ -4250,7 +4262,12 @@ function discInstall(exes) {
      ask their own questions, and no switch exists to answer those - so the panel counts them and
      says how many rather than implying they will not happen. */
   const kindOf = e => (DISC.act && DISC.act[e]) || '';
-  const needClicks = rows.filter(r => kindOf(r.exe) === 'SHOW' || kindOf(r.exe) === 'SIDELOAD').length;
+  /* Anything that puts a window in front of the person, not only the two that need clicking
+     through an installer. OPEN hands a file to the shell, PORTABLE launches the program it just
+     copied, and UNPACK and COPY each open an Explorer window over the shop. Promising fewer
+     interruptions than the run delivers is the kind of small lie that costs trust. */
+  const LOUD = ['SHOW', 'SIDELOAD', 'OPEN', 'PORTABLE', 'UNPACK', 'UNPACK7', 'COPY'];
+  const needClicks = rows.filter(r => LOUD.indexOf(kindOf(r.exe)) >= 0).length;
   const ask =
     '<div class="preask">' +
       '<label class="pa"><input type="checkbox" id="pa-restore"' + (DISC.admin ? ' checked' : ' disabled') + '>' +
@@ -4264,7 +4281,7 @@ function discInstall(exes) {
           ? 'החנות כבר רצה עם הרשאות מנהל. לא תישאלו שוב.'
           : 'החנות רצה בלי הרשאות מנהל. בלעדיהן חלק מהתוכנות לא יותקנו כלל.') + '</small></span></label>' +
       (needClicks ? '<p class="pa-note">' + T('שימו לב') + ': ' + needClicks + ' ' +
-        T('מהתוכנות ברשימה פותחות חלון משלהן שצריך ללחוץ בו. אין דרך לענות עליו מראש.') + '</p>' : '') +
+        T('מהתוכנות ברשימה פותחות חלון משלהן — מתקין שצריך ללחוץ בו, או התוכנה עצמה שנפתחת בסוף.') + '</p>' : '') +
     '</div>';
 
   const ov = document.createElement('div');
@@ -4287,7 +4304,7 @@ function discInstall(exes) {
   translateDom(ov);
   document.body.style.overflow = 'hidden';
   discPanel = ov;
-  ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; };
+  ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; discRetry = () => {}; };
   ov.querySelector('#dstop').onclick = () => discSay('cancel');
   const start = wantRestore => {
   if (!discSay('install\t' + (wantRestore ? 'R1' : 'R0') + '\t' + real.join('\t'))) {
@@ -4316,6 +4333,9 @@ function discInstall(exes) {
     ov.querySelector('.preask').remove();
     ov.querySelector('#dgo').remove();
     ov.querySelector('#dstop').style.display = '';
+    /* Remembered, so "try again" repeats the same choices. Pressing it after switching the
+       firewall service on should not silently drop the restore point they asked for. */
+    discRetry = () => start(wantRestore);
     start(wantRestore);
   };
 }
@@ -4336,6 +4356,7 @@ const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed:
                         start a second one on top of it. */
                      ejected: '✕ הדיסק יצא מהכונן', slow: 'לוקח זמן — כנראה עדיין מתקינה ברקע',
                      nospace: '✕ אין מספיק מקום בכונן',
+                     no7zip: '✕ חסר 7-Zip',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
@@ -4352,13 +4373,34 @@ if (DISC.on && window.chrome && window.chrome.webview) {
     const exe = p[1] || '', state = p[2] || '';
     const note = discPanel.querySelector('.dlnote');
     if (!state || !note) return;
+    /* Both of these mean "nothing started", and by the time they arrive the Start button has
+       already been removed from the panel - so the firewall note told somebody to go and switch a
+       service on, and when they came back there was nothing to press. Putting the button back is
+       the whole fix. */
+    const again = () => {
+      const acts = discPanel.querySelector('.acts');
+      if (!acts || discPanel.querySelector('#dgo')) return;
+      const b = document.createElement('button');
+      b.className = 'btn'; b.id = 'dgo'; b.textContent = T('לנסות שוב');
+      b.onclick = () => { b.remove(); note.classList.remove('warn'); discRetry(); };
+      acts.insertBefore(b, acts.firstChild);
+    };
     if (state === 'firewall') {
       note.textContent = T('שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. ' +
                            'זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.');
       note.classList.add('warn');
+      again();
       return;
     }
-    if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); return; }
+    if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); again(); return; }
+    /* Not the same as busy, and it used to say so wrongly: "another install is already running"
+       sends somebody off to wait for nothing. This means the run table does not list any of what
+       was picked, which on a disc means this cut does not carry them. */
+    if (state === 'unknown') {
+      note.textContent = T('אף אחת מהתוכנות שנבחרו לא נמצאת בדיסק הזה.');
+      note.classList.add('warn');
+      return;
+    }
     /* The restore point, reported for what it actually did. Windows refuses to make a second one
        within 24 hours and refuses SILENTLY, so "declined" is a real answer and not a failure - a
        point from this morning protects them exactly as well. Saying "created" either way would be
@@ -4378,7 +4420,11 @@ if (DISC.on && window.chrome && window.chrome.webview) {
     if (state === 'finished') {
       const stop = discPanel.querySelector('#dstop');
       if (stop) stop.style.display = 'none';
-      note.textContent = T('סיימנו. אפשר לסגור את החלון.');
+      /* Not over the top of a warning. "finished" always arrives, including one line after the
+         disc has left the drive - and it was overwriting "put it back and press Install again"
+         with "we're done, you can close the window", in warning colours, a second later. The one
+         sentence that told the person what to do was the one that vanished. */
+      if (!note.classList.contains('warn')) note.textContent = T('סיימנו. אפשר לסגור את החלון.');
       return;
     }
     if (!exe) return;
@@ -4392,7 +4438,10 @@ if (DISC.on && window.chrome && window.chrome.webview) {
     row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
     row.classList.toggle('done', state === 'done');
     // "ejected" is red because something really did stop; "slow" is not, because nothing did
-    row.classList.toggle('bad', state === 'failed' || state === 'ejected');
+    // nospace and no7zip both start with ✕ and both stopped an install; they belong in red with
+    // the rest. "slow" deliberately does not - nothing failed there.
+    row.classList.toggle('bad', state === 'failed' || state === 'ejected'
+                              || state === 'nospace' || state === 'no7zip');
   });
 }
 
