@@ -2523,8 +2523,13 @@ document.addEventListener('keydown', e => {
 
 /* ===== request form: posted straight to the inbox, the visitor stays on the page.
    FormSubmit relays it; mailto is only the emergency fallback if the relay is down. ===== */
+/* disc-strip:start - the build cuts these two lines out of the copy that goes on a disc. The form
+   they feed is already hidden there (nothing can be posted from a machine with no internet), but
+   hiding is not removing: the address sat in plain text inside a file handed to strangers, on every
+   copy. Nothing on the disc reads either constant, so the page works identically without them. */
 const ASK_TO = 'b0554003794@gmail.com';
 const ASK_ENDPOINT = 'https://formsubmit.co/ajax/' + ASK_TO;
+/* disc-strip:end */
 /* The fault report, carried back rather than uploaded.
    A person on a disconnected machine cannot send anything from it. They run the tool there, the
    file lands on the Desktop, and it travels back on the same stick they brought the store on.
