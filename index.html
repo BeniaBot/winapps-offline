@@ -1203,6 +1203,11 @@ const EN = {
   '✕ נכשלה': '✕ failed',
   'קובץ שצריך לפתוח ידנית': 'a file to open by hand',
   'בוטלה': 'cancelled',
+  '← נפתח חלון, יש להמשיך בו': 'a window opened — carry on there →',
+  'נפתח…': 'opening…',
+  'פורק מהדיסק…': 'unpacking from the disc…',
+  'מעתיק…': 'copying…',
+  'האפליקציה הזאת לא נמצאת בדיסק הזה.': 'This app is not on this disc.',
   'עצירה אחרי הנוכחית': 'Stop after this one',
   'כבר רצה התקנה אחרת. להמתין לסיומה.': 'Another install is already running. Wait for it to finish.',
   'סיימנו. אפשר לסגור את החלון.': 'Finished. You can close this.',
@@ -3815,7 +3820,12 @@ function discWire() {
                          '<b>' + T('לוחצים התקנה') + '</b><span class="sep">←</span>' +
                          '<b>' + T('זהו') + '</b>';
 }
-const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
+/* The map is keyed on what the CATALOGUE calls a file, which is often a pattern. Asked for a real
+   filename that is sitting right there on the disc it answered null - and the one caller that
+   matters, discInstall, treats null as "nothing to install" and returns without a word. A button
+   that does nothing and says nothing is the worst failure this page has; if the disc holds the
+   name, the name is the answer. */
+const discFile = exe => DISC.on ? (DISC.at.get(exe) || (DISC.have.has(exe) ? exe : null)) : exe;
 /* Twenty-five of the vendor programs have no silent switch: an archive to unpack, a portable exe
    to keep, an installer whose maker offers no unattended mode. The shop cannot install those and
    never could - it refuses them and says so - but the button said "Install" first and the refusal
@@ -4134,7 +4144,14 @@ function discAbout() {
 let discPanel = null;
 function discInstall(exes) {
   const real = [...new Set(exes.map(discFile).filter(Boolean))];
-  if (!real.length) return;
+  /* Not a silent return. Somebody pressed Install and nothing at all happened - no panel, no
+     message, no entry in the log - and the only way to find out why was to open a console that
+     does not exist on a disc. If this cut does not carry the file, that is a sentence worth
+     saying. */
+  if (!real.length) {
+    alert(T('האפליקציה הזאת לא נמצאת בדיסק הזה.') + '\n\n' + exes.filter(Boolean).join('\n'));
+    return;
+  }
   const rows = real.map(r => {
     const a = (DATA.apps || []).find(x => (x.files || []).some(f => discFile(f.exe) === r)
                                        || (x.xlat && discFile(x.xlat.exe) === r));
@@ -4179,6 +4196,7 @@ function discInstall(exes) {
    explain. */
 const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
                      handson: '← נפתח חלון, יש להמשיך בו', opening: 'נפתח…',
+                     unpacking: 'פורק מהדיסק…', copying: 'מעתיק…',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the

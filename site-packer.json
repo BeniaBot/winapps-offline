@@ -5280,11 +5280,15 @@
       "langMode": "follows-windows",
       "repo": "MustardChef/WSABuilds",
       "relver": "Windows_11_2407.40000.4.0_LTS_7_HOTFIX_1",
+      "needs": [
+        "SevenZip"
+      ],
       "origin": "community",
       "by": "MustardChef",
       "src": "https://github.com/MustardChef/WSABuilds",
       "note": "ארכיון 7z: לפרוק ולהריץ Run.bat. דורש וירטואליזציה מופעלת. המהדורה השנייה כוללת Google Play (712MB).",
       "noteEn": "7z archive: extract and run Run.bat. Needs virtualization enabled. Second edition includes Google Play (712MB).",
+      "silent": "UNPACK7:Run.bat",
       "alt": {
         "label": "עם Google Play",
         "labelEn": "with Google Play",
@@ -5421,7 +5425,8 @@
       ],
       "origin": "community",
       "note": "קובץ נתונים, לא מתקין — אין מה להריץ. חובה גם את חלק 2, באותה תיקייה. זית פורסת את שניהם בעצמה.",
-      "noteEn": "A data file, not an installer — there is nothing to run. Part 2 is required too, in the same folder. Zayit unpacks both itself."
+      "noteEn": "A data file, not an installer — there is nothing to run. Part 2 is required too, in the same folder. Zayit unpacks both itself.",
+      "silent": "COPY:ספרים לזית"
     },
     {
       "he": "מסד הספרים של זית — חלק 2 מתוך 2",
@@ -5454,7 +5459,8 @@
       ],
       "origin": "community",
       "note": "רק להניח ליד חלק 1, באותה תיקייה. את השאר התוכנה עושה לבד.",
-      "noteEn": "Just drop it beside part 1, in the same folder. The program does the rest."
+      "noteEn": "Just drop it beside part 1, in the same folder. The program does the rest.",
+      "silent": "COPY:ספרים לזית"
     },
     {
       "he": "אוצריא",
@@ -5616,7 +5622,8 @@
         "Kiwix"
       ],
       "note": "קובץ תוכן לקיוויקס, לא תוכנה. וזה טקסט שהקהילה עורכת — מצוין לחיפוש ולעיון, לא מהדורה מוגהת.",
-      "noteEn": "A content file for Kiwix, not a program. And it is a community-edited text — excellent for looking things up, not a proofread edition."
+      "noteEn": "A content file for Kiwix, not a program. And it is a community-edited text — excellent for looking things up, not a proofread edition.",
+      "silent": "COPY:Kiwix"
     },
     {
       "he": "פרויקט לוח",
@@ -5775,7 +5782,8 @@
       "relver": "v0.21.0",
       "origin": "community",
       "note": "חבילת התקנה (sideload), לא מתקין רגיל: לפרוק את ה-zip ולהריץ את Install.ps1 בהרשאות מנהל — הוא בוטח בתעודה ומתקין את האפליקציה ואת התלויות שבתיקיית Dependencies. אחרי זה נפתחת לגמרי בלי רשת. קוד פתוח GPL.",
-      "noteEn": "A sideload package, not a plain installer: extract the zip and run Install.ps1 as admin — it trusts the certificate and installs the app plus the dependencies in the Dependencies folder. After that it opens fully offline. Open source, GPL."
+      "noteEn": "A sideload package, not a plain installer: extract the zip and run Install.ps1 as admin — it trusts the certificate and installs the app plus the dependencies in the Dependencies folder. After that it opens fully offline. Open source, GPL.",
+      "silent": "SIDELOAD:Install.ps1"
     },
     {
       "he": "Sysinternals Suite",
@@ -5829,7 +5837,8 @@
       "langMode": "follows-windows",
       "origin": "microsoft",
       "note": "קובץ msixbundle רשמי ממיקרוסופט (לא מהחנות): לחיצה כפולה פותחת את App Installer שמתקין אותו, והוא נפתח אופליין. גדול — כ-1.1 ג״ב. חלופה קלה יותר: \"כלי הדיבוג של Windows\" שבתוך ערכת ה-SDK.",
-      "noteEn": "An official msixbundle from Microsoft (not the Store): double-click opens App Installer to install it, and it opens offline. Large — about 1.1 GB. A lighter alternative is the 'Debugging Tools for Windows' in the Windows SDK."
+      "noteEn": "An official msixbundle from Microsoft (not the Store): double-click opens App Installer to install it, and it opens offline. Large — about 1.1 GB. A lighter alternative is the 'Debugging Tools for Windows' in the Windows SDK.",
+      "silent": "APPX:"
     },
     {
       "he": "Xournal++",
