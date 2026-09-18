@@ -4665,7 +4665,7 @@
       "cat": "תוכנות נפוצות",
       "desc": "חבילת אופיס מלאה וחינמית — קוראת וכותבת קובצי Word, Excel ו-PowerPoint",
       "color": "#18a303",
-      "url": "https://download.documentfoundation.org/libreoffice/stable/26.2.5/win/x86_64/LibreOffice_26.2.5_Win_x86-64.msi",
+      "url": "https://download.documentfoundation.org/libreoffice/stable/26.2.6/win/x86_64/LibreOffice_26.2.6_Win_x86-64.msi",
       "match": "LibreOffice_*_Win_x86-64.msi",
       "files": [
         {

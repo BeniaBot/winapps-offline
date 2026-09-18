@@ -3731,10 +3731,19 @@ DISC.at    = new Map();    // catalogue name (sometimes a pattern) -> the real f
 function discWire() {
   if (!DISC.on) return;
   const names = new Set();
+  /* Names a card pins in full, beside whatever its star matches. A star must never resolve to one
+     of those: it is a different offer on the same card, and the card already says which file it
+     is. Everything is the case that proves it - its card offers the stable 1.4 as the download and
+     1.5 as the beta beside it, in those words, and a star told only to prefer the newest picks the
+     beta for both buttons while the card promises the stable. */
+  const pinned = new Set();
   (DATA.apps || []).forEach(a => {
-    (a.files || []).forEach(f => f.exe && names.add(f.exe));
-    if (a.xlat && a.xlat.exe) names.add(a.xlat.exe);
-    if (a.alt && a.alt.url) names.add(decodeURIComponent(a.alt.url.split('/').pop()));
+    (a.files || []).forEach(f => { if (f.exe) { names.add(f.exe); if (f.exe.indexOf('*') < 0) pinned.add(f.exe); } });
+    if (a.xlat && a.xlat.exe) { names.add(a.xlat.exe); if (a.xlat.exe.indexOf('*') < 0) pinned.add(a.xlat.exe); }
+    if (a.alt && a.alt.url) {
+      const n = decodeURIComponent(a.alt.url.split('/').pop());
+      names.add(n); pinned.add(n);
+    }
   });
   /* A star stands in for the version, so the card keeps working when a newer build replaces the
      old one. But the library can hold two builds of one program at once - a card may offer the
@@ -3760,7 +3769,11 @@ function discWire() {
     if (n.indexOf('*') < 0) return;
     const re = new RegExp('^' + n.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$', 'i');
     let best = null;
-    for (const f of DISC.have) if (re.test(f) && (best === null || newer(n, f, best))) best = f;
+    for (const f of DISC.have) if (re.test(f) && !pinned.has(f) && (best === null || newer(n, f, best))) best = f;
+    /* Everything the star could mean is spoken for by a name elsewhere. Better the pinned file
+       than nothing: a card with no file installs nothing, which is worse than one that installs
+       its own second offer. */
+    if (!best) for (const f of DISC.have) if (re.test(f) && (best === null || newer(n, f, best))) best = f;
     if (best) DISC.at.set(n, best);
   });
   document.body.classList.add('on-disc');
