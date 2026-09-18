@@ -1185,6 +1185,9 @@ const EN = {
   'עצירה אחרי הנוכחית': 'Stop after this one',
   'כבר רצה התקנה אחרת. להמתין לסיומה.': 'Another install is already running. Wait for it to finish.',
   'סיימנו. אפשר לסגור את החלון.': 'Finished. You can close this.',
+  'לא רצה': 'did not run',
+  'החנות לא מצליחה לדבר עם המתקין. אפשר להתקין גם בלעדיה: בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה, בשם בעברית - לחיצה כפולה עליו מתקינה אותה.':
+    'The shop cannot reach the installer. You can install without it: the "מתקינים" folder on this disc holds one file per program - double-click one to install it.',
   'מותקנת': 'installed',
   'יש עדכון': 'update available',
   'לא מתאים ל-Windows הזה': 'not for this Windows',
@@ -3654,8 +3657,14 @@ function isoButtons() {
    card - already installed, an older version, or a Windows too old for it - which a web page has
    no way to know, and which the disc's old native shell knew and would have taken with it. */
 const DISC = window.DISC || { on: false };
-DISC.have = new Set(DISC.files || []);
-DISC.at   = new Map();     // catalogue name (sometimes a pattern) -> the real file on the disc
+/* These three lines run at the top level of the page's only script block, and whatever the host
+   handed us came from a file on a disc that has been in somebody's drive. new Set(x) throws on
+   anything that is not iterable, and a throw here takes the entire rest of the script with it -
+   not a missing badge, a blank page with a shelf of nothing. Neither list is worth that: without
+   them the shop simply stops claiming to know what is installed. */
+DISC.have  = new Set(Array.isArray(DISC.files) ? DISC.files : []);
+DISC.state = (DISC.state && typeof DISC.state === 'object') ? DISC.state : {};
+DISC.at    = new Map();    // catalogue name (sometimes a pattern) -> the real file on the disc
 
 /* A vendor entry names its file the way the vendor spells it, version and all: "Firefox
    Setup*.exe". The disc holds one concrete file. Matched once, here, rather than guessed. */
@@ -3667,11 +3676,32 @@ function discWire() {
     if (a.xlat && a.xlat.exe) names.add(a.xlat.exe);
     if (a.alt && a.alt.url) names.add(decodeURIComponent(a.alt.url.split('/').pop()));
   });
+  /* A star stands in for the version, so the card keeps working when a newer build replaces the
+     old one. But the library can hold two builds of one program at once - a card may offer the
+     maker's own earlier release beside the current one - and then the star matches both. Taking
+     the first match meant taking whichever name came back first, which is the older one as often
+     as not: the shop would install a two-year-old build and report the current version.
+     So: when a star matches several files, the newest wins, judged only on the text the star
+     itself covers. Everything else in the name is literal and identical across the matches. */
+  const wildNums = (pat, f) => {
+    const m = f.match(new RegExp('^' + pat.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '(.*)') + '$', 'i'));
+    return m ? (m.slice(1).join('.').match(/\d+/g) || []).map(Number) : null;
+  };
+  const newer = (pat, a, b) => {
+    const x = wildNums(pat, a) || [], y = wildNums(pat, b) || [];
+    for (let i = 0; i < Math.max(x.length, y.length); i++) {
+      const xi = x[i] || 0, yi = y[i] || 0;
+      if (xi !== yi) return xi > yi;
+    }
+    return a.localeCompare(b) > 0;
+  };
   names.forEach(n => {
     if (DISC.have.has(n)) { DISC.at.set(n, n); return; }
     if (n.indexOf('*') < 0) return;
     const re = new RegExp('^' + n.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$', 'i');
-    for (const f of DISC.have) if (re.test(f)) { DISC.at.set(n, f); return; }
+    let best = null;
+    for (const f of DISC.have) if (re.test(f) && (best === null || newer(n, f, best))) best = f;
+    if (best) DISC.at.set(n, best);
   });
   document.body.classList.add('on-disc');
   /* Watched, not swept once: the shelf, every card sheet and every panel are drawn later, and the
@@ -3694,7 +3724,14 @@ const discFile = exe => DISC.on ? (DISC.at.get(exe) || null) : exe;
    came afterwards, in a panel, after a click. On a disc the button can simply tell the truth up
    front and open the folder instead. */
 const discManual = a => DISC.on && !!a.w32 && !a.silent;
-const discSay  = msg => { try { window.chrome.webview.postMessage(msg); } catch (e) { console.error(e); } };
+/* Returns whether the frame actually heard it. It used to swallow the failure into the console,
+   which nobody on a disc will ever open: the panel opened, sent "install", was heard by nothing,
+   and every row sat on "ממתינה" until the person gave up. A shop that cannot install has to say
+   so on the screen the person is looking at. */
+const discSay = msg => {
+  try { window.chrome.webview.postMessage(msg); return true; }
+  catch (e) { console.error(e); return false; }
+};
 
 /* Seven quick taps on a panel's heading. No hint, no cursor change, no counter, no half-way
    feedback - somebody who was not told about it is meant to find nothing here at all.
@@ -3927,7 +3964,16 @@ function discInstall(exes) {
   discPanel = ov;
   ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; };
   ov.querySelector('#dstop').onclick = () => discSay('cancel');
-  discSay('install\t' + real.join('\t'));
+  if (!discSay('install\t' + real.join('\t'))) {
+    /* Nothing is listening, so nothing will ever move these rows. Say it, and say the one thing
+       that still works on this disc without us: the "מתקינים" folder holds a Hebrew-named file
+       per program, and a double-click on one installs it. */
+    ov.querySelector('.dlnote').textContent =
+      T('החנות לא מצליחה לדבר עם המתקין. אפשר להתקין גם בלעדיה: בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה, בשם בעברית - לחיצה כפולה עליו מתקינה אותה.');
+    ov.querySelector('.dlnote').classList.add('warn');
+    ov.querySelector('#dstop').style.display = 'none';
+    ov.querySelectorAll('.dlstate').forEach(s => { s.textContent = T('לא רצה'); });
+  }
 }
 
 const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
@@ -3940,20 +3986,27 @@ if (DISC.on && window.chrome && window.chrome.webview) {
   window.chrome.webview.addEventListener('message', ev => {
     const p = String(ev.data || '').split('\t');
     if (p[0] !== 'job' || !discPanel) return;
-    const exe = p[1], state = p[2];
+    /* A message is three fields, and every line below used to assume all three arrived. They do -
+       one function on the other side writes them - but the panel a person is watching should not
+       depend on that: a truncated line threw inside a listener, which the browser swallows, and
+       the visible result was a row that never left "ממתינה" while the install actually ran. */
+    const exe = p[1] || '', state = p[2] || '';
+    const note = discPanel.querySelector('.dlnote');
+    if (!state || !note) return;
     if (state === 'firewall') {
-      const n = discPanel.querySelector('.dlnote');
-      n.textContent = T('שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. ' +
-                        'זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.');
-      n.classList.add('warn');
+      note.textContent = T('שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. ' +
+                           'זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.');
+      note.classList.add('warn');
       return;
     }
-    if (state === 'busy') { discPanel.querySelector('.dlnote').textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); return; }
+    if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); return; }
     if (state === 'finished') {
-      discPanel.querySelector('#dstop').style.display = 'none';
-      discPanel.querySelector('.dlnote').textContent = T('סיימנו. אפשר לסגור את החלון.');
+      const stop = discPanel.querySelector('#dstop');
+      if (stop) stop.style.display = 'none';
+      note.textContent = T('סיימנו. אפשר לסגור את החלון.');
       return;
     }
+    if (!exe) return;
     const row = discPanel.querySelector('.dlitem[data-exe="' + exe.replace(/"/g, '\\"') + '"]');
     if (!row) return;
     row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
