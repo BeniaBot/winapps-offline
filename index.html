@@ -1242,6 +1242,11 @@ const EN = {
     'A restore point needs administrator rights. The installs continue without one.',
   'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.':
     'The restore point could not be created. The installs continue without one.',
+  '✕ הדיסק יצא מהכונן': '✕ the disc left the drive',
+  '✕ אין מספיק מקום בכונן': '✕ not enough room on the drive',
+  'לוקח זמן — כנראה עדיין מתקינה ברקע': 'taking a while — probably still installing in the background',
+  'הדיסק יצא מהכונן באמצע ההתקנה. מחזירים אותו ולוחצים התקנה שוב — מה שכבר הותקן לא יותקן שוב.':
+    'The disc left the drive mid-install. Put it back and press Install again - whatever already installed will not be installed twice.',
   'האפליקציה הזאת לא נמצאת בדיסק הזה.': 'This app is not on this disc.',
   'עצירה אחרי הנוכחית': 'Stop after this one',
   'כבר רצה התקנה אחרת. להמתין לסיומה.': 'Another install is already running. Wait for it to finish.',
@@ -1265,6 +1270,14 @@ const EN = {
   'הדיסק בודק מה כבר יש במחשב הזה. "מותקנת" — כבר אצלכם, אין מה לעשות. "יש עדכון" — מותקנת אצלכם גרסה ישנה יותר מזו שבדיסק. "לא מתאים ל-Windows הזה" — הגרסה כאן דורשת Windows חדש יותר. אפשר לסנן לפי זה בשורת הקטגוריות.':
     'The disc checks what this PC already has. "Installed" — already yours, nothing to do. "Update available" — you have an older version than the one here. "Not for this Windows" — the build here needs a newer Windows. You can filter by all of this in the chip row.',
   'אם החנות לא נפתחת': 'If the shop will not open',
+  'על אילו מחשבים זה עובד': 'Which computers this works on',
+  'Windows 10 ו-Windows 11, וגם Windows Server מ-2016 ומעלה. על Windows 7, 8 ו-8.1 החנות לא תיפתח — מנוע התצוגה שהיא נושאת הפסיק לתמוך בהם. גם שם אפשר להתקין, ידנית מתיקיית "מתקינים".':
+    'Windows 10 and Windows 11, and Windows Server 2016 and newer. On Windows 7, 8 and 8.1 the shop will not open - the display engine it carries stopped supporting them. You can still install there, by hand from the מתקינים folder.',
+  'אם גם זה לא עובד: במחשבים עם מדיניות אבטחה נוקשה Windows חוסם הרצה של תוכנות שאינן חתומות דיגיטלית, וזה המצב כאן. צריך מנהל מערכת שיאשר, ואין דרך לעקוף את זה מהדיסק.':
+    'If that does not work either: on machines with a strict security policy Windows blocks programs that are not digitally signed, and these are not. A system administrator has to allow it, and there is no way around that from the disc.',
+  'לבדוק שהדיסק עצמו תקין': 'Checking the disc itself',
+  'דיסק שרוט או צריבה שנכשלה נראים בדיוק כמו תוכנה שבורה. בתיקייה "אתר\tools" שעל הדיסק יש "בדיקת-דיסק.bat" — הוא בודק כל קובץ מול החתימה שלו ואומר מי מהשניים זה. לוקח כמה דקות.':
+    'A scratched disc and a failed burn look exactly like broken software. The אתר\tools folder on this disc holds "בדיקת-דיסק.bat" - it checks every file against its fingerprint and tells you which of the two it is. Takes a few minutes.',
   'בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה. לחיצה כפולה על אחד מהם מתקינה אותו, בלי החנות ובלי שום דבר אחר.':
     'The "מתקינים" folder on this disc holds one file per app. Double-click one and it installs, with no shop and nothing else.',
   'הקבצים של מיקרוסופט הועתקו לכאן מהשרתים שלה, חתומים בחתימה הדיגיטלית שלה, ללא שינוי. שני יוצאים מן הכלל, ושניהם כתובים בגלוי על הכרטיס: אפליקציה שתורגמה כאן, ואפליקציה שתוקנה כדי להיפתח במחשב מנותק. בשתיהן החבילה נפתחה ונחתמה מחדש — ולצד כל אחת מהן יש בדיסק גם את המקורית של היצרן.':
@@ -4130,8 +4143,13 @@ function discHelp() {
     '<li>' + T('זהו. רוב ההתקנות אינן מבקשות סיסמת מנהל.') + '</li></ol>' +
     '<h4>' + T('מה המילים הצבעוניות על האריחים') + '</h4>' +
     '<p>' + T('הדיסק בודק מה כבר יש במחשב הזה. "מותקנת" — כבר אצלכם, אין מה לעשות. "יש עדכון" — מותקנת אצלכם גרסה ישנה יותר מזו שבדיסק. "לא מתאים ל-Windows הזה" — הגרסה כאן דורשת Windows חדש יותר. אפשר לסנן לפי זה בשורת הקטגוריות.') + '</p>' +
+    '<h4>' + T('על אילו מחשבים זה עובד') + '</h4>' +
+    '<p>' + T('Windows 10 ו-Windows 11, וגם Windows Server מ-2016 ומעלה. על Windows 7, 8 ו-8.1 החנות לא תיפתח — מנוע התצוגה שהיא נושאת הפסיק לתמוך בהם. גם שם אפשר להתקין, ידנית מתיקיית "מתקינים".') + '</p>' +
     '<h4>' + T('אם החנות לא נפתחת') + '</h4>' +
     '<p>' + T('בתיקיית "מתקינים" שעל הדיסק יש קובץ נפרד לכל אפליקציה. לחיצה כפולה על אחד מהם מתקינה אותו, בלי החנות ובלי שום דבר אחר.') + '</p>' +
+    '<p>' + T('אם גם זה לא עובד: במחשבים עם מדיניות אבטחה נוקשה Windows חוסם הרצה של תוכנות שאינן חתומות דיגיטלית, וזה המצב כאן. צריך מנהל מערכת שיאשר, ואין דרך לעקוף את זה מהדיסק.') + '</p>' +
+    '<h4>' + T('לבדוק שהדיסק עצמו תקין') + '</h4>' +
+    '<p>' + T('דיסק שרוט או צריבה שנכשלה נראים בדיוק כמו תוכנה שבורה. בתיקייה "אתר\\tools" שעל הדיסק יש "בדיקת-דיסק.bat" — הוא בודק כל קובץ מול החתימה שלו ואומר מי מהשניים זה. לוקח כמה דקות.') + '</p>' +
     '<h4>' + T('האם זה בטוח') + '</h4>' +
     '<p>' + T('הקבצים של מיקרוסופט הועתקו לכאן מהשרתים שלה, חתומים בחתימה הדיגיטלית שלה, ללא שינוי. שני יוצאים מן הכלל, ושניהם כתובים בגלוי על הכרטיס: אפליקציה שתורגמה כאן, ואפליקציה שתוקנה כדי להיפתח במחשב מנותק. בשתיהן החבילה נפתחה ונחתמה מחדש — ולצד כל אחת מהן יש בדיסק גם את המקורית של היצרן.') + '</p>' +
     (m ? '<p style="margin-top:10px;color:var(--muted);font-size:.8rem">' +
@@ -4309,6 +4327,15 @@ function discInstall(exes) {
 const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed: '✕ נכשלה',
                      handson: '← נפתח חלון, יש להמשיך בו', opening: 'נפתח…',
                      unpacking: 'פורק מהדיסק…', copying: 'מעתיק…',
+                     /* "ejected" and "slow" are not kinds of failure and must not read as one.
+                        The disc leaving the drive stops the whole queue - saying "failed" forty
+                        times would hide the one fact that matters, and the fix is putting it back.
+                        And a timeout is not a stopped install: Process.Kill ends the process we
+                        started, so an MSI that ran out of time is still being installed by the
+                        Windows Installer service. Telling somebody it failed invites them to
+                        start a second one on top of it. */
+                     ejected: '✕ הדיסק יצא מהכונן', slow: 'לוקח זמן — כנראה עדיין מתקינה ברקע',
+                     nospace: '✕ אין מספיק מקום בכונן',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
@@ -4355,11 +4382,17 @@ if (DISC.on && window.chrome && window.chrome.webview) {
       return;
     }
     if (!exe) return;
+    // the disc leaving the drive is about the whole run, not about one row
+    if (state === 'ejected') {
+      note.textContent = T('הדיסק יצא מהכונן באמצע ההתקנה. מחזירים אותו ולוחצים התקנה שוב — מה שכבר הותקן לא יותקן שוב.');
+      note.classList.add('warn');
+    }
     const row = discPanel.querySelector('.dlitem[data-exe="' + exe.replace(/"/g, '\\"') + '"]');
     if (!row) return;
     row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
     row.classList.toggle('done', state === 'done');
-    row.classList.toggle('bad', state === 'failed');
+    // "ejected" is red because something really did stop; "slow" is not, because nothing did
+    row.classList.toggle('bad', state === 'failed' || state === 'ejected');
   });
 }
 
