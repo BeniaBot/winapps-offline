@@ -5497,7 +5497,7 @@
       "cat": "תורה ולימוד",
       "desc": "ספרייה תורנית שהספרים כבר בתוך המתקין — תנ״ך, ש״ס, מדרש, הלכה, שו״ת וקבלה, עם חיפוש.",
       "color": "#8b5a2b",
-      "url": "https://github.com/Otzaria/otzaria/releases/download/0.9.96%2B736/otzaria-0.9.96-windows-full.exe",
+      "url": "https://github.com/Otzaria/otzaria/releases/download/0.9.97%2B789/otzaria-0.9.97-windows-full.exe",
       "match": "otzaria-*-windows-full.exe",
       "files": [
         {
@@ -5513,7 +5513,7 @@
       "heb": true,
       "langMode": "hebrew-only",
       "repo": "Otzaria/otzaria",
-      "relver": "0.9.96+736",
+      "relver": "0.9.97+789",
       "needs": [
         "VCRedist64",
         "WebView2"

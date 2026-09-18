@@ -3288,7 +3288,7 @@
       "net": false,
       "heb": true,
       "w32": true,
-      "url": "https://github.com/Otzaria/otzaria/releases/download/0.9.96%2B736/otzaria-0.9.96-windows-full.exe",
+      "url": "https://github.com/Otzaria/otzaria/releases/download/0.9.97%2B789/otzaria-0.9.97-windows-full.exe",
       "match": "otzaria-*-windows-full.exe",
       "silent": "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS",
       "repo": "Otzaria/otzaria",
@@ -3305,7 +3305,7 @@
         "WebView2"
       ],
       "origin": "community",
-      "relver": "0.9.96+736",
+      "relver": "0.9.97+789",
       "files": [
         {
           "exe": "otzaria-*-windows-full.exe",
