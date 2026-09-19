@@ -1,5 +1,5 @@
 {
-  "BeniaBot/subtitle-studio": { "version": "v0.7.2", "asset": "SubtitleStudio.exe", "bytes": 38413312 },
+  "BeniaBot/subtitle-studio": { "version": "v0.7.3", "asset": "SubtitleStudio.exe", "bytes": 38482944 },
   "BeniaBot/tiknick": { "version": "v0.9.5", "asset": "TikNick-Setup.exe", "bytes": 17770257 },
   "BeniaBot/2049": { "version": "v0.17.0", "asset": "2049_Setup.exe", "bytes": 31625805 },
   "BeniaBot/Csharf": { "version": "v2.0", "asset": "Csharf.bat", "bytes": 48283 },

@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -16,18 +16,18 @@
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 5,
-  "total": 6
+  "seen": 9,
+  "total": 10
  },
  "IsoBuilder.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 19,
+  "total": 19
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -36,8 +36,8 @@
  },
  "Setup-3DViewer.exe": {
   "carry": 3,
-  "seen": 11,
-  "total": 14
+  "seen": 12,
+  "total": 15
  },
  "Setup-AnyDesk-5.2.exe": {
   "carry": 1,
@@ -86,18 +86,18 @@
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 9,
-  "total": 12
+  "seen": 10,
+  "total": 13
  },
  "Setup-Copilot.exe": {
   "carry": 1,
-  "seen": 8,
-  "total": 9
+  "seen": 9,
+  "total": 10
  },
  "Setup-CrossDevice-Win10.exe": {
   "carry": 0,
-  "seen": 8,
-  "total": 8
+  "seen": 9,
+  "total": 9
  },
  "Setup-CrossDevice-Win11.exe": {
   "carry": 1,
@@ -141,8 +141,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 13,
-  "total": 13
+  "seen": 14,
+  "total": 14
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -181,8 +181,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 18,
-  "total": 42
+  "seen": 21,
+  "total": 45
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -201,8 +201,8 @@
  },
  "Setup-MixedReality.exe": {
   "carry": 2,
-  "seen": 10,
-  "total": 12
+  "seen": 12,
+  "total": 14
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
@@ -211,13 +211,13 @@
  },
  "Setup-News.exe": {
   "carry": 0,
-  "seen": 13,
-  "total": 13
+  "seen": 14,
+  "total": 14
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 20,
-  "total": 25
+  "seen": 21,
+  "total": 26
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -316,18 +316,18 @@
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 1,
-  "seen": 9,
-  "total": 10
+  "seen": 10,
+  "total": 11
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 3,
-  "seen": 9,
-  "total": 12
+  "seen": 12,
+  "total": 15
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
-  "seen": 9,
-  "total": 9
+  "seen": 10,
+  "total": 10
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
@@ -341,8 +341,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 11,
-  "total": 18
+  "seen": 12,
+  "total": 19
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -351,8 +351,8 @@
  },
  "Setup-StorePurchase.exe": {
   "carry": 1,
-  "seen": 10,
-  "total": 11
+  "seen": 11,
+  "total": 12
  },
  "Setup-Sway-Original.exe": {
   "carry": 6,
@@ -386,8 +386,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 11,
-  "total": 16
+  "seen": 12,
+  "total": 17
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -396,8 +396,8 @@
  },
  "Setup-Translator.exe": {
   "carry": 9,
-  "seen": 16,
-  "total": 25
+  "seen": 17,
+  "total": 26
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
@@ -421,8 +421,8 @@
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
-  "seen": 9,
-  "total": 13
+  "seen": 10,
+  "total": 14
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
@@ -456,13 +456,13 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 13,
-  "total": 13
+  "seen": 14,
+  "total": 14
  },
  "TikNick-Setup.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "VC2005-x64.exe": {
   "carry": 0,
@@ -520,14 +520,14 @@
   "total": 0
  },
  "WINAPPS-W10-CORE.iso": {
-  "carry": 8,
-  "seen": 2,
+  "carry": 10,
+  "seen": 0,
   "total": 10
  },
  "WINAPPS-W11-CORE.iso": {
-  "carry": 23,
-  "seen": 7,
-  "total": 30
+  "carry": 30,
+  "seen": 1,
+  "total": 31
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
