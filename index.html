@@ -1236,10 +1236,20 @@ const EN = {
   'נקודת שחזור נוצרה. מתחילים בהתקנה.': 'Restore point created. Starting the installs.',
   'שחזור המערכת כבוי במחשב הזה, אז לא נוצרה נקודה. ההתקנה ממשיכה.':
     'System Restore is switched off on this PC, so no point was made. The installs continue.',
-  'Windows לא יצר נקודה חדשה — כבר יש אחת מה-24 שעות האחרונות, והיא מגנה באותה מידה. ההתקנה ממשיכה.':
-    'Windows made no new point - there is already one from the last 24 hours, and it protects you just as well. The installs continue.',
   'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.':
     'A restore point needs administrator rights. The installs continue without one.',
+  'מתקין רכיב נדרש': 'Installing a required component',
+  '✕ נעצרה באמצע ולא הושלמה — צריך להפעיל שוב': '✕ Stopped part-way and did not finish — run it again',
+  '✓ הותקנה, אבל רכיב שהיא צריכה לא הותקן': '✓ Installed, but a component it needs was not',
+  'נפתחה — יש להמשיך בחלון שנפתח': 'Opened — carry on in the window that appeared',
+  '✕ הקובץ לא נקרא מהדיסק': '✕ The file could not be read from the disc',
+  '✕ צריך להתקין קודם את VS Code': '✕ Install VS Code first',
+  'Windows לא יצר נקודה חדשה — כבר יש במחשב נקודה קודמת, והיא מגנה באותה מידה. ההתקנה ממשיכה.':
+    'Windows made no new point — an earlier one already covers this machine. The installs continue.',
+  'לא נוצרה נקודת שחזור, ובמחשב הזה אין אף נקודה קיימת. ההתקנה ממשיכה — אבל בלי דרך חזרה.':
+    'No restore point was made, and this machine has none at all. The installs continue — but there is no way back.',
+  'שחזור המערכת היה כבוי במחשב הזה. הפעלתי אותו ויצרתי נקודת שחזור. ההתקנה מתחילה.':
+    'System Restore was switched off on this machine. It has been turned on and a point was created. Starting the installs.',
   'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.':
     'The restore point could not be created. The installs continue without one.',
   '✕ הדיסק יצא מהכונן': '✕ the disc left the drive',
@@ -2565,8 +2575,27 @@ document.addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    const ov = document.querySelector('.overlay');
-    if (ov) { ov.remove(); document.body.style.overflow = ''; }
+    /* The LAST overlay, not the first. querySelector returns the one earliest in the document,
+       which when two are stacked is the one underneath - so Escape closed the window behind the
+       window the person was looking at, and left theirs on screen. */
+    const all = document.querySelectorAll('.overlay');
+    const ov = all[all.length - 1];
+    if (!ov) return;
+    /* An install that is actually running is not dismissed by a stray key. Escape is precisely
+       what somebody presses to get rid of an installer's own window when it pops to the front -
+       and if the shop happens to hold focus instead, that keystroke used to tear the panel out of
+       the page while the batch carried on: nothing sent cancel, nothing warned, and the only
+       view of a run that was still changing the machine was gone. The סגירה button beside it
+       still closes the window; it just has to be meant. */
+    if (ov === discPanel && discRunning === ov) return;
+    /* Everything else goes out through the panel's own close path, which is where discPanel and
+       discRetry get cleared. Removing the node behind its back left both pointing at a window
+       that was no longer on the screen. */
+    if (ov === discPanel) {
+      const shut = ov.querySelector('#dshut');
+      if (shut) { shut.click(); return; }
+    }
+    ov.remove(); document.body.style.overflow = '';
     return;
   }
   if (e.key !== 'Enter' && e.key !== ' ') return;
@@ -4230,6 +4259,14 @@ function discAbout() {
 /* Hands the frame a list of files and watches it work. The page never runs anything itself - it
    cannot, and should not be able to. */
 let discPanel = null;
+/* The panel that actually sent an "install", as opposed to the panel that merely happens to be
+   open. They are not the same window, and treating them as one told people a flat untruth:
+   start a batch, press סגירה (the panel invites it - installing off a disc takes a long time and
+   the run continues without the window), open a new panel for something else, touch nothing.
+   Minutes later the FIRST batch ends, "finished" arrives, discPanel points at the new window, and
+   it says "סיימנו. אפשר לסגור את החלון." over a list where every row still reads ממתינה. Nothing
+   in that window had been installed, and nothing in it ever would be. */
+let discRunning = null;
 /* The message handler lives outside discInstall and has no way back into its closure, so a
    reply of "firewall" or "busy" - both of which mean nothing started - could put a Try again
    button on the panel but had nothing to hang on it. This is that handle, set when a panel
@@ -4307,7 +4344,10 @@ function discInstall(exes) {
   ov.querySelector('#dshut').onclick = () => { ov.remove(); document.body.style.overflow = ''; discPanel = null; discRetry = () => {}; };
   ov.querySelector('#dstop').onclick = () => discSay('cancel');
   const start = wantRestore => {
+  // this window owns the run from here on; every job message is matched against it
+  discRunning = ov;
   if (!discSay('install\t' + (wantRestore ? 'R1' : 'R0') + '\t' + real.join('\t'))) {
+    discRunning = null;   // nothing is listening, so nothing is running either
     /* Nothing is listening, so nothing will ever move these rows. Say it, and say the one thing
        that still works on this disc without us: the "מתקינים" folder holds a Hebrew-named file
        per program, and a double-click on one installs it. */
@@ -4357,6 +4397,16 @@ const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed:
                      ejected: '✕ הדיסק יצא מהכונן', slow: 'לוקח זמן — כנראה עדיין מתקינה ברקע',
                      nospace: '✕ אין מספיק מקום בכונן',
                      no7zip: '✕ חסר 7-Zip',
+                     /* These five used to have no word at all, so every one of them printed
+                        "✕ נכשלה" - including the three that are not failures. "slow" is reserved
+                        for msiexec, whose work a Windows service finishes without it; anything
+                        else that ran out of time was really stopped, and saying otherwise sent
+                        people away to wait for nothing. */
+                     stopped: '✕ נעצרה באמצע ולא הושלמה — צריך להפעיל שוב',
+                     partial: '✓ הותקנה, אבל רכיב שהיא צריכה לא הותקן',
+                     opened: 'נפתחה — יש להמשיך בחלון שנפתח',
+                     gonemissing: '✕ הקובץ לא נקרא מהדיסק',
+                     needvscode: '✕ צריך להתקין קודם את VS Code',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
@@ -4366,6 +4416,10 @@ if (DISC.on && window.chrome && window.chrome.webview) {
   window.chrome.webview.addEventListener('message', ev => {
     const p = String(ev.data || '').split('\t');
     if (p[0] !== 'job' || !discPanel) return;
+    /* Only the window that started this run may be written to. A different window open on the
+       shelf is a different question being asked, and answering it with somebody else's progress
+       - or with somebody else's "we are done" - is worse than saying nothing. */
+    if (discPanel !== discRunning) return;
     /* A message is three fields, and every line below used to assume all three arrived. They do -
        one function on the other side writes them - but the panel a person is watching should not
        depend on that: a truncated line threw inside a listener, which the browser swallows, and
@@ -4382,66 +4436,117 @@ if (DISC.on && window.chrome && window.chrome.webview) {
       if (!acts || discPanel.querySelector('#dgo')) return;
       const b = document.createElement('button');
       b.className = 'btn'; b.id = 'dgo'; b.textContent = T('לנסות שוב');
-      b.onclick = () => { b.remove(); note.classList.remove('warn'); discRetry(); };
+      b.onclick = () => { b.remove(); note.classList.remove('warn'); delete note.dataset.stuck; discRetry(); };
       acts.insertBefore(b, acts.firstChild);
     };
+    /* 'stuck' and 'warn' were one flag doing two jobs, and the jobs disagree.
+       warn = paint it amber. stuck = do not let 'finished' write over it.
+       Overloading warn meant the restore-point note - amber on every machine whose System Restore
+       is off, which is most factory Windows - silenced "we are done, you can close the window"
+       for the entire run. The person watched every row finish and was never told the run had. */
+    const stick = () => { note.classList.add('warn'); note.dataset.stuck = '1'; };
     if (state === 'firewall') {
       note.textContent = T('שירות חומת האש של Windows כבוי במחשב הזה, ובלעדיו Windows לא מתקין שום אפליקציה מהחנות. ' +
                            'זו לא בעיה בדיסק. להדלקה: services.msc ← Windows Defender Firewall ← הפעל.');
-      note.classList.add('warn');
+      stick();
       again();
       return;
     }
-    if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); again(); return; }
+    /* Marked like the others. It was the one blocker left plain, so the OTHER batch's 'finished'
+       - which arrives on every open panel - replaced "another install is already running" with
+       "we are done, you can close the window". Nothing of theirs had been installed. */
+    if (state === 'busy') { note.textContent = T('כבר רצה התקנה אחרת. להמתין לסיומה.'); stick(); again(); return; }
     /* Not the same as busy, and it used to say so wrongly: "another install is already running"
        sends somebody off to wait for nothing. This means the run table does not list any of what
        was picked, which on a disc means this cut does not carry them. */
     if (state === 'unknown') {
       note.textContent = T('אף אחת מהתוכנות שנבחרו לא נמצאת בדיסק הזה.');
-      note.classList.add('warn');
+      stick();
       return;
     }
-    /* The restore point, reported for what it actually did. Windows refuses to make a second one
-       within 24 hours and refuses SILENTLY, so "declined" is a real answer and not a failure - a
-       point from this morning protects them exactly as well. Saying "created" either way would be
-       the one lie that matters here. */
+    /* The restore point, reported for what it actually did - and only for what it actually did.
+       This used to explain itself with "Windows refuses a second point within 24 hours", which is
+       a story about a throttle value rather than something anybody measured; consecutive points
+       minutes apart are ordinary. So nothing here reasons from the clock. The engine counts the
+       points before and after and reports the difference, and the one case that used to be
+       dressed up as reassurance - none made, none there - now has its own red line. */
     if (state === 'restoring') { note.textContent = T('יוצר נקודת שחזור… זה לוקח כדקה.'); return; }
     if (state.indexOf('restored') === 0) {
       const rc = state.slice(8);
       note.textContent = T(
         rc === '0' ? 'נקודת שחזור נוצרה. מתחילים בהתקנה.' :
         rc === '1' ? 'שחזור המערכת כבוי במחשב הזה, אז לא נוצרה נקודה. ההתקנה ממשיכה.' :
-        rc === '2' ? 'Windows לא יצר נקודה חדשה — כבר יש אחת מה-24 שעות האחרונות, והיא מגנה באותה מידה. ההתקנה ממשיכה.' :
+        rc === '2' ? 'Windows לא יצר נקודה חדשה — כבר יש במחשב נקודה קודמת, והיא מגנה באותה מידה. ההתקנה ממשיכה.' :
+        /* The case most programs simply fail on: System Protection was never configured for the
+           system drive, so Windows refuses. We switch it on and try again - and tell them, because
+           it is a Windows setting on their machine and not ours to change quietly. */
+        rc === '6' ? 'שחזור המערכת היה כבוי במחשב הזה. הפעלתי אותו ויצרתי נקודת שחזור. ההתקנה מתחילה.' :
         rc === '3' ? 'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.' :
+        /* 5 is the case that used to be told as 2. "Windows declined" is a comfort only when
+           there is something to fall back on; with no point on the machine at all it was a lie
+           in calm grey, and the person went on to install twenty programs believing the
+           afternoon could be undone. */
+        rc === '5' ? 'לא נוצרה נקודת שחזור, ובמחשב הזה אין אף נקודה קיימת. ההתקנה ממשיכה — אבל בלי דרך חזרה.' :
                      'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.');
-      note.classList.toggle('warn', rc !== '0' && rc !== '2');
+      // 0, 2 and 6 all end with the machine protected; everything else is worth an amber line
+      note.classList.toggle('warn', rc !== '0' && rc !== '2' && rc !== '6');
       return;
     }
     if (state === 'finished') {
       const stop = discPanel.querySelector('#dstop');
       if (stop) stop.style.display = 'none';
-      /* Not over the top of a warning. "finished" always arrives, including one line after the
+      /* Not over the top of a blocker. "finished" always arrives, including one line after the
          disc has left the drive - and it was overwriting "put it back and press Install again"
          with "we're done, you can close the window", in warning colours, a second later. The one
-         sentence that told the person what to do was the one that vanished. */
-      if (!note.classList.contains('warn')) note.textContent = T('סיימנו. אפשר לסגור את החלון.');
+         sentence that told the person what to do was the one that vanished.
+         The guard reads dataset.stuck, not the warn class: an amber note is not automatically a
+         note worth keeping, and the commonest amber note of all - "System Restore is off on this
+         machine" - was swallowing the end of every single run. */
+      if (!note.dataset.stuck) note.textContent = T('סיימנו. אפשר לסגור את החלון.');
+      discRunning = null;
+      /* The shelf behind the panel was drawn from a snapshot the frame took before the first
+         paint, and nothing ever refreshed it. Somebody could install thirty programs, watch
+         every row turn ✓, close the panel - and the shelf still showed all thirty as not
+         installed, with the chip above still counting them as such. Clicking that chip listed
+         the programs they had just installed. One redraw, once, at the end. */
+      render();
       return;
     }
     if (!exe) return;
     // the disc leaving the drive is about the whole run, not about one row
     if (state === 'ejected') {
       note.textContent = T('הדיסק יצא מהכונן באמצע ההתקנה. מחזירים אותו ולוחצים התקנה שוב — מה שכבר הותקן לא יותקן שוב.');
-      note.classList.add('warn');
+      stick();
     }
     const row = discPanel.querySelector('.dlitem[data-exe="' + exe.replace(/"/g, '\\"') + '"]');
     if (!row) return;
+    /* A prerequisite's own name, carried behind a fixed prefix. It used to be posted bare -
+       "VC++ 2015–2022 (x64)" straight into the status column, where the lookup below found no
+       such key and printed the raw string as though it were a verdict. */
+    if (state.indexOf('prereq:') === 0) {
+      row.querySelector('.dlstate').textContent = T('מתקין רכיב נדרש') + ': ' + state.slice(7);
+      return;
+    }
     row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
+    /* Write the result back into the snapshot the shelf reads. 'here' is what discStateOf wants
+       to see; an entry that did not exist before (a file the boot scan found no trace of) gets
+       one now, with an empty version - the same shape DiscScript() emits. */
+    if (state === 'done') {
+      if (DISC.state[exe]) DISC.state[exe][0] = 'here';
+      else DISC.state[exe] = ['here', ''];
+    }
     row.classList.toggle('done', state === 'done');
     // "ejected" is red because something really did stop; "slow" is not, because nothing did
     // nospace and no7zip both start with ✕ and both stopped an install; they belong in red with
     // the rest. "slow" deliberately does not - nothing failed there.
+    /* Red is for "this did not happen and you need to do something". 'stopped' belongs there -
+       it is a killed installer, not a slow one. 'gonemissing' and 'needvscode' too: both stopped
+       an install and both have an action behind them. 'partial' and 'opened' stay neutral - the
+       program IS on the machine in the first case, and a window is waiting in the second. */
     row.classList.toggle('bad', state === 'failed' || state === 'ejected'
-                              || state === 'nospace' || state === 'no7zip');
+                              || state === 'nospace' || state === 'no7zip'
+                              || state === 'stopped' || state === 'gonemissing'
+                              || state === 'needvscode');
   });
 }
 
