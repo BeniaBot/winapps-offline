@@ -21,15 +21,34 @@
    table runs out, which it does, and after which a lookup alone would quietly find nothing. */
 (function () {
   var root = document.documentElement;
+  /* The closed shop is a COVER over the page, not a replacement of it.
+
+     It used to be a replacement: show() set document.body.innerHTML to the greeting and the
+     title to "שבת שלום". A person saw exactly what they see now. But a search engine renders
+     pages at all hours, roughly one visit in seven lands on Shabbat in Jerusalem, and what it
+     rendered then was a page with a two-word title and one line of text. The site was not in
+     Google's index at all - zero pages - while the project's README on GitHub was, and that is
+     the likeliest reason. A shop that nobody can find is closed seven days a week.
+
+     So the page stays whole underneath and two fixed pseudo-elements on <html> sit over it from
+     the very first paint: no body to wait for, no flash of the shop before the cover lands, and
+     no JavaScript on the path between "it is Shabbat" and "the screen says so". Nothing served
+     differs by who is asking, which is the line that must not be crossed - a crawler gets the
+     same page a person does, cover and all. show() below only takes the covered content out of
+     the keyboard's reach and leaves the title alone. */
   var st = document.createElement("style");
-  st.textContent = "html[data-rest] body{visibility:hidden}" +
-    "html[data-rest] body.rest{visibility:visible;display:flex;align-items:center;justify-content:center;" +
-    "min-height:100vh;margin:0;background:#0b1220;color:#e8eef8;text-align:center;" +
-    "font-family:system-ui,'Segoe UI',Arial,sans-serif}" +
-    ".rest .g{font-size:2.6rem;font-weight:800;letter-spacing:-.5px}" +
-    ".rest p{font-size:1.05rem;line-height:1.7;color:#9fb2cc;margin:1.1rem 0 0}";
+  st.textContent = "html[data-rest]{overflow:hidden}" +
+    "html[data-rest]::before{content:attr(data-greet);position:fixed;inset:0;z-index:2147483647;" +
+    "display:flex;align-items:center;justify-content:center;padding:2rem 2rem 6rem;box-sizing:border-box;" +
+    "background:#0b1220;color:#e8eef8;text-align:center;direction:rtl;" +
+    "font:800 2.6rem/1.2 system-ui,'Segoe UI',Arial,sans-serif;letter-spacing:-.5px}" +
+    "html[data-rest]::after{content:attr(data-when);position:fixed;left:0;right:0;top:50%;margin-top:1.4rem;" +
+    "z-index:2147483647;padding:0 2rem;text-align:center;direction:rtl;color:#9fb2cc;" +
+    "font:1.05rem/1.7 system-ui,'Segoe UI',Arial,sans-serif}";
   (document.head || root).appendChild(st);
   root.setAttribute("data-rest", "1");
+  root.setAttribute("data-greet", "שבת שלום");
+  root.setAttribute("data-when", "החנות סגורה.");
 
   /* The crude rule, for when the exact one is unavailable. Sunset in Jerusalem runs from about
      16:47 in December to about 19:50 in June, so in at 16:00 on Friday and out at 21:00 on
@@ -78,19 +97,31 @@
     shut = byClock();            // a table we cannot read is not a reason to trade on Shabbat
   }
 
-  if (!shut) { root.removeAttribute("data-rest"); return; }
-  function show() {
-    try {
-      document.body.className = "rest";
-      document.body.innerHTML = '<div style="max-width:34rem;padding:2rem"><div class="g"></div><p></p></div>';
-      document.body.querySelector(".g").textContent = greet;
-      document.body.querySelector("p").textContent =
-        "החנות סגורה" + (when ? ". " + when : "") + ".";
-      document.title = greet;
-    } catch (e) {
-      // whatever went wrong, the page stays shut and still says why
-      try { document.body.className = "rest"; document.body.textContent = greet; } catch (e2) { }
+  /* A way to SEE the closed shop on a weekday: ?shabbat=1 in the address. It can only close the
+     page, never open it - a key that only locks is safe to leave in the door - and it exists
+     because the alternative is waiting for Friday evening to find out what a change here did. */
+  try {
+    if (/[?&]shabbat=1(?:&|$)/.test(location.search)) {
+      if (!shut) { greet = "חג שמח"; when = ""; }
+      shut = true;
     }
+  } catch (e) { }
+  if (!shut) { root.removeAttribute("data-rest"); return; }
+  // the words on the cover; the cover itself has been up since the style tag above landed
+  root.setAttribute("data-greet", greet);
+  root.setAttribute("data-when", "החנות סגורה" + (when ? ". " + when : "") + ".");
+  function show() {
+    /* What the cover cannot do on its own: a keyboard walks straight through a fixed overlay,
+       Tab by Tab, into buttons nobody can see. inert takes every top-level element out of focus
+       and out of the accessibility tree while it is covered. The content is still in the page -
+       that is the whole point - it is just not reachable by anyone this evening. */
+    try {
+      var kids = document.body.children;
+      for (var k = 0; k < kids.length; k++) {
+        try { kids[k].inert = true; } catch (e0) { }
+        kids[k].setAttribute("aria-hidden", "true");
+      }
+    } catch (e) { }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", show);
   else show();
