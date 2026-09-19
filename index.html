@@ -3802,7 +3802,7 @@ langBtn.onclick = () => {
   LANG = LANG === 'he' ? 'en' : 'he';
   if (LANG === 'he') restoreDom();
   applyLang();
-  // the ISO anchors are one composite text node ("ליבה · Win 11 · 582MB"), which is not a
+  // the ISO anchors are one composite text node ("ליבה · Win 11 · 1.2GB"), which is not a
   // dictionary key - rebuilding them is the only thing that switches their language
   try { isoButtons(); } catch (e) { }
   render();
@@ -3858,8 +3858,12 @@ document.getElementById('q').addEventListener('input', e => {
 /* ===== ISO ===== */
 function isoButtons() {
   const b = [];
-  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">' + T('ליבה') + ' · Win 11 · <span dir="ltr">582MB</span></a>');
-  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">' + T('ליבה') + ' · Win 10 · <span dir="ltr">445MB</span></a>');
+  /* The sizes went from 582/445 MB to 1.2/1.1 GB when these two stopped being built by a second
+     shop of their own and became a cut of the same staging run as the big disc - which means they
+     now carry the browser engine, 668 MB of it, and with it every fix the big disc has had. A
+     small disc whose shop will not open on an offline Windows 10 is not small, it is broken. */
+  if (LIVE['WINAPPS-W11-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W11-CORE.iso">' + T('ליבה') + ' · Win 11 · <span dir="ltr">1.2GB</span></a>');
+  if (LIVE['WINAPPS-W10-CORE.iso']) b.push('<a class="btn" href="' + REL + 'WINAPPS-W10-CORE.iso">' + T('ליבה') + ' · Win 10 · <span dir="ltr">1.1GB</span></a>');
   /* The full disc has no home - a GitHub release asset stops at 2GB and the disc is fifteen
      times that. It sat here as a greyed-out "coming soon" for months, which is a dead end
      dressed as a promise. The path that does exist is better anyway: pick what the machine
