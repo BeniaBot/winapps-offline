@@ -1132,6 +1132,13 @@ let FILTER = 'all', QUERY = '', CATSEL = '', DATA = null, LIVE = {}, HEBONLY = f
    a disc in a strange machine is "show me what is NOT on here yet", and until now the only way to
    ask that was to read 149 tiles and check each one's badge. */
 let DSEL = '';
+/* On a CUT disc - one of the small ones, fourteen programs out of a catalogue of a hundred and
+   fifty - every program the disc does not carry was still drawn as a tile with a dead button.
+   The shop opened eighty-seven percent grey: a shelf of things you cannot have. Correct for a
+   sample cut nobody ships, wrong for a product somebody paid for.
+   So a cut disc shows what it carries, and one chip reveals the rest for anyone who wants to know
+   what a bigger disc would hold. Hiding it outright would be its own kind of dishonesty. */
+let DGONE = false;
 let TARGET = '11';
 /* app -> which build of it was picked: 'main' | 'xlat' (the Hebrew build) |
    'lang' (the vendor's other-language build) | 'alt' (a portable build).
@@ -1262,6 +1269,8 @@ const EN = {
   'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.':
     'A restore point needs administrator rights. The installs continue without one.',
   'מתקין רכיב נדרש': 'Installing a required component',
+  'להראות גם מה שאין בדיסק הזה': 'Also show what is not on this disc',
+  'רק מה שיש בדיסק': 'Only what is on the disc',
   'הקובץ שעל הדיסק הזה עדכני נכון ל': 'The copy on this disc was current as of',
   'ברגע שהמחשב יתחבר לרשת, Windows יביא בעצמו את החתימות החדשות. עד אז זה מה שיש, וזה עדיף בהרבה על כלום.':
     'The moment this computer reaches a network, Windows fetches the newer signatures itself. Until then this is what there is, and it is a great deal better than nothing.',
@@ -2390,6 +2399,7 @@ function tile(a) {
   if (DSEL && discStateOf(a) !== DSEL) return '';
   const f = bestFile(a);
   if (!f) return '';
+  if (discIsCut() && !DGONE && !isLive(a, f)) return '';
   const pl = plate(a, false);
   const twoAmbiguous = filesFor(a).length > 1 && FILTER === 'all';
   const verb = DISC.on ? (discManual(a) ? 'הצגת הקובץ' : 'התקנה') : 'הורדה';
@@ -2587,6 +2597,7 @@ document.addEventListener('click', e => {
   }
   const chip = e.target.closest('.chip');
   if (chip && chip.dataset.heb !== undefined) { HEBONLY = !HEBONLY; render(); return; }
+  if (chip && chip.dataset.dgone !== undefined) { DGONE = !DGONE; render(); return; }
   if (chip && chip.dataset.dsel !== undefined) { DSEL = chip.dataset.dsel; render(); return; }
   if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
   if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
@@ -4152,6 +4163,29 @@ function discStateOf(a) {
 }
 /* The words for the chip row, and the order they sit in: what is missing first, because that is
    the question, then what is out of date, then what is already here. */
+/* How much of the catalogue this particular disc actually carries. Counted once and remembered:
+   a disc does not change while somebody is looking at it. A third is the line - the full disc
+   carries everything, a core disc carries a tenth, and nothing sensible sits between. */
+let DCUT = null;
+function discCutInfo() {
+  if (DCUT) return DCUT;
+  if (!DISC.on) return { cut: false, gone: 0, total: 0 };
+  let total = 0, gone = 0;
+  for (const a of (DATA.apps || [])) {
+    const f = bestFile(a);
+    if (!f) continue;
+    total++;
+    if (!isLive(a, f)) gone++;
+  }
+  const info = { cut: total > 0 && gone > total / 3, gone: gone, total: total };
+  /* Only remembered once there is a catalogue to count. The first render happens before the JSON
+     has landed, so an answer taken then is "nothing is missing out of nothing" - and caching THAT
+     would have frozen every disc into the full-disc shelf for the rest of the session. */
+  if (total > 0) DCUT = info;
+  return info;
+}
+const discIsCut = () => discCutInfo().cut;
+
 const DSEL_WORD = [['missing', 'לא מותקנות'], ['older', 'יש עדכון'], ['here', 'מותקנות'],
                    ['tooold', 'לא מתאימות']];
 function discStateChips() {
@@ -4168,6 +4202,12 @@ function discStateChips() {
     if (!n[k]) continue;
     out.push('<button class="chip' + (DSEL === k ? ' on' : '') + '" data-dsel="' + k + '">' +
              T(word) + ' <span class="chipn" dir="ltr">' + n[k] + '</span></button>');
+  }
+  const cut = discCutInfo();
+  if (cut.cut) {
+    out.push('<button class="chip' + (DGONE ? ' on' : '') + '" data-dgone="1">' +
+             T(DGONE ? 'רק מה שיש בדיסק' : 'להראות גם מה שאין בדיסק הזה') +
+             ' <span class="chipn" dir="ltr">' + cut.gone + '</span></button>');
   }
   return out;
 }
