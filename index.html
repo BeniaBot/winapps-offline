@@ -560,6 +560,13 @@
            max-height: 92vh; overflow-y: auto; }
   .sheet .warn { color: var(--warn); font-size: .86rem; margin-top: 6px; }
   .sheet.dlpanel { width: min(460px, 94vw); text-align: start; }
+  /* The changelog is not an install list and must not be the width of one. 460px suits a column
+     of program names with a tick beside each; this panel carries a four-box header, a table of
+     "was 3.6.0 <- now 3.6.1" and the full list of every program on the disc with its version.
+     At 460 the name column had nowhere to go, so .vname's ellipsis ate it: row after row of
+     cut-off Hebrew with a version number floating at the end. Unreadable, and the disc's own
+     window is nothing like that narrow. */
+  .sheet.dlpanel.discabout { width: min(860px, 94vw); }
   .dlpanel h3 { margin: 0 0 6px; font-size: 1.1rem; }
   .dlcount .dlwhy { display: block; font-size: .72rem; color: var(--muted); margin-top: 2px; }
   .dlnote { margin: 0 0 14px; font-size: .82rem; line-height: 1.7; color: var(--muted); }
@@ -645,10 +652,26 @@
   .vhead span { color: var(--muted); font-size: .74rem; }
   @media (max-width: 560px) { .vhead { grid-template-columns: repeat(2, 1fr); } }
   .vlist { border: 1px solid var(--stroke); border-radius: 12px; overflow: hidden; }
-  .vlist.tall { max-height: 320px; overflow-y: auto; }
+  /* Tied to the window, not to 320 pixels. On the disc this opens in a window most of the screen
+     high, and a fixed 320px box showed eight programs out of a hundred and fifty. */
+  .vlist.tall { max-height: min(52vh, 520px); overflow-y: auto; }
   .vrow { display: flex; justify-content: space-between; gap: 12px; padding: 7px 12px; font-size: .86rem; }
   .vrow:nth-child(odd) { background: color-mix(in srgb, var(--panel2) 60%, transparent); }
-  .vname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* min-width:0 is what lets the name shrink INSIDE the row instead of pushing the version out of
+     it, and the version keeps its own width rather than being squeezed to one digit per line. */
+  .vname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
+  .vrow > span:last-child { flex: 0 0 auto; white-space: nowrap; }
+  /* Narrow enough and an ellipsis is a worse answer than a second line: the name is the thing
+     somebody is looking for, and half of it is no use at all. */
+  @media (max-width: 620px) {
+    .vrow { flex-wrap: wrap; gap: 2px 12px; }
+    .vname { white-space: normal; overflow: visible; text-overflow: clip; flex-basis: 100%; }
+    /* And the version has to be allowed to break too. A row that carries both builds of one
+       program reads "10.2008.3001.0 + 11.2605.37.0" - thirty characters that cannot wrap, so the
+       row grew wider than the list, and .vlist's overflow:hidden cut it off without a scrollbar
+       to say anything had been lost. Silently truncated is worse than wrapped. */
+    .vrow > span:last-child { white-space: normal; overflow-wrap: anywhere; }
+  }
   .vchips { display: flex; flex-wrap: wrap; gap: 6px; }
   .vchip { padding: 3px 10px; border-radius: 99px; font-size: .78rem;
            background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok);
@@ -1239,6 +1262,9 @@ const EN = {
   'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.':
     'A restore point needs administrator rights. The installs continue without one.',
   'מתקין רכיב נדרש': 'Installing a required component',
+  'הקובץ שעל הדיסק הזה עדכני נכון ל': 'The copy on this disc was current as of',
+  'ברגע שהמחשב יתחבר לרשת, Windows יביא בעצמו את החתימות החדשות. עד אז זה מה שיש, וזה עדיף בהרבה על כלום.':
+    'The moment this computer reaches a network, Windows fetches the newer signatures itself. Until then this is what there is, and it is a great deal better than nothing.',
   '✕ נעצרה באמצע ולא הושלמה — צריך להפעיל שוב': '✕ Stopped part-way and did not finish — run it again',
   '✓ הותקנה, אבל רכיב שהיא צריכה לא הותקן': '✓ Installed, but a component it needs was not',
   'נפתחה — יש להמשיך בחלון שנפתח': 'Opened — carry on in the window that appeared',
@@ -1368,7 +1394,7 @@ const EN = {
   'מעבירים בדיסק-און-קי': 'Copy to a USB stick',
   'לחיצה כפולה': 'Double-click',
   'אפליקציות ותוכנות': 'apps and programs',
-  'אם לוקחים הכל': 'if you take everything',
+  'אם מורידים אחת מכל תוכנה': 'one build of each program',
   'הכל': 'All',
   'Windows 10 ומעלה': 'Windows 10 and up',
   'ליבה': 'Core',
@@ -2912,6 +2938,22 @@ try { if (localStorage.getItem(XKEY)) loadXtra(); } catch (e) { /* private windo
    CN=BeniaBot Offline with nothing on the page having warned them.
    The maker's own untouched package is offered on the same card, so the sentence can end by
    pointing at it rather than leaving the reader with a problem and no way out. */
+/* The one kind of program whose age is not a detail. A browser two weeks old is a browser; a list
+   of threats two weeks old is a list that is missing two weeks of threats, and the person reading
+   this card has no internet to fetch a newer one with. The catalogue's own note tells them to
+   "download again before each round of installs" - true on the website, useless on a disc, and on
+   a disc it is the only place that sentence is ever read. So on the disc the card says the thing
+   the disc can actually say: when these were current, and that Windows will bring them up to date
+   by itself the first time the machine sees a network. */
+function frozenLine(a) {
+  if (!DISC.on || !a || !a.frozen) return '';
+  const when = (DISC.man && DISC.man.cut) ? DISC.man.cut : '';
+  return '<div class="warn">' +
+    esc(T('הקובץ שעל הדיסק הזה עדכני נכון ל') + (when ? ' ' + when : '') + '. ' +
+        T('ברגע שהמחשב יתחבר לרשת, Windows יביא בעצמו את החתימות החדשות. עד אז זה מה שיש, וזה עדיף בהרבה על כלום.')) +
+    '</div>';
+}
+
 function resignedLine(a) {
   if (!a.resigned) return '';
   return '<div class="warn">' + T(
@@ -3435,6 +3477,7 @@ function openSheet(en) {
     '<h3 dir="auto">' + nameOf(a) + '</h3><div class="en">' + a.en + '</div>' +
     (descOf(a) ? '<div class="ds">' + descOf(a) + '</div>' : '') +
     (a.note ? '<div class="warn">' + (LANG === 'en' && a.noteEn ? a.noteEn : a.note) + '</div>' : '') +
+    frozenLine(a) +
     resignedLine(a) +
     firstOnlineLine(a) +
     altLine(a) +
@@ -4565,6 +4608,12 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
      later, so the same page said one thing on a cold load and another on a warm one. The headline
      is the shop's public figure and it is the same for every visitor. */
   const publicCount = d.apps.length;
+  /* The biggest file of each program, added up - so this is "one of each", not "everything that
+     exists here". Plenty of programs ship more than one build: a Windows 10 flavour beside a
+     Windows 11 one, and the maker's original beside the Hebrew version. The label used to read
+     "if you take everything", which invited exactly the comparison it fails: the disc weighs
+     thirty gigabytes and this number says twenty-three, and nothing on the page explained the
+     gap. It says what it counts now. */
   const publicGb = d.apps.reduce((s, a) => s + Math.max.apply(null, a.files.map(f => f.mb)), 0) / 1024;
   mergeXtra();
   document.getElementById('cats').classList.remove('sk');
@@ -4574,7 +4623,7 @@ fetch('site-catalog.json?v=' + (window.CATV || Date.now()), { cache: 'no-cache' 
     '<span>' + T('הקטלוג עודכן') + '</span> <span dir="ltr">' + esc(d.updated) + '</span>';
   document.getElementById('facts').innerHTML =
     '<div><b data-to="' + publicCount + '">0</b><span>' + T('אפליקציות ותוכנות') + '</span></div>' +
-    '<div><b dir="ltr" data-to="' + publicGb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם לוקחים הכל') + '</span></div>' +
+    '<div><b dir="ltr" data-to="' + publicGb.toFixed(1) + '" data-suffix=" GB">0</b><span>' + T('אם מורידים אחת מכל תוכנה') + '</span></div>' +
     '<div id="fact-dl" hidden><b data-to="0">0</b><span>' + T('הורדות עד כה') + '</span></div>';
   countUp(document.getElementById('facts'));
   // a counter of downloads from a server means nothing on a disc already in the drive
