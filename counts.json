@@ -16,13 +16,13 @@
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 9,
-  "total": 10
+  "seen": 13,
+  "total": 14
  },
  "IsoBuilder.exe": {
   "carry": 0,
@@ -66,8 +66,8 @@
  },
  "Setup-Builder3D.exe": {
   "carry": 4,
-  "seen": 12,
-  "total": 16
+  "seen": 13,
+  "total": 17
  },
  "Setup-Calculator.exe": {
   "carry": 6,
@@ -141,8 +141,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 14,
-  "total": 14
+  "seen": 15,
+  "total": 15
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -181,8 +181,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 23,
-  "total": 47
+  "seen": 25,
+  "total": 49
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -341,8 +341,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 14,
-  "total": 21
+  "seen": 15,
+  "total": 22
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -451,8 +451,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 2,
-  "total": 4
+  "seen": 3,
+  "total": 5
  },
  "System-Components-All.exe": {
   "carry": 0,
@@ -531,8 +531,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 6,
+  "total": 6
  },
  "#87b32f25445b2575": {
   "carry": 0,
