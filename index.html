@@ -1431,6 +1431,7 @@ const EN = {
   'נפתחה — יש להמשיך בחלון שנפתח': 'Opened — carry on in the window that appeared',
   '✕ הקובץ לא נקרא מהדיסק': '✕ The file could not be read from the disc',
   '✕ צריך להתקין קודם את VS Code': '✕ Install VS Code first',
+  '✕ דורשת אישור מנהל — האישור לא ניתן': '✕ Needs an administrator — the prompt was turned down',
   'Windows לא יצר נקודה חדשה — כבר יש במחשב נקודה קודמת, והיא מגנה באותה מידה. ההתקנה ממשיכה.':
     'Windows made no new point — an earlier one already covers this machine. The installs continue.',
   'לא נוצרה נקודת שחזור, ובמחשב הזה אין אף נקודה קיימת. ההתקנה ממשיכה — אבל בלי דרך חזרה.':
@@ -4648,6 +4649,8 @@ const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed:
                      opened: 'נפתחה — יש להמשיך בחלון שנפתח',
                      gonemissing: '✕ הקובץ לא נקרא מהדיסק',
                      needvscode: '✕ צריך להתקין קודם את VS Code',
+                     // the installer needs an administrator and the prompt Windows showed was turned down
+                     needadmin: '✕ דורשת אישור מנהל — האישור לא ניתן',
                      manual: 'קובץ שצריך לפתוח ידנית', cancelled: 'בוטלה' };
 /* Guarded, because window.chrome.webview exists only inside the frame. Without this the whole
    script dies on the first line that touches it - and it dies BEFORE the shelf is drawn, so the
@@ -4786,7 +4789,7 @@ if (DISC.on && window.chrome && window.chrome.webview) {
     row.classList.toggle('bad', state === 'failed' || state === 'ejected'
                               || state === 'nospace' || state === 'no7zip'
                               || state === 'stopped' || state === 'gonemissing'
-                              || state === 'needvscode');
+                              || state === 'needvscode' || state === 'needadmin');
   });
 }
 
