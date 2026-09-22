@@ -2507,6 +2507,19 @@ const filesFor = a => {
 const bestFile = a => {
   const fs = filesFor(a);
   if (!fs.length) return null;
+  /* On the disc the machine's exact build is known, and "Windows 11" is not one thing. The HEVC
+     codec's Win11 build needs 26200; on 24H2 (26100, the commonest Windows 11 there is) the tile
+     said "not suitable for this Windows" and an install attempt failed - while the Win10 build
+     beside it on the same disc, which installs on 11, was never offered. So: a build this machine
+     can take and the disc carries, then any build the disc carries (an honest "not suitable" beats
+     a tile that vanishes), then the old rule. */
+  if (DISC.on && typeof DISC.build === 'number' && DISC.build > 0) {
+    const fits = f => !f.minBuild || f.minBuild <= DISC.build;
+    const here = f => !!discFile(f.exe);
+    return fs.find(f => here(f) && fits(f) && f.win === TARGET) || fs.find(f => here(f) && fits(f))
+        || fs.find(f => here(f) && f.win === TARGET) || fs.find(here)
+        || fs.find(f => f.win === TARGET) || fs[0];
+  }
   return fs.find(f => f.win === TARGET) || fs[0];
 };
 /* On the web: is the file up on our release yet (a vendor's own file always is, it is theirs).
@@ -4340,10 +4353,13 @@ function discStateChips() {
   const out = ['<span class="count">' + T('במחשב הזה:') + '</span>',
                '<button class="chip' + (DSEL === '' ? ' on' : '') + '" data-dsel="">' + T('הכל') + '</button>'];
   for (const [k, word] of DSEL_WORD) {
-    // a chip for nothing is a dead end that has to be clicked to find that out
-    if (!n[k]) continue;
+    // a chip for nothing is a dead end that has to be clicked to find that out - unless it is
+    // the chip that is SELECTED. That one stays, lit, at 0: install the last five "not installed"
+    // programs and the chip used to vanish while still filtering, leaving an empty shelf with
+    // nothing lit to say why.
+    if (!n[k] && DSEL !== k) continue;
     out.push('<button class="chip' + (DSEL === k ? ' on' : '') + '" data-dsel="' + k + '">' +
-             T(word) + ' <span class="chipn" dir="ltr">' + n[k] + '</span></button>');
+             T(word) + ' <span class="chipn" dir="ltr">' + (n[k] || 0) + '</span></button>');
   }
   const cut = discCutInfo();
   if (cut.cut) {
