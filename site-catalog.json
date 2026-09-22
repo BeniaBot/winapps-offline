@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-22",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -3141,6 +3141,7 @@
       "noui": true,
       "noteEn": "Install this first, before the signatures file. The link always gives the current version from Microsoft’s own servers.",
       "note": "להתקין ראשון, לפני קובץ החתימות. הקישור נותן תמיד את הגרסה העדכנית ביותר מהשרתים של מיקרוסופט.",
+      "frozen": true,
       "cat": "עדכוני אבטחה",
       "files": [
         {
@@ -3174,6 +3175,7 @@
       "noui": true,
       "noteEn": "Goes stale within days — download again before each round of installs.",
       "note": "מתיישן תוך ימים — להוריד מחדש לפני כל סבב התקנות.",
+      "frozen": true,
       "cat": "עדכוני אבטחה",
       "files": [
         {
@@ -3322,13 +3324,13 @@
       "net": false,
       "heb": true,
       "w32": true,
-      "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.2/KleiKodeshSetup-v9.1.2.exe",
+      "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.4/KleiKodeshSetup-v9.1.4.exe",
       "match": "KleiKodeshSetup-*.exe",
       "silent": "SHOW:",
       "alt": {
         "label": "גרסה ניידת — בלי וורד",
         "labelEn": "Portable build — no Word needed",
-        "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.2/KitveiHakodeshPortable-v9.1.2.zip",
+        "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.4/KitveiHakodeshPortable-v9.1.4.zip",
         "mb": 46
       },
       "repo": "KleiKodesh/KleiKodeshProject",
@@ -3345,7 +3347,7 @@
         "WebView2"
       ],
       "origin": "community",
-      "relver": "v9.1.2",
+      "relver": "v9.1.4",
       "files": [
         {
           "exe": "KleiKodeshSetup-*.exe",

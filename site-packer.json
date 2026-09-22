@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-22",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -5351,6 +5351,7 @@
       "heb": true,
       "note": "להתקין ראשון, לפני קובץ החתימות. הקישור נותן תמיד את הגרסה העדכנית ביותר מהשרתים של מיקרוסופט.",
       "noteEn": "Install this first, before the signatures file. The link always gives the current version from Microsoft’s own servers.",
+      "frozen": true,
       "silent": "RUN:",
       "alt": {
         "label": "למחשב 32 סיביות",
@@ -5384,6 +5385,7 @@
       "icon": "icons/w32png/DefenderSignatures.png",
       "note": "מתיישן תוך ימים — להוריד מחדש לפני כל סבב התקנות.",
       "noteEn": "Goes stale within days — download again before each round of installs.",
+      "frozen": true,
       "silent": "RUN:",
       "alt": {
         "label": "למחשב 32 סיביות",
@@ -5531,7 +5533,7 @@
       "cat": "תורה ולימוד",
       "desc": "תוסף לוורד לעימוד ספרי קודש, ואיתו תוכנת עיון עצמאית \"כתבי הקודש\".",
       "color": "#8a5a2b",
-      "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.2/KleiKodeshSetup-v9.1.2.exe",
+      "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.4/KleiKodeshSetup-v9.1.4.exe",
       "match": "KleiKodeshSetup-*.exe",
       "files": [
         {
@@ -5547,7 +5549,7 @@
       "heb": true,
       "langMode": "hebrew-only",
       "repo": "KleiKodesh/KleiKodeshProject",
-      "relver": "v9.1.2",
+      "relver": "v9.1.4",
       "needs": [
         "NetFx481",
         "WebView2"
@@ -5559,7 +5561,7 @@
       "alt": {
         "label": "גרסה ניידת — בלי וורד",
         "labelEn": "Portable build — no Word needed",
-        "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.2/KitveiHakodeshPortable-v9.1.2.zip",
+        "url": "https://github.com/KleiKodesh/KleiKodeshProject/releases/download/v9.1.4/KitveiHakodeshPortable-v9.1.4.zip",
         "mb": 46
       }
     },
