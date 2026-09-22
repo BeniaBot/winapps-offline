@@ -38,7 +38,10 @@
      the keyboard's reach and leaves the title alone. */
   var st = document.createElement("style");
   st.textContent = "html[data-rest]{overflow:hidden}" +
-    "html[data-rest]::before{content:attr(data-greet);position:fixed;inset:0;z-index:2147483647;" +
+    // top/right/bottom/left, not the inset shorthand: a browser old enough not to know inset would
+    // leave the cover unpositioned, which is to say the shop open on Shabbat on exactly the machines
+    // this audience keeps longest
+    "html[data-rest]::before{content:attr(data-greet);position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483647;" +
     "display:flex;align-items:center;justify-content:center;padding:2rem 2rem 6rem;box-sizing:border-box;" +
     "background:#0b1220;color:#e8eef8;text-align:center;direction:rtl;" +
     "font:800 2.6rem/1.2 system-ui,'Segoe UI',Arial,sans-serif;letter-spacing:-.5px}" +
@@ -128,6 +131,124 @@
 })();
 </script>
 <!--SHABBAT:END-->
+<!--WILD:START-->
+<script>
+/* The ONE copy of the rule that turns a star into a file.
+ *
+ * A card says "Everything-*-Setup.exe" and the library holds two files that fit. Which one the
+ * shop installs, which one the staging audit expects, and which one the currency check compares
+ * against the maker all have to be the same answer - and for a while they were three separate
+ * copies of the same twenty lines, in three files, and one of them lacked a rule the other two
+ * had. It resolved Everything's star to the 1.5 beta, compared that against a card whose link
+ * points at the 1.4 stable, and reported the project as behind its own vendor. An evening went on
+ * that. A third copy of a rule is a third chance to disagree with the other two.
+ *
+ * So this file is the rule, and everything else reads it:
+ *   - build\check-disc-vs-site.js and build\check-currency.js  require() it
+ *   - site\index.html carries it inline between the two WILD markers, put there by
+ *     build\run-export.ps1 (the page is one file and cannot require anything). The marker
+ *     tokens are deliberately NOT written out in this comment: the injector finds the block's
+ *     end by regex, and a copy of the end token inside the block ended it early.
+ *   - build\pick.ps1 is the PowerShell twin for mkindex/disc-manifest, and the staging audit
+ *     checks every star's answer in index.txt against this file's answer, so the twin cannot drift
+ *     without stopping the burn
+ *
+ * The rule itself:
+ *   1. An exact name is never a guess: if the library has the name as written, that is the file.
+ *   2. A star stands in for the version. When it matches several files, the NEWEST wins, judged only
+ *      on the text the star itself covers (1.4.1.1032 beats 1.4.1.999; everything else in the
+ *      name is literal and identical across the matches). Equal numbers fall back to the name, so
+ *      the answer is the same on every run.
+ *   3. A star must never resolve to a file some card pins in full. That file is a different offer,
+ *      and the card already says which it is - Everything's stable is the download and its beta is
+ *      named beside it, in those words. Once the pinned name is out of the running the star can
+ *      only mean the other one.
+ *   4. If everything the star could mean is pinned, better the pinned file than nothing: a card
+ *      with no file installs nothing. But that only happens when the OTHER build has gone missing
+ *      from the library - a content problem in a resolution problem's clothes - so it is reported,
+ *      never silent.
+ *
+ * Plain ES5, no dependencies: the same bytes run in Node and inside the page.
+ */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.WILD = factory();
+}(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+
+  var ESC = /[.+^${}()|[\]\\]/g;
+
+  // the pattern as a regex, stars as .*; case-insensitive because Windows names are
+  function glob(pat) {
+    return new RegExp('^' + pat.replace(ESC, '\\$&').replace(/\*/g, '.*') + '$', 'i');
+  }
+
+  // the numbers under the stars, in order: "Everything-1.4.1.1032.x64-Setup.exe" -> [1,4,1,1032,64]
+  function wildNums(pat, f) {
+    var m = f.match(new RegExp('^' + pat.replace(ESC, '\\$&').replace(/\*/g, '(.*)') + '$', 'i'));
+    return m ? (m.slice(1).join('.').match(/\d+/g) || []).map(Number) : [];
+  }
+
+  // true when a is a newer match of pat than b
+  function newer(pat, a, b) {
+    var x = wildNums(pat, a), y = wildNums(pat, b);
+    for (var i = 0; i < Math.max(x.length, y.length); i++) {
+      var xi = x[i] || 0, yi = y[i] || 0;
+      if (xi !== yi) return xi > yi;
+    }
+    return a.localeCompare(b) > 0;
+  }
+
+  // the name at the end of a url, decoded
+  function tail(url) {
+    try { return decodeURIComponent(String(url).split('/').pop()); } catch (e) { return String(url).split('/').pop(); }
+  }
+
+  /* Every name the given catalogue lists pin in full: a file without a star, a translated build,
+     an alternative download. Pass every list that exists (the visible catalogue AND the quiet
+     aisle) - a star on one list must not take a file the other list pins. */
+  function pinnedOf(lists) {
+    var out = {};
+    for (var l = 0; l < lists.length; l++) {
+      var apps = lists[l] || [];
+      for (var i = 0; i < apps.length; i++) {
+        var a = apps[i];
+        var files = a.files || [];
+        for (var k = 0; k < files.length; k++) if (files[k].exe && files[k].exe.indexOf('*') < 0) out[files[k].exe] = true;
+        if (a.xlat && a.xlat.exe && a.xlat.exe.indexOf('*') < 0) out[a.xlat.exe] = true;
+        if (a.alt && a.alt.url) out[tail(a.alt.url)] = true;
+      }
+    }
+    return out;
+  }
+
+  /* The one file a pattern means, out of the names given, or null.
+     names   - an array or a Set of every file name in the library
+     pinned  - the object pinnedOf() returns (or any object whose keys are pinned names)
+     onFall  - optional; called with (pattern, file) when rule 4 had to be used */
+  function resolve(pattern, names, pinned, onFall) {
+    var list = Array.isArray(names) ? names : Array.from(names);
+    for (var i = 0; i < list.length; i++) if (list[i] === pattern) return pattern;
+    if (pattern.indexOf('*') < 0) return null;
+    var re = glob(pattern), best = null, f;
+    for (i = 0; i < list.length; i++) {
+      f = list[i];
+      if (re.test(f) && !(pinned && pinned[f]) && (best === null || newer(pattern, f, best))) best = f;
+    }
+    if (best === null) {
+      for (i = 0; i < list.length; i++) {
+        f = list[i];
+        if (re.test(f) && (best === null || newer(pattern, f, best))) best = f;
+      }
+      if (best !== null && onFall) onFall(pattern, best);
+    }
+    return best;
+  }
+
+  return { glob: glob, wildNums: wildNums, newer: newer, pinnedOf: pinnedOf, resolve: resolve, tail: tail };
+}));
+</script>
+<!--WILD:END-->
 <meta name="description" content="חנות האפליקציות של Windows למחשבים בלי אינטרנט: מורידים מתקין מוכן, מעבירים בדיסק-און-קי, מתקינים.">
 <link rel="icon" type="image/svg+xml" href="logo.svg?v=2">
 <link rel="icon" type="image/png" href="icon.png?v=2">
@@ -1316,6 +1437,8 @@ const EN = {
     'No restore point was made, and this machine has none at all. The installs continue — but there is no way back.',
   'שחזור המערכת היה כבוי במחשב הזה. הפעלתי אותו ויצרתי נקודת שחזור. ההתקנה מתחילה.':
     'System Restore was switched off on this machine. It has been turned on and a point was created. Starting the installs.',
+  'שחזור המערכת היה כבוי. הפעלתי אותו, אבל יצירת הנקודה נכשלה. ההתקנה ממשיכה — בלי דרך חזרה.':
+    'System Restore was switched off. It has been turned on, but no restore point could be made. The installs continue — with no way back.',
   'לא הצלחתי ליצור נקודת שחזור. ההתקנה ממשיכה בלעדיה.':
     'The restore point could not be created. The installs continue without one.',
   '✕ הדיסק יצא מהכונן': '✕ the disc left the drive',
@@ -2630,7 +2753,7 @@ document.addEventListener('click', e => {
   if (chip && chip.dataset.heb !== undefined) { HEBONLY = !HEBONLY; render(); return; }
   if (chip && chip.dataset.dgone !== undefined) { DGONE = !DGONE; render(); return; }
   if (chip && chip.dataset.dsel !== undefined) { DSEL = chip.dataset.dsel; render(); return; }
-  if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; render(); return; }
+  if (chip && chip.dataset.win !== undefined) { FILTER = chip.dataset.win; if (FILTER !== 'all') TARGET = FILTER; DCUT = null; render(); return; }
   if (chip && chip.dataset.cat !== undefined) { CATSEL = chip.dataset.cat; render(); return; }
   const dl = e.target.closest('[data-dl]');
   if (dl) { e.stopPropagation(); download(dl.dataset.dl); return; }
@@ -2663,7 +2786,9 @@ document.addEventListener('keydown', e => {
       const shut = ov.querySelector('#dshut');
       if (shut) { shut.click(); return; }
     }
-    ov.remove(); document.body.style.overflow = '';
+    ov.remove();
+    // the page scrolls again only when nothing is left over it
+    if (!document.querySelector('.overlay')) document.body.style.overflow = '';
     return;
   }
   if (e.key !== 'Enter' && e.key !== ' ') return;
@@ -2990,8 +3115,9 @@ try { if (localStorage.getItem(XKEY)) loadXtra(); } catch (e) { /* private windo
 function frozenLine(a) {
   if (!DISC.on || !a || !a.frozen) return '';
   const when = (DISC.man && DISC.man.cut) ? DISC.man.cut : '';
+  // without a date there is no "as of" sentence at all, rather than one with a hole in it
   return '<div class="warn">' +
-    esc(T('הקובץ שעל הדיסק הזה עדכני נכון ל') + (when ? ' ' + when : '') + '. ' +
+    esc((when ? T('הקובץ שעל הדיסק הזה עדכני נכון ל') + ' ' + when + '. ' : '') +
         T('ברגע שהמחשב יתחבר לרשת, Windows יביא בעצמו את החתימות החדשות. עד אז זה מה שיש, וזה עדיף בהרבה על כלום.')) +
     '</div>';
 }
@@ -3208,6 +3334,7 @@ document.getElementById('dock-target').addEventListener('click', e => {
   const b = e.target.closest('[data-target]');
   if (!b) return;
   TARGET = b.dataset.target;
+  DCUT = null;   // the "what is on this disc" count depends on which build each card resolves to
   render();   // tile sizes depend on TARGET too - keep both displays in agreement
 });
 document.getElementById('selclear').onclick = () => { SELECTED.clear(); render(); };
@@ -3950,6 +4077,11 @@ if (!DISC.on && location.protocol === 'file:') {
    not a missing badge, a blank page with a shelf of nothing. Neither list is worth that: without
    them the shop simply stops claiming to know what is installed. */
 DISC.have  = new Set(Array.isArray(DISC.files) ? DISC.files : []);
+/* Which Windows this is. The frame has always injected DISC.build and the page never read it, so a
+   Windows 10 core disc opened with TARGET '11': bestFile() picked each card's Win11 build, the cut
+   carries the Win10 build instead, isLive() said "not here", and the sound recorder, the snipping
+   tool and both codec packs - the reason the disc exists - were not on the shelf. */
+if (DISC.on && typeof DISC.build === 'number' && DISC.build > 0) TARGET = DISC.build >= 22000 ? '11' : '10';
 DISC.state = (DISC.state && typeof DISC.state === 'object') ? DISC.state : {};
 DISC.at    = new Map();    // catalogue name (sometimes a pattern) -> the real file on the disc
 
@@ -3963,46 +4095,18 @@ function discWire() {
      is. Everything is the case that proves it - its card offers the stable 1.4 as the download and
      1.5 as the beta beside it, in those words, and a star told only to prefer the newest picks the
      beta for both buttons while the card promises the stable. */
-  const pinned = new Set();
+  /* Which file each name means on THIS disc. The rule - newest match, never a file another offer
+     on the card pins, the pinned one only as a last resort - is build/wild.js, carried inline
+     above between the WILD markers; this used to be a third copy of it, and three copies had
+     already disagreed once. Every name is added, including each card's alternative download, so
+     a click on the second button finds its file too. */
   (DATA.apps || []).forEach(a => {
-    (a.files || []).forEach(f => { if (f.exe) { names.add(f.exe); if (f.exe.indexOf('*') < 0) pinned.add(f.exe); } });
-    if (a.xlat && a.xlat.exe) { names.add(a.xlat.exe); if (a.xlat.exe.indexOf('*') < 0) pinned.add(a.xlat.exe); }
-    if (a.alt && a.alt.url) {
-      const n = decodeURIComponent(a.alt.url.split('/').pop());
-      names.add(n); pinned.add(n);
-    }
+    (a.files || []).forEach(f => { if (f.exe) names.add(f.exe); });
+    if (a.xlat && a.xlat.exe) names.add(a.xlat.exe);
+    if (a.alt && a.alt.url) names.add(WILD.tail(a.alt.url));
   });
-  /* A star stands in for the version, so the card keeps working when a newer build replaces the
-     old one. But the library can hold two builds of one program at once - a card may offer the
-     maker's own earlier release beside the current one - and then the star matches both. Taking
-     the first match meant taking whichever name came back first, which is the older one as often
-     as not: the shop would install a two-year-old build and report the current version.
-     So: when a star matches several files, the newest wins, judged only on the text the star
-     itself covers. Everything else in the name is literal and identical across the matches. */
-  const wildNums = (pat, f) => {
-    const m = f.match(new RegExp('^' + pat.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '(.*)') + '$', 'i'));
-    return m ? (m.slice(1).join('.').match(/\d+/g) || []).map(Number) : null;
-  };
-  const newer = (pat, a, b) => {
-    const x = wildNums(pat, a) || [], y = wildNums(pat, b) || [];
-    for (let i = 0; i < Math.max(x.length, y.length); i++) {
-      const xi = x[i] || 0, yi = y[i] || 0;
-      if (xi !== yi) return xi > yi;
-    }
-    return a.localeCompare(b) > 0;
-  };
-  names.forEach(n => {
-    if (DISC.have.has(n)) { DISC.at.set(n, n); return; }
-    if (n.indexOf('*') < 0) return;
-    const re = new RegExp('^' + n.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$', 'i');
-    let best = null;
-    for (const f of DISC.have) if (re.test(f) && !pinned.has(f) && (best === null || newer(n, f, best))) best = f;
-    /* Everything the star could mean is spoken for by a name elsewhere. Better the pinned file
-       than nothing: a card with no file installs nothing, which is worse than one that installs
-       its own second offer. */
-    if (!best) for (const f of DISC.have) if (re.test(f) && (best === null || newer(n, f, best))) best = f;
-    if (best) DISC.at.set(n, best);
-  });
+  const pinned = WILD.pinnedOf([DATA.apps || []]);
+  names.forEach(n => { const best = WILD.resolve(n, DISC.have, pinned); if (best) DISC.at.set(n, best); });
   document.body.classList.add('on-disc');
   // the tooltip asked "what is this SITE" while a person held a disc
   const ab = document.getElementById('about-btn');
@@ -4226,7 +4330,10 @@ const DSEL_WORD = [['missing', 'לא מותקנות'], ['older', 'יש עדכו�
 function discStateChips() {
   const n = {};
   for (const a of (DATA.apps || [])) {
-    if (!bestFile(a)) continue;
+    const f = bestFile(a);
+    if (!f) continue;
+    // a program this cut does not carry is not "not installed"; it is not on offer
+    if (discIsCut() && !DGONE && !isLive(a, f)) continue;
     const s = discStateOf(a);
     n[s] = (n[s] || 0) + 1;
   }
@@ -4533,18 +4640,30 @@ const DISC_STATE = { running: 'מתקין…', done: '✓ הותקנה', failed:
 if (DISC.on && window.chrome && window.chrome.webview) {
   window.chrome.webview.addEventListener('message', ev => {
     const p = String(ev.data || '').split('\t');
-    if (p[0] !== 'job' || !discPanel) return;
+    if (p[0] !== 'job') return;
+    const exe = p[1] || '', state = p[2] || '';
+    if (!state) return;
+    /* What the MACHINE now is, recorded before any question of which window is open. These two
+       lived below the panel gates, so a person who pressed סגירה on a running batch - the panel's
+       own text says leaving is fine - came back to a shelf that still called all twenty programs
+       "not installed", with an Install button on each, and the chip counting them. And "partial"
+       (the program IS on the machine; a component it needs is not) never wrote back at all. */
+    if (exe && (state === 'done' || state === 'partial')) {
+      if (DISC.state[exe]) DISC.state[exe][0] = 'here'; else DISC.state[exe] = ['here', ''];
+    }
+    const mine = !!discPanel && discPanel === discRunning;
+    if (state === 'finished') { discRunning = null; DCUT = null; render(); }
+    if (!discPanel) return;
     /* Only the window that started this run may be written to. A different window open on the
        shelf is a different question being asked, and answering it with somebody else's progress
        - or with somebody else's "we are done" - is worse than saying nothing. */
-    if (discPanel !== discRunning) return;
+    if (!mine) return;
     /* A message is three fields, and every line below used to assume all three arrived. They do -
        one function on the other side writes them - but the panel a person is watching should not
        depend on that: a truncated line threw inside a listener, which the browser swallows, and
        the visible result was a row that never left "ממתינה" while the install actually ran. */
-    const exe = p[1] || '', state = p[2] || '';
     const note = discPanel.querySelector('.dlnote');
-    if (!state || !note) return;
+    if (!note) return;
     /* Both of these mean "nothing started", and by the time they arrive the Start button has
        already been removed from the panel - so the firewall note told somebody to go and switch a
        service on, and when they came back there was nothing to press. Putting the button back is
@@ -4599,6 +4718,7 @@ if (DISC.on && window.chrome && window.chrome.webview) {
            system drive, so Windows refuses. We switch it on and try again - and tell them, because
            it is a Windows setting on their machine and not ours to change quietly. */
         rc === '6' ? 'שחזור המערכת היה כבוי במחשב הזה. הפעלתי אותו ויצרתי נקודת שחזור. ההתקנה מתחילה.' :
+        rc === '7' ? 'שחזור המערכת היה כבוי. הפעלתי אותו, אבל יצירת הנקודה נכשלה. ההתקנה ממשיכה — בלי דרך חזרה.' :
         rc === '3' ? 'ליצירת נקודת שחזור צריך הרשאות מנהל. ההתקנה ממשיכה בלעדיה.' :
         /* 5 is the case that used to be told as 2. "Windows declined" is a comfort only when
            there is something to fall back on; with no point on the machine at all it was a lie
@@ -4621,13 +4741,6 @@ if (DISC.on && window.chrome && window.chrome.webview) {
          note worth keeping, and the commonest amber note of all - "System Restore is off on this
          machine" - was swallowing the end of every single run. */
       if (!note.dataset.stuck) note.textContent = T('סיימנו. אפשר לסגור את החלון.');
-      discRunning = null;
-      /* The shelf behind the panel was drawn from a snapshot the frame took before the first
-         paint, and nothing ever refreshed it. Somebody could install thirty programs, watch
-         every row turn ✓, close the panel - and the shelf still showed all thirty as not
-         installed, with the chip above still counting them as such. Clicking that chip listed
-         the programs they had just installed. One redraw, once, at the end. */
-      render();
       return;
     }
     if (!exe) return;
@@ -4646,13 +4759,6 @@ if (DISC.on && window.chrome && window.chrome.webview) {
       return;
     }
     row.querySelector('.dlstate').textContent = T(DISC_STATE[state] || state);
-    /* Write the result back into the snapshot the shelf reads. 'here' is what discStateOf wants
-       to see; an entry that did not exist before (a file the boot scan found no trace of) gets
-       one now, with an empty version - the same shape DiscScript() emits. */
-    if (state === 'done') {
-      if (DISC.state[exe]) DISC.state[exe][0] = 'here';
-      else DISC.state[exe] = ['here', ''];
-    }
     row.classList.toggle('done', state === 'done');
     // "ejected" is red because something really did stop; "slow" is not, because nothing did
     // nospace and no7zip both start with ✕ and both stopped an install; they belong in red with
