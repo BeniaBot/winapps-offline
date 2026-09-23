@@ -11,23 +11,33 @@
  },
  "CapsFix-5.exe": {
   "carry": 0,
-  "seen": 9,
-  "total": 9
+  "seen": 13,
+  "total": 13
  },
  "Csharf.bat": {
   "carry": 0,
   "seen": 9,
   "total": 9
  },
+ "disc-kit.zip": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
+ },
+ "disc-runtime.zip": {
+  "carry": 0,
+  "seen": 3,
+  "total": 3
+ },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 15,
-  "total": 16
+  "seen": 16,
+  "total": 17
  },
  "IsoBuilder.exe": {
-  "carry": 0,
-  "seen": 25,
-  "total": 25
+  "carry": 25,
+  "seen": 1,
+  "total": 26
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -36,8 +46,8 @@
  },
  "Setup-3DViewer.exe": {
   "carry": 3,
-  "seen": 14,
-  "total": 17
+  "seen": 15,
+  "total": 18
  },
  "Setup-AnyDesk-5.2.exe": {
   "carry": 1,
@@ -66,13 +76,13 @@
  },
  "Setup-Builder3D.exe": {
   "carry": 4,
-  "seen": 14,
-  "total": 18
+  "seen": 15,
+  "total": 19
  },
  "Setup-Calculator.exe": {
   "carry": 6,
-  "seen": 16,
-  "total": 22
+  "seen": 17,
+  "total": 23
  },
  "Setup-Camera.exe": {
   "carry": 4,
@@ -81,13 +91,13 @@
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
-  "seen": 17,
-  "total": 25
+  "seen": 18,
+  "total": 26
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 12,
-  "total": 15
+  "seen": 13,
+  "total": 16
  },
  "Setup-Copilot.exe": {
   "carry": 1,
@@ -166,8 +176,8 @@
  },
  "Setup-Journal.exe": {
   "carry": 2,
-  "seen": 14,
-  "total": 16
+  "seen": 15,
+  "total": 17
  },
  "Setup-Mail.exe": {
   "carry": 1,
@@ -181,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 31,
-  "total": 55
+  "seen": 33,
+  "total": 57
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -216,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 23,
-  "total": 28
+  "seen": 24,
+  "total": 29
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -226,13 +236,13 @@
  },
  "Setup-OneNote.exe": {
   "carry": 5,
-  "seen": 12,
-  "total": 17
+  "seen": 13,
+  "total": 18
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 11,
-  "total": 16
+  "seen": 12,
+  "total": 17
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
@@ -241,8 +251,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 7,
-  "total": 20
+  "seen": 8,
+  "total": 21
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -281,8 +291,8 @@
  },
  "Setup-PowerBI.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-PowerShell.exe": {
   "carry": 2,
@@ -296,8 +306,8 @@
  },
  "Setup-Print3D.exe": {
   "carry": 4,
-  "seen": 14,
-  "total": 18
+  "seen": 15,
+  "total": 19
  },
  "Setup-QuickAssist.exe": {
   "carry": 0,
@@ -326,8 +336,8 @@
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
-  "seen": 10,
-  "total": 10
+  "seen": 11,
+  "total": 11
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
@@ -341,8 +351,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 15,
-  "total": 22
+  "seen": 16,
+  "total": 23
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -361,8 +371,8 @@
  },
  "Setup-Sway.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-Sysinternals.exe": {
   "carry": 4,
@@ -371,8 +381,8 @@
  },
  "Setup-Terminal.exe": {
   "carry": 3,
-  "seen": 14,
-  "total": 17
+  "seen": 15,
+  "total": 18
  },
  "Setup-TerminalPreview.exe": {
   "carry": 4,
@@ -381,13 +391,13 @@
  },
  "Setup-ToDo.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 20,
-  "total": 25
+  "seen": 21,
+  "total": 26
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -456,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 14,
-  "total": 14
+  "seen": 15,
+  "total": 15
  },
  "TikNick-Setup.exe": {
   "carry": 0,
@@ -525,14 +535,14 @@
   "total": 10
  },
  "WINAPPS-W11-CORE.iso": {
-  "carry": 31,
-  "seen": 1,
+  "carry": 32,
+  "seen": 0,
   "total": 32
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
-  "seen": 9,
-  "total": 9
+  "seen": 12,
+  "total": 12
  },
  "#87b32f25445b2575": {
   "carry": 0,
