@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 33,
-  "total": 57
+  "seen": 34,
+  "total": 58
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -261,8 +261,8 @@
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 11,
-  "total": 17
+  "seen": 12,
+  "total": 18
  },
  "Setup-People.exe": {
   "carry": 1,
@@ -281,8 +281,8 @@
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 12,
-  "total": 16
+  "seen": 16,
+  "total": 20
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 14,
-  "total": 15
+  "seen": 15,
+  "total": 16
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
@@ -536,8 +536,8 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 32,
-  "seen": 0,
-  "total": 32
+  "seen": 1,
+  "total": 33
  },
  "WolfSheepCabbage.html": {
   "carry": 0,
