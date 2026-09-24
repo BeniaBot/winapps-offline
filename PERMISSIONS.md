@@ -32,3 +32,30 @@ not. The tag the store carries already ships that text, so the grandfather claus
 releases does not reach it. Without this permission the program could not be listed.
 
 **Screenshot of the exchange:** kept by the project owner.
+
+---
+
+## ווידג'טים לנטפרי (Widgets NF) — permission granted
+
+**Asked:** about 2026-09-16, on the forum thread of the program, by בנימין מחשבים.
+
+> אני אוכל להעלות את ויג'דטים לחנות שלי? הרישיון שלך אוסר הפצה
+
+**Answered by:** cannon, the program's author, replying to that question on or about 2026-09-24:
+
+> 👍
+
+**What this covers:** carrying the program's installer in this project — on the site's own
+release and on the disc — rather than only linking to the author's repository. The file carried
+is the author's installer exactly as published (`Widgets.NF.Setup.2.1.2.exe`, SHA-256
+`776006e5…28bd`, the same digest GitHub reports for the asset in `ASDX-collab/Widgets-NF`).
+Nothing in it is modified, and the card names the author and links to the source.
+
+**Why it was needed:** the repository's LICENSE is a proprietary licence (Copyright 2026
+ASDX-collab, All Rights Reserved) whose section 2(c) forbids distributing, publishing or
+otherwise transferring the software to any third party without prior written permission from
+the copyright holder. Until this answer the store's card only pointed to the author's release,
+and said so.
+
+**Screenshot of the exchange:** kept by the project owner
+(`build\permissions\widgets-nf-cannon-2026-09-24.png`, outside the published site).

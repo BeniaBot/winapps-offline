@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23",
+  "updated": "2026-09-25",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -1236,12 +1236,13 @@
       "alt": {
         "label": "לוח לאינטרנט מסונן",
         "labelEn": "Board for a filtered connection",
-        "url": "https://github.com/ASDX-collab/Widgets-NF/releases/download/v2.1.2/Widgets.NF.Setup.2.1.2.exe",
+        "url": "https://github.com/BeniaBot/winapps-offline/releases/download/apps-v1/Widgets.NF.Setup.2.1.2.exe",
         "mb": 72,
         "by": "ASDX-collab",
         "src": "https://github.com/ASDX-collab/Widgets-NF",
-        "note": "נכתב בידי ASDX-collab ומופץ במאגר שלו. ההורדה מובילה אליו ישירות — הקובץ אינו נשמר אצלנו, מפני שהרישיון שלו אינו מתיר לשאת אותו.",
-        "noteEn": "Written by ASDX-collab and published in their own repository. The download goes straight there - we do not carry the file, because their licence does not permit it."
+        "note": "נכתב בידי ASDX-collab. הקובץ נשמר כאן באישור מפורש של היוצר, בדיוק כפי שפרסם אותו — בלי שום שינוי. הקוד והגרסאות החדשות במאגר שלו.",
+        "noteEn": "Written by ASDX-collab. The file is carried here with the author's express permission, exactly as they published it - nothing changed. The source and new versions are in their own repository.",
+        "sha256": "776006e5e57a093f2e48ad1f0df7119ad23681f24aee2ef0e46e85f08e3828bd"
       },
       "icon": "icons/Widgets.png",
       "desc": "לוח הווידג'טים",
@@ -4117,7 +4118,7 @@
       "descEn": "Dormitory room assignment - rooms, names, and rules about who may not share with whom. One file that opens in a browser, no install. Built here",
       "cat": "יצירה ועבודה",
       "langMode": "hebrew-only",
-      "relver": "v1.0",
+      "relver": "v1.1",
       "files": [
         {
           "exe": "WolfSheepCabbage.html",
