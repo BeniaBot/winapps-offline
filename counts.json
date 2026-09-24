@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 16,
-  "total": 17
+  "seen": 17,
+  "total": 18
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -316,8 +316,8 @@
  },
  "Setup-RawExtension-Win10.exe": {
   "carry": 2,
-  "seen": 12,
-  "total": 14
+  "seen": 13,
+  "total": 15
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 4,
