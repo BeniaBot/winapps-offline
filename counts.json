@@ -20,8 +20,8 @@
   "total": 9
  },
  "disc-kit.zip": {
-  "carry": 0,
-  "seen": 1,
+  "carry": 1,
+  "seen": 0,
   "total": 1
  },
  "disc-runtime.zip": {
@@ -535,8 +535,8 @@
   "total": 10
  },
  "WINAPPS-W11-CORE.iso": {
-  "carry": 32,
-  "seen": 1,
+  "carry": 33,
+  "seen": 0,
   "total": 33
  },
  "WolfSheepCabbage.html": {
