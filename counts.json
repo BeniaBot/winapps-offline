@@ -21,13 +21,13 @@
  },
  "disc-kit.zip": {
   "carry": 1,
-  "seen": 0,
-  "total": 1
+  "seen": 1,
+  "total": 2
  },
  "disc-runtime.zip": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "ELIZA.exe": {
   "carry": 1,
@@ -36,8 +36,8 @@
  },
  "IsoBuilder.exe": {
   "carry": 25,
-  "seen": 1,
-  "total": 26
+  "seen": 3,
+  "total": 28
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -331,8 +331,8 @@
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 3,
-  "seen": 14,
-  "total": 17
+  "seen": 15,
+  "total": 18
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
@@ -451,8 +451,8 @@
  },
  "SilentInstall.exe": {
   "carry": 0,
-  "seen": 8,
-  "total": 8
+  "seen": 11,
+  "total": 11
  },
  "StoreShell.exe": {
   "carry": 0,
@@ -523,6 +523,11 @@
   "carry": 0,
   "seen": 18,
   "total": 18
+ },
+ "Widgets.NF.Setup.2.1.2.exe": {
+  "carry": 0,
+  "seen": 1,
+  "total": 1
  },
  "winapps-packer.exe": {
   "carry": 0,
