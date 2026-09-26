@@ -36,8 +36,8 @@
  },
  "IsoBuilder.exe": {
   "carry": 25,
-  "seen": 3,
-  "total": 28
+  "seen": 4,
+  "total": 29
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 24,
-  "total": 29
+  "seen": 25,
+  "total": 30
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -251,8 +251,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 8,
-  "total": 21
+  "seen": 9,
+  "total": 22
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 21,
-  "total": 26
+  "seen": 23,
+  "total": 28
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 15,
-  "total": 15
+  "seen": 19,
+  "total": 19
  },
  "TikNick-Setup.exe": {
   "carry": 0,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 1,
-  "total": 13
+  "seen": 3,
+  "total": 15
  },
  "#87b32f25445b2575": {
   "carry": 0,
