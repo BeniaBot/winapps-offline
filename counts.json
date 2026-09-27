@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 8,
-  "total": 8
+  "seen": 9,
+  "total": 9
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 17,
-  "total": 18
+  "seen": 18,
+  "total": 19
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 35,
-  "total": 59
+  "seen": 36,
+  "total": 60
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -461,8 +461,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 3,
-  "total": 5
+  "seen": 4,
+  "total": 6
  },
  "System-Components-All.exe": {
   "carry": 0,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 3,
-  "total": 15
+  "seen": 4,
+  "total": 16
  },
  "#87b32f25445b2575": {
   "carry": 0,
