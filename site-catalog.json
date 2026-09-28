@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25",
+  "updated": "2026-09-28",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -389,10 +389,10 @@
       "heb": true,
       "icon": "icons/Maps.png",
       "color": "#0078D4",
-      "desc": "מפות של Windows עם מפת ישראל מוטמעת מראש — עובדת לגמרי בלי אינטרנט",
-      "descEn": "Windows Maps with the map of Israel built in — works fully offline",
-      "noteEn": "The installer injects the map of Israel and blocks the app from the network, so it cannot disable itself. The package is Microsoft's own, unchanged.",
-      "note": "המתקין מזריק את מפת ישראל וחוסם לאפליקציה גישה לרשת, כדי שלא תשבית את עצמה. החבילה היא של מיקרוסופט, ללא שינוי.",
+      "desc": "מפות של Windows, החבילה המקורית של מיקרוסופט, עם מפת ישראל בתוך המתקין",
+      "descEn": "Windows Maps, Microsoft's original package, with the map of Israel inside the installer",
+      "noteEn": "Microsoft has discontinued the Maps app. On newer Windows (24H2 and up) it no longer ships built in, so it may not open. Important: after installing, do not connect the PC to the internet — a connection makes Windows replace it with a version that announces Maps has been discontinued.",
+      "note": "מיקרוסופט הפסיקה את אפליקציית המפות. במחשבים עם Windows חדש יותר (24H2 ומעלה) היא כבר לא מגיעה מובנית, ולכן ייתכן שלא תיפתח. חשוב: אחרי ההתקנה אל תחברו את המחשב לאינטרנט — חיבור גורם ל-Windows להחליף אותה בגרסה שמודיעה שהמפות הופסקו.",
       "cat": "כלים",
       "gatedFrom": 26100,
       "files": [

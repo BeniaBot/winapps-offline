@@ -60,8 +60,8 @@
     "infoEn": "Shows another computer's desktop in a window on yours, so you can work on it as if you were sitting in front of it. Useful when there is a second PC in the house or the office and you would rather not walk over to it. The other computer must be switched on, on the same network, and set to allow remote connections — a setting found in Pro editions of Windows."
   },
   "Maps": {
-    "info": "מאפשר לחפש כתובת, לראות את הרחובות מסביב ולקבל מסלול נסיעה, הכול מתוך המחשב עצמו. שימושי במחשב מנותק שבכל זאת צריך מפה זמינה. המתקין מכניס את מפת ישראל פנימה מראש, וגם חוסם לאפליקציה גישה לאינטרנט — אחרת היא מזהה שאין חיבור ומשביתה את עצמה.",
-    "infoEn": "Lets you search an address, look at the streets around it and get driving directions, all from the computer itself. Useful on a disconnected PC that still needs a map at hand. The installer puts the map of Israel in place and also blocks the app from the internet — otherwise it notices there is no connection and shuts itself down."
+    "info": "אפליקציית המפות של Windows, החבילה המקורית של מיקרוסופט, עם מפת ישראל בתוך המתקין. חשוב לדעת: מיקרוסופט הפסיקה את האפליקציה. במחשבים עם Windows חדש יותר (24H2 ומעלה) היא כבר לא מגיעה מובנית ועלולה שלא להיפתח כלל. גם במחשב שבו היא כן נפתחת, אל תחברו אותו לאינטרנט — חיבור גורם ל-Windows להחליף אותה בגרסה שמודיעה שהמפות הופסקו.",
+    "infoEn": "The Windows Maps app, Microsoft's original package, with the map of Israel inside the installer. Worth knowing: Microsoft has discontinued the app. On newer Windows (24H2 and up) it no longer ships built in and may not open at all. Even on a PC where it does open, do not connect it to the internet — a connection makes Windows replace it with a version that announces Maps has been discontinued."
   },
   "ToDo": {
     "info": "רשימות של דברים לעשות: מוסיפים משימה, קובעים לה תאריך ותזכורת, ומסמנים אותה כשסיימתם. שימושי לרשימת קניות, למטלות בעבודה או לסדר יום פשוט. האפליקציה בנויה סביב חשבון Microsoft וסנכרון בין מכשירים, ולכן במחשב בלי אינטרנט התועלת שלה מוגבלת.",
