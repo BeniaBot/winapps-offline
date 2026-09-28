@@ -1575,7 +1575,7 @@ const EN = {
   'לא נמצא כלום': 'nothing found',
   'היעד:': 'Target:',
   'טביעת אצבע': 'Fingerprint',
-  'עובדת בלי אינטרנט — פרט לגרסאות החדשות של Windows 11, שם דרושה פתיחה אחת מחוברת': 'Works with no internet - except on recent Windows 11, where it needs one connected launch',
+  'עובדת רק ב-Windows ישן יותר; בגרסאות החדשות (24H2 ומעלה) לא נפתחת, ואין לחבר לאינטרנט': 'Works only on older Windows; on newer versions (24H2 and up) it will not open, and must not be connected to the internet',
   'ערכות נושא': 'Themes',
   'ערכת נושא': 'Theme',
   'עב': 'HE',
@@ -3677,7 +3677,7 @@ function openSheet(en) {
                              read "works entirely offline" directly above a warning saying that on 24H2
                              it needs one connected launch - the two things the comment above says must
                              never sit together, in one breath, on the one card where it was measured. */
-                          : a.gatedFrom ? 'עובדת בלי אינטרנט — פרט לגרסאות החדשות של Windows 11, שם דרושה פתיחה אחת מחוברת'
+                          : a.gatedFrom ? 'עובדת רק ב-Windows ישן יותר; בגרסאות החדשות (24H2 ומעלה) לא נפתחת, ואין לחבר לאינטרנט'
                           : 'עובדת לגמרי בלי אינטרנט') + '</div>' +
     '<div class="net" style="color:' + (a.noui ? 'var(--muted)' : (a.heb ? 'var(--ok)' : (a.xlat ? 'var(--warn)' : 'var(--muted)'))) + '">' +
       langClaim(a) + '</div>' +
