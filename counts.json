@@ -21,13 +21,13 @@
  },
  "disc-kit.zip": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 2,
+  "total": 3
  },
  "disc-runtime.zip": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "ELIZA.exe": {
   "carry": 1,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 37,
-  "total": 61
+  "seen": 38,
+  "total": 62
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
