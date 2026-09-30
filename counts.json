@@ -36,8 +36,8 @@
  },
  "IsoBuilder.exe": {
   "carry": 25,
-  "seen": 6,
-  "total": 31
+  "seen": 8,
+  "total": 33
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -121,8 +121,8 @@
  },
  "Setup-Everything-Hebrew.exe": {
   "carry": 0,
-  "seen": 2,
-  "total": 2
+  "seen": 3,
+  "total": 3
  },
  "Setup-Family.exe": {
   "carry": 2,
@@ -346,8 +346,8 @@
  },
  "Setup-SoundRecorder-Win11.exe": {
   "carry": 1,
-  "seen": 15,
-  "total": 16
+  "seen": 16,
+  "total": 17
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
@@ -451,8 +451,8 @@
  },
  "SilentInstall.exe": {
   "carry": 0,
-  "seen": 12,
-  "total": 12
+  "seen": 15,
+  "total": 15
  },
  "StoreShell.exe": {
   "carry": 0,
