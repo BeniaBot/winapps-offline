@@ -121,8 +121,8 @@
  },
  "Setup-Everything-Hebrew.exe": {
   "carry": 0,
-  "seen": 3,
-  "total": 3
+  "seen": 4,
+  "total": 4
  },
  "Setup-Family.exe": {
   "carry": 2,
@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 20,
-  "total": 36
+  "seen": 21,
+  "total": 37
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -216,8 +216,8 @@
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
-  "seen": 23,
-  "total": 26
+  "seen": 24,
+  "total": 27
  },
  "Setup-News.exe": {
   "carry": 0,
