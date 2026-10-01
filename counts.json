@@ -11,8 +11,8 @@
  },
  "CapsFix-5.exe": {
   "carry": 0,
-  "seen": 14,
-  "total": 14
+  "seen": 15,
+  "total": 15
  },
  "Csharf.bat": {
   "carry": 0,
@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 19,
-  "total": 20
+  "seen": 20,
+  "total": 21
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -431,8 +431,8 @@
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
-  "seen": 14,
-  "total": 18
+  "seen": 15,
+  "total": 19
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
