@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 10,
-  "total": 10
+  "seen": 11,
+  "total": 11
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -96,8 +96,8 @@
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 16,
-  "total": 19
+  "seen": 17,
+  "total": 20
  },
  "Setup-Copilot.exe": {
   "carry": 1,
@@ -341,18 +341,18 @@
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
-  "seen": 11,
-  "total": 13
+  "seen": 12,
+  "total": 14
  },
  "Setup-SoundRecorder-Win11.exe": {
   "carry": 1,
-  "seen": 16,
-  "total": 17
+  "seen": 17,
+  "total": 18
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 20,
-  "total": 27
+  "seen": 21,
+  "total": 28
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -391,8 +391,8 @@
  },
  "Setup-ToDo.exe": {
   "carry": 1,
-  "seen": 17,
-  "total": 18
+  "seen": 18,
+  "total": 19
  },
  "Setup-Translate.exe": {
   "carry": 5,
