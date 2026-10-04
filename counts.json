@@ -351,8 +351,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 21,
-  "total": 28
+  "seen": 22,
+  "total": 29
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 25,
-  "total": 30
+  "seen": 26,
+  "total": 31
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -431,8 +431,8 @@
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
-  "seen": 15,
-  "total": 19
+  "seen": 16,
+  "total": 20
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 21,
-  "total": 21
+  "seen": 22,
+  "total": 22
  },
  "TikNick-Setup.exe": {
   "carry": 0,
@@ -541,8 +541,8 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
-  "seen": 2,
-  "total": 35
+  "seen": 3,
+  "total": 36
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
