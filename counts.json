@@ -181,8 +181,8 @@
  },
  "Setup-Mail.exe": {
   "carry": 1,
-  "seen": 14,
-  "total": 15
+  "seen": 15,
+  "total": 16
  },
  "Setup-Maps-Original.exe": {
   "carry": 0,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 42,
-  "total": 66
+  "seen": 43,
+  "total": 67
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -236,8 +236,8 @@
  },
  "Setup-OneNote.exe": {
   "carry": 5,
-  "seen": 17,
-  "total": 22
+  "seen": 18,
+  "total": 23
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
@@ -251,8 +251,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 14,
-  "total": 27
+  "seen": 15,
+  "total": 28
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -266,8 +266,8 @@
  },
  "Setup-People.exe": {
   "carry": 1,
-  "seen": 15,
-  "total": 16
+  "seen": 16,
+  "total": 17
  },
  "Setup-PhoneLink-Win10.exe": {
   "carry": 0,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 26,
-  "total": 31
+  "seen": 27,
+  "total": 32
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
