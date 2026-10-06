@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 43,
-  "total": 67
+  "seen": 45,
+  "total": 69
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -356,13 +356,13 @@
  },
  "Setup-Store.exe": {
   "carry": 0,
-  "seen": 24,
-  "total": 24
+  "seen": 25,
+  "total": 25
  },
  "Setup-StorePurchase.exe": {
   "carry": 1,
-  "seen": 14,
-  "total": 15
+  "seen": 15,
+  "total": 16
  },
  "Setup-Sway-Original.exe": {
   "carry": 6,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 28,
-  "total": 33
+  "seen": 29,
+  "total": 34
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -461,8 +461,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 5,
-  "total": 7
+  "seen": 7,
+  "total": 9
  },
  "System-Components-All.exe": {
   "carry": 0,
