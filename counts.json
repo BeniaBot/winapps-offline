@@ -71,8 +71,8 @@
  },
  "Setup-Builder3D-Original.exe": {
   "carry": 6,
-  "seen": 5,
-  "total": 11
+  "seen": 6,
+  "total": 12
  },
  "Setup-Builder3D.exe": {
   "carry": 4,
@@ -261,8 +261,8 @@
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 18,
-  "total": 24
+  "seen": 20,
+  "total": 26
  },
  "Setup-People.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 29,
-  "total": 34
+  "seen": 30,
+  "total": 35
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 22,
-  "total": 22
+  "seen": 26,
+  "total": 26
  },
  "TikNick-Setup.exe": {
   "carry": 0,
