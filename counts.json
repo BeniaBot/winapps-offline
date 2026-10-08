@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 22,
-  "total": 38
+  "seen": 23,
+  "total": 39
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -181,8 +181,8 @@
  },
  "Setup-Mail.exe": {
   "carry": 1,
-  "seen": 16,
-  "total": 17
+  "seen": 17,
+  "total": 18
  },
  "Setup-Maps-Original.exe": {
   "carry": 0,
@@ -196,8 +196,8 @@
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
-  "seen": 23,
-  "total": 24
+  "seen": 25,
+  "total": 26
  },
  "Setup-Messaging-Win10.exe": {
   "carry": 1,
@@ -381,13 +381,13 @@
  },
  "Setup-Terminal.exe": {
   "carry": 3,
-  "seen": 19,
-  "total": 22
+  "seen": 20,
+  "total": 23
  },
  "Setup-TerminalPreview.exe": {
   "carry": 4,
-  "seen": 16,
-  "total": 20
+  "seen": 17,
+  "total": 21
  },
  "Setup-ToDo.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 34,
-  "total": 39
+  "seen": 35,
+  "total": 40
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
