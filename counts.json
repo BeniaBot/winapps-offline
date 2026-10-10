@@ -16,8 +16,8 @@
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 11,
-  "total": 11
+  "seen": 12,
+  "total": 12
  },
  "disc-kit.zip": {
   "carry": 1,
@@ -86,8 +86,8 @@
  },
  "Setup-Camera.exe": {
   "carry": 4,
-  "seen": 19,
-  "total": 23
+  "seen": 20,
+  "total": 24
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
@@ -126,8 +126,8 @@
  },
  "Setup-Family.exe": {
   "carry": 2,
-  "seen": 11,
-  "total": 13
+  "seen": 13,
+  "total": 15
  },
  "Setup-FeedbackHub.exe": {
   "carry": 0,
@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 23,
-  "total": 39
+  "seen": 25,
+  "total": 41
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -151,8 +151,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 16,
-  "total": 16
+  "seen": 17,
+  "total": 17
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -166,8 +166,8 @@
  },
  "Setup-HEVCExtension-Win11.exe": {
   "carry": 2,
-  "seen": 18,
-  "total": 20
+  "seen": 19,
+  "total": 21
  },
  "Setup-Journal-Original.exe": {
   "carry": 7,
@@ -191,13 +191,13 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 51,
-  "total": 75
+  "seen": 54,
+  "total": 78
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
-  "seen": 25,
-  "total": 26
+  "seen": 27,
+  "total": 28
  },
  "Setup-Messaging-Win10.exe": {
   "carry": 1,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 33,
-  "total": 38
+  "seen": 35,
+  "total": 40
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -236,8 +236,8 @@
  },
  "Setup-OneNote.exe": {
   "carry": 5,
-  "seen": 18,
-  "total": 23
+  "seen": 19,
+  "total": 24
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
@@ -281,8 +281,8 @@
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 19,
-  "total": 23
+  "seen": 21,
+  "total": 25
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
@@ -296,8 +296,8 @@
  },
  "Setup-PowerShell.exe": {
   "carry": 2,
-  "seen": 16,
-  "total": 18
+  "seen": 17,
+  "total": 19
  },
  "Setup-Print3D-Original.exe": {
   "carry": 6,
@@ -321,8 +321,8 @@
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 4,
-  "seen": 19,
-  "total": 23
+  "seen": 21,
+  "total": 25
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 1,
@@ -336,8 +336,8 @@
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
-  "seen": 18,
-  "total": 18
+  "seen": 19,
+  "total": 19
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
@@ -351,13 +351,13 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 22,
-  "total": 29
+  "seen": 24,
+  "total": 31
  },
  "Setup-Store.exe": {
   "carry": 0,
-  "seen": 26,
-  "total": 26
+  "seen": 27,
+  "total": 27
  },
  "Setup-StorePurchase.exe": {
   "carry": 1,
@@ -371,8 +371,8 @@
  },
  "Setup-Sway.exe": {
   "carry": 1,
-  "seen": 17,
-  "total": 18
+  "seen": 18,
+  "total": 19
  },
  "Setup-Sysinternals.exe": {
   "carry": 4,
@@ -381,8 +381,8 @@
  },
  "Setup-Terminal.exe": {
   "carry": 3,
-  "seen": 20,
-  "total": 23
+  "seen": 22,
+  "total": 25
  },
  "Setup-TerminalPreview.exe": {
   "carry": 4,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 36,
-  "total": 41
+  "seen": 37,
+  "total": 42
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -526,8 +526,8 @@
  },
  "Widgets.NF.Setup.2.1.2.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 3,
+  "total": 3
  },
  "winapps-packer.exe": {
   "carry": 0,
@@ -541,8 +541,8 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
-  "seen": 3,
-  "total": 36
+  "seen": 7,
+  "total": 40
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
