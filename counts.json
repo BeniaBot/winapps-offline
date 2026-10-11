@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 20,
-  "total": 21
+  "seen": 21,
+  "total": 22
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 35,
-  "total": 40
+  "seen": 36,
+  "total": 41
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 20,
-  "total": 21
+  "seen": 21,
+  "total": 22
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
