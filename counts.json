@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 11,
-  "total": 11
+  "seen": 12,
+  "total": 12
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -151,8 +151,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 19,
+  "total": 19
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -461,8 +461,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 7,
-  "total": 9
+  "seen": 8,
+  "total": 10
  },
  "System-Components-All.exe": {
   "carry": 0,
