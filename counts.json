@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 54,
-  "total": 78
+  "seen": 55,
+  "total": 79
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -281,8 +281,8 @@
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 21,
-  "total": 25
+  "seen": 22,
+  "total": 26
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
