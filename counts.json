@@ -11,13 +11,13 @@
  },
  "CapsFix-5.exe": {
   "carry": 0,
-  "seen": 15,
-  "total": 15
+  "seen": 16,
+  "total": 16
  },
  "Csharf.bat": {
   "carry": 0,
-  "seen": 12,
-  "total": 12
+  "seen": 13,
+  "total": 13
  },
  "disc-kit.zip": {
   "carry": 1,
@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 21,
-  "total": 22
+  "seen": 22,
+  "total": 23
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -56,8 +56,8 @@
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
-  "seen": 19,
-  "total": 21
+  "seen": 20,
+  "total": 22
  },
  "Setup-AV1Extension.exe": {
   "carry": 5,
@@ -406,8 +406,8 @@
  },
  "Setup-Translator.exe": {
   "carry": 9,
-  "seen": 23,
-  "total": 32
+  "seen": 25,
+  "total": 34
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
@@ -431,8 +431,8 @@
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
-  "seen": 18,
-  "total": 22
+  "seen": 19,
+  "total": 23
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
@@ -451,8 +451,8 @@
  },
  "SilentInstall.exe": {
   "carry": 0,
-  "seen": 15,
-  "total": 15
+  "seen": 16,
+  "total": 16
  },
  "StoreShell.exe": {
   "carry": 0,
@@ -461,8 +461,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 8,
-  "total": 10
+  "seen": 9,
+  "total": 11
  },
  "System-Components-All.exe": {
   "carry": 0,
@@ -471,8 +471,8 @@
  },
  "TikNick-Setup.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 7,
+  "total": 7
  },
  "VC2005-x64.exe": {
   "carry": 0,
