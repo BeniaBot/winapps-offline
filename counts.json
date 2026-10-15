@@ -96,8 +96,8 @@
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 18,
-  "total": 21
+  "seen": 19,
+  "total": 22
  },
  "Setup-Copilot.exe": {
   "carry": 1,
@@ -151,8 +151,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 23,
-  "total": 23
+  "seen": 24,
+  "total": 24
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -176,8 +176,8 @@
  },
  "Setup-Journal.exe": {
   "carry": 2,
-  "seen": 19,
-  "total": 21
+  "seen": 20,
+  "total": 22
  },
  "Setup-Mail.exe": {
   "carry": 1,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 57,
-  "total": 81
+  "seen": 58,
+  "total": 82
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -226,13 +226,13 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 36,
-  "total": 41
+  "seen": 37,
+  "total": 42
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
-  "seen": 17,
-  "total": 21
+  "seen": 18,
+  "total": 22
  },
  "Setup-OneNote.exe": {
   "carry": 5,
@@ -266,8 +266,8 @@
  },
  "Setup-People.exe": {
   "carry": 1,
-  "seen": 17,
-  "total": 18
+  "seen": 18,
+  "total": 19
  },
  "Setup-PhoneLink-Win10.exe": {
   "carry": 0,
@@ -351,8 +351,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 25,
-  "total": 32
+  "seen": 26,
+  "total": 33
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 38,
-  "total": 43
+  "seen": 39,
+  "total": 44
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
