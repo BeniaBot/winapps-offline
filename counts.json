@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 56,
-  "total": 80
+  "seen": 57,
+  "total": 81
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 37,
-  "total": 42
+  "seen": 38,
+  "total": 43
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -541,8 +541,8 @@
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
-  "seen": 7,
-  "total": 40
+  "seen": 8,
+  "total": 41
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
