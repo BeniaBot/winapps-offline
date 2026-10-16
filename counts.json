@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 22,
-  "total": 23
+  "seen": 23,
+  "total": 24
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -91,8 +91,8 @@
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
-  "seen": 23,
-  "total": 31
+  "seen": 24,
+  "total": 32
  },
  "Setup-Clock.exe": {
   "carry": 3,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 58,
-  "total": 82
+  "seen": 59,
+  "total": 83
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -216,8 +216,8 @@
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
-  "seen": 26,
-  "total": 29
+  "seen": 27,
+  "total": 30
  },
  "Setup-News.exe": {
   "carry": 0,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 39,
-  "total": 44
+  "seen": 41,
+  "total": 46
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 8,
-  "total": 20
+  "seen": 11,
+  "total": 23
  },
  "#87b32f25445b2575": {
   "carry": 0,
