@@ -261,8 +261,8 @@
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 21,
-  "total": 27
+  "seen": 22,
+  "total": 28
  },
  "Setup-People.exe": {
   "carry": 1,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 21,
-  "total": 22
+  "seen": 22,
+  "total": 23
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
