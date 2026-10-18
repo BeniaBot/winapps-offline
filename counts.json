@@ -61,8 +61,8 @@
  },
  "Setup-AV1Extension.exe": {
   "carry": 5,
-  "seen": 19,
-  "total": 24
+  "seen": 20,
+  "total": 25
  },
  "Setup-BingSearch.exe": {
   "carry": 1,
@@ -156,13 +156,13 @@
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
-  "seen": 19,
-  "total": 23
+  "seen": 20,
+  "total": 24
  },
  "Setup-HEVCExtension-Win10.exe": {
   "carry": 1,
-  "seen": 11,
-  "total": 12
+  "seen": 12,
+  "total": 13
  },
  "Setup-HEVCExtension-Win11.exe": {
   "carry": 2,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 37,
-  "total": 42
+  "seen": 38,
+  "total": 43
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -321,8 +321,8 @@
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 4,
-  "seen": 21,
-  "total": 25
+  "seen": 22,
+  "total": 26
  },
  "Setup-RemoteDesktop.exe": {
   "carry": 1,
@@ -361,8 +361,8 @@
  },
  "Setup-StorePurchase.exe": {
   "carry": 1,
-  "seen": 15,
-  "total": 16
+  "seen": 17,
+  "total": 18
  },
  "Setup-Sway-Original.exe": {
   "carry": 6,
@@ -411,8 +411,8 @@
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
-  "seen": 19,
-  "total": 24
+  "seen": 20,
+  "total": 25
  },
  "Setup-Weather.exe": {
   "carry": 1,
@@ -421,8 +421,8 @@
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
-  "seen": 23,
-  "total": 29
+  "seen": 24,
+  "total": 30
  },
  "Setup-Whiteboard.exe": {
   "carry": 1,
@@ -476,8 +476,8 @@
  },
  "VC2005-x64.exe": {
   "carry": 0,
-  "seen": 20,
-  "total": 20
+  "seen": 21,
+  "total": 21
  },
  "VC2005-x86.exe": {
   "carry": 0,
