@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 62,
-  "total": 86
+  "seen": 63,
+  "total": 87
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 42,
-  "total": 47
+  "seen": 44,
+  "total": 49
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
