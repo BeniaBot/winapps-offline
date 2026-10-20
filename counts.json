@@ -256,18 +256,18 @@
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
-  "seen": 9,
-  "total": 10
+  "seen": 11,
+  "total": 12
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 23,
-  "total": 29
+  "seen": 25,
+  "total": 31
  },
  "Setup-People.exe": {
   "carry": 1,
-  "seen": 19,
-  "total": 20
+  "seen": 20,
+  "total": 21
  },
  "Setup-PhoneLink-Win10.exe": {
   "carry": 0,
