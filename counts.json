@@ -36,8 +36,8 @@
  },
  "IsoBuilder.exe": {
   "carry": 25,
-  "seen": 9,
-  "total": 34
+  "seen": 10,
+  "total": 35
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -221,13 +221,13 @@
  },
  "Setup-News.exe": {
   "carry": 0,
-  "seen": 18,
-  "total": 18
+  "seen": 19,
+  "total": 19
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 40,
-  "total": 45
+  "seen": 41,
+  "total": 46
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -316,8 +316,8 @@
  },
  "Setup-RawExtension-Win10.exe": {
   "carry": 2,
-  "seen": 13,
-  "total": 15
+  "seen": 14,
+  "total": 16
  },
  "Setup-RawExtension-Win11.exe": {
   "carry": 4,
@@ -536,13 +536,13 @@
  },
  "WINAPPS-W10-CORE.iso": {
   "carry": 10,
-  "seen": 1,
-  "total": 11
+  "seen": 2,
+  "total": 12
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
-  "seen": 9,
-  "total": 42
+  "seen": 10,
+  "total": 43
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
