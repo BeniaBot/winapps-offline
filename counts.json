@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 41,
-  "total": 46
+  "seen": 42,
+  "total": 47
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -331,8 +331,8 @@
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 3,
-  "seen": 15,
-  "total": 18
+  "seen": 16,
+  "total": 19
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
