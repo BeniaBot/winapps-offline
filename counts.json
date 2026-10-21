@@ -261,8 +261,8 @@
  },
  "Setup-PCManager.exe": {
   "carry": 6,
-  "seen": 25,
-  "total": 31
+  "seen": 26,
+  "total": 32
  },
  "Setup-People.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 45,
-  "total": 50
+  "seen": 46,
+  "total": 51
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
