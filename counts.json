@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 30,
-  "total": 46
+  "seen": 31,
+  "total": 47
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 46,
-  "total": 51
+  "seen": 47,
+  "total": 52
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 29,
-  "total": 29
+  "seen": 30,
+  "total": 30
  },
  "TikNick-Setup.exe": {
   "carry": 0,
