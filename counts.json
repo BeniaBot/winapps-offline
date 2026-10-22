@@ -91,8 +91,8 @@
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
-  "seen": 26,
-  "total": 34
+  "seen": 28,
+  "total": 36
  },
  "Setup-Clock.exe": {
   "carry": 3,
@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 31,
-  "total": 47
+  "seen": 32,
+  "total": 48
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 65,
-  "total": 89
+  "seen": 67,
+  "total": 91
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -231,13 +231,13 @@
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
-  "seen": 20,
-  "total": 24
+  "seen": 21,
+  "total": 25
  },
  "Setup-OneNote.exe": {
   "carry": 5,
-  "seen": 20,
-  "total": 25
+  "seen": 21,
+  "total": 26
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
@@ -251,8 +251,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 19,
-  "total": 32
+  "seen": 20,
+  "total": 33
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -281,8 +281,8 @@
  },
  "Setup-Photos.exe": {
   "carry": 4,
-  "seen": 22,
-  "total": 26
+  "seen": 23,
+  "total": 27
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
@@ -341,8 +341,8 @@
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
-  "seen": 12,
-  "total": 14
+  "seen": 13,
+  "total": 15
  },
  "Setup-SoundRecorder-Win11.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 47,
-  "total": 52
+  "seen": 50,
+  "total": 55
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -536,8 +536,8 @@
  },
  "WINAPPS-W10-CORE.iso": {
   "carry": 10,
-  "seen": 2,
-  "total": 12
+  "seen": 3,
+  "total": 13
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 13,
-  "total": 25
+  "seen": 14,
+  "total": 26
  },
  "#87b32f25445b2575": {
   "carry": 0,
