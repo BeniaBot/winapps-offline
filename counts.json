@@ -196,8 +196,8 @@
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
-  "seen": 28,
-  "total": 29
+  "seen": 30,
+  "total": 31
  },
  "Setup-Messaging-Win10.exe": {
   "carry": 1,
@@ -241,8 +241,8 @@
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 16,
-  "total": 21
+  "seen": 17,
+  "total": 22
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
