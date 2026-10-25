@@ -36,8 +36,8 @@
  },
  "IsoBuilder.exe": {
   "carry": 25,
-  "seen": 10,
-  "total": 35
+  "seen": 12,
+  "total": 37
  },
  "Setup-3DViewer-Original.exe": {
   "carry": 6,
@@ -81,8 +81,8 @@
  },
  "Setup-Calculator.exe": {
   "carry": 6,
-  "seen": 22,
-  "total": 28
+  "seen": 23,
+  "total": 29
  },
  "Setup-Camera.exe": {
   "carry": 4,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 42,
-  "total": 47
+  "seen": 43,
+  "total": 48
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -241,8 +241,8 @@
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 17,
-  "total": 22
+  "seen": 18,
+  "total": 23
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
