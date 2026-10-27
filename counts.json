@@ -11,8 +11,8 @@
  },
  "CapsFix-5.exe": {
   "carry": 0,
-  "seen": 17,
-  "total": 17
+  "seen": 18,
+  "total": 18
  },
  "Csharf.bat": {
   "carry": 0,
@@ -136,8 +136,8 @@
  },
  "Setup-FileRecovery.exe": {
   "carry": 16,
-  "seen": 33,
-  "total": 49
+  "seen": 34,
+  "total": 50
  },
  "Setup-GetHelp-Win10.exe": {
   "carry": 0,
