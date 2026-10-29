@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 25,
-  "total": 26
+  "seen": 26,
+  "total": 27
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 70,
-  "total": 94
+  "seen": 72,
+  "total": 96
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -291,8 +291,8 @@
  },
  "Setup-PowerBI.exe": {
   "carry": 1,
-  "seen": 19,
-  "total": 20
+  "seen": 20,
+  "total": 21
  },
  "Setup-PowerShell.exe": {
   "carry": 2,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 34,
-  "total": 34
+  "seen": 35,
+  "total": 35
  },
  "TikNick-Setup.exe": {
   "carry": 0,
@@ -526,8 +526,8 @@
  },
  "Widgets.NF.Setup.2.1.2.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "winapps-packer.exe": {
   "carry": 0,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 15,
-  "total": 27
+  "seen": 16,
+  "total": 28
  },
  "#87b32f25445b2575": {
   "carry": 0,
