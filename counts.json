@@ -121,8 +121,8 @@
  },
  "Setup-Everything-Hebrew.exe": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 6,
+  "total": 6
  },
  "Setup-Family.exe": {
   "carry": 2,
@@ -171,8 +171,8 @@
  },
  "Setup-Journal-Original.exe": {
   "carry": 7,
-  "seen": 2,
-  "total": 9
+  "seen": 5,
+  "total": 12
  },
  "Setup-Journal.exe": {
   "carry": 2,
@@ -186,8 +186,8 @@
  },
  "Setup-Maps-Original.exe": {
   "carry": 0,
-  "seen": 4,
-  "total": 4
+  "seen": 5,
+  "total": 5
  },
  "Setup-Maps.exe": {
   "carry": 24,
@@ -246,8 +246,8 @@
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
-  "seen": 6,
-  "total": 6
+  "seen": 7,
+  "total": 7
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
@@ -256,8 +256,8 @@
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-PCManager.exe": {
   "carry": 6,
@@ -286,8 +286,8 @@
  },
  "Setup-PowerBI-Original.exe": {
   "carry": 6,
-  "seen": 7,
-  "total": 13
+  "seen": 8,
+  "total": 14
  },
  "Setup-PowerBI.exe": {
   "carry": 1,
@@ -301,8 +301,8 @@
  },
  "Setup-Print3D-Original.exe": {
   "carry": 6,
-  "seen": 6,
-  "total": 12
+  "seen": 7,
+  "total": 13
  },
  "Setup-Print3D.exe": {
   "carry": 4,
@@ -366,8 +366,8 @@
  },
  "Setup-Sway-Original.exe": {
   "carry": 6,
-  "seen": 7,
-  "total": 13
+  "seen": 8,
+  "total": 14
  },
  "Setup-Sway.exe": {
   "carry": 1,
@@ -376,8 +376,8 @@
  },
  "Setup-Sysinternals.exe": {
   "carry": 4,
-  "seen": 1,
-  "total": 5
+  "seen": 3,
+  "total": 7
  },
  "Setup-Terminal.exe": {
   "carry": 3,
@@ -401,8 +401,8 @@
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
-  "seen": 13,
-  "total": 19
+  "seen": 14,
+  "total": 20
  },
  "Setup-Translator.exe": {
   "carry": 9,
@@ -426,8 +426,8 @@
  },
  "Setup-Whiteboard.exe": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 5,
+  "total": 6
  },
  "Setup-Widgets-Win11.exe": {
   "carry": 4,
@@ -436,13 +436,13 @@
  },
  "Setup-WinDbg.exe": {
   "carry": 1,
-  "seen": 1,
-  "total": 2
+  "seen": 9,
+  "total": 10
  },
  "Setup-WSA-Win11.exe": {
   "carry": 0,
-  "seen": 1,
-  "total": 1
+  "seen": 5,
+  "total": 5
  },
  "Setup-WSL.exe": {
   "carry": 2,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 33,
-  "total": 33
+  "seen": 34,
+  "total": 34
  },
  "TikNick-Setup.exe": {
   "carry": 0,
@@ -551,13 +551,13 @@
  },
  "#87b32f25445b2575": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 6,
+  "total": 6
  },
  "#75e1cdc3cb59271b": {
   "carry": 2,
-  "seen": 3,
-  "total": 5
+  "seen": 4,
+  "total": 6
  },
  "#40a96a4b7775a83a": {
   "carry": 0,
@@ -566,8 +566,8 @@
  },
  "#515f8ab22452738d": {
   "carry": 2,
-  "seen": 2,
-  "total": 4
+  "seen": 4,
+  "total": 6
  },
  "#209f94d007363919": {
   "carry": 0,
@@ -576,8 +576,8 @@
  },
  "#913b920a0a5d30af": {
   "carry": 2,
-  "seen": 2,
-  "total": 4
+  "seen": 4,
+  "total": 6
  },
  "#310bffce312a892a": {
   "carry": 0,
@@ -591,8 +591,8 @@
  },
  "#c1bf7e19aa28ce86": {
   "carry": 2,
-  "seen": 3,
-  "total": 5
+  "seen": 5,
+  "total": 7
  },
  "#e52cfff08a26b7f1": {
   "carry": 0,
@@ -601,8 +601,8 @@
  },
  "#8e70da0819e8ca67": {
   "carry": 2,
-  "seen": 3,
-  "total": 5
+  "seen": 4,
+  "total": 6
  },
  "#b98bad4c2c43d03d": {
   "carry": 0,
