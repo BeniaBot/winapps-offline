@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 73,
-  "total": 97
+  "seen": 75,
+  "total": 99
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 52,
-  "total": 57
+  "seen": 53,
+  "total": 58
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -406,8 +406,8 @@
  },
  "Setup-Translator.exe": {
   "carry": 9,
-  "seen": 30,
-  "total": 39
+  "seen": 31,
+  "total": 40
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
