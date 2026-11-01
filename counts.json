@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 26,
-  "total": 27
+  "seen": 29,
+  "total": 30
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -161,8 +161,8 @@
  },
  "Setup-HEVCExtension-Win10.exe": {
   "carry": 1,
-  "seen": 13,
-  "total": 14
+  "seen": 14,
+  "total": 15
  },
  "Setup-HEVCExtension-Win11.exe": {
   "carry": 2,
@@ -181,8 +181,8 @@
  },
  "Setup-Mail.exe": {
   "carry": 1,
-  "seen": 21,
-  "total": 22
+  "seen": 22,
+  "total": 23
  },
  "Setup-Maps-Original.exe": {
   "carry": 0,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 75,
-  "total": 99
+  "seen": 77,
+  "total": 101
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 53,
-  "total": 58
+  "seen": 55,
+  "total": 60
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -411,8 +411,8 @@
  },
  "Setup-VP9Extension.exe": {
   "carry": 5,
-  "seen": 23,
-  "total": 28
+  "seen": 25,
+  "total": 30
  },
  "Setup-Weather.exe": {
   "carry": 1,
@@ -461,8 +461,8 @@
  },
  "SubtitleStudio.exe": {
   "carry": 2,
-  "seen": 12,
-  "total": 14
+  "seen": 13,
+  "total": 15
  },
  "System-Components-All.exe": {
   "carry": 0,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 16,
-  "total": 28
+  "seen": 17,
+  "total": 29
  },
  "#87b32f25445b2575": {
   "carry": 0,
