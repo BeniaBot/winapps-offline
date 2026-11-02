@@ -51,8 +51,8 @@
  },
  "Setup-AnyDesk-5.2.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 77,
-  "total": 101
+  "seen": 78,
+  "total": 102
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
