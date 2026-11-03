@@ -1,8 +1,8 @@
 {
  "2049_Setup.exe": {
   "carry": 0,
-  "seen": 14,
-  "total": 14
+  "seen": 15,
+  "total": 15
  },
  "AnyDesk-5.2.1.exe": {
   "carry": 0,
@@ -31,8 +31,8 @@
  },
  "ELIZA.exe": {
   "carry": 1,
-  "seen": 29,
-  "total": 30
+  "seen": 30,
+  "total": 31
  },
  "IsoBuilder.exe": {
   "carry": 25,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 78,
-  "total": 102
+  "seen": 79,
+  "total": 103
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 24,
-  "total": 25
+  "seen": 25,
+  "total": 26
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
@@ -526,8 +526,8 @@
  },
  "Widgets.NF.Setup.2.1.2.exe": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 6,
+  "total": 6
  },
  "winapps-packer.exe": {
   "carry": 0,
@@ -546,8 +546,8 @@
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
-  "seen": 17,
-  "total": 29
+  "seen": 18,
+  "total": 30
  },
  "#87b32f25445b2575": {
   "carry": 0,
