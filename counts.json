@@ -86,8 +86,8 @@
  },
  "Setup-Camera.exe": {
   "carry": 4,
-  "seen": 24,
-  "total": 28
+  "seen": 26,
+  "total": 30
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 80,
-  "total": 104
+  "seen": 83,
+  "total": 107
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -396,8 +396,8 @@
  },
  "Setup-Translate.exe": {
   "carry": 5,
-  "seen": 55,
-  "total": 60
+  "seen": 57,
+  "total": 62
  },
  "Setup-Translator-Original.exe": {
   "carry": 6,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 25,
-  "total": 26
+  "seen": 27,
+  "total": 28
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
