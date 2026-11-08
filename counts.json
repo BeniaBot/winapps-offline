@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 49,
-  "total": 54
+  "seen": 51,
+  "total": 56
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -451,8 +451,8 @@
  },
  "SilentInstall.exe": {
   "carry": 0,
-  "seen": 18,
-  "total": 18
+  "seen": 20,
+  "total": 20
  },
  "StoreShell.exe": {
   "carry": 0,
@@ -466,8 +466,8 @@
  },
  "System-Components-All.exe": {
   "carry": 0,
-  "seen": 35,
-  "total": 35
+  "seen": 39,
+  "total": 39
  },
  "TikNick-Setup.exe": {
   "carry": 0,
