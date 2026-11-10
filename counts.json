@@ -81,8 +81,8 @@
  },
  "Setup-Calculator.exe": {
   "carry": 6,
-  "seen": 28,
-  "total": 34
+  "seen": 29,
+  "total": 35
  },
  "Setup-Camera.exe": {
   "carry": 4,
@@ -96,13 +96,13 @@
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 27,
-  "total": 30
+  "seen": 28,
+  "total": 31
  },
  "Setup-Copilot.exe": {
   "carry": 1,
-  "seen": 15,
-  "total": 16
+  "seen": 16,
+  "total": 17
  },
  "Setup-CrossDevice-Win10.exe": {
   "carry": 0,
@@ -151,8 +151,8 @@
  },
  "Setup-Hebrew.exe": {
   "carry": 0,
-  "seen": 33,
-  "total": 33
+  "seen": 35,
+  "total": 35
  },
  "Setup-HEIFExtension.exe": {
   "carry": 4,
@@ -191,8 +191,8 @@
  },
  "Setup-Maps.exe": {
   "carry": 24,
-  "seen": 90,
-  "total": 114
+  "seen": 91,
+  "total": 115
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -241,8 +241,8 @@
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 22,
-  "total": 27
+  "seen": 23,
+  "total": 28
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
@@ -251,8 +251,8 @@
  },
  "Setup-Paint3D.exe": {
   "carry": 13,
-  "seen": 22,
-  "total": 35
+  "seen": 23,
+  "total": 36
  },
  "Setup-PCManager-Hebrew.exe": {
   "carry": 1,
@@ -336,8 +336,8 @@
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
-  "seen": 30,
-  "total": 30
+  "seen": 31,
+  "total": 31
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
@@ -351,13 +351,13 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 31,
-  "total": 38
+  "seen": 32,
+  "total": 39
  },
  "Setup-Store.exe": {
   "carry": 0,
-  "seen": 33,
-  "total": 33
+  "seen": 34,
+  "total": 34
  },
  "Setup-StorePurchase.exe": {
   "carry": 1,
@@ -391,8 +391,8 @@
  },
  "Setup-ToDo.exe": {
   "carry": 1,
-  "seen": 24,
-  "total": 25
+  "seen": 25,
+  "total": 26
  },
  "Setup-Translate.exe": {
   "carry": 5,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 30,
-  "total": 31
+  "seen": 31,
+  "total": 32
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
