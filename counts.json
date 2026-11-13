@@ -21,13 +21,13 @@
  },
  "disc-kit.zip": {
   "carry": 1,
-  "seen": 2,
-  "total": 3
+  "seen": 4,
+  "total": 5
  },
  "disc-runtime.zip": {
   "carry": 0,
-  "seen": 5,
-  "total": 5
+  "seen": 7,
+  "total": 7
  },
  "ELIZA.exe": {
   "carry": 1,
@@ -86,8 +86,8 @@
  },
  "Setup-Camera.exe": {
   "carry": 4,
-  "seen": 28,
-  "total": 32
+  "seen": 29,
+  "total": 33
  },
  "Setup-Clipchamp.exe": {
   "carry": 8,
@@ -96,8 +96,8 @@
  },
  "Setup-Clock.exe": {
   "carry": 3,
-  "seen": 28,
-  "total": 31
+  "seen": 29,
+  "total": 32
  },
  "Setup-Copilot.exe": {
   "carry": 1,
@@ -190,9 +190,9 @@
   "total": 5
  },
  "Setup-Maps.exe": {
-  "carry": 24,
-  "seen": 92,
-  "total": 116
+  "carry": 116,
+  "seen": 1,
+  "total": 117
  },
  "Setup-MediaPlayer.exe": {
   "carry": 1,
@@ -201,8 +201,8 @@
  },
  "Setup-Messaging-Win10.exe": {
   "carry": 1,
-  "seen": 12,
-  "total": 13
+  "seen": 13,
+  "total": 14
  },
  "Setup-Messaging-Win11.exe": {
   "carry": 1,
@@ -216,8 +216,8 @@
  },
  "Setup-MoviesTV.exe": {
   "carry": 3,
-  "seen": 36,
-  "total": 39
+  "seen": 37,
+  "total": 40
  },
  "Setup-News.exe": {
   "carry": 0,
@@ -226,8 +226,8 @@
  },
  "Setup-Notepad-Win11.exe": {
   "carry": 5,
-  "seen": 54,
-  "total": 59
+  "seen": 55,
+  "total": 60
  },
  "Setup-OfficeHub.exe": {
   "carry": 4,
@@ -241,8 +241,8 @@
  },
  "Setup-Paint-Win11.exe": {
   "carry": 5,
-  "seen": 23,
-  "total": 28
+  "seen": 24,
+  "total": 29
  },
  "Setup-Paint3D-Original.exe": {
   "carry": 0,
@@ -331,13 +331,13 @@
  },
  "Setup-SnippingTool-Win10.exe": {
   "carry": 3,
-  "seen": 21,
-  "total": 24
+  "seen": 22,
+  "total": 25
  },
  "Setup-SnippingTool-Win11.exe": {
   "carry": 0,
-  "seen": 31,
-  "total": 31
+  "seen": 32,
+  "total": 32
  },
  "Setup-SoundRecorder-Win10.exe": {
   "carry": 2,
@@ -351,8 +351,8 @@
  },
  "Setup-StickyNotes.exe": {
   "carry": 7,
-  "seen": 32,
-  "total": 39
+  "seen": 34,
+  "total": 41
  },
  "Setup-Store.exe": {
   "carry": 0,
@@ -416,8 +416,8 @@
  },
  "Setup-Weather.exe": {
   "carry": 1,
-  "seen": 31,
-  "total": 32
+  "seen": 32,
+  "total": 33
  },
  "Setup-WebpExtension.exe": {
   "carry": 6,
