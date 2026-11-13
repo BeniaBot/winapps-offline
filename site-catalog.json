@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-11-13",
   "apps": [
     {
       "he": "פנקס רשימות",
@@ -391,18 +391,17 @@
       "color": "#0078D4",
       "desc": "מפות של Windows, החבילה המקורית של מיקרוסופט, עם מפת ישראל בתוך המתקין",
       "descEn": "Windows Maps, Microsoft's original package, with the map of Israel inside the installer",
-      "noteEn": "Microsoft has discontinued the Maps app. On newer Windows (24H2 and up) it no longer ships built in, so it may not open. Important: after installing, do not connect the PC to the internet — a connection makes Windows replace it with a version that announces Maps has been discontinued.",
-      "note": "מיקרוסופט הפסיקה את אפליקציית המפות. במחשבים עם Windows חדש יותר (24H2 ומעלה) היא כבר לא מגיעה מובנית, ולכן ייתכן שלא תיפתח. חשוב: אחרי ההתקנה אל תחברו את המחשב לאינטרנט — חיבור גורם ל-Windows להחליף אותה בגרסה שמודיעה שהמפות הופסקו.",
+      "noteEn": "Microsoft has discontinued the Maps app. On Windows 11 (not on ARM PCs) it is installed in a form Windows does not replace, for one account per PC. On Windows 10 it is installed as before, and there the PC must not be connected to the internet after installing: a connection replaces it with a version that announces Maps has been discontinued.",
+      "note": "מיקרוסופט הפסיקה את אפליקציית המפות. ב-Windows 11 (לא במחשבי ARM) היא מותקנת כך ש-Windows לא יחליף אותה, בחשבון אחד בלבד במחשב. ב-Windows 10 היא מותקנת כמו קודם, ושם אין לחבר את המחשב לאינטרנט אחרי ההתקנה: חיבור מחליף אותה בגרסה שמודיעה שהמפות הופסקו.",
       "cat": "כלים",
-      "gatedFrom": 26100,
       "files": [
         {
           "exe": "Setup-Maps.exe",
-          "mb": 214,
+          "mb": 228,
           "win": "all",
           "minBuild": 17134,
           "ver": "10.2104.2.0",
-          "sha256": "7514a85089e441ac862adc9a9acb959480f9465ada82cf8ddc158cb2915a5338"
+          "sha256": "fe052a0c2f7e91484aed41671079208974b0c68a56ccae91dc9a2a26615b386f"
         }
       ]
     },
@@ -738,7 +737,7 @@
           "win": "all",
           "minBuild": 19041,
           "ver": "0.1.20151.0",
-          "sha256": "1c71496873fb9ca81486f508aac01cca2195ff24218361e5066fa035455d5f2d"
+          "sha256": "8b8fb817fe8c14e6df8535ba527c8d6c078dddd48b4f27f34c23388b52b10f59"
         }
       ]
     },
