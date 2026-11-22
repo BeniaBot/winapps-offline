@@ -51,8 +51,8 @@
  },
  "Setup-AnyDesk-5.2.exe": {
   "carry": 1,
-  "seen": 13,
-  "total": 14
+  "seen": 14,
+  "total": 15
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
@@ -536,13 +536,13 @@
  },
  "WINAPPS-W10-CORE.iso": {
   "carry": 10,
-  "seen": 7,
-  "total": 17
+  "seen": 8,
+  "total": 18
  },
  "WINAPPS-W11-CORE.iso": {
   "carry": 33,
-  "seen": 14,
-  "total": 47
+  "seen": 15,
+  "total": 48
  },
  "WolfSheepCabbage.html": {
   "carry": 12,
