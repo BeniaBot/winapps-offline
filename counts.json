@@ -21,13 +21,13 @@
  },
  "disc-kit.zip": {
   "carry": 1,
-  "seen": 4,
-  "total": 5
+  "seen": 6,
+  "total": 7
  },
  "disc-runtime.zip": {
   "carry": 0,
-  "seen": 7,
-  "total": 7
+  "seen": 9,
+  "total": 9
  },
  "ELIZA.exe": {
   "carry": 1,
@@ -51,8 +51,8 @@
  },
  "Setup-AnyDesk-5.2.exe": {
   "carry": 1,
-  "seen": 14,
-  "total": 15
+  "seen": 19,
+  "total": 20
  },
  "Setup-AppInstaller.exe": {
   "carry": 2,
