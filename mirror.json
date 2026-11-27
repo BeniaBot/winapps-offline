@@ -1,5 +1,5 @@
 {
-  "BeniaBot/tiknick": { "version": "v0.9.6", "asset": "TikNick-Setup.exe", "bytes": 21552350 },
+  "BeniaBot/tiknick": { "version": "v0.9.8", "asset": "TikNick-Setup.exe", "bytes": 21582583 },
   "BeniaBot/2049": { "version": "v1.2.0", "asset": "2049_Setup.exe", "bytes": 18446075 },
   "BeniaBot/Csharf": { "version": "v2.5", "asset": "Csharf.bat", "bytes": 105271 },
   "BeniaBot/wolf-sheep-cabbage": { "version": "v1.1", "asset": "WolfSheepCabbage.html", "bytes": 624597 },

@@ -470,8 +470,8 @@
   "total": 39
  },
  "TikNick-Setup.exe": {
-  "carry": 0,
-  "seen": 10,
+  "carry": 10,
+  "seen": 0,
   "total": 10
  },
  "VC2005-x64.exe": {
